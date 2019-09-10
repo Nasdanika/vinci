@@ -1,0 +1,50 @@
+# Java Maven CircleCI 2.0 configuration file
+#
+# Check https://circleci.com/docs/2.0/language-java/ for more details 
+#
+version: 2
+jobs:
+  build:
+    docker:
+      # specify the version you desire here
+      - image: circleci/openjdk:8-jdk
+      
+      # Specify service dependencies here if necessary
+      # CircleCI maintains a library of pre-built images
+      # documented at https://circleci.com/docs/2.0/circleci-images/
+      # - image: circleci/postgres:9.4
+
+    working_directory: ~/repo
+
+    environment:
+      # Customize the JVM maximum heap limit
+      MAVEN_OPTS: -Xmx3200m
+    
+    steps:
+      - checkout
+
+      # Install Graphviz for diagram generation
+      - run: sudo apt-get install graphviz
+
+      # OSGi build in order to generate documentation
+      - run: 
+            command: mvn -s .circleci/settings.xml clean javadoc:javadoc package
+            no_output_timeout: 120m
+
+      # Executing tests, copying help contents and javadoc
+      - run: cd repository/target/products/org.nasdanika.vinci.tests.product/linux/gtk/x86_64;./eclipse
+      - run: mv repository/target/products/org.nasdanika.vinci.tests.product/linux/gtk/x86_64/target/help/model help/doc
+      - run: mkdir repository/src/site/resources
+      - run: mv repository/target/products/org.nasdanika.vinci.tests.product/linux/gtk/x86_64/target/model-doc repository/src/site/resources
+      - run: mkdir help/doc/api
+      - run: mv model/target/site/apidocs help/doc/api/org.nasdanika.vinci
+
+      # Another OSGi build with generated Eclipse help
+      - run: 
+            command: mvn -s .circleci/settings.xml clean javadoc:javadoc package
+            no_output_timeout: 120m
+
+      # Deploying sites
+      - run: cd repository;mvn -f site-pom.xml -s ../.circleci/settings.xml site-deploy
+            
+

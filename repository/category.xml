@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/org.nasdanika.vinci.feature_0.1.0.qualifier.jar" id="org.nasdanika.vinci.feature" version="0.1.0.qualifier">
+      <category name="org.nasdanika.tools"/>
+   </feature>
+   <category-def name="org.nasdanika" label="Nasdanika">
+      <description>
+         Products of Nasdanika
+      </description>
+   </category-def>
+   <category-def name="org.nasdanika.tools" label="Tools">
+      <category name="org.nasdanika"/>
+      <description>
+         Eclipse plug-ins.
+      </description>
+   </category-def>
+</site>
