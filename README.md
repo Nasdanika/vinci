@@ -1,3 +1,3 @@
-See [Codegen site](https://www.nasdanika.org/products/codegen/index.html). 
+See [Vinci site](https://www.nasdanika.org/home/products/vinci/index.html). 
 
 

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
-      id="org.nasdanika.codegen.tests.feature"
-      label="Nasdanika Codegen Tests and model documentation generation"
-      version="0.2.0.qualifier">
+      id="org.nasdanika.vinci.tests.feature"
+      label="Nasdanika Vinci Tests and model documentation generation"
+      version="0.1.0.qualifier">
 
    <description>
-      Tests and demos of Nasdanika HTML functionality.
+      Tests and demos of Nasdanika Vinci functionality.
    </description>
 
    <copyright>
@@ -17,7 +17,7 @@
    </license>
 
    <requires>
-      <import feature="org.nasdanika.html.feature" version="2.0.0.qualifier"/>
+      <import feature="org.nasdanika.vinci.feature" version="0.1.0.qualifier"/>
       <import feature="org.nasdanika.equinox.feature" version="1.0.0.qualifier"/>
    </requires>
 
@@ -49,35 +49,21 @@
          unpack="false"/>
 
    <plugin
-         id="org.nasdanika.codegen"
+         id="org.nasdanika.vinci.app"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="org.nasdanika.codegen.tests.models"
+         id="org.nasdanika.vinci.tests.models"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="org.nasdanika.codegen.tests"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="com.github.spullara.mustache.java.compiler"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="org.freemarker.freemarker"
+         id="org.nasdanika.vinci.tests"
          download-size="0"
          install-size="0"
          version="0.0.0"
@@ -85,20 +71,6 @@
 
    <plugin
          id="org.yaml.snakeyaml"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="org.nasdanika.codegen.html"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="org.nasdanika.codegen.java"
          download-size="0"
          install-size="0"
          version="0.0.0"

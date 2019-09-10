@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>org.nasdanika.codegen.tests.models</name>
-	<comment>Nasdanika Codegen Test Models</comment>
+	<name>org.nasdanika.vinci.tests.models</name>
+	<comment>Nasdanika Vinci Test Models</comment>
 	<projects>
 	</projects>
 	<buildSpec>
