@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:basicfamily="http://www.eclipse.org/sirius/sample/basicfamily" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:diagram="http://www.eclipse.org/sirius/diagram/1.1.0" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" xsi:schemaLocation="http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/style/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description/style">
+  <viewpoint:DAnalysis uid="_jrQcgNvbEemWDckhRlLwAw" selectedViews="_187yMNvdEemWDckhRlLwAw" version="14.1.0.201810161215">
+    <semanticResources>models/My.basicfamily</semanticResources>
+    <semanticResources>models/My.vinci</semanticResources>
+    <ownedViews xmi:type="viewpoint:DView" uid="_187yMNvdEemWDckhRlLwAw">
+      <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.sirius.sample.basicfamily.design/description/basicfamily.odesign#//@ownedViewpoints[name='persons']"/>
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_2kZa0NvdEemWDckhRlLwAw" name="new Persons diagram" repPath="#_2jHocNvdEemWDckhRlLwAw">
+        <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.sirius.sample.basicfamily.design/description/basicfamily.odesign#//@ownedViewpoints[name='persons']/@ownedRepresentations[name='Persons%20diagram']"/>
+        <target xmi:type="basicfamily:Family" href="models/My.basicfamily#/"/>
+      </ownedRepresentationDescriptors>
+    </ownedViews>
+  </viewpoint:DAnalysis>
+  <diagram:DSemanticDiagram uid="_2jHocNvdEemWDckhRlLwAw" name="new Persons diagram">
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_2kT7QNvdEemWDckhRlLwAw" source="DANNOTATION_CUSTOMIZATION_KEY">
+      <data xmi:type="diagram:ComputedStyleDescriptionRegistry" uid="_2kT7QdvdEemWDckhRlLwAw"/>
+    </ownedAnnotationEntries>
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_2lF-YNvdEemWDckhRlLwAw" source="GMF_DIAGRAMS">
+      <data xmi:type="notation:Diagram" xmi:id="_2lF-YdvdEemWDckhRlLwAw" type="Sirius" element="_2jHocNvdEemWDckhRlLwAw" measurementUnit="Pixel">
+        <children xmi:type="notation:Node" xmi:id="_2lhcMNvdEemWDckhRlLwAw" type="2001" element="_2j_LINvdEemWDckhRlLwAw">
+          <children xmi:type="notation:Node" xmi:id="_2ltpcNvdEemWDckhRlLwAw" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_2ltpcdvdEemWDckhRlLwAw" x="-1"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_2mN_wNvdEemWDckhRlLwAw" type="3005" element="_2kI8INvdEemWDckhRlLwAw">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_2mN_wdvdEemWDckhRlLwAw" fontName="Segoe UI"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_2mN_wtvdEemWDckhRlLwAw"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_2lhcMdvdEemWDckhRlLwAw" fontName="Segoe UI" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_2lhcMtvdEemWDckhRlLwAw" width="32" height="32"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_2mJuUNvdEemWDckhRlLwAw" type="2001" element="_2kN0oNvdEemWDckhRlLwAw">
+          <children xmi:type="notation:Node" xmi:id="_2mK8cNvdEemWDckhRlLwAw" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_2mK8cdvdEemWDckhRlLwAw" x="-1"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_2mPN4NvdEemWDckhRlLwAw" type="3005" element="_2kObsNvdEemWDckhRlLwAw">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_2mPN4dvdEemWDckhRlLwAw" fontName="Segoe UI"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_2mPN4tvdEemWDckhRlLwAw"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_2mJuUdvdEemWDckhRlLwAw" fontName="Segoe UI" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_2mJuUtvdEemWDckhRlLwAw" x="90" width="32" height="32"/>
+        </children>
+        <styles xmi:type="notation:DiagramStyle" xmi:id="_2lF-YtvdEemWDckhRlLwAw"/>
+      </data>
+    </ownedAnnotationEntries>
+    <ownedDiagramElements xmi:type="diagram:DNode" uid="_2j_LINvdEemWDckhRlLwAw" name="Vasily" width="-1" height="-1" resizeKind="NSEW">
+      <target xmi:type="basicfamily:Man" href="models/My.basicfamily#//@members.0"/>
+      <semanticElements xmi:type="basicfamily:Man" href="models/My.basicfamily#//@members.0"/>
+      <ownedStyle xmi:type="diagram:WorkspaceImage" uid="_2kI8INvdEemWDckhRlLwAw" showIcon="false" workspacePath="/org.eclipse.sirius.sample.basicfamily.design/icons/man32.png">
+        <description xmi:type="style:WorkspaceImageDescription" href="platform:/plugin/org.eclipse.sirius.sample.basicfamily.design/description/basicfamily.odesign#//@ownedViewpoints[name='persons']/@ownedRepresentations[name='Persons%20diagram']/@defaultLayer/@nodeMappings[name='ManNode']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.sirius.sample.basicfamily.design/description/basicfamily.odesign#//@ownedViewpoints[name='persons']/@ownedRepresentations[name='Persons%20diagram']/@defaultLayer/@nodeMappings[name='ManNode']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNode" uid="_2kN0oNvdEemWDckhRlLwAw" name="matrena " width="-1" height="-1" resizeKind="NSEW">
+      <target xmi:type="basicfamily:Woman" href="models/My.basicfamily#//@members.1"/>
+      <semanticElements xmi:type="basicfamily:Woman" href="models/My.basicfamily#//@members.1"/>
+      <ownedStyle xmi:type="diagram:WorkspaceImage" uid="_2kObsNvdEemWDckhRlLwAw" showIcon="false" workspacePath="/org.eclipse.sirius.sample.basicfamily.design/icons/woman32.png">
+        <description xmi:type="style:WorkspaceImageDescription" href="platform:/plugin/org.eclipse.sirius.sample.basicfamily.design/description/basicfamily.odesign#//@ownedViewpoints[name='persons']/@ownedRepresentations[name='Persons%20diagram']/@defaultLayer/@nodeMappings[name='WomanNode']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.sirius.sample.basicfamily.design/description/basicfamily.odesign#//@ownedViewpoints[name='persons']/@ownedRepresentations[name='Persons%20diagram']/@defaultLayer/@nodeMappings[name='WomanNode']"/>
+    </ownedDiagramElements>
+    <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.sirius.sample.basicfamily.design/description/basicfamily.odesign#//@ownedViewpoints[name='persons']/@ownedRepresentations[name='Persons%20diagram']"/>
+    <filterVariableHistory xmi:type="diagram:FilterVariableHistory" uid="_2jYuMNvdEemWDckhRlLwAw"/>
+    <activatedLayers xmi:type="description_1:Layer" href="platform:/plugin/org.eclipse.sirius.sample.basicfamily.design/description/basicfamily.odesign#//@ownedViewpoints[name='persons']/@ownedRepresentations[name='Persons%20diagram']/@defaultLayer"/>
+    <target xmi:type="basicfamily:Family" href="models/My.basicfamily#/"/>
+  </diagram:DSemanticDiagram>
+</xmi:XMI>

@@ -8,31 +8,22 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
-import java.util.EventObject;
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Optional;
 
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IMarker;
 import org.eclipse.core.resources.IProject;
-import org.eclipse.core.resources.IResource;
-import org.eclipse.core.resources.IResourceChangeEvent;
-import org.eclipse.core.resources.IResourceChangeListener;
-import org.eclipse.core.resources.IResourceDelta;
-import org.eclipse.core.resources.IResourceDeltaVisitor;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.NullProgressMonitor;
-import org.eclipse.emf.common.command.BasicCommandStack;
-import org.eclipse.emf.common.command.Command;
-import org.eclipse.emf.common.command.CommandStack;
-import org.eclipse.emf.common.command.CommandStackListener;
+import org.eclipse.core.runtime.Status;
+import org.eclipse.eef.properties.ui.api.EEFTabbedPropertySheetPage;
+import org.eclipse.eef.properties.ui.api.IEEFTabbedPropertySheetPageContributor;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.ui.MarkerHelper;
@@ -43,16 +34,11 @@ import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.util.EContentAdapter;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
-import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.domain.IEditingDomainProvider;
 import org.eclipse.emf.edit.provider.AdapterFactoryItemDelegator;
-import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
-import org.eclipse.emf.edit.provider.ReflectiveItemProviderAdapterFactory;
-import org.eclipse.emf.edit.provider.resource.ResourceItemProviderAdapterFactory;
 import org.eclipse.emf.edit.ui.action.EditingDomainActionBarContributor;
 import org.eclipse.emf.edit.ui.celleditor.AdapterFactoryTreeEditor;
 import org.eclipse.emf.edit.ui.dnd.EditingDomainViewerDropAdapter;
@@ -63,38 +49,32 @@ import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
 import org.eclipse.emf.edit.ui.provider.UnwrappingSelectionProvider;
 import org.eclipse.emf.edit.ui.util.EditUIMarkerHelper;
 import org.eclipse.emf.edit.ui.util.EditUIUtil;
-import org.eclipse.emf.edit.ui.view.ExtendedPropertySheetPage;
 import org.eclipse.jface.action.IMenuListener;
 import org.eclipse.jface.action.IMenuManager;
 import org.eclipse.jface.action.IStatusLineManager;
 import org.eclipse.jface.action.IToolBarManager;
 import org.eclipse.jface.action.MenuManager;
 import org.eclipse.jface.action.Separator;
+import org.eclipse.jface.dialogs.ErrorDialog;
 import org.eclipse.jface.dialogs.MessageDialog;
-import org.eclipse.jface.dialogs.ProgressMonitorDialog;
 import org.eclipse.jface.util.LocalSelectionTransfer;
-import org.eclipse.jface.viewers.ColumnWeightData;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.ISelectionProvider;
 import org.eclipse.jface.viewers.IStructuredSelection;
-import org.eclipse.jface.viewers.ListViewer;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.viewers.StructuredViewer;
-import org.eclipse.jface.viewers.TableLayout;
-import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.sirius.business.api.modelingproject.ModelingProject;
 import org.eclipse.sirius.business.api.session.Session;
-import org.eclipse.sirius.business.api.session.SessionManager;
+import org.eclipse.sirius.business.api.session.SessionListener;
+import org.eclipse.sirius.business.api.session.SessionStatus;
 import org.eclipse.sirius.ui.business.api.editor.ISiriusEditor;
 import org.eclipse.sirius.ui.business.api.session.IEditingSession;
-import org.eclipse.sirius.ui.business.api.session.SessionEditorInput;
 import org.eclipse.sirius.ui.business.api.session.SessionUIManager;
-import org.eclipse.sirius.ui.tools.internal.editor.URIEditorInput;
-import org.eclipse.sirius.viewpoint.SiriusPlugin;
+import org.eclipse.sirius.ui.properties.internal.ContributorWrapper;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.CTabFolder;
 import org.eclipse.swt.dnd.DND;
@@ -104,13 +84,9 @@ import org.eclipse.swt.events.ControlAdapter;
 import org.eclipse.swt.events.ControlEvent;
 import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.graphics.Rectangle;
-import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Menu;
-import org.eclipse.swt.widgets.Table;
-import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.swt.widgets.Tree;
-import org.eclipse.swt.widgets.TreeColumn;
 import org.eclipse.ui.IActionBars;
 import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IEditorPart;
@@ -119,10 +95,11 @@ import org.eclipse.ui.IFileEditorInput;
 import org.eclipse.ui.IPartListener;
 import org.eclipse.ui.ISaveablePart2;
 import org.eclipse.ui.ISaveablesSource;
+import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.IWorkbenchPart;
+import org.eclipse.ui.IWorkbenchPartSite;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.Saveable;
-import org.eclipse.ui.actions.WorkspaceModifyOperation;
 import org.eclipse.ui.dialogs.SaveAsDialog;
 import org.eclipse.ui.ide.IGotoMarker;
 import org.eclipse.ui.part.FileEditorInput;
@@ -132,9 +109,7 @@ import org.eclipse.ui.views.contentoutline.ContentOutlinePage;
 import org.eclipse.ui.views.contentoutline.IContentOutlinePage;
 import org.eclipse.ui.views.properties.IPropertySheetPage;
 import org.eclipse.ui.views.properties.PropertySheet;
-import org.eclipse.ui.views.properties.PropertySheetPage;
-import org.nasdanika.codegen.provider.CodegenItemProviderAdapterFactory;
-import org.nasdanika.vinci.app.provider.AppItemProviderAdapterFactory;
+import org.eclipse.ui.views.properties.tabbed.ITabbedPropertySheetPageContributor;
 
 
 /**
@@ -149,7 +124,9 @@ public class VinciSiriusEditor
 		ISiriusEditor,
 		ISelectionProvider, 
 		IMenuListener, 
-		IViewerProvider {
+		ITabbedPropertySheetPageContributor,		
+		IViewerProvider,
+		SessionListener {
 
 	protected Session session;
 
@@ -181,9 +158,9 @@ public class VinciSiriusEditor
 	 * This is the property sheet page.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
-	protected List<PropertySheetPage> propertySheetPages = new ArrayList<PropertySheetPage>();
+	protected List<EEFTabbedPropertySheetPage> propertySheetPages = new ArrayList<>();
 
 	/**
 	 * This is the viewer that shadows the selection in the content outline.
@@ -193,48 +170,6 @@ public class VinciSiriusEditor
 	 * @generated
 	 */
 	protected TreeViewer selectionViewer;
-
-	/**
-	 * This inverts the roll of parent and child in the content provider and show parents as a tree.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected TreeViewer parentViewer;
-
-	/**
-	 * This shows how a tree view works.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected TreeViewer treeViewer;
-
-	/**
-	 * This shows how a list view works.
-	 * A list viewer doesn't support icons.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ListViewer listViewer;
-
-	/**
-	 * This shows how a table view works.
-	 * A table can be used as a list with icons.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected TableViewer tableViewer;
-
-	/**
-	 * This shows how a tree view with columns works.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected TreeViewer treeViewerWithColumns;
 
 	/**
 	 * This keeps track of the active viewer pane, in the book.
@@ -330,30 +265,11 @@ public class VinciSiriusEditor
 			}
 		};
 
-	/**
-	 * Resources that have been removed since last activation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected Collection<Resource> removedResources = new ArrayList<Resource>();
-
-	/**
-	 * Resources that have been changed since last activation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected Collection<Resource> changedResources = new ArrayList<Resource>();
-
-	/**
-	 * Resources that have been saved.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected Collection<Resource> savedResources = new ArrayList<Resource>();
-
+	protected void handleActivate() {
+		// TODO Auto-generated method stub
+		
+	}
+		
 	/**
 	 * Map to store the diagnostic associated with a resource.
 	 * <!-- begin-user-doc -->
@@ -432,166 +348,13 @@ public class VinciSiriusEditor
 			}
 		};
 
-	/**
-	 * This listens for workspace changes.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected IResourceChangeListener resourceChangeListener =
-		new IResourceChangeListener() {
-			@Override
-			public void resourceChanged(IResourceChangeEvent event) {
-				IResourceDelta delta = event.getDelta();
-				try {
-					class ResourceDeltaVisitor implements IResourceDeltaVisitor {
-						protected ResourceSet resourceSet = editingDomain.getResourceSet();
-						protected Collection<Resource> changedResources = new ArrayList<Resource>();
-						protected Collection<Resource> removedResources = new ArrayList<Resource>();
-
-						@Override
-						public boolean visit(IResourceDelta delta) {
-							if (delta.getResource().getType() == IResource.FILE) {
-								if (delta.getKind() == IResourceDelta.REMOVED ||
-								    delta.getKind() == IResourceDelta.CHANGED && delta.getFlags() != IResourceDelta.MARKERS) {
-									Resource resource = resourceSet.getResource(URI.createPlatformResourceURI(delta.getFullPath().toString(), true), false);
-									if (resource != null) {
-										if (delta.getKind() == IResourceDelta.REMOVED) {
-											removedResources.add(resource);
-										}
-										else if (!savedResources.remove(resource)) {
-											changedResources.add(resource);
-										}
-									}
-								}
-								return false;
-							}
-
-							return true;
-						}
-
-						public Collection<Resource> getChangedResources() {
-							return changedResources;
-						}
-
-						public Collection<Resource> getRemovedResources() {
-							return removedResources;
-						}
-					}
-
-					final ResourceDeltaVisitor visitor = new ResourceDeltaVisitor();
-					delta.accept(visitor);
-
-					if (!visitor.getRemovedResources().isEmpty()) {
-						getSite().getShell().getDisplay().asyncExec
-							(new Runnable() {
-								 @Override
-								 public void run() {
-									 removedResources.addAll(visitor.getRemovedResources());
-									 if (!isDirty()) {
-										 getSite().getPage().closeEditor(VinciSiriusEditor.this, false);
-									 }
-								 }
-							 });
-					}
-
-					if (!visitor.getChangedResources().isEmpty()) {
-						getSite().getShell().getDisplay().asyncExec
-							(new Runnable() {
-								 @Override
-								 public void run() {
-									 changedResources.addAll(visitor.getChangedResources());
-									 if (getSite().getPage().getActiveEditor() == VinciSiriusEditor.this) {
-										 handleActivate();
-									 }
-								 }
-							 });
-					}
-				}
-				catch (CoreException exception) {
-					VinciEditorPlugin.INSTANCE.log(exception);
-				}
-			}
-		};
-
-	/**
-	 * Handles activation of the editor or it's associated views.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void handleActivate() {
-		// Recompute the read only state.
-		//
-		if (editingDomain.getResourceToReadOnlyMap() != null) {
-		  editingDomain.getResourceToReadOnlyMap().clear();
-
-		  // Refresh any actions that may become enabled or disabled.
-		  //
-		  setSelection(getSelection());
-		}
-
-		if (!removedResources.isEmpty()) {
-			if (handleDirtyConflict()) {
-				getSite().getPage().closeEditor(VinciSiriusEditor.this, false);
-			}
-			else {
-				removedResources.clear();
-				changedResources.clear();
-				savedResources.clear();
-			}
-		}
-		else if (!changedResources.isEmpty()) {
-			changedResources.removeAll(savedResources);
-			handleChangedResources();
-			changedResources.clear();
-			savedResources.clear();
-		}
-	}
-
-	/**
-	 * Handles what to do with changed resources on activation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void handleChangedResources() {
-		if (!changedResources.isEmpty() && (!isDirty() || handleDirtyConflict())) {
-			ResourceSet resourceSet = editingDomain.getResourceSet();
-			if (isDirty()) {
-				changedResources.addAll(resourceSet.getResources());
-			}
-			editingDomain.getCommandStack().flush();
-
-			updateProblemIndication = false;
-			for (Resource resource : changedResources) {
-				if (resource.isLoaded()) {
-					resource.unload();
-					try {
-						resource.load(resourceSet.getLoadOptions());
-					}
-					catch (IOException exception) {
-						if (!resourceToDiagnosticMap.containsKey(resource)) {
-							resourceToDiagnosticMap.put(resource, analyzeResourceProblems(resource, exception));
-						}
-					}
-				}
-			}
-
-			if (AdapterFactoryEditingDomain.isStale(editorSelection)) {
-				setSelection(StructuredSelection.EMPTY);
-			}
-
-			updateProblemIndication = true;
-			updateProblemIndication();
-		}
-	}
+	private ViewerPane viewerPane;
 
 	/**
 	 * Updates the problems indication with the information described in the specified diagnostic.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void updateProblemIndication() {
 		if (updateProblemIndication) {
@@ -601,7 +364,7 @@ public class VinciSiriusEditor
 					 "org.nasdanika.vinci.app.editor",
 					 0,
 					 null,
-					 new Object [] { editingDomain.getResourceSet() });
+					 new Object [] { getEditingDomain().getResourceSet() });
 			for (Diagnostic childDiagnostic : resourceToDiagnosticMap.values()) {
 				if (childDiagnostic.getSeverity() != Diagnostic.OK) {
 					diagnostic.add(childDiagnostic);
@@ -630,7 +393,7 @@ public class VinciSiriusEditor
 				}
 			}
 
-			if (markerHelper.hasMarkers(editingDomain.getResourceSet())) {
+			if (markerHelper.hasMarkers(getEditingDomain().getResourceSet())) {
 				try {
 					markerHelper.updateMarkers(diagnostic);
 				}
@@ -653,85 +416,6 @@ public class VinciSiriusEditor
 				(getSite().getShell(),
 				 getString("_UI_FileConflict_label"),
 				 getString("_WARN_FileConflict"));
-	}
-
-	/**
-	 * This creates a model editor.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public VinciSiriusEditor() {
-		super();
-		initializeEditingDomain();
-	}
-
-	/**
-	 * This sets up the editing domain for the model editor.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void initializeEditingDomain() {
-		// Create an adapter factory that yields item providers.
-		//
-		adapterFactory = new ComposedAdapterFactory(ComposedAdapterFactory.Descriptor.Registry.INSTANCE);
-
-		adapterFactory.addAdapterFactory(new ResourceItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new AppItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new CodegenItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
-
-		// Create the command stack that will notify this editor as commands are executed.
-		//
-		BasicCommandStack commandStack = new BasicCommandStack();
-
-		// Add a listener to set the most recent command's affected objects to be the selection of the viewer with focus.
-		//
-		commandStack.addCommandStackListener
-			(new CommandStackListener() {
-				 @Override
-				 public void commandStackChanged(final EventObject event) {
-					 getContainer().getDisplay().asyncExec
-						 (new Runnable() {
-							  @Override
-							  public void run() {
-								  firePropertyChange(IEditorPart.PROP_DIRTY);
-
-								  // Try to select the affected objects.
-								  //
-								  Command mostRecentCommand = ((CommandStack)event.getSource()).getMostRecentCommand();
-								  if (mostRecentCommand != null) {
-									  setSelectionToViewer(mostRecentCommand.getAffectedObjects());
-								  }
-								  for (Iterator<PropertySheetPage> i = propertySheetPages.iterator(); i.hasNext(); ) {
-									  PropertySheetPage propertySheetPage = i.next();
-									  if (propertySheetPage.getControl() == null || propertySheetPage.getControl().isDisposed()) {
-										  i.remove();
-									  }
-									  else {
-										  propertySheetPage.refresh();
-									  }
-								  }
-							  }
-						  });
-				 }
-			 });
-
-		// Create the editing domain with a special command stack.
-		//
-		editingDomain = new AdapterFactoryEditingDomain(adapterFactory, commandStack, new HashMap<Resource, Boolean>());
-	}
-
-	/**
-	 * This is here for the listener to be able to call it.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-			@Override
-	protected void firePropertyChange(int action) {
-		super.firePropertyChange(action);
 	}
 
 	/**
@@ -923,7 +607,7 @@ public class VinciSiriusEditor
 		int dndOperations = DND.DROP_COPY | DND.DROP_MOVE | DND.DROP_LINK;
 		Transfer[] transfers = new Transfer[] { LocalTransfer.getInstance(), LocalSelectionTransfer.getTransfer(), FileTransfer.getInstance() };
 		viewer.addDragSupport(dndOperations, transfers, new ViewerDragAdapter(viewer));
-		viewer.addDropSupport(dndOperations, transfers, new EditingDomainViewerDropAdapter(editingDomain, viewer));
+		viewer.addDropSupport(dndOperations, transfers, new EditingDomainViewerDropAdapter(getEditingDomain(), viewer));
 	}
 
 	/**
@@ -933,24 +617,24 @@ public class VinciSiriusEditor
 	 * @generated
 	 */
 	public void createModel() {
-		URI resourceURI = EditUIUtil.getURI(getEditorInput(), editingDomain.getResourceSet().getURIConverter());
+		URI resourceURI = EditUIUtil.getURI(getEditorInput(), getEditingDomain().getResourceSet().getURIConverter());
 		Exception exception = null;
 		Resource resource = null;
 		try {
 			// Load the resource through the editing domain.
 			//
-			resource = editingDomain.getResourceSet().getResource(resourceURI, true);
+			resource = getEditingDomain().getResourceSet().getResource(resourceURI, true);
 		}
 		catch (Exception e) {
 			exception = e;
-			resource = editingDomain.getResourceSet().getResource(resourceURI, false);
+			resource = getEditingDomain().getResourceSet().getResource(resourceURI, false);
 		}
 
 		Diagnostic diagnostic = analyzeResourceProblems(resource, exception);
 		if (diagnostic.getSeverity() != Diagnostic.OK) {
 			resourceToDiagnosticMap.put(resource,  analyzeResourceProblems(resource, exception));
 		}
-		editingDomain.getResourceSet().eAdapters().add(problemIndicationAdapter);
+		getEditingDomain().getResourceSet().eAdapters().add(problemIndicationAdapter);
 	}
 
 	/**
@@ -991,7 +675,7 @@ public class VinciSiriusEditor
 	 * This is the method used by the framework to install your own controls.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public void createPages() {
@@ -999,221 +683,47 @@ public class VinciSiriusEditor
 		//
 		createModel();
 
-		// Only creates the other pages if there is something that can be edited
-		//
-		if (!getEditingDomain().getResourceSet().getResources().isEmpty()) {
-			// Create a page for the selection tree view.
-			//
-			{
-				ViewerPane viewerPane =
-					new ViewerPane(getSite().getPage(), VinciSiriusEditor.this) {
-						@Override
-						public Viewer createViewer(Composite composite) {
-							Tree tree = new Tree(composite, SWT.MULTI);
-							TreeViewer newTreeViewer = new TreeViewer(tree);
-							return newTreeViewer;
-						}
-						@Override
-						public void requestActivation() {
-							super.requestActivation();
-							setCurrentViewerPane(this);
-						}
-					};
-				viewerPane.createControl(getContainer());
+		viewerPane =
+			new ViewerPane(getSite().getPage(), VinciSiriusEditor.this) {
+				@Override
+				public Viewer createViewer(Composite composite) {
+					Tree tree = new Tree(composite, SWT.MULTI);
+					TreeViewer newTreeViewer = new TreeViewer(tree);
+					return newTreeViewer;
+				}
+				@Override
+				public void requestActivation() {
+					super.requestActivation();
+					setCurrentViewerPane(this);
+				}
+			};
+		viewerPane.createControl(getContainer());
 
-				selectionViewer = (TreeViewer)viewerPane.getViewer();
-				selectionViewer.setContentProvider(new AdapterFactoryContentProvider(adapterFactory));
-				selectionViewer.setUseHashlookup(true);
+		selectionViewer = (TreeViewer)viewerPane.getViewer();
+		
+		selectionViewer.setContentProvider(new AdapterFactoryContentProvider(getAdapterFactory()));
+		selectionViewer.setUseHashlookup(true);
 
-				selectionViewer.setLabelProvider(new AdapterFactoryLabelProvider(adapterFactory));
-				selectionViewer.setInput(editingDomain.getResourceSet());
-				selectionViewer.setSelection(new StructuredSelection(editingDomain.getResourceSet().getResources().get(0)), true);
-				viewerPane.setTitle(editingDomain.getResourceSet());
+		selectionViewer.setLabelProvider(new AdapterFactoryLabelProvider(getAdapterFactory()));
+		selectionViewer.setInput(getEditingDomain().getResourceSet());
+		selectionViewer.setSelection(new StructuredSelection(getEditingDomain().getResourceSet().getResources().get(0)), true);
+		viewerPane.setTitle(getEditingDomain().getResourceSet());
 
-				new AdapterFactoryTreeEditor(selectionViewer.getTree(), adapterFactory);
+		new AdapterFactoryTreeEditor(selectionViewer.getTree(), getAdapterFactory());
 
-				createContextMenuFor(selectionViewer);
-				int pageIndex = addPage(viewerPane.getControl());
-				setPageText(pageIndex, getString("_UI_SelectionPage_label"));
-			}
+		createContextMenuFor(selectionViewer);
+		int pageIndex = addPage(viewerPane.getControl());
+		setPageText(pageIndex, getString("_UI_SelectionPage_label"));
 
-			// Create a page for the parent tree view.
-			//
-			{
-				ViewerPane viewerPane =
-					new ViewerPane(getSite().getPage(), VinciSiriusEditor.this) {
-						@Override
-						public Viewer createViewer(Composite composite) {
-							Tree tree = new Tree(composite, SWT.MULTI);
-							TreeViewer newTreeViewer = new TreeViewer(tree);
-							return newTreeViewer;
-						}
-						@Override
-						public void requestActivation() {
-							super.requestActivation();
-							setCurrentViewerPane(this);
-						}
-					};
-				viewerPane.createControl(getContainer());
-
-				parentViewer = (TreeViewer)viewerPane.getViewer();
-				parentViewer.setAutoExpandLevel(30);
-				parentViewer.setContentProvider(new ReverseAdapterFactoryContentProvider(adapterFactory));
-				parentViewer.setLabelProvider(new AdapterFactoryLabelProvider(adapterFactory));
-
-				createContextMenuFor(parentViewer);
-				int pageIndex = addPage(viewerPane.getControl());
-				setPageText(pageIndex, getString("_UI_ParentPage_label"));
-			}
-
-			// This is the page for the list viewer
-			//
-			{
-				ViewerPane viewerPane =
-					new ViewerPane(getSite().getPage(), VinciSiriusEditor.this) {
-						@Override
-						public Viewer createViewer(Composite composite) {
-							return new ListViewer(composite);
-						}
-						@Override
-						public void requestActivation() {
-							super.requestActivation();
-							setCurrentViewerPane(this);
-						}
-					};
-				viewerPane.createControl(getContainer());
-				listViewer = (ListViewer)viewerPane.getViewer();
-				listViewer.setContentProvider(new AdapterFactoryContentProvider(adapterFactory));
-				listViewer.setLabelProvider(new AdapterFactoryLabelProvider(adapterFactory));
-
-				createContextMenuFor(listViewer);
-				int pageIndex = addPage(viewerPane.getControl());
-				setPageText(pageIndex, getString("_UI_ListPage_label"));
-			}
-
-			// This is the page for the tree viewer
-			//
-			{
-				ViewerPane viewerPane =
-					new ViewerPane(getSite().getPage(), VinciSiriusEditor.this) {
-						@Override
-						public Viewer createViewer(Composite composite) {
-							return new TreeViewer(composite);
-						}
-						@Override
-						public void requestActivation() {
-							super.requestActivation();
-							setCurrentViewerPane(this);
-						}
-					};
-				viewerPane.createControl(getContainer());
-				treeViewer = (TreeViewer)viewerPane.getViewer();
-				treeViewer.setContentProvider(new AdapterFactoryContentProvider(adapterFactory));
-				treeViewer.setLabelProvider(new AdapterFactoryLabelProvider(adapterFactory));
-
-				new AdapterFactoryTreeEditor(treeViewer.getTree(), adapterFactory);
-
-				createContextMenuFor(treeViewer);
-				int pageIndex = addPage(viewerPane.getControl());
-				setPageText(pageIndex, getString("_UI_TreePage_label"));
-			}
-
-			// This is the page for the table viewer.
-			//
-			{
-				ViewerPane viewerPane =
-					new ViewerPane(getSite().getPage(), VinciSiriusEditor.this) {
-						@Override
-						public Viewer createViewer(Composite composite) {
-							return new TableViewer(composite);
-						}
-						@Override
-						public void requestActivation() {
-							super.requestActivation();
-							setCurrentViewerPane(this);
-						}
-					};
-				viewerPane.createControl(getContainer());
-				tableViewer = (TableViewer)viewerPane.getViewer();
-
-				Table table = tableViewer.getTable();
-				TableLayout layout = new TableLayout();
-				table.setLayout(layout);
-				table.setHeaderVisible(true);
-				table.setLinesVisible(true);
-
-				TableColumn objectColumn = new TableColumn(table, SWT.NONE);
-				layout.addColumnData(new ColumnWeightData(3, 100, true));
-				objectColumn.setText(getString("_UI_ObjectColumn_label"));
-				objectColumn.setResizable(true);
-
-				TableColumn selfColumn = new TableColumn(table, SWT.NONE);
-				layout.addColumnData(new ColumnWeightData(2, 100, true));
-				selfColumn.setText(getString("_UI_SelfColumn_label"));
-				selfColumn.setResizable(true);
-
-				tableViewer.setColumnProperties(new String [] {"a", "b"});
-				tableViewer.setContentProvider(new AdapterFactoryContentProvider(adapterFactory));
-				tableViewer.setLabelProvider(new AdapterFactoryLabelProvider(adapterFactory));
-
-				createContextMenuFor(tableViewer);
-				int pageIndex = addPage(viewerPane.getControl());
-				setPageText(pageIndex, getString("_UI_TablePage_label"));
-			}
-
-			// This is the page for the table tree viewer.
-			//
-			{
-				ViewerPane viewerPane =
-					new ViewerPane(getSite().getPage(), VinciSiriusEditor.this) {
-						@Override
-						public Viewer createViewer(Composite composite) {
-							return new TreeViewer(composite);
-						}
-						@Override
-						public void requestActivation() {
-							super.requestActivation();
-							setCurrentViewerPane(this);
-						}
-					};
-				viewerPane.createControl(getContainer());
-
-				treeViewerWithColumns = (TreeViewer)viewerPane.getViewer();
-
-				Tree tree = treeViewerWithColumns.getTree();
-				tree.setLayoutData(new FillLayout());
-				tree.setHeaderVisible(true);
-				tree.setLinesVisible(true);
-
-				TreeColumn objectColumn = new TreeColumn(tree, SWT.NONE);
-				objectColumn.setText(getString("_UI_ObjectColumn_label"));
-				objectColumn.setResizable(true);
-				objectColumn.setWidth(250);
-
-				TreeColumn selfColumn = new TreeColumn(tree, SWT.NONE);
-				selfColumn.setText(getString("_UI_SelfColumn_label"));
-				selfColumn.setResizable(true);
-				selfColumn.setWidth(200);
-
-				treeViewerWithColumns.setColumnProperties(new String [] {"a", "b"});
-				treeViewerWithColumns.setContentProvider(new AdapterFactoryContentProvider(adapterFactory));
-				treeViewerWithColumns.setLabelProvider(new AdapterFactoryLabelProvider(adapterFactory));
-
-				createContextMenuFor(treeViewerWithColumns);
-				int pageIndex = addPage(viewerPane.getControl());
-				setPageText(pageIndex, getString("_UI_TreeWithColumnsPage_label"));
-			}
-
-			getSite().getShell().getDisplay().asyncExec
-				(new Runnable() {
-					 @Override
-					 public void run() {
-						 if (!getContainer().isDisposed()) {
-							 setActivePage(0);
-						 }
+		getSite().getShell().getDisplay().asyncExec
+			(new Runnable() {
+				 @Override
+				 public void run() {
+					 if (!getContainer().isDisposed()) {
+						 setActivePage(0);
 					 }
-				 });
-		}
+				 }
+			 });
 
 		// Ensures that this editor will only display the page's tab
 		// area if there are more than one page
@@ -1238,6 +748,8 @@ public class VinciSiriusEditor
 					 updateProblemIndication();
 				 }
 			 });
+		
+		selectionViewer.addSelectionChangedListener(new PropertyViewUpdater());
 	}
 
 	/**
@@ -1333,18 +845,18 @@ public class VinciSiriusEditor
 					// Set up the tree viewer.
 					//
 					contentOutlineViewer.setUseHashlookup(true);
-					contentOutlineViewer.setContentProvider(new AdapterFactoryContentProvider(adapterFactory));
-					contentOutlineViewer.setLabelProvider(new AdapterFactoryLabelProvider(adapterFactory));
-					contentOutlineViewer.setInput(editingDomain.getResourceSet());
+					contentOutlineViewer.setContentProvider(new AdapterFactoryContentProvider(getAdapterFactory()));
+					contentOutlineViewer.setLabelProvider(new AdapterFactoryLabelProvider(getAdapterFactory()));
+					contentOutlineViewer.setInput(getEditingDomain().getResourceSet());
 
 					// Make sure our popups work.
 					//
 					createContextMenuFor(contentOutlineViewer);
 
-					if (!editingDomain.getResourceSet().getResources().isEmpty()) {
+					if (!getEditingDomain().getResourceSet().getResources().isEmpty()) {
 					  // Select the root object in the view.
 					  //
-					  contentOutlineViewer.setSelection(new StructuredSelection(editingDomain.getResourceSet().getResources().get(0)), true);
+					  contentOutlineViewer.setSelection(new StructuredSelection(getEditingDomain().getResourceSet().getResources().get(0)), true);
 					}
 				}
 
@@ -1379,31 +891,47 @@ public class VinciSiriusEditor
 		return contentOutlinePage;
 	}
 
+	EEFTabbedPropertySheetPage contributedPage;	
+	
 	/**
 	 * This accesses a cached version of the property sheet.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public IPropertySheetPage getPropertySheetPage() {
-		PropertySheetPage propertySheetPage =
-			new ExtendedPropertySheetPage(editingDomain, ExtendedPropertySheetPage.Decoration.NONE, null, 0, false) {
-				@Override
-				public void setSelectionToViewer(List<?> selection) {
-					VinciSiriusEditor.this.setSelectionToViewer(selection);
-					VinciSiriusEditor.this.setFocus();
-				}
+		@SuppressWarnings("restriction")
+		IEEFTabbedPropertySheetPageContributor contributor = new ContributorWrapper(this, getContributorId());
+		
+		contributedPage = new EEFTabbedPropertySheetPage(contributor) { 
 
-				@Override
-				public void setActionBars(IActionBars actionBars) {
-					super.setActionBars(actionBars);
-					getActionBarContributor().shareGlobalActions(this, actionBars);
-				}
-			};
-		propertySheetPage.setPropertySourceProvider(new AdapterFactoryContentProvider(adapterFactory));
-		propertySheetPages.add(propertySheetPage);
+			@Override
+			public void setActionBars(IActionBars actionBars) {
+				super.setActionBars(actionBars);
+				getActionBarContributor().shareGlobalActions(this, actionBars);
+			}
 
-		return propertySheetPage;
+		};
+		
+//		PropertySheetPage propertySheetPage =
+//			new ExtendedPropertySheetPage(getEditingDomain(), ExtendedPropertySheetPage.Decoration.NONE, null, 0, false) {
+//				@Override
+//				public void setSelectionToViewer(List<?> selection) {
+//					VinciSiriusEditor.this.setSelectionToViewer(selection);
+//					VinciSiriusEditor.this.setFocus();
+//				}
+//
+//				@Override
+//				public void setActionBars(IActionBars actionBars) {
+//					super.setActionBars(actionBars);
+//					getActionBarContributor().shareGlobalActions(this, actionBars);
+//				}
+//			};
+//		propertySheetPage.setPropertySourceProvider(new AdapterFactoryContentProvider(getAdapterFactory()));
+		
+		propertySheetPages.add(contributedPage);
+
+		return contributedPage;
 	}
 
 	/**
@@ -1445,16 +973,10 @@ public class VinciSiriusEditor
 		}
 	}
 
-	/**
-	 * This is for implementing {@link IEditorPart} and simply tests the command stack.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public boolean isDirty() {
-		return ((BasicCommandStack)editingDomain.getCommandStack()).isSaveNeeded();
-	}
+    @Override
+    public boolean isDirty() {
+        return session != null && session.getStatus() == SessionStatus.DIRTY;
+    }
 
 	/**
 	 * This is for implementing {@link IEditorPart} and simply saves the model file.
@@ -1464,61 +986,7 @@ public class VinciSiriusEditor
 	 */
 	@Override
 	public void doSave(IProgressMonitor progressMonitor) {
-		// Save only resources that have actually changed.
-		//
-		final Map<Object, Object> saveOptions = new HashMap<Object, Object>();
-		saveOptions.put(Resource.OPTION_SAVE_ONLY_IF_CHANGED, Resource.OPTION_SAVE_ONLY_IF_CHANGED_MEMORY_BUFFER);
-		saveOptions.put(Resource.OPTION_LINE_DELIMITER, Resource.OPTION_LINE_DELIMITER_UNSPECIFIED);
-
-		// Do the work within an operation because this is a long running activity that modifies the workbench.
-		//
-		WorkspaceModifyOperation operation =
-			new WorkspaceModifyOperation() {
-				// This is the method that gets invoked when the operation runs.
-				//
-				@Override
-				public void execute(IProgressMonitor monitor) {
-					// Save the resources to the file system.
-					//
-					boolean first = true;
-					List<Resource> resources = editingDomain.getResourceSet().getResources();
-					for (int i = 0; i < resources.size(); ++i) {
-						Resource resource = resources.get(i);
-						if ((first || !resource.getContents().isEmpty() || isPersisted(resource)) && !editingDomain.isReadOnly(resource)) {
-							try {
-								long timeStamp = resource.getTimeStamp();
-								resource.save(saveOptions);
-								if (resource.getTimeStamp() != timeStamp) {
-									savedResources.add(resource);
-								}
-							}
-							catch (Exception exception) {
-								resourceToDiagnosticMap.put(resource, analyzeResourceProblems(resource, exception));
-							}
-							first = false;
-						}
-					}
-				}
-			};
-
-		updateProblemIndication = false;
-		try {
-			// This runs the options, and shows progress.
-			//
-			new ProgressMonitorDialog(getSite().getShell()).run(true, false, operation);
-
-			// Refresh the necessary state.
-			//
-			((BasicCommandStack)editingDomain.getCommandStack()).saveIsDone();
-			firePropertyChange(IEditorPart.PROP_DIRTY);
-		}
-		catch (Exception exception) {
-			// Something went wrong that shouldn't.
-			//
-			VinciEditorPlugin.INSTANCE.log(exception);
-		}
-		updateProblemIndication = true;
-		updateProblemIndication();
+		session.save(progressMonitor);
 	}
 
 	/**
@@ -1531,7 +999,7 @@ public class VinciSiriusEditor
 	protected boolean isPersisted(Resource resource) {
 		boolean result = false;
 		try {
-			InputStream stream = editingDomain.getResourceSet().getURIConverter().createInputStream(resource.getURI());
+			InputStream stream = getEditingDomain().getResourceSet().getURIConverter().createInputStream(resource.getURI());
 			if (stream != null) {
 				result = true;
 				stream.close();
@@ -1579,7 +1047,7 @@ public class VinciSiriusEditor
 	 * @generated
 	 */
 	protected void doSaveAs(URI uri, IEditorInput editorInput) {
-		(editingDomain.getResourceSet().getResources().get(0)).setURI(uri);
+		(getEditingDomain().getResourceSet().getResources().get(0)).setURI(uri);
 		setInputWithNotify(editorInput);
 		setPartName(editorInput.getName());
 		IProgressMonitor progressMonitor =
@@ -1596,7 +1064,7 @@ public class VinciSiriusEditor
 	 */
 	@Override
 	public void gotoMarker(IMarker marker) {
-		List<?> targetObjects = markerHelper.getTargetObjects(editingDomain, marker);
+		List<?> targetObjects = markerHelper.getTargetObjects(getEditingDomain(), marker);
 		if (!targetObjects.isEmpty()) {
 			setSelectionToViewer(targetObjects);
 		}
@@ -1610,24 +1078,39 @@ public class VinciSiriusEditor
 	 */
 	@Override
 	public void init(IEditorSite site, IEditorInput editorInput) {
-		IProject project = ((IFileEditorInput) getEditorInput()).getFile().getProject();
+		setSite(site);
+		
+		IFile file = ((IFileEditorInput) editorInput).getFile();
+		IProject project = file.getProject();
 		try {
 			ModelingProject modelingProject = (ModelingProject) project.getNature(ModelingProject.NATURE_ID);
-			if (modelingProject != null) {
-				session = modelingProject.getSession();
+			if (modelingProject == null) {
+				ErrorDialog.openError(site.getShell(), "Not a modeling project", "Model shall be contained in a modeling project", null);
+			} else {
+				Session session = modelingProject.getSession();
+				if (session == null) {
+					MessageDialog.openInformation(site.getShell(), "Sirius session is not available", "Sirius session is not avaliable, please close and reopen the editor");
+				} else {
+					this.session = session;
+					session.addListener(this);
+					IEditingSession uiSession = SessionUIManager.INSTANCE.getUISession(session);
+					if (uiSession == null) {
+						uiSession = SessionUIManager.INSTANCE.createUISession(session);
+					}
+					uiSession.attachEditor(this);
+				}
 			}
 		} catch (CoreException e) {
 			throw new IllegalStateException("Cannot obtain modeling project "+e, e); //$NON-NLS-1$
-		}				
+		}		
 		
-		setSite(site);
 		setInputWithNotify(editorInput);
 		setPartName(editorInput.getName());
 		site.setSelectionProvider(this);
 		site.getPage().addPartListener(partListener);
-		ResourcesPlugin.getWorkspace().addResourceChangeListener(resourceChangeListener, IResourceChangeEvent.POST_CHANGE);
+		//ResourcesPlugin.getWorkspace().addResourceChangeListener(resourceChangeListener, IResourceChangeEvent.POST_CHANGE);
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1711,7 +1194,7 @@ public class VinciSiriusEditor
 						break;
 					}
 					case 1: {
-						String text = new AdapterFactoryItemDelegator(adapterFactory).getText(collection.iterator().next());
+						String text = new AdapterFactoryItemDelegator(getAdapterFactory()).getText(collection.iterator().next());
 						statusLineManager.setMessage(getString("_UI_SingleObjectSelected", text));
 						break;
 					}
@@ -1795,23 +1278,35 @@ public class VinciSiriusEditor
 	public void dispose() {
 		updateProblemIndication = false;
 
-		ResourcesPlugin.getWorkspace().removeResourceChangeListener(resourceChangeListener);
+		//ResourcesPlugin.getWorkspace().removeResourceChangeListener(resourceChangeListener);
 
-		getSite().getPage().removePartListener(partListener);
+		IWorkbenchPartSite site = getSite();
+		if (site != null) {
+			IWorkbenchPage page = site.getPage();
+			if (page != null) {
+				page.removePartListener(partListener);
+			}
+		}
 
-		adapterFactory.dispose();
+		//adapterFactory.dispose();
 
 		if (getActionBarContributor().getActiveEditor() == this) {
 			getActionBarContributor().setActiveEditor(null);
 		}
 
-		for (PropertySheetPage propertySheetPage : propertySheetPages) {
-			propertySheetPage.dispose();
+		for (EEFTabbedPropertySheetPage propertySheetPage : propertySheetPages) {
+//			propertySheetPage.dispose();
 		}
 
 		if (contentOutlinePage != null) {
 			contentOutlinePage.dispose();
 		}
+		
+		if (session != null) {
+			IEditingSession uiSession = SessionUIManager.INSTANCE.getUISession(session);
+			uiSession.detachEditor(this);
+			session.removeListener(this);
+		}		
 
 		super.dispose();
 	}
@@ -1829,7 +1324,7 @@ public class VinciSiriusEditor
     @Override
     public Saveable[] getSaveables() {
         if (session != null && session.isOpen()) {
-            IEditingSession uiSession = getUISession();
+            IEditingSession uiSession = SessionUIManager.INSTANCE.getUISession(session);
             if (uiSession instanceof ISaveablesSource) {
                 return ((ISaveablesSource) uiSession).getSaveables();
             }
@@ -1844,7 +1339,7 @@ public class VinciSiriusEditor
 
     @Override
     public int promptToSaveOnClose() {
-        choice = ISaveablePart2.DEFAULT;
+        int choice = ISaveablePart2.DEFAULT;
         if (session != null && session.isOpen()) {
             IEditingSession uiSession = SessionUIManager.INSTANCE.getUISession(session);
             // Close all && Still open elsewhere detection.
@@ -1855,5 +1350,42 @@ public class VinciSiriusEditor
 
         return choice;
     }
+    	
+	private final class PropertyViewUpdater implements ISelectionChangedListener {
+		@Override
+		public void selectionChanged(SelectionChangedEvent event) {
+			if (contributedPage != null) {
+				// Only display the property page of semantic element
+				if (hasSemanticElementSelected(event)) {
+					contributedPage.selectionChanged( VinciSiriusEditor.this /*getViewSite().getPart()*/, event.getSelection());
+				} else {
+					contributedPage.selectionChanged(VinciSiriusEditor.this /*getViewSite().getPart()*/, new StructuredSelection(Collections.emptyList()));
+				}
+			}
+
+		}
+
+		/**
+		 * Returns <code>true</code> if the selection has at least one semantic element
+		 *
+		 * @param event a {@link SelectionChangedEvent}
+		 * @return <code>true</code> if the selection has at least one semantic element,<code>false</code> otherwise
+		 */
+		private boolean hasSemanticElementSelected(SelectionChangedEvent event) {
+			return true/* Find the semantic element from the selection */;
+		}
+	}
+    
+	@Override
+	public String getContributorId() {
+		return "org.nasdanika.vinci.presentation.editor";
+	}
+
+	@Override
+	public void notify(int changeKind) {
+		if (changeKind == SessionListener.DIRTY || changeKind == SessionListener.SYNC) {
+			firePropertyChange(IEditorPart.PROP_DIRTY);			
+		}
+	}
 	
 }
