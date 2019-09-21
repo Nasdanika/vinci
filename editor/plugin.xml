@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated app -->
+      <category
+            id="org.nasdanika"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="org.nasdanika.vinci.app.presentation.VinciModelWizardID"
+            name="%_UI_AppModelWizard_label"
+            class="org.nasdanika.vinci.presentation.VinciModelWizard"
+            category="org.nasdanika"
+            icon="icons/full/obj16/AppModelFile.gif">
+         <description>%_UI_AppModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated app -->
+      <editor
+            id="org.nasdanika.vinci.app.presentation.VinciEditorID"
+            name="%_UI_VinciEditor_label"
+            icon="icons/full/obj16/AppModelFile.gif"
+            extensions="vinci"
+            class="org.nasdanika.vinci.presentation.VinciEditor"
+            contributorClass="org.nasdanika.vinci.presentation.VinciActionBarContributor">
+      </editor>
+      <editor
+            id="org.nasdanika.vinci.app.presentation.VinciSiriusEditorID"
+            name="%_UI_VinciSiriusEditor_label"
+            icon="icons/full/obj16/AppModelFile.gif"
+            extensions="vinci"
+            class="org.nasdanika.vinci.presentation.VinciEditor"
+            contributorClass="org.nasdanika.vinci.presentation.VinciActionBarContributor">
+      </editor>
+      
+   </extension>
+
+</plugin>

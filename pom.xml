@@ -173,6 +173,8 @@
 
 		<module>editor</module>
 		
+		<module>demo</module>
+
 		<module>help</module>
 
 		<module>tests</module>
