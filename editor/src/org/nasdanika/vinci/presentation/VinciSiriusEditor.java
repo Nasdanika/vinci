@@ -21,7 +21,6 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.NullProgressMonitor;
-import org.eclipse.core.runtime.Status;
 import org.eclipse.eef.properties.ui.api.EEFTabbedPropertySheetPage;
 import org.eclipse.eef.properties.ui.api.IEEFTabbedPropertySheetPageContributor;
 import org.eclipse.emf.common.notify.AdapterFactory;
@@ -1089,26 +1088,38 @@ public class VinciSiriusEditor
 			} else {
 				Session session = modelingProject.getSession();
 				if (session == null) {
-					MessageDialog.openInformation(site.getShell(), "Sirius session is not available", "Sirius session is not avaliable, please close and reopen the editor");
-				} else {
-					this.session = session;
-					session.addListener(this);
-					IEditingSession uiSession = SessionUIManager.INSTANCE.getUISession(session);
-					if (uiSession == null) {
-						uiSession = SessionUIManager.INSTANCE.createUISession(session);
-					}
-					uiSession.attachEditor(this);
+//					IActionBars bars = site.getActionBars();
+//					IStatusLineManager statusLine = bars.getStatusLineManager();
+//					IProgressMonitor pm = statusLine.getProgressMonitor();					
+//					modelingProject.getMainRepresentationsFileURI(pm);
+//					SessionManager.INSTANCE.getSession()
+					// create session here
+					ErrorDialog.openError(site.getShell(), "No Sirius session", "No Sirius session, please close and re-open the editor.", null);
+					throw new UnsupportedOperationException("Create session here");
 				}
+				
+				setInput(editorInput, session);
 			}
 		} catch (CoreException e) {
 			throw new IllegalStateException("Cannot obtain modeling project "+e, e); //$NON-NLS-1$
 		}		
 		
-		setInputWithNotify(editorInput);
 		setPartName(editorInput.getName());
 		site.setSelectionProvider(this);
 		site.getPage().addPartListener(partListener);
 		//ResourcesPlugin.getWorkspace().addResourceChangeListener(resourceChangeListener, IResourceChangeEvent.POST_CHANGE);
+	}
+	
+	protected void setInput(IEditorInput editorInput, Session session) {
+		this.session = session;
+		session.addListener(this);
+		IEditingSession uiSession = SessionUIManager.INSTANCE.getUISession(session);
+		if (uiSession == null) {
+			uiSession = SessionUIManager.INSTANCE.createUISession(session);
+		}
+		uiSession.attachEditor(this);
+		
+		setInputWithNotify(editorInput);		
 	}
 	
 	/**
@@ -1384,7 +1395,7 @@ public class VinciSiriusEditor
 	@Override
 	public void notify(int changeKind) {
 		if (changeKind == SessionListener.DIRTY || changeKind == SessionListener.SYNC) {
-			firePropertyChange(IEditorPart.PROP_DIRTY);			
+			getSite().getShell().getDisplay().asyncExec(() -> firePropertyChange(IEditorPart.PROP_DIRTY));			
 		}
 	}
 	
