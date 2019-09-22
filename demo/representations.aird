@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:basicfamily="http://www.eclipse.org/sirius/sample/basicfamily" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:diagram="http://www.eclipse.org/sirius/diagram/1.1.0" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" xsi:schemaLocation="http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/style/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description/style">
   <viewpoint:DAnalysis uid="_jrQcgNvbEemWDckhRlLwAw" selectedViews="_187yMNvdEemWDckhRlLwAw" version="14.1.0.201810161215">
-    <semanticResources>models/My.basicfamily</semanticResources>
     <semanticResources>models/My.vinci</semanticResources>
+    <semanticResources>platform:/resource/org.nasdanika.codegen/model/codegen.genmodel</semanticResources>
+    <semanticResources>platform:/resource/org.nasdanika.codegen/model/codegen.ecore</semanticResources>
+    <semanticResources>http://www.eclipse.org/emf/2002/Ecore</semanticResources>
+    <semanticResources>models/My.basicfamily</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_187yMNvdEemWDckhRlLwAw">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.sirius.sample.basicfamily.design/description/basicfamily.odesign#//@ownedViewpoints[name='persons']"/>
       <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_2kZa0NvdEemWDckhRlLwAw" name="new Persons diagram" repPath="#_2jHocNvdEemWDckhRlLwAw">

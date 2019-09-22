@@ -33,6 +33,7 @@ import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.util.EContentAdapter;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
@@ -66,10 +67,13 @@ import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.viewers.StructuredViewer;
 import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.jface.viewers.Viewer;
+import org.eclipse.jface.viewers.ViewerFilter;
 import org.eclipse.sirius.business.api.modelingproject.ModelingProject;
 import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.business.api.session.SessionListener;
+import org.eclipse.sirius.business.api.session.SessionManager;
 import org.eclipse.sirius.business.api.session.SessionStatus;
+import org.eclipse.sirius.ext.base.Option;
 import org.eclipse.sirius.ui.business.api.editor.ISiriusEditor;
 import org.eclipse.sirius.ui.business.api.session.IEditingSession;
 import org.eclipse.sirius.ui.business.api.session.SessionUIManager;
@@ -705,6 +709,20 @@ public class VinciSiriusEditor
 
 		selectionViewer.setLabelProvider(new AdapterFactoryLabelProvider(getAdapterFactory()));
 		selectionViewer.setInput(getEditingDomain().getResourceSet());
+		ViewerFilter filter = new ViewerFilter() {
+			
+			@Override
+			public boolean select(Viewer viewer, Object parentElement, Object element) {
+				if (parentElement instanceof ResourceSet && element instanceof Resource) {
+					// Should be OK for now, extend later as needed.
+					String uriString = ((Resource) element).getURI().toString();
+					return uriString.endsWith(".vinci") || uriString.endsWith(".codegen");
+				}
+				return true;
+			}
+			
+		};
+		selectionViewer.addFilter(filter);
 		selectionViewer.setSelection(new StructuredSelection(getEditingDomain().getResourceSet().getResources().get(0)), true);
 		viewerPane.setTitle(getEditingDomain().getResourceSet());
 
@@ -1094,8 +1112,23 @@ public class VinciSiriusEditor
 //					modelingProject.getMainRepresentationsFileURI(pm);
 //					SessionManager.INSTANCE.getSession()
 					// create session here
-					ErrorDialog.openError(site.getShell(), "No Sirius session", "No Sirius session, please close and re-open the editor.", null);
-					throw new UnsupportedOperationException("Create session here");
+					IProgressMonitor pm = new NullProgressMonitor();
+					Option<URI> uriOpt = modelingProject.getMainRepresentationsFileURI(pm);
+					if (uriOpt == null) {
+						ErrorDialog.openError(site.getShell(), "No Sirius session", "No Sirius session, please close and re-open the editor.", null);						
+						throw new UnsupportedOperationException("No session");
+					}
+					
+					URI uri = uriOpt.get();
+					if (uri == null) {
+						ErrorDialog.openError(site.getShell(), "No Sirius session", "No Sirius session, please close and re-open the editor.", null);						
+						throw new UnsupportedOperationException("No session");
+					}
+					session = SessionManager.INSTANCE.getSession(uri, pm);
+					if (session == null) {
+						ErrorDialog.openError(site.getShell(), "No Sirius session", "No Sirius session, please close and re-open the editor.", null);						
+						throw new UnsupportedOperationException("No session");						
+					}
 				}
 				
 				setInput(editorInput, session);
@@ -1315,7 +1348,9 @@ public class VinciSiriusEditor
 		
 		if (session != null) {
 			IEditingSession uiSession = SessionUIManager.INSTANCE.getUISession(session);
-			uiSession.detachEditor(this);
+			if (uiSession != null) {
+				uiSession.detachEditor(this);
+			}
 			session.removeListener(this);
 		}		
 
