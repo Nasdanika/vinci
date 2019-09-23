@@ -8,15 +8,17 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
+import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
+import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.IItemPropertySource;
+import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
+import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-
-import org.nasdanika.codegen.provider.GeneratorItemProvider;
+import org.nasdanika.emf.edit.NasdanikaItemProviderAdapter;
 import org.nasdanika.vinci.app.AppPackage;
 import org.nasdanika.vinci.app.Label;
 
@@ -27,7 +29,7 @@ import org.nasdanika.vinci.app.Label;
  * @generated
  */
 public class LabelItemProvider 
-	extends GeneratorItemProvider {
+	extends NasdanikaItemProviderAdapter implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -53,6 +55,7 @@ public class LabelItemProvider
 			addIdPropertyDescriptor(object);
 			addNotificationPropertyDescriptor(object);
 			addTextPropertyDescriptor(object);
+			addDescriptionPropertyDescriptor(object);
 			addTooltipPropertyDescriptor(object);
 			addOutlinePropertyDescriptor(object);
 		}
@@ -141,6 +144,28 @@ public class LabelItemProvider
 				 AppPackage.Literals.LABEL__TEXT,
 				 true,
 				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Description feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addDescriptionPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Label_description_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Label_description_feature", "_UI_Label_type"),
+				 AppPackage.Literals.LABEL__DESCRIPTION,
+				 true,
+				 true,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
@@ -243,6 +268,7 @@ public class LabelItemProvider
 			case AppPackage.LABEL__ID:
 			case AppPackage.LABEL__NOTIFICATION:
 			case AppPackage.LABEL__TEXT:
+			case AppPackage.LABEL__DESCRIPTION:
 			case AppPackage.LABEL__TOOLTIP:
 			case AppPackage.LABEL__OUTLINE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));

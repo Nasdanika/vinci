@@ -3,7 +3,6 @@
 package org.nasdanika.vinci.app.impl;
 
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.nasdanika.vinci.app.AbstractAction;
 import org.nasdanika.vinci.app.AbstractActionParent;

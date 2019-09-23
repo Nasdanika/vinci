@@ -1,7 +1,6 @@
 package org.nasdanika.codegen.tests;
 
 import java.io.File;
-import java.io.InputStream;
 
 import org.junit.Test;
 import org.nasdanika.common.PrintStreamProgressMonitor;
@@ -10,7 +9,6 @@ import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.common.resources.BinaryEntityContainer;
 import org.nasdanika.common.resources.Container;
 import org.nasdanika.common.resources.FileSystemContainer;
-import org.nasdanika.html.app.impl.ProgressReportGenerator;
 import org.nasdanika.html.ecore.EcoreDocumentationGenerator;
 import org.nasdanika.html.ecore.EcoreHelpGenerator;
 

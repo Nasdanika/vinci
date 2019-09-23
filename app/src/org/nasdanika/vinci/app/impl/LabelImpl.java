@@ -3,7 +3,9 @@
 package org.nasdanika.vinci.app.impl;
 
 import org.eclipse.emf.ecore.EClass;
-import org.nasdanika.codegen.impl.GeneratorImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.nasdanika.common.Context;
+import org.nasdanika.common.Work;
 import org.nasdanika.html.bootstrap.Color;
 import org.nasdanika.vinci.app.AppPackage;
 import org.nasdanika.vinci.app.Label;
@@ -21,13 +23,14 @@ import org.nasdanika.vinci.app.LabelSpec;
  *   <li>{@link org.nasdanika.vinci.app.impl.LabelImpl#getId <em>Id</em>}</li>
  *   <li>{@link org.nasdanika.vinci.app.impl.LabelImpl#getNotification <em>Notification</em>}</li>
  *   <li>{@link org.nasdanika.vinci.app.impl.LabelImpl#getText <em>Text</em>}</li>
+ *   <li>{@link org.nasdanika.vinci.app.impl.LabelImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link org.nasdanika.vinci.app.impl.LabelImpl#getTooltip <em>Tooltip</em>}</li>
  *   <li>{@link org.nasdanika.vinci.app.impl.LabelImpl#isOutline <em>Outline</em>}</li>
  * </ul>
  *
  * @generated
  */
-public abstract class LabelImpl<T extends LabelSpec> extends GeneratorImpl<T> implements Label<T> {
+public abstract class LabelImpl<T extends LabelSpec> extends MinimalEObjectImpl.Container implements Label<T> {
 	/**
 	 * The default value of the '{@link #getColor() <em>Color</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -69,6 +72,16 @@ public abstract class LabelImpl<T extends LabelSpec> extends GeneratorImpl<T> im
 	protected static final String TEXT_EDEFAULT = null;
 
 	/**
+	 * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDescription()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String DESCRIPTION_EDEFAULT = null;
+
+	/**
 	 * The default value of the '{@link #getTooltip() <em>Tooltip</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -105,6 +118,16 @@ public abstract class LabelImpl<T extends LabelSpec> extends GeneratorImpl<T> im
 	@Override
 	protected EClass eStaticClass() {
 		return AppPackage.Literals.LABEL;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected int eStaticFeatureCount() {
+		return 0;
 	}
 
 	/**
@@ -193,6 +216,26 @@ public abstract class LabelImpl<T extends LabelSpec> extends GeneratorImpl<T> im
 	 * @generated
 	 */
 	@Override
+	public String getDescription() {
+		return (String)eDynamicGet(AppPackage.LABEL__DESCRIPTION, AppPackage.Literals.LABEL__DESCRIPTION, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setDescription(String newDescription) {
+		eDynamicSet(AppPackage.LABEL__DESCRIPTION, AppPackage.Literals.LABEL__DESCRIPTION, newDescription);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public String getTooltip() {
 		return (String)eDynamicGet(AppPackage.LABEL__TOOLTIP, AppPackage.Literals.LABEL__TOOLTIP, true, true);
 	}
@@ -243,6 +286,8 @@ public abstract class LabelImpl<T extends LabelSpec> extends GeneratorImpl<T> im
 				return getNotification();
 			case AppPackage.LABEL__TEXT:
 				return getText();
+			case AppPackage.LABEL__DESCRIPTION:
+				return getDescription();
 			case AppPackage.LABEL__TOOLTIP:
 				return getTooltip();
 			case AppPackage.LABEL__OUTLINE:
@@ -270,6 +315,9 @@ public abstract class LabelImpl<T extends LabelSpec> extends GeneratorImpl<T> im
 				return;
 			case AppPackage.LABEL__TEXT:
 				setText((String)newValue);
+				return;
+			case AppPackage.LABEL__DESCRIPTION:
+				setDescription((String)newValue);
 				return;
 			case AppPackage.LABEL__TOOLTIP:
 				setTooltip((String)newValue);
@@ -301,6 +349,9 @@ public abstract class LabelImpl<T extends LabelSpec> extends GeneratorImpl<T> im
 			case AppPackage.LABEL__TEXT:
 				setText(TEXT_EDEFAULT);
 				return;
+			case AppPackage.LABEL__DESCRIPTION:
+				setDescription(DESCRIPTION_EDEFAULT);
+				return;
 			case AppPackage.LABEL__TOOLTIP:
 				setTooltip(TOOLTIP_EDEFAULT);
 				return;
@@ -327,6 +378,8 @@ public abstract class LabelImpl<T extends LabelSpec> extends GeneratorImpl<T> im
 				return NOTIFICATION_EDEFAULT == null ? getNotification() != null : !NOTIFICATION_EDEFAULT.equals(getNotification());
 			case AppPackage.LABEL__TEXT:
 				return TEXT_EDEFAULT == null ? getText() != null : !TEXT_EDEFAULT.equals(getText());
+			case AppPackage.LABEL__DESCRIPTION:
+				return DESCRIPTION_EDEFAULT == null ? getDescription() != null : !DESCRIPTION_EDEFAULT.equals(getDescription());
 			case AppPackage.LABEL__TOOLTIP:
 				return TOOLTIP_EDEFAULT == null ? getTooltip() != null : !TOOLTIP_EDEFAULT.equals(getTooltip());
 			case AppPackage.LABEL__OUTLINE:
@@ -334,5 +387,11 @@ public abstract class LabelImpl<T extends LabelSpec> extends GeneratorImpl<T> im
 		}
 		return super.eIsSet(featureID);
 	}
+	
+	@Override
+	public Work<T> createWork(Context context) throws Exception {
+		throw new UnsupportedOperationException();
+	}
+	
 
 } //LabelImpl

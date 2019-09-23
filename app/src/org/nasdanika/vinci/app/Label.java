@@ -2,7 +2,8 @@
  */
 package org.nasdanika.vinci.app;
 
-import org.nasdanika.codegen.Generator;
+import org.eclipse.emf.ecore.EObject;
+import org.nasdanika.common.WorkFactory;
 import org.nasdanika.html.bootstrap.Color;
 
 /**
@@ -22,15 +23,16 @@ import org.nasdanika.html.bootstrap.Color;
  *   <li>{@link org.nasdanika.vinci.app.Label#getId <em>Id</em>}</li>
  *   <li>{@link org.nasdanika.vinci.app.Label#getNotification <em>Notification</em>}</li>
  *   <li>{@link org.nasdanika.vinci.app.Label#getText <em>Text</em>}</li>
+ *   <li>{@link org.nasdanika.vinci.app.Label#getDescription <em>Description</em>}</li>
  *   <li>{@link org.nasdanika.vinci.app.Label#getTooltip <em>Tooltip</em>}</li>
  *   <li>{@link org.nasdanika.vinci.app.Label#isOutline <em>Outline</em>}</li>
  * </ul>
  *
  * @see org.nasdanika.vinci.app.AppPackage#getLabel()
- * @model abstract="true" TBounds="org.nasdanika.vinci.app.LabelSpec"
+ * @model abstract="true" superTypes="org.nasdanika.codegen.WorkFactory&lt;T&gt;" TBounds="org.nasdanika.vinci.app.LabelSpec"
  * @generated
  */
-public interface Label<T extends LabelSpec> extends Generator<T> {
+public interface Label<T extends LabelSpec> extends EObject, WorkFactory<T> {
 	/**
 	 * Returns the value of the '<em><b>Color</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -130,6 +132,31 @@ public interface Label<T extends LabelSpec> extends Generator<T> {
 	 * @generated
 	 */
 	void setText(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Description</em>' attribute.
+	 * @see #setDescription(String)
+	 * @see org.nasdanika.vinci.app.AppPackage#getLabel_Description()
+	 * @model
+	 * @generated
+	 */
+	String getDescription();
+
+	/**
+	 * Sets the value of the '{@link org.nasdanika.vinci.app.Label#getDescription <em>Description</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Description</em>' attribute.
+	 * @see #getDescription()
+	 * @generated
+	 */
+	void setDescription(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Tooltip</b></em>' attribute.

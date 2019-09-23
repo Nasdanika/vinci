@@ -3,11 +3,8 @@
 package org.nasdanika.vinci.presentation;
 
 import org.eclipse.emf.common.EMFPlugin;
-
 import org.eclipse.emf.common.ui.EclipseUIPlugin;
-
 import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.nasdanika.codegen.provider.CodegenEditPlugin;
 
 /**

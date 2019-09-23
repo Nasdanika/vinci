@@ -3,12 +3,15 @@
 package org.nasdanika.vinci.app.impl;
 
 import java.util.Collection;
+
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.nasdanika.codegen.Generator;
+import org.nasdanika.common.Context;
+import org.nasdanika.common.Work;
 import org.nasdanika.vinci.app.AbstractAction;
 import org.nasdanika.vinci.app.AbstractActionParent;
 import org.nasdanika.vinci.app.Action;
@@ -641,6 +644,12 @@ public class ActionImpl extends LabelImpl<ActionSpec> implements Action {
 			}
 		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
+	}
+
+	@Override
+	public Work<ActionSpec> createWork(Context context) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 } //ActionImpl

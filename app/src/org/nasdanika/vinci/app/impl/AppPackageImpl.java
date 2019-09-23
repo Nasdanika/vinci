@@ -2,6 +2,8 @@
  */
 package org.nasdanika.vinci.app.impl;
 
+import static org.nasdanika.vinci.app.AppPackage.CONTAINER;
+
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
@@ -10,7 +12,6 @@ import org.eclipse.emf.ecore.EGenericType;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.ETypeParameter;
-
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.html.bootstrap.Color;
@@ -25,13 +26,13 @@ import org.nasdanika.vinci.app.ActionReference;
 import org.nasdanika.vinci.app.ActionRole;
 import org.nasdanika.vinci.app.ActionSpec;
 import org.nasdanika.vinci.app.ActivatorType;
-import org.nasdanika.vinci.app.LabelSpec;
-import org.nasdanika.vinci.app.MapElement;
-import org.nasdanika.vinci.app.SectionStyle;
 import org.nasdanika.vinci.app.AppFactory;
 import org.nasdanika.vinci.app.AppPackage;
 import org.nasdanika.vinci.app.Category;
 import org.nasdanika.vinci.app.Label;
+import org.nasdanika.vinci.app.LabelSpec;
+import org.nasdanika.vinci.app.MapElement;
+import org.nasdanika.vinci.app.SectionStyle;
 
 /**
  * <!-- begin-user-doc -->
@@ -286,7 +287,7 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getLabel_Tooltip() {
+	public EAttribute getLabel_Description() {
 		return (EAttribute)labelEClass.getEStructuralFeatures().get(4);
 	}
 
@@ -296,8 +297,18 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getLabel_Outline() {
+	public EAttribute getLabel_Tooltip() {
 		return (EAttribute)labelEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getLabel_Outline() {
+		return (EAttribute)labelEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -701,6 +712,7 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 		createEAttribute(labelEClass, LABEL__ID);
 		createEAttribute(labelEClass, LABEL__NOTIFICATION);
 		createEAttribute(labelEClass, LABEL__TEXT);
+		createEAttribute(labelEClass, LABEL__DESCRIPTION);
 		createEAttribute(labelEClass, LABEL__TOOLTIP);
 		createEAttribute(labelEClass, LABEL__OUTLINE);
 
@@ -789,7 +801,7 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 
 		// Add supertypes to classes
 		actionSpecEClass.getESuperTypes().add(this.getLabelSpec());
-		g1 = createEGenericType(theCodegenPackage.getGenerator());
+		g1 = createEGenericType(theCodegenPackage.getWorkFactory());
 		EGenericType g2 = createEGenericType(labelEClass_T);
 		g1.getETypeArguments().add(g2);
 		labelEClass.getEGenericSuperTypes().add(g1);
@@ -848,6 +860,7 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 		initEAttribute(getLabel_Id(), ecorePackage.getEString(), "id", null, 0, 1, Label.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getLabel_Notification(), ecorePackage.getEString(), "notification", null, 0, 1, Label.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getLabel_Text(), ecorePackage.getEString(), "text", null, 0, 1, Label.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getLabel_Description(), ecorePackage.getEString(), "description", null, 0, 1, Label.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getLabel_Tooltip(), ecorePackage.getEString(), "tooltip", null, 0, 1, Label.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getLabel_Outline(), ecorePackage.getEBoolean(), "outline", null, 0, 1, Label.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 

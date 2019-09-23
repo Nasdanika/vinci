@@ -8,17 +8,12 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EStructuralFeature;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-
 import org.nasdanika.codegen.CodegenFactory;
-import org.nasdanika.codegen.CodegenPackage;
-
 import org.nasdanika.vinci.app.Action;
 import org.nasdanika.vinci.app.AppFactory;
 import org.nasdanika.vinci.app.AppPackage;
@@ -145,10 +140,10 @@ public class ActionItemProvider extends LabelItemProvider {
 				 getString("_UI_PropertyDescriptor_description", "_UI_Action_activator_feature", "_UI_Action_type"),
 				 AppPackage.Literals.ACTION__ACTIVATOR,
 				 true,
-				 false,
+				 true,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
+				 getString("_UI_TestPropertyCategory"),
 				 null));
 	}
 
@@ -189,7 +184,7 @@ public class ActionItemProvider extends LabelItemProvider {
 				 getString("_UI_PropertyDescriptor_description", "_UI_Action_confirmation_feature", "_UI_Action_type"),
 				 AppPackage.Literals.ACTION__CONFIRMATION,
 				 true,
-				 false,
+				 true,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
@@ -550,16 +545,6 @@ public class ActionItemProvider extends LabelItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(AppPackage.Literals.ACTION__CONTENT,
-				 AppFactory.eINSTANCE.createActionCategory()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(AppPackage.Literals.ACTION__CONTENT,
-				 AppFactory.eINSTANCE.createAction()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(AppPackage.Literals.ACTION__CONTENT,
 				 CodegenFactory.eINSTANCE.createBinaryFile()));
 
 		newChildDescriptors.add
@@ -705,10 +690,9 @@ public class ActionItemProvider extends LabelItemProvider {
 		Object childObject = child;
 
 		boolean qualify =
-			childFeature == CodegenPackage.Literals.GENERATOR__NAMED_GENERATORS ||
 			childFeature == AppPackage.Literals.CONTAINER__ELEMENTS ||
-			childFeature == AppPackage.Literals.ACTION__CONTENT ||
-			childFeature == AppPackage.Literals.ACTION__ACTION_MAPPINGS;
+			childFeature == AppPackage.Literals.ACTION__ACTION_MAPPINGS ||
+			childFeature == AppPackage.Literals.ACTION__CONTENT;
 
 		if (qualify) {
 			return getString

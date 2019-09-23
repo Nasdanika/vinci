@@ -3,9 +3,7 @@
 package org.nasdanika.vinci.app.impl;
 
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.ecore.EClass;
-
 import org.nasdanika.vinci.app.AbstractAction;
 import org.nasdanika.vinci.app.AbstractActionParent;
 import org.nasdanika.vinci.app.Action;

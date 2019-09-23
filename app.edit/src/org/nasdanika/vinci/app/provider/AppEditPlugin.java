@@ -3,7 +3,6 @@
 package org.nasdanika.vinci.app.provider;
 
 import org.eclipse.emf.common.EMFPlugin;
-
 import org.eclipse.emf.common.util.ResourceLocator;
 import org.nasdanika.codegen.provider.CodegenEditPlugin;
 

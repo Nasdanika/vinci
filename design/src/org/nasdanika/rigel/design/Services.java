@@ -1,9 +1,6 @@
 package org.nasdanika.rigel.design;
 
-import java.util.Date;
-
 import org.eclipse.emf.ecore.EObject;
-import org.nasdanika.rigel.Milestone;
 
 /**
  * The services class used by VSM.

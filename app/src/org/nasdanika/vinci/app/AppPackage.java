@@ -266,103 +266,13 @@ public interface AppPackage extends EPackage {
 	int CONTAINER_OPERATION_COUNT = 0;
 
 	/**
-	 * The feature id for the '<em><b>Title</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LABEL__TITLE = CodegenPackage.GENERATOR__TITLE;
-
-	/**
-	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LABEL__ENABLED = CodegenPackage.GENERATOR__ENABLED;
-
-	/**
-	 * The feature id for the '<em><b>Description</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LABEL__DESCRIPTION = CodegenPackage.GENERATOR__DESCRIPTION;
-
-	/**
-	 * The feature id for the '<em><b>Configuration</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LABEL__CONFIGURATION = CodegenPackage.GENERATOR__CONFIGURATION;
-
-	/**
-	 * The feature id for the '<em><b>Configuration Reference</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LABEL__CONFIGURATION_REFERENCE = CodegenPackage.GENERATOR__CONFIGURATION_REFERENCE;
-
-	/**
-	 * The feature id for the '<em><b>Context Path</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LABEL__CONTEXT_PATH = CodegenPackage.GENERATOR__CONTEXT_PATH;
-
-	/**
-	 * The feature id for the '<em><b>Predicate</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LABEL__PREDICATE = CodegenPackage.GENERATOR__PREDICATE;
-
-	/**
-	 * The feature id for the '<em><b>Controller</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LABEL__CONTROLLER = CodegenPackage.GENERATOR__CONTROLLER;
-
-	/**
-	 * The feature id for the '<em><b>Controller Arguments</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LABEL__CONTROLLER_ARGUMENTS = CodegenPackage.GENERATOR__CONTROLLER_ARGUMENTS;
-
-	/**
-	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LABEL__NAMED_GENERATORS = CodegenPackage.GENERATOR__NAMED_GENERATORS;
-
-	/**
 	 * The feature id for the '<em><b>Color</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LABEL__COLOR = CodegenPackage.GENERATOR_FEATURE_COUNT + 0;
+	int LABEL__COLOR = CodegenPackage.WORK_FACTORY_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -371,7 +281,7 @@ public interface AppPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LABEL__ID = CodegenPackage.GENERATOR_FEATURE_COUNT + 1;
+	int LABEL__ID = CodegenPackage.WORK_FACTORY_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Notification</b></em>' attribute.
@@ -380,7 +290,7 @@ public interface AppPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LABEL__NOTIFICATION = CodegenPackage.GENERATOR_FEATURE_COUNT + 2;
+	int LABEL__NOTIFICATION = CodegenPackage.WORK_FACTORY_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Text</b></em>' attribute.
@@ -389,79 +299,7 @@ public interface AppPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LABEL__TEXT = CodegenPackage.GENERATOR_FEATURE_COUNT + 3;
-
-	/**
-	 * The feature id for the '<em><b>Tooltip</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LABEL__TOOLTIP = CodegenPackage.GENERATOR_FEATURE_COUNT + 4;
-
-	/**
-	 * The feature id for the '<em><b>Outline</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LABEL__OUTLINE = CodegenPackage.GENERATOR_FEATURE_COUNT + 5;
-
-	/**
-	 * The number of structural features of the '<em>Label</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LABEL_FEATURE_COUNT = CodegenPackage.GENERATOR_FEATURE_COUNT + 6;
-
-	/**
-	 * The operation id for the '<em>Is Filterable</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LABEL___IS_FILTERABLE = CodegenPackage.GENERATOR___IS_FILTERABLE;
-
-	/**
-	 * The operation id for the '<em>Validate</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LABEL___VALIDATE__DIAGNOSTICCHAIN_MAP = CodegenPackage.GENERATOR___VALIDATE__DIAGNOSTICCHAIN_MAP;
-
-	/**
-	 * The number of operations of the '<em>Label</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LABEL_OPERATION_COUNT = CodegenPackage.GENERATOR_OPERATION_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Title</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CATEGORY__TITLE = LABEL__TITLE;
-
-	/**
-	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CATEGORY__ENABLED = LABEL__ENABLED;
+	int LABEL__TEXT = CodegenPackage.WORK_FACTORY_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -470,70 +308,43 @@ public interface AppPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CATEGORY__DESCRIPTION = LABEL__DESCRIPTION;
+	int LABEL__DESCRIPTION = CodegenPackage.WORK_FACTORY_FEATURE_COUNT + 4;
 
 	/**
-	 * The feature id for the '<em><b>Configuration</b></em>' attribute.
+	 * The feature id for the '<em><b>Tooltip</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CATEGORY__CONFIGURATION = LABEL__CONFIGURATION;
+	int LABEL__TOOLTIP = CodegenPackage.WORK_FACTORY_FEATURE_COUNT + 5;
 
 	/**
-	 * The feature id for the '<em><b>Configuration Reference</b></em>' attribute.
+	 * The feature id for the '<em><b>Outline</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CATEGORY__CONFIGURATION_REFERENCE = LABEL__CONFIGURATION_REFERENCE;
+	int LABEL__OUTLINE = CodegenPackage.WORK_FACTORY_FEATURE_COUNT + 6;
 
 	/**
-	 * The feature id for the '<em><b>Context Path</b></em>' attribute.
+	 * The number of structural features of the '<em>Label</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CATEGORY__CONTEXT_PATH = LABEL__CONTEXT_PATH;
+	int LABEL_FEATURE_COUNT = CodegenPackage.WORK_FACTORY_FEATURE_COUNT + 7;
 
 	/**
-	 * The feature id for the '<em><b>Predicate</b></em>' attribute.
+	 * The number of operations of the '<em>Label</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CATEGORY__PREDICATE = LABEL__PREDICATE;
-
-	/**
-	 * The feature id for the '<em><b>Controller</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CATEGORY__CONTROLLER = LABEL__CONTROLLER;
-
-	/**
-	 * The feature id for the '<em><b>Controller Arguments</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CATEGORY__CONTROLLER_ARGUMENTS = LABEL__CONTROLLER_ARGUMENTS;
-
-	/**
-	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CATEGORY__NAMED_GENERATORS = LABEL__NAMED_GENERATORS;
+	int LABEL_OPERATION_COUNT = CodegenPackage.WORK_FACTORY_OPERATION_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Color</b></em>' attribute.
@@ -572,6 +383,15 @@ public interface AppPackage extends EPackage {
 	int CATEGORY__TEXT = LABEL__TEXT;
 
 	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORY__DESCRIPTION = LABEL__DESCRIPTION;
+
+	/**
 	 * The feature id for the '<em><b>Tooltip</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -606,24 +426,6 @@ public interface AppPackage extends EPackage {
 	 * @ordered
 	 */
 	int CATEGORY_FEATURE_COUNT = LABEL_FEATURE_COUNT + 1;
-
-	/**
-	 * The operation id for the '<em>Is Filterable</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CATEGORY___IS_FILTERABLE = LABEL___IS_FILTERABLE;
-
-	/**
-	 * The operation id for the '<em>Validate</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CATEGORY___VALIDATE__DIAGNOSTICCHAIN_MAP = LABEL___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
 	 * The number of operations of the '<em>Category</em>' class.
@@ -725,96 +527,6 @@ public interface AppPackage extends EPackage {
 	int ABSTRACT_ACTION_OPERATION_COUNT = ACTION_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Title</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTION_CATEGORY__TITLE = CATEGORY__TITLE;
-
-	/**
-	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTION_CATEGORY__ENABLED = CATEGORY__ENABLED;
-
-	/**
-	 * The feature id for the '<em><b>Description</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTION_CATEGORY__DESCRIPTION = CATEGORY__DESCRIPTION;
-
-	/**
-	 * The feature id for the '<em><b>Configuration</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTION_CATEGORY__CONFIGURATION = CATEGORY__CONFIGURATION;
-
-	/**
-	 * The feature id for the '<em><b>Configuration Reference</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTION_CATEGORY__CONFIGURATION_REFERENCE = CATEGORY__CONFIGURATION_REFERENCE;
-
-	/**
-	 * The feature id for the '<em><b>Context Path</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTION_CATEGORY__CONTEXT_PATH = CATEGORY__CONTEXT_PATH;
-
-	/**
-	 * The feature id for the '<em><b>Predicate</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTION_CATEGORY__PREDICATE = CATEGORY__PREDICATE;
-
-	/**
-	 * The feature id for the '<em><b>Controller</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTION_CATEGORY__CONTROLLER = CATEGORY__CONTROLLER;
-
-	/**
-	 * The feature id for the '<em><b>Controller Arguments</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTION_CATEGORY__CONTROLLER_ARGUMENTS = CATEGORY__CONTROLLER_ARGUMENTS;
-
-	/**
-	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTION_CATEGORY__NAMED_GENERATORS = CATEGORY__NAMED_GENERATORS;
-
-	/**
 	 * The feature id for the '<em><b>Color</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -849,6 +561,15 @@ public interface AppPackage extends EPackage {
 	 * @ordered
 	 */
 	int ACTION_CATEGORY__TEXT = CATEGORY__TEXT;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION_CATEGORY__DESCRIPTION = CATEGORY__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Tooltip</b></em>' attribute.
@@ -896,24 +617,6 @@ public interface AppPackage extends EPackage {
 	int ACTION_CATEGORY_FEATURE_COUNT = CATEGORY_FEATURE_COUNT + 1;
 
 	/**
-	 * The operation id for the '<em>Is Filterable</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTION_CATEGORY___IS_FILTERABLE = CATEGORY___IS_FILTERABLE;
-
-	/**
-	 * The operation id for the '<em>Validate</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTION_CATEGORY___VALIDATE__DIAGNOSTICCHAIN_MAP = CATEGORY___VALIDATE__DIAGNOSTICCHAIN_MAP;
-
-	/**
 	 * The number of operations of the '<em>Action Category</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -921,96 +624,6 @@ public interface AppPackage extends EPackage {
 	 * @ordered
 	 */
 	int ACTION_CATEGORY_OPERATION_COUNT = CATEGORY_OPERATION_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Title</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTION__TITLE = LABEL__TITLE;
-
-	/**
-	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTION__ENABLED = LABEL__ENABLED;
-
-	/**
-	 * The feature id for the '<em><b>Description</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTION__DESCRIPTION = LABEL__DESCRIPTION;
-
-	/**
-	 * The feature id for the '<em><b>Configuration</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTION__CONFIGURATION = LABEL__CONFIGURATION;
-
-	/**
-	 * The feature id for the '<em><b>Configuration Reference</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTION__CONFIGURATION_REFERENCE = LABEL__CONFIGURATION_REFERENCE;
-
-	/**
-	 * The feature id for the '<em><b>Context Path</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTION__CONTEXT_PATH = LABEL__CONTEXT_PATH;
-
-	/**
-	 * The feature id for the '<em><b>Predicate</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTION__PREDICATE = LABEL__PREDICATE;
-
-	/**
-	 * The feature id for the '<em><b>Controller</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTION__CONTROLLER = LABEL__CONTROLLER;
-
-	/**
-	 * The feature id for the '<em><b>Controller Arguments</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTION__CONTROLLER_ARGUMENTS = LABEL__CONTROLLER_ARGUMENTS;
-
-	/**
-	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTION__NAMED_GENERATORS = LABEL__NAMED_GENERATORS;
 
 	/**
 	 * The feature id for the '<em><b>Color</b></em>' attribute.
@@ -1047,6 +660,15 @@ public interface AppPackage extends EPackage {
 	 * @ordered
 	 */
 	int ACTION__TEXT = LABEL__TEXT;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION__DESCRIPTION = LABEL__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Tooltip</b></em>' attribute.
@@ -1182,24 +804,6 @@ public interface AppPackage extends EPackage {
 	 * @ordered
 	 */
 	int ACTION_FEATURE_COUNT = LABEL_FEATURE_COUNT + 12;
-
-	/**
-	 * The operation id for the '<em>Is Filterable</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTION___IS_FILTERABLE = LABEL___IS_FILTERABLE;
-
-	/**
-	 * The operation id for the '<em>Validate</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTION___VALIDATE__DIAGNOSTICCHAIN_MAP = LABEL___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
 	 * The number of operations of the '<em>Action</em>' class.
@@ -1439,6 +1043,17 @@ public interface AppPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getLabel_Text();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.app.Label#getDescription <em>Description</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Description</em>'.
+	 * @see org.nasdanika.vinci.app.Label#getDescription()
+	 * @see #getLabel()
+	 * @generated
+	 */
+	EAttribute getLabel_Description();
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.app.Label#getTooltip <em>Tooltip</em>}'.
@@ -1911,6 +1526,14 @@ public interface AppPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute LABEL__TEXT = eINSTANCE.getLabel_Text();
+
+		/**
+		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute LABEL__DESCRIPTION = eINSTANCE.getLabel_Description();
 
 		/**
 		 * The meta object literal for the '<em><b>Tooltip</b></em>' attribute feature.
