@@ -5,6 +5,7 @@ package org.nasdanika.vinci.app;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.nasdanika.codegen.CodegenPackage;
@@ -1093,13 +1094,94 @@ public interface AppPackage extends EPackage {
 	int ACTION__ACTION_MAPPINGS = LABEL_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Role</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION__ROLE = LABEL_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Section Style</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION__SECTION_STYLE = LABEL_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Activator</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION__ACTIVATOR = LABEL_FEATURE_COUNT + 5;
+
+	/**
+	 * The feature id for the '<em><b>Activator Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION__ACTIVATOR_TYPE = LABEL_FEATURE_COUNT + 6;
+
+	/**
+	 * The feature id for the '<em><b>Confirmation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION__CONFIRMATION = LABEL_FEATURE_COUNT + 7;
+
+	/**
+	 * The feature id for the '<em><b>Disabled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION__DISABLED = LABEL_FEATURE_COUNT + 8;
+
+	/**
+	 * The feature id for the '<em><b>Float Right</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION__FLOAT_RIGHT = LABEL_FEATURE_COUNT + 9;
+
+	/**
+	 * The feature id for the '<em><b>Embedded</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION__EMBEDDED = LABEL_FEATURE_COUNT + 10;
+
+	/**
+	 * The feature id for the '<em><b>Content</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION__CONTENT = LABEL_FEATURE_COUNT + 11;
+
+	/**
 	 * The number of structural features of the '<em>Action</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION_FEATURE_COUNT = LABEL_FEATURE_COUNT + 3;
+	int ACTION_FEATURE_COUNT = LABEL_FEATURE_COUNT + 12;
 
 	/**
 	 * The operation id for the '<em>Is Filterable</em>' operation.
@@ -1264,6 +1346,36 @@ public interface AppPackage extends EPackage {
 	int ACTION_REFERENCE_OPERATION_COUNT = ABSTRACT_ACTION_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link org.nasdanika.vinci.app.ActionRole <em>Action Role</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.vinci.app.ActionRole
+	 * @see org.nasdanika.vinci.app.impl.AppPackageImpl#getActionRole()
+	 * @generated
+	 */
+	int ACTION_ROLE = 14;
+
+	/**
+	 * The meta object id for the '{@link org.nasdanika.vinci.app.SectionStyle <em>Section Style</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.vinci.app.SectionStyle
+	 * @see org.nasdanika.vinci.app.impl.AppPackageImpl#getSectionStyle()
+	 * @generated
+	 */
+	int SECTION_STYLE = 15;
+
+	/**
+	 * The meta object id for the '{@link org.nasdanika.vinci.app.ActivatorType <em>Activator Type</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.vinci.app.ActivatorType
+	 * @see org.nasdanika.vinci.app.impl.AppPackageImpl#getActivatorType()
+	 * @generated
+	 */
+	int ACTIVATOR_TYPE = 16;
+
+	/**
 	 * The meta object id for the '<em>Color</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1271,7 +1383,7 @@ public interface AppPackage extends EPackage {
 	 * @see org.nasdanika.vinci.app.impl.AppPackageImpl#getColor()
 	 * @generated
 	 */
-	int COLOR = 14;
+	int COLOR = 17;
 
 
 	/**
@@ -1382,6 +1494,105 @@ public interface AppPackage extends EPackage {
 	EReference getAction_ActionMappings();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.app.Action#getRole <em>Role</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Role</em>'.
+	 * @see org.nasdanika.vinci.app.Action#getRole()
+	 * @see #getAction()
+	 * @generated
+	 */
+	EAttribute getAction_Role();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.app.Action#getSectionStyle <em>Section Style</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Section Style</em>'.
+	 * @see org.nasdanika.vinci.app.Action#getSectionStyle()
+	 * @see #getAction()
+	 * @generated
+	 */
+	EAttribute getAction_SectionStyle();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.app.Action#getActivator <em>Activator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Activator</em>'.
+	 * @see org.nasdanika.vinci.app.Action#getActivator()
+	 * @see #getAction()
+	 * @generated
+	 */
+	EAttribute getAction_Activator();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.app.Action#getActivatorType <em>Activator Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Activator Type</em>'.
+	 * @see org.nasdanika.vinci.app.Action#getActivatorType()
+	 * @see #getAction()
+	 * @generated
+	 */
+	EAttribute getAction_ActivatorType();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.app.Action#getConfirmation <em>Confirmation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Confirmation</em>'.
+	 * @see org.nasdanika.vinci.app.Action#getConfirmation()
+	 * @see #getAction()
+	 * @generated
+	 */
+	EAttribute getAction_Confirmation();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.app.Action#isDisabled <em>Disabled</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Disabled</em>'.
+	 * @see org.nasdanika.vinci.app.Action#isDisabled()
+	 * @see #getAction()
+	 * @generated
+	 */
+	EAttribute getAction_Disabled();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.app.Action#isFloatRight <em>Float Right</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Float Right</em>'.
+	 * @see org.nasdanika.vinci.app.Action#isFloatRight()
+	 * @see #getAction()
+	 * @generated
+	 */
+	EAttribute getAction_FloatRight();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.app.Action#isEmbedded <em>Embedded</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Embedded</em>'.
+	 * @see org.nasdanika.vinci.app.Action#isEmbedded()
+	 * @see #getAction()
+	 * @generated
+	 */
+	EAttribute getAction_Embedded();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.nasdanika.vinci.app.Action#getContent <em>Content</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Content</em>'.
+	 * @see org.nasdanika.vinci.app.Action#getContent()
+	 * @see #getAction()
+	 * @generated
+	 */
+	EReference getAction_Content();
+
+	/**
 	 * Returns the meta object for class '{@link org.nasdanika.vinci.app.ActionMapping <em>Action Mapping</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1487,6 +1698,36 @@ public interface AppPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getActionReference_Action();
+
+	/**
+	 * Returns the meta object for enum '{@link org.nasdanika.vinci.app.ActionRole <em>Action Role</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Action Role</em>'.
+	 * @see org.nasdanika.vinci.app.ActionRole
+	 * @generated
+	 */
+	EEnum getActionRole();
+
+	/**
+	 * Returns the meta object for enum '{@link org.nasdanika.vinci.app.SectionStyle <em>Section Style</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Section Style</em>'.
+	 * @see org.nasdanika.vinci.app.SectionStyle
+	 * @generated
+	 */
+	EEnum getSectionStyle();
+
+	/**
+	 * Returns the meta object for enum '{@link org.nasdanika.vinci.app.ActivatorType <em>Activator Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Activator Type</em>'.
+	 * @see org.nasdanika.vinci.app.ActivatorType
+	 * @generated
+	 */
+	EEnum getActivatorType();
 
 	/**
 	 * Returns the meta object for class '{@link org.nasdanika.vinci.app.MapElement <em>Map Element</em>}'.
@@ -1716,6 +1957,78 @@ public interface AppPackage extends EPackage {
 		EReference ACTION__ACTION_MAPPINGS = eINSTANCE.getAction_ActionMappings();
 
 		/**
+		 * The meta object literal for the '<em><b>Role</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ACTION__ROLE = eINSTANCE.getAction_Role();
+
+		/**
+		 * The meta object literal for the '<em><b>Section Style</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ACTION__SECTION_STYLE = eINSTANCE.getAction_SectionStyle();
+
+		/**
+		 * The meta object literal for the '<em><b>Activator</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ACTION__ACTIVATOR = eINSTANCE.getAction_Activator();
+
+		/**
+		 * The meta object literal for the '<em><b>Activator Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ACTION__ACTIVATOR_TYPE = eINSTANCE.getAction_ActivatorType();
+
+		/**
+		 * The meta object literal for the '<em><b>Confirmation</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ACTION__CONFIRMATION = eINSTANCE.getAction_Confirmation();
+
+		/**
+		 * The meta object literal for the '<em><b>Disabled</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ACTION__DISABLED = eINSTANCE.getAction_Disabled();
+
+		/**
+		 * The meta object literal for the '<em><b>Float Right</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ACTION__FLOAT_RIGHT = eINSTANCE.getAction_FloatRight();
+
+		/**
+		 * The meta object literal for the '<em><b>Embedded</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ACTION__EMBEDDED = eINSTANCE.getAction_Embedded();
+
+		/**
+		 * The meta object literal for the '<em><b>Content</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ACTION__CONTENT = eINSTANCE.getAction_Content();
+
+		/**
 		 * The meta object literal for the '{@link org.nasdanika.vinci.app.impl.ActionMappingImpl <em>Action Mapping</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1800,6 +2113,36 @@ public interface AppPackage extends EPackage {
 		 * @generated
 		 */
 		EReference ACTION_REFERENCE__ACTION = eINSTANCE.getActionReference_Action();
+
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.vinci.app.ActionRole <em>Action Role</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.vinci.app.ActionRole
+		 * @see org.nasdanika.vinci.app.impl.AppPackageImpl#getActionRole()
+		 * @generated
+		 */
+		EEnum ACTION_ROLE = eINSTANCE.getActionRole();
+
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.vinci.app.SectionStyle <em>Section Style</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.vinci.app.SectionStyle
+		 * @see org.nasdanika.vinci.app.impl.AppPackageImpl#getSectionStyle()
+		 * @generated
+		 */
+		EEnum SECTION_STYLE = eINSTANCE.getSectionStyle();
+
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.vinci.app.ActivatorType <em>Activator Type</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.vinci.app.ActivatorType
+		 * @see org.nasdanika.vinci.app.impl.AppPackageImpl#getActivatorType()
+		 * @generated
+		 */
+		EEnum ACTIVATOR_TYPE = eINSTANCE.getActivatorType();
 
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.vinci.app.MapElement <em>Map Element</em>}' class.

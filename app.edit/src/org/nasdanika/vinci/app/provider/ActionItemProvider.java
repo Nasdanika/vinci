@@ -13,6 +13,7 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import org.nasdanika.codegen.CodegenFactory;
@@ -51,6 +52,14 @@ public class ActionItemProvider extends LabelItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addParentPropertyDescriptor(object);
+			addRolePropertyDescriptor(object);
+			addSectionStylePropertyDescriptor(object);
+			addActivatorPropertyDescriptor(object);
+			addActivatorTypePropertyDescriptor(object);
+			addConfirmationPropertyDescriptor(object);
+			addDisabledPropertyDescriptor(object);
+			addFloatRightPropertyDescriptor(object);
+			addEmbeddedPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -78,6 +87,182 @@ public class ActionItemProvider extends LabelItemProvider {
 	}
 
 	/**
+	 * This adds a property descriptor for the Role feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addRolePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Action_role_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Action_role_feature", "_UI_Action_type"),
+				 AppPackage.Literals.ACTION__ROLE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Section Style feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addSectionStylePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Action_sectionStyle_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Action_sectionStyle_feature", "_UI_Action_type"),
+				 AppPackage.Literals.ACTION__SECTION_STYLE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Activator feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addActivatorPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Action_activator_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Action_activator_feature", "_UI_Action_type"),
+				 AppPackage.Literals.ACTION__ACTIVATOR,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Activator Type feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addActivatorTypePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Action_activatorType_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Action_activatorType_feature", "_UI_Action_type"),
+				 AppPackage.Literals.ACTION__ACTIVATOR_TYPE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Confirmation feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addConfirmationPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Action_confirmation_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Action_confirmation_feature", "_UI_Action_type"),
+				 AppPackage.Literals.ACTION__CONFIRMATION,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Disabled feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addDisabledPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Action_disabled_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Action_disabled_feature", "_UI_Action_type"),
+				 AppPackage.Literals.ACTION__DISABLED,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Float Right feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addFloatRightPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Action_floatRight_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Action_floatRight_feature", "_UI_Action_type"),
+				 AppPackage.Literals.ACTION__FLOAT_RIGHT,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Embedded feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addEmbeddedPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Action_embedded_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Action_embedded_feature", "_UI_Action_type"),
+				 AppPackage.Literals.ACTION__EMBEDDED,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -91,6 +276,7 @@ public class ActionItemProvider extends LabelItemProvider {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(AppPackage.Literals.CONTAINER__ELEMENTS);
 			childrenFeatures.add(AppPackage.Literals.ACTION__ACTION_MAPPINGS);
+			childrenFeatures.add(AppPackage.Literals.ACTION__CONTENT);
 		}
 		return childrenFeatures;
 	}
@@ -156,8 +342,19 @@ public class ActionItemProvider extends LabelItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Action.class)) {
+			case AppPackage.ACTION__ROLE:
+			case AppPackage.ACTION__SECTION_STYLE:
+			case AppPackage.ACTION__ACTIVATOR:
+			case AppPackage.ACTION__ACTIVATOR_TYPE:
+			case AppPackage.ACTION__CONFIRMATION:
+			case AppPackage.ACTION__DISABLED:
+			case AppPackage.ACTION__FLOAT_RIGHT:
+			case AppPackage.ACTION__EMBEDDED:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
 			case AppPackage.ACTION__ELEMENTS:
 			case AppPackage.ACTION__ACTION_MAPPINGS:
+			case AppPackage.ACTION__CONTENT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -349,6 +546,151 @@ public class ActionItemProvider extends LabelItemProvider {
 			(createChildParameter
 				(AppPackage.Literals.ACTION__ACTION_MAPPINGS,
 				 AppFactory.eINSTANCE.createActionMapping()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(AppPackage.Literals.ACTION__CONTENT,
+				 AppFactory.eINSTANCE.createActionCategory()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(AppPackage.Literals.ACTION__CONTENT,
+				 AppFactory.eINSTANCE.createAction()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(AppPackage.Literals.ACTION__CONTENT,
+				 CodegenFactory.eINSTANCE.createBinaryFile()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(AppPackage.Literals.ACTION__CONTENT,
+				 CodegenFactory.eINSTANCE.createTextFile()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(AppPackage.Literals.ACTION__CONTENT,
+				 CodegenFactory.eINSTANCE.createContainer()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(AppPackage.Literals.ACTION__CONTENT,
+				 CodegenFactory.eINSTANCE.createResourceGroup()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(AppPackage.Literals.ACTION__CONTENT,
+				 CodegenFactory.eINSTANCE.createStaticText()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(AppPackage.Literals.ACTION__CONTENT,
+				 CodegenFactory.eINSTANCE.createStaticBytes()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(AppPackage.Literals.ACTION__CONTENT,
+				 CodegenFactory.eINSTANCE.createFreeMarkerGenerator()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(AppPackage.Literals.ACTION__CONTENT,
+				 CodegenFactory.eINSTANCE.createECoreModelGenerator()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(AppPackage.Literals.ACTION__CONTENT,
+				 CodegenFactory.eINSTANCE.createTextToStreamConverter()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(AppPackage.Literals.ACTION__CONTENT,
+				 CodegenFactory.eINSTANCE.createStreamToTextConverter()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(AppPackage.Literals.ACTION__CONTENT,
+				 CodegenFactory.eINSTANCE.createInterpolator()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(AppPackage.Literals.ACTION__CONTENT,
+				 CodegenFactory.eINSTANCE.createJavaTextFilter()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(AppPackage.Literals.ACTION__CONTENT,
+				 CodegenFactory.eINSTANCE.createJavaStreamFilter()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(AppPackage.Literals.ACTION__CONTENT,
+				 CodegenFactory.eINSTANCE.createJavaTextGenerator()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(AppPackage.Literals.ACTION__CONTENT,
+				 CodegenFactory.eINSTANCE.createJavaStreamGenerator()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(AppPackage.Literals.ACTION__CONTENT,
+				 CodegenFactory.eINSTANCE.createJavaResourceGenerator()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(AppPackage.Literals.ACTION__CONTENT,
+				 CodegenFactory.eINSTANCE.createTextContentReference()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(AppPackage.Literals.ACTION__CONTENT,
+				 CodegenFactory.eINSTANCE.createStreamContentReference()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(AppPackage.Literals.ACTION__CONTENT,
+				 CodegenFactory.eINSTANCE.createMustache()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(AppPackage.Literals.ACTION__CONTENT,
+				 CodegenFactory.eINSTANCE.createZipArchive()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(AppPackage.Literals.ACTION__CONTENT,
+				 CodegenFactory.eINSTANCE.createTextGroup()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(AppPackage.Literals.ACTION__CONTENT,
+				 CodegenFactory.eINSTANCE.createTextGeneratorReference()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(AppPackage.Literals.ACTION__CONTENT,
+				 CodegenFactory.eINSTANCE.createStreamGeneratorReference()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(AppPackage.Literals.ACTION__CONTENT,
+				 CodegenFactory.eINSTANCE.createResourceGeneratorReference()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(AppPackage.Literals.ACTION__CONTENT,
+				 CodegenFactory.eINSTANCE.createHttpCall()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(AppPackage.Literals.ACTION__CONTENT,
+				 CodegenFactory.eINSTANCE.createBundleResourceCollection()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(AppPackage.Literals.ACTION__CONTENT,
+				 CodegenFactory.eINSTANCE.createZipResourceCollection()));
 	}
 
 	/**
@@ -365,6 +707,7 @@ public class ActionItemProvider extends LabelItemProvider {
 		boolean qualify =
 			childFeature == CodegenPackage.Literals.GENERATOR__NAMED_GENERATORS ||
 			childFeature == AppPackage.Literals.CONTAINER__ELEMENTS ||
+			childFeature == AppPackage.Literals.ACTION__CONTENT ||
 			childFeature == AppPackage.Literals.ACTION__ACTION_MAPPINGS;
 
 		if (qualify) {

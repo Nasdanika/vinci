@@ -75,6 +75,12 @@ public class AppFactoryImpl extends EFactoryImpl implements AppFactory {
 	@Override
 	public Object createFromString(EDataType eDataType, String initialValue) {
 		switch (eDataType.getClassifierID()) {
+			case AppPackage.ACTION_ROLE:
+				return createActionRoleFromString(eDataType, initialValue);
+			case AppPackage.SECTION_STYLE:
+				return createSectionStyleFromString(eDataType, initialValue);
+			case AppPackage.ACTIVATOR_TYPE:
+				return createActivatorTypeFromString(eDataType, initialValue);
 			case AppPackage.COLOR:
 				return createColorFromString(eDataType, initialValue);
 			default:
@@ -90,6 +96,12 @@ public class AppFactoryImpl extends EFactoryImpl implements AppFactory {
 	@Override
 	public String convertToString(EDataType eDataType, Object instanceValue) {
 		switch (eDataType.getClassifierID()) {
+			case AppPackage.ACTION_ROLE:
+				return convertActionRoleToString(eDataType, instanceValue);
+			case AppPackage.SECTION_STYLE:
+				return convertSectionStyleToString(eDataType, instanceValue);
+			case AppPackage.ACTIVATOR_TYPE:
+				return convertActivatorTypeToString(eDataType, instanceValue);
 			case AppPackage.COLOR:
 				return convertColorToString(eDataType, instanceValue);
 			default:
@@ -150,6 +162,66 @@ public class AppFactoryImpl extends EFactoryImpl implements AppFactory {
 	public ActionReference createActionReference() {
 		ActionReferenceImpl actionReference = new ActionReferenceImpl();
 		return actionReference;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ActionRole createActionRoleFromString(EDataType eDataType, String initialValue) {
+		ActionRole result = ActionRole.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertActionRoleToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SectionStyle createSectionStyleFromString(EDataType eDataType, String initialValue) {
+		SectionStyle result = SectionStyle.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertSectionStyleToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ActivatorType createActivatorTypeFromString(EDataType eDataType, String initialValue) {
+		ActivatorType result = ActivatorType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertActivatorTypeToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
 	}
 
 	/**

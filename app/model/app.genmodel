@@ -9,6 +9,25 @@
   <foreignModel>app.ecore</foreignModel>
   <genPackages prefix="App" basePackage="org.nasdanika.vinci" disposableProviderFactory="true"
       ecorePackage="app.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="app.ecore#//ActionRole">
+      <genEnumLiterals ecoreEnumLiteral="app.ecore#//ActionRole/Navigation"/>
+      <genEnumLiterals ecoreEnumLiteral="app.ecore#//ActionRole/Context"/>
+      <genEnumLiterals ecoreEnumLiteral="app.ecore#//ActionRole/Section"/>
+      <genEnumLiterals ecoreEnumLiteral="app.ecore#//ActionRole/View"/>
+      <genEnumLiterals ecoreEnumLiteral="app.ecore#//ActionRole/Edit"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="app.ecore#//SectionStyle">
+      <genEnumLiterals ecoreEnumLiteral="app.ecore#//SectionStyle/Paragraphs"/>
+      <genEnumLiterals ecoreEnumLiteral="app.ecore#//SectionStyle/Tabs"/>
+      <genEnumLiterals ecoreEnumLiteral="app.ecore#//SectionStyle/Pills"/>
+      <genEnumLiterals ecoreEnumLiteral="app.ecore#//SectionStyle/VerticalPills"/>
+      <genEnumLiterals ecoreEnumLiteral="app.ecore#//SectionStyle/ActionGroup"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="app.ecore#//ActivatorType">
+      <genEnumLiterals ecoreEnumLiteral="app.ecore#//ActivatorType/Reference"/>
+      <genEnumLiterals ecoreEnumLiteral="app.ecore#//ActivatorType/Script"/>
+      <genEnumLiterals ecoreEnumLiteral="app.ecore#//ActivatorType/Bind"/>
+    </genEnums>
     <genDataTypes ecoreDataType="app.ecore#//Color"/>
     <genClasses image="false" ecoreClass="app.ecore#//LabelSpec"/>
     <genClasses image="false" ecoreClass="app.ecore#//ActionSpec"/>
@@ -38,6 +57,15 @@
     <genClasses ecoreClass="app.ecore#//ActionCategory"/>
     <genClasses ecoreClass="app.ecore#//Action">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference app.ecore#//Action/actionMappings"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute app.ecore#//Action/role"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute app.ecore#//Action/sectionStyle"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute app.ecore#//Action/activator"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute app.ecore#//Action/activatorType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute app.ecore#//Action/confirmation"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute app.ecore#//Action/disabled"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute app.ecore#//Action/floatRight"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute app.ecore#//Action/embedded"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference app.ecore#//Action/content"/>
     </genClasses>
     <genClasses ecoreClass="app.ecore#//ActionMapping">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute app.ecore#//ActionMapping/alias"/>
