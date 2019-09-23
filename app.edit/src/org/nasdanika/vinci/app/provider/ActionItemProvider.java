@@ -143,7 +143,7 @@ public class ActionItemProvider extends LabelItemProvider {
 				 true,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 getString("_UI_TestPropertyCategory"),
+				 null,
 				 null));
 	}
 
@@ -314,11 +314,11 @@ public class ActionItemProvider extends LabelItemProvider {
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Action)object).getId();
+		String label = ((Action)object).getText();
 		return label == null || label.length() == 0 ?
 			getString("_UI_Action_type") :
 			getString("_UI_Action_type") + " " + label;
@@ -545,6 +545,26 @@ public class ActionItemProvider extends LabelItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(AppPackage.Literals.ACTION__CONTENT,
+				 AppFactory.eINSTANCE.createActionCategory()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(AppPackage.Literals.ACTION__CONTENT,
+				 AppFactory.eINSTANCE.createAction()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(AppPackage.Literals.ACTION__CONTENT,
+				 CodegenFactory.eINSTANCE.createNamedGenerator()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(AppPackage.Literals.ACTION__CONTENT,
+				 CodegenFactory.eINSTANCE.createProperty()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(AppPackage.Literals.ACTION__CONTENT,
 				 CodegenFactory.eINSTANCE.createBinaryFile()));
 
 		newChildDescriptors.add
@@ -691,8 +711,8 @@ public class ActionItemProvider extends LabelItemProvider {
 
 		boolean qualify =
 			childFeature == AppPackage.Literals.CONTAINER__ELEMENTS ||
-			childFeature == AppPackage.Literals.ACTION__ACTION_MAPPINGS ||
-			childFeature == AppPackage.Literals.ACTION__CONTENT;
+			childFeature == AppPackage.Literals.ACTION__CONTENT ||
+			childFeature == AppPackage.Literals.ACTION__ACTION_MAPPINGS;
 
 		if (qualify) {
 			return getString

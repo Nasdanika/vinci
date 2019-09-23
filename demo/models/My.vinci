@@ -1,2 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<org.nasdanika.vinci.app:Action xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:org.nasdanika.vinci.app="urn:org.nasdanika.vinci.app" description="my tfvt sPdfdfduper kodescriptionn" id="1234" text="Xmmm"/>
+<org.nasdanika.vinci.app:Action xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.nasdanika.vinci.app="urn:org.nasdanika.vinci.app" id="1234" text="Xmmm" description="my tfvt sPdfdfduper kodescriptionn">
+  <elements xsi:type="org.nasdanika.vinci.app:Action" text="Child 1" parent="/"/>
+  <elements xsi:type="org.nasdanika.vinci.app:ActionCategory" text="My Category" parent="//@elements.0"/>
+</org.nasdanika.vinci.app:Action>

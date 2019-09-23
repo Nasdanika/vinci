@@ -2,6 +2,7 @@
  */
 package org.nasdanika.vinci.app;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -26,28 +27,17 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Container<E> extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Elements</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Elements</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * Container elements
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Elements</em>' containment reference.
-	 * @see #setElements(Object)
+	 * @return the value of the '<em>Elements</em>' containment reference list.
 	 * @see org.nasdanika.vinci.app.AppPackage#getContainer_Elements()
 	 * @model kind="reference" containment="true"
 	 * @generated
 	 */
-	E getElements();
-
-	/**
-	 * Sets the value of the '{@link org.nasdanika.vinci.app.Container#getElements <em>Elements</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Elements</em>' containment reference.
-	 * @see #getElements()
-	 * @generated
-	 */
-	void setElements(E value);
+	EList<E> getElements();
 
 } // Container

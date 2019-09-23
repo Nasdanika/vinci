@@ -1,4 +1,4 @@
-package org.nasdanika.rigel.design;
+package org.nasdanika.vinci.design;
 
 import org.eclipse.emf.ecore.EObject;
 

@@ -4,14 +4,15 @@ package org.nasdanika.vinci.app.impl;
 
 import java.util.Collection;
 
+import java.util.List;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.InternalEList;
-import org.nasdanika.codegen.Generator;
 import org.nasdanika.common.Context;
 import org.nasdanika.common.Work;
+import org.nasdanika.common.WorkFactory;
 import org.nasdanika.vinci.app.AbstractAction;
 import org.nasdanika.vinci.app.AbstractActionParent;
 import org.nasdanika.vinci.app.Action;
@@ -175,29 +176,10 @@ public class ActionImpl extends LabelImpl<ActionSpec> implements Action {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
-	public ActionElement getElements() {
-		return (ActionElement)eDynamicGet(AppPackage.ACTION__ELEMENTS, AppPackage.Literals.CONTAINER__ELEMENTS, true, true);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetElements(ActionElement newElements, NotificationChain msgs) {
-		msgs = eDynamicInverseAdd((InternalEObject)newElements, AppPackage.ACTION__ELEMENTS, msgs);
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setElements(ActionElement newElements) {
-		eDynamicSet(AppPackage.ACTION__ELEMENTS, AppPackage.Literals.CONTAINER__ELEMENTS, newElements);
+	public EList<ActionElement> getElements() {
+		return (EList<ActionElement>)eDynamicGet(AppPackage.ACTION__ELEMENTS, AppPackage.Literals.CONTAINER__ELEMENTS, true, true);
 	}
 
 	/**
@@ -378,8 +360,8 @@ public class ActionImpl extends LabelImpl<ActionSpec> implements Action {
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public EList<Generator<String>> getContent() {
-		return (EList<Generator<String>>)eDynamicGet(AppPackage.ACTION__CONTENT, AppPackage.Literals.ACTION__CONTENT, true, true);
+	public EList<WorkFactory<List<String>>> getContent() {
+		return (EList<WorkFactory<List<String>>>)eDynamicGet(AppPackage.ACTION__CONTENT, AppPackage.Literals.ACTION__CONTENT, true, true);
 	}
 
 	/**
@@ -391,7 +373,7 @@ public class ActionImpl extends LabelImpl<ActionSpec> implements Action {
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case AppPackage.ACTION__ELEMENTS:
-				return basicSetElements(null, msgs);
+				return ((InternalEList<?>)getElements()).basicRemove(otherEnd, msgs);
 			case AppPackage.ACTION__ACTION_MAPPINGS:
 				return ((InternalEList<?>)getActionMappings()).basicRemove(otherEnd, msgs);
 			case AppPackage.ACTION__CONTENT:
@@ -450,7 +432,8 @@ public class ActionImpl extends LabelImpl<ActionSpec> implements Action {
 				setParent((AbstractActionParent)newValue);
 				return;
 			case AppPackage.ACTION__ELEMENTS:
-				setElements((ActionElement)newValue);
+				getElements().clear();
+				getElements().addAll((Collection<? extends ActionElement>)newValue);
 				return;
 			case AppPackage.ACTION__ACTION_MAPPINGS:
 				getActionMappings().clear();
@@ -482,7 +465,7 @@ public class ActionImpl extends LabelImpl<ActionSpec> implements Action {
 				return;
 			case AppPackage.ACTION__CONTENT:
 				getContent().clear();
-				getContent().addAll((Collection<? extends Generator<String>>)newValue);
+				getContent().addAll((Collection<? extends WorkFactory<List<String>>>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -500,7 +483,7 @@ public class ActionImpl extends LabelImpl<ActionSpec> implements Action {
 				setParent((AbstractActionParent)null);
 				return;
 			case AppPackage.ACTION__ELEMENTS:
-				setElements((ActionElement)null);
+				getElements().clear();
 				return;
 			case AppPackage.ACTION__ACTION_MAPPINGS:
 				getActionMappings().clear();
@@ -547,7 +530,7 @@ public class ActionImpl extends LabelImpl<ActionSpec> implements Action {
 			case AppPackage.ACTION__PARENT:
 				return basicGetParent() != null;
 			case AppPackage.ACTION__ELEMENTS:
-				return getElements() != null;
+				return !getElements().isEmpty();
 			case AppPackage.ACTION__ACTION_MAPPINGS:
 				return !getActionMappings().isEmpty();
 			case AppPackage.ACTION__ROLE:

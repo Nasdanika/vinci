@@ -239,7 +239,7 @@ public interface AppPackage extends EPackage {
 	int CONTAINER = 2;
 
 	/**
-	 * The feature id for the '<em><b>Elements</b></em>' containment reference.
+	 * The feature id for the '<em><b>Elements</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -410,7 +410,7 @@ public interface AppPackage extends EPackage {
 	int CATEGORY__OUTLINE = LABEL__OUTLINE;
 
 	/**
-	 * The feature id for the '<em><b>Elements</b></em>' containment reference.
+	 * The feature id for the '<em><b>Elements</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -590,7 +590,7 @@ public interface AppPackage extends EPackage {
 	int ACTION_CATEGORY__OUTLINE = CATEGORY__OUTLINE;
 
 	/**
-	 * The feature id for the '<em><b>Elements</b></em>' containment reference.
+	 * The feature id for the '<em><b>Elements</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -698,7 +698,7 @@ public interface AppPackage extends EPackage {
 	int ACTION__PARENT = LABEL_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Elements</b></em>' containment reference.
+	 * The feature id for the '<em><b>Elements</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1438,10 +1438,10 @@ public interface AppPackage extends EPackage {
 	EClass getContainer();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link org.nasdanika.vinci.app.Container#getElements <em>Elements</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.nasdanika.vinci.app.Container#getElements <em>Elements</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Elements</em>'.
+	 * @return the meta object for the containment reference list '<em>Elements</em>'.
 	 * @see org.nasdanika.vinci.app.Container#getElements()
 	 * @see #getContainer()
 	 * @generated
@@ -1856,7 +1856,7 @@ public interface AppPackage extends EPackage {
 		EClass CONTAINER = eINSTANCE.getContainer();
 
 		/**
-		 * The meta object literal for the '<em><b>Elements</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Elements</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated

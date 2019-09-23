@@ -60,7 +60,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference app.ecore#//Action/actionMappings"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute app.ecore#//Action/role"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute app.ecore#//Action/sectionStyle"/>
-      <genFeatures createChild="false" propertyCategory="Test" propertyMultiLine="true"
+      <genFeatures createChild="false" propertyCategory="" propertyMultiLine="true"
           ecoreFeature="ecore:EAttribute app.ecore#//Action/activator"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute app.ecore#//Action/activatorType"/>
       <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute app.ecore#//Action/confirmation"/>

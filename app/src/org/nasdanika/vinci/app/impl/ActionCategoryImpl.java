@@ -2,7 +2,6 @@
  */
 package org.nasdanika.vinci.app.impl;
 
-import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 import org.nasdanika.vinci.app.AbstractAction;
 import org.nasdanika.vinci.app.AbstractActionParent;
@@ -43,17 +42,6 @@ public class ActionCategoryImpl extends CategoryImpl<AbstractAction> implements 
 	@Override
 	protected EClass eStaticClass() {
 		return AppPackage.Literals.ACTION_CATEGORY;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * This is specialized for the more specific type known in this context.
-	 * @generated
-	 */
-	@Override
-	public NotificationChain basicSetElements(AbstractAction newElements, NotificationChain msgs) {
-		return super.basicSetElements(newElements, msgs);
 	}
 
 	/**

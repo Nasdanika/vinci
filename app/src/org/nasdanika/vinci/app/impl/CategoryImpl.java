@@ -2,9 +2,12 @@
  */
 package org.nasdanika.vinci.app.impl;
 
+import java.util.Collection;
 import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+import org.eclipse.emf.ecore.util.InternalEList;
 import org.nasdanika.vinci.app.AppPackage;
 import org.nasdanika.vinci.app.Category;
 import org.nasdanika.vinci.app.LabelSpec;
@@ -49,28 +52,8 @@ public abstract class CategoryImpl<E> extends LabelImpl<LabelSpec> implements Ca
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public E getElements() {
-		return (E)eDynamicGet(AppPackage.CATEGORY__ELEMENTS, AppPackage.Literals.CONTAINER__ELEMENTS, true, true);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetElements(E newElements, NotificationChain msgs) {
-		msgs = eDynamicInverseAdd((InternalEObject)newElements, AppPackage.CATEGORY__ELEMENTS, msgs);
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setElements(E newElements) {
-		eDynamicSet(AppPackage.CATEGORY__ELEMENTS, AppPackage.Literals.CONTAINER__ELEMENTS, newElements);
+	public EList<E> getElements() {
+		return (EList<E>)eDynamicGet(AppPackage.CATEGORY__ELEMENTS, AppPackage.Literals.CONTAINER__ELEMENTS, true, true);
 	}
 
 	/**
@@ -82,7 +65,7 @@ public abstract class CategoryImpl<E> extends LabelImpl<LabelSpec> implements Ca
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case AppPackage.CATEGORY__ELEMENTS:
-				return basicSetElements(null, msgs);
+				return ((InternalEList<?>)getElements()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -111,7 +94,8 @@ public abstract class CategoryImpl<E> extends LabelImpl<LabelSpec> implements Ca
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case AppPackage.CATEGORY__ELEMENTS:
-				setElements((E)newValue);
+				getElements().clear();
+				getElements().addAll((Collection<? extends E>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -126,7 +110,7 @@ public abstract class CategoryImpl<E> extends LabelImpl<LabelSpec> implements Ca
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case AppPackage.CATEGORY__ELEMENTS:
-				setElements((E)null);
+				getElements().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -141,7 +125,7 @@ public abstract class CategoryImpl<E> extends LabelImpl<LabelSpec> implements Ca
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case AppPackage.CATEGORY__ELEMENTS:
-				return getElements() != null;
+				return !getElements().isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
