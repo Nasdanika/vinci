@@ -5,7 +5,7 @@ package org.nasdanika.vinci.app.impl;
 import org.eclipse.emf.ecore.EClass;
 import org.nasdanika.vinci.app.AbstractAction;
 import org.nasdanika.vinci.app.AbstractActionParent;
-import org.nasdanika.vinci.app.Action;
+import org.nasdanika.vinci.app.ActionBase;
 import org.nasdanika.vinci.app.ActionCategory;
 import org.nasdanika.vinci.app.ActionElement;
 import org.nasdanika.vinci.app.AppPackage;
@@ -50,8 +50,8 @@ public class ActionCategoryImpl extends CategoryImpl<AbstractAction> implements 
 	 * @generated
 	 */
 	@Override
-	public Action getParent() {
-		return (Action)eDynamicGet(AppPackage.ACTION_CATEGORY__PARENT, AppPackage.Literals.MAP_ELEMENT__PARENT, true, true);
+	public ActionBase getParent() {
+		return (ActionBase)eDynamicGet(AppPackage.ACTION_CATEGORY__PARENT, AppPackage.Literals.MAP_ELEMENT__PARENT, true, true);
 	}
 
 	/**
@@ -59,8 +59,8 @@ public class ActionCategoryImpl extends CategoryImpl<AbstractAction> implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Action basicGetParent() {
-		return (Action)eDynamicGet(AppPackage.ACTION_CATEGORY__PARENT, AppPackage.Literals.MAP_ELEMENT__PARENT, false, true);
+	public ActionBase basicGetParent() {
+		return (ActionBase)eDynamicGet(AppPackage.ACTION_CATEGORY__PARENT, AppPackage.Literals.MAP_ELEMENT__PARENT, false, true);
 	}
 
 	/**
@@ -69,7 +69,7 @@ public class ActionCategoryImpl extends CategoryImpl<AbstractAction> implements 
 	 * @generated
 	 */
 	@Override
-	public void setParent(Action newParent) {
+	public void setParent(ActionBase newParent) {
 		eDynamicSet(AppPackage.ACTION_CATEGORY__PARENT, AppPackage.Literals.MAP_ELEMENT__PARENT, newParent);
 	}
 
@@ -97,7 +97,7 @@ public class ActionCategoryImpl extends CategoryImpl<AbstractAction> implements 
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case AppPackage.ACTION_CATEGORY__PARENT:
-				setParent((Action)newValue);
+				setParent((ActionBase)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -112,7 +112,7 @@ public class ActionCategoryImpl extends CategoryImpl<AbstractAction> implements 
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case AppPackage.ACTION_CATEGORY__PARENT:
-				setParent((Action)null);
+				setParent((ActionBase)null);
 				return;
 		}
 		super.eUnset(featureID);

@@ -10,15 +10,10 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
-import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
-import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.IItemPropertySource;
-import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
-import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-import org.nasdanika.emf.edit.NasdanikaItemProviderAdapter;
+import org.nasdanika.codegen.provider.GeneratorItemProvider;
 import org.nasdanika.vinci.app.AppPackage;
 import org.nasdanika.vinci.app.Label;
 
@@ -29,7 +24,7 @@ import org.nasdanika.vinci.app.Label;
  * @generated
  */
 public class LabelItemProvider 
-	extends NasdanikaItemProviderAdapter implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+	extends GeneratorItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -53,11 +48,11 @@ public class LabelItemProvider
 
 			addColorPropertyDescriptor(object);
 			addIdPropertyDescriptor(object);
-			addNotificationPropertyDescriptor(object);
 			addTextPropertyDescriptor(object);
-			addDescriptionPropertyDescriptor(object);
+			addIconPropertyDescriptor(object);
 			addTooltipPropertyDescriptor(object);
 			addOutlinePropertyDescriptor(object);
+			addNotificationPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -151,21 +146,21 @@ public class LabelItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Description feature.
+	 * This adds a property descriptor for the Icon feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addDescriptionPropertyDescriptor(Object object) {
+	protected void addIconPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Label_description_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Label_description_feature", "_UI_Label_type"),
-				 AppPackage.Literals.LABEL__DESCRIPTION,
+				 getString("_UI_Label_icon_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Label_icon_feature", "_UI_Label_type"),
+				 AppPackage.Literals.LABEL__ICON,
 				 true,
-				 true,
+				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
@@ -266,11 +261,11 @@ public class LabelItemProvider
 		switch (notification.getFeatureID(Label.class)) {
 			case AppPackage.LABEL__COLOR:
 			case AppPackage.LABEL__ID:
-			case AppPackage.LABEL__NOTIFICATION:
 			case AppPackage.LABEL__TEXT:
-			case AppPackage.LABEL__DESCRIPTION:
+			case AppPackage.LABEL__ICON:
 			case AppPackage.LABEL__TOOLTIP:
 			case AppPackage.LABEL__OUTLINE:
+			case AppPackage.LABEL__NOTIFICATION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

@@ -94,7 +94,7 @@ public class ActionLinkItemProvider extends NasdanikaItemProviderAdapter impleme
 				 getString("_UI_PropertyDescriptor_description", "_UI_ActionLink_description_feature", "_UI_ActionLink_type"),
 				 AppPackage.Literals.ACTION_LINK__DESCRIPTION,
 				 true,
-				 false,
+				 true,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
@@ -152,7 +152,7 @@ public class ActionLinkItemProvider extends NasdanikaItemProviderAdapter impleme
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((ActionLink)object).getDescription();
+		String label = crop(((ActionLink)object).getDescription());
 		return label == null || label.length() == 0 ?
 			getString("_UI_ActionLink_type") :
 			getString("_UI_ActionLink_type") + " " + label;

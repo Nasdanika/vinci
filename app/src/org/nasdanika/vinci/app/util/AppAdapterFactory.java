@@ -6,10 +6,12 @@ import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
+import org.nasdanika.codegen.Generator;
 import org.nasdanika.common.WorkFactory;
 import org.nasdanika.vinci.app.AbstractAction;
 import org.nasdanika.vinci.app.AbstractActionParent;
 import org.nasdanika.vinci.app.Action;
+import org.nasdanika.vinci.app.ActionBase;
 import org.nasdanika.vinci.app.ActionCategory;
 import org.nasdanika.vinci.app.ActionElement;
 import org.nasdanika.vinci.app.ActionLink;
@@ -22,6 +24,7 @@ import org.nasdanika.vinci.app.Container;
 import org.nasdanika.vinci.app.Label;
 import org.nasdanika.vinci.app.LabelSpec;
 import org.nasdanika.vinci.app.MapElement;
+import org.nasdanika.vinci.app.Partition;
 
 /**
  * <!-- begin-user-doc -->
@@ -120,8 +123,8 @@ public class AppAdapterFactory extends AdapterFactoryImpl {
 				return createActionCategoryAdapter();
 			}
 			@Override
-			public Adapter caseAction(Action object) {
-				return createActionAdapter();
+			public Adapter caseActionBase(ActionBase object) {
+				return createActionBaseAdapter();
 			}
 			@Override
 			public Adapter caseActionMapping(ActionMapping object) {
@@ -136,8 +139,20 @@ public class AppAdapterFactory extends AdapterFactoryImpl {
 				return createActionReferenceAdapter();
 			}
 			@Override
+			public Adapter caseAction(Action object) {
+				return createActionAdapter();
+			}
+			@Override
+			public Adapter casePartition(Partition object) {
+				return createPartitionAdapter();
+			}
+			@Override
 			public <T> Adapter caseWorkFactory(WorkFactory<T> object) {
 				return createWorkFactoryAdapter();
+			}
+			@Override
+			public <T> Adapter caseGenerator(Generator<T> object) {
+				return createGeneratorAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -198,6 +213,20 @@ public class AppAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createActionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.vinci.app.Partition <em>Partition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.vinci.app.Partition
+	 * @generated
+	 */
+	public Adapter createPartitionAdapter() {
 		return null;
 	}
 
@@ -314,6 +343,20 @@ public class AppAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.vinci.app.ActionBase <em>Action Base</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.vinci.app.ActionBase
+	 * @generated
+	 */
+	public Adapter createActionBaseAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link org.nasdanika.vinci.app.LabelSpec <em>Label Spec</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -366,6 +409,20 @@ public class AppAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createWorkFactoryAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.codegen.Generator <em>Generator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.codegen.Generator
+	 * @generated
+	 */
+	public Adapter createGeneratorAdapter() {
 		return null;
 	}
 

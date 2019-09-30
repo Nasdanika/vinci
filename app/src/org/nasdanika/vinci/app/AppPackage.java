@@ -90,7 +90,7 @@ public interface AppPackage extends EPackage {
 	 * @see org.nasdanika.vinci.app.impl.AppPackageImpl#getAction()
 	 * @generated
 	 */
-	int ACTION = 10;
+	int ACTION = 14;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.vinci.app.impl.ActionMappingImpl <em>Action Mapping</em>}' class.
@@ -266,40 +266,22 @@ public interface AppPackage extends EPackage {
 	int CONTAINER_OPERATION_COUNT = 0;
 
 	/**
-	 * The feature id for the '<em><b>Color</b></em>' attribute.
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LABEL__COLOR = CodegenPackage.WORK_FACTORY_FEATURE_COUNT + 0;
+	int LABEL__TITLE = CodegenPackage.GENERATOR__TITLE;
 
 	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LABEL__ID = CodegenPackage.WORK_FACTORY_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Notification</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LABEL__NOTIFICATION = CodegenPackage.WORK_FACTORY_FEATURE_COUNT + 2;
-
-	/**
-	 * The feature id for the '<em><b>Text</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LABEL__TEXT = CodegenPackage.WORK_FACTORY_FEATURE_COUNT + 3;
+	int LABEL__ENABLED = CodegenPackage.GENERATOR__ENABLED;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -308,7 +290,106 @@ public interface AppPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LABEL__DESCRIPTION = CodegenPackage.WORK_FACTORY_FEATURE_COUNT + 4;
+	int LABEL__DESCRIPTION = CodegenPackage.GENERATOR__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Configuration</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LABEL__CONFIGURATION = CodegenPackage.GENERATOR__CONFIGURATION;
+
+	/**
+	 * The feature id for the '<em><b>Configuration Reference</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LABEL__CONFIGURATION_REFERENCE = CodegenPackage.GENERATOR__CONFIGURATION_REFERENCE;
+
+	/**
+	 * The feature id for the '<em><b>Context Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LABEL__CONTEXT_PATH = CodegenPackage.GENERATOR__CONTEXT_PATH;
+
+	/**
+	 * The feature id for the '<em><b>Predicate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LABEL__PREDICATE = CodegenPackage.GENERATOR__PREDICATE;
+
+	/**
+	 * The feature id for the '<em><b>Controller</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LABEL__CONTROLLER = CodegenPackage.GENERATOR__CONTROLLER;
+
+	/**
+	 * The feature id for the '<em><b>Controller Arguments</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LABEL__CONTROLLER_ARGUMENTS = CodegenPackage.GENERATOR__CONTROLLER_ARGUMENTS;
+
+	/**
+	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LABEL__NAMED_GENERATORS = CodegenPackage.GENERATOR__NAMED_GENERATORS;
+
+	/**
+	 * The feature id for the '<em><b>Color</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LABEL__COLOR = CodegenPackage.GENERATOR_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LABEL__ID = CodegenPackage.GENERATOR_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Text</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LABEL__TEXT = CodegenPackage.GENERATOR_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Icon</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LABEL__ICON = CodegenPackage.GENERATOR_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Tooltip</b></em>' attribute.
@@ -317,7 +398,7 @@ public interface AppPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LABEL__TOOLTIP = CodegenPackage.WORK_FACTORY_FEATURE_COUNT + 5;
+	int LABEL__TOOLTIP = CodegenPackage.GENERATOR_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Outline</b></em>' attribute.
@@ -326,7 +407,16 @@ public interface AppPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LABEL__OUTLINE = CodegenPackage.WORK_FACTORY_FEATURE_COUNT + 6;
+	int LABEL__OUTLINE = CodegenPackage.GENERATOR_FEATURE_COUNT + 5;
+
+	/**
+	 * The feature id for the '<em><b>Notification</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LABEL__NOTIFICATION = CodegenPackage.GENERATOR_FEATURE_COUNT + 6;
 
 	/**
 	 * The number of structural features of the '<em>Label</em>' class.
@@ -335,7 +425,25 @@ public interface AppPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LABEL_FEATURE_COUNT = CodegenPackage.WORK_FACTORY_FEATURE_COUNT + 7;
+	int LABEL_FEATURE_COUNT = CodegenPackage.GENERATOR_FEATURE_COUNT + 7;
+
+	/**
+	 * The operation id for the '<em>Is Filterable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LABEL___IS_FILTERABLE = CodegenPackage.GENERATOR___IS_FILTERABLE;
+
+	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LABEL___VALIDATE__DIAGNOSTICCHAIN_MAP = CodegenPackage.GENERATOR___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
 	 * The number of operations of the '<em>Label</em>' class.
@@ -344,7 +452,97 @@ public interface AppPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LABEL_OPERATION_COUNT = CodegenPackage.WORK_FACTORY_OPERATION_COUNT + 0;
+	int LABEL_OPERATION_COUNT = CodegenPackage.GENERATOR_OPERATION_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORY__TITLE = LABEL__TITLE;
+
+	/**
+	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORY__ENABLED = LABEL__ENABLED;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORY__DESCRIPTION = LABEL__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Configuration</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORY__CONFIGURATION = LABEL__CONFIGURATION;
+
+	/**
+	 * The feature id for the '<em><b>Configuration Reference</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORY__CONFIGURATION_REFERENCE = LABEL__CONFIGURATION_REFERENCE;
+
+	/**
+	 * The feature id for the '<em><b>Context Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORY__CONTEXT_PATH = LABEL__CONTEXT_PATH;
+
+	/**
+	 * The feature id for the '<em><b>Predicate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORY__PREDICATE = LABEL__PREDICATE;
+
+	/**
+	 * The feature id for the '<em><b>Controller</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORY__CONTROLLER = LABEL__CONTROLLER;
+
+	/**
+	 * The feature id for the '<em><b>Controller Arguments</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORY__CONTROLLER_ARGUMENTS = LABEL__CONTROLLER_ARGUMENTS;
+
+	/**
+	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORY__NAMED_GENERATORS = LABEL__NAMED_GENERATORS;
 
 	/**
 	 * The feature id for the '<em><b>Color</b></em>' attribute.
@@ -365,15 +563,6 @@ public interface AppPackage extends EPackage {
 	int CATEGORY__ID = LABEL__ID;
 
 	/**
-	 * The feature id for the '<em><b>Notification</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CATEGORY__NOTIFICATION = LABEL__NOTIFICATION;
-
-	/**
 	 * The feature id for the '<em><b>Text</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -383,13 +572,13 @@ public interface AppPackage extends EPackage {
 	int CATEGORY__TEXT = LABEL__TEXT;
 
 	/**
-	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * The feature id for the '<em><b>Icon</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CATEGORY__DESCRIPTION = LABEL__DESCRIPTION;
+	int CATEGORY__ICON = LABEL__ICON;
 
 	/**
 	 * The feature id for the '<em><b>Tooltip</b></em>' attribute.
@@ -410,6 +599,15 @@ public interface AppPackage extends EPackage {
 	int CATEGORY__OUTLINE = LABEL__OUTLINE;
 
 	/**
+	 * The feature id for the '<em><b>Notification</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORY__NOTIFICATION = LABEL__NOTIFICATION;
+
+	/**
 	 * The feature id for the '<em><b>Elements</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -426,6 +624,24 @@ public interface AppPackage extends EPackage {
 	 * @ordered
 	 */
 	int CATEGORY_FEATURE_COUNT = LABEL_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Is Filterable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORY___IS_FILTERABLE = LABEL___IS_FILTERABLE;
+
+	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORY___VALIDATE__DIAGNOSTICCHAIN_MAP = LABEL___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
 	 * The number of operations of the '<em>Category</em>' class.
@@ -527,6 +743,96 @@ public interface AppPackage extends EPackage {
 	int ABSTRACT_ACTION_OPERATION_COUNT = ACTION_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION_CATEGORY__TITLE = CATEGORY__TITLE;
+
+	/**
+	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION_CATEGORY__ENABLED = CATEGORY__ENABLED;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION_CATEGORY__DESCRIPTION = CATEGORY__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Configuration</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION_CATEGORY__CONFIGURATION = CATEGORY__CONFIGURATION;
+
+	/**
+	 * The feature id for the '<em><b>Configuration Reference</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION_CATEGORY__CONFIGURATION_REFERENCE = CATEGORY__CONFIGURATION_REFERENCE;
+
+	/**
+	 * The feature id for the '<em><b>Context Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION_CATEGORY__CONTEXT_PATH = CATEGORY__CONTEXT_PATH;
+
+	/**
+	 * The feature id for the '<em><b>Predicate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION_CATEGORY__PREDICATE = CATEGORY__PREDICATE;
+
+	/**
+	 * The feature id for the '<em><b>Controller</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION_CATEGORY__CONTROLLER = CATEGORY__CONTROLLER;
+
+	/**
+	 * The feature id for the '<em><b>Controller Arguments</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION_CATEGORY__CONTROLLER_ARGUMENTS = CATEGORY__CONTROLLER_ARGUMENTS;
+
+	/**
+	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION_CATEGORY__NAMED_GENERATORS = CATEGORY__NAMED_GENERATORS;
+
+	/**
 	 * The feature id for the '<em><b>Color</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -545,15 +851,6 @@ public interface AppPackage extends EPackage {
 	int ACTION_CATEGORY__ID = CATEGORY__ID;
 
 	/**
-	 * The feature id for the '<em><b>Notification</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTION_CATEGORY__NOTIFICATION = CATEGORY__NOTIFICATION;
-
-	/**
 	 * The feature id for the '<em><b>Text</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -563,13 +860,13 @@ public interface AppPackage extends EPackage {
 	int ACTION_CATEGORY__TEXT = CATEGORY__TEXT;
 
 	/**
-	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * The feature id for the '<em><b>Icon</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION_CATEGORY__DESCRIPTION = CATEGORY__DESCRIPTION;
+	int ACTION_CATEGORY__ICON = CATEGORY__ICON;
 
 	/**
 	 * The feature id for the '<em><b>Tooltip</b></em>' attribute.
@@ -588,6 +885,15 @@ public interface AppPackage extends EPackage {
 	 * @ordered
 	 */
 	int ACTION_CATEGORY__OUTLINE = CATEGORY__OUTLINE;
+
+	/**
+	 * The feature id for the '<em><b>Notification</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION_CATEGORY__NOTIFICATION = CATEGORY__NOTIFICATION;
 
 	/**
 	 * The feature id for the '<em><b>Elements</b></em>' containment reference list.
@@ -617,6 +923,24 @@ public interface AppPackage extends EPackage {
 	int ACTION_CATEGORY_FEATURE_COUNT = CATEGORY_FEATURE_COUNT + 1;
 
 	/**
+	 * The operation id for the '<em>Is Filterable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION_CATEGORY___IS_FILTERABLE = CATEGORY___IS_FILTERABLE;
+
+	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION_CATEGORY___VALIDATE__DIAGNOSTICCHAIN_MAP = CATEGORY___VALIDATE__DIAGNOSTICCHAIN_MAP;
+
+	/**
 	 * The number of operations of the '<em>Action Category</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -626,40 +950,32 @@ public interface AppPackage extends EPackage {
 	int ACTION_CATEGORY_OPERATION_COUNT = CATEGORY_OPERATION_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Color</b></em>' attribute.
+	 * The meta object id for the '{@link org.nasdanika.vinci.app.impl.ActionBaseImpl <em>Action Base</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.vinci.app.impl.ActionBaseImpl
+	 * @see org.nasdanika.vinci.app.impl.AppPackageImpl#getActionBase()
 	 * @generated
-	 * @ordered
 	 */
-	int ACTION__COLOR = LABEL__COLOR;
+	int ACTION_BASE = 10;
 
 	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION__ID = LABEL__ID;
+	int ACTION_BASE__TITLE = LABEL__TITLE;
 
 	/**
-	 * The feature id for the '<em><b>Notification</b></em>' attribute.
+	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION__NOTIFICATION = LABEL__NOTIFICATION;
-
-	/**
-	 * The feature id for the '<em><b>Text</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTION__TEXT = LABEL__TEXT;
+	int ACTION_BASE__ENABLED = LABEL__ENABLED;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -668,7 +984,106 @@ public interface AppPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION__DESCRIPTION = LABEL__DESCRIPTION;
+	int ACTION_BASE__DESCRIPTION = LABEL__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Configuration</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION_BASE__CONFIGURATION = LABEL__CONFIGURATION;
+
+	/**
+	 * The feature id for the '<em><b>Configuration Reference</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION_BASE__CONFIGURATION_REFERENCE = LABEL__CONFIGURATION_REFERENCE;
+
+	/**
+	 * The feature id for the '<em><b>Context Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION_BASE__CONTEXT_PATH = LABEL__CONTEXT_PATH;
+
+	/**
+	 * The feature id for the '<em><b>Predicate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION_BASE__PREDICATE = LABEL__PREDICATE;
+
+	/**
+	 * The feature id for the '<em><b>Controller</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION_BASE__CONTROLLER = LABEL__CONTROLLER;
+
+	/**
+	 * The feature id for the '<em><b>Controller Arguments</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION_BASE__CONTROLLER_ARGUMENTS = LABEL__CONTROLLER_ARGUMENTS;
+
+	/**
+	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION_BASE__NAMED_GENERATORS = LABEL__NAMED_GENERATORS;
+
+	/**
+	 * The feature id for the '<em><b>Color</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION_BASE__COLOR = LABEL__COLOR;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION_BASE__ID = LABEL__ID;
+
+	/**
+	 * The feature id for the '<em><b>Text</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION_BASE__TEXT = LABEL__TEXT;
+
+	/**
+	 * The feature id for the '<em><b>Icon</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION_BASE__ICON = LABEL__ICON;
 
 	/**
 	 * The feature id for the '<em><b>Tooltip</b></em>' attribute.
@@ -677,7 +1092,7 @@ public interface AppPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION__TOOLTIP = LABEL__TOOLTIP;
+	int ACTION_BASE__TOOLTIP = LABEL__TOOLTIP;
 
 	/**
 	 * The feature id for the '<em><b>Outline</b></em>' attribute.
@@ -686,7 +1101,16 @@ public interface AppPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION__OUTLINE = LABEL__OUTLINE;
+	int ACTION_BASE__OUTLINE = LABEL__OUTLINE;
+
+	/**
+	 * The feature id for the '<em><b>Notification</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION_BASE__NOTIFICATION = LABEL__NOTIFICATION;
 
 	/**
 	 * The feature id for the '<em><b>Parent</b></em>' reference.
@@ -695,7 +1119,7 @@ public interface AppPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION__PARENT = LABEL_FEATURE_COUNT + 0;
+	int ACTION_BASE__PARENT = LABEL_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Elements</b></em>' containment reference list.
@@ -704,7 +1128,7 @@ public interface AppPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION__ELEMENTS = LABEL_FEATURE_COUNT + 1;
+	int ACTION_BASE__ELEMENTS = LABEL_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Action Mappings</b></em>' containment reference list.
@@ -713,7 +1137,7 @@ public interface AppPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION__ACTION_MAPPINGS = LABEL_FEATURE_COUNT + 2;
+	int ACTION_BASE__ACTION_MAPPINGS = LABEL_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Role</b></em>' attribute.
@@ -722,7 +1146,7 @@ public interface AppPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION__ROLE = LABEL_FEATURE_COUNT + 3;
+	int ACTION_BASE__ROLE = LABEL_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Section Style</b></em>' attribute.
@@ -731,7 +1155,16 @@ public interface AppPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION__SECTION_STYLE = LABEL_FEATURE_COUNT + 4;
+	int ACTION_BASE__SECTION_STYLE = LABEL_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Section Columns</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION_BASE__SECTION_COLUMNS = LABEL_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Activator</b></em>' attribute.
@@ -740,7 +1173,7 @@ public interface AppPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION__ACTIVATOR = LABEL_FEATURE_COUNT + 5;
+	int ACTION_BASE__ACTIVATOR = LABEL_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Activator Type</b></em>' attribute.
@@ -749,7 +1182,7 @@ public interface AppPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION__ACTIVATOR_TYPE = LABEL_FEATURE_COUNT + 6;
+	int ACTION_BASE__ACTIVATOR_TYPE = LABEL_FEATURE_COUNT + 7;
 
 	/**
 	 * The feature id for the '<em><b>Confirmation</b></em>' attribute.
@@ -758,7 +1191,7 @@ public interface AppPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION__CONFIRMATION = LABEL_FEATURE_COUNT + 7;
+	int ACTION_BASE__CONFIRMATION = LABEL_FEATURE_COUNT + 8;
 
 	/**
 	 * The feature id for the '<em><b>Disabled</b></em>' attribute.
@@ -767,7 +1200,7 @@ public interface AppPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION__DISABLED = LABEL_FEATURE_COUNT + 8;
+	int ACTION_BASE__DISABLED = LABEL_FEATURE_COUNT + 9;
 
 	/**
 	 * The feature id for the '<em><b>Float Right</b></em>' attribute.
@@ -776,7 +1209,7 @@ public interface AppPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION__FLOAT_RIGHT = LABEL_FEATURE_COUNT + 9;
+	int ACTION_BASE__FLOAT_RIGHT = LABEL_FEATURE_COUNT + 10;
 
 	/**
 	 * The feature id for the '<em><b>Embedded</b></em>' attribute.
@@ -785,7 +1218,7 @@ public interface AppPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION__EMBEDDED = LABEL_FEATURE_COUNT + 10;
+	int ACTION_BASE__EMBEDDED = LABEL_FEATURE_COUNT + 11;
 
 	/**
 	 * The feature id for the '<em><b>Content</b></em>' containment reference list.
@@ -794,25 +1227,53 @@ public interface AppPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION__CONTENT = LABEL_FEATURE_COUNT + 11;
+	int ACTION_BASE__CONTENT = LABEL_FEATURE_COUNT + 12;
 
 	/**
-	 * The number of structural features of the '<em>Action</em>' class.
+	 * The number of structural features of the '<em>Action Base</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION_FEATURE_COUNT = LABEL_FEATURE_COUNT + 12;
+	int ACTION_BASE_FEATURE_COUNT = LABEL_FEATURE_COUNT + 13;
 
 	/**
-	 * The number of operations of the '<em>Action</em>' class.
+	 * The operation id for the '<em>Is Filterable</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION_OPERATION_COUNT = LABEL_OPERATION_COUNT + 0;
+	int ACTION_BASE___IS_FILTERABLE = LABEL___IS_FILTERABLE;
+
+	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION_BASE___VALIDATE__DIAGNOSTICCHAIN_MAP = LABEL___VALIDATE__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The number of operations of the '<em>Action Base</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION_BASE_OPERATION_COUNT = LABEL_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.nasdanika.vinci.app.impl.PartitionImpl <em>Partition</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.vinci.app.impl.PartitionImpl
+	 * @see org.nasdanika.vinci.app.impl.AppPackageImpl#getPartition()
+	 * @generated
+	 */
+	int PARTITION = 15;
 
 	/**
 	 * The feature id for the '<em><b>Alias</b></em>' attribute.
@@ -950,6 +1411,330 @@ public interface AppPackage extends EPackage {
 	int ACTION_REFERENCE_OPERATION_COUNT = ABSTRACT_ACTION_OPERATION_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION__TITLE = ACTION_BASE__TITLE;
+
+	/**
+	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION__ENABLED = ACTION_BASE__ENABLED;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION__DESCRIPTION = ACTION_BASE__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Configuration</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION__CONFIGURATION = ACTION_BASE__CONFIGURATION;
+
+	/**
+	 * The feature id for the '<em><b>Configuration Reference</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION__CONFIGURATION_REFERENCE = ACTION_BASE__CONFIGURATION_REFERENCE;
+
+	/**
+	 * The feature id for the '<em><b>Context Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION__CONTEXT_PATH = ACTION_BASE__CONTEXT_PATH;
+
+	/**
+	 * The feature id for the '<em><b>Predicate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION__PREDICATE = ACTION_BASE__PREDICATE;
+
+	/**
+	 * The feature id for the '<em><b>Controller</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION__CONTROLLER = ACTION_BASE__CONTROLLER;
+
+	/**
+	 * The feature id for the '<em><b>Controller Arguments</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION__CONTROLLER_ARGUMENTS = ACTION_BASE__CONTROLLER_ARGUMENTS;
+
+	/**
+	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION__NAMED_GENERATORS = ACTION_BASE__NAMED_GENERATORS;
+
+	/**
+	 * The feature id for the '<em><b>Color</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION__COLOR = ACTION_BASE__COLOR;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION__ID = ACTION_BASE__ID;
+
+	/**
+	 * The feature id for the '<em><b>Text</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION__TEXT = ACTION_BASE__TEXT;
+
+	/**
+	 * The feature id for the '<em><b>Icon</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION__ICON = ACTION_BASE__ICON;
+
+	/**
+	 * The feature id for the '<em><b>Tooltip</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION__TOOLTIP = ACTION_BASE__TOOLTIP;
+
+	/**
+	 * The feature id for the '<em><b>Outline</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION__OUTLINE = ACTION_BASE__OUTLINE;
+
+	/**
+	 * The feature id for the '<em><b>Notification</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION__NOTIFICATION = ACTION_BASE__NOTIFICATION;
+
+	/**
+	 * The feature id for the '<em><b>Parent</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION__PARENT = ACTION_BASE__PARENT;
+
+	/**
+	 * The feature id for the '<em><b>Elements</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION__ELEMENTS = ACTION_BASE__ELEMENTS;
+
+	/**
+	 * The feature id for the '<em><b>Action Mappings</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION__ACTION_MAPPINGS = ACTION_BASE__ACTION_MAPPINGS;
+
+	/**
+	 * The feature id for the '<em><b>Role</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION__ROLE = ACTION_BASE__ROLE;
+
+	/**
+	 * The feature id for the '<em><b>Section Style</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION__SECTION_STYLE = ACTION_BASE__SECTION_STYLE;
+
+	/**
+	 * The feature id for the '<em><b>Section Columns</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION__SECTION_COLUMNS = ACTION_BASE__SECTION_COLUMNS;
+
+	/**
+	 * The feature id for the '<em><b>Activator</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION__ACTIVATOR = ACTION_BASE__ACTIVATOR;
+
+	/**
+	 * The feature id for the '<em><b>Activator Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION__ACTIVATOR_TYPE = ACTION_BASE__ACTIVATOR_TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Confirmation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION__CONFIRMATION = ACTION_BASE__CONFIRMATION;
+
+	/**
+	 * The feature id for the '<em><b>Disabled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION__DISABLED = ACTION_BASE__DISABLED;
+
+	/**
+	 * The feature id for the '<em><b>Float Right</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION__FLOAT_RIGHT = ACTION_BASE__FLOAT_RIGHT;
+
+	/**
+	 * The feature id for the '<em><b>Embedded</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION__EMBEDDED = ACTION_BASE__EMBEDDED;
+
+	/**
+	 * The feature id for the '<em><b>Content</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION__CONTENT = ACTION_BASE__CONTENT;
+
+	/**
+	 * The number of structural features of the '<em>Action</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION_FEATURE_COUNT = ACTION_BASE_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Is Filterable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION___IS_FILTERABLE = ACTION_BASE___IS_FILTERABLE;
+
+	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION___VALIDATE__DIAGNOSTICCHAIN_MAP = ACTION_BASE___VALIDATE__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The number of operations of the '<em>Action</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION_OPERATION_COUNT = ACTION_BASE_OPERATION_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Partition</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARTITION_FEATURE_COUNT = 0;
+
+	/**
+	 * The number of operations of the '<em>Partition</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARTITION_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link org.nasdanika.vinci.app.ActionRole <em>Action Role</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -957,7 +1742,7 @@ public interface AppPackage extends EPackage {
 	 * @see org.nasdanika.vinci.app.impl.AppPackageImpl#getActionRole()
 	 * @generated
 	 */
-	int ACTION_ROLE = 14;
+	int ACTION_ROLE = 16;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.vinci.app.SectionStyle <em>Section Style</em>}' enum.
@@ -967,7 +1752,7 @@ public interface AppPackage extends EPackage {
 	 * @see org.nasdanika.vinci.app.impl.AppPackageImpl#getSectionStyle()
 	 * @generated
 	 */
-	int SECTION_STYLE = 15;
+	int SECTION_STYLE = 17;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.vinci.app.ActivatorType <em>Activator Type</em>}' enum.
@@ -977,7 +1762,7 @@ public interface AppPackage extends EPackage {
 	 * @see org.nasdanika.vinci.app.impl.AppPackageImpl#getActivatorType()
 	 * @generated
 	 */
-	int ACTIVATOR_TYPE = 16;
+	int ACTIVATOR_TYPE = 18;
 
 	/**
 	 * The meta object id for the '<em>Color</em>' data type.
@@ -987,7 +1772,7 @@ public interface AppPackage extends EPackage {
 	 * @see org.nasdanika.vinci.app.impl.AppPackageImpl#getColor()
 	 * @generated
 	 */
-	int COLOR = 17;
+	int COLOR = 19;
 
 
 	/**
@@ -1045,15 +1830,15 @@ public interface AppPackage extends EPackage {
 	EAttribute getLabel_Text();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.app.Label#getDescription <em>Description</em>}'.
+	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.app.Label#getIcon <em>Icon</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Description</em>'.
-	 * @see org.nasdanika.vinci.app.Label#getDescription()
+	 * @return the meta object for the attribute '<em>Icon</em>'.
+	 * @see org.nasdanika.vinci.app.Label#getIcon()
 	 * @see #getLabel()
 	 * @generated
 	 */
-	EAttribute getLabel_Description();
+	EAttribute getLabel_Icon();
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.app.Label#getTooltip <em>Tooltip</em>}'.
@@ -1098,114 +1883,14 @@ public interface AppPackage extends EPackage {
 	EClass getAction();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link org.nasdanika.vinci.app.Action#getActionMappings <em>Action Mappings</em>}'.
+	 * Returns the meta object for class '{@link org.nasdanika.vinci.app.Partition <em>Partition</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Action Mappings</em>'.
-	 * @see org.nasdanika.vinci.app.Action#getActionMappings()
-	 * @see #getAction()
+	 * @return the meta object for class '<em>Partition</em>'.
+	 * @see org.nasdanika.vinci.app.Partition
 	 * @generated
 	 */
-	EReference getAction_ActionMappings();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.app.Action#getRole <em>Role</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Role</em>'.
-	 * @see org.nasdanika.vinci.app.Action#getRole()
-	 * @see #getAction()
-	 * @generated
-	 */
-	EAttribute getAction_Role();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.app.Action#getSectionStyle <em>Section Style</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Section Style</em>'.
-	 * @see org.nasdanika.vinci.app.Action#getSectionStyle()
-	 * @see #getAction()
-	 * @generated
-	 */
-	EAttribute getAction_SectionStyle();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.app.Action#getActivator <em>Activator</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Activator</em>'.
-	 * @see org.nasdanika.vinci.app.Action#getActivator()
-	 * @see #getAction()
-	 * @generated
-	 */
-	EAttribute getAction_Activator();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.app.Action#getActivatorType <em>Activator Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Activator Type</em>'.
-	 * @see org.nasdanika.vinci.app.Action#getActivatorType()
-	 * @see #getAction()
-	 * @generated
-	 */
-	EAttribute getAction_ActivatorType();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.app.Action#getConfirmation <em>Confirmation</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Confirmation</em>'.
-	 * @see org.nasdanika.vinci.app.Action#getConfirmation()
-	 * @see #getAction()
-	 * @generated
-	 */
-	EAttribute getAction_Confirmation();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.app.Action#isDisabled <em>Disabled</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Disabled</em>'.
-	 * @see org.nasdanika.vinci.app.Action#isDisabled()
-	 * @see #getAction()
-	 * @generated
-	 */
-	EAttribute getAction_Disabled();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.app.Action#isFloatRight <em>Float Right</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Float Right</em>'.
-	 * @see org.nasdanika.vinci.app.Action#isFloatRight()
-	 * @see #getAction()
-	 * @generated
-	 */
-	EAttribute getAction_FloatRight();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.app.Action#isEmbedded <em>Embedded</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Embedded</em>'.
-	 * @see org.nasdanika.vinci.app.Action#isEmbedded()
-	 * @see #getAction()
-	 * @generated
-	 */
-	EAttribute getAction_Embedded();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link org.nasdanika.vinci.app.Action#getContent <em>Content</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Content</em>'.
-	 * @see org.nasdanika.vinci.app.Action#getContent()
-	 * @see #getAction()
-	 * @generated
-	 */
-	EReference getAction_Content();
+	EClass getPartition();
 
 	/**
 	 * Returns the meta object for class '{@link org.nasdanika.vinci.app.ActionMapping <em>Action Mapping</em>}'.
@@ -1406,6 +2091,137 @@ public interface AppPackage extends EPackage {
 	EClass getActionCategory();
 
 	/**
+	 * Returns the meta object for class '{@link org.nasdanika.vinci.app.ActionBase <em>Action Base</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Action Base</em>'.
+	 * @see org.nasdanika.vinci.app.ActionBase
+	 * @generated
+	 */
+	EClass getActionBase();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.nasdanika.vinci.app.ActionBase#getActionMappings <em>Action Mappings</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Action Mappings</em>'.
+	 * @see org.nasdanika.vinci.app.ActionBase#getActionMappings()
+	 * @see #getActionBase()
+	 * @generated
+	 */
+	EReference getActionBase_ActionMappings();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.app.ActionBase#getRole <em>Role</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Role</em>'.
+	 * @see org.nasdanika.vinci.app.ActionBase#getRole()
+	 * @see #getActionBase()
+	 * @generated
+	 */
+	EAttribute getActionBase_Role();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.app.ActionBase#getSectionStyle <em>Section Style</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Section Style</em>'.
+	 * @see org.nasdanika.vinci.app.ActionBase#getSectionStyle()
+	 * @see #getActionBase()
+	 * @generated
+	 */
+	EAttribute getActionBase_SectionStyle();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.app.ActionBase#getSectionColumns <em>Section Columns</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Section Columns</em>'.
+	 * @see org.nasdanika.vinci.app.ActionBase#getSectionColumns()
+	 * @see #getActionBase()
+	 * @generated
+	 */
+	EAttribute getActionBase_SectionColumns();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.app.ActionBase#getActivator <em>Activator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Activator</em>'.
+	 * @see org.nasdanika.vinci.app.ActionBase#getActivator()
+	 * @see #getActionBase()
+	 * @generated
+	 */
+	EAttribute getActionBase_Activator();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.app.ActionBase#getActivatorType <em>Activator Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Activator Type</em>'.
+	 * @see org.nasdanika.vinci.app.ActionBase#getActivatorType()
+	 * @see #getActionBase()
+	 * @generated
+	 */
+	EAttribute getActionBase_ActivatorType();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.app.ActionBase#getConfirmation <em>Confirmation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Confirmation</em>'.
+	 * @see org.nasdanika.vinci.app.ActionBase#getConfirmation()
+	 * @see #getActionBase()
+	 * @generated
+	 */
+	EAttribute getActionBase_Confirmation();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.app.ActionBase#isDisabled <em>Disabled</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Disabled</em>'.
+	 * @see org.nasdanika.vinci.app.ActionBase#isDisabled()
+	 * @see #getActionBase()
+	 * @generated
+	 */
+	EAttribute getActionBase_Disabled();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.app.ActionBase#isFloatRight <em>Float Right</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Float Right</em>'.
+	 * @see org.nasdanika.vinci.app.ActionBase#isFloatRight()
+	 * @see #getActionBase()
+	 * @generated
+	 */
+	EAttribute getActionBase_FloatRight();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.app.ActionBase#isEmbedded <em>Embedded</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Embedded</em>'.
+	 * @see org.nasdanika.vinci.app.ActionBase#isEmbedded()
+	 * @see #getActionBase()
+	 * @generated
+	 */
+	EAttribute getActionBase_Embedded();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.nasdanika.vinci.app.ActionBase#getContent <em>Content</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Content</em>'.
+	 * @see org.nasdanika.vinci.app.ActionBase#getContent()
+	 * @see #getActionBase()
+	 * @generated
+	 */
+	EReference getActionBase_Content();
+
+	/**
 	 * Returns the meta object for class '{@link org.nasdanika.vinci.app.LabelSpec <em>Label Spec</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1528,12 +2344,12 @@ public interface AppPackage extends EPackage {
 		EAttribute LABEL__TEXT = eINSTANCE.getLabel_Text();
 
 		/**
-		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Icon</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute LABEL__DESCRIPTION = eINSTANCE.getLabel_Description();
+		EAttribute LABEL__ICON = eINSTANCE.getLabel_Icon();
 
 		/**
 		 * The meta object literal for the '<em><b>Tooltip</b></em>' attribute feature.
@@ -1572,84 +2388,14 @@ public interface AppPackage extends EPackage {
 		EClass ACTION = eINSTANCE.getAction();
 
 		/**
-		 * The meta object literal for the '<em><b>Action Mappings</b></em>' containment reference list feature.
+		 * The meta object literal for the '{@link org.nasdanika.vinci.app.impl.PartitionImpl <em>Partition</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.vinci.app.impl.PartitionImpl
+		 * @see org.nasdanika.vinci.app.impl.AppPackageImpl#getPartition()
 		 * @generated
 		 */
-		EReference ACTION__ACTION_MAPPINGS = eINSTANCE.getAction_ActionMappings();
-
-		/**
-		 * The meta object literal for the '<em><b>Role</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute ACTION__ROLE = eINSTANCE.getAction_Role();
-
-		/**
-		 * The meta object literal for the '<em><b>Section Style</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute ACTION__SECTION_STYLE = eINSTANCE.getAction_SectionStyle();
-
-		/**
-		 * The meta object literal for the '<em><b>Activator</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute ACTION__ACTIVATOR = eINSTANCE.getAction_Activator();
-
-		/**
-		 * The meta object literal for the '<em><b>Activator Type</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute ACTION__ACTIVATOR_TYPE = eINSTANCE.getAction_ActivatorType();
-
-		/**
-		 * The meta object literal for the '<em><b>Confirmation</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute ACTION__CONFIRMATION = eINSTANCE.getAction_Confirmation();
-
-		/**
-		 * The meta object literal for the '<em><b>Disabled</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute ACTION__DISABLED = eINSTANCE.getAction_Disabled();
-
-		/**
-		 * The meta object literal for the '<em><b>Float Right</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute ACTION__FLOAT_RIGHT = eINSTANCE.getAction_FloatRight();
-
-		/**
-		 * The meta object literal for the '<em><b>Embedded</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute ACTION__EMBEDDED = eINSTANCE.getAction_Embedded();
-
-		/**
-		 * The meta object literal for the '<em><b>Content</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ACTION__CONTENT = eINSTANCE.getAction_Content();
+		EClass PARTITION = eINSTANCE.getPartition();
 
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.vinci.app.impl.ActionMappingImpl <em>Action Mapping</em>}' class.
@@ -1824,6 +2570,104 @@ public interface AppPackage extends EPackage {
 		 * @generated
 		 */
 		EClass ACTION_CATEGORY = eINSTANCE.getActionCategory();
+
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.vinci.app.impl.ActionBaseImpl <em>Action Base</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.vinci.app.impl.ActionBaseImpl
+		 * @see org.nasdanika.vinci.app.impl.AppPackageImpl#getActionBase()
+		 * @generated
+		 */
+		EClass ACTION_BASE = eINSTANCE.getActionBase();
+
+		/**
+		 * The meta object literal for the '<em><b>Action Mappings</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ACTION_BASE__ACTION_MAPPINGS = eINSTANCE.getActionBase_ActionMappings();
+
+		/**
+		 * The meta object literal for the '<em><b>Role</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ACTION_BASE__ROLE = eINSTANCE.getActionBase_Role();
+
+		/**
+		 * The meta object literal for the '<em><b>Section Style</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ACTION_BASE__SECTION_STYLE = eINSTANCE.getActionBase_SectionStyle();
+
+		/**
+		 * The meta object literal for the '<em><b>Section Columns</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ACTION_BASE__SECTION_COLUMNS = eINSTANCE.getActionBase_SectionColumns();
+
+		/**
+		 * The meta object literal for the '<em><b>Activator</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ACTION_BASE__ACTIVATOR = eINSTANCE.getActionBase_Activator();
+
+		/**
+		 * The meta object literal for the '<em><b>Activator Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ACTION_BASE__ACTIVATOR_TYPE = eINSTANCE.getActionBase_ActivatorType();
+
+		/**
+		 * The meta object literal for the '<em><b>Confirmation</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ACTION_BASE__CONFIRMATION = eINSTANCE.getActionBase_Confirmation();
+
+		/**
+		 * The meta object literal for the '<em><b>Disabled</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ACTION_BASE__DISABLED = eINSTANCE.getActionBase_Disabled();
+
+		/**
+		 * The meta object literal for the '<em><b>Float Right</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ACTION_BASE__FLOAT_RIGHT = eINSTANCE.getActionBase_FloatRight();
+
+		/**
+		 * The meta object literal for the '<em><b>Embedded</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ACTION_BASE__EMBEDDED = eINSTANCE.getActionBase_Embedded();
+
+		/**
+		 * The meta object literal for the '<em><b>Content</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ACTION_BASE__CONTENT = eINSTANCE.getActionBase_Content();
 
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.vinci.app.LabelSpec <em>Label Spec</em>}' class.

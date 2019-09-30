@@ -12,6 +12,7 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.nasdanika.codegen.CodegenFactory;
+import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.vinci.app.AppFactory;
 import org.nasdanika.vinci.app.AppPackage;
 import org.nasdanika.vinci.app.Category;
@@ -152,11 +153,6 @@ public class CategoryItemProvider extends LabelItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(AppPackage.Literals.CONTAINER__ELEMENTS,
-				 AppFactory.eINSTANCE.createAction()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(AppPackage.Literals.CONTAINER__ELEMENTS,
 				 AppFactory.eINSTANCE.createActionMapping()));
 
 		newChildDescriptors.add
@@ -168,6 +164,16 @@ public class CategoryItemProvider extends LabelItemProvider {
 			(createChildParameter
 				(AppPackage.Literals.CONTAINER__ELEMENTS,
 				 AppFactory.eINSTANCE.createActionReference()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(AppPackage.Literals.CONTAINER__ELEMENTS,
+				 AppFactory.eINSTANCE.createAction()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(AppPackage.Literals.CONTAINER__ELEMENTS,
+				 AppFactory.eINSTANCE.createPartition()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -313,6 +319,29 @@ public class CategoryItemProvider extends LabelItemProvider {
 			(createChildParameter
 				(AppPackage.Literals.CONTAINER__ELEMENTS,
 				 CodegenFactory.eINSTANCE.createZipResourceCollection()));
+	}
+
+	/**
+	 * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getCreateChildText(Object owner, Object feature, Object child, Collection<?> selection) {
+		Object childFeature = feature;
+		Object childObject = child;
+
+		boolean qualify =
+			childFeature == CodegenPackage.Literals.GENERATOR__NAMED_GENERATORS ||
+			childFeature == AppPackage.Literals.CONTAINER__ELEMENTS;
+
+		if (qualify) {
+			return getString
+				("_UI_CreateChild_text2",
+				 new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
+		}
+		return super.getCreateChildText(owner, feature, child, selection);
 	}
 
 }

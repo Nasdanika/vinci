@@ -18,6 +18,7 @@ import org.nasdanika.html.bootstrap.Color;
 import org.nasdanika.vinci.app.AbstractAction;
 import org.nasdanika.vinci.app.AbstractActionParent;
 import org.nasdanika.vinci.app.Action;
+import org.nasdanika.vinci.app.ActionBase;
 import org.nasdanika.vinci.app.ActionCategory;
 import org.nasdanika.vinci.app.ActionElement;
 import org.nasdanika.vinci.app.ActionLink;
@@ -32,6 +33,7 @@ import org.nasdanika.vinci.app.Category;
 import org.nasdanika.vinci.app.Label;
 import org.nasdanika.vinci.app.LabelSpec;
 import org.nasdanika.vinci.app.MapElement;
+import org.nasdanika.vinci.app.Partition;
 import org.nasdanika.vinci.app.SectionStyle;
 
 /**
@@ -61,6 +63,13 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 	 * @generated
 	 */
 	private EClass actionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass partitionEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -138,6 +147,13 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 	 * @generated
 	 */
 	private EClass actionCategoryEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass actionBaseEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -268,7 +284,7 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 	 */
 	@Override
 	public EAttribute getLabel_Notification() {
-		return (EAttribute)labelEClass.getEStructuralFeatures().get(2);
+		return (EAttribute)labelEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -278,6 +294,16 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 	 */
 	@Override
 	public EAttribute getLabel_Text() {
+		return (EAttribute)labelEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getLabel_Icon() {
 		return (EAttribute)labelEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -287,7 +313,7 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getLabel_Description() {
+	public EAttribute getLabel_Tooltip() {
 		return (EAttribute)labelEClass.getEStructuralFeatures().get(4);
 	}
 
@@ -297,18 +323,8 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getLabel_Tooltip() {
-		return (EAttribute)labelEClass.getEStructuralFeatures().get(5);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EAttribute getLabel_Outline() {
-		return (EAttribute)labelEClass.getEStructuralFeatures().get(6);
+		return (EAttribute)labelEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -337,98 +353,8 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getAction_ActionMappings() {
-		return (EReference)actionEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getAction_Role() {
-		return (EAttribute)actionEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getAction_SectionStyle() {
-		return (EAttribute)actionEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getAction_Activator() {
-		return (EAttribute)actionEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getAction_ActivatorType() {
-		return (EAttribute)actionEClass.getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getAction_Confirmation() {
-		return (EAttribute)actionEClass.getEStructuralFeatures().get(5);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getAction_Disabled() {
-		return (EAttribute)actionEClass.getEStructuralFeatures().get(6);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getAction_FloatRight() {
-		return (EAttribute)actionEClass.getEStructuralFeatures().get(7);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getAction_Embedded() {
-		return (EAttribute)actionEClass.getEStructuralFeatures().get(8);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getAction_Content() {
-		return (EReference)actionEClass.getEStructuralFeatures().get(9);
+	public EClass getPartition() {
+		return partitionEClass;
 	}
 
 	/**
@@ -627,6 +553,126 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 	 * @generated
 	 */
 	@Override
+	public EClass getActionBase() {
+		return actionBaseEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getActionBase_ActionMappings() {
+		return (EReference)actionBaseEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getActionBase_Role() {
+		return (EAttribute)actionBaseEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getActionBase_SectionStyle() {
+		return (EAttribute)actionBaseEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getActionBase_SectionColumns() {
+		return (EAttribute)actionBaseEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getActionBase_Activator() {
+		return (EAttribute)actionBaseEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getActionBase_ActivatorType() {
+		return (EAttribute)actionBaseEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getActionBase_Confirmation() {
+		return (EAttribute)actionBaseEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getActionBase_Disabled() {
+		return (EAttribute)actionBaseEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getActionBase_FloatRight() {
+		return (EAttribute)actionBaseEClass.getEStructuralFeatures().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getActionBase_Embedded() {
+		return (EAttribute)actionBaseEClass.getEStructuralFeatures().get(9);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getActionBase_Content() {
+		return (EReference)actionBaseEClass.getEStructuralFeatures().get(10);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getLabelSpec() {
 		return labelSpecEClass;
 	}
@@ -710,11 +756,11 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 		labelEClass = createEClass(LABEL);
 		createEAttribute(labelEClass, LABEL__COLOR);
 		createEAttribute(labelEClass, LABEL__ID);
-		createEAttribute(labelEClass, LABEL__NOTIFICATION);
 		createEAttribute(labelEClass, LABEL__TEXT);
-		createEAttribute(labelEClass, LABEL__DESCRIPTION);
+		createEAttribute(labelEClass, LABEL__ICON);
 		createEAttribute(labelEClass, LABEL__TOOLTIP);
 		createEAttribute(labelEClass, LABEL__OUTLINE);
+		createEAttribute(labelEClass, LABEL__NOTIFICATION);
 
 		categoryEClass = createEClass(CATEGORY);
 
@@ -729,17 +775,18 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 
 		actionCategoryEClass = createEClass(ACTION_CATEGORY);
 
-		actionEClass = createEClass(ACTION);
-		createEReference(actionEClass, ACTION__ACTION_MAPPINGS);
-		createEAttribute(actionEClass, ACTION__ROLE);
-		createEAttribute(actionEClass, ACTION__SECTION_STYLE);
-		createEAttribute(actionEClass, ACTION__ACTIVATOR);
-		createEAttribute(actionEClass, ACTION__ACTIVATOR_TYPE);
-		createEAttribute(actionEClass, ACTION__CONFIRMATION);
-		createEAttribute(actionEClass, ACTION__DISABLED);
-		createEAttribute(actionEClass, ACTION__FLOAT_RIGHT);
-		createEAttribute(actionEClass, ACTION__EMBEDDED);
-		createEReference(actionEClass, ACTION__CONTENT);
+		actionBaseEClass = createEClass(ACTION_BASE);
+		createEReference(actionBaseEClass, ACTION_BASE__ACTION_MAPPINGS);
+		createEAttribute(actionBaseEClass, ACTION_BASE__ROLE);
+		createEAttribute(actionBaseEClass, ACTION_BASE__SECTION_STYLE);
+		createEAttribute(actionBaseEClass, ACTION_BASE__SECTION_COLUMNS);
+		createEAttribute(actionBaseEClass, ACTION_BASE__ACTIVATOR);
+		createEAttribute(actionBaseEClass, ACTION_BASE__ACTIVATOR_TYPE);
+		createEAttribute(actionBaseEClass, ACTION_BASE__CONFIRMATION);
+		createEAttribute(actionBaseEClass, ACTION_BASE__DISABLED);
+		createEAttribute(actionBaseEClass, ACTION_BASE__FLOAT_RIGHT);
+		createEAttribute(actionBaseEClass, ACTION_BASE__EMBEDDED);
+		createEReference(actionBaseEClass, ACTION_BASE__CONTENT);
 
 		actionMappingEClass = createEClass(ACTION_MAPPING);
 		createEAttribute(actionMappingEClass, ACTION_MAPPING__ALIAS);
@@ -753,6 +800,10 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 		actionReferenceEClass = createEClass(ACTION_REFERENCE);
 		createEAttribute(actionReferenceEClass, ACTION_REFERENCE__DESCRIPTION);
 		createEReference(actionReferenceEClass, ACTION_REFERENCE__ACTION);
+
+		actionEClass = createEClass(ACTION);
+
+		partitionEClass = createEClass(PARTITION);
 
 		// Create enums
 		actionRoleEEnum = createEEnum(ACTION_ROLE);
@@ -801,7 +852,7 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 
 		// Add supertypes to classes
 		actionSpecEClass.getESuperTypes().add(this.getLabelSpec());
-		g1 = createEGenericType(theCodegenPackage.getWorkFactory());
+		g1 = createEGenericType(theCodegenPackage.getGenerator());
 		EGenericType g2 = createEGenericType(labelEClass_T);
 		g1.getETypeArguments().add(g2);
 		labelEClass.getEGenericSuperTypes().add(g1);
@@ -824,7 +875,7 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 		g1.getETypeArguments().add(g2);
 		actionCategoryEClass.getEGenericSuperTypes().add(g1);
 		g1 = createEGenericType(this.getMapElement());
-		g2 = createEGenericType(this.getAction());
+		g2 = createEGenericType(this.getActionBase());
 		g1.getETypeArguments().add(g2);
 		actionCategoryEClass.getEGenericSuperTypes().add(g1);
 		g1 = createEGenericType(this.getActionElement());
@@ -834,17 +885,18 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 		g1 = createEGenericType(this.getLabel());
 		g2 = createEGenericType(this.getActionSpec());
 		g1.getETypeArguments().add(g2);
-		actionEClass.getEGenericSuperTypes().add(g1);
+		actionBaseEClass.getEGenericSuperTypes().add(g1);
 		g1 = createEGenericType(this.getAbstractAction());
-		actionEClass.getEGenericSuperTypes().add(g1);
+		actionBaseEClass.getEGenericSuperTypes().add(g1);
 		g1 = createEGenericType(this.getAbstractActionParent());
-		actionEClass.getEGenericSuperTypes().add(g1);
+		actionBaseEClass.getEGenericSuperTypes().add(g1);
 		g1 = createEGenericType(this.getContainer());
 		g2 = createEGenericType(this.getActionElement());
 		g1.getETypeArguments().add(g2);
-		actionEClass.getEGenericSuperTypes().add(g1);
+		actionBaseEClass.getEGenericSuperTypes().add(g1);
 		actionLinkEClass.getESuperTypes().add(this.getAbstractAction());
 		actionReferenceEClass.getESuperTypes().add(this.getAbstractAction());
+		actionEClass.getESuperTypes().add(this.getActionBase());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(labelSpecEClass, LabelSpec.class, "LabelSpec", IS_ABSTRACT, IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS);
@@ -858,11 +910,11 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 		initEClass(labelEClass, Label.class, "Label", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getLabel_Color(), this.getColor(), "color", null, 0, 1, Label.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getLabel_Id(), ecorePackage.getEString(), "id", null, 0, 1, Label.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getLabel_Notification(), ecorePackage.getEString(), "notification", null, 0, 1, Label.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getLabel_Text(), ecorePackage.getEString(), "text", null, 0, 1, Label.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getLabel_Description(), ecorePackage.getEString(), "description", null, 0, 1, Label.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getLabel_Icon(), ecorePackage.getEString(), "icon", null, 0, 1, Label.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getLabel_Tooltip(), ecorePackage.getEString(), "tooltip", null, 0, 1, Label.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getLabel_Outline(), ecorePackage.getEBoolean(), "outline", null, 0, 1, Label.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getLabel_Notification(), ecorePackage.getEString(), "notification", null, 0, 1, Label.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(categoryEClass, Category.class, "Category", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -878,22 +930,23 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 
 		initEClass(actionCategoryEClass, ActionCategory.class, "ActionCategory", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(actionEClass, Action.class, "Action", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getAction_ActionMappings(), this.getActionMapping(), null, "actionMappings", null, 0, -1, Action.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getAction_Role(), this.getActionRole(), "role", null, 0, 1, Action.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getAction_SectionStyle(), this.getSectionStyle(), "sectionStyle", null, 0, 1, Action.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getAction_Activator(), ecorePackage.getEString(), "activator", null, 0, 1, Action.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getAction_ActivatorType(), this.getActivatorType(), "activatorType", null, 0, 1, Action.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getAction_Confirmation(), ecorePackage.getEString(), "confirmation", null, 0, 1, Action.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getAction_Disabled(), ecorePackage.getEBoolean(), "disabled", null, 0, 1, Action.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getAction_FloatRight(), ecorePackage.getEBoolean(), "floatRight", null, 0, 1, Action.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getAction_Embedded(), ecorePackage.getEBoolean(), "embedded", null, 0, 1, Action.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(actionBaseEClass, ActionBase.class, "ActionBase", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getActionBase_ActionMappings(), this.getActionMapping(), null, "actionMappings", null, 0, -1, ActionBase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getActionBase_Role(), this.getActionRole(), "role", null, 0, 1, ActionBase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getActionBase_SectionStyle(), this.getSectionStyle(), "sectionStyle", null, 0, 1, ActionBase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getActionBase_SectionColumns(), ecorePackage.getEInt(), "sectionColumns", "1", 0, 1, ActionBase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getActionBase_Activator(), ecorePackage.getEString(), "activator", null, 0, 1, ActionBase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getActionBase_ActivatorType(), this.getActivatorType(), "activatorType", null, 0, 1, ActionBase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getActionBase_Confirmation(), ecorePackage.getEString(), "confirmation", null, 0, 1, ActionBase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getActionBase_Disabled(), ecorePackage.getEBoolean(), "disabled", null, 0, 1, ActionBase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getActionBase_FloatRight(), ecorePackage.getEBoolean(), "floatRight", null, 0, 1, ActionBase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getActionBase_Embedded(), ecorePackage.getEBoolean(), "embedded", null, 0, 1, ActionBase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		g1 = createEGenericType(theCodegenPackage.getWorkFactory());
 		g2 = createEGenericType(theCodegenPackage.getList());
 		g1.getETypeArguments().add(g2);
 		EGenericType g3 = createEGenericType(ecorePackage.getEString());
 		g2.getETypeArguments().add(g3);
-		initEReference(getAction_Content(), g1, null, "content", null, 0, -1, Action.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getActionBase_Content(), g1, null, "content", null, 0, -1, ActionBase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(actionMappingEClass, ActionMapping.class, "ActionMapping", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getActionMapping_Alias(), ecorePackage.getEString(), "alias", null, 1, 1, ActionMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -908,6 +961,10 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 		initEAttribute(getActionReference_Description(), ecorePackage.getEString(), "description", null, 0, 1, ActionReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getActionReference_Action(), this.getAbstractAction(), null, "action", null, 0, 1, ActionReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEClass(actionEClass, Action.class, "Action", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(partitionEClass, Partition.class, "Partition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
 		// Initialize enums and add enum literals
 		initEEnum(actionRoleEEnum, ActionRole.class, "ActionRole");
 		addEEnumLiteral(actionRoleEEnum, ActionRole.NAVIGATION);
@@ -917,11 +974,12 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 		addEEnumLiteral(actionRoleEEnum, ActionRole.EDIT);
 
 		initEEnum(sectionStyleEEnum, SectionStyle.class, "SectionStyle");
-		addEEnumLiteral(sectionStyleEEnum, SectionStyle.PARAGRAPHS);
-		addEEnumLiteral(sectionStyleEEnum, SectionStyle.TABS);
-		addEEnumLiteral(sectionStyleEEnum, SectionStyle.PILLS);
-		addEEnumLiteral(sectionStyleEEnum, SectionStyle.VERTICAL_PILLS);
+		addEEnumLiteral(sectionStyleEEnum, SectionStyle.PARAGRAPH);
+		addEEnumLiteral(sectionStyleEEnum, SectionStyle.TAB);
+		addEEnumLiteral(sectionStyleEEnum, SectionStyle.PILL);
+		addEEnumLiteral(sectionStyleEEnum, SectionStyle.VERTICAL_PILL);
 		addEEnumLiteral(sectionStyleEEnum, SectionStyle.ACTION_GROUP);
+		addEEnumLiteral(sectionStyleEEnum, SectionStyle.CARD);
 
 		initEEnum(activatorTypeEEnum, ActivatorType.class, "ActivatorType");
 		addEEnumLiteral(activatorTypeEEnum, ActivatorType.REFERENCE);

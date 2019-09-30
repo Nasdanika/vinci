@@ -40,6 +40,15 @@ public interface AppFactory extends EFactory {
 	Action createAction();
 
 	/**
+	 * Returns a new object of class '<em>Partition</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Partition</em>'.
+	 * @generated
+	 */
+	Partition createPartition();
+
+	/**
 	 * Returns a new object of class '<em>Action Mapping</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

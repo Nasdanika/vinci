@@ -18,6 +18,7 @@ import org.nasdanika.vinci.app.ActionRole;
 import org.nasdanika.vinci.app.ActivatorType;
 import org.nasdanika.vinci.app.AppFactory;
 import org.nasdanika.vinci.app.AppPackage;
+import org.nasdanika.vinci.app.Partition;
 import org.nasdanika.vinci.app.SectionStyle;
 
 /**
@@ -65,10 +66,11 @@ public class AppFactoryImpl extends EFactoryImpl implements AppFactory {
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
 			case AppPackage.ACTION_CATEGORY: return createActionCategory();
-			case AppPackage.ACTION: return createAction();
 			case AppPackage.ACTION_MAPPING: return createActionMapping();
 			case AppPackage.ACTION_LINK: return createActionLink();
 			case AppPackage.ACTION_REFERENCE: return createActionReference();
+			case AppPackage.ACTION: return createAction();
+			case AppPackage.PARTITION: return createPartition();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -136,6 +138,17 @@ public class AppFactoryImpl extends EFactoryImpl implements AppFactory {
 	public Action createAction() {
 		ActionImpl action = new ActionImpl();
 		return action;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Partition createPartition() {
+		PartitionImpl partition = new PartitionImpl();
+		return partition;
 	}
 
 	/**

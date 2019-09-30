@@ -22,46 +22,38 @@ import org.eclipse.emf.common.util.Enumerator;
  */
 public enum SectionStyle implements Enumerator {
 	/**
-	 * The '<em><b>Paragraphs</b></em>' literal object.
+	 * The '<em><b>Paragraph</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #PARAGRAPHS_VALUE
+	 * @see #PARAGRAPH_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	PARAGRAPHS(0, "Paragraphs", "Paragraphs"),
-
-	/**
-	 * The '<em><b>Tabs</b></em>' literal object.
+	PARAGRAPH(0, "Paragraph", "Paragraph"), /**
+	 * The '<em><b>Tab</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #TABS_VALUE
+	 * @see #TAB_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	TABS(1, "Tabs", "Tabs"),
-
-	/**
-	 * The '<em><b>Pills</b></em>' literal object.
+	TAB(1, "Tab", "Tab"), /**
+	 * The '<em><b>Pill</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #PILLS_VALUE
+	 * @see #PILL_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	PILLS(2, "Pills", "Pills"),
-
-	/**
-	 * The '<em><b>Vertical Pills</b></em>' literal object.
+	PILL(2, "Pill", "Pill"), /**
+	 * The '<em><b>Vertical Pill</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #VERTICAL_PILLS_VALUE
+	 * @see #VERTICAL_PILL_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	VERTICAL_PILLS(3, "VerticalPills", "Vertical Pills"),
-
-	/**
+	VERTICAL_PILL(3, "VerticalPill", "Vertical Pills"), /**
 	 * The '<em><b>Action Group</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -69,51 +61,59 @@ public enum SectionStyle implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ACTION_GROUP(4, "ActionGroup", "Action Group");
-
-	/**
-	 * The '<em><b>Paragraphs</b></em>' literal value.
+	ACTION_GROUP(4, "ActionGroup", "Action Group"), /**
+	 * The '<em><b>Card</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #PARAGRAPHS
-	 * @model name="Paragraphs"
+	 * @see #CARD_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	public static final int PARAGRAPHS_VALUE = 0;
+	CARD(5, "Card", "Card");
 
 	/**
-	 * The '<em><b>Tabs</b></em>' literal value.
+	 * The '<em><b>Paragraph</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #TABS
-	 * @model name="Tabs"
+	 * @see #PARAGRAPH
+	 * @model name="Paragraph"
 	 * @generated
 	 * @ordered
 	 */
-	public static final int TABS_VALUE = 1;
+	public static final int PARAGRAPH_VALUE = 0;
 
 	/**
-	 * The '<em><b>Pills</b></em>' literal value.
+	 * The '<em><b>Tab</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #PILLS
-	 * @model name="Pills"
+	 * @see #TAB
+	 * @model name="Tab"
 	 * @generated
 	 * @ordered
 	 */
-	public static final int PILLS_VALUE = 2;
+	public static final int TAB_VALUE = 1;
 
 	/**
-	 * The '<em><b>Vertical Pills</b></em>' literal value.
+	 * The '<em><b>Pill</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #VERTICAL_PILLS
-	 * @model name="VerticalPills" literal="Vertical Pills"
+	 * @see #PILL
+	 * @model name="Pill"
 	 * @generated
 	 * @ordered
 	 */
-	public static final int VERTICAL_PILLS_VALUE = 3;
+	public static final int PILL_VALUE = 2;
+
+	/**
+	 * The '<em><b>Vertical Pill</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #VERTICAL_PILL
+	 * @model name="VerticalPill" literal="Vertical Pills"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int VERTICAL_PILL_VALUE = 3;
 
 	/**
 	 * The '<em><b>Action Group</b></em>' literal value.
@@ -127,6 +127,17 @@ public enum SectionStyle implements Enumerator {
 	public static final int ACTION_GROUP_VALUE = 4;
 
 	/**
+	 * The '<em><b>Card</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #CARD
+	 * @model name="Card"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int CARD_VALUE = 5;
+
+	/**
 	 * An array of all the '<em><b>Section Style</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -134,11 +145,12 @@ public enum SectionStyle implements Enumerator {
 	 */
 	private static final SectionStyle[] VALUES_ARRAY =
 		new SectionStyle[] {
-			PARAGRAPHS,
-			TABS,
-			PILLS,
-			VERTICAL_PILLS,
+			PARAGRAPH,
+			TAB,
+			PILL,
+			VERTICAL_PILL,
 			ACTION_GROUP,
+			CARD,
 		};
 
 	/**
@@ -195,11 +207,12 @@ public enum SectionStyle implements Enumerator {
 	 */
 	public static SectionStyle get(int value) {
 		switch (value) {
-			case PARAGRAPHS_VALUE: return PARAGRAPHS;
-			case TABS_VALUE: return TABS;
-			case PILLS_VALUE: return PILLS;
-			case VERTICAL_PILLS_VALUE: return VERTICAL_PILLS;
+			case PARAGRAPH_VALUE: return PARAGRAPH;
+			case TAB_VALUE: return TAB;
+			case PILL_VALUE: return PILL;
+			case VERTICAL_PILL_VALUE: return VERTICAL_PILL;
 			case ACTION_GROUP_VALUE: return ACTION_GROUP;
+			case CARD_VALUE: return CARD;
 		}
 		return null;
 	}

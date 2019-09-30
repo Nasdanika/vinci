@@ -94,7 +94,7 @@ public class ActionReferenceItemProvider extends NasdanikaItemProviderAdapter im
 				 getString("_UI_PropertyDescriptor_description", "_UI_ActionReference_description_feature", "_UI_ActionReference_type"),
 				 AppPackage.Literals.ACTION_REFERENCE__DESCRIPTION,
 				 true,
-				 false,
+				 true,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
@@ -152,7 +152,7 @@ public class ActionReferenceItemProvider extends NasdanikaItemProviderAdapter im
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((ActionReference)object).getDescription();
+		String label = crop(((ActionReference)object).getDescription());
 		return label == null || label.length() == 0 ?
 			getString("_UI_ActionReference_type") :
 			getString("_UI_ActionReference_type") + " " + label;

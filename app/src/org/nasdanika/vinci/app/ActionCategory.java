@@ -17,5 +17,5 @@ package org.nasdanika.vinci.app;
  * @model
  * @generated
  */
-public interface ActionCategory extends Category<AbstractAction>, MapElement<Action>, ActionElement, AbstractActionParent {
+public interface ActionCategory extends Category<AbstractAction>, MapElement<ActionBase>, ActionElement, AbstractActionParent {
 } // ActionCategory

@@ -3,9 +3,7 @@
 package org.nasdanika.vinci.app.impl;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-import org.nasdanika.common.Context;
-import org.nasdanika.common.Work;
+import org.nasdanika.codegen.impl.GeneratorImpl;
 import org.nasdanika.html.bootstrap.Color;
 import org.nasdanika.vinci.app.AppPackage;
 import org.nasdanika.vinci.app.Label;
@@ -21,16 +19,16 @@ import org.nasdanika.vinci.app.LabelSpec;
  * <ul>
  *   <li>{@link org.nasdanika.vinci.app.impl.LabelImpl#getColor <em>Color</em>}</li>
  *   <li>{@link org.nasdanika.vinci.app.impl.LabelImpl#getId <em>Id</em>}</li>
- *   <li>{@link org.nasdanika.vinci.app.impl.LabelImpl#getNotification <em>Notification</em>}</li>
  *   <li>{@link org.nasdanika.vinci.app.impl.LabelImpl#getText <em>Text</em>}</li>
- *   <li>{@link org.nasdanika.vinci.app.impl.LabelImpl#getDescription <em>Description</em>}</li>
+ *   <li>{@link org.nasdanika.vinci.app.impl.LabelImpl#getIcon <em>Icon</em>}</li>
  *   <li>{@link org.nasdanika.vinci.app.impl.LabelImpl#getTooltip <em>Tooltip</em>}</li>
  *   <li>{@link org.nasdanika.vinci.app.impl.LabelImpl#isOutline <em>Outline</em>}</li>
+ *   <li>{@link org.nasdanika.vinci.app.impl.LabelImpl#getNotification <em>Notification</em>}</li>
  * </ul>
  *
  * @generated
  */
-public abstract class LabelImpl<T extends LabelSpec> extends MinimalEObjectImpl.Container implements Label<T> {
+public abstract class LabelImpl<T extends LabelSpec> extends GeneratorImpl<T> implements Label<T> {
 	/**
 	 * The default value of the '{@link #getColor() <em>Color</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -52,16 +50,6 @@ public abstract class LabelImpl<T extends LabelSpec> extends MinimalEObjectImpl.
 	protected static final String ID_EDEFAULT = null;
 
 	/**
-	 * The default value of the '{@link #getNotification() <em>Notification</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getNotification()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String NOTIFICATION_EDEFAULT = null;
-
-	/**
 	 * The default value of the '{@link #getText() <em>Text</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -72,14 +60,14 @@ public abstract class LabelImpl<T extends LabelSpec> extends MinimalEObjectImpl.
 	protected static final String TEXT_EDEFAULT = null;
 
 	/**
-	 * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
+	 * The default value of the '{@link #getIcon() <em>Icon</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getDescription()
+	 * @see #getIcon()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String DESCRIPTION_EDEFAULT = null;
+	protected static final String ICON_EDEFAULT = null;
 
 	/**
 	 * The default value of the '{@link #getTooltip() <em>Tooltip</em>}' attribute.
@@ -102,6 +90,16 @@ public abstract class LabelImpl<T extends LabelSpec> extends MinimalEObjectImpl.
 	protected static final boolean OUTLINE_EDEFAULT = false;
 
 	/**
+	 * The default value of the '{@link #getNotification() <em>Notification</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getNotification()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String NOTIFICATION_EDEFAULT = null;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -118,16 +116,6 @@ public abstract class LabelImpl<T extends LabelSpec> extends MinimalEObjectImpl.
 	@Override
 	protected EClass eStaticClass() {
 		return AppPackage.Literals.LABEL;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected int eStaticFeatureCount() {
-		return 0;
 	}
 
 	/**
@@ -216,8 +204,8 @@ public abstract class LabelImpl<T extends LabelSpec> extends MinimalEObjectImpl.
 	 * @generated
 	 */
 	@Override
-	public String getDescription() {
-		return (String)eDynamicGet(AppPackage.LABEL__DESCRIPTION, AppPackage.Literals.LABEL__DESCRIPTION, true, true);
+	public String getIcon() {
+		return (String)eDynamicGet(AppPackage.LABEL__ICON, AppPackage.Literals.LABEL__ICON, true, true);
 	}
 
 	/**
@@ -226,8 +214,8 @@ public abstract class LabelImpl<T extends LabelSpec> extends MinimalEObjectImpl.
 	 * @generated
 	 */
 	@Override
-	public void setDescription(String newDescription) {
-		eDynamicSet(AppPackage.LABEL__DESCRIPTION, AppPackage.Literals.LABEL__DESCRIPTION, newDescription);
+	public void setIcon(String newIcon) {
+		eDynamicSet(AppPackage.LABEL__ICON, AppPackage.Literals.LABEL__ICON, newIcon);
 	}
 
 	/**
@@ -282,16 +270,16 @@ public abstract class LabelImpl<T extends LabelSpec> extends MinimalEObjectImpl.
 				return getColor();
 			case AppPackage.LABEL__ID:
 				return getId();
-			case AppPackage.LABEL__NOTIFICATION:
-				return getNotification();
 			case AppPackage.LABEL__TEXT:
 				return getText();
-			case AppPackage.LABEL__DESCRIPTION:
-				return getDescription();
+			case AppPackage.LABEL__ICON:
+				return getIcon();
 			case AppPackage.LABEL__TOOLTIP:
 				return getTooltip();
 			case AppPackage.LABEL__OUTLINE:
 				return isOutline();
+			case AppPackage.LABEL__NOTIFICATION:
+				return getNotification();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -310,20 +298,20 @@ public abstract class LabelImpl<T extends LabelSpec> extends MinimalEObjectImpl.
 			case AppPackage.LABEL__ID:
 				setId((String)newValue);
 				return;
-			case AppPackage.LABEL__NOTIFICATION:
-				setNotification((String)newValue);
-				return;
 			case AppPackage.LABEL__TEXT:
 				setText((String)newValue);
 				return;
-			case AppPackage.LABEL__DESCRIPTION:
-				setDescription((String)newValue);
+			case AppPackage.LABEL__ICON:
+				setIcon((String)newValue);
 				return;
 			case AppPackage.LABEL__TOOLTIP:
 				setTooltip((String)newValue);
 				return;
 			case AppPackage.LABEL__OUTLINE:
 				setOutline((Boolean)newValue);
+				return;
+			case AppPackage.LABEL__NOTIFICATION:
+				setNotification((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -343,20 +331,20 @@ public abstract class LabelImpl<T extends LabelSpec> extends MinimalEObjectImpl.
 			case AppPackage.LABEL__ID:
 				setId(ID_EDEFAULT);
 				return;
-			case AppPackage.LABEL__NOTIFICATION:
-				setNotification(NOTIFICATION_EDEFAULT);
-				return;
 			case AppPackage.LABEL__TEXT:
 				setText(TEXT_EDEFAULT);
 				return;
-			case AppPackage.LABEL__DESCRIPTION:
-				setDescription(DESCRIPTION_EDEFAULT);
+			case AppPackage.LABEL__ICON:
+				setIcon(ICON_EDEFAULT);
 				return;
 			case AppPackage.LABEL__TOOLTIP:
 				setTooltip(TOOLTIP_EDEFAULT);
 				return;
 			case AppPackage.LABEL__OUTLINE:
 				setOutline(OUTLINE_EDEFAULT);
+				return;
+			case AppPackage.LABEL__NOTIFICATION:
+				setNotification(NOTIFICATION_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -374,24 +362,19 @@ public abstract class LabelImpl<T extends LabelSpec> extends MinimalEObjectImpl.
 				return COLOR_EDEFAULT == null ? getColor() != null : !COLOR_EDEFAULT.equals(getColor());
 			case AppPackage.LABEL__ID:
 				return ID_EDEFAULT == null ? getId() != null : !ID_EDEFAULT.equals(getId());
-			case AppPackage.LABEL__NOTIFICATION:
-				return NOTIFICATION_EDEFAULT == null ? getNotification() != null : !NOTIFICATION_EDEFAULT.equals(getNotification());
 			case AppPackage.LABEL__TEXT:
 				return TEXT_EDEFAULT == null ? getText() != null : !TEXT_EDEFAULT.equals(getText());
-			case AppPackage.LABEL__DESCRIPTION:
-				return DESCRIPTION_EDEFAULT == null ? getDescription() != null : !DESCRIPTION_EDEFAULT.equals(getDescription());
+			case AppPackage.LABEL__ICON:
+				return ICON_EDEFAULT == null ? getIcon() != null : !ICON_EDEFAULT.equals(getIcon());
 			case AppPackage.LABEL__TOOLTIP:
 				return TOOLTIP_EDEFAULT == null ? getTooltip() != null : !TOOLTIP_EDEFAULT.equals(getTooltip());
 			case AppPackage.LABEL__OUTLINE:
 				return isOutline() != OUTLINE_EDEFAULT;
+			case AppPackage.LABEL__NOTIFICATION:
+				return NOTIFICATION_EDEFAULT == null ? getNotification() != null : !NOTIFICATION_EDEFAULT.equals(getNotification());
 		}
 		return super.eIsSet(featureID);
 	}
-	
-	@Override
-	public Work<T> createWork(Context context) throws Exception {
-		throw new UnsupportedOperationException();
-	}
-	
+		
 
 } //LabelImpl

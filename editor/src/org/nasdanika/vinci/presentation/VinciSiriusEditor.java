@@ -121,6 +121,7 @@ import org.eclipse.ui.views.properties.tabbed.ITabbedPropertySheetPageContributo
  * <!-- end-user-doc -->
  * @generated NOT
  */
+@SuppressWarnings("restriction")
 public class VinciSiriusEditor
 	extends MultiPageEditorPart
 	implements
@@ -1403,7 +1404,7 @@ public class VinciSiriusEditor
 			if (contributedPage != null) {
 				// Only display the property page of semantic element
 				if (hasSemanticElementSelected(event)) {
-					contributedPage.selectionChanged( VinciSiriusEditor.this /*getViewSite().getPart()*/, event.getSelection());
+					contributedPage.selectionChanged(VinciSiriusEditor.this /*getViewSite().getPart()*/, event.getSelection());
 				} else {
 					contributedPage.selectionChanged(VinciSiriusEditor.this /*getViewSite().getPart()*/, new StructuredSelection(Collections.emptyList()));
 				}
@@ -1418,7 +1419,7 @@ public class VinciSiriusEditor
 		 * @return <code>true</code> if the selection has at least one semantic element,<code>false</code> otherwise
 		 */
 		private boolean hasSemanticElementSelected(SelectionChangedEvent event) {
-			return true/* Find the semantic element from the selection */;
+			return true; // Find the semantic element from the selection
 		}
 	}
     

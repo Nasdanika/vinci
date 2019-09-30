@@ -54,19 +54,14 @@
         <details key="documentation" value=""/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="notification" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value=""/>
-      </eAnnotations>
-    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value=""/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="icon" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value=""/>
+        <details key="documentation" value="Label icon. Treated as URL if contains ``/`` or as a CSS class otherwise. E.g. ``fas fa-wrench`` would be treated as a CSS class."/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="tooltip" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
@@ -79,7 +74,12 @@
         <details key="documentation" value=""/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eGenericSuperTypes eClassifier="ecore:EClass ../../org.nasdanika.codegen/model/codegen.ecore#//WorkFactory">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="notification" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value=""/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eGenericSuperTypes eClassifier="ecore:EClass ../../org.nasdanika.codegen/model/codegen.ecore#//Generator">
       <eTypeArguments eTypeParameter="#//Label/T"/>
     </eGenericSuperTypes>
   </eClassifiers>
@@ -139,14 +139,14 @@
       <eTypeArguments eClassifier="#//AbstractAction"/>
     </eGenericSuperTypes>
     <eGenericSuperTypes eClassifier="#//MapElement">
-      <eTypeArguments eClassifier="#//Action"/>
+      <eTypeArguments eClassifier="#//ActionBase"/>
     </eGenericSuperTypes>
     <eGenericSuperTypes eClassifier="#//ActionElement"/>
     <eGenericSuperTypes eClassifier="#//AbstractActionParent"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Action">
+  <eClassifiers xsi:type="ecore:EClass" name="ActionBase" abstract="true">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="Action can be a child of another action or of an action category. It may contain content and action elements - abstract actions and action categories. It may also contain action aliases - logical names of actions referenced by this action's content."/>
+      <details key="documentation" value="Base class for concrete action classes - Action and Partition. These sub-classes are semantically equivalent and differ only in diagram representation - Action is represented by a node, Partition by a container node.&#xA;Action can be a child of another action or of an action category. It may contain content and action elements - abstract actions and action categories. It may also contain action aliases - logical names of actions referenced by this action's content."/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="actionMappings" upperBound="-1"
         eType="#//ActionMapping" containment="true">
@@ -160,6 +160,12 @@
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="sectionStyle" eType="#//SectionStyle"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sectionColumns" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        defaultValueLiteral="1">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Applicable to section style &quot;Card&quot;. Defines how many columns shall be in a row of section cards."/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="activator" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="activatorType" eType="#//ActivatorType"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="confirmation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
@@ -271,11 +277,12 @@
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Defines how section child actions shall be displayed."/>
     </eAnnotations>
-    <eLiterals name="Paragraphs"/>
-    <eLiterals name="Tabs" value="1"/>
-    <eLiterals name="Pills" value="2"/>
-    <eLiterals name="VerticalPills" value="3" literal="Vertical Pills"/>
+    <eLiterals name="Paragraph"/>
+    <eLiterals name="Tab" value="1"/>
+    <eLiterals name="Pill" value="2"/>
+    <eLiterals name="VerticalPill" value="3" literal="Vertical Pills"/>
     <eLiterals name="ActionGroup" value="4" literal="Action Group"/>
+    <eLiterals name="Card" value="5"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="ActivatorType">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -296,5 +303,15 @@
         <details key="documentation" value="Activator is a script executed to bind action to its activator, e.g. set knockoutjs data-bind attribute."/>
       </eAnnotations>
     </eLiterals>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Action" eSuperTypes="#//ActionBase">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Concrete action."/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Partition">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Concrete action class represented as a container node on a diagram containing actions and other partitions."/>
+    </eAnnotations>
   </eClassifiers>
 </ecore:EPackage>

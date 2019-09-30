@@ -5,10 +5,12 @@ package org.nasdanika.vinci.app.util;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
+import org.nasdanika.codegen.Generator;
 import org.nasdanika.common.WorkFactory;
 import org.nasdanika.vinci.app.AbstractAction;
 import org.nasdanika.vinci.app.AbstractActionParent;
 import org.nasdanika.vinci.app.Action;
+import org.nasdanika.vinci.app.ActionBase;
 import org.nasdanika.vinci.app.ActionCategory;
 import org.nasdanika.vinci.app.ActionElement;
 import org.nasdanika.vinci.app.ActionLink;
@@ -21,6 +23,7 @@ import org.nasdanika.vinci.app.Container;
 import org.nasdanika.vinci.app.Label;
 import org.nasdanika.vinci.app.LabelSpec;
 import org.nasdanika.vinci.app.MapElement;
+import org.nasdanika.vinci.app.Partition;
 
 /**
  * <!-- begin-user-doc -->
@@ -101,6 +104,7 @@ public class AppSwitch<T1> extends Switch<T1> {
 			case AppPackage.LABEL: {
 				Label<?> label = (Label<?>)theEObject;
 				T1 result = caseLabel(label);
+				if (result == null) result = caseGenerator(label);
 				if (result == null) result = caseWorkFactory(label);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -110,6 +114,7 @@ public class AppSwitch<T1> extends Switch<T1> {
 				T1 result = caseCategory(category);
 				if (result == null) result = caseLabel(category);
 				if (result == null) result = caseContainer(category);
+				if (result == null) result = caseGenerator(category);
 				if (result == null) result = caseWorkFactory(category);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -149,20 +154,22 @@ public class AppSwitch<T1> extends Switch<T1> {
 				if (result == null) result = caseAbstractActionParent(actionCategory);
 				if (result == null) result = caseLabel(actionCategory);
 				if (result == null) result = caseContainer(actionCategory);
+				if (result == null) result = caseGenerator(actionCategory);
 				if (result == null) result = caseWorkFactory(actionCategory);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case AppPackage.ACTION: {
-				Action action = (Action)theEObject;
-				T1 result = caseAction(action);
-				if (result == null) result = caseLabel(action);
-				if (result == null) result = caseAbstractAction(action);
-				if (result == null) result = caseAbstractActionParent(action);
-				if (result == null) result = caseContainer(action);
-				if (result == null) result = caseWorkFactory(action);
-				if (result == null) result = caseActionElement(action);
-				if (result == null) result = caseMapElement(action);
+			case AppPackage.ACTION_BASE: {
+				ActionBase actionBase = (ActionBase)theEObject;
+				T1 result = caseActionBase(actionBase);
+				if (result == null) result = caseLabel(actionBase);
+				if (result == null) result = caseAbstractAction(actionBase);
+				if (result == null) result = caseAbstractActionParent(actionBase);
+				if (result == null) result = caseContainer(actionBase);
+				if (result == null) result = caseGenerator(actionBase);
+				if (result == null) result = caseActionElement(actionBase);
+				if (result == null) result = caseMapElement(actionBase);
+				if (result == null) result = caseWorkFactory(actionBase);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -187,6 +194,27 @@ public class AppSwitch<T1> extends Switch<T1> {
 				if (result == null) result = caseAbstractAction(actionReference);
 				if (result == null) result = caseActionElement(actionReference);
 				if (result == null) result = caseMapElement(actionReference);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case AppPackage.ACTION: {
+				Action action = (Action)theEObject;
+				T1 result = caseAction(action);
+				if (result == null) result = caseActionBase(action);
+				if (result == null) result = caseLabel(action);
+				if (result == null) result = caseAbstractAction(action);
+				if (result == null) result = caseAbstractActionParent(action);
+				if (result == null) result = caseContainer(action);
+				if (result == null) result = caseGenerator(action);
+				if (result == null) result = caseActionElement(action);
+				if (result == null) result = caseMapElement(action);
+				if (result == null) result = caseWorkFactory(action);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case AppPackage.PARTITION: {
+				Partition partition = (Partition)theEObject;
+				T1 result = casePartition(partition);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -236,6 +264,21 @@ public class AppSwitch<T1> extends Switch<T1> {
 	 * @generated
 	 */
 	public T1 caseAction(Action object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Partition</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Partition</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 casePartition(Partition object) {
 		return null;
 	}
 
@@ -360,6 +403,21 @@ public class AppSwitch<T1> extends Switch<T1> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Action Base</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Action Base</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseActionBase(ActionBase object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Label Spec</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -416,6 +474,21 @@ public class AppSwitch<T1> extends Switch<T1> {
 	 * @generated
 	 */
 	public <T> T1 caseWorkFactory(WorkFactory<T> object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Generator</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Generator</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public <T> T1 caseGenerator(Generator<T> object) {
 		return null;
 	}
 

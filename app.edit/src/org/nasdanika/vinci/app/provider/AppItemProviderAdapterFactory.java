@@ -116,6 +116,29 @@ public class AppItemProviderAdapterFactory extends AppAdapterFactory implements 
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.nasdanika.vinci.app.Partition} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected PartitionItemProvider partitionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.nasdanika.vinci.app.Partition}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createPartitionAdapter() {
+		if (partitionItemProvider == null) {
+			partitionItemProvider = new PartitionItemProvider(this);
+		}
+
+		return partitionItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link org.nasdanika.vinci.app.ActionMapping} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -290,10 +313,11 @@ public class AppItemProviderAdapterFactory extends AppAdapterFactory implements 
 	@Override
 	public void dispose() {
 		if (actionCategoryItemProvider != null) actionCategoryItemProvider.dispose();
-		if (actionItemProvider != null) actionItemProvider.dispose();
 		if (actionMappingItemProvider != null) actionMappingItemProvider.dispose();
 		if (actionLinkItemProvider != null) actionLinkItemProvider.dispose();
 		if (actionReferenceItemProvider != null) actionReferenceItemProvider.dispose();
+		if (actionItemProvider != null) actionItemProvider.dispose();
+		if (partitionItemProvider != null) partitionItemProvider.dispose();
 	}
 
 }
