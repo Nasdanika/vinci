@@ -10,7 +10,7 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.nasdanika.codegen.CodegenPackage;
-import org.nasdanika.vinci.app.Action;
+import org.nasdanika.vinci.app.ActionBase;
 import org.nasdanika.vinci.app.AppPackage;
 
 /**
@@ -74,7 +74,10 @@ public class ActionItemProvider extends ActionBaseItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Action)object).getText();
+		String label = ((ActionBase)object).getTitle();
+		if (isBlank(label)) {
+			label = ((ActionBase)object).getText();
+		}
 		return label == null || label.length() == 0 ?
 			getString("_UI_Action_type") :
 			getString("_UI_Action_type") + " " + label;
@@ -86,11 +89,11 @@ public class ActionItemProvider extends ActionBaseItemProvider {
 	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public void notifyChanged(Notification notification) {
-		updateChildren(notification);
+		super.notifyChanged(notification);
 	}
 
 	/**

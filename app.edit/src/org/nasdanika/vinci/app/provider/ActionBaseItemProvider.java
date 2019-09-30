@@ -331,14 +331,15 @@ public class ActionBaseItemProvider extends LabelItemProvider {
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((ActionBase)object).getId();
-		return label == null || label.length() == 0 ?
-			getString("_UI_ActionBase_type") :
-			getString("_UI_ActionBase_type") + " " + label;
+		String label = ((ActionBase)object).getTitle();
+		if (isBlank(label)) {
+			label = ((ActionBase)object).getText();
+		}
+		return label == null || label.length() == 0 ? getString("_UI_ActionBase_type") : getString("_UI_ActionBase_type") + " " + label;
 	}
 
 
@@ -574,6 +575,11 @@ public class ActionBaseItemProvider extends LabelItemProvider {
 			(createChildParameter
 				(AppPackage.Literals.ACTION_BASE__CONTENT,
 				 AppFactory.eINSTANCE.createAction()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(AppPackage.Literals.ACTION_BASE__CONTENT,
+				 AppFactory.eINSTANCE.createPartition()));
 
 		newChildDescriptors.add
 			(createChildParameter

@@ -1717,13 +1717,301 @@ public interface AppPackage extends EPackage {
 	int ACTION_OPERATION_COUNT = ACTION_BASE_OPERATION_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARTITION__TITLE = ACTION_BASE__TITLE;
+
+	/**
+	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARTITION__ENABLED = ACTION_BASE__ENABLED;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARTITION__DESCRIPTION = ACTION_BASE__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Configuration</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARTITION__CONFIGURATION = ACTION_BASE__CONFIGURATION;
+
+	/**
+	 * The feature id for the '<em><b>Configuration Reference</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARTITION__CONFIGURATION_REFERENCE = ACTION_BASE__CONFIGURATION_REFERENCE;
+
+	/**
+	 * The feature id for the '<em><b>Context Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARTITION__CONTEXT_PATH = ACTION_BASE__CONTEXT_PATH;
+
+	/**
+	 * The feature id for the '<em><b>Predicate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARTITION__PREDICATE = ACTION_BASE__PREDICATE;
+
+	/**
+	 * The feature id for the '<em><b>Controller</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARTITION__CONTROLLER = ACTION_BASE__CONTROLLER;
+
+	/**
+	 * The feature id for the '<em><b>Controller Arguments</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARTITION__CONTROLLER_ARGUMENTS = ACTION_BASE__CONTROLLER_ARGUMENTS;
+
+	/**
+	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARTITION__NAMED_GENERATORS = ACTION_BASE__NAMED_GENERATORS;
+
+	/**
+	 * The feature id for the '<em><b>Color</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARTITION__COLOR = ACTION_BASE__COLOR;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARTITION__ID = ACTION_BASE__ID;
+
+	/**
+	 * The feature id for the '<em><b>Text</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARTITION__TEXT = ACTION_BASE__TEXT;
+
+	/**
+	 * The feature id for the '<em><b>Icon</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARTITION__ICON = ACTION_BASE__ICON;
+
+	/**
+	 * The feature id for the '<em><b>Tooltip</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARTITION__TOOLTIP = ACTION_BASE__TOOLTIP;
+
+	/**
+	 * The feature id for the '<em><b>Outline</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARTITION__OUTLINE = ACTION_BASE__OUTLINE;
+
+	/**
+	 * The feature id for the '<em><b>Notification</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARTITION__NOTIFICATION = ACTION_BASE__NOTIFICATION;
+
+	/**
+	 * The feature id for the '<em><b>Parent</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARTITION__PARENT = ACTION_BASE__PARENT;
+
+	/**
+	 * The feature id for the '<em><b>Elements</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARTITION__ELEMENTS = ACTION_BASE__ELEMENTS;
+
+	/**
+	 * The feature id for the '<em><b>Action Mappings</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARTITION__ACTION_MAPPINGS = ACTION_BASE__ACTION_MAPPINGS;
+
+	/**
+	 * The feature id for the '<em><b>Role</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARTITION__ROLE = ACTION_BASE__ROLE;
+
+	/**
+	 * The feature id for the '<em><b>Section Style</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARTITION__SECTION_STYLE = ACTION_BASE__SECTION_STYLE;
+
+	/**
+	 * The feature id for the '<em><b>Section Columns</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARTITION__SECTION_COLUMNS = ACTION_BASE__SECTION_COLUMNS;
+
+	/**
+	 * The feature id for the '<em><b>Activator</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARTITION__ACTIVATOR = ACTION_BASE__ACTIVATOR;
+
+	/**
+	 * The feature id for the '<em><b>Activator Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARTITION__ACTIVATOR_TYPE = ACTION_BASE__ACTIVATOR_TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Confirmation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARTITION__CONFIRMATION = ACTION_BASE__CONFIRMATION;
+
+	/**
+	 * The feature id for the '<em><b>Disabled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARTITION__DISABLED = ACTION_BASE__DISABLED;
+
+	/**
+	 * The feature id for the '<em><b>Float Right</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARTITION__FLOAT_RIGHT = ACTION_BASE__FLOAT_RIGHT;
+
+	/**
+	 * The feature id for the '<em><b>Embedded</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARTITION__EMBEDDED = ACTION_BASE__EMBEDDED;
+
+	/**
+	 * The feature id for the '<em><b>Content</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARTITION__CONTENT = ACTION_BASE__CONTENT;
+
+	/**
 	 * The number of structural features of the '<em>Partition</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PARTITION_FEATURE_COUNT = 0;
+	int PARTITION_FEATURE_COUNT = ACTION_BASE_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Is Filterable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARTITION___IS_FILTERABLE = ACTION_BASE___IS_FILTERABLE;
+
+	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARTITION___VALIDATE__DIAGNOSTICCHAIN_MAP = ACTION_BASE___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
 	 * The number of operations of the '<em>Partition</em>' class.
@@ -1732,7 +2020,7 @@ public interface AppPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARTITION_OPERATION_COUNT = 0;
+	int PARTITION_OPERATION_COUNT = ACTION_BASE_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.vinci.app.ActionRole <em>Action Role</em>}' enum.

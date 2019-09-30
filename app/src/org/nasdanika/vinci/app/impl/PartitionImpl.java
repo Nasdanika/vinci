@@ -3,7 +3,6 @@
 package org.nasdanika.vinci.app.impl;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.nasdanika.vinci.app.AppPackage;
 import org.nasdanika.vinci.app.Partition;
 
@@ -14,7 +13,7 @@ import org.nasdanika.vinci.app.Partition;
  *
  * @generated
  */
-public class PartitionImpl extends MinimalEObjectImpl.Container implements Partition {
+public class PartitionImpl extends ActionBaseImpl implements Partition {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -32,16 +31,6 @@ public class PartitionImpl extends MinimalEObjectImpl.Container implements Parti
 	@Override
 	protected EClass eStaticClass() {
 		return AppPackage.Literals.PARTITION;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected int eStaticFeatureCount() {
-		return 0;
 	}
 
 } //PartitionImpl

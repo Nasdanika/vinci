@@ -897,6 +897,7 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 		actionLinkEClass.getESuperTypes().add(this.getAbstractAction());
 		actionReferenceEClass.getESuperTypes().add(this.getAbstractAction());
 		actionEClass.getESuperTypes().add(this.getActionBase());
+		partitionEClass.getESuperTypes().add(this.getActionBase());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(labelSpecEClass, LabelSpec.class, "LabelSpec", IS_ABSTRACT, IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS);

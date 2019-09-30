@@ -2,8 +2,6 @@
  */
 package org.nasdanika.vinci.app;
 
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Partition</b></em>'.
@@ -18,5 +16,5 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface Partition extends EObject {
+public interface Partition extends ActionBase {
 } // Partition

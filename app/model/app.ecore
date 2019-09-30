@@ -309,7 +309,7 @@
       <details key="documentation" value="Concrete action."/>
     </eAnnotations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Partition">
+  <eClassifiers xsi:type="ecore:EClass" name="Partition" eSuperTypes="#//ActionBase">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Concrete action class represented as a container node on a diagram containing actions and other partitions."/>
     </eAnnotations>

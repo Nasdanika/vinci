@@ -7,6 +7,7 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
 import org.nasdanika.codegen.Generator;
 import org.nasdanika.common.WorkFactory;
+import org.nasdanika.vinci.app.*;
 import org.nasdanika.vinci.app.AbstractAction;
 import org.nasdanika.vinci.app.AbstractActionParent;
 import org.nasdanika.vinci.app.Action;
@@ -215,6 +216,15 @@ public class AppSwitch<T1> extends Switch<T1> {
 			case AppPackage.PARTITION: {
 				Partition partition = (Partition)theEObject;
 				T1 result = casePartition(partition);
+				if (result == null) result = caseActionBase(partition);
+				if (result == null) result = caseLabel(partition);
+				if (result == null) result = caseAbstractAction(partition);
+				if (result == null) result = caseAbstractActionParent(partition);
+				if (result == null) result = caseContainer(partition);
+				if (result == null) result = caseGenerator(partition);
+				if (result == null) result = caseActionElement(partition);
+				if (result == null) result = caseMapElement(partition);
+				if (result == null) result = caseWorkFactory(partition);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
