@@ -33,6 +33,12 @@
       </eAnnotations>
       <eGenericType eTypeParameter="#//Container/E"/>
     </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="linkedElements" upperBound="-1">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Elements contained by another objects and logically linked to this container."/>
+      </eAnnotations>
+      <eGenericType eTypeParameter="#//Container/E"/>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Label" abstract="true">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -95,41 +101,16 @@
       <eTypeArguments eTypeParameter="#//Category/E"/>
     </eGenericSuperTypes>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="MapElement" abstract="true" interface="true">
-    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="Map element is used for &quot;logical&quot; parenting of elements which overrides containment &quot;physical&quot; parenting. In other words if parent is null then eContainer() is the parent."/>
-    </eAnnotations>
-    <eTypeParameters name="P">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value=""/>
-      </eAnnotations>
-    </eTypeParameters>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="parent">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value=""/>
-      </eAnnotations>
-      <eGenericType eTypeParameter="#//MapElement/P"/>
-    </eStructuralFeatures>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="AbstractActionParent" abstract="true"
-      interface="true">
-    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="A parent of an abstract action - action or action category."/>
-    </eAnnotations>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ActionElement" abstract="true" interface="true">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="An element which can be contained by an action - action category or abstract action."/>
     </eAnnotations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="AbstractAction" abstract="true" interface="true">
+  <eClassifiers xsi:type="ecore:EClass" name="AbstractAction" abstract="true" interface="true"
+      eSuperTypes="#//ActionElement">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Base class for different types of actions - action, action link, and action reference."/>
     </eAnnotations>
-    <eGenericSuperTypes eClassifier="#//ActionElement"/>
-    <eGenericSuperTypes eClassifier="#//MapElement">
-      <eTypeArguments eClassifier="#//AbstractActionParent"/>
-    </eGenericSuperTypes>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ActionCategory">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -138,11 +119,7 @@
     <eGenericSuperTypes eClassifier="#//Category">
       <eTypeArguments eClassifier="#//AbstractAction"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="#//MapElement">
-      <eTypeArguments eClassifier="#//ActionBase"/>
-    </eGenericSuperTypes>
     <eGenericSuperTypes eClassifier="#//ActionElement"/>
-    <eGenericSuperTypes eClassifier="#//AbstractActionParent"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ActionBase" abstract="true">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -203,7 +180,6 @@
       <eTypeArguments eClassifier="#//ActionSpec"/>
     </eGenericSuperTypes>
     <eGenericSuperTypes eClassifier="#//AbstractAction"/>
-    <eGenericSuperTypes eClassifier="#//AbstractActionParent"/>
     <eGenericSuperTypes eClassifier="#//Container">
       <eTypeArguments eClassifier="#//ActionElement"/>
     </eGenericSuperTypes>

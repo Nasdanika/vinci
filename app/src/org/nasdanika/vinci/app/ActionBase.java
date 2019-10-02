@@ -35,10 +35,10 @@ import org.nasdanika.common.WorkFactory;
  * </ul>
  *
  * @see org.nasdanika.vinci.app.AppPackage#getActionBase()
- * @model abstract="true" superTypes="org.nasdanika.vinci.app.Label&lt;org.nasdanika.vinci.app.ActionSpec&gt; org.nasdanika.vinci.app.AbstractAction org.nasdanika.vinci.app.AbstractActionParent org.nasdanika.vinci.app.Container&lt;org.nasdanika.vinci.app.ActionElement&gt;"
+ * @model abstract="true" superTypes="org.nasdanika.vinci.app.Label&lt;org.nasdanika.vinci.app.ActionSpec&gt; org.nasdanika.vinci.app.AbstractAction org.nasdanika.vinci.app.Container&lt;org.nasdanika.vinci.app.ActionElement&gt;"
  * @generated
  */
-public interface ActionBase extends Label<ActionSpec>, AbstractAction, AbstractActionParent, Container<ActionElement> {
+public interface ActionBase extends Label<ActionSpec>, AbstractAction, Container<ActionElement> {
 	/**
 	 * Returns the value of the '<em><b>Action Mappings</b></em>' containment reference list.
 	 * The list contents are of type {@link org.nasdanika.vinci.app.ActionMapping}.

@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link org.nasdanika.vinci.app.Container#getElements <em>Elements</em>}</li>
+ *   <li>{@link org.nasdanika.vinci.app.Container#getLinkedElements <em>Linked Elements</em>}</li>
  * </ul>
  *
  * @see org.nasdanika.vinci.app.AppPackage#getContainer()
@@ -39,5 +40,19 @@ public interface Container<E> extends EObject {
 	 * @generated
 	 */
 	EList<E> getElements();
+
+	/**
+	 * Returns the value of the '<em><b>Linked Elements</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Elements contained by another objects and logically linked to this container.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Linked Elements</em>' reference list.
+	 * @see org.nasdanika.vinci.app.AppPackage#getContainer_LinkedElements()
+	 * @model kind="reference"
+	 * @generated
+	 */
+	EList<E> getLinkedElements();
 
 } // Container

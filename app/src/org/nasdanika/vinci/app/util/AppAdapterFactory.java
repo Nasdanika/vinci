@@ -8,23 +8,7 @@ import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
 import org.nasdanika.codegen.Generator;
 import org.nasdanika.common.WorkFactory;
-import org.nasdanika.vinci.app.AbstractAction;
-import org.nasdanika.vinci.app.AbstractActionParent;
-import org.nasdanika.vinci.app.Action;
-import org.nasdanika.vinci.app.ActionBase;
-import org.nasdanika.vinci.app.ActionCategory;
-import org.nasdanika.vinci.app.ActionElement;
-import org.nasdanika.vinci.app.ActionLink;
-import org.nasdanika.vinci.app.ActionMapping;
-import org.nasdanika.vinci.app.ActionReference;
-import org.nasdanika.vinci.app.ActionSpec;
-import org.nasdanika.vinci.app.AppPackage;
-import org.nasdanika.vinci.app.Category;
-import org.nasdanika.vinci.app.Container;
-import org.nasdanika.vinci.app.Label;
-import org.nasdanika.vinci.app.LabelSpec;
-import org.nasdanika.vinci.app.MapElement;
-import org.nasdanika.vinci.app.Partition;
+import org.nasdanika.vinci.app.*;
 
 /**
  * <!-- begin-user-doc -->
@@ -101,14 +85,6 @@ public class AppAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public <E> Adapter caseCategory(Category<E> object) {
 				return createCategoryAdapter();
-			}
-			@Override
-			public <P> Adapter caseMapElement(MapElement<P> object) {
-				return createMapElementAdapter();
-			}
-			@Override
-			public Adapter caseAbstractActionParent(AbstractActionParent object) {
-				return createAbstractActionParentAdapter();
 			}
 			@Override
 			public Adapter caseActionElement(ActionElement object) {
@@ -269,34 +245,6 @@ public class AppAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createActionReferenceAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.nasdanika.vinci.app.MapElement <em>Map Element</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.nasdanika.vinci.app.MapElement
-	 * @generated
-	 */
-	public Adapter createMapElementAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.nasdanika.vinci.app.AbstractActionParent <em>Abstract Action Parent</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.nasdanika.vinci.app.AbstractActionParent
-	 * @generated
-	 */
-	public Adapter createAbstractActionParentAdapter() {
 		return null;
 	}
 

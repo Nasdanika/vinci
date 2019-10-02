@@ -51,7 +51,7 @@ public class ActionBaseItemProvider extends LabelItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addParentPropertyDescriptor(object);
+			addLinkedElementsPropertyDescriptor(object);
 			addRolePropertyDescriptor(object);
 			addSectionStylePropertyDescriptor(object);
 			addSectionColumnsPropertyDescriptor(object);
@@ -66,19 +66,19 @@ public class ActionBaseItemProvider extends LabelItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Parent feature.
+	 * This adds a property descriptor for the Linked Elements feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addParentPropertyDescriptor(Object object) {
+	protected void addLinkedElementsPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_MapElement_parent_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_MapElement_parent_feature", "_UI_MapElement_type"),
-				 AppPackage.Literals.MAP_ELEMENT__PARENT,
+				 getString("_UI_Container_linkedElements_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Container_linkedElements_feature", "_UI_Container_type"),
+				 AppPackage.Literals.CONTAINER__LINKED_ELEMENTS,
 				 true,
 				 false,
 				 true,

@@ -16,7 +16,6 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.html.bootstrap.Color;
 import org.nasdanika.vinci.app.AbstractAction;
-import org.nasdanika.vinci.app.AbstractActionParent;
 import org.nasdanika.vinci.app.Action;
 import org.nasdanika.vinci.app.ActionBase;
 import org.nasdanika.vinci.app.ActionCategory;
@@ -32,7 +31,6 @@ import org.nasdanika.vinci.app.AppPackage;
 import org.nasdanika.vinci.app.Category;
 import org.nasdanika.vinci.app.Label;
 import org.nasdanika.vinci.app.LabelSpec;
-import org.nasdanika.vinci.app.MapElement;
 import org.nasdanika.vinci.app.Partition;
 import org.nasdanika.vinci.app.SectionStyle;
 
@@ -112,20 +110,6 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 	 * @generated
 	 */
 	private EEnum activatorTypeEEnum = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass mapElementEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass abstractActionParentEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -493,36 +477,6 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 	 * @generated
 	 */
 	@Override
-	public EClass getMapElement() {
-		return mapElementEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getMapElement_Parent() {
-		return (EReference)mapElementEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EClass getAbstractActionParent() {
-		return abstractActionParentEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EClass getActionElement() {
 		return actionElementEClass;
 	}
@@ -713,6 +667,16 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 	 * @generated
 	 */
 	@Override
+	public EReference getContainer_LinkedElements() {
+		return (EReference)containerEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EDataType getColor() {
 		return colorEDataType;
 	}
@@ -752,6 +716,7 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 
 		containerEClass = createEClass(CONTAINER);
 		createEReference(containerEClass, CONTAINER__ELEMENTS);
+		createEReference(containerEClass, CONTAINER__LINKED_ELEMENTS);
 
 		labelEClass = createEClass(LABEL);
 		createEAttribute(labelEClass, LABEL__COLOR);
@@ -763,11 +728,6 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 		createEAttribute(labelEClass, LABEL__NOTIFICATION);
 
 		categoryEClass = createEClass(CATEGORY);
-
-		mapElementEClass = createEClass(MAP_ELEMENT);
-		createEReference(mapElementEClass, MAP_ELEMENT__PARENT);
-
-		abstractActionParentEClass = createEClass(ABSTRACT_ACTION_PARENT);
 
 		actionElementEClass = createEClass(ACTION_ELEMENT);
 
@@ -844,7 +804,6 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 		ETypeParameter containerEClass_E = addETypeParameter(containerEClass, "E");
 		ETypeParameter labelEClass_T = addETypeParameter(labelEClass, "T");
 		ETypeParameter categoryEClass_E = addETypeParameter(categoryEClass, "E");
-		ETypeParameter mapElementEClass_P = addETypeParameter(mapElementEClass, "P");
 
 		// Set bounds for type parameters
 		EGenericType g1 = createEGenericType(this.getLabelSpec());
@@ -864,31 +823,18 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 		g2 = createEGenericType(categoryEClass_E);
 		g1.getETypeArguments().add(g2);
 		categoryEClass.getEGenericSuperTypes().add(g1);
-		g1 = createEGenericType(this.getActionElement());
-		abstractActionEClass.getEGenericSuperTypes().add(g1);
-		g1 = createEGenericType(this.getMapElement());
-		g2 = createEGenericType(this.getAbstractActionParent());
-		g1.getETypeArguments().add(g2);
-		abstractActionEClass.getEGenericSuperTypes().add(g1);
+		abstractActionEClass.getESuperTypes().add(this.getActionElement());
 		g1 = createEGenericType(this.getCategory());
 		g2 = createEGenericType(this.getAbstractAction());
 		g1.getETypeArguments().add(g2);
 		actionCategoryEClass.getEGenericSuperTypes().add(g1);
-		g1 = createEGenericType(this.getMapElement());
-		g2 = createEGenericType(this.getActionBase());
-		g1.getETypeArguments().add(g2);
-		actionCategoryEClass.getEGenericSuperTypes().add(g1);
 		g1 = createEGenericType(this.getActionElement());
-		actionCategoryEClass.getEGenericSuperTypes().add(g1);
-		g1 = createEGenericType(this.getAbstractActionParent());
 		actionCategoryEClass.getEGenericSuperTypes().add(g1);
 		g1 = createEGenericType(this.getLabel());
 		g2 = createEGenericType(this.getActionSpec());
 		g1.getETypeArguments().add(g2);
 		actionBaseEClass.getEGenericSuperTypes().add(g1);
 		g1 = createEGenericType(this.getAbstractAction());
-		actionBaseEClass.getEGenericSuperTypes().add(g1);
-		g1 = createEGenericType(this.getAbstractActionParent());
 		actionBaseEClass.getEGenericSuperTypes().add(g1);
 		g1 = createEGenericType(this.getContainer());
 		g2 = createEGenericType(this.getActionElement());
@@ -907,6 +853,8 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 		initEClass(containerEClass, org.nasdanika.vinci.app.Container.class, "Container", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		g1 = createEGenericType(containerEClass_E);
 		initEReference(getContainer_Elements(), g1, null, "elements", null, 0, -1, org.nasdanika.vinci.app.Container.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		g1 = createEGenericType(containerEClass_E);
+		initEReference(getContainer_LinkedElements(), g1, null, "linkedElements", null, 0, -1, org.nasdanika.vinci.app.Container.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(labelEClass, Label.class, "Label", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getLabel_Color(), this.getColor(), "color", null, 0, 1, Label.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -918,12 +866,6 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 		initEAttribute(getLabel_Notification(), ecorePackage.getEString(), "notification", null, 0, 1, Label.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(categoryEClass, Category.class, "Category", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(mapElementEClass, MapElement.class, "MapElement", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		g1 = createEGenericType(mapElementEClass_P);
-		initEReference(getMapElement_Parent(), g1, null, "parent", null, 0, 1, MapElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(abstractActionParentEClass, AbstractActionParent.class, "AbstractActionParent", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(actionElementEClass, ActionElement.class, "ActionElement", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

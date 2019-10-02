@@ -12,7 +12,6 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.nasdanika.common.WorkFactory;
 import org.nasdanika.vinci.app.AbstractAction;
-import org.nasdanika.vinci.app.AbstractActionParent;
 import org.nasdanika.vinci.app.ActionBase;
 import org.nasdanika.vinci.app.ActionElement;
 import org.nasdanika.vinci.app.ActionMapping;
@@ -20,7 +19,6 @@ import org.nasdanika.vinci.app.ActionRole;
 import org.nasdanika.vinci.app.ActionSpec;
 import org.nasdanika.vinci.app.ActivatorType;
 import org.nasdanika.vinci.app.AppPackage;
-import org.nasdanika.vinci.app.MapElement;
 import org.nasdanika.vinci.app.SectionStyle;
 
 /**
@@ -31,8 +29,8 @@ import org.nasdanika.vinci.app.SectionStyle;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.nasdanika.vinci.app.impl.ActionBaseImpl#getParent <em>Parent</em>}</li>
  *   <li>{@link org.nasdanika.vinci.app.impl.ActionBaseImpl#getElements <em>Elements</em>}</li>
+ *   <li>{@link org.nasdanika.vinci.app.impl.ActionBaseImpl#getLinkedElements <em>Linked Elements</em>}</li>
  *   <li>{@link org.nasdanika.vinci.app.impl.ActionBaseImpl#getActionMappings <em>Action Mappings</em>}</li>
  *   <li>{@link org.nasdanika.vinci.app.impl.ActionBaseImpl#getRole <em>Role</em>}</li>
  *   <li>{@link org.nasdanika.vinci.app.impl.ActionBaseImpl#getSectionStyle <em>Section Style</em>}</li>
@@ -163,28 +161,10 @@ public abstract class ActionBaseImpl extends LabelImpl<ActionSpec> implements Ac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
-	public AbstractActionParent getParent() {
-		return (AbstractActionParent)eDynamicGet(AppPackage.ACTION_BASE__PARENT, AppPackage.Literals.MAP_ELEMENT__PARENT, true, true);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public AbstractActionParent basicGetParent() {
-		return (AbstractActionParent)eDynamicGet(AppPackage.ACTION_BASE__PARENT, AppPackage.Literals.MAP_ELEMENT__PARENT, false, true);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setParent(AbstractActionParent newParent) {
-		eDynamicSet(AppPackage.ACTION_BASE__PARENT, AppPackage.Literals.MAP_ELEMENT__PARENT, newParent);
+	public EList<ActionElement> getElements() {
+		return (EList<ActionElement>)eDynamicGet(AppPackage.ACTION_BASE__ELEMENTS, AppPackage.Literals.CONTAINER__ELEMENTS, true, true);
 	}
 
 	/**
@@ -194,8 +174,8 @@ public abstract class ActionBaseImpl extends LabelImpl<ActionSpec> implements Ac
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public EList<ActionElement> getElements() {
-		return (EList<ActionElement>)eDynamicGet(AppPackage.ACTION_BASE__ELEMENTS, AppPackage.Literals.CONTAINER__ELEMENTS, true, true);
+	public EList<ActionElement> getLinkedElements() {
+		return (EList<ActionElement>)eDynamicGet(AppPackage.ACTION_BASE__LINKED_ELEMENTS, AppPackage.Literals.CONTAINER__LINKED_ELEMENTS, true, true);
 	}
 
 	/**
@@ -426,11 +406,10 @@ public abstract class ActionBaseImpl extends LabelImpl<ActionSpec> implements Ac
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case AppPackage.ACTION_BASE__PARENT:
-				if (resolve) return getParent();
-				return basicGetParent();
 			case AppPackage.ACTION_BASE__ELEMENTS:
 				return getElements();
+			case AppPackage.ACTION_BASE__LINKED_ELEMENTS:
+				return getLinkedElements();
 			case AppPackage.ACTION_BASE__ACTION_MAPPINGS:
 				return getActionMappings();
 			case AppPackage.ACTION_BASE__ROLE:
@@ -466,12 +445,13 @@ public abstract class ActionBaseImpl extends LabelImpl<ActionSpec> implements Ac
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case AppPackage.ACTION_BASE__PARENT:
-				setParent((AbstractActionParent)newValue);
-				return;
 			case AppPackage.ACTION_BASE__ELEMENTS:
 				getElements().clear();
 				getElements().addAll((Collection<? extends ActionElement>)newValue);
+				return;
+			case AppPackage.ACTION_BASE__LINKED_ELEMENTS:
+				getLinkedElements().clear();
+				getLinkedElements().addAll((Collection<? extends ActionElement>)newValue);
 				return;
 			case AppPackage.ACTION_BASE__ACTION_MAPPINGS:
 				getActionMappings().clear();
@@ -520,11 +500,11 @@ public abstract class ActionBaseImpl extends LabelImpl<ActionSpec> implements Ac
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case AppPackage.ACTION_BASE__PARENT:
-				setParent((AbstractActionParent)null);
-				return;
 			case AppPackage.ACTION_BASE__ELEMENTS:
 				getElements().clear();
+				return;
+			case AppPackage.ACTION_BASE__LINKED_ELEMENTS:
+				getLinkedElements().clear();
 				return;
 			case AppPackage.ACTION_BASE__ACTION_MAPPINGS:
 				getActionMappings().clear();
@@ -571,10 +551,10 @@ public abstract class ActionBaseImpl extends LabelImpl<ActionSpec> implements Ac
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case AppPackage.ACTION_BASE__PARENT:
-				return basicGetParent() != null;
 			case AppPackage.ACTION_BASE__ELEMENTS:
 				return !getElements().isEmpty();
+			case AppPackage.ACTION_BASE__LINKED_ELEMENTS:
+				return !getLinkedElements().isEmpty();
 			case AppPackage.ACTION_BASE__ACTION_MAPPINGS:
 				return !getActionMappings().isEmpty();
 			case AppPackage.ACTION_BASE__ROLE:
@@ -613,18 +593,7 @@ public abstract class ActionBaseImpl extends LabelImpl<ActionSpec> implements Ac
 				default: return -1;
 			}
 		}
-		if (baseClass == MapElement.class) {
-			switch (derivedFeatureID) {
-				case AppPackage.ACTION_BASE__PARENT: return AppPackage.MAP_ELEMENT__PARENT;
-				default: return -1;
-			}
-		}
 		if (baseClass == AbstractAction.class) {
-			switch (derivedFeatureID) {
-				default: return -1;
-			}
-		}
-		if (baseClass == AbstractActionParent.class) {
 			switch (derivedFeatureID) {
 				default: return -1;
 			}
@@ -632,6 +601,7 @@ public abstract class ActionBaseImpl extends LabelImpl<ActionSpec> implements Ac
 		if (baseClass == org.nasdanika.vinci.app.Container.class) {
 			switch (derivedFeatureID) {
 				case AppPackage.ACTION_BASE__ELEMENTS: return AppPackage.CONTAINER__ELEMENTS;
+				case AppPackage.ACTION_BASE__LINKED_ELEMENTS: return AppPackage.CONTAINER__LINKED_ELEMENTS;
 				default: return -1;
 			}
 		}
@@ -650,18 +620,7 @@ public abstract class ActionBaseImpl extends LabelImpl<ActionSpec> implements Ac
 				default: return -1;
 			}
 		}
-		if (baseClass == MapElement.class) {
-			switch (baseFeatureID) {
-				case AppPackage.MAP_ELEMENT__PARENT: return AppPackage.ACTION_BASE__PARENT;
-				default: return -1;
-			}
-		}
 		if (baseClass == AbstractAction.class) {
-			switch (baseFeatureID) {
-				default: return -1;
-			}
-		}
-		if (baseClass == AbstractActionParent.class) {
 			switch (baseFeatureID) {
 				default: return -1;
 			}
@@ -669,6 +628,7 @@ public abstract class ActionBaseImpl extends LabelImpl<ActionSpec> implements Ac
 		if (baseClass == org.nasdanika.vinci.app.Container.class) {
 			switch (baseFeatureID) {
 				case AppPackage.CONTAINER__ELEMENTS: return AppPackage.ACTION_BASE__ELEMENTS;
+				case AppPackage.CONTAINER__LINKED_ELEMENTS: return AppPackage.ACTION_BASE__LINKED_ELEMENTS;
 				default: return -1;
 			}
 		}

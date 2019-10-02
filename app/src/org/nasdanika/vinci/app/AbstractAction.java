@@ -17,5 +17,5 @@ package org.nasdanika.vinci.app;
  * @model interface="true" abstract="true"
  * @generated
  */
-public interface AbstractAction extends ActionElement, MapElement<AbstractActionParent> {
+public interface AbstractAction extends ActionElement {
 } // AbstractAction

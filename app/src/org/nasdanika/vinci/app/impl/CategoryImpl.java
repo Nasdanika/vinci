@@ -22,6 +22,7 @@ import org.nasdanika.vinci.app.LabelSpec;
  * </p>
  * <ul>
  *   <li>{@link org.nasdanika.vinci.app.impl.CategoryImpl#getElements <em>Elements</em>}</li>
+ *   <li>{@link org.nasdanika.vinci.app.impl.CategoryImpl#getLinkedElements <em>Linked Elements</em>}</li>
  * </ul>
  *
  * @generated
@@ -62,6 +63,17 @@ public abstract class CategoryImpl<E> extends LabelImpl<LabelSpec> implements Ca
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public EList<E> getLinkedElements() {
+		return (EList<E>)eDynamicGet(AppPackage.CATEGORY__LINKED_ELEMENTS, AppPackage.Literals.CONTAINER__LINKED_ELEMENTS, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -81,6 +93,8 @@ public abstract class CategoryImpl<E> extends LabelImpl<LabelSpec> implements Ca
 		switch (featureID) {
 			case AppPackage.CATEGORY__ELEMENTS:
 				return getElements();
+			case AppPackage.CATEGORY__LINKED_ELEMENTS:
+				return getLinkedElements();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -98,6 +112,10 @@ public abstract class CategoryImpl<E> extends LabelImpl<LabelSpec> implements Ca
 				getElements().clear();
 				getElements().addAll((Collection<? extends E>)newValue);
 				return;
+			case AppPackage.CATEGORY__LINKED_ELEMENTS:
+				getLinkedElements().clear();
+				getLinkedElements().addAll((Collection<? extends E>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -113,6 +131,9 @@ public abstract class CategoryImpl<E> extends LabelImpl<LabelSpec> implements Ca
 			case AppPackage.CATEGORY__ELEMENTS:
 				getElements().clear();
 				return;
+			case AppPackage.CATEGORY__LINKED_ELEMENTS:
+				getLinkedElements().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -127,6 +148,8 @@ public abstract class CategoryImpl<E> extends LabelImpl<LabelSpec> implements Ca
 		switch (featureID) {
 			case AppPackage.CATEGORY__ELEMENTS:
 				return !getElements().isEmpty();
+			case AppPackage.CATEGORY__LINKED_ELEMENTS:
+				return !getLinkedElements().isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -141,6 +164,7 @@ public abstract class CategoryImpl<E> extends LabelImpl<LabelSpec> implements Ca
 		if (baseClass == org.nasdanika.vinci.app.Container.class) {
 			switch (derivedFeatureID) {
 				case AppPackage.CATEGORY__ELEMENTS: return AppPackage.CONTAINER__ELEMENTS;
+				case AppPackage.CATEGORY__LINKED_ELEMENTS: return AppPackage.CONTAINER__LINKED_ELEMENTS;
 				default: return -1;
 			}
 		}
@@ -157,6 +181,7 @@ public abstract class CategoryImpl<E> extends LabelImpl<LabelSpec> implements Ca
 		if (baseClass == org.nasdanika.vinci.app.Container.class) {
 			switch (baseFeatureID) {
 				case AppPackage.CONTAINER__ELEMENTS: return AppPackage.CATEGORY__ELEMENTS;
+				case AppPackage.CONTAINER__LINKED_ELEMENTS: return AppPackage.CATEGORY__LINKED_ELEMENTS;
 				default: return -1;
 			}
 		}

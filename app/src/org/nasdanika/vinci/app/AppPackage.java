@@ -90,7 +90,7 @@ public interface AppPackage extends EPackage {
 	 * @see org.nasdanika.vinci.app.impl.AppPackageImpl#getAction()
 	 * @generated
 	 */
-	int ACTION = 14;
+	int ACTION = 12;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.vinci.app.impl.ActionMappingImpl <em>Action Mapping</em>}' class.
@@ -100,7 +100,7 @@ public interface AppPackage extends EPackage {
 	 * @see org.nasdanika.vinci.app.impl.AppPackageImpl#getActionMapping()
 	 * @generated
 	 */
-	int ACTION_MAPPING = 11;
+	int ACTION_MAPPING = 9;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.vinci.app.impl.ActionLinkImpl <em>Action Link</em>}' class.
@@ -110,7 +110,7 @@ public interface AppPackage extends EPackage {
 	 * @see org.nasdanika.vinci.app.impl.AppPackageImpl#getActionLink()
 	 * @generated
 	 */
-	int ACTION_LINK = 12;
+	int ACTION_LINK = 10;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.vinci.app.impl.ActionReferenceImpl <em>Action Reference</em>}' class.
@@ -120,27 +120,7 @@ public interface AppPackage extends EPackage {
 	 * @see org.nasdanika.vinci.app.impl.AppPackageImpl#getActionReference()
 	 * @generated
 	 */
-	int ACTION_REFERENCE = 13;
-
-	/**
-	 * The meta object id for the '{@link org.nasdanika.vinci.app.MapElement <em>Map Element</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.nasdanika.vinci.app.MapElement
-	 * @see org.nasdanika.vinci.app.impl.AppPackageImpl#getMapElement()
-	 * @generated
-	 */
-	int MAP_ELEMENT = 5;
-
-	/**
-	 * The meta object id for the '{@link org.nasdanika.vinci.app.AbstractActionParent <em>Abstract Action Parent</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.nasdanika.vinci.app.AbstractActionParent
-	 * @see org.nasdanika.vinci.app.impl.AppPackageImpl#getAbstractActionParent()
-	 * @generated
-	 */
-	int ABSTRACT_ACTION_PARENT = 6;
+	int ACTION_REFERENCE = 11;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.vinci.app.ActionElement <em>Action Element</em>}' class.
@@ -150,7 +130,7 @@ public interface AppPackage extends EPackage {
 	 * @see org.nasdanika.vinci.app.impl.AppPackageImpl#getActionElement()
 	 * @generated
 	 */
-	int ACTION_ELEMENT = 7;
+	int ACTION_ELEMENT = 5;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.vinci.app.AbstractAction <em>Abstract Action</em>}' class.
@@ -160,7 +140,7 @@ public interface AppPackage extends EPackage {
 	 * @see org.nasdanika.vinci.app.impl.AppPackageImpl#getAbstractAction()
 	 * @generated
 	 */
-	int ABSTRACT_ACTION = 8;
+	int ABSTRACT_ACTION = 6;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.vinci.app.impl.ActionCategoryImpl <em>Action Category</em>}' class.
@@ -170,7 +150,7 @@ public interface AppPackage extends EPackage {
 	 * @see org.nasdanika.vinci.app.impl.AppPackageImpl#getActionCategory()
 	 * @generated
 	 */
-	int ACTION_CATEGORY = 9;
+	int ACTION_CATEGORY = 7;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.vinci.app.LabelSpec <em>Label Spec</em>}' class.
@@ -248,13 +228,22 @@ public interface AppPackage extends EPackage {
 	int CONTAINER__ELEMENTS = 0;
 
 	/**
+	 * The feature id for the '<em><b>Linked Elements</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTAINER__LINKED_ELEMENTS = 1;
+
+	/**
 	 * The number of structural features of the '<em>Container</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONTAINER_FEATURE_COUNT = 1;
+	int CONTAINER_FEATURE_COUNT = 2;
 
 	/**
 	 * The number of operations of the '<em>Container</em>' class.
@@ -617,13 +606,22 @@ public interface AppPackage extends EPackage {
 	int CATEGORY__ELEMENTS = LABEL_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Linked Elements</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORY__LINKED_ELEMENTS = LABEL_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Category</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CATEGORY_FEATURE_COUNT = LABEL_FEATURE_COUNT + 1;
+	int CATEGORY_FEATURE_COUNT = LABEL_FEATURE_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Is Filterable</em>' operation.
@@ -653,51 +651,6 @@ public interface AppPackage extends EPackage {
 	int CATEGORY_OPERATION_COUNT = LABEL_OPERATION_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Parent</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MAP_ELEMENT__PARENT = 0;
-
-	/**
-	 * The number of structural features of the '<em>Map Element</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MAP_ELEMENT_FEATURE_COUNT = 1;
-
-	/**
-	 * The number of operations of the '<em>Map Element</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MAP_ELEMENT_OPERATION_COUNT = 0;
-
-	/**
-	 * The number of structural features of the '<em>Abstract Action Parent</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ABSTRACT_ACTION_PARENT_FEATURE_COUNT = 0;
-
-	/**
-	 * The number of operations of the '<em>Abstract Action Parent</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ABSTRACT_ACTION_PARENT_OPERATION_COUNT = 0;
-
-	/**
 	 * The number of structural features of the '<em>Action Element</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -716,22 +669,13 @@ public interface AppPackage extends EPackage {
 	int ACTION_ELEMENT_OPERATION_COUNT = 0;
 
 	/**
-	 * The feature id for the '<em><b>Parent</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ABSTRACT_ACTION__PARENT = ACTION_ELEMENT_FEATURE_COUNT + 0;
-
-	/**
 	 * The number of structural features of the '<em>Abstract Action</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ABSTRACT_ACTION_FEATURE_COUNT = ACTION_ELEMENT_FEATURE_COUNT + 1;
+	int ABSTRACT_ACTION_FEATURE_COUNT = ACTION_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Abstract Action</em>' class.
@@ -905,13 +849,13 @@ public interface AppPackage extends EPackage {
 	int ACTION_CATEGORY__ELEMENTS = CATEGORY__ELEMENTS;
 
 	/**
-	 * The feature id for the '<em><b>Parent</b></em>' reference.
+	 * The feature id for the '<em><b>Linked Elements</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION_CATEGORY__PARENT = CATEGORY_FEATURE_COUNT + 0;
+	int ACTION_CATEGORY__LINKED_ELEMENTS = CATEGORY__LINKED_ELEMENTS;
 
 	/**
 	 * The number of structural features of the '<em>Action Category</em>' class.
@@ -920,7 +864,7 @@ public interface AppPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION_CATEGORY_FEATURE_COUNT = CATEGORY_FEATURE_COUNT + 1;
+	int ACTION_CATEGORY_FEATURE_COUNT = CATEGORY_FEATURE_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>Is Filterable</em>' operation.
@@ -957,7 +901,7 @@ public interface AppPackage extends EPackage {
 	 * @see org.nasdanika.vinci.app.impl.AppPackageImpl#getActionBase()
 	 * @generated
 	 */
-	int ACTION_BASE = 10;
+	int ACTION_BASE = 8;
 
 	/**
 	 * The feature id for the '<em><b>Title</b></em>' attribute.
@@ -1113,22 +1057,22 @@ public interface AppPackage extends EPackage {
 	int ACTION_BASE__NOTIFICATION = LABEL__NOTIFICATION;
 
 	/**
-	 * The feature id for the '<em><b>Parent</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTION_BASE__PARENT = LABEL_FEATURE_COUNT + 0;
-
-	/**
 	 * The feature id for the '<em><b>Elements</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION_BASE__ELEMENTS = LABEL_FEATURE_COUNT + 1;
+	int ACTION_BASE__ELEMENTS = LABEL_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Linked Elements</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION_BASE__LINKED_ELEMENTS = LABEL_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Action Mappings</b></em>' containment reference list.
@@ -1273,7 +1217,7 @@ public interface AppPackage extends EPackage {
 	 * @see org.nasdanika.vinci.app.impl.AppPackageImpl#getPartition()
 	 * @generated
 	 */
-	int PARTITION = 15;
+	int PARTITION = 13;
 
 	/**
 	 * The feature id for the '<em><b>Alias</b></em>' attribute.
@@ -1321,15 +1265,6 @@ public interface AppPackage extends EPackage {
 	int ACTION_MAPPING_OPERATION_COUNT = 0;
 
 	/**
-	 * The feature id for the '<em><b>Parent</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTION_LINK__PARENT = ABSTRACT_ACTION__PARENT;
-
-	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1364,15 +1299,6 @@ public interface AppPackage extends EPackage {
 	 * @ordered
 	 */
 	int ACTION_LINK_OPERATION_COUNT = ABSTRACT_ACTION_OPERATION_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Parent</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTION_REFERENCE__PARENT = ABSTRACT_ACTION__PARENT;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -1564,15 +1490,6 @@ public interface AppPackage extends EPackage {
 	int ACTION__NOTIFICATION = ACTION_BASE__NOTIFICATION;
 
 	/**
-	 * The feature id for the '<em><b>Parent</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTION__PARENT = ACTION_BASE__PARENT;
-
-	/**
 	 * The feature id for the '<em><b>Elements</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1580,6 +1497,15 @@ public interface AppPackage extends EPackage {
 	 * @ordered
 	 */
 	int ACTION__ELEMENTS = ACTION_BASE__ELEMENTS;
+
+	/**
+	 * The feature id for the '<em><b>Linked Elements</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION__LINKED_ELEMENTS = ACTION_BASE__LINKED_ELEMENTS;
 
 	/**
 	 * The feature id for the '<em><b>Action Mappings</b></em>' containment reference list.
@@ -1870,15 +1796,6 @@ public interface AppPackage extends EPackage {
 	int PARTITION__NOTIFICATION = ACTION_BASE__NOTIFICATION;
 
 	/**
-	 * The feature id for the '<em><b>Parent</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PARTITION__PARENT = ACTION_BASE__PARENT;
-
-	/**
 	 * The feature id for the '<em><b>Elements</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1886,6 +1803,15 @@ public interface AppPackage extends EPackage {
 	 * @ordered
 	 */
 	int PARTITION__ELEMENTS = ACTION_BASE__ELEMENTS;
+
+	/**
+	 * The feature id for the '<em><b>Linked Elements</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARTITION__LINKED_ELEMENTS = ACTION_BASE__LINKED_ELEMENTS;
 
 	/**
 	 * The feature id for the '<em><b>Action Mappings</b></em>' containment reference list.
@@ -2030,7 +1956,7 @@ public interface AppPackage extends EPackage {
 	 * @see org.nasdanika.vinci.app.impl.AppPackageImpl#getActionRole()
 	 * @generated
 	 */
-	int ACTION_ROLE = 16;
+	int ACTION_ROLE = 14;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.vinci.app.SectionStyle <em>Section Style</em>}' enum.
@@ -2040,7 +1966,7 @@ public interface AppPackage extends EPackage {
 	 * @see org.nasdanika.vinci.app.impl.AppPackageImpl#getSectionStyle()
 	 * @generated
 	 */
-	int SECTION_STYLE = 17;
+	int SECTION_STYLE = 15;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.vinci.app.ActivatorType <em>Activator Type</em>}' enum.
@@ -2050,7 +1976,7 @@ public interface AppPackage extends EPackage {
 	 * @see org.nasdanika.vinci.app.impl.AppPackageImpl#getActivatorType()
 	 * @generated
 	 */
-	int ACTIVATOR_TYPE = 18;
+	int ACTIVATOR_TYPE = 16;
 
 	/**
 	 * The meta object id for the '<em>Color</em>' data type.
@@ -2060,7 +1986,7 @@ public interface AppPackage extends EPackage {
 	 * @see org.nasdanika.vinci.app.impl.AppPackageImpl#getColor()
 	 * @generated
 	 */
-	int COLOR = 19;
+	int COLOR = 17;
 
 
 	/**
@@ -2318,37 +2244,6 @@ public interface AppPackage extends EPackage {
 	EEnum getActivatorType();
 
 	/**
-	 * Returns the meta object for class '{@link org.nasdanika.vinci.app.MapElement <em>Map Element</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Map Element</em>'.
-	 * @see org.nasdanika.vinci.app.MapElement
-	 * @generated
-	 */
-	EClass getMapElement();
-
-	/**
-	 * Returns the meta object for the reference '{@link org.nasdanika.vinci.app.MapElement#getParent <em>Parent</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Parent</em>'.
-	 * @see org.nasdanika.vinci.app.MapElement#getParent()
-	 * @see #getMapElement()
-	 * @generated
-	 */
-	EReference getMapElement_Parent();
-
-	/**
-	 * Returns the meta object for class '{@link org.nasdanika.vinci.app.AbstractActionParent <em>Abstract Action Parent</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Abstract Action Parent</em>'.
-	 * @see org.nasdanika.vinci.app.AbstractActionParent
-	 * @generated
-	 */
-	EClass getAbstractActionParent();
-
-	/**
 	 * Returns the meta object for class '{@link org.nasdanika.vinci.app.ActionElement <em>Action Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2551,6 +2446,17 @@ public interface AppPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getContainer_Elements();
+
+	/**
+	 * Returns the meta object for the reference list '{@link org.nasdanika.vinci.app.Container#getLinkedElements <em>Linked Elements</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Linked Elements</em>'.
+	 * @see org.nasdanika.vinci.app.Container#getLinkedElements()
+	 * @see #getContainer()
+	 * @generated
+	 */
+	EReference getContainer_LinkedElements();
 
 	/**
 	 * Returns the meta object for data type '{@link org.nasdanika.html.bootstrap.Color <em>Color</em>}'.
@@ -2802,34 +2708,6 @@ public interface AppPackage extends EPackage {
 		EEnum ACTIVATOR_TYPE = eINSTANCE.getActivatorType();
 
 		/**
-		 * The meta object literal for the '{@link org.nasdanika.vinci.app.MapElement <em>Map Element</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.nasdanika.vinci.app.MapElement
-		 * @see org.nasdanika.vinci.app.impl.AppPackageImpl#getMapElement()
-		 * @generated
-		 */
-		EClass MAP_ELEMENT = eINSTANCE.getMapElement();
-
-		/**
-		 * The meta object literal for the '<em><b>Parent</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference MAP_ELEMENT__PARENT = eINSTANCE.getMapElement_Parent();
-
-		/**
-		 * The meta object literal for the '{@link org.nasdanika.vinci.app.AbstractActionParent <em>Abstract Action Parent</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.nasdanika.vinci.app.AbstractActionParent
-		 * @see org.nasdanika.vinci.app.impl.AppPackageImpl#getAbstractActionParent()
-		 * @generated
-		 */
-		EClass ABSTRACT_ACTION_PARENT = eINSTANCE.getAbstractActionParent();
-
-		/**
 		 * The meta object literal for the '{@link org.nasdanika.vinci.app.ActionElement <em>Action Element</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2994,6 +2872,14 @@ public interface AppPackage extends EPackage {
 		 * @generated
 		 */
 		EReference CONTAINER__ELEMENTS = eINSTANCE.getContainer_Elements();
+
+		/**
+		 * The meta object literal for the '<em><b>Linked Elements</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CONTAINER__LINKED_ELEMENTS = eINSTANCE.getContainer_LinkedElements();
 
 		/**
 		 * The meta object literal for the '<em>Color</em>' data type.
