@@ -6,4 +6,6 @@
   <elements xsi:type="org.nasdanika.vinci.app:Action" title="t2"/>
   <elements xsi:type="org.nasdanika.vinci.app:Action" title="t3"/>
   <elements xsi:type="org.nasdanika.vinci.app:Action" title="t4"/>
+  <elements xsi:type="org.nasdanika.vinci.app:Action"/>
+  <elements xsi:type="org.nasdanika.vinci.app:Action" text="Action-7"/>
 </org.nasdanika.vinci.app:Action>
