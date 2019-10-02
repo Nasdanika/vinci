@@ -21,7 +21,6 @@ import org.nasdanika.common.WorkFactory;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.nasdanika.vinci.app.ActionBase#getActionMappings <em>Action Mappings</em>}</li>
  *   <li>{@link org.nasdanika.vinci.app.ActionBase#getRole <em>Role</em>}</li>
  *   <li>{@link org.nasdanika.vinci.app.ActionBase#getSectionStyle <em>Section Style</em>}</li>
  *   <li>{@link org.nasdanika.vinci.app.ActionBase#getSectionColumns <em>Section Columns</em>}</li>
@@ -39,21 +38,6 @@ import org.nasdanika.common.WorkFactory;
  * @generated
  */
 public interface ActionBase extends Label<ActionSpec>, AbstractAction, Container<ActionElement> {
-	/**
-	 * Returns the value of the '<em><b>Action Mappings</b></em>' containment reference list.
-	 * The list contents are of type {@link org.nasdanika.vinci.app.ActionMapping}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * A collection of mappings of action logical names to target actions. Aliases are inherited by action children.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Action Mappings</em>' containment reference list.
-	 * @see org.nasdanika.vinci.app.AppPackage#getActionBase_ActionMappings()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<ActionMapping> getActionMappings();
-
 	/**
 	 * Returns the value of the '<em><b>Role</b></em>' attribute.
 	 * The literals are from the enumeration {@link org.nasdanika.vinci.app.ActionRole}.

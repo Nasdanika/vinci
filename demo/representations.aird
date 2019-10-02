@@ -9,248 +9,557 @@
     <semanticResources>platform:/resource/org.nasdanika.codegen/model/codegen.ecore</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_O1o_UOUtEemTGLfpR1bNxw">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/resource/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']"/>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_PIb_gOUtEemTGLfpR1bNxw" name="new Action Diagram" repPath="#_PHZdsOUtEemTGLfpR1bNxw">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_-Wjq0OU5EemjGu4BxMdqpA" name="new Action Diagram" repPath="#_-WW2gOU5EemjGu4BxMdqpA">
         <description xmi:type="description_1:DiagramDescription" href="platform:/resource/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']"/>
         <target xmi:type="org.nasdanika.vinci.app:Action" href="models/My.vinci#/"/>
       </ownedRepresentationDescriptors>
     </ownedViews>
   </viewpoint:DAnalysis>
-  <diagram:DSemanticDiagram uid="_PHZdsOUtEemTGLfpR1bNxw" name="new Action Diagram">
-    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_PIXHAOUtEemTGLfpR1bNxw" source="DANNOTATION_CUSTOMIZATION_KEY">
-      <data xmi:type="diagram:ComputedStyleDescriptionRegistry" uid="_PIXuEOUtEemTGLfpR1bNxw"/>
+  <diagram:DSemanticDiagram uid="_-WW2gOU5EemjGu4BxMdqpA" name="new Action Diagram">
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_-WgAcuU5EemjGu4BxMdqpA" source="DANNOTATION_CUSTOMIZATION_KEY">
+      <data xmi:type="diagram:ComputedStyleDescriptionRegistry" uid="_-WgAc-U5EemjGu4BxMdqpA"/>
     </ownedAnnotationEntries>
-    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_PI2PMOUtEemTGLfpR1bNxw" source="GMF_DIAGRAMS">
-      <data xmi:type="notation:Diagram" xmi:id="_PI2PMeUtEemTGLfpR1bNxw" type="Sirius" element="_PHZdsOUtEemTGLfpR1bNxw" measurementUnit="Pixel">
-        <children xmi:type="notation:Node" xmi:id="_PJPQwOUtEemTGLfpR1bNxw" type="2001" element="_PIFaMOUtEemTGLfpR1bNxw">
-          <children xmi:type="notation:Node" xmi:id="_PJZBwOUtEemTGLfpR1bNxw" type="5002">
-            <layoutConstraint xmi:type="notation:Location" xmi:id="_PJZBweUtEemTGLfpR1bNxw" y="5"/>
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_-Wn8QOU5EemjGu4BxMdqpA" source="GMF_DIAGRAMS">
+      <data xmi:type="notation:Diagram" xmi:id="_-Wn8QeU5EemjGu4BxMdqpA" type="Sirius" element="_-WW2gOU5EemjGu4BxMdqpA" measurementUnit="Pixel">
+        <children xmi:type="notation:Node" xmi:id="_-Wn8Q-U5EemjGu4BxMdqpA" visible="false" type="2001" element="_-WYrsOU5EemjGu4BxMdqpA">
+          <children xmi:type="notation:Node" xmi:id="_-WojUOU5EemjGu4BxMdqpA" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_-WojUeU5EemjGu4BxMdqpA" y="5"/>
           </children>
-          <children xmi:type="notation:Node" xmi:id="_PKAs0OUtEemTGLfpR1bNxw" type="3016" element="_PIJroOUtEemTGLfpR1bNxw">
-            <styles xmi:type="notation:ShapeStyle" xmi:id="_PKAs0eUtEemTGLfpR1bNxw" fontName="Segoe UI"/>
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_PKAs0uUtEemTGLfpR1bNxw"/>
+          <children xmi:type="notation:Node" xmi:id="_-WvRAOU5EemjGu4BxMdqpA" type="3016" element="_-WYrseU5EemjGu4BxMdqpA">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_-WvRAeU5EemjGu4BxMdqpA" fontName="Segoe UI"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_-WvRAuU5EemjGu4BxMdqpA"/>
           </children>
-          <styles xmi:type="notation:ShapeStyle" xmi:id="_PJPQweUtEemTGLfpR1bNxw" fontName="Segoe UI" fontHeight="12"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_PJPQwuUtEemTGLfpR1bNxw" x="720" y="105" width="200" height="150"/>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_-Wn8ROU5EemjGu4BxMdqpA" fontName="Segoe UI" fontHeight="12"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_-Wn8ReU5EemjGu4BxMdqpA" x="465" y="195" width="200" height="150"/>
         </children>
-        <children xmi:type="notation:Node" xmi:id="_PJ7NQOUtEemTGLfpR1bNxw" type="2001" element="_PINWAOUtEemTGLfpR1bNxw">
-          <children xmi:type="notation:Node" xmi:id="_PJ7NQ-UtEemTGLfpR1bNxw" type="5002">
-            <layoutConstraint xmi:type="notation:Location" xmi:id="_PJ7NROUtEemTGLfpR1bNxw" y="5"/>
+        <children xmi:type="notation:Node" xmi:id="_-WpxcOU5EemjGu4BxMdqpA" visible="false" type="2001" element="_-WZ50OU5EemjGu4BxMdqpA">
+          <children xmi:type="notation:Node" xmi:id="_-Wq_kOU5EemjGu4BxMdqpA" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_-Wq_keU5EemjGu4BxMdqpA" y="5"/>
           </children>
-          <children xmi:type="notation:Node" xmi:id="_PKB68OUtEemTGLfpR1bNxw" type="3003" element="_PIN9EOUtEemTGLfpR1bNxw">
-            <styles xmi:type="notation:ShapeStyle" xmi:id="_PKB68eUtEemTGLfpR1bNxw" fontName="Segoe UI"/>
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_PKB68uUtEemTGLfpR1bNxw"/>
+          <children xmi:type="notation:Node" xmi:id="_-Wv4EOU5EemjGu4BxMdqpA" type="3003" element="_-WZ50eU5EemjGu4BxMdqpA">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_-Wv4EeU5EemjGu4BxMdqpA" fontName="Segoe UI"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_-Wv4EuU5EemjGu4BxMdqpA"/>
           </children>
-          <styles xmi:type="notation:ShapeStyle" xmi:id="_PJ7NQeUtEemTGLfpR1bNxw" fontName="Segoe UI" fontHeight="8"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_PJ7NQuUtEemTGLfpR1bNxw" x="810" width="90" height="40"/>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_-WpxceU5EemjGu4BxMdqpA" fontName="Segoe UI" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_-WpxcuU5EemjGu4BxMdqpA" x="420" y="105" width="90" height="40"/>
         </children>
-        <children xmi:type="notation:Node" xmi:id="_PJ70UOUtEemTGLfpR1bNxw" type="2001" element="_PIN9EuUtEemTGLfpR1bNxw">
-          <children xmi:type="notation:Node" xmi:id="_PJ70U-UtEemTGLfpR1bNxw" type="5002">
-            <layoutConstraint xmi:type="notation:Location" xmi:id="_PJ70VOUtEemTGLfpR1bNxw" y="5"/>
+        <children xmi:type="notation:Node" xmi:id="_-WrmoOU5EemjGu4BxMdqpA" visible="false" type="2001" element="_-Wag4eU5EemjGu4BxMdqpA">
+          <children xmi:type="notation:Node" xmi:id="_-Wrmo-U5EemjGu4BxMdqpA" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_-WrmpOU5EemjGu4BxMdqpA" y="5"/>
           </children>
-          <children xmi:type="notation:Node" xmi:id="_PKB68-UtEemTGLfpR1bNxw" type="3003" element="_PIN9E-UtEemTGLfpR1bNxw">
-            <styles xmi:type="notation:ShapeStyle" xmi:id="_PKCiAOUtEemTGLfpR1bNxw" fontName="Segoe UI"/>
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_PKCiAeUtEemTGLfpR1bNxw"/>
+          <children xmi:type="notation:Node" xmi:id="_-Wv4E-U5EemjGu4BxMdqpA" type="3003" element="_-WbH8OU5EemjGu4BxMdqpA">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_-Wv4FOU5EemjGu4BxMdqpA" fontName="Segoe UI"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_-Wv4FeU5EemjGu4BxMdqpA"/>
           </children>
-          <styles xmi:type="notation:ShapeStyle" xmi:id="_PJ70UeUtEemTGLfpR1bNxw" fontName="Segoe UI" fontHeight="8"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_PJ70UuUtEemTGLfpR1bNxw" x="405" y="90" width="90" height="40"/>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_-WrmoeU5EemjGu4BxMdqpA" fontName="Segoe UI" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_-WrmouU5EemjGu4BxMdqpA" x="720" y="105" width="90" height="40"/>
         </children>
-        <children xmi:type="notation:Node" xmi:id="_PJ8bYOUtEemTGLfpR1bNxw" type="2001" element="_PIOkIOUtEemTGLfpR1bNxw">
-          <children xmi:type="notation:Node" xmi:id="_PJ8bY-UtEemTGLfpR1bNxw" type="5002">
-            <layoutConstraint xmi:type="notation:Location" xmi:id="_PJ8bZOUtEemTGLfpR1bNxw" y="5"/>
+        <children xmi:type="notation:Node" xmi:id="_-WrmpeU5EemjGu4BxMdqpA" visible="false" type="2001" element="_-WbH8uU5EemjGu4BxMdqpA">
+          <children xmi:type="notation:Node" xmi:id="_-WsNsOU5EemjGu4BxMdqpA" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_-WsNseU5EemjGu4BxMdqpA" y="5"/>
           </children>
-          <children xmi:type="notation:Node" xmi:id="_PKCiAuUtEemTGLfpR1bNxw" type="3003" element="_PIOkIeUtEemTGLfpR1bNxw">
-            <styles xmi:type="notation:ShapeStyle" xmi:id="_PKCiA-UtEemTGLfpR1bNxw" fontName="Segoe UI"/>
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_PKCiBOUtEemTGLfpR1bNxw"/>
+          <children xmi:type="notation:Node" xmi:id="_-Wv4FuU5EemjGu4BxMdqpA" type="3003" element="_-WbvAOU5EemjGu4BxMdqpA">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_-Wv4F-U5EemjGu4BxMdqpA" fontName="Segoe UI"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_-Wv4GOU5EemjGu4BxMdqpA"/>
           </children>
-          <styles xmi:type="notation:ShapeStyle" xmi:id="_PJ8bYeUtEemTGLfpR1bNxw" fontName="Segoe UI" fontHeight="8"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_PJ8bYuUtEemTGLfpR1bNxw" x="150" width="90" height="40"/>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_-WrmpuU5EemjGu4BxMdqpA" fontName="Segoe UI" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_-Wrmp-U5EemjGu4BxMdqpA" width="90" height="40"/>
         </children>
-        <children xmi:type="notation:Node" xmi:id="_PJ8bZeUtEemTGLfpR1bNxw" type="2001" element="_PIOkI-UtEemTGLfpR1bNxw">
-          <children xmi:type="notation:Node" xmi:id="_PJ9pgOUtEemTGLfpR1bNxw" type="5002">
-            <layoutConstraint xmi:type="notation:Location" xmi:id="_PJ9pgeUtEemTGLfpR1bNxw" y="5"/>
+        <children xmi:type="notation:Node" xmi:id="_-WsNsuU5EemjGu4BxMdqpA" visible="false" type="2001" element="_-WbvAuU5EemjGu4BxMdqpA">
+          <children xmi:type="notation:Node" xmi:id="_-Ws0wOU5EemjGu4BxMdqpA" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_-Ws0weU5EemjGu4BxMdqpA" y="5"/>
           </children>
-          <children xmi:type="notation:Node" xmi:id="_PKDJEOUtEemTGLfpR1bNxw" type="3003" element="_PIOkJOUtEemTGLfpR1bNxw">
-            <styles xmi:type="notation:ShapeStyle" xmi:id="_PKDJEeUtEemTGLfpR1bNxw" fontName="Segoe UI"/>
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_PKDJEuUtEemTGLfpR1bNxw"/>
+          <children xmi:type="notation:Node" xmi:id="_-WwfIOU5EemjGu4BxMdqpA" type="3003" element="_-WcWEOU5EemjGu4BxMdqpA">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_-WwfIeU5EemjGu4BxMdqpA" fontName="Segoe UI"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_-WwfIuU5EemjGu4BxMdqpA"/>
           </children>
-          <styles xmi:type="notation:ShapeStyle" xmi:id="_PJ8bZuUtEemTGLfpR1bNxw" fontName="Segoe UI" fontHeight="8"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_PJ8bZ-UtEemTGLfpR1bNxw" x="300" width="90" height="40"/>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_-WsNs-U5EemjGu4BxMdqpA" fontName="Segoe UI" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_-WsNtOU5EemjGu4BxMdqpA" x="150" width="90" height="40"/>
         </children>
-        <children xmi:type="notation:Node" xmi:id="_PJ9pguUtEemTGLfpR1bNxw" type="2001" element="_PIOkJuUtEemTGLfpR1bNxw">
-          <children xmi:type="notation:Node" xmi:id="_PJ-QkOUtEemTGLfpR1bNxw" type="5002">
-            <layoutConstraint xmi:type="notation:Location" xmi:id="_PJ-QkeUtEemTGLfpR1bNxw" y="5"/>
+        <children xmi:type="notation:Node" xmi:id="_-Ws0wuU5EemjGu4BxMdqpA" visible="false" type="2001" element="_-WcWEuU5EemjGu4BxMdqpA">
+          <children xmi:type="notation:Node" xmi:id="_-Ws0xeU5EemjGu4BxMdqpA" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_-Ws0xuU5EemjGu4BxMdqpA" y="5"/>
           </children>
-          <children xmi:type="notation:Node" xmi:id="_PKDJE-UtEemTGLfpR1bNxw" type="3003" element="_PIPLMOUtEemTGLfpR1bNxw">
-            <styles xmi:type="notation:ShapeStyle" xmi:id="_PKDJFOUtEemTGLfpR1bNxw" fontName="Segoe UI"/>
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_PKDJFeUtEemTGLfpR1bNxw"/>
+          <children xmi:type="notation:Node" xmi:id="_-WwfI-U5EemjGu4BxMdqpA" type="3003" element="_-WcWE-U5EemjGu4BxMdqpA">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_-WwfJOU5EemjGu4BxMdqpA" fontName="Segoe UI"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_-WwfJeU5EemjGu4BxMdqpA"/>
           </children>
-          <styles xmi:type="notation:ShapeStyle" xmi:id="_PJ9pg-UtEemTGLfpR1bNxw" fontName="Segoe UI" fontHeight="8"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_PJ9phOUtEemTGLfpR1bNxw" x="420" y="270" width="90" height="40"/>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_-Ws0w-U5EemjGu4BxMdqpA" fontName="Segoe UI" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_-Ws0xOU5EemjGu4BxMdqpA" x="720" width="90" height="40"/>
         </children>
-        <children xmi:type="notation:Node" xmi:id="_PJ-3oOUtEemTGLfpR1bNxw" type="2001" element="_PIPyQOUtEemTGLfpR1bNxw">
-          <children xmi:type="notation:Node" xmi:id="_PJ-3o-UtEemTGLfpR1bNxw" type="5002">
-            <layoutConstraint xmi:type="notation:Location" xmi:id="_PJ-3pOUtEemTGLfpR1bNxw" y="5"/>
+        <children xmi:type="notation:Node" xmi:id="_-Wtb0OU5EemjGu4BxMdqpA" visible="false" type="2001" element="_-Wc9IeU5EemjGu4BxMdqpA">
+          <children xmi:type="notation:Node" xmi:id="_-Wtb0-U5EemjGu4BxMdqpA" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_-Wtb1OU5EemjGu4BxMdqpA" y="5"/>
           </children>
-          <children xmi:type="notation:Node" xmi:id="_PKDwIOUtEemTGLfpR1bNxw" type="3003" element="_PIPyQeUtEemTGLfpR1bNxw">
-            <styles xmi:type="notation:ShapeStyle" xmi:id="_PKDwIeUtEemTGLfpR1bNxw" fontName="Segoe UI"/>
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_PKDwIuUtEemTGLfpR1bNxw"/>
+          <children xmi:type="notation:Node" xmi:id="_-WwfJuU5EemjGu4BxMdqpA" type="3003" element="_-Wc9IuU5EemjGu4BxMdqpA">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_-WwfJ-U5EemjGu4BxMdqpA" fontName="Segoe UI"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_-WwfKOU5EemjGu4BxMdqpA"/>
           </children>
-          <styles xmi:type="notation:ShapeStyle" xmi:id="_PJ-3oeUtEemTGLfpR1bNxw" fontName="Segoe UI" fontHeight="8"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_PJ-3ouUtEemTGLfpR1bNxw" x="600" width="90" height="40"/>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_-Wtb0eU5EemjGu4BxMdqpA" fontName="Segoe UI" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_-Wtb0uU5EemjGu4BxMdqpA" x="600" width="90" height="40"/>
         </children>
-        <children xmi:type="notation:Node" xmi:id="_LXHJUOU1EemTGLfpR1bNxw" type="2001" element="_LXBCsOU1EemTGLfpR1bNxw">
-          <children xmi:type="notation:Node" xmi:id="_LXHwYOU1EemTGLfpR1bNxw" type="5002">
-            <layoutConstraint xmi:type="notation:Location" xmi:id="_LXHwYeU1EemTGLfpR1bNxw" y="5"/>
+        <children xmi:type="notation:Node" xmi:id="_-Wtb1eU5EemjGu4BxMdqpA" visible="false" type="2001" element="_-WdkMOU5EemjGu4BxMdqpA">
+          <children xmi:type="notation:Node" xmi:id="_-WuC4OU5EemjGu4BxMdqpA" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_-WuC4eU5EemjGu4BxMdqpA" y="5"/>
           </children>
-          <children xmi:type="notation:Node" xmi:id="_LXIXcOU1EemTGLfpR1bNxw" type="3003" element="_LXBCseU1EemTGLfpR1bNxw">
-            <styles xmi:type="notation:ShapeStyle" xmi:id="_LXIXceU1EemTGLfpR1bNxw" fontName="Segoe UI"/>
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_LXIXcuU1EemTGLfpR1bNxw"/>
+          <children xmi:type="notation:Node" xmi:id="_-WwfKeU5EemjGu4BxMdqpA" type="3003" element="_-WdkMeU5EemjGu4BxMdqpA">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_-WwfKuU5EemjGu4BxMdqpA" fontName="Segoe UI"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_-WwfK-U5EemjGu4BxMdqpA"/>
           </children>
-          <styles xmi:type="notation:ShapeStyle" xmi:id="_LXHJUeU1EemTGLfpR1bNxw" fontName="Segoe UI" fontHeight="8"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_LXHJUuU1EemTGLfpR1bNxw" x="795" y="465" width="90" height="40"/>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_-Wtb1uU5EemjGu4BxMdqpA" fontName="Segoe UI" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_-Wtb1-U5EemjGu4BxMdqpA" x="600" y="105" width="90" height="40"/>
         </children>
-        <children xmi:type="notation:Node" xmi:id="_Z1F10OU1EemTGLfpR1bNxw" type="2001" element="_Z1AWQOU1EemTGLfpR1bNxw">
-          <children xmi:type="notation:Node" xmi:id="_Z1Gc4OU1EemTGLfpR1bNxw" type="5002">
-            <layoutConstraint xmi:type="notation:Location" xmi:id="_Z1Gc4eU1EemTGLfpR1bNxw" y="5"/>
+        <children xmi:type="notation:Node" xmi:id="_-WuC4uU5EemjGu4BxMdqpA" visible="false" type="2001" element="_-WeLQOU5EemjGu4BxMdqpA">
+          <children xmi:type="notation:Node" xmi:id="_-Wup8OU5EemjGu4BxMdqpA" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_-Wup8eU5EemjGu4BxMdqpA" y="5"/>
           </children>
-          <children xmi:type="notation:Node" xmi:id="_Z1Gc4uU1EemTGLfpR1bNxw" type="3003" element="_Z1A9UOU1EemTGLfpR1bNxw">
-            <styles xmi:type="notation:ShapeStyle" xmi:id="_Z1Gc4-U1EemTGLfpR1bNxw" fontName="Segoe UI"/>
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Z1Gc5OU1EemTGLfpR1bNxw"/>
+          <children xmi:type="notation:Node" xmi:id="_-WxGMOU5EemjGu4BxMdqpA" type="3003" element="_-WeyUOU5EemjGu4BxMdqpA">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_-WxGMeU5EemjGu4BxMdqpA" fontName="Segoe UI"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_-WxGMuU5EemjGu4BxMdqpA"/>
           </children>
-          <styles xmi:type="notation:ShapeStyle" xmi:id="_Z1F10eU1EemTGLfpR1bNxw" fontName="Segoe UI" fontHeight="8"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Z1F10uU1EemTGLfpR1bNxw" x="525" y="504" width="90" height="40"/>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_-WuC4-U5EemjGu4BxMdqpA" fontName="Segoe UI" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_-WuC5OU5EemjGu4BxMdqpA" x="300" width="90" height="40"/>
         </children>
-        <styles xmi:type="notation:DiagramStyle" xmi:id="_PI2PMuUtEemTGLfpR1bNxw"/>
-        <edges xmi:type="notation:Edge" xmi:id="_PKUO0OUtEemTGLfpR1bNxw" type="4001" element="_PIUqwOUtEemTGLfpR1bNxw" source="_PJPQwOUtEemTGLfpR1bNxw" target="_PJ7NQOUtEemTGLfpR1bNxw">
-          <children xmi:type="notation:Node" xmi:id="_PKVc8OUtEemTGLfpR1bNxw" type="6001">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_PKVc8eUtEemTGLfpR1bNxw" y="-10"/>
+        <children xmi:type="notation:Node" xmi:id="_HJ5SQOVGEemjGu4BxMdqpA" visible="false" type="2001" element="_HJZjAOVGEemjGu4BxMdqpA">
+          <children xmi:type="notation:Node" xmi:id="_HJ5SQ-VGEemjGu4BxMdqpA" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_HJ5SROVGEemjGu4BxMdqpA" y="5"/>
           </children>
-          <children xmi:type="notation:Node" xmi:id="_PKVc8uUtEemTGLfpR1bNxw" type="6002">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_PKVc8-UtEemTGLfpR1bNxw" y="10"/>
+          <children xmi:type="notation:Node" xmi:id="_HJ6gZ-VGEemjGu4BxMdqpA" type="3016" element="_HJZjAuVGEemjGu4BxMdqpA">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_HJ6gaOVGEemjGu4BxMdqpA" fontName="Segoe UI"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_HJ6gaeVGEemjGu4BxMdqpA"/>
           </children>
-          <children xmi:type="notation:Node" xmi:id="_PKWEAOUtEemTGLfpR1bNxw" type="6003">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_PKWEAeUtEemTGLfpR1bNxw" y="10"/>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_HJ5SQeVGEemjGu4BxMdqpA" fontName="Segoe UI" fontHeight="12"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_HJ5SQuVGEemjGu4BxMdqpA" width="200" height="150"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_HJ5SReVGEemjGu4BxMdqpA" visible="false" type="2001" element="_HJaKEOVGEemjGu4BxMdqpA">
+          <children xmi:type="notation:Node" xmi:id="_HJ5SSOVGEemjGu4BxMdqpA" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_HJ5SSeVGEemjGu4BxMdqpA" y="5"/>
           </children>
-          <styles xmi:type="notation:ConnectorStyle" xmi:id="_PKUO0eUtEemTGLfpR1bNxw"/>
-          <styles xmi:type="notation:FontStyle" xmi:id="_PKUO0uUtEemTGLfpR1bNxw" fontName="Segoe UI" fontHeight="8"/>
-          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_PKUO0-UtEemTGLfpR1bNxw" points="[0, 0, 0, 60]$[0, -60, 0, 0]"/>
-          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_PKhqMOUtEemTGLfpR1bNxw" id="(0.5,0.0)"/>
-          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_PKhqMeUtEemTGLfpR1bNxw" id="(0.5,1.0)"/>
+          <children xmi:type="notation:Node" xmi:id="_HJ6gauVGEemjGu4BxMdqpA" type="3003" element="_HJaKEuVGEemjGu4BxMdqpA">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_HJ6ga-VGEemjGu4BxMdqpA" fontName="Segoe UI"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_HJ6gbOVGEemjGu4BxMdqpA"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_HJ5SRuVGEemjGu4BxMdqpA" fontName="Segoe UI" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_HJ5SR-VGEemjGu4BxMdqpA" width="90" height="40"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_HJ5SSuVGEemjGu4BxMdqpA" visible="false" type="2001" element="_HJaKE-VGEemjGu4BxMdqpA">
+          <children xmi:type="notation:Node" xmi:id="_HJ55UOVGEemjGu4BxMdqpA" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_HJ55UeVGEemjGu4BxMdqpA" y="5"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_HJ6gbeVGEemjGu4BxMdqpA" type="3003" element="_HJaKFeVGEemjGu4BxMdqpA">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_HJ6gbuVGEemjGu4BxMdqpA" fontName="Segoe UI"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_HJ6gb-VGEemjGu4BxMdqpA"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_HJ5SS-VGEemjGu4BxMdqpA" fontName="Segoe UI" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_HJ5STOVGEemjGu4BxMdqpA" width="90" height="40"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_HJ55UuVGEemjGu4BxMdqpA" visible="false" type="2001" element="_HJaKFuVGEemjGu4BxMdqpA">
+          <children xmi:type="notation:Node" xmi:id="_HJ55VeVGEemjGu4BxMdqpA" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_HJ55VuVGEemjGu4BxMdqpA" y="5"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_HJ6gcOVGEemjGu4BxMdqpA" type="3003" element="_HJaKGOVGEemjGu4BxMdqpA">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_HJ6gceVGEemjGu4BxMdqpA" fontName="Segoe UI"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_HJ6gcuVGEemjGu4BxMdqpA"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_HJ55U-VGEemjGu4BxMdqpA" fontName="Segoe UI" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_HJ55VOVGEemjGu4BxMdqpA" width="90" height="40"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_HJ55V-VGEemjGu4BxMdqpA" visible="false" type="2001" element="_HJaKGeVGEemjGu4BxMdqpA">
+          <children xmi:type="notation:Node" xmi:id="_HJ55WuVGEemjGu4BxMdqpA" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_HJ55W-VGEemjGu4BxMdqpA" y="5"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_HJ7HcOVGEemjGu4BxMdqpA" type="3003" element="_HJaKG-VGEemjGu4BxMdqpA">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_HJ7HceVGEemjGu4BxMdqpA" fontName="Segoe UI"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_HJ7HcuVGEemjGu4BxMdqpA"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_HJ55WOVGEemjGu4BxMdqpA" fontName="Segoe UI" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_HJ55WeVGEemjGu4BxMdqpA" width="90" height="40"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_HJ55XOVGEemjGu4BxMdqpA" visible="false" type="2001" element="_HJaKHOVGEemjGu4BxMdqpA">
+          <children xmi:type="notation:Node" xmi:id="_HJ55X-VGEemjGu4BxMdqpA" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_HJ55YOVGEemjGu4BxMdqpA" y="5"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_HJ7Hc-VGEemjGu4BxMdqpA" type="3003" element="_HJaKHuVGEemjGu4BxMdqpA">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_HJ7HdOVGEemjGu4BxMdqpA" fontName="Segoe UI"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_HJ7HdeVGEemjGu4BxMdqpA"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_HJ55XeVGEemjGu4BxMdqpA" fontName="Segoe UI" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_HJ55XuVGEemjGu4BxMdqpA" width="90" height="40"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_HJ55YeVGEemjGu4BxMdqpA" visible="false" type="2001" element="_HJaKH-VGEemjGu4BxMdqpA">
+          <children xmi:type="notation:Node" xmi:id="_HJ55ZOVGEemjGu4BxMdqpA" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_HJ55ZeVGEemjGu4BxMdqpA" y="5"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_HJ7HduVGEemjGu4BxMdqpA" type="3003" element="_HJaKIeVGEemjGu4BxMdqpA">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_HJ7Hd-VGEemjGu4BxMdqpA" fontName="Segoe UI"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_HJ7HeOVGEemjGu4BxMdqpA"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_HJ55YuVGEemjGu4BxMdqpA" fontName="Segoe UI" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_HJ55Y-VGEemjGu4BxMdqpA" width="90" height="40"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_HJ55ZuVGEemjGu4BxMdqpA" visible="false" type="2001" element="_HJaKIuVGEemjGu4BxMdqpA">
+          <children xmi:type="notation:Node" xmi:id="_HJ6gYOVGEemjGu4BxMdqpA" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_HJ6gYeVGEemjGu4BxMdqpA" y="5"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_HJ7HeeVGEemjGu4BxMdqpA" type="3003" element="_HJaKJOVGEemjGu4BxMdqpA">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_HJ7HeuVGEemjGu4BxMdqpA" fontName="Segoe UI"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_HJ7He-VGEemjGu4BxMdqpA"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_HJ55Z-VGEemjGu4BxMdqpA" fontName="Segoe UI" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_HJ55aOVGEemjGu4BxMdqpA" width="90" height="40"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_HJ6gYuVGEemjGu4BxMdqpA" visible="false" type="2001" element="_HJaxIOVGEemjGu4BxMdqpA">
+          <children xmi:type="notation:Node" xmi:id="_HJ6gZeVGEemjGu4BxMdqpA" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_HJ6gZuVGEemjGu4BxMdqpA" y="5"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_HJ7HfOVGEemjGu4BxMdqpA" type="3003" element="_HJaxIuVGEemjGu4BxMdqpA">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_HJ7HfeVGEemjGu4BxMdqpA" fontName="Segoe UI"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_HJ7HfuVGEemjGu4BxMdqpA"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_HJ6gY-VGEemjGu4BxMdqpA" fontName="Segoe UI" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_HJ6gZOVGEemjGu4BxMdqpA" width="90" height="40"/>
+        </children>
+        <styles xmi:type="notation:DiagramStyle" xmi:id="_-Wn8QuU5EemjGu4BxMdqpA"/>
+        <edges xmi:type="notation:Edge" xmi:id="_-WxGM-U5EemjGu4BxMdqpA" visible="false" type="4001" element="_-WfZYOU5EemjGu4BxMdqpA" source="_-Wn8Q-U5EemjGu4BxMdqpA" target="_-WpxcOU5EemjGu4BxMdqpA">
+          <children xmi:type="notation:Node" xmi:id="_-WxGN-U5EemjGu4BxMdqpA" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_-WxGOOU5EemjGu4BxMdqpA" y="-10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_-WxGOeU5EemjGu4BxMdqpA" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_-WxGOuU5EemjGu4BxMdqpA" y="10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_-WxGO-U5EemjGu4BxMdqpA" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_-WxGPOU5EemjGu4BxMdqpA" y="10"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_-WxGNOU5EemjGu4BxMdqpA"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_-WxGNeU5EemjGu4BxMdqpA" fontName="Segoe UI" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_-WxGNuU5EemjGu4BxMdqpA" points="[0, 0, 75, 60]$[-75, -60, 0, 0]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_-WxtQOU5EemjGu4BxMdqpA" id="(0.5,0.0)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_-WxtQeU5EemjGu4BxMdqpA" id="(0.5,1.0)"/>
         </edges>
-        <edges xmi:type="notation:Edge" xmi:id="_UO_CkOUtEemTGLfpR1bNxw" type="4001" element="_UO7_ROUtEemTGLfpR1bNxw" source="_PJ70UOUtEemTGLfpR1bNxw" target="_PJ9pguUtEemTGLfpR1bNxw">
-          <children xmi:type="notation:Node" xmi:id="_UO_ClOUtEemTGLfpR1bNxw" type="6001">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_UO_CleUtEemTGLfpR1bNxw" x="-10" y="-4"/>
+        <edges xmi:type="notation:Edge" xmi:id="_-WxtQuU5EemjGu4BxMdqpA" visible="false" type="4001" element="_-WfZZeU5EemjGu4BxMdqpA" source="_-Wn8Q-U5EemjGu4BxMdqpA" target="_-Wtb1eU5EemjGu4BxMdqpA">
+          <children xmi:type="notation:Node" xmi:id="_-WyUUOU5EemjGu4BxMdqpA" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_-WyUUeU5EemjGu4BxMdqpA" y="-10"/>
           </children>
-          <children xmi:type="notation:Node" xmi:id="_UO_CluUtEemTGLfpR1bNxw" type="6002">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_UO_Cl-UtEemTGLfpR1bNxw" x="8" y="6"/>
+          <children xmi:type="notation:Node" xmi:id="_-WyUUuU5EemjGu4BxMdqpA" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_-WyUU-U5EemjGu4BxMdqpA" y="10"/>
           </children>
-          <children xmi:type="notation:Node" xmi:id="_UO_CmOUtEemTGLfpR1bNxw" type="6003">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_UO_CmeUtEemTGLfpR1bNxw" x="7" y="5"/>
+          <children xmi:type="notation:Node" xmi:id="_-WyUVOU5EemjGu4BxMdqpA" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_-WyUVeU5EemjGu4BxMdqpA" y="10"/>
           </children>
-          <styles xmi:type="notation:ConnectorStyle" xmi:id="_UO_CkeUtEemTGLfpR1bNxw"/>
-          <styles xmi:type="notation:FontStyle" xmi:id="_UO_CkuUtEemTGLfpR1bNxw" fontName="Segoe UI" fontHeight="8"/>
-          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_UO_Ck-UtEemTGLfpR1bNxw" points="[1, 20, -14, -160]$[13, 160, -2, -20]"/>
-          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_UO_CmuUtEemTGLfpR1bNxw" id="(0.5,0.5)"/>
-          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_UO_Cm-UtEemTGLfpR1bNxw" id="(0.5,0.5)"/>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_-WxtQ-U5EemjGu4BxMdqpA"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_-WxtROU5EemjGu4BxMdqpA" fontName="Segoe UI" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_-WxtReU5EemjGu4BxMdqpA" points="[0, 0, -75, 60]$[75, -60, 0, 0]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_-Wy7YOU5EemjGu4BxMdqpA" id="(0.5,0.0)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_-Wy7YeU5EemjGu4BxMdqpA" id="(0.5,1.0)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_-Wy7YuU5EemjGu4BxMdqpA" visible="false" type="4001" element="_-WfZauU5EemjGu4BxMdqpA" source="_-WrmoOU5EemjGu4BxMdqpA" target="_-Ws0wuU5EemjGu4BxMdqpA">
+          <children xmi:type="notation:Node" xmi:id="_-Wy7ZuU5EemjGu4BxMdqpA" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_-Wy7Z-U5EemjGu4BxMdqpA" y="-10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_-Wy7aOU5EemjGu4BxMdqpA" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_-Wy7aeU5EemjGu4BxMdqpA" y="10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_-Wy7auU5EemjGu4BxMdqpA" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_-Wy7a-U5EemjGu4BxMdqpA" y="10"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_-Wy7Y-U5EemjGu4BxMdqpA"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_-Wy7ZOU5EemjGu4BxMdqpA" fontName="Segoe UI" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_-Wy7ZeU5EemjGu4BxMdqpA" points="[0, 0, 0, 60]$[0, -60, 0, 0]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_-Wy7bOU5EemjGu4BxMdqpA" id="(0.5,0.0)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_-Wy7beU5EemjGu4BxMdqpA" id="(0.5,1.0)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_-Wy7buU5EemjGu4BxMdqpA" visible="false" type="4001" element="_-WfZb-U5EemjGu4BxMdqpA" source="_-Wtb1eU5EemjGu4BxMdqpA" target="_-Wtb0OU5EemjGu4BxMdqpA">
+          <children xmi:type="notation:Node" xmi:id="_-WzicOU5EemjGu4BxMdqpA" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_-WziceU5EemjGu4BxMdqpA" y="-10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_-WzicuU5EemjGu4BxMdqpA" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_-Wzic-U5EemjGu4BxMdqpA" y="10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_-WzidOU5EemjGu4BxMdqpA" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_-WzideU5EemjGu4BxMdqpA" y="10"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_-Wy7b-U5EemjGu4BxMdqpA"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_-Wy7cOU5EemjGu4BxMdqpA" fontName="Segoe UI" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_-Wy7ceU5EemjGu4BxMdqpA" points="[0, 0, 0, 60]$[0, -60, 0, 0]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_-WziduU5EemjGu4BxMdqpA" id="(0.5,0.0)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_-Wzid-U5EemjGu4BxMdqpA" id="(0.5,1.0)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_HJ7Hf-VGEemjGu4BxMdqpA" visible="false" type="4001" element="_HJaxI-VGEemjGu4BxMdqpA" source="_HJ5SQOVGEemjGu4BxMdqpA" target="_HJ5SReVGEemjGu4BxMdqpA">
+          <children xmi:type="notation:Node" xmi:id="_HJ7ugOVGEemjGu4BxMdqpA" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_HJ7ugeVGEemjGu4BxMdqpA" y="-10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_HJ7uguVGEemjGu4BxMdqpA" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_HJ7ug-VGEemjGu4BxMdqpA" y="10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_HJ7uhOVGEemjGu4BxMdqpA" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_HJ7uheVGEemjGu4BxMdqpA" y="10"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_HJ7HgOVGEemjGu4BxMdqpA"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_HJ7HgeVGEemjGu4BxMdqpA" fontName="Segoe UI" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_HJ7HguVGEemjGu4BxMdqpA" points="[0, 0, 55, 55]$[-55, -55, 0, 0]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_HJ7uhuVGEemjGu4BxMdqpA" id="(0.5,0.5)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_HJ7uh-VGEemjGu4BxMdqpA" id="(0.5,0.5)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_HJ7uiOVGEemjGu4BxMdqpA" visible="false" type="4001" element="_HJaxKOVGEemjGu4BxMdqpA" source="_HJ5SQOVGEemjGu4BxMdqpA" target="_HJ55ZuVGEemjGu4BxMdqpA">
+          <children xmi:type="notation:Node" xmi:id="_HJ7ujOVGEemjGu4BxMdqpA" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_HJ8VkOVGEemjGu4BxMdqpA" y="-10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_HJ8VkeVGEemjGu4BxMdqpA" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_HJ8VkuVGEemjGu4BxMdqpA" y="10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_HJ8Vk-VGEemjGu4BxMdqpA" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_HJ8VlOVGEemjGu4BxMdqpA" y="10"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_HJ7uieVGEemjGu4BxMdqpA"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_HJ7uiuVGEemjGu4BxMdqpA" fontName="Segoe UI" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_HJ7ui-VGEemjGu4BxMdqpA" points="[0, 0, 55, 55]$[-55, -55, 0, 0]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_HJ8VleVGEemjGu4BxMdqpA" id="(0.5,0.5)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_HJ8VluVGEemjGu4BxMdqpA" id="(0.5,0.5)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_HJ8Vl-VGEemjGu4BxMdqpA" visible="false" type="4001" element="_HJbYMuVGEemjGu4BxMdqpA" source="_HJ5SSuVGEemjGu4BxMdqpA" target="_HJ55XOVGEemjGu4BxMdqpA">
+          <children xmi:type="notation:Node" xmi:id="_HJ8Vm-VGEemjGu4BxMdqpA" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_HJ8VnOVGEemjGu4BxMdqpA" y="-10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_HJ8VneVGEemjGu4BxMdqpA" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_HJ8VnuVGEemjGu4BxMdqpA" y="10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_HJ8Vn-VGEemjGu4BxMdqpA" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_HJ8VoOVGEemjGu4BxMdqpA" y="10"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_HJ8VmOVGEemjGu4BxMdqpA"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_HJ8VmeVGEemjGu4BxMdqpA" fontName="Segoe UI" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_HJ8VmuVGEemjGu4BxMdqpA" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_HJ8VoeVGEemjGu4BxMdqpA" id="(0.5,0.5)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_HJ8VouVGEemjGu4BxMdqpA" id="(0.5,0.5)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_HJ8Vo-VGEemjGu4BxMdqpA" visible="false" type="4001" element="_HJbYN-VGEemjGu4BxMdqpA" source="_HJ55ZuVGEemjGu4BxMdqpA" target="_HJ55YeVGEemjGu4BxMdqpA">
+          <children xmi:type="notation:Node" xmi:id="_HJ8Vp-VGEemjGu4BxMdqpA" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_HJ8VqOVGEemjGu4BxMdqpA" y="-10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_HJ8VqeVGEemjGu4BxMdqpA" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_HJ8VquVGEemjGu4BxMdqpA" y="10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_HJ8Vq-VGEemjGu4BxMdqpA" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_HJ8VrOVGEemjGu4BxMdqpA" y="10"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_HJ8VpOVGEemjGu4BxMdqpA"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_HJ8VpeVGEemjGu4BxMdqpA" fontName="Segoe UI" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_HJ8VpuVGEemjGu4BxMdqpA" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_HJ8VreVGEemjGu4BxMdqpA" id="(0.5,0.5)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_HJ8VruVGEemjGu4BxMdqpA" id="(0.5,0.5)"/>
         </edges>
       </data>
     </ownedAnnotationEntries>
-    <ownedDiagramElements xmi:type="diagram:DNode" uid="_PIFaMOUtEemTGLfpR1bNxw" name="Xmmm" outgoingEdges="_PIUqwOUtEemTGLfpR1bNxw" width="20" height="15" resizeKind="NSEW">
+    <ownedDiagramElements xmi:type="diagram:DNode" uid="_-WYrsOU5EemjGu4BxMdqpA" visible="false" outgoingEdges="_-WfZYOU5EemjGu4BxMdqpA _-WfZZeU5EemjGu4BxMdqpA" width="20" height="15" resizeKind="NSEW">
       <target xmi:type="org.nasdanika.vinci.app:Action" href="models/My.vinci#/"/>
       <semanticElements xmi:type="org.nasdanika.vinci.app:Action" href="models/My.vinci#/"/>
-      <ownedStyle xmi:type="diagram:Ellipse" uid="_PIJroOUtEemTGLfpR1bNxw" labelSize="12" showIcon="false" labelPosition="node" horizontalDiameter="20" verticalDiameter="15" color="209,209,209">
+      <ownedStyle xmi:type="diagram:Ellipse" uid="_-WYrseU5EemjGu4BxMdqpA" labelSize="12" showIcon="false" labelPosition="node" horizontalDiameter="20" verticalDiameter="15" color="209,209,209">
         <description xmi:type="style:EllipseNodeDescription" href="platform:/resource/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@nodeMappings[name='RootNode']/@style"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@nodeMappings[name='RootNode']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNode" uid="_PINWAOUtEemTGLfpR1bNxw" name="Child 1" incomingEdges="_PIUqwOUtEemTGLfpR1bNxw" width="9" height="4" resizeKind="NSEW">
+    <ownedDiagramElements xmi:type="diagram:DNode" uid="_-WZ50OU5EemjGu4BxMdqpA" visible="false" incomingEdges="_-WfZYOU5EemjGu4BxMdqpA" width="9" height="4" resizeKind="NSEW">
       <target xmi:type="org.nasdanika.vinci.app:Action" href="models/My.vinci#//@elements.0"/>
       <semanticElements xmi:type="org.nasdanika.vinci.app:Action" href="models/My.vinci#//@elements.0"/>
-      <ownedStyle xmi:type="diagram:Square" uid="_PIN9EOUtEemTGLfpR1bNxw" showIcon="false" labelPosition="node" width="9" height="4" color="255,245,181">
+      <ownedStyle xmi:type="diagram:Square" uid="_-WZ50eU5EemjGu4BxMdqpA" showIcon="false" labelPosition="node" width="9" height="4" color="255,245,181">
         <description xmi:type="style:SquareDescription" href="platform:/resource/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@nodeMappings[name='ActionNode']/@style"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@nodeMappings[name='ActionNode']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNode" uid="_PIN9EuUtEemTGLfpR1bNxw" name="1" outgoingEdges="_UO7_ROUtEemTGLfpR1bNxw" width="9" height="4" resizeKind="NSEW">
+    <ownedDiagramElements xmi:type="diagram:DNode" uid="_-Wag4eU5EemjGu4BxMdqpA" name="t1" visible="false" outgoingEdges="_-WfZauU5EemjGu4BxMdqpA" width="9" height="4" resizeKind="NSEW">
       <target xmi:type="org.nasdanika.vinci.app:Action" href="models/My.vinci#//@elements.2"/>
       <semanticElements xmi:type="org.nasdanika.vinci.app:Action" href="models/My.vinci#//@elements.2"/>
-      <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
-      <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
-      <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
-      <ownedStyle xmi:type="diagram:Square" uid="_PIN9E-UtEemTGLfpR1bNxw" showIcon="false" labelPosition="node" width="9" height="4" color="255,245,181">
+      <ownedStyle xmi:type="diagram:Square" uid="_-WbH8OU5EemjGu4BxMdqpA" showIcon="false" labelPosition="node" width="9" height="4" color="255,245,181">
         <description xmi:type="style:SquareDescription" href="platform:/resource/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@nodeMappings[name='ActionNode']/@style"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@nodeMappings[name='ActionNode']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNode" uid="_PIOkIOUtEemTGLfpR1bNxw" width="9" height="4" resizeKind="NSEW">
+    <ownedDiagramElements xmi:type="diagram:DNode" uid="_-WbH8uU5EemjGu4BxMdqpA" name="t2" visible="false" width="9" height="4" resizeKind="NSEW">
       <target xmi:type="org.nasdanika.vinci.app:Action" href="models/My.vinci#//@elements.3"/>
       <semanticElements xmi:type="org.nasdanika.vinci.app:Action" href="models/My.vinci#//@elements.3"/>
-      <ownedStyle xmi:type="diagram:Square" uid="_PIOkIeUtEemTGLfpR1bNxw" showIcon="false" labelPosition="node" width="9" height="4" color="255,245,181">
+      <ownedStyle xmi:type="diagram:Square" uid="_-WbvAOU5EemjGu4BxMdqpA" showIcon="false" labelPosition="node" width="9" height="4" color="255,245,181">
         <description xmi:type="style:SquareDescription" href="platform:/resource/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@nodeMappings[name='ActionNode']/@style"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@nodeMappings[name='ActionNode']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNode" uid="_PIOkI-UtEemTGLfpR1bNxw" width="9" height="4" resizeKind="NSEW">
+    <ownedDiagramElements xmi:type="diagram:DNode" uid="_-WbvAuU5EemjGu4BxMdqpA" name="t3" visible="false" width="9" height="4" resizeKind="NSEW">
       <target xmi:type="org.nasdanika.vinci.app:Action" href="models/My.vinci#//@elements.4"/>
       <semanticElements xmi:type="org.nasdanika.vinci.app:Action" href="models/My.vinci#//@elements.4"/>
-      <ownedStyle xmi:type="diagram:Square" uid="_PIOkJOUtEemTGLfpR1bNxw" showIcon="false" labelPosition="node" width="9" height="4" color="255,245,181">
+      <ownedStyle xmi:type="diagram:Square" uid="_-WcWEOU5EemjGu4BxMdqpA" showIcon="false" labelPosition="node" width="9" height="4" color="255,245,181">
         <description xmi:type="style:SquareDescription" href="platform:/resource/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@nodeMappings[name='ActionNode']/@style"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@nodeMappings[name='ActionNode']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNode" uid="_PIOkJuUtEemTGLfpR1bNxw" incomingEdges="_UO7_ROUtEemTGLfpR1bNxw" width="9" height="4" resizeKind="NSEW">
+    <ownedDiagramElements xmi:type="diagram:DNode" uid="_-WcWEuU5EemjGu4BxMdqpA" name="t4" visible="false" incomingEdges="_-WfZauU5EemjGu4BxMdqpA" width="9" height="4" resizeKind="NSEW">
       <target xmi:type="org.nasdanika.vinci.app:Action" href="models/My.vinci#//@elements.5"/>
       <semanticElements xmi:type="org.nasdanika.vinci.app:Action" href="models/My.vinci#//@elements.5"/>
-      <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
-      <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
-      <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
-      <ownedStyle xmi:type="diagram:Square" uid="_PIPLMOUtEemTGLfpR1bNxw" showIcon="false" labelPosition="node" width="9" height="4" color="255,245,181">
+      <ownedStyle xmi:type="diagram:Square" uid="_-WcWE-U5EemjGu4BxMdqpA" showIcon="false" labelPosition="node" width="9" height="4" color="255,245,181">
         <description xmi:type="style:SquareDescription" href="platform:/resource/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@nodeMappings[name='ActionNode']/@style"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@nodeMappings[name='ActionNode']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNode" uid="_LXBCsOU1EemTGLfpR1bNxw" width="9" height="4" resizeKind="NSEW">
+    <ownedDiagramElements xmi:type="diagram:DNode" uid="_-Wc9IeU5EemjGu4BxMdqpA" visible="false" incomingEdges="_-WfZb-U5EemjGu4BxMdqpA" width="9" height="4" resizeKind="NSEW">
       <target xmi:type="org.nasdanika.vinci.app:Action" href="models/My.vinci#//@elements.6"/>
       <semanticElements xmi:type="org.nasdanika.vinci.app:Action" href="models/My.vinci#//@elements.6"/>
-      <ownedStyle xmi:type="diagram:Square" uid="_LXBCseU1EemTGLfpR1bNxw" showIcon="false" labelPosition="node" width="9" height="4" color="255,245,181">
+      <ownedStyle xmi:type="diagram:Square" uid="_-Wc9IuU5EemjGu4BxMdqpA" showIcon="false" labelPosition="node" width="9" height="4" color="255,245,181">
         <description xmi:type="style:SquareDescription" href="platform:/resource/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@nodeMappings[name='ActionNode']/@style"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@nodeMappings[name='ActionNode']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNode" uid="_Z1AWQOU1EemTGLfpR1bNxw" name="Action-7" width="9" height="4" resizeKind="NSEW">
+    <ownedDiagramElements xmi:type="diagram:DNode" uid="_-WdkMOU5EemjGu4BxMdqpA" visible="false" outgoingEdges="_-WfZb-U5EemjGu4BxMdqpA" incomingEdges="_-WfZZeU5EemjGu4BxMdqpA" width="9" height="4" resizeKind="NSEW">
       <target xmi:type="org.nasdanika.vinci.app:Action" href="models/My.vinci#//@elements.7"/>
       <semanticElements xmi:type="org.nasdanika.vinci.app:Action" href="models/My.vinci#//@elements.7"/>
-      <ownedStyle xmi:type="diagram:Square" uid="_Z1A9UOU1EemTGLfpR1bNxw" showIcon="false" labelPosition="node" width="9" height="4" color="255,245,181">
+      <ownedStyle xmi:type="diagram:Square" uid="_-WdkMeU5EemjGu4BxMdqpA" showIcon="false" labelPosition="node" width="9" height="4" color="255,245,181">
         <description xmi:type="style:SquareDescription" href="platform:/resource/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@nodeMappings[name='ActionNode']/@style"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@nodeMappings[name='ActionNode']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNode" uid="_PIPyQOUtEemTGLfpR1bNxw" name="My Category" width="9" height="4" resizeKind="NSEW">
+    <ownedDiagramElements xmi:type="diagram:DNode" uid="_-WeLQOU5EemjGu4BxMdqpA" visible="false" width="9" height="4" resizeKind="NSEW">
       <target xmi:type="org.nasdanika.vinci.app:ActionCategory" href="models/My.vinci#//@elements.1"/>
       <semanticElements xmi:type="org.nasdanika.vinci.app:ActionCategory" href="models/My.vinci#//@elements.1"/>
-      <ownedStyle xmi:type="diagram:Square" uid="_PIPyQeUtEemTGLfpR1bNxw" showIcon="false" labelPosition="node" width="9" height="4" color="194,239,255">
+      <ownedStyle xmi:type="diagram:Square" uid="_-WeyUOU5EemjGu4BxMdqpA" showIcon="false" labelPosition="node" width="9" height="4" color="194,239,255">
         <description xmi:type="style:SquareDescription" href="platform:/resource/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@nodeMappings[name='ActionCategoryNode']/@style"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@nodeMappings[name='ActionCategoryNode']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_PIUqwOUtEemTGLfpR1bNxw" sourceNode="_PIFaMOUtEemTGLfpR1bNxw" targetNode="_PINWAOUtEemTGLfpR1bNxw">
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_-WfZYOU5EemjGu4BxMdqpA" visible="false" sourceNode="_-WYrsOU5EemjGu4BxMdqpA" targetNode="_-WZ50OU5EemjGu4BxMdqpA">
       <target xmi:type="org.nasdanika.vinci.app:Action" href="models/My.vinci#/"/>
-      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_PIV44OUtEemTGLfpR1bNxw" size="2">
-        <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@edgeMappings[name='ParentEdge']/@style"/>
-        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_PIWf8OUtEemTGLfpR1bNxw"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_-WfZYeU5EemjGu4BxMdqpA" size="2">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@edgeMappings[name='ChildEdge']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_-WfZYuU5EemjGu4BxMdqpA"/>
       </ownedStyle>
-      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/resource/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@edgeMappings[name='ParentEdge']"/>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/resource/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@edgeMappings[name='ChildEdge']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_UO7_ROUtEemTGLfpR1bNxw" sourceNode="_PIN9EuUtEemTGLfpR1bNxw" targetNode="_PIOkJuUtEemTGLfpR1bNxw">
-      <target xmi:type="org.nasdanika.vinci.app:Action" href="models/My.vinci#//@elements.2"/>
-      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_UO7_ReUtEemTGLfpR1bNxw" size="2">
-        <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@edgeMappings[name='ParentEdge']/@style"/>
-        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_UO7_RuUtEemTGLfpR1bNxw"/>
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_-WfZZeU5EemjGu4BxMdqpA" visible="false" sourceNode="_-WYrsOU5EemjGu4BxMdqpA" targetNode="_-WdkMOU5EemjGu4BxMdqpA">
+      <target xmi:type="org.nasdanika.vinci.app:Action" href="models/My.vinci#/"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_-WfZZuU5EemjGu4BxMdqpA" size="2">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@edgeMappings[name='ChildEdge']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_-WfZZ-U5EemjGu4BxMdqpA"/>
       </ownedStyle>
-      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/resource/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@edgeMappings[name='ParentEdge']"/>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/resource/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@edgeMappings[name='ChildEdge']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_-WfZauU5EemjGu4BxMdqpA" visible="false" sourceNode="_-Wag4eU5EemjGu4BxMdqpA" targetNode="_-WcWEuU5EemjGu4BxMdqpA">
+      <target xmi:type="org.nasdanika.vinci.app:Action" href="models/My.vinci#//@elements.2"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_-WfZa-U5EemjGu4BxMdqpA" size="2">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@edgeMappings[name='ChildEdge']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_-WfZbOU5EemjGu4BxMdqpA"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/resource/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@edgeMappings[name='ChildEdge']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_-WfZb-U5EemjGu4BxMdqpA" visible="false" sourceNode="_-WdkMOU5EemjGu4BxMdqpA" targetNode="_-Wc9IeU5EemjGu4BxMdqpA">
+      <target xmi:type="org.nasdanika.vinci.app:Action" href="models/My.vinci#//@elements.7"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_-WfZcOU5EemjGu4BxMdqpA" size="2">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@edgeMappings[name='ChildEdge']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_-WfZceU5EemjGu4BxMdqpA"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/resource/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@edgeMappings[name='ChildEdge']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNode" uid="_HJZjAOVGEemjGu4BxMdqpA" visible="false" outgoingEdges="_HJaxI-VGEemjGu4BxMdqpA _HJaxKOVGEemjGu4BxMdqpA" width="20" height="15" resizeKind="NSEW">
+      <target xmi:type="org.nasdanika.vinci.app:Action" href="models/My.vinci#/"/>
+      <semanticElements xmi:type="org.nasdanika.vinci.app:Action" href="models/My.vinci#/"/>
+      <ownedStyle xmi:type="diagram:Ellipse" uid="_HJZjAuVGEemjGu4BxMdqpA" labelSize="12" showIcon="false" labelPosition="node" horizontalDiameter="20" verticalDiameter="15" color="209,209,209">
+        <description xmi:type="style:EllipseNodeDescription" href="platform:/resource/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@nodeMappings[name='RootNode']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@nodeMappings[name='RootNode']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNode" uid="_HJaKEOVGEemjGu4BxMdqpA" visible="false" incomingEdges="_HJaxI-VGEemjGu4BxMdqpA" width="9" height="4" resizeKind="NSEW">
+      <target xmi:type="org.nasdanika.vinci.app:Action" href="models/My.vinci#//@elements.0"/>
+      <semanticElements xmi:type="org.nasdanika.vinci.app:Action" href="models/My.vinci#//@elements.0"/>
+      <ownedStyle xmi:type="diagram:Square" uid="_HJaKEuVGEemjGu4BxMdqpA" showIcon="false" labelPosition="node" width="9" height="4" color="255,245,181">
+        <description xmi:type="style:SquareDescription" href="platform:/resource/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@nodeMappings[name='ActionNode']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@nodeMappings[name='ActionNode']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNode" uid="_HJaKE-VGEemjGu4BxMdqpA" name="t1" visible="false" outgoingEdges="_HJbYMuVGEemjGu4BxMdqpA" width="9" height="4" resizeKind="NSEW">
+      <target xmi:type="org.nasdanika.vinci.app:Action" href="models/My.vinci#//@elements.2"/>
+      <semanticElements xmi:type="org.nasdanika.vinci.app:Action" href="models/My.vinci#//@elements.2"/>
+      <ownedStyle xmi:type="diagram:Square" uid="_HJaKFeVGEemjGu4BxMdqpA" showIcon="false" labelPosition="node" width="9" height="4" color="255,245,181">
+        <description xmi:type="style:SquareDescription" href="platform:/resource/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@nodeMappings[name='ActionNode']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@nodeMappings[name='ActionNode']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNode" uid="_HJaKFuVGEemjGu4BxMdqpA" name="t2" visible="false" width="9" height="4" resizeKind="NSEW">
+      <target xmi:type="org.nasdanika.vinci.app:Action" href="models/My.vinci#//@elements.3"/>
+      <semanticElements xmi:type="org.nasdanika.vinci.app:Action" href="models/My.vinci#//@elements.3"/>
+      <ownedStyle xmi:type="diagram:Square" uid="_HJaKGOVGEemjGu4BxMdqpA" showIcon="false" labelPosition="node" width="9" height="4" color="255,245,181">
+        <description xmi:type="style:SquareDescription" href="platform:/resource/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@nodeMappings[name='ActionNode']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@nodeMappings[name='ActionNode']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNode" uid="_HJaKGeVGEemjGu4BxMdqpA" name="t3" visible="false" width="9" height="4" resizeKind="NSEW">
+      <target xmi:type="org.nasdanika.vinci.app:Action" href="models/My.vinci#//@elements.4"/>
+      <semanticElements xmi:type="org.nasdanika.vinci.app:Action" href="models/My.vinci#//@elements.4"/>
+      <ownedStyle xmi:type="diagram:Square" uid="_HJaKG-VGEemjGu4BxMdqpA" showIcon="false" labelPosition="node" width="9" height="4" color="255,245,181">
+        <description xmi:type="style:SquareDescription" href="platform:/resource/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@nodeMappings[name='ActionNode']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@nodeMappings[name='ActionNode']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNode" uid="_HJaKHOVGEemjGu4BxMdqpA" name="t4" visible="false" incomingEdges="_HJbYMuVGEemjGu4BxMdqpA" width="9" height="4" resizeKind="NSEW">
+      <target xmi:type="org.nasdanika.vinci.app:Action" href="models/My.vinci#//@elements.5"/>
+      <semanticElements xmi:type="org.nasdanika.vinci.app:Action" href="models/My.vinci#//@elements.5"/>
+      <ownedStyle xmi:type="diagram:Square" uid="_HJaKHuVGEemjGu4BxMdqpA" showIcon="false" labelPosition="node" width="9" height="4" color="255,245,181">
+        <description xmi:type="style:SquareDescription" href="platform:/resource/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@nodeMappings[name='ActionNode']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@nodeMappings[name='ActionNode']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNode" uid="_HJaKH-VGEemjGu4BxMdqpA" visible="false" incomingEdges="_HJbYN-VGEemjGu4BxMdqpA" width="9" height="4" resizeKind="NSEW">
+      <target xmi:type="org.nasdanika.vinci.app:Action" href="models/My.vinci#//@elements.6"/>
+      <semanticElements xmi:type="org.nasdanika.vinci.app:Action" href="models/My.vinci#//@elements.6"/>
+      <ownedStyle xmi:type="diagram:Square" uid="_HJaKIeVGEemjGu4BxMdqpA" showIcon="false" labelPosition="node" width="9" height="4" color="255,245,181">
+        <description xmi:type="style:SquareDescription" href="platform:/resource/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@nodeMappings[name='ActionNode']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@nodeMappings[name='ActionNode']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNode" uid="_HJaKIuVGEemjGu4BxMdqpA" visible="false" outgoingEdges="_HJbYN-VGEemjGu4BxMdqpA" incomingEdges="_HJaxKOVGEemjGu4BxMdqpA" width="9" height="4" resizeKind="NSEW">
+      <target xmi:type="org.nasdanika.vinci.app:Action" href="models/My.vinci#//@elements.7"/>
+      <semanticElements xmi:type="org.nasdanika.vinci.app:Action" href="models/My.vinci#//@elements.7"/>
+      <ownedStyle xmi:type="diagram:Square" uid="_HJaKJOVGEemjGu4BxMdqpA" showIcon="false" labelPosition="node" width="9" height="4" color="255,245,181">
+        <description xmi:type="style:SquareDescription" href="platform:/resource/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@nodeMappings[name='ActionNode']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@nodeMappings[name='ActionNode']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNode" uid="_HJaxIOVGEemjGu4BxMdqpA" visible="false" width="9" height="4" resizeKind="NSEW">
+      <target xmi:type="org.nasdanika.vinci.app:ActionCategory" href="models/My.vinci#//@elements.1"/>
+      <semanticElements xmi:type="org.nasdanika.vinci.app:ActionCategory" href="models/My.vinci#//@elements.1"/>
+      <ownedStyle xmi:type="diagram:Square" uid="_HJaxIuVGEemjGu4BxMdqpA" showIcon="false" labelPosition="node" width="9" height="4" color="194,239,255">
+        <description xmi:type="style:SquareDescription" href="platform:/resource/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@nodeMappings[name='ActionCategoryNode']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@nodeMappings[name='ActionCategoryNode']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_HJaxI-VGEemjGu4BxMdqpA" visible="false" sourceNode="_HJZjAOVGEemjGu4BxMdqpA" targetNode="_HJaKEOVGEemjGu4BxMdqpA">
+      <target xmi:type="org.nasdanika.vinci.app:Action" href="models/My.vinci#/"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_HJaxJOVGEemjGu4BxMdqpA" size="2">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@edgeMappings[name='ChildEdge']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_HJaxJeVGEemjGu4BxMdqpA"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/resource/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@edgeMappings[name='ChildEdge']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_HJaxKOVGEemjGu4BxMdqpA" visible="false" sourceNode="_HJZjAOVGEemjGu4BxMdqpA" targetNode="_HJaKIuVGEemjGu4BxMdqpA">
+      <target xmi:type="org.nasdanika.vinci.app:Action" href="models/My.vinci#/"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_HJaxKeVGEemjGu4BxMdqpA" size="2">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@edgeMappings[name='ChildEdge']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_HJaxKuVGEemjGu4BxMdqpA"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/resource/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@edgeMappings[name='ChildEdge']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_HJbYMuVGEemjGu4BxMdqpA" visible="false" sourceNode="_HJaKE-VGEemjGu4BxMdqpA" targetNode="_HJaKHOVGEemjGu4BxMdqpA">
+      <target xmi:type="org.nasdanika.vinci.app:Action" href="models/My.vinci#//@elements.2"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_HJbYM-VGEemjGu4BxMdqpA" size="2">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@edgeMappings[name='ChildEdge']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_HJbYNOVGEemjGu4BxMdqpA"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/resource/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@edgeMappings[name='ChildEdge']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_HJbYN-VGEemjGu4BxMdqpA" visible="false" sourceNode="_HJaKIuVGEemjGu4BxMdqpA" targetNode="_HJaKH-VGEemjGu4BxMdqpA">
+      <target xmi:type="org.nasdanika.vinci.app:Action" href="models/My.vinci#//@elements.7"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_HJbYOOVGEemjGu4BxMdqpA" size="2">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@edgeMappings[name='ChildEdge']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_HJbYOeVGEemjGu4BxMdqpA"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/resource/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@edgeMappings[name='ChildEdge']"/>
     </ownedDiagramElements>
     <description xmi:type="description_1:DiagramDescription" href="platform:/resource/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']"/>
-    <filterVariableHistory xmi:type="diagram:FilterVariableHistory" uid="_PHinoOUtEemTGLfpR1bNxw"/>
+    <filterVariableHistory xmi:type="diagram:FilterVariableHistory" uid="_-WXdkOU5EemjGu4BxMdqpA"/>
     <activatedLayers xmi:type="description_1:Layer" href="platform:/resource/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer"/>
     <target xmi:type="org.nasdanika.vinci.app:Action" href="models/My.vinci#/"/>
   </diagram:DSemanticDiagram>

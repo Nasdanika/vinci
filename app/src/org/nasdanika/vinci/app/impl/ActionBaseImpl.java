@@ -29,9 +29,9 @@ import org.nasdanika.vinci.app.SectionStyle;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link org.nasdanika.vinci.app.impl.ActionBaseImpl#getActionMappings <em>Action Mappings</em>}</li>
  *   <li>{@link org.nasdanika.vinci.app.impl.ActionBaseImpl#getElements <em>Elements</em>}</li>
  *   <li>{@link org.nasdanika.vinci.app.impl.ActionBaseImpl#getLinkedElements <em>Linked Elements</em>}</li>
- *   <li>{@link org.nasdanika.vinci.app.impl.ActionBaseImpl#getActionMappings <em>Action Mappings</em>}</li>
  *   <li>{@link org.nasdanika.vinci.app.impl.ActionBaseImpl#getRole <em>Role</em>}</li>
  *   <li>{@link org.nasdanika.vinci.app.impl.ActionBaseImpl#getSectionStyle <em>Section Style</em>}</li>
  *   <li>{@link org.nasdanika.vinci.app.impl.ActionBaseImpl#getSectionColumns <em>Section Columns</em>}</li>
@@ -186,7 +186,7 @@ public abstract class ActionBaseImpl extends LabelImpl<ActionSpec> implements Ac
 	@SuppressWarnings("unchecked")
 	@Override
 	public EList<ActionMapping> getActionMappings() {
-		return (EList<ActionMapping>)eDynamicGet(AppPackage.ACTION_BASE__ACTION_MAPPINGS, AppPackage.Literals.ACTION_BASE__ACTION_MAPPINGS, true, true);
+		return (EList<ActionMapping>)eDynamicGet(AppPackage.ACTION_BASE__ACTION_MAPPINGS, AppPackage.Literals.ABSTRACT_ACTION__ACTION_MAPPINGS, true, true);
 	}
 
 	/**
@@ -388,10 +388,10 @@ public abstract class ActionBaseImpl extends LabelImpl<ActionSpec> implements Ac
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case AppPackage.ACTION_BASE__ELEMENTS:
-				return ((InternalEList<?>)getElements()).basicRemove(otherEnd, msgs);
 			case AppPackage.ACTION_BASE__ACTION_MAPPINGS:
 				return ((InternalEList<?>)getActionMappings()).basicRemove(otherEnd, msgs);
+			case AppPackage.ACTION_BASE__ELEMENTS:
+				return ((InternalEList<?>)getElements()).basicRemove(otherEnd, msgs);
 			case AppPackage.ACTION_BASE__CONTENT:
 				return ((InternalEList<?>)getContent()).basicRemove(otherEnd, msgs);
 		}
@@ -406,12 +406,12 @@ public abstract class ActionBaseImpl extends LabelImpl<ActionSpec> implements Ac
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case AppPackage.ACTION_BASE__ACTION_MAPPINGS:
+				return getActionMappings();
 			case AppPackage.ACTION_BASE__ELEMENTS:
 				return getElements();
 			case AppPackage.ACTION_BASE__LINKED_ELEMENTS:
 				return getLinkedElements();
-			case AppPackage.ACTION_BASE__ACTION_MAPPINGS:
-				return getActionMappings();
 			case AppPackage.ACTION_BASE__ROLE:
 				return getRole();
 			case AppPackage.ACTION_BASE__SECTION_STYLE:
@@ -445,6 +445,10 @@ public abstract class ActionBaseImpl extends LabelImpl<ActionSpec> implements Ac
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case AppPackage.ACTION_BASE__ACTION_MAPPINGS:
+				getActionMappings().clear();
+				getActionMappings().addAll((Collection<? extends ActionMapping>)newValue);
+				return;
 			case AppPackage.ACTION_BASE__ELEMENTS:
 				getElements().clear();
 				getElements().addAll((Collection<? extends ActionElement>)newValue);
@@ -452,10 +456,6 @@ public abstract class ActionBaseImpl extends LabelImpl<ActionSpec> implements Ac
 			case AppPackage.ACTION_BASE__LINKED_ELEMENTS:
 				getLinkedElements().clear();
 				getLinkedElements().addAll((Collection<? extends ActionElement>)newValue);
-				return;
-			case AppPackage.ACTION_BASE__ACTION_MAPPINGS:
-				getActionMappings().clear();
-				getActionMappings().addAll((Collection<? extends ActionMapping>)newValue);
 				return;
 			case AppPackage.ACTION_BASE__ROLE:
 				setRole((ActionRole)newValue);
@@ -500,14 +500,14 @@ public abstract class ActionBaseImpl extends LabelImpl<ActionSpec> implements Ac
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case AppPackage.ACTION_BASE__ACTION_MAPPINGS:
+				getActionMappings().clear();
+				return;
 			case AppPackage.ACTION_BASE__ELEMENTS:
 				getElements().clear();
 				return;
 			case AppPackage.ACTION_BASE__LINKED_ELEMENTS:
 				getLinkedElements().clear();
-				return;
-			case AppPackage.ACTION_BASE__ACTION_MAPPINGS:
-				getActionMappings().clear();
 				return;
 			case AppPackage.ACTION_BASE__ROLE:
 				setRole(ROLE_EDEFAULT);
@@ -551,12 +551,12 @@ public abstract class ActionBaseImpl extends LabelImpl<ActionSpec> implements Ac
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case AppPackage.ACTION_BASE__ACTION_MAPPINGS:
+				return !getActionMappings().isEmpty();
 			case AppPackage.ACTION_BASE__ELEMENTS:
 				return !getElements().isEmpty();
 			case AppPackage.ACTION_BASE__LINKED_ELEMENTS:
 				return !getLinkedElements().isEmpty();
-			case AppPackage.ACTION_BASE__ACTION_MAPPINGS:
-				return !getActionMappings().isEmpty();
 			case AppPackage.ACTION_BASE__ROLE:
 				return getRole() != ROLE_EDEFAULT;
 			case AppPackage.ACTION_BASE__SECTION_STYLE:
@@ -595,6 +595,7 @@ public abstract class ActionBaseImpl extends LabelImpl<ActionSpec> implements Ac
 		}
 		if (baseClass == AbstractAction.class) {
 			switch (derivedFeatureID) {
+				case AppPackage.ACTION_BASE__ACTION_MAPPINGS: return AppPackage.ABSTRACT_ACTION__ACTION_MAPPINGS;
 				default: return -1;
 			}
 		}
@@ -622,6 +623,7 @@ public abstract class ActionBaseImpl extends LabelImpl<ActionSpec> implements Ac
 		}
 		if (baseClass == AbstractAction.class) {
 			switch (baseFeatureID) {
+				case AppPackage.ABSTRACT_ACTION__ACTION_MAPPINGS: return AppPackage.ACTION_BASE__ACTION_MAPPINGS;
 				default: return -1;
 			}
 		}

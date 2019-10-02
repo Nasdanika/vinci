@@ -111,6 +111,12 @@
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Base class for different types of actions - action, action link, and action reference."/>
     </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="actionMappings" upperBound="-1"
+        eType="#//ActionMapping" containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="A collection of mappings of action logical names to target actions. Aliases are inherited by action children."/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ActionCategory">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -125,12 +131,6 @@
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Base class for concrete action classes - Action and Partition. These sub-classes are semantically equivalent and differ only in diagram representation - Action is represented by a node, Partition by a container node.&#xA;Action can be a child of another action or of an action category. It may contain content and action elements - abstract actions and action categories. It may also contain action aliases - logical names of actions referenced by this action's content."/>
     </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="actionMappings" upperBound="-1"
-        eType="#//ActionMapping" containment="true">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="A collection of mappings of action logical names to target actions. Aliases are inherited by action children."/>
-      </eAnnotations>
-    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="role" eType="#//ActionRole">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Actions may play different roles in their container."/>

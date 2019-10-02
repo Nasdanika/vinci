@@ -497,6 +497,16 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 	 * @generated
 	 */
 	@Override
+	public EReference getAbstractAction_ActionMappings() {
+		return (EReference)abstractActionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getActionCategory() {
 		return actionCategoryEClass;
 	}
@@ -517,18 +527,8 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getActionBase_ActionMappings() {
-		return (EReference)actionBaseEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EAttribute getActionBase_Role() {
-		return (EAttribute)actionBaseEClass.getEStructuralFeatures().get(1);
+		return (EAttribute)actionBaseEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -538,7 +538,7 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 	 */
 	@Override
 	public EAttribute getActionBase_SectionStyle() {
-		return (EAttribute)actionBaseEClass.getEStructuralFeatures().get(2);
+		return (EAttribute)actionBaseEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -548,7 +548,7 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 	 */
 	@Override
 	public EAttribute getActionBase_SectionColumns() {
-		return (EAttribute)actionBaseEClass.getEStructuralFeatures().get(3);
+		return (EAttribute)actionBaseEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -558,7 +558,7 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 	 */
 	@Override
 	public EAttribute getActionBase_Activator() {
-		return (EAttribute)actionBaseEClass.getEStructuralFeatures().get(4);
+		return (EAttribute)actionBaseEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -568,7 +568,7 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 	 */
 	@Override
 	public EAttribute getActionBase_ActivatorType() {
-		return (EAttribute)actionBaseEClass.getEStructuralFeatures().get(5);
+		return (EAttribute)actionBaseEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -578,7 +578,7 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 	 */
 	@Override
 	public EAttribute getActionBase_Confirmation() {
-		return (EAttribute)actionBaseEClass.getEStructuralFeatures().get(6);
+		return (EAttribute)actionBaseEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -588,7 +588,7 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 	 */
 	@Override
 	public EAttribute getActionBase_Disabled() {
-		return (EAttribute)actionBaseEClass.getEStructuralFeatures().get(7);
+		return (EAttribute)actionBaseEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -598,7 +598,7 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 	 */
 	@Override
 	public EAttribute getActionBase_FloatRight() {
-		return (EAttribute)actionBaseEClass.getEStructuralFeatures().get(8);
+		return (EAttribute)actionBaseEClass.getEStructuralFeatures().get(7);
 	}
 
 	/**
@@ -608,7 +608,7 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 	 */
 	@Override
 	public EAttribute getActionBase_Embedded() {
-		return (EAttribute)actionBaseEClass.getEStructuralFeatures().get(9);
+		return (EAttribute)actionBaseEClass.getEStructuralFeatures().get(8);
 	}
 
 	/**
@@ -618,7 +618,7 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 	 */
 	@Override
 	public EReference getActionBase_Content() {
-		return (EReference)actionBaseEClass.getEStructuralFeatures().get(10);
+		return (EReference)actionBaseEClass.getEStructuralFeatures().get(9);
 	}
 
 	/**
@@ -732,11 +732,11 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 		actionElementEClass = createEClass(ACTION_ELEMENT);
 
 		abstractActionEClass = createEClass(ABSTRACT_ACTION);
+		createEReference(abstractActionEClass, ABSTRACT_ACTION__ACTION_MAPPINGS);
 
 		actionCategoryEClass = createEClass(ACTION_CATEGORY);
 
 		actionBaseEClass = createEClass(ACTION_BASE);
-		createEReference(actionBaseEClass, ACTION_BASE__ACTION_MAPPINGS);
 		createEAttribute(actionBaseEClass, ACTION_BASE__ROLE);
 		createEAttribute(actionBaseEClass, ACTION_BASE__SECTION_STYLE);
 		createEAttribute(actionBaseEClass, ACTION_BASE__SECTION_COLUMNS);
@@ -870,11 +870,11 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 		initEClass(actionElementEClass, ActionElement.class, "ActionElement", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(abstractActionEClass, AbstractAction.class, "AbstractAction", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getAbstractAction_ActionMappings(), this.getActionMapping(), null, "actionMappings", null, 0, -1, AbstractAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(actionCategoryEClass, ActionCategory.class, "ActionCategory", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(actionBaseEClass, ActionBase.class, "ActionBase", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getActionBase_ActionMappings(), this.getActionMapping(), null, "actionMappings", null, 0, -1, ActionBase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getActionBase_Role(), this.getActionRole(), "role", null, 0, 1, ActionBase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getActionBase_SectionStyle(), this.getSectionStyle(), "sectionStyle", null, 0, 1, ActionBase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getActionBase_SectionColumns(), ecorePackage.getEInt(), "sectionColumns", "1", 0, 1, ActionBase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

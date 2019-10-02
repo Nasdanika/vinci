@@ -51,10 +51,11 @@
       <genTypeParameters ecoreTypeParameter="app.ecore#//Category/E"/>
     </genClasses>
     <genClasses ecoreClass="app.ecore#//ActionElement"/>
-    <genClasses image="false" ecoreClass="app.ecore#//AbstractAction"/>
+    <genClasses image="false" ecoreClass="app.ecore#//AbstractAction">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference app.ecore#//AbstractAction/actionMappings"/>
+    </genClasses>
     <genClasses ecoreClass="app.ecore#//ActionCategory"/>
     <genClasses image="false" ecoreClass="app.ecore#//ActionBase">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference app.ecore#//ActionBase/actionMappings"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute app.ecore#//ActionBase/role"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute app.ecore#//ActionBase/sectionStyle"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute app.ecore#//ActionBase/sectionColumns"/>

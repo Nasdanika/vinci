@@ -297,8 +297,8 @@ public class ActionBaseItemProvider extends LabelItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
+			childrenFeatures.add(AppPackage.Literals.ABSTRACT_ACTION__ACTION_MAPPINGS);
 			childrenFeatures.add(AppPackage.Literals.CONTAINER__ELEMENTS);
-			childrenFeatures.add(AppPackage.Literals.ACTION_BASE__ACTION_MAPPINGS);
 			childrenFeatures.add(AppPackage.Literals.ACTION_BASE__CONTENT);
 		}
 		return childrenFeatures;
@@ -366,8 +366,8 @@ public class ActionBaseItemProvider extends LabelItemProvider {
 			case AppPackage.ACTION_BASE__EMBEDDED:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case AppPackage.ACTION_BASE__ELEMENTS:
 			case AppPackage.ACTION_BASE__ACTION_MAPPINGS:
+			case AppPackage.ACTION_BASE__ELEMENTS:
 			case AppPackage.ACTION_BASE__CONTENT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
@@ -385,6 +385,11 @@ public class ActionBaseItemProvider extends LabelItemProvider {
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		newChildDescriptors.add
+			(createChildParameter
+				(AppPackage.Literals.ABSTRACT_ACTION__ACTION_MAPPINGS,
+				 AppFactory.eINSTANCE.createActionMapping()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -563,11 +568,6 @@ public class ActionBaseItemProvider extends LabelItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
-				(AppPackage.Literals.ACTION_BASE__ACTION_MAPPINGS,
-				 AppFactory.eINSTANCE.createActionMapping()));
-
-		newChildDescriptors.add
-			(createChildParameter
 				(AppPackage.Literals.ACTION_BASE__CONTENT,
 				 AppFactory.eINSTANCE.createActionCategory()));
 
@@ -742,7 +742,7 @@ public class ActionBaseItemProvider extends LabelItemProvider {
 			childFeature == CodegenPackage.Literals.GENERATOR__NAMED_GENERATORS ||
 			childFeature == AppPackage.Literals.CONTAINER__ELEMENTS ||
 			childFeature == AppPackage.Literals.ACTION_BASE__CONTENT ||
-			childFeature == AppPackage.Literals.ACTION_BASE__ACTION_MAPPINGS;
+			childFeature == AppPackage.Literals.ABSTRACT_ACTION__ACTION_MAPPINGS;
 
 		if (qualify) {
 			return getString

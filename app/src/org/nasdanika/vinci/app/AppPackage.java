@@ -669,13 +669,22 @@ public interface AppPackage extends EPackage {
 	int ACTION_ELEMENT_OPERATION_COUNT = 0;
 
 	/**
+	 * The feature id for the '<em><b>Action Mappings</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_ACTION__ACTION_MAPPINGS = ACTION_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>Abstract Action</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ABSTRACT_ACTION_FEATURE_COUNT = ACTION_ELEMENT_FEATURE_COUNT + 0;
+	int ABSTRACT_ACTION_FEATURE_COUNT = ACTION_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Abstract Action</em>' class.
@@ -1057,13 +1066,22 @@ public interface AppPackage extends EPackage {
 	int ACTION_BASE__NOTIFICATION = LABEL__NOTIFICATION;
 
 	/**
+	 * The feature id for the '<em><b>Action Mappings</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION_BASE__ACTION_MAPPINGS = LABEL_FEATURE_COUNT + 0;
+
+	/**
 	 * The feature id for the '<em><b>Elements</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION_BASE__ELEMENTS = LABEL_FEATURE_COUNT + 0;
+	int ACTION_BASE__ELEMENTS = LABEL_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Linked Elements</b></em>' reference list.
@@ -1072,16 +1090,7 @@ public interface AppPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION_BASE__LINKED_ELEMENTS = LABEL_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Action Mappings</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTION_BASE__ACTION_MAPPINGS = LABEL_FEATURE_COUNT + 2;
+	int ACTION_BASE__LINKED_ELEMENTS = LABEL_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Role</b></em>' attribute.
@@ -1265,6 +1274,15 @@ public interface AppPackage extends EPackage {
 	int ACTION_MAPPING_OPERATION_COUNT = 0;
 
 	/**
+	 * The feature id for the '<em><b>Action Mappings</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION_LINK__ACTION_MAPPINGS = ABSTRACT_ACTION__ACTION_MAPPINGS;
+
+	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1299,6 +1317,15 @@ public interface AppPackage extends EPackage {
 	 * @ordered
 	 */
 	int ACTION_LINK_OPERATION_COUNT = ABSTRACT_ACTION_OPERATION_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Action Mappings</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION_REFERENCE__ACTION_MAPPINGS = ABSTRACT_ACTION__ACTION_MAPPINGS;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -1490,6 +1517,15 @@ public interface AppPackage extends EPackage {
 	int ACTION__NOTIFICATION = ACTION_BASE__NOTIFICATION;
 
 	/**
+	 * The feature id for the '<em><b>Action Mappings</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION__ACTION_MAPPINGS = ACTION_BASE__ACTION_MAPPINGS;
+
+	/**
 	 * The feature id for the '<em><b>Elements</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1506,15 +1542,6 @@ public interface AppPackage extends EPackage {
 	 * @ordered
 	 */
 	int ACTION__LINKED_ELEMENTS = ACTION_BASE__LINKED_ELEMENTS;
-
-	/**
-	 * The feature id for the '<em><b>Action Mappings</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTION__ACTION_MAPPINGS = ACTION_BASE__ACTION_MAPPINGS;
 
 	/**
 	 * The feature id for the '<em><b>Role</b></em>' attribute.
@@ -1796,6 +1823,15 @@ public interface AppPackage extends EPackage {
 	int PARTITION__NOTIFICATION = ACTION_BASE__NOTIFICATION;
 
 	/**
+	 * The feature id for the '<em><b>Action Mappings</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARTITION__ACTION_MAPPINGS = ACTION_BASE__ACTION_MAPPINGS;
+
+	/**
 	 * The feature id for the '<em><b>Elements</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1812,15 +1848,6 @@ public interface AppPackage extends EPackage {
 	 * @ordered
 	 */
 	int PARTITION__LINKED_ELEMENTS = ACTION_BASE__LINKED_ELEMENTS;
-
-	/**
-	 * The feature id for the '<em><b>Action Mappings</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PARTITION__ACTION_MAPPINGS = ACTION_BASE__ACTION_MAPPINGS;
 
 	/**
 	 * The feature id for the '<em><b>Role</b></em>' attribute.
@@ -2264,6 +2291,17 @@ public interface AppPackage extends EPackage {
 	EClass getAbstractAction();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link org.nasdanika.vinci.app.AbstractAction#getActionMappings <em>Action Mappings</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Action Mappings</em>'.
+	 * @see org.nasdanika.vinci.app.AbstractAction#getActionMappings()
+	 * @see #getAbstractAction()
+	 * @generated
+	 */
+	EReference getAbstractAction_ActionMappings();
+
+	/**
 	 * Returns the meta object for class '{@link org.nasdanika.vinci.app.ActionCategory <em>Action Category</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2282,17 +2320,6 @@ public interface AppPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getActionBase();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link org.nasdanika.vinci.app.ActionBase#getActionMappings <em>Action Mappings</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Action Mappings</em>'.
-	 * @see org.nasdanika.vinci.app.ActionBase#getActionMappings()
-	 * @see #getActionBase()
-	 * @generated
-	 */
-	EReference getActionBase_ActionMappings();
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.app.ActionBase#getRole <em>Role</em>}'.
@@ -2728,6 +2755,14 @@ public interface AppPackage extends EPackage {
 		EClass ABSTRACT_ACTION = eINSTANCE.getAbstractAction();
 
 		/**
+		 * The meta object literal for the '<em><b>Action Mappings</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ABSTRACT_ACTION__ACTION_MAPPINGS = eINSTANCE.getAbstractAction_ActionMappings();
+
+		/**
 		 * The meta object literal for the '{@link org.nasdanika.vinci.app.impl.ActionCategoryImpl <em>Action Category</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2746,14 +2781,6 @@ public interface AppPackage extends EPackage {
 		 * @generated
 		 */
 		EClass ACTION_BASE = eINSTANCE.getActionBase();
-
-		/**
-		 * The meta object literal for the '<em><b>Action Mappings</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ACTION_BASE__ACTION_MAPPINGS = eINSTANCE.getActionBase_ActionMappings();
 
 		/**
 		 * The meta object literal for the '<em><b>Role</b></em>' attribute feature.
