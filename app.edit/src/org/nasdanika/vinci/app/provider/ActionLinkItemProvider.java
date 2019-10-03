@@ -52,10 +52,33 @@ public class ActionLinkItemProvider extends NasdanikaItemProviderAdapter impleme
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addTitlePropertyDescriptor(object);
 			addDescriptionPropertyDescriptor(object);
 			addRefPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Title feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addTitlePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ActionLink_title_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ActionLink_title_feature", "_UI_ActionLink_type"),
+				 AppPackage.Literals.ACTION_LINK__TITLE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -161,7 +184,7 @@ public class ActionLinkItemProvider extends NasdanikaItemProviderAdapter impleme
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = crop(((ActionLink)object).getDescription());
+		String label = ((ActionLink)object).getTitle();
 		return label == null || label.length() == 0 ?
 			getString("_UI_ActionLink_type") :
 			getString("_UI_ActionLink_type") + " " + label;
@@ -180,6 +203,7 @@ public class ActionLinkItemProvider extends NasdanikaItemProviderAdapter impleme
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(ActionLink.class)) {
+			case AppPackage.ACTION_LINK__TITLE:
 			case AppPackage.ACTION_LINK__DESCRIPTION:
 			case AppPackage.ACTION_LINK__REF:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));

@@ -1283,13 +1283,22 @@ public interface AppPackage extends EPackage {
 	int ACTION_LINK__ACTION_MAPPINGS = ABSTRACT_ACTION__ACTION_MAPPINGS;
 
 	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION_LINK__TITLE = ABSTRACT_ACTION_FEATURE_COUNT + 0;
+
+	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION_LINK__DESCRIPTION = ABSTRACT_ACTION_FEATURE_COUNT + 0;
+	int ACTION_LINK__DESCRIPTION = ABSTRACT_ACTION_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Ref</b></em>' attribute.
@@ -1298,7 +1307,7 @@ public interface AppPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION_LINK__REF = ABSTRACT_ACTION_FEATURE_COUNT + 1;
+	int ACTION_LINK__REF = ABSTRACT_ACTION_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Action Link</em>' class.
@@ -1307,7 +1316,7 @@ public interface AppPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION_LINK_FEATURE_COUNT = ABSTRACT_ACTION_FEATURE_COUNT + 2;
+	int ACTION_LINK_FEATURE_COUNT = ABSTRACT_ACTION_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>Action Link</em>' class.
@@ -1328,13 +1337,22 @@ public interface AppPackage extends EPackage {
 	int ACTION_REFERENCE__ACTION_MAPPINGS = ABSTRACT_ACTION__ACTION_MAPPINGS;
 
 	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION_REFERENCE__TITLE = ABSTRACT_ACTION_FEATURE_COUNT + 0;
+
+	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION_REFERENCE__DESCRIPTION = ABSTRACT_ACTION_FEATURE_COUNT + 0;
+	int ACTION_REFERENCE__DESCRIPTION = ABSTRACT_ACTION_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Action</b></em>' reference.
@@ -1343,7 +1361,7 @@ public interface AppPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION_REFERENCE__ACTION = ABSTRACT_ACTION_FEATURE_COUNT + 1;
+	int ACTION_REFERENCE__ACTION = ABSTRACT_ACTION_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Action Reference</em>' class.
@@ -1352,7 +1370,7 @@ public interface AppPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION_REFERENCE_FEATURE_COUNT = ABSTRACT_ACTION_FEATURE_COUNT + 2;
+	int ACTION_REFERENCE_FEATURE_COUNT = ABSTRACT_ACTION_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>Action Reference</em>' class.
@@ -2187,6 +2205,17 @@ public interface AppPackage extends EPackage {
 	EClass getActionLink();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.app.ActionLink#getTitle <em>Title</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Title</em>'.
+	 * @see org.nasdanika.vinci.app.ActionLink#getTitle()
+	 * @see #getActionLink()
+	 * @generated
+	 */
+	EAttribute getActionLink_Title();
+
+	/**
 	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.app.ActionLink#getDescription <em>Description</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2217,6 +2246,17 @@ public interface AppPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getActionReference();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.app.ActionReference#getTitle <em>Title</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Title</em>'.
+	 * @see org.nasdanika.vinci.app.ActionReference#getTitle()
+	 * @see #getActionReference()
+	 * @generated
+	 */
+	EAttribute getActionReference_Title();
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.app.ActionReference#getDescription <em>Description</em>}'.
@@ -2663,6 +2703,14 @@ public interface AppPackage extends EPackage {
 		EClass ACTION_LINK = eINSTANCE.getActionLink();
 
 		/**
+		 * The meta object literal for the '<em><b>Title</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ACTION_LINK__TITLE = eINSTANCE.getActionLink_Title();
+
+		/**
 		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2687,6 +2735,14 @@ public interface AppPackage extends EPackage {
 		 * @generated
 		 */
 		EClass ACTION_REFERENCE = eINSTANCE.getActionReference();
+
+		/**
+		 * The meta object literal for the '<em><b>Title</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ACTION_REFERENCE__TITLE = eINSTANCE.getActionReference_Title();
 
 		/**
 		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.

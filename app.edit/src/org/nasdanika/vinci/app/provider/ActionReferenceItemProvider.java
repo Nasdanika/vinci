@@ -52,10 +52,33 @@ public class ActionReferenceItemProvider extends NasdanikaItemProviderAdapter im
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addTitlePropertyDescriptor(object);
 			addDescriptionPropertyDescriptor(object);
 			addActionPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Title feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addTitlePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ActionReference_title_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ActionReference_title_feature", "_UI_ActionReference_type"),
+				 AppPackage.Literals.ACTION_REFERENCE__TITLE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -161,7 +184,7 @@ public class ActionReferenceItemProvider extends NasdanikaItemProviderAdapter im
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = crop(((ActionReference)object).getDescription());
+		String label = ((ActionReference)object).getTitle();
 		return label == null || label.length() == 0 ?
 			getString("_UI_ActionReference_type") :
 			getString("_UI_ActionReference_type") + " " + label;
@@ -180,6 +203,7 @@ public class ActionReferenceItemProvider extends NasdanikaItemProviderAdapter im
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(ActionReference.class)) {
+			case AppPackage.ACTION_REFERENCE__TITLE:
 			case AppPackage.ACTION_REFERENCE__DESCRIPTION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;

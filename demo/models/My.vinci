@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<org.nasdanika.vinci.app:Action xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.nasdanika.vinci.app="urn:org.nasdanika.vinci.app" description="my tfvt sPdfdfduper kodescriptionn" id="1234" text="Xmmm" linkedElements="//@elements.0 //@elements.7">
-  <elements xsi:type="org.nasdanika.vinci.app:Action" text="Child 1"/>
-  <elements xsi:type="org.nasdanika.vinci.app:ActionCategory" text="My Category"/>
-  <elements xsi:type="org.nasdanika.vinci.app:Action" title="t1" id="1" text="1" linkedElements="//@elements.5"/>
-  <elements xsi:type="org.nasdanika.vinci.app:Action" title="t2"/>
-  <elements xsi:type="org.nasdanika.vinci.app:Action" title="t3"/>
+<org.nasdanika.vinci.app:Action xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.nasdanika.vinci.app="urn:org.nasdanika.vinci.app" title="moroka" description="my tfvt sPdfdfduper kodescriptionn" id="1234" text="Xmmm">
+  <actionMappings alias="murumba" target="//@elements.6"/>
+  <elements xsi:type="org.nasdanika.vinci.app:ActionCategory" title="Tarapunka" text="My Category"/>
+  <elements xsi:type="org.nasdanika.vinci.app:Action" title="Koroka" id="1" text="1" linkedElements="//@elements.1/@elements.0">
+    <elements xsi:type="org.nasdanika.vinci.app:Action" title="Action-1"/>
+  </elements>
+  <elements xsi:type="org.nasdanika.vinci.app:Action" title="t2" linkedElements="/ //@elements.7"/>
+  <elements xsi:type="org.nasdanika.vinci.app:Action" title="t3" linkedElements="//@elements.6"/>
   <elements xsi:type="org.nasdanika.vinci.app:Action" title="t4"/>
   <elements xsi:type="org.nasdanika.vinci.app:Action"/>
-  <elements xsi:type="org.nasdanika.vinci.app:Action" text="Action-7" linkedElements="//@elements.6"/>
+  <elements xsi:type="org.nasdanika.vinci.app:Action" text="Action-7"/>
+  <elements xsi:type="org.nasdanika.vinci.app:Action" title="Action-7"/>
+  <elements xsi:type="org.nasdanika.vinci.app:ActionReference" title="dd"/>
+  <elements xsi:type="org.nasdanika.vinci.app:ActionLink" title="fgtv"/>
 </org.nasdanika.vinci.app:Action>

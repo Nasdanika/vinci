@@ -22,6 +22,7 @@ import org.nasdanika.vinci.app.AppPackage;
  * </p>
  * <ul>
  *   <li>{@link org.nasdanika.vinci.app.impl.ActionLinkImpl#getActionMappings <em>Action Mappings</em>}</li>
+ *   <li>{@link org.nasdanika.vinci.app.impl.ActionLinkImpl#getTitle <em>Title</em>}</li>
  *   <li>{@link org.nasdanika.vinci.app.impl.ActionLinkImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link org.nasdanika.vinci.app.impl.ActionLinkImpl#getRef <em>Ref</em>}</li>
  * </ul>
@@ -29,6 +30,16 @@ import org.nasdanika.vinci.app.AppPackage;
  * @generated
  */
 public class ActionLinkImpl extends MinimalEObjectImpl.Container implements ActionLink {
+	/**
+	 * The default value of the '{@link #getTitle() <em>Title</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTitle()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String TITLE_EDEFAULT = null;
+
 	/**
 	 * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -95,6 +106,26 @@ public class ActionLinkImpl extends MinimalEObjectImpl.Container implements Acti
 	 * @generated
 	 */
 	@Override
+	public String getTitle() {
+		return (String)eDynamicGet(AppPackage.ACTION_LINK__TITLE, AppPackage.Literals.ACTION_LINK__TITLE, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setTitle(String newTitle) {
+		eDynamicSet(AppPackage.ACTION_LINK__TITLE, AppPackage.Literals.ACTION_LINK__TITLE, newTitle);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public String getDescription() {
 		return (String)eDynamicGet(AppPackage.ACTION_LINK__DESCRIPTION, AppPackage.Literals.ACTION_LINK__DESCRIPTION, true, true);
 	}
@@ -153,6 +184,8 @@ public class ActionLinkImpl extends MinimalEObjectImpl.Container implements Acti
 		switch (featureID) {
 			case AppPackage.ACTION_LINK__ACTION_MAPPINGS:
 				return getActionMappings();
+			case AppPackage.ACTION_LINK__TITLE:
+				return getTitle();
 			case AppPackage.ACTION_LINK__DESCRIPTION:
 				return getDescription();
 			case AppPackage.ACTION_LINK__REF:
@@ -173,6 +206,9 @@ public class ActionLinkImpl extends MinimalEObjectImpl.Container implements Acti
 			case AppPackage.ACTION_LINK__ACTION_MAPPINGS:
 				getActionMappings().clear();
 				getActionMappings().addAll((Collection<? extends ActionMapping>)newValue);
+				return;
+			case AppPackage.ACTION_LINK__TITLE:
+				setTitle((String)newValue);
 				return;
 			case AppPackage.ACTION_LINK__DESCRIPTION:
 				setDescription((String)newValue);
@@ -195,6 +231,9 @@ public class ActionLinkImpl extends MinimalEObjectImpl.Container implements Acti
 			case AppPackage.ACTION_LINK__ACTION_MAPPINGS:
 				getActionMappings().clear();
 				return;
+			case AppPackage.ACTION_LINK__TITLE:
+				setTitle(TITLE_EDEFAULT);
+				return;
 			case AppPackage.ACTION_LINK__DESCRIPTION:
 				setDescription(DESCRIPTION_EDEFAULT);
 				return;
@@ -215,6 +254,8 @@ public class ActionLinkImpl extends MinimalEObjectImpl.Container implements Acti
 		switch (featureID) {
 			case AppPackage.ACTION_LINK__ACTION_MAPPINGS:
 				return !getActionMappings().isEmpty();
+			case AppPackage.ACTION_LINK__TITLE:
+				return TITLE_EDEFAULT == null ? getTitle() != null : !TITLE_EDEFAULT.equals(getTitle());
 			case AppPackage.ACTION_LINK__DESCRIPTION:
 				return DESCRIPTION_EDEFAULT == null ? getDescription() != null : !DESCRIPTION_EDEFAULT.equals(getDescription());
 			case AppPackage.ACTION_LINK__REF:

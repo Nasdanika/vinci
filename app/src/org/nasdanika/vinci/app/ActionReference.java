@@ -16,6 +16,7 @@ package org.nasdanika.vinci.app;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link org.nasdanika.vinci.app.ActionReference#getTitle <em>Title</em>}</li>
  *   <li>{@link org.nasdanika.vinci.app.ActionReference#getDescription <em>Description</em>}</li>
  *   <li>{@link org.nasdanika.vinci.app.ActionReference#getAction <em>Action</em>}</li>
  * </ul>
@@ -25,6 +26,28 @@ package org.nasdanika.vinci.app;
  * @generated
  */
 public interface ActionReference extends AbstractAction {
+	/**
+	 * Returns the value of the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Title</em>' attribute.
+	 * @see #setTitle(String)
+	 * @see org.nasdanika.vinci.app.AppPackage#getActionReference_Title()
+	 * @model
+	 * @generated
+	 */
+	String getTitle();
+
+	/**
+	 * Sets the value of the '{@link org.nasdanika.vinci.app.ActionReference#getTitle <em>Title</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Title</em>' attribute.
+	 * @see #getTitle()
+	 * @generated
+	 */
+	void setTitle(String value);
+
 	/**
 	 * Returns the value of the '<em><b>Description</b></em>' attribute.
 	 * <!-- begin-user-doc -->

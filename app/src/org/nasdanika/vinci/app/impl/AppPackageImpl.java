@@ -397,7 +397,7 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getActionLink_Description() {
+	public EAttribute getActionLink_Title() {
 		return (EAttribute)actionLinkEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -407,8 +407,18 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getActionLink_Ref() {
+	public EAttribute getActionLink_Description() {
 		return (EAttribute)actionLinkEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getActionLink_Ref() {
+		return (EAttribute)actionLinkEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -427,7 +437,7 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getActionReference_Description() {
+	public EAttribute getActionReference_Title() {
 		return (EAttribute)actionReferenceEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -437,8 +447,18 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 	 * @generated
 	 */
 	@Override
+	public EAttribute getActionReference_Description() {
+		return (EAttribute)actionReferenceEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EReference getActionReference_Action() {
-		return (EReference)actionReferenceEClass.getEStructuralFeatures().get(1);
+		return (EReference)actionReferenceEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -754,10 +774,12 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 		createEAttribute(actionMappingEClass, ACTION_MAPPING__DESCRIPTION);
 
 		actionLinkEClass = createEClass(ACTION_LINK);
+		createEAttribute(actionLinkEClass, ACTION_LINK__TITLE);
 		createEAttribute(actionLinkEClass, ACTION_LINK__DESCRIPTION);
 		createEAttribute(actionLinkEClass, ACTION_LINK__REF);
 
 		actionReferenceEClass = createEClass(ACTION_REFERENCE);
+		createEAttribute(actionReferenceEClass, ACTION_REFERENCE__TITLE);
 		createEAttribute(actionReferenceEClass, ACTION_REFERENCE__DESCRIPTION);
 		createEReference(actionReferenceEClass, ACTION_REFERENCE__ACTION);
 
@@ -897,10 +919,12 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 		initEAttribute(getActionMapping_Description(), ecorePackage.getEString(), "description", null, 0, 1, ActionMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(actionLinkEClass, ActionLink.class, "ActionLink", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getActionLink_Title(), ecorePackage.getEString(), "title", null, 0, 1, ActionLink.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getActionLink_Description(), ecorePackage.getEString(), "description", null, 0, 1, ActionLink.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getActionLink_Ref(), ecorePackage.getEString(), "ref", null, 0, 1, ActionLink.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(actionReferenceEClass, ActionReference.class, "ActionReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getActionReference_Title(), ecorePackage.getEString(), "title", null, 0, 1, ActionReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getActionReference_Description(), ecorePackage.getEString(), "description", null, 0, 1, ActionReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getActionReference_Action(), this.getAbstractAction(), null, "action", null, 0, 1, ActionReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 

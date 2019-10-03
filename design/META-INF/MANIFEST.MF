@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
-Bundle-SymbolicName: org.nasdanika.rigel.design;singleton:=true
+Bundle-SymbolicName: org.nasdanika.vinci.design;singleton:=true
 Bundle-Version: 0.1.0.qualifier
 Bundle-Activator: org.nasdanika.vinci.design.Activator
 Bundle-Localization: plugin
