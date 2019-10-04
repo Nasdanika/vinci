@@ -1,4 +1,4 @@
-package org.nasdanika.codegen.tests;
+package org.nasdanika.vinci.tests;
 
 import java.io.File;
 
@@ -14,7 +14,8 @@ import org.nasdanika.html.ecore.EcoreHelpGenerator;
 
 public class GenerateModelDocumentation extends TestsBase {
 
-	private static final String MODEL_URI = "urn:org.nasdanika.codegen";
+	private static final String VINCI_MODEL_URI = "urn:org.nasdanika.vinci";
+	private static final String CODEGEN_MODEL_URI = "urn:org.nasdanika.vinci";
 	private static final String JAVA_MODEL_URI = "urn:org.nasdanika.codegen.java";
 	
 	/**
@@ -23,9 +24,10 @@ public class GenerateModelDocumentation extends TestsBase {
 	 */
 	@Test
 	public void testEcoreDocumentation() throws Exception {		
-		EcoreDocumentationGenerator generator = new EcoreDocumentationGenerator("Nasdanika Codegen Model", null, null, false);
-		generator.loadGenModel(MODEL_URI);
+		EcoreDocumentationGenerator generator = new EcoreDocumentationGenerator("Nasdanika Vinci Model", null, null, false);
+		generator.loadGenModel(CODEGEN_MODEL_URI);
 		generator.loadGenModel(JAVA_MODEL_URI);
+		generator.loadGenModel(VINCI_MODEL_URI);
 		File docDir = new File("target/model-doc");
 		System.out.println("Generating HTML model documentation to "+docDir.getAbsolutePath());
 		BinaryEntityContainer fsc = new FileSystemContainer(docDir);
@@ -48,14 +50,15 @@ public class GenerateModelDocumentation extends TestsBase {
 	 */
 	@Test
 	public void testEcoreHelp() throws Exception {		
-		EcoreHelpGenerator generator = new EcoreHelpGenerator("Model", null, null, "Codegen", "../org.nasdanika.codegen.help/toc.xml#Codegen", "doc/model/");
-		generator.loadGenModel(MODEL_URI);
+		EcoreHelpGenerator generator = new EcoreHelpGenerator("Model", null, null, "Vinci", "../org.nasdanika.vinci.help/toc.xml#Codegen", "doc/model/");
+		generator.loadGenModel(CODEGEN_MODEL_URI);
 		generator.loadGenModel(JAVA_MODEL_URI);
+		generator.loadGenModel(VINCI_MODEL_URI);
 		File docDir = new File("target/help/model");
 		System.out.println("Generating Eclipse help model documentation to "+docDir.getAbsolutePath());
 		BinaryEntityContainer fsc = new FileSystemContainer(docDir);
 		try (ProgressMonitor progressMonitor = new PrintStreamProgressMonitor()) {
-			ProgressEntry pe = new ProgressEntry("Generating Codegen Model Documentation", 0);
+			ProgressEntry pe = new ProgressEntry("Generating Vinci Model Documentation", 0);
 			Container<Object> container = fsc.stateAdapter().adapt(null, encoder);
 			generator.generate(container, progressMonitor.compose(pe));
 			container.put("progress-report.json", pe.toString(), progressMonitor.split("Writing progress-report.json", 1));

@@ -1,4 +1,4 @@
-package org.nasdanika.codegen.tests;
+package org.nasdanika.vinci.tests;
 
 import java.io.File;
 import java.io.InputStream;
@@ -32,7 +32,7 @@ public class TestsBase {
 		return ret;
 	};	
 			
-	protected static final String TEST_MODELS_BASE_URI = "org.nasdanika.codegen.tests.models/models/";
+	protected static final String TEST_MODELS_BASE_URI = "org.nasdanika.vinci.tests.models/models/";
 	protected static final String TEST_OUTPUT_BASE = "target/generator-tests/";
 	
 	protected class GenerationResult {
@@ -50,7 +50,7 @@ public class TestsBase {
 	 */
 	public GenerationResult validateAndGenerate(String path, Context context) throws Exception {
 		try {
-			ValidatingModelGenerator<BinaryEntity> validatingModelGenerator = new ValidatingModelGenerator<>(TEST_MODELS_BASE_URI+path+".codegen");
+			ValidatingModelGenerator<BinaryEntity> validatingModelGenerator = new ValidatingModelGenerator<>(TEST_MODELS_BASE_URI+path+".vinci");
 			GenerationResult result = new GenerationResult();
 			result.output = new FileSystemContainer(new File(TEST_OUTPUT_BASE+path));
 			MutableContext mc = Context.EMPTY_CONTEXT.compose(context).fork();

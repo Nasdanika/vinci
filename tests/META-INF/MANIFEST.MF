@@ -9,7 +9,6 @@ Require-Bundle: org.junit,
  org.eclipse.equinox.app;bundle-version="1.4.100",
  org.nasdanika.html.ecore;bundle-version="2.0.0",
  org.nasdanika.vinci.app;bundle-version="0.1.0",
- org.nasdanika.vinci.tests.models;bundle-version="0.1.0",
- org.nasdanika.vinci.java;bundle-version="0.1.0"
+ org.nasdanika.vinci.tests.models;bundle-version="0.1.0"
 Automatic-Module-Name: org.nasdanika.vinci.tests
 Export-Package: org.nasdanika.vinci.tests

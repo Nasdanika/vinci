@@ -26,17 +26,18 @@
    -->  
 
    <menu name="Java API">
-      <item name="Model" href="apidocs/org.nasdanika.codegen/index.html" />
-      <item name="Java Model" href="apidocs/org.nasdanika.codegen.java/index.html" />
-      <item name="Edit" href="apidocs/org.nasdanika.codegen.edit/index.html" />
-      <item name="Editor" href="apidocs/org.nasdanika.codegen.editor/index.html" />
+      <item name="Model" href="apidocs/org.nasdanika.vinci/index.html" />
+      <item name="Edit" href="apidocs/org.nasdanika.vinci.edit/index.html" />
+      <item name="Editor" href="apidocs/org.nasdanika.vinci.editor/index.html" />
    </menu>
 
+   <!--
    <menu name="Issues">
       <item name="Roadmap" href="../../../mantis/roadmap_page.php?project_id=4" />
       <item name="All" href="../../../mantis/view_all_bug_page.php?project_id=4" />
       <item name="Change Log" href="../../../mantis/changelog_page.php?project_id=4" />
    </menu>
+   -->
  
    <footer>
 	Build ${env.CIRCLE_BUILD_NUM}.${env.CIRCLE_BRANCH}.${env.CIRCLE_SHA1} 

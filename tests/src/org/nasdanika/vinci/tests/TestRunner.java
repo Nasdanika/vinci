@@ -1,4 +1,4 @@
-package org.nasdanika.codegen.tests;
+package org.nasdanika.vinci.tests;
 
 import org.eclipse.equinox.app.IApplication;
 import org.eclipse.equinox.app.IApplicationContext;
@@ -20,7 +20,7 @@ public class TestRunner implements IApplication {
         RunListener runListener = new TextListener(System.out);
         jUnitCore.addListener(runListener);
 
-        Result result = jUnitCore.run(Computer.serial(), CodegenTests.class);
+        Result result = jUnitCore.run(Computer.serial(), VinciTests.class);
         
         java.awt.Toolkit.getDefaultToolkit().beep();
         
