@@ -80,15 +80,18 @@
 		</pluginManagement>
 		-->
 		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-			    <artifactId>maven-site-plugin</artifactId>
-			    <version>3.7.1</version>
+			  <plugin>
+			    <artifactId>maven-clean-plugin</artifactId>
+			    <version>3.1.0</version>
 			    <configuration>
-			        <skip>true</skip>
-			        <skipDeploy>true</skipDeploy>
+			      <filesets>
+			        <fileset>
+			          <directory>help/doc/model</directory>
+			          <directory>help/doc/api</directory>
+			        </fileset>
+			      </filesets>
 			    </configuration>
-			</plugin>		
+			  </plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-javadoc-plugin</artifactId>
