@@ -14,9 +14,9 @@ import org.nasdanika.html.ecore.EcoreHelpGenerator;
 
 public class GenerateModelDocumentation extends TestsBase {
 
-	private static final String VINCI_MODEL_URI = "urn:org.nasdanika.vinci";
-	private static final String CODEGEN_MODEL_URI = "urn:org.nasdanika.vinci";
+	private static final String CODEGEN_MODEL_URI = "urn:org.nasdanika.codegen";
 	private static final String JAVA_MODEL_URI = "urn:org.nasdanika.codegen.java";
+	private static final String VINCI_APP_MODEL_URI = "urn:org.nasdanika.vinci.app";
 	
 	/**
 	 * Generates Ecore model documentation.
@@ -27,7 +27,7 @@ public class GenerateModelDocumentation extends TestsBase {
 		EcoreDocumentationGenerator generator = new EcoreDocumentationGenerator("Nasdanika Vinci Model", null, null, false);
 		generator.loadGenModel(CODEGEN_MODEL_URI);
 		generator.loadGenModel(JAVA_MODEL_URI);
-		generator.loadGenModel(VINCI_MODEL_URI);
+		generator.loadGenModel(VINCI_APP_MODEL_URI);
 		File docDir = new File("target/model-doc");
 		System.out.println("Generating HTML model documentation to "+docDir.getAbsolutePath());
 		BinaryEntityContainer fsc = new FileSystemContainer(docDir);
@@ -53,7 +53,7 @@ public class GenerateModelDocumentation extends TestsBase {
 		EcoreHelpGenerator generator = new EcoreHelpGenerator("Model", null, null, "Vinci", "../org.nasdanika.vinci.help/toc.xml#Codegen", "doc/model/");
 		generator.loadGenModel(CODEGEN_MODEL_URI);
 		generator.loadGenModel(JAVA_MODEL_URI);
-		generator.loadGenModel(VINCI_MODEL_URI);
+		generator.loadGenModel(VINCI_APP_MODEL_URI);
 		File docDir = new File("target/help/model");
 		System.out.println("Generating Eclipse help model documentation to "+docDir.getAbsolutePath());
 		BinaryEntityContainer fsc = new FileSystemContainer(docDir);
