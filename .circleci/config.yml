@@ -43,7 +43,7 @@ jobs:
       - run: mkdir site/src/site/resources
       - run: mv repository/target/products/org.nasdanika.vinci.tests.product/linux/gtk/x86_64/target/model-doc site/src/site/resources
       - run: mkdir help/doc/api
-      - run: mv model/target/site/apidocs help/doc/api/org.nasdanika.vinci
+      - run: mv app/target/site/apidocs help/doc/api/org.nasdanika.vinci.app
 
       # Another OSGi build with generated Eclipse help
       - run: 
