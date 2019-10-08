@@ -42,12 +42,5 @@
       </editor>
       
    </extension>
-      
-  <extension point="org.eclipse.sirius.ui.siriusPropertySheetPageProvider">
-     <siriusPropertySheetPageProvider
-           class="org.nasdanika.vinci.presentation.VinciPropertySheetPageProvider"
-           contributorId="org.nasdanika.vinci.presentation.editor">
-     </siriusPropertySheetPageProvider>
-  </extension>
    
 </plugin>
