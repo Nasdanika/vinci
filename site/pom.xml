@@ -43,7 +43,7 @@
 							<outputDirectory>${basedir}/target/site</outputDirectory>
 							<resources>
 								<resource>
-									<directory>${basedir}/target</directory>
+									<directory>${basedir}/../repository/target</directory>
 									<includes>
 										<include>repository/**</include>
 										<include>org.nasdanika.vinci.repository-*.zip</include>
