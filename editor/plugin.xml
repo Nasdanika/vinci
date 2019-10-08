@@ -30,15 +30,15 @@
             icon="icons/full/obj16/AppModelFile.gif"
             extensions="vinci"
             class="org.nasdanika.vinci.presentation.VinciEditor"
-            contributorClass="org.nasdanika.vinci.presentation.VinciActionBarContributor">
+            contributorClass="org.nasdanika.emf.presentation.NasdanikaActionBarContributor">
       </editor>
       <editor
             id="org.nasdanika.vinci.app.presentation.VinciSiriusEditorID"
             name="%_UI_VinciSiriusEditor_label"
             icon="icons/full/obj16/AppModelFile.gif"
             extensions="vinci"
-            class="org.nasdanika.vinci.presentation.VinciSiriusEditor"
-            contributorClass="org.nasdanika.vinci.presentation.VinciActionBarContributor">
+            class="org.nasdanika.emf.presentation.NasdanikaSiriusEditor"
+            contributorClass="org.nasdanika.emf.presentation.NasdanikaActionBarContributor">
       </editor>
       
    </extension>
