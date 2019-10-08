@@ -123,6 +123,7 @@ public class ActionItemProvider extends ActionBaseItemProvider {
 			childFeature == CodegenPackage.Literals.GENERATOR__NAMED_GENERATORS ||
 			childFeature == AppPackage.Literals.CONTAINER__ELEMENTS ||
 			childFeature == AppPackage.Literals.ACTION_BASE__CONTENT ||
+			childFeature == CodegenPackage.Literals.GENERATOR__DESCRIPTORS ||
 			childFeature == AppPackage.Literals.ABSTRACT_ACTION__ACTION_MAPPINGS;
 
 		if (qualify) {

@@ -568,6 +568,21 @@ public class ActionBaseItemProvider extends LabelItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
+				(AppPackage.Literals.CONTAINER__ELEMENTS,
+				 CodegenFactory.eINSTANCE.createPropertyDescriptor()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(AppPackage.Literals.CONTAINER__ELEMENTS,
+				 CodegenFactory.eINSTANCE.createServiceDescriptor()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(AppPackage.Literals.CONTAINER__ELEMENTS,
+				 CodegenFactory.eINSTANCE.createDescriptorSet()));
+
+		newChildDescriptors.add
+			(createChildParameter
 				(AppPackage.Literals.ACTION_BASE__CONTENT,
 				 AppFactory.eINSTANCE.createActionCategory()));
 
@@ -742,6 +757,7 @@ public class ActionBaseItemProvider extends LabelItemProvider {
 			childFeature == CodegenPackage.Literals.GENERATOR__NAMED_GENERATORS ||
 			childFeature == AppPackage.Literals.CONTAINER__ELEMENTS ||
 			childFeature == AppPackage.Literals.ACTION_BASE__CONTENT ||
+			childFeature == CodegenPackage.Literals.GENERATOR__DESCRIPTORS ||
 			childFeature == AppPackage.Literals.ABSTRACT_ACTION__ACTION_MAPPINGS;
 
 		if (qualify) {

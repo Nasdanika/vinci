@@ -345,6 +345,15 @@ public interface AppPackage extends EPackage {
 	int LABEL__NAMED_GENERATORS = CodegenPackage.GENERATOR__NAMED_GENERATORS;
 
 	/**
+	 * The feature id for the '<em><b>Descriptors</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LABEL__DESCRIPTORS = CodegenPackage.GENERATOR__DESCRIPTORS;
+
+	/**
 	 * The feature id for the '<em><b>Color</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -532,6 +541,15 @@ public interface AppPackage extends EPackage {
 	 * @ordered
 	 */
 	int CATEGORY__NAMED_GENERATORS = LABEL__NAMED_GENERATORS;
+
+	/**
+	 * The feature id for the '<em><b>Descriptors</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORY__DESCRIPTORS = LABEL__DESCRIPTORS;
 
 	/**
 	 * The feature id for the '<em><b>Color</b></em>' attribute.
@@ -786,6 +804,15 @@ public interface AppPackage extends EPackage {
 	int ACTION_CATEGORY__NAMED_GENERATORS = CATEGORY__NAMED_GENERATORS;
 
 	/**
+	 * The feature id for the '<em><b>Descriptors</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION_CATEGORY__DESCRIPTORS = CATEGORY__DESCRIPTORS;
+
+	/**
 	 * The feature id for the '<em><b>Color</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1001,6 +1028,15 @@ public interface AppPackage extends EPackage {
 	 * @ordered
 	 */
 	int ACTION_BASE__NAMED_GENERATORS = LABEL__NAMED_GENERATORS;
+
+	/**
+	 * The feature id for the '<em><b>Descriptors</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION_BASE__DESCRIPTORS = LABEL__DESCRIPTORS;
 
 	/**
 	 * The feature id for the '<em><b>Color</b></em>' attribute.
@@ -1472,6 +1508,15 @@ public interface AppPackage extends EPackage {
 	int ACTION__NAMED_GENERATORS = ACTION_BASE__NAMED_GENERATORS;
 
 	/**
+	 * The feature id for the '<em><b>Descriptors</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION__DESCRIPTORS = ACTION_BASE__DESCRIPTORS;
+
+	/**
 	 * The feature id for the '<em><b>Color</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1776,6 +1821,15 @@ public interface AppPackage extends EPackage {
 	 * @ordered
 	 */
 	int PARTITION__NAMED_GENERATORS = ACTION_BASE__NAMED_GENERATORS;
+
+	/**
+	 * The feature id for the '<em><b>Descriptors</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARTITION__DESCRIPTORS = ACTION_BASE__DESCRIPTORS;
 
 	/**
 	 * The feature id for the '<em><b>Color</b></em>' attribute.

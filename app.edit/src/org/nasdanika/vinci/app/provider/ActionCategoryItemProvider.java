@@ -118,7 +118,8 @@ public class ActionCategoryItemProvider extends CategoryItemProvider {
 
 		boolean qualify =
 			childFeature == CodegenPackage.Literals.GENERATOR__NAMED_GENERATORS ||
-			childFeature == AppPackage.Literals.CONTAINER__ELEMENTS;
+			childFeature == AppPackage.Literals.CONTAINER__ELEMENTS ||
+			childFeature == CodegenPackage.Literals.GENERATOR__DESCRIPTORS;
 
 		if (qualify) {
 			return getString

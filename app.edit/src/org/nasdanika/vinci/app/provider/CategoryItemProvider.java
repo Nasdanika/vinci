@@ -343,6 +343,21 @@ public class CategoryItemProvider extends LabelItemProvider {
 			(createChildParameter
 				(AppPackage.Literals.CONTAINER__ELEMENTS,
 				 CodegenFactory.eINSTANCE.createZipResourceCollection()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(AppPackage.Literals.CONTAINER__ELEMENTS,
+				 CodegenFactory.eINSTANCE.createPropertyDescriptor()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(AppPackage.Literals.CONTAINER__ELEMENTS,
+				 CodegenFactory.eINSTANCE.createServiceDescriptor()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(AppPackage.Literals.CONTAINER__ELEMENTS,
+				 CodegenFactory.eINSTANCE.createDescriptorSet()));
 	}
 
 	/**
@@ -358,7 +373,8 @@ public class CategoryItemProvider extends LabelItemProvider {
 
 		boolean qualify =
 			childFeature == CodegenPackage.Literals.GENERATOR__NAMED_GENERATORS ||
-			childFeature == AppPackage.Literals.CONTAINER__ELEMENTS;
+			childFeature == AppPackage.Literals.CONTAINER__ELEMENTS ||
+			childFeature == CodegenPackage.Literals.GENERATOR__DESCRIPTORS;
 
 		if (qualify) {
 			return getString
