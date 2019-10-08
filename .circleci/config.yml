@@ -40,14 +40,14 @@ jobs:
       # Executing tests, copying help contents and javadoc
       - run: cd repository/target/products/org.nasdanika.vinci.tests.product/linux/gtk/x86_64;./eclipse
       - run: mv repository/target/products/org.nasdanika.vinci.tests.product/linux/gtk/x86_64/target/help/model help/doc
-      - run: mkdir repository/src/site/resources
-      - run: mv repository/target/products/org.nasdanika.vinci.tests.product/linux/gtk/x86_64/target/model-doc repository/src/site/resources
+      - run: mkdir site/src/site/resources
+      - run: mv repository/target/products/org.nasdanika.vinci.tests.product/linux/gtk/x86_64/target/model-doc site/src/site/resources
       - run: mkdir help/doc/api
       - run: mv model/target/site/apidocs help/doc/api/org.nasdanika.vinci
 
       # Another OSGi build with generated Eclipse help
       - run: 
-            command: apache-maven-3.6.0/bin/mvn -s .circleci/settings.xml clean javadoc:javadoc package
+            command: apache-maven-3.6.0/bin/mvn -s .circleci/settings.xml javadoc:javadoc package
             no_output_timeout: 120m
 
       # Deploying sites
