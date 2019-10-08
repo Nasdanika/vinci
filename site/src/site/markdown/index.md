@@ -1,6 +1,6 @@
 # Nasdanika Vinci
 
-* [Model documentation](modeldoc/index.html)
+* [Model documentation](model-doc/index.html)
 
 ## P2 Repository
 
