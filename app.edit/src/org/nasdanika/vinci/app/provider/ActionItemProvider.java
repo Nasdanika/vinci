@@ -9,7 +9,6 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.vinci.app.ActionBase;
 import org.nasdanika.vinci.app.AppPackage;
 
@@ -120,11 +119,9 @@ public class ActionItemProvider extends ActionBaseItemProvider {
 		Object childObject = child;
 
 		boolean qualify =
-			childFeature == CodegenPackage.Literals.GENERATOR__NAMED_GENERATORS ||
+			childFeature == AppPackage.Literals.ABSTRACT_ACTION__ACTION_MAPPINGS ||
 			childFeature == AppPackage.Literals.CONTAINER__ELEMENTS ||
-			childFeature == AppPackage.Literals.ACTION_BASE__CONTENT ||
-			childFeature == CodegenPackage.Literals.GENERATOR__DESCRIPTORS ||
-			childFeature == AppPackage.Literals.ABSTRACT_ACTION__ACTION_MAPPINGS;
+			childFeature == AppPackage.Literals.ACTION_BASE__CONTENT;
 
 		if (qualify) {
 			return getString

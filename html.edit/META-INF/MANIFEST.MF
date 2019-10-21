@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %pluginName
+Bundle-SymbolicName: org.nasdanika.vinci.html.edit;singleton:=true
+Automatic-Module-Name: org.nasdanika.vinci.html.edit
+Bundle-Version: 1.0.0.qualifier
+Bundle-ClassPath: .
+Bundle-Activator: org.nasdanika.vinci.html.provider.HtmlEditPlugin$Implementation
+Bundle-Vendor: %providerName
+Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: org.nasdanika.vinci.html.provider
+Require-Bundle: org.eclipse.core.runtime,
+ org.nasdanika.vinci.html;visibility:=reexport,
+ org.eclipse.emf.edit;visibility:=reexport,
+ org.nasdanika.ncore.edit;bundle-version="1.0.0";visibility:=reexport
+Bundle-ActivationPolicy: lazy

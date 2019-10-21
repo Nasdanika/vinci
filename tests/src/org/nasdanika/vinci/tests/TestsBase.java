@@ -56,7 +56,7 @@ public class TestsBase {
 			MutableContext mc = Context.EMPTY_CONTEXT.compose(context).fork();
 			mc.register(BinaryEntityContainer.class, result.output);
 			
-			Work<List<BinaryEntity>> work = validatingModelGenerator.createWork(mc);
+			Work<List<BinaryEntity>> work = validatingModelGenerator.create(mc);
 			
 			try (ProgressRecorder workDiagnostic = new ProgressRecorder()) {
 				org.nasdanika.common.Diagnostic diagnostic = work.diagnose(workDiagnostic);

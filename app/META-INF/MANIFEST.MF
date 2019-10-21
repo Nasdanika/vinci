@@ -17,8 +17,7 @@ Require-Bundle: org.eclipse.core.runtime,
  org.freemarker.freemarker;bundle-version="2.3.28",
  org.eclipse.emf.ecore.xmi;bundle-version="2.15.0";visibility:=reexport,
  org.nasdanika.emf;bundle-version="1.0.0";visibility:=reexport,
- org.codehaus.janino;bundle-version="3.1.0",
- org.nasdanika.codegen;bundle-version="0.2.0";visibility:=reexport,
- org.nasdanika.html.app;bundle-version="2.0.0";visibility:=reexport
+ org.nasdanika.html.app;bundle-version="2.0.0";visibility:=reexport,
+ org.nasdanika.ncore;bundle-version="0.1.0";visibility:=reexport
 Bundle-ActivationPolicy: lazy
 Automatic-Module-Name: org.nasdanika.vinci.app

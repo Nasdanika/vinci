@@ -15,10 +15,7 @@ import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-
-import org.nasdanika.codegen.CodegenFactory;
-import org.nasdanika.codegen.CodegenPackage;
-
+import org.nasdanika.ncore.NcoreFactory;
 import org.nasdanika.vinci.app.ActionBase;
 import org.nasdanika.vinci.app.AppFactory;
 import org.nasdanika.vinci.app.AppPackage;
@@ -424,162 +421,112 @@ public class ActionBaseItemProvider extends LabelItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(AppPackage.Literals.CONTAINER__ELEMENTS,
-				 CodegenFactory.eINSTANCE.createNamedGenerator()));
+				 NcoreFactory.eINSTANCE.createContactMethod()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(AppPackage.Literals.CONTAINER__ELEMENTS,
-				 CodegenFactory.eINSTANCE.createProperty()));
+				 NcoreFactory.eINSTANCE.createEMail()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(AppPackage.Literals.CONTAINER__ELEMENTS,
-				 CodegenFactory.eINSTANCE.createBinaryFile()));
+				 NcoreFactory.eINSTANCE.createPhone()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(AppPackage.Literals.CONTAINER__ELEMENTS,
-				 CodegenFactory.eINSTANCE.createTextFile()));
+				 NcoreFactory.eINSTANCE.createPostalAddress()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(AppPackage.Literals.CONTAINER__ELEMENTS,
-				 CodegenFactory.eINSTANCE.createContainer()));
+				 NcoreFactory.eINSTANCE.createWebAddress()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(AppPackage.Literals.CONTAINER__ELEMENTS,
-				 CodegenFactory.eINSTANCE.createResourceGroup()));
+				 NcoreFactory.eINSTANCE.createTypedElement()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(AppPackage.Literals.CONTAINER__ELEMENTS,
-				 CodegenFactory.eINSTANCE.createStaticText()));
+				 NcoreFactory.eINSTANCE.createProvider()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(AppPackage.Literals.CONTAINER__ELEMENTS,
-				 CodegenFactory.eINSTANCE.createStaticBytes()));
+				 NcoreFactory.eINSTANCE.createValue()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(AppPackage.Literals.CONTAINER__ELEMENTS,
-				 CodegenFactory.eINSTANCE.createFreeMarkerGenerator()));
+				 NcoreFactory.eINSTANCE.createNull()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(AppPackage.Literals.CONTAINER__ELEMENTS,
-				 CodegenFactory.eINSTANCE.createECoreModelGenerator()));
+				 NcoreFactory.eINSTANCE.createOperation()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(AppPackage.Literals.CONTAINER__ELEMENTS,
-				 CodegenFactory.eINSTANCE.createTextToStreamConverter()));
+				 NcoreFactory.eINSTANCE.createArray()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(AppPackage.Literals.CONTAINER__ELEMENTS,
-				 CodegenFactory.eINSTANCE.createStreamToTextConverter()));
+				 NcoreFactory.eINSTANCE.createContext()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(AppPackage.Literals.CONTAINER__ELEMENTS,
-				 CodegenFactory.eINSTANCE.createInterpolator()));
+				 NcoreFactory.eINSTANCE.createTypedEntry()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(AppPackage.Literals.CONTAINER__ELEMENTS,
-				 CodegenFactory.eINSTANCE.createJavaTextFilter()));
+				 NcoreFactory.eINSTANCE.createProviderEntry()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(AppPackage.Literals.CONTAINER__ELEMENTS,
-				 CodegenFactory.eINSTANCE.createJavaStreamFilter()));
+				 NcoreFactory.eINSTANCE.createMap()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(AppPackage.Literals.CONTAINER__ELEMENTS,
-				 CodegenFactory.eINSTANCE.createJavaTextGenerator()));
+				 NcoreFactory.eINSTANCE.createProperty()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(AppPackage.Literals.CONTAINER__ELEMENTS,
-				 CodegenFactory.eINSTANCE.createJavaStreamGenerator()));
+				 NcoreFactory.eINSTANCE.createFunction()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(AppPackage.Literals.CONTAINER__ELEMENTS,
-				 CodegenFactory.eINSTANCE.createJavaResourceGenerator()));
+				 NcoreFactory.eINSTANCE.createList()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(AppPackage.Literals.CONTAINER__ELEMENTS,
-				 CodegenFactory.eINSTANCE.createTextContentReference()));
+				 NcoreFactory.eINSTANCE.createObject()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(AppPackage.Literals.CONTAINER__ELEMENTS,
-				 CodegenFactory.eINSTANCE.createStreamContentReference()));
+				 NcoreFactory.eINSTANCE.createHttpCall()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(AppPackage.Literals.CONTAINER__ELEMENTS,
-				 CodegenFactory.eINSTANCE.createMustache()));
+				 NcoreFactory.eINSTANCE.createRestOperation()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(AppPackage.Literals.CONTAINER__ELEMENTS,
-				 CodegenFactory.eINSTANCE.createZipArchive()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(AppPackage.Literals.CONTAINER__ELEMENTS,
-				 CodegenFactory.eINSTANCE.createTextGroup()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(AppPackage.Literals.CONTAINER__ELEMENTS,
-				 CodegenFactory.eINSTANCE.createTextGeneratorReference()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(AppPackage.Literals.CONTAINER__ELEMENTS,
-				 CodegenFactory.eINSTANCE.createStreamGeneratorReference()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(AppPackage.Literals.CONTAINER__ELEMENTS,
-				 CodegenFactory.eINSTANCE.createResourceGeneratorReference()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(AppPackage.Literals.CONTAINER__ELEMENTS,
-				 CodegenFactory.eINSTANCE.createHttpCall()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(AppPackage.Literals.CONTAINER__ELEMENTS,
-				 CodegenFactory.eINSTANCE.createBundleResourceCollection()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(AppPackage.Literals.CONTAINER__ELEMENTS,
-				 CodegenFactory.eINSTANCE.createZipResourceCollection()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(AppPackage.Literals.CONTAINER__ELEMENTS,
-				 CodegenFactory.eINSTANCE.createPropertyDescriptor()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(AppPackage.Literals.CONTAINER__ELEMENTS,
-				 CodegenFactory.eINSTANCE.createServiceDescriptor()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(AppPackage.Literals.CONTAINER__ELEMENTS,
-				 CodegenFactory.eINSTANCE.createDescriptorSet()));
+				 NcoreFactory.eINSTANCE.createRestFunction()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -599,147 +546,87 @@ public class ActionBaseItemProvider extends LabelItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(AppPackage.Literals.ACTION_BASE__CONTENT,
-				 CodegenFactory.eINSTANCE.createNamedGenerator()));
+				 NcoreFactory.eINSTANCE.createTypedElement()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(AppPackage.Literals.ACTION_BASE__CONTENT,
-				 CodegenFactory.eINSTANCE.createProperty()));
+				 NcoreFactory.eINSTANCE.createProvider()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(AppPackage.Literals.ACTION_BASE__CONTENT,
-				 CodegenFactory.eINSTANCE.createBinaryFile()));
+				 NcoreFactory.eINSTANCE.createValue()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(AppPackage.Literals.ACTION_BASE__CONTENT,
-				 CodegenFactory.eINSTANCE.createTextFile()));
+				 NcoreFactory.eINSTANCE.createNull()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(AppPackage.Literals.ACTION_BASE__CONTENT,
-				 CodegenFactory.eINSTANCE.createContainer()));
+				 NcoreFactory.eINSTANCE.createOperation()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(AppPackage.Literals.ACTION_BASE__CONTENT,
-				 CodegenFactory.eINSTANCE.createResourceGroup()));
+				 NcoreFactory.eINSTANCE.createArray()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(AppPackage.Literals.ACTION_BASE__CONTENT,
-				 CodegenFactory.eINSTANCE.createStaticText()));
+				 NcoreFactory.eINSTANCE.createContext()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(AppPackage.Literals.ACTION_BASE__CONTENT,
-				 CodegenFactory.eINSTANCE.createStaticBytes()));
+				 NcoreFactory.eINSTANCE.createTypedEntry()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(AppPackage.Literals.ACTION_BASE__CONTENT,
-				 CodegenFactory.eINSTANCE.createFreeMarkerGenerator()));
+				 NcoreFactory.eINSTANCE.createProviderEntry()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(AppPackage.Literals.ACTION_BASE__CONTENT,
-				 CodegenFactory.eINSTANCE.createECoreModelGenerator()));
+				 NcoreFactory.eINSTANCE.createMap()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(AppPackage.Literals.ACTION_BASE__CONTENT,
-				 CodegenFactory.eINSTANCE.createTextToStreamConverter()));
+				 NcoreFactory.eINSTANCE.createProperty()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(AppPackage.Literals.ACTION_BASE__CONTENT,
-				 CodegenFactory.eINSTANCE.createStreamToTextConverter()));
+				 NcoreFactory.eINSTANCE.createFunction()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(AppPackage.Literals.ACTION_BASE__CONTENT,
-				 CodegenFactory.eINSTANCE.createInterpolator()));
+				 NcoreFactory.eINSTANCE.createList()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(AppPackage.Literals.ACTION_BASE__CONTENT,
-				 CodegenFactory.eINSTANCE.createJavaTextFilter()));
+				 NcoreFactory.eINSTANCE.createObject()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(AppPackage.Literals.ACTION_BASE__CONTENT,
-				 CodegenFactory.eINSTANCE.createJavaStreamFilter()));
+				 NcoreFactory.eINSTANCE.createHttpCall()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(AppPackage.Literals.ACTION_BASE__CONTENT,
-				 CodegenFactory.eINSTANCE.createJavaTextGenerator()));
+				 NcoreFactory.eINSTANCE.createRestOperation()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(AppPackage.Literals.ACTION_BASE__CONTENT,
-				 CodegenFactory.eINSTANCE.createJavaStreamGenerator()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(AppPackage.Literals.ACTION_BASE__CONTENT,
-				 CodegenFactory.eINSTANCE.createJavaResourceGenerator()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(AppPackage.Literals.ACTION_BASE__CONTENT,
-				 CodegenFactory.eINSTANCE.createTextContentReference()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(AppPackage.Literals.ACTION_BASE__CONTENT,
-				 CodegenFactory.eINSTANCE.createStreamContentReference()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(AppPackage.Literals.ACTION_BASE__CONTENT,
-				 CodegenFactory.eINSTANCE.createMustache()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(AppPackage.Literals.ACTION_BASE__CONTENT,
-				 CodegenFactory.eINSTANCE.createZipArchive()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(AppPackage.Literals.ACTION_BASE__CONTENT,
-				 CodegenFactory.eINSTANCE.createTextGroup()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(AppPackage.Literals.ACTION_BASE__CONTENT,
-				 CodegenFactory.eINSTANCE.createTextGeneratorReference()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(AppPackage.Literals.ACTION_BASE__CONTENT,
-				 CodegenFactory.eINSTANCE.createStreamGeneratorReference()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(AppPackage.Literals.ACTION_BASE__CONTENT,
-				 CodegenFactory.eINSTANCE.createResourceGeneratorReference()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(AppPackage.Literals.ACTION_BASE__CONTENT,
-				 CodegenFactory.eINSTANCE.createHttpCall()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(AppPackage.Literals.ACTION_BASE__CONTENT,
-				 CodegenFactory.eINSTANCE.createBundleResourceCollection()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(AppPackage.Literals.ACTION_BASE__CONTENT,
-				 CodegenFactory.eINSTANCE.createZipResourceCollection()));
+				 NcoreFactory.eINSTANCE.createRestFunction()));
 	}
 
 	/**
@@ -754,11 +641,9 @@ public class ActionBaseItemProvider extends LabelItemProvider {
 		Object childObject = child;
 
 		boolean qualify =
-			childFeature == CodegenPackage.Literals.GENERATOR__NAMED_GENERATORS ||
+			childFeature == AppPackage.Literals.ABSTRACT_ACTION__ACTION_MAPPINGS ||
 			childFeature == AppPackage.Literals.CONTAINER__ELEMENTS ||
-			childFeature == AppPackage.Literals.ACTION_BASE__CONTENT ||
-			childFeature == CodegenPackage.Literals.GENERATOR__DESCRIPTORS ||
-			childFeature == AppPackage.Literals.ABSTRACT_ACTION__ACTION_MAPPINGS;
+			childFeature == AppPackage.Literals.ACTION_BASE__CONTENT;
 
 		if (qualify) {
 			return getString

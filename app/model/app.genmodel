@@ -4,8 +4,8 @@
     creationSubmenus="true" modelPluginID="org.nasdanika.vinci.app" modelName="App"
     rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" importerID="org.eclipse.emf.importer.ecore"
     featureDelegation="Dynamic" complianceLevel="8.0" copyrightFields="false" providerRootExtendsClass="org.nasdanika.emf.edit.NasdanikaItemProviderAdapter"
-    usedGenPackages="../../org.nasdanika.codegen/model/codegen.genmodel#//codegen"
-    operationReflection="true" importOrganizing="true">
+    usedGenPackages="../../org.nasdanika.ncore/model/ncore.genmodel#//ncore" operationReflection="true"
+    importOrganizing="true">
   <foreignModel>app.ecore</foreignModel>
   <genPackages prefix="App" basePackage="org.nasdanika.vinci" disposableProviderFactory="true"
       ecorePackage="app.ecore#/">

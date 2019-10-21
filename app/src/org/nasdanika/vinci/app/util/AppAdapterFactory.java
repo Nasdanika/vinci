@@ -6,8 +6,8 @@ import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
-import org.nasdanika.codegen.Generator;
-import org.nasdanika.common.WorkFactory;
+import org.nasdanika.common.CommandFactory;
+import org.nasdanika.ncore.ModelElement;
 import org.nasdanika.vinci.app.*;
 
 /**
@@ -123,12 +123,12 @@ public class AppAdapterFactory extends AdapterFactoryImpl {
 				return createPartitionAdapter();
 			}
 			@Override
-			public <T> Adapter caseWorkFactory(WorkFactory<T> object) {
-				return createWorkFactoryAdapter();
+			public Adapter caseModelElement(ModelElement object) {
+				return createModelElementAdapter();
 			}
 			@Override
-			public <T> Adapter caseGenerator(Generator<T> object) {
-				return createGeneratorAdapter();
+			public <T> Adapter caseCommandFactory(CommandFactory<T> object) {
+				return createCommandFactoryAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -203,6 +203,34 @@ public class AppAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createPartitionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.ncore.ModelElement <em>Model Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.ncore.ModelElement
+	 * @generated
+	 */
+	public Adapter createModelElementAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.common.CommandFactory <em>Command Factory</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.common.CommandFactory
+	 * @generated
+	 */
+	public Adapter createCommandFactoryAdapter() {
 		return null;
 	}
 
@@ -343,34 +371,6 @@ public class AppAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createContainerAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.nasdanika.common.WorkFactory <em>Work Factory</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.nasdanika.common.WorkFactory
-	 * @generated
-	 */
-	public Adapter createWorkFactoryAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.nasdanika.codegen.Generator <em>Generator</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.nasdanika.codegen.Generator
-	 * @generated
-	 */
-	public Adapter createGeneratorAdapter() {
 		return null;
 	}
 

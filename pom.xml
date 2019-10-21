@@ -20,32 +20,27 @@
 	<repositories>
 		<repository>
 			<id>foundation</id>
-			<url>https://www.nasdanika.org/home/foundation-repository</url>
+			<url>https://www.nasdanika.org/master/foundation-repository</url>
 			<layout>p2</layout>
 		</repository>
 		<repository>
 			<id>third-party</id>
-			<url>https://www.nasdanika.org/home/products/third-party/repository</url>
-			<layout>p2</layout>
-		</repository>
-		<repository>
-			<id>codegen</id>
-			<url>https://www.nasdanika.org/home/products/codegen/repository</url>
-			<layout>p2</layout>
-		</repository>
-		<repository>
-			<id>core</id>
-			<url>https://www.nasdanika.org/home/products/core/repository</url>
-			<layout>p2</layout>
-		</repository>
-		<repository>
-			<id>html</id>
-			<url>https://www.nasdanika.org/home/products/html/repository</url>
+			<url>https://www.nasdanika.org/master/products/third-party/repository</url>
 			<layout>p2</layout>
 		</repository>
 		<repository>
 			<id>maven-osgi</id>
-			<url>https://www.nasdanika.org/home/products/maven-osgi/repository</url>
+			<url>https://www.nasdanika.org/master/products/maven-osgi/repository</url>
+			<layout>p2</layout>
+		</repository>
+		<repository>
+			<id>core</id>
+			<url>https://www.nasdanika.org/${env.CIRCLE_BRANCH}/products/core/repository</url>
+			<layout>p2</layout>
+		</repository>
+		<repository>
+			<id>html</id>
+			<url>https://www.nasdanika.org/${env.CIRCLE_BRANCH}/products/html/repository</url>
 			<layout>p2</layout>
 		</repository>
 	</repositories>
@@ -170,6 +165,12 @@
 		</plugins>
 	</build>
 	<modules>
+
+		<module>html</module>
+		<module>html.edit</module>
+
+		<module>bootstrap</module>
+		<module>bootstrap.edit</module>
 
 		<module>app</module>
 		<module>app.edit</module>

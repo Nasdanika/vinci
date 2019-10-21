@@ -8,7 +8,7 @@ import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
-import org.nasdanika.codegen.CodegenPackage;
+import org.nasdanika.ncore.NcorePackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -261,16 +261,7 @@ public interface AppPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LABEL__TITLE = CodegenPackage.GENERATOR__TITLE;
-
-	/**
-	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LABEL__ENABLED = CodegenPackage.GENERATOR__ENABLED;
+	int LABEL__TITLE = NcorePackage.MODEL_ELEMENT__TITLE;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -279,79 +270,7 @@ public interface AppPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LABEL__DESCRIPTION = CodegenPackage.GENERATOR__DESCRIPTION;
-
-	/**
-	 * The feature id for the '<em><b>Configuration</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LABEL__CONFIGURATION = CodegenPackage.GENERATOR__CONFIGURATION;
-
-	/**
-	 * The feature id for the '<em><b>Configuration Reference</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LABEL__CONFIGURATION_REFERENCE = CodegenPackage.GENERATOR__CONFIGURATION_REFERENCE;
-
-	/**
-	 * The feature id for the '<em><b>Context Path</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LABEL__CONTEXT_PATH = CodegenPackage.GENERATOR__CONTEXT_PATH;
-
-	/**
-	 * The feature id for the '<em><b>Predicate</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LABEL__PREDICATE = CodegenPackage.GENERATOR__PREDICATE;
-
-	/**
-	 * The feature id for the '<em><b>Controller</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LABEL__CONTROLLER = CodegenPackage.GENERATOR__CONTROLLER;
-
-	/**
-	 * The feature id for the '<em><b>Controller Arguments</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LABEL__CONTROLLER_ARGUMENTS = CodegenPackage.GENERATOR__CONTROLLER_ARGUMENTS;
-
-	/**
-	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LABEL__NAMED_GENERATORS = CodegenPackage.GENERATOR__NAMED_GENERATORS;
-
-	/**
-	 * The feature id for the '<em><b>Descriptors</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LABEL__DESCRIPTORS = CodegenPackage.GENERATOR__DESCRIPTORS;
+	int LABEL__DESCRIPTION = NcorePackage.MODEL_ELEMENT__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Color</b></em>' attribute.
@@ -360,7 +279,7 @@ public interface AppPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LABEL__COLOR = CodegenPackage.GENERATOR_FEATURE_COUNT + 0;
+	int LABEL__COLOR = NcorePackage.MODEL_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -369,7 +288,7 @@ public interface AppPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LABEL__ID = CodegenPackage.GENERATOR_FEATURE_COUNT + 1;
+	int LABEL__ID = NcorePackage.MODEL_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Text</b></em>' attribute.
@@ -378,7 +297,7 @@ public interface AppPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LABEL__TEXT = CodegenPackage.GENERATOR_FEATURE_COUNT + 2;
+	int LABEL__TEXT = NcorePackage.MODEL_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Icon</b></em>' attribute.
@@ -387,7 +306,7 @@ public interface AppPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LABEL__ICON = CodegenPackage.GENERATOR_FEATURE_COUNT + 3;
+	int LABEL__ICON = NcorePackage.MODEL_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Tooltip</b></em>' attribute.
@@ -396,7 +315,7 @@ public interface AppPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LABEL__TOOLTIP = CodegenPackage.GENERATOR_FEATURE_COUNT + 4;
+	int LABEL__TOOLTIP = NcorePackage.MODEL_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Outline</b></em>' attribute.
@@ -405,7 +324,7 @@ public interface AppPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LABEL__OUTLINE = CodegenPackage.GENERATOR_FEATURE_COUNT + 5;
+	int LABEL__OUTLINE = NcorePackage.MODEL_ELEMENT_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Notification</b></em>' attribute.
@@ -414,7 +333,7 @@ public interface AppPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LABEL__NOTIFICATION = CodegenPackage.GENERATOR_FEATURE_COUNT + 6;
+	int LABEL__NOTIFICATION = NcorePackage.MODEL_ELEMENT_FEATURE_COUNT + 6;
 
 	/**
 	 * The number of structural features of the '<em>Label</em>' class.
@@ -423,25 +342,7 @@ public interface AppPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LABEL_FEATURE_COUNT = CodegenPackage.GENERATOR_FEATURE_COUNT + 7;
-
-	/**
-	 * The operation id for the '<em>Is Filterable</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LABEL___IS_FILTERABLE = CodegenPackage.GENERATOR___IS_FILTERABLE;
-
-	/**
-	 * The operation id for the '<em>Validate</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LABEL___VALIDATE__DIAGNOSTICCHAIN_MAP = CodegenPackage.GENERATOR___VALIDATE__DIAGNOSTICCHAIN_MAP;
+	int LABEL_FEATURE_COUNT = NcorePackage.MODEL_ELEMENT_FEATURE_COUNT + 7;
 
 	/**
 	 * The number of operations of the '<em>Label</em>' class.
@@ -450,7 +351,7 @@ public interface AppPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LABEL_OPERATION_COUNT = CodegenPackage.GENERATOR_OPERATION_COUNT + 0;
+	int LABEL_OPERATION_COUNT = NcorePackage.MODEL_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Title</b></em>' attribute.
@@ -462,15 +363,6 @@ public interface AppPackage extends EPackage {
 	int CATEGORY__TITLE = LABEL__TITLE;
 
 	/**
-	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CATEGORY__ENABLED = LABEL__ENABLED;
-
-	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -478,78 +370,6 @@ public interface AppPackage extends EPackage {
 	 * @ordered
 	 */
 	int CATEGORY__DESCRIPTION = LABEL__DESCRIPTION;
-
-	/**
-	 * The feature id for the '<em><b>Configuration</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CATEGORY__CONFIGURATION = LABEL__CONFIGURATION;
-
-	/**
-	 * The feature id for the '<em><b>Configuration Reference</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CATEGORY__CONFIGURATION_REFERENCE = LABEL__CONFIGURATION_REFERENCE;
-
-	/**
-	 * The feature id for the '<em><b>Context Path</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CATEGORY__CONTEXT_PATH = LABEL__CONTEXT_PATH;
-
-	/**
-	 * The feature id for the '<em><b>Predicate</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CATEGORY__PREDICATE = LABEL__PREDICATE;
-
-	/**
-	 * The feature id for the '<em><b>Controller</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CATEGORY__CONTROLLER = LABEL__CONTROLLER;
-
-	/**
-	 * The feature id for the '<em><b>Controller Arguments</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CATEGORY__CONTROLLER_ARGUMENTS = LABEL__CONTROLLER_ARGUMENTS;
-
-	/**
-	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CATEGORY__NAMED_GENERATORS = LABEL__NAMED_GENERATORS;
-
-	/**
-	 * The feature id for the '<em><b>Descriptors</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CATEGORY__DESCRIPTORS = LABEL__DESCRIPTORS;
 
 	/**
 	 * The feature id for the '<em><b>Color</b></em>' attribute.
@@ -642,24 +462,6 @@ public interface AppPackage extends EPackage {
 	int CATEGORY_FEATURE_COUNT = LABEL_FEATURE_COUNT + 2;
 
 	/**
-	 * The operation id for the '<em>Is Filterable</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CATEGORY___IS_FILTERABLE = LABEL___IS_FILTERABLE;
-
-	/**
-	 * The operation id for the '<em>Validate</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CATEGORY___VALIDATE__DIAGNOSTICCHAIN_MAP = LABEL___VALIDATE__DIAGNOSTICCHAIN_MAP;
-
-	/**
 	 * The number of operations of the '<em>Category</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -723,15 +525,6 @@ public interface AppPackage extends EPackage {
 	int ACTION_CATEGORY__TITLE = CATEGORY__TITLE;
 
 	/**
-	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTION_CATEGORY__ENABLED = CATEGORY__ENABLED;
-
-	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -739,78 +532,6 @@ public interface AppPackage extends EPackage {
 	 * @ordered
 	 */
 	int ACTION_CATEGORY__DESCRIPTION = CATEGORY__DESCRIPTION;
-
-	/**
-	 * The feature id for the '<em><b>Configuration</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTION_CATEGORY__CONFIGURATION = CATEGORY__CONFIGURATION;
-
-	/**
-	 * The feature id for the '<em><b>Configuration Reference</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTION_CATEGORY__CONFIGURATION_REFERENCE = CATEGORY__CONFIGURATION_REFERENCE;
-
-	/**
-	 * The feature id for the '<em><b>Context Path</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTION_CATEGORY__CONTEXT_PATH = CATEGORY__CONTEXT_PATH;
-
-	/**
-	 * The feature id for the '<em><b>Predicate</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTION_CATEGORY__PREDICATE = CATEGORY__PREDICATE;
-
-	/**
-	 * The feature id for the '<em><b>Controller</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTION_CATEGORY__CONTROLLER = CATEGORY__CONTROLLER;
-
-	/**
-	 * The feature id for the '<em><b>Controller Arguments</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTION_CATEGORY__CONTROLLER_ARGUMENTS = CATEGORY__CONTROLLER_ARGUMENTS;
-
-	/**
-	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTION_CATEGORY__NAMED_GENERATORS = CATEGORY__NAMED_GENERATORS;
-
-	/**
-	 * The feature id for the '<em><b>Descriptors</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTION_CATEGORY__DESCRIPTORS = CATEGORY__DESCRIPTORS;
 
 	/**
 	 * The feature id for the '<em><b>Color</b></em>' attribute.
@@ -903,24 +624,6 @@ public interface AppPackage extends EPackage {
 	int ACTION_CATEGORY_FEATURE_COUNT = CATEGORY_FEATURE_COUNT + 0;
 
 	/**
-	 * The operation id for the '<em>Is Filterable</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTION_CATEGORY___IS_FILTERABLE = CATEGORY___IS_FILTERABLE;
-
-	/**
-	 * The operation id for the '<em>Validate</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTION_CATEGORY___VALIDATE__DIAGNOSTICCHAIN_MAP = CATEGORY___VALIDATE__DIAGNOSTICCHAIN_MAP;
-
-	/**
 	 * The number of operations of the '<em>Action Category</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -949,15 +652,6 @@ public interface AppPackage extends EPackage {
 	int ACTION_BASE__TITLE = LABEL__TITLE;
 
 	/**
-	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTION_BASE__ENABLED = LABEL__ENABLED;
-
-	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -965,78 +659,6 @@ public interface AppPackage extends EPackage {
 	 * @ordered
 	 */
 	int ACTION_BASE__DESCRIPTION = LABEL__DESCRIPTION;
-
-	/**
-	 * The feature id for the '<em><b>Configuration</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTION_BASE__CONFIGURATION = LABEL__CONFIGURATION;
-
-	/**
-	 * The feature id for the '<em><b>Configuration Reference</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTION_BASE__CONFIGURATION_REFERENCE = LABEL__CONFIGURATION_REFERENCE;
-
-	/**
-	 * The feature id for the '<em><b>Context Path</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTION_BASE__CONTEXT_PATH = LABEL__CONTEXT_PATH;
-
-	/**
-	 * The feature id for the '<em><b>Predicate</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTION_BASE__PREDICATE = LABEL__PREDICATE;
-
-	/**
-	 * The feature id for the '<em><b>Controller</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTION_BASE__CONTROLLER = LABEL__CONTROLLER;
-
-	/**
-	 * The feature id for the '<em><b>Controller Arguments</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTION_BASE__CONTROLLER_ARGUMENTS = LABEL__CONTROLLER_ARGUMENTS;
-
-	/**
-	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTION_BASE__NAMED_GENERATORS = LABEL__NAMED_GENERATORS;
-
-	/**
-	 * The feature id for the '<em><b>Descriptors</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTION_BASE__DESCRIPTORS = LABEL__DESCRIPTORS;
 
 	/**
 	 * The feature id for the '<em><b>Color</b></em>' attribute.
@@ -1228,24 +850,6 @@ public interface AppPackage extends EPackage {
 	int ACTION_BASE_FEATURE_COUNT = LABEL_FEATURE_COUNT + 13;
 
 	/**
-	 * The operation id for the '<em>Is Filterable</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTION_BASE___IS_FILTERABLE = LABEL___IS_FILTERABLE;
-
-	/**
-	 * The operation id for the '<em>Validate</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTION_BASE___VALIDATE__DIAGNOSTICCHAIN_MAP = LABEL___VALIDATE__DIAGNOSTICCHAIN_MAP;
-
-	/**
 	 * The number of operations of the '<em>Action Base</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1427,15 +1031,6 @@ public interface AppPackage extends EPackage {
 	int ACTION__TITLE = ACTION_BASE__TITLE;
 
 	/**
-	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTION__ENABLED = ACTION_BASE__ENABLED;
-
-	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1443,78 +1038,6 @@ public interface AppPackage extends EPackage {
 	 * @ordered
 	 */
 	int ACTION__DESCRIPTION = ACTION_BASE__DESCRIPTION;
-
-	/**
-	 * The feature id for the '<em><b>Configuration</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTION__CONFIGURATION = ACTION_BASE__CONFIGURATION;
-
-	/**
-	 * The feature id for the '<em><b>Configuration Reference</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTION__CONFIGURATION_REFERENCE = ACTION_BASE__CONFIGURATION_REFERENCE;
-
-	/**
-	 * The feature id for the '<em><b>Context Path</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTION__CONTEXT_PATH = ACTION_BASE__CONTEXT_PATH;
-
-	/**
-	 * The feature id for the '<em><b>Predicate</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTION__PREDICATE = ACTION_BASE__PREDICATE;
-
-	/**
-	 * The feature id for the '<em><b>Controller</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTION__CONTROLLER = ACTION_BASE__CONTROLLER;
-
-	/**
-	 * The feature id for the '<em><b>Controller Arguments</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTION__CONTROLLER_ARGUMENTS = ACTION_BASE__CONTROLLER_ARGUMENTS;
-
-	/**
-	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTION__NAMED_GENERATORS = ACTION_BASE__NAMED_GENERATORS;
-
-	/**
-	 * The feature id for the '<em><b>Descriptors</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTION__DESCRIPTORS = ACTION_BASE__DESCRIPTORS;
 
 	/**
 	 * The feature id for the '<em><b>Color</b></em>' attribute.
@@ -1706,24 +1229,6 @@ public interface AppPackage extends EPackage {
 	int ACTION_FEATURE_COUNT = ACTION_BASE_FEATURE_COUNT + 0;
 
 	/**
-	 * The operation id for the '<em>Is Filterable</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTION___IS_FILTERABLE = ACTION_BASE___IS_FILTERABLE;
-
-	/**
-	 * The operation id for the '<em>Validate</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTION___VALIDATE__DIAGNOSTICCHAIN_MAP = ACTION_BASE___VALIDATE__DIAGNOSTICCHAIN_MAP;
-
-	/**
 	 * The number of operations of the '<em>Action</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1742,15 +1247,6 @@ public interface AppPackage extends EPackage {
 	int PARTITION__TITLE = ACTION_BASE__TITLE;
 
 	/**
-	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PARTITION__ENABLED = ACTION_BASE__ENABLED;
-
-	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1758,78 +1254,6 @@ public interface AppPackage extends EPackage {
 	 * @ordered
 	 */
 	int PARTITION__DESCRIPTION = ACTION_BASE__DESCRIPTION;
-
-	/**
-	 * The feature id for the '<em><b>Configuration</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PARTITION__CONFIGURATION = ACTION_BASE__CONFIGURATION;
-
-	/**
-	 * The feature id for the '<em><b>Configuration Reference</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PARTITION__CONFIGURATION_REFERENCE = ACTION_BASE__CONFIGURATION_REFERENCE;
-
-	/**
-	 * The feature id for the '<em><b>Context Path</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PARTITION__CONTEXT_PATH = ACTION_BASE__CONTEXT_PATH;
-
-	/**
-	 * The feature id for the '<em><b>Predicate</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PARTITION__PREDICATE = ACTION_BASE__PREDICATE;
-
-	/**
-	 * The feature id for the '<em><b>Controller</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PARTITION__CONTROLLER = ACTION_BASE__CONTROLLER;
-
-	/**
-	 * The feature id for the '<em><b>Controller Arguments</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PARTITION__CONTROLLER_ARGUMENTS = ACTION_BASE__CONTROLLER_ARGUMENTS;
-
-	/**
-	 * The feature id for the '<em><b>Named Generators</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PARTITION__NAMED_GENERATORS = ACTION_BASE__NAMED_GENERATORS;
-
-	/**
-	 * The feature id for the '<em><b>Descriptors</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PARTITION__DESCRIPTORS = ACTION_BASE__DESCRIPTORS;
 
 	/**
 	 * The feature id for the '<em><b>Color</b></em>' attribute.
@@ -2019,24 +1443,6 @@ public interface AppPackage extends EPackage {
 	 * @ordered
 	 */
 	int PARTITION_FEATURE_COUNT = ACTION_BASE_FEATURE_COUNT + 0;
-
-	/**
-	 * The operation id for the '<em>Is Filterable</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PARTITION___IS_FILTERABLE = ACTION_BASE___IS_FILTERABLE;
-
-	/**
-	 * The operation id for the '<em>Validate</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PARTITION___VALIDATE__DIAGNOSTICCHAIN_MAP = ACTION_BASE___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
 	 * The number of operations of the '<em>Partition</em>' class.

@@ -4,7 +4,7 @@ package org.nasdanika.vinci.app.provider;
 
 import org.eclipse.emf.common.EMFPlugin;
 import org.eclipse.emf.common.util.ResourceLocator;
-import org.nasdanika.codegen.provider.CodegenEditPlugin;
+import org.nasdanika.ncore.provider.NcoreEditPlugin;
 
 /**
  * This is the central singleton for the App edit plugin.
@@ -38,7 +38,7 @@ public final class AppEditPlugin extends EMFPlugin {
 	public AppEditPlugin() {
 		super
 		  (new ResourceLocator [] {
-		     CodegenEditPlugin.INSTANCE,
+		     NcoreEditPlugin.INSTANCE,
 		   });
 	}
 

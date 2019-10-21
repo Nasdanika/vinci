@@ -13,7 +13,7 @@ import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-import org.nasdanika.codegen.provider.GeneratorItemProvider;
+import org.nasdanika.ncore.provider.ModelElementItemProvider;
 import org.nasdanika.vinci.app.AppPackage;
 import org.nasdanika.vinci.app.Label;
 
@@ -24,7 +24,7 @@ import org.nasdanika.vinci.app.Label;
  * @generated
  */
 public class LabelItemProvider 
-	extends GeneratorItemProvider {
+	extends ModelElementItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->

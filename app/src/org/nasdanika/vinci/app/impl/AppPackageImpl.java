@@ -13,8 +13,8 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.ETypeParameter;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
-import org.nasdanika.codegen.CodegenPackage;
 import org.nasdanika.html.bootstrap.Color;
+import org.nasdanika.ncore.NcorePackage;
 import org.nasdanika.vinci.app.AbstractAction;
 import org.nasdanika.vinci.app.Action;
 import org.nasdanika.vinci.app.ActionBase;
@@ -215,7 +215,7 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 		isInited = true;
 
 		// Initialize simple dependencies
-		CodegenPackage.eINSTANCE.eClass();
+		NcorePackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
 		theAppPackage.createPackageContents();
@@ -820,7 +820,7 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 		setNsURI(eNS_URI);
 
 		// Obtain other dependent packages
-		CodegenPackage theCodegenPackage = (CodegenPackage)EPackage.Registry.INSTANCE.getEPackage(CodegenPackage.eNS_URI);
+		NcorePackage theNcorePackage = (NcorePackage)EPackage.Registry.INSTANCE.getEPackage(NcorePackage.eNS_URI);
 
 		// Create type parameters
 		ETypeParameter containerEClass_E = addETypeParameter(containerEClass, "E");
@@ -833,8 +833,10 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 
 		// Add supertypes to classes
 		actionSpecEClass.getESuperTypes().add(this.getLabelSpec());
-		g1 = createEGenericType(theCodegenPackage.getGenerator());
-		EGenericType g2 = createEGenericType(labelEClass_T);
+		g1 = createEGenericType(theNcorePackage.getModelElement());
+		labelEClass.getEGenericSuperTypes().add(g1);
+		g1 = createEGenericType(theNcorePackage.getCommandFactory());
+		EGenericType g2 = createEGenericType(ecorePackage.getEJavaObject());
 		g1.getETypeArguments().add(g2);
 		labelEClass.getEGenericSuperTypes().add(g1);
 		g1 = createEGenericType(this.getLabel());
@@ -906,11 +908,9 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 		initEAttribute(getActionBase_Disabled(), ecorePackage.getEBoolean(), "disabled", null, 0, 1, ActionBase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getActionBase_FloatRight(), ecorePackage.getEBoolean(), "floatRight", null, 0, 1, ActionBase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getActionBase_Embedded(), ecorePackage.getEBoolean(), "embedded", null, 0, 1, ActionBase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		g1 = createEGenericType(theCodegenPackage.getWorkFactory());
-		g2 = createEGenericType(theCodegenPackage.getList());
+		g1 = createEGenericType(theNcorePackage.getCommandFactory());
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
 		g1.getETypeArguments().add(g2);
-		EGenericType g3 = createEGenericType(ecorePackage.getEString());
-		g2.getETypeArguments().add(g3);
 		initEReference(getActionBase_Content(), g1, null, "content", null, 0, -1, ActionBase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(actionMappingEClass, ActionMapping.class, "ActionMapping", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

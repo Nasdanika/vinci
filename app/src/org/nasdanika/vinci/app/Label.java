@@ -2,8 +2,9 @@
  */
 package org.nasdanika.vinci.app;
 
-import org.nasdanika.codegen.Generator;
+import org.nasdanika.common.CommandFactory;
 import org.nasdanika.html.bootstrap.Color;
+import org.nasdanika.ncore.ModelElement;
 
 /**
  * <!-- begin-user-doc -->
@@ -28,10 +29,10 @@ import org.nasdanika.html.bootstrap.Color;
  * </ul>
  *
  * @see org.nasdanika.vinci.app.AppPackage#getLabel()
- * @model abstract="true" TBounds="org.nasdanika.vinci.app.LabelSpec"
+ * @model abstract="true" superTypes="org.nasdanika.ncore.ModelElement org.nasdanika.ncore.CommandFactory&lt;org.eclipse.emf.ecore.EJavaObject&gt;" TBounds="org.nasdanika.vinci.app.LabelSpec"
  * @generated
  */
-public interface Label<T extends LabelSpec> extends Generator<T> {
+public interface Label<T extends LabelSpec> extends ModelElement, CommandFactory<Object> {
 	/**
 	 * Returns the value of the '<em><b>Color</b></em>' attribute.
 	 * <!-- begin-user-doc -->
