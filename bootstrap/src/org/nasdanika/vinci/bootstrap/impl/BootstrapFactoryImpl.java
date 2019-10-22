@@ -11,6 +11,7 @@ import org.eclipse.emf.ecore.impl.EFactoryImpl;
 
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
+import org.nasdanika.html.bootstrap.Color;
 import org.nasdanika.vinci.bootstrap.*;
 
 /**
@@ -64,6 +65,7 @@ public class BootstrapFactoryImpl extends EFactoryImpl implements BootstrapFacto
 			case BootstrapPackage.CARD: return createCard();
 			case BootstrapPackage.TAG: return createTag();
 			case BootstrapPackage.DIV: return createDiv();
+			case BootstrapPackage.ALERT: return createAlert();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -79,6 +81,8 @@ public class BootstrapFactoryImpl extends EFactoryImpl implements BootstrapFacto
 		switch (eDataType.getClassifierID()) {
 			case BootstrapPackage.IBOOTSTRAP_ELEMENT:
 				return createIBootstrapElementFromString(eDataType, initialValue);
+			case BootstrapPackage.COLOR:
+				return createColorFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -94,6 +98,8 @@ public class BootstrapFactoryImpl extends EFactoryImpl implements BootstrapFacto
 		switch (eDataType.getClassifierID()) {
 			case BootstrapPackage.IBOOTSTRAP_ELEMENT:
 				return convertIBootstrapElementToString(eDataType, instanceValue);
+			case BootstrapPackage.COLOR:
+				return convertColorToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -181,6 +187,17 @@ public class BootstrapFactoryImpl extends EFactoryImpl implements BootstrapFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
+	public Alert createAlert() {
+		AlertImpl alert = new AlertImpl();
+		return alert;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public org.nasdanika.html.bootstrap.BootstrapElement createIBootstrapElementFromString(EDataType eDataType, String initialValue) {
 		return (org.nasdanika.html.bootstrap.BootstrapElement)super.createFromString(eDataType, initialValue);
 	}
@@ -191,6 +208,24 @@ public class BootstrapFactoryImpl extends EFactoryImpl implements BootstrapFacto
 	 * @generated
 	 */
 	public String convertIBootstrapElementToString(EDataType eDataType, Object instanceValue) {
+		return super.convertToString(eDataType, instanceValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Color createColorFromString(EDataType eDataType, String initialValue) {
+		return (Color)super.createFromString(eDataType, initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertColorToString(EDataType eDataType, Object instanceValue) {
 		return super.convertToString(eDataType, instanceValue);
 	}
 

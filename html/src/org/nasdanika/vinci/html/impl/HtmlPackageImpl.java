@@ -10,7 +10,6 @@ import org.eclipse.emf.ecore.EPackage;
 
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
-
 import org.nasdanika.html.TagName;
 import org.nasdanika.ncore.NcorePackage;
 import org.nasdanika.vinci.html.HtmlElement;
@@ -51,14 +50,14 @@ public class HtmlPackageImpl extends EPackageImpl implements HtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType tagNameEDataType = null;
+	private EDataType iTagEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType iTagEDataType = null;
+	private EDataType tagNameEDataType = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -232,8 +231,8 @@ public class HtmlPackageImpl extends EPackageImpl implements HtmlPackage {
 		createEAttribute(tagEClass, TAG__NAME);
 
 		// Create data types
-		tagNameEDataType = createEDataType(TAG_NAME);
 		iTagEDataType = createEDataType(ITAG);
+		tagNameEDataType = createEDataType(TAG_NAME);
 	}
 
 	/**
@@ -267,6 +266,7 @@ public class HtmlPackageImpl extends EPackageImpl implements HtmlPackage {
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
+		htmlElementEClass.getESuperTypes().add(theNcorePackage.getModelElement());
 		EGenericType g1 = createEGenericType(this.getHtmlElement());
 		tagEClass.getEGenericSuperTypes().add(g1);
 		g1 = createEGenericType(this.getContainer());
@@ -289,8 +289,8 @@ public class HtmlPackageImpl extends EPackageImpl implements HtmlPackage {
 		initEAttribute(getTag_Name(), this.getTagName(), "name", null, 0, 1, Tag.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize data types
-		initEDataType(tagNameEDataType, TagName.class, "TagName", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(iTagEDataType, org.nasdanika.html.Tag.class, "ITag", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
+		initEDataType(tagNameEDataType, TagName.class, "TagName", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);

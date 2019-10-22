@@ -2,6 +2,8 @@
  */
 package org.nasdanika.vinci.bootstrap;
 
+import org.nasdanika.vinci.html.Container;
+
 
 /**
  * <!-- begin-user-doc -->
@@ -13,5 +15,5 @@ package org.nasdanika.vinci.bootstrap;
  * @model
  * @generated
  */
-public interface Column extends BootstrapElement {
+public interface Column extends BootstrapElement, Container {
 } // Column

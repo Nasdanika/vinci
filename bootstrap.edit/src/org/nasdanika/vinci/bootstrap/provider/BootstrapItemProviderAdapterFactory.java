@@ -233,6 +233,29 @@ public class BootstrapItemProviderAdapterFactory extends BootstrapAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.nasdanika.vinci.bootstrap.Alert} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected AlertItemProvider alertItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.nasdanika.vinci.bootstrap.Alert}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createAlertAdapter() {
+		if (alertItemProvider == null) {
+			alertItemProvider = new AlertItemProvider(this);
+		}
+
+		return alertItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -344,6 +367,7 @@ public class BootstrapItemProviderAdapterFactory extends BootstrapAdapterFactory
 		if (cardItemProvider != null) cardItemProvider.dispose();
 		if (tagItemProvider != null) tagItemProvider.dispose();
 		if (divItemProvider != null) divItemProvider.dispose();
+		if (alertItemProvider != null) alertItemProvider.dispose();
 	}
 
 }

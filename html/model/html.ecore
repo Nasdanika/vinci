@@ -4,9 +4,9 @@
   <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
     <details key="documentation" value="HTML model"/>
   </eAnnotations>
-  <eClassifiers xsi:type="ecore:EDataType" name="TagName" instanceClassName="org.nasdanika.html.TagName"/>
   <eClassifiers xsi:type="ecore:EDataType" name="ITag" instanceClassName="org.nasdanika.html.Tag"/>
-  <eClassifiers xsi:type="ecore:EClass" name="HtmlElement" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="TagName" instanceClassName="org.nasdanika.html.TagName"/>
+  <eClassifiers xsi:type="ecore:EClass" name="HtmlElement" abstract="true" eSuperTypes="../../org.nasdanika.ncore/model/ncore.ecore#//ModelElement"/>
   <eClassifiers xsi:type="ecore:EClass" name="Container">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Container of content such as text and HTML markup."/>

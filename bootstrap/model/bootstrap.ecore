@@ -18,7 +18,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="columns" upperBound="-1"
         eType="#//Column" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Column" eSuperTypes="#//BootstrapElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Column" eSuperTypes="#//BootstrapElement ../../org.nasdanika.vinci.html/model/html.ecore#//Container"/>
   <eClassifiers xsi:type="ecore:EClass" name="Card">
     <eStructuralFeatures xsi:type="ecore:EReference" name="header" eType="#//Div"
         containment="true"/>
@@ -41,4 +41,8 @@
       <details key="documentation" value="HTML DIV with bootstrap styling"/>
     </eAnnotations>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Alert" eSuperTypes="#//Div">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="color" eType="#//Color"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="Color" instanceClassName="org.nasdanika.html.bootstrap.Color"/>
 </ecore:EPackage>

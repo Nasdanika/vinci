@@ -2,6 +2,7 @@
  */
 package org.nasdanika.vinci.bootstrap;
 
+import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EPackage;
@@ -72,6 +73,24 @@ public interface BootstrapPackage extends EPackage {
 	int BOOTSTRAP_ELEMENT = 0;
 
 	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOTSTRAP_ELEMENT__TITLE = HtmlPackage.HTML_ELEMENT__TITLE;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOTSTRAP_ELEMENT__DESCRIPTION = HtmlPackage.HTML_ELEMENT__DESCRIPTION;
+
+	/**
 	 * The number of structural features of the '<em>Element</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -99,6 +118,24 @@ public interface BootstrapPackage extends EPackage {
 	 * @generated
 	 */
 	int CONTAINER = 1;
+
+	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTAINER__TITLE = BOOTSTRAP_ELEMENT__TITLE;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTAINER__DESCRIPTION = BOOTSTRAP_ELEMENT__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Rows</b></em>' containment reference list.
@@ -138,6 +175,24 @@ public interface BootstrapPackage extends EPackage {
 	int ROW = 2;
 
 	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROW__TITLE = BOOTSTRAP_ELEMENT__TITLE;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROW__DESCRIPTION = BOOTSTRAP_ELEMENT__DESCRIPTION;
+
+	/**
 	 * The feature id for the '<em><b>Columns</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -175,13 +230,40 @@ public interface BootstrapPackage extends EPackage {
 	int COLUMN = 3;
 
 	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLUMN__TITLE = BOOTSTRAP_ELEMENT__TITLE;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLUMN__DESCRIPTION = BOOTSTRAP_ELEMENT__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Content</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLUMN__CONTENT = BOOTSTRAP_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>Column</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COLUMN_FEATURE_COUNT = BOOTSTRAP_ELEMENT_FEATURE_COUNT + 0;
+	int COLUMN_FEATURE_COUNT = BOOTSTRAP_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Column</em>' class.
@@ -201,6 +283,24 @@ public interface BootstrapPackage extends EPackage {
 	 * @generated
 	 */
 	int CARD = 4;
+
+	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CARD__TITLE = BOOTSTRAP_ELEMENT__TITLE;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CARD__DESCRIPTION = BOOTSTRAP_ELEMENT__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Header</b></em>' containment reference.
@@ -259,6 +359,24 @@ public interface BootstrapPackage extends EPackage {
 	int TAG = 5;
 
 	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TAG__TITLE = HtmlPackage.TAG__TITLE;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TAG__DESCRIPTION = HtmlPackage.TAG__DESCRIPTION;
+
+	/**
 	 * The feature id for the '<em><b>Content</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -305,6 +423,24 @@ public interface BootstrapPackage extends EPackage {
 	int DIV = 6;
 
 	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DIV__TITLE = TAG__TITLE;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DIV__DESCRIPTION = TAG__DESCRIPTION;
+
+	/**
 	 * The feature id for the '<em><b>Content</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -341,6 +477,79 @@ public interface BootstrapPackage extends EPackage {
 	int DIV_OPERATION_COUNT = TAG_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link org.nasdanika.vinci.bootstrap.impl.AlertImpl <em>Alert</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.vinci.bootstrap.impl.AlertImpl
+	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getAlert()
+	 * @generated
+	 */
+	int ALERT = 7;
+
+	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ALERT__TITLE = DIV__TITLE;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ALERT__DESCRIPTION = DIV__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Content</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ALERT__CONTENT = DIV__CONTENT;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ALERT__NAME = DIV__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Color</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ALERT__COLOR = DIV_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Alert</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ALERT_FEATURE_COUNT = DIV_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Alert</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ALERT_OPERATION_COUNT = DIV_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '<em>IBootstrap Element</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -348,7 +557,18 @@ public interface BootstrapPackage extends EPackage {
 	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getIBootstrapElement()
 	 * @generated
 	 */
-	int IBOOTSTRAP_ELEMENT = 7;
+	int IBOOTSTRAP_ELEMENT = 8;
+
+
+	/**
+	 * The meta object id for the '<em>Color</em>' data type.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.html.bootstrap.Color
+	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getColor()
+	 * @generated
+	 */
+	int COLOR = 9;
 
 
 	/**
@@ -477,6 +697,27 @@ public interface BootstrapPackage extends EPackage {
 	EClass getDiv();
 
 	/**
+	 * Returns the meta object for class '{@link org.nasdanika.vinci.bootstrap.Alert <em>Alert</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Alert</em>'.
+	 * @see org.nasdanika.vinci.bootstrap.Alert
+	 * @generated
+	 */
+	EClass getAlert();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.bootstrap.Alert#getColor <em>Color</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Color</em>'.
+	 * @see org.nasdanika.vinci.bootstrap.Alert#getColor()
+	 * @see #getAlert()
+	 * @generated
+	 */
+	EAttribute getAlert_Color();
+
+	/**
 	 * Returns the meta object for data type '{@link org.nasdanika.html.bootstrap.BootstrapElement <em>IBootstrap Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -486,6 +727,17 @@ public interface BootstrapPackage extends EPackage {
 	 * @generated
 	 */
 	EDataType getIBootstrapElement();
+
+	/**
+	 * Returns the meta object for data type '{@link org.nasdanika.html.bootstrap.Color <em>Color</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for data type '<em>Color</em>'.
+	 * @see org.nasdanika.html.bootstrap.Color
+	 * @model instanceClass="org.nasdanika.html.bootstrap.Color"
+	 * @generated
+	 */
+	EDataType getColor();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -609,6 +861,22 @@ public interface BootstrapPackage extends EPackage {
 		 */
 		EClass DIV = eINSTANCE.getDiv();
 		/**
+		 * The meta object literal for the '{@link org.nasdanika.vinci.bootstrap.impl.AlertImpl <em>Alert</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.vinci.bootstrap.impl.AlertImpl
+		 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getAlert()
+		 * @generated
+		 */
+		EClass ALERT = eINSTANCE.getAlert();
+		/**
+		 * The meta object literal for the '<em><b>Color</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ALERT__COLOR = eINSTANCE.getAlert_Color();
+		/**
 		 * The meta object literal for the '<em>IBootstrap Element</em>' data type.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -617,6 +885,15 @@ public interface BootstrapPackage extends EPackage {
 		 * @generated
 		 */
 		EDataType IBOOTSTRAP_ELEMENT = eINSTANCE.getIBootstrapElement();
+		/**
+		 * The meta object literal for the '<em>Color</em>' data type.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.html.bootstrap.Color
+		 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getColor()
+		 * @generated
+		 */
+		EDataType COLOR = eINSTANCE.getColor();
 
 	}
 

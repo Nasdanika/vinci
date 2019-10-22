@@ -8,6 +8,7 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
 
 import org.nasdanika.common.CommandFactory;
+import org.nasdanika.ncore.ModelElement;
 import org.nasdanika.vinci.bootstrap.*;
 
 import org.nasdanika.vinci.html.HtmlElement;
@@ -73,6 +74,7 @@ public class BootstrapSwitch<T1> extends Switch<T1> {
 				BootstrapElement bootstrapElement = (BootstrapElement)theEObject;
 				T1 result = caseBootstrapElement(bootstrapElement);
 				if (result == null) result = caseHtmlElement(bootstrapElement);
+				if (result == null) result = caseModelElement(bootstrapElement);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -82,6 +84,7 @@ public class BootstrapSwitch<T1> extends Switch<T1> {
 				if (result == null) result = caseBootstrapElement(container);
 				if (result == null) result = caseCommandFactory(container);
 				if (result == null) result = caseHtmlElement(container);
+				if (result == null) result = caseModelElement(container);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -90,6 +93,7 @@ public class BootstrapSwitch<T1> extends Switch<T1> {
 				T1 result = caseRow(row);
 				if (result == null) result = caseBootstrapElement(row);
 				if (result == null) result = caseHtmlElement(row);
+				if (result == null) result = caseModelElement(row);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -97,7 +101,9 @@ public class BootstrapSwitch<T1> extends Switch<T1> {
 				Column column = (Column)theEObject;
 				T1 result = caseColumn(column);
 				if (result == null) result = caseBootstrapElement(column);
+				if (result == null) result = caseHtml_Container(column);
 				if (result == null) result = caseHtmlElement(column);
+				if (result == null) result = caseModelElement(column);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -107,6 +113,7 @@ public class BootstrapSwitch<T1> extends Switch<T1> {
 				if (result == null) result = caseBootstrapElement(card);
 				if (result == null) result = caseCommandFactory(card);
 				if (result == null) result = caseHtmlElement(card);
+				if (result == null) result = caseModelElement(card);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -118,6 +125,7 @@ public class BootstrapSwitch<T1> extends Switch<T1> {
 				if (result == null) result = caseHtmlElement(tag);
 				if (result == null) result = caseHtml_Container(tag);
 				if (result == null) result = caseCommandFactory(tag);
+				if (result == null) result = caseModelElement(tag);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -130,6 +138,21 @@ public class BootstrapSwitch<T1> extends Switch<T1> {
 				if (result == null) result = caseHtmlElement(div);
 				if (result == null) result = caseHtml_Container(div);
 				if (result == null) result = caseCommandFactory(div);
+				if (result == null) result = caseModelElement(div);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case BootstrapPackage.ALERT: {
+				Alert alert = (Alert)theEObject;
+				T1 result = caseAlert(alert);
+				if (result == null) result = caseDiv(alert);
+				if (result == null) result = caseTag(alert);
+				if (result == null) result = caseHtml_Tag(alert);
+				if (result == null) result = caseBootstrapElement(alert);
+				if (result == null) result = caseHtmlElement(alert);
+				if (result == null) result = caseHtml_Container(alert);
+				if (result == null) result = caseCommandFactory(alert);
+				if (result == null) result = caseModelElement(alert);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -239,6 +262,36 @@ public class BootstrapSwitch<T1> extends Switch<T1> {
 	 * @generated
 	 */
 	public T1 caseDiv(Div object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Alert</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Alert</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseAlert(Alert object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Model Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Model Element</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseModelElement(ModelElement object) {
 		return null;
 	}
 

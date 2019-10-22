@@ -3,9 +3,7 @@
 package org.nasdanika.vinci.html.impl;
 
 import org.eclipse.emf.ecore.EClass;
-
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
+import org.nasdanika.ncore.impl.ModelElementImpl;
 import org.nasdanika.vinci.html.HtmlElement;
 import org.nasdanika.vinci.html.HtmlPackage;
 
@@ -16,7 +14,7 @@ import org.nasdanika.vinci.html.HtmlPackage;
  *
  * @generated
  */
-public abstract class HtmlElementImpl extends MinimalEObjectImpl.Container implements HtmlElement {
+public abstract class HtmlElementImpl extends ModelElementImpl implements HtmlElement {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -34,16 +32,6 @@ public abstract class HtmlElementImpl extends MinimalEObjectImpl.Container imple
 	@Override
 	protected EClass eStaticClass() {
 		return HtmlPackage.Literals.HTML_ELEMENT;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected int eStaticFeatureCount() {
-		return 0;
 	}
 
 } //HtmlElementImpl

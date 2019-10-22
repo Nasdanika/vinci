@@ -2,6 +2,7 @@
  */
 package org.nasdanika.vinci.bootstrap.impl;
 
+import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EGenericType;
@@ -10,7 +11,9 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
+import org.nasdanika.html.bootstrap.Color;
 import org.nasdanika.ncore.NcorePackage;
+import org.nasdanika.vinci.bootstrap.Alert;
 import org.nasdanika.vinci.bootstrap.BootstrapElement;
 import org.nasdanika.vinci.bootstrap.BootstrapFactory;
 import org.nasdanika.vinci.bootstrap.BootstrapPackage;
@@ -80,7 +83,21 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass alertEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EDataType iBootstrapElementEDataType = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EDataType colorEDataType = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -273,8 +290,38 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 	 * @generated
 	 */
 	@Override
+	public EClass getAlert() {
+		return alertEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getAlert_Color() {
+		return (EAttribute)alertEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EDataType getIBootstrapElement() {
 		return iBootstrapElementEDataType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EDataType getColor() {
+		return colorEDataType;
 	}
 
 	/**
@@ -325,8 +372,12 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 
 		divEClass = createEClass(DIV);
 
+		alertEClass = createEClass(ALERT);
+		createEAttribute(alertEClass, ALERT__COLOR);
+
 		// Create data types
 		iBootstrapElementEDataType = createEDataType(IBOOTSTRAP_ELEMENT);
+		colorEDataType = createEDataType(COLOR);
 	}
 
 	/**
@@ -370,6 +421,7 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 		containerEClass.getEGenericSuperTypes().add(g1);
 		rowEClass.getESuperTypes().add(this.getBootstrapElement());
 		columnEClass.getESuperTypes().add(this.getBootstrapElement());
+		columnEClass.getESuperTypes().add(theHtmlPackage.getContainer());
 		g1 = createEGenericType(this.getBootstrapElement());
 		cardEClass.getEGenericSuperTypes().add(g1);
 		g1 = createEGenericType(theNcorePackage.getCommandFactory());
@@ -379,6 +431,7 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 		tagEClass.getESuperTypes().add(theHtmlPackage.getTag());
 		tagEClass.getESuperTypes().add(this.getBootstrapElement());
 		divEClass.getESuperTypes().add(this.getTag());
+		alertEClass.getESuperTypes().add(this.getDiv());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(bootstrapElementEClass, BootstrapElement.class, "BootstrapElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -400,8 +453,12 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 
 		initEClass(divEClass, Div.class, "Div", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
+		initEClass(alertEClass, Alert.class, "Alert", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getAlert_Color(), this.getColor(), "color", null, 0, 1, Alert.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		// Initialize data types
 		initEDataType(iBootstrapElementEDataType, org.nasdanika.html.bootstrap.BootstrapElement.class, "IBootstrapElement", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
+		initEDataType(colorEDataType, Color.class, "Color", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);

@@ -109,7 +109,10 @@ public class CardItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_Card_type");
+		String label = ((Card)object).getTitle();
+		return label == null || label.length() == 0 ?
+			getString("_UI_Card_type") :
+			getString("_UI_Card_type") + " " + label;
 	}
 
 
@@ -152,13 +155,28 @@ public class CardItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
+				(BootstrapPackage.Literals.CARD__HEADER,
+				 BootstrapFactory.eINSTANCE.createAlert()));
+
+		newChildDescriptors.add
+			(createChildParameter
 				(BootstrapPackage.Literals.CARD__BODY,
 				 BootstrapFactory.eINSTANCE.createDiv()));
 
 		newChildDescriptors.add
 			(createChildParameter
+				(BootstrapPackage.Literals.CARD__BODY,
+				 BootstrapFactory.eINSTANCE.createAlert()));
+
+		newChildDescriptors.add
+			(createChildParameter
 				(BootstrapPackage.Literals.CARD__FOOTER,
 				 BootstrapFactory.eINSTANCE.createDiv()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(BootstrapPackage.Literals.CARD__FOOTER,
+				 BootstrapFactory.eINSTANCE.createAlert()));
 	}
 
 	/**

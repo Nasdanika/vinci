@@ -109,7 +109,10 @@ public class ContainerItemProvider extends BootstrapElementItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_Container_type");
+		String label = ((Container)object).getTitle();
+		return label == null || label.length() == 0 ?
+			getString("_UI_Container_type") :
+			getString("_UI_Container_type") + " " + label;
 	}
 
 

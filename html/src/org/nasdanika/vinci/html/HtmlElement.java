@@ -2,7 +2,7 @@
  */
 package org.nasdanika.vinci.html;
 
-import org.eclipse.emf.ecore.EObject;
+import org.nasdanika.ncore.ModelElement;
 
 /**
  * <!-- begin-user-doc -->
@@ -14,5 +14,5 @@ import org.eclipse.emf.ecore.EObject;
  * @model abstract="true"
  * @generated
  */
-public interface HtmlElement extends EObject {
+public interface HtmlElement extends ModelElement {
 } // HtmlElement

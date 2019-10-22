@@ -13,6 +13,7 @@ import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 
+import org.nasdanika.vinci.bootstrap.BootstrapElement;
 import org.nasdanika.vinci.html.provider.HtmlElementItemProvider;
 
 /**
@@ -76,7 +77,10 @@ public class BootstrapElementItemProvider extends HtmlElementItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_BootstrapElement_type");
+		String label = ((BootstrapElement)object).getTitle();
+		return label == null || label.length() == 0 ?
+			getString("_UI_BootstrapElement_type") :
+			getString("_UI_BootstrapElement_type") + " " + label;
 	}
 
 

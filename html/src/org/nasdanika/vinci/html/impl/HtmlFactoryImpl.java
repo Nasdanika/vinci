@@ -10,7 +10,6 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
-
 import org.nasdanika.html.TagName;
 import org.nasdanika.vinci.html.*;
 
@@ -73,10 +72,10 @@ public class HtmlFactoryImpl extends EFactoryImpl implements HtmlFactory {
 	@Override
 	public Object createFromString(EDataType eDataType, String initialValue) {
 		switch (eDataType.getClassifierID()) {
-			case HtmlPackage.TAG_NAME:
-				return createTagNameFromString(eDataType, initialValue);
 			case HtmlPackage.ITAG:
 				return createITagFromString(eDataType, initialValue);
+			case HtmlPackage.TAG_NAME:
+				return createTagNameFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -90,10 +89,10 @@ public class HtmlFactoryImpl extends EFactoryImpl implements HtmlFactory {
 	@Override
 	public String convertToString(EDataType eDataType, Object instanceValue) {
 		switch (eDataType.getClassifierID()) {
-			case HtmlPackage.TAG_NAME:
-				return convertTagNameToString(eDataType, instanceValue);
 			case HtmlPackage.ITAG:
 				return convertITagToString(eDataType, instanceValue);
+			case HtmlPackage.TAG_NAME:
+				return convertTagNameToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
