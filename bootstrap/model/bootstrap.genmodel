@@ -10,7 +10,7 @@
   <genPackages prefix="Bootstrap" basePackage="org.nasdanika.vinci" disposableProviderFactory="true"
       ecorePackage="bootstrap.ecore#/">
     <genDataTypes ecoreDataType="bootstrap.ecore#//IBootstrapElement"/>
-    <genDataTypes ecoreDataType="bootstrap.ecore#//Color"/>
+    <genDataTypes ecoreDataType="bootstrap.ecore#//Color" propertyEditorFactory=""/>
     <genClasses ecoreClass="bootstrap.ecore#//BootstrapElement"/>
     <genClasses ecoreClass="bootstrap.ecore#//Container">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference bootstrap.ecore#//Container/rows"/>
@@ -27,7 +27,8 @@
     <genClasses ecoreClass="bootstrap.ecore#//Tag"/>
     <genClasses ecoreClass="bootstrap.ecore#//Div"/>
     <genClasses ecoreClass="bootstrap.ecore#//Alert">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bootstrap.ecore#//Alert/color"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bootstrap.ecore#//Alert/color"
+          propertyEditorFactory=""/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>
