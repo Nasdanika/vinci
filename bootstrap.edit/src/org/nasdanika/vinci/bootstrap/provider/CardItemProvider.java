@@ -160,6 +160,16 @@ public class CardItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
+				(BootstrapPackage.Literals.CARD__HEADER,
+				 BootstrapFactory.eINSTANCE.createBadge()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(BootstrapPackage.Literals.CARD__HEADER,
+				 BootstrapFactory.eINSTANCE.createButton()));
+
+		newChildDescriptors.add
+			(createChildParameter
 				(BootstrapPackage.Literals.CARD__BODY,
 				 BootstrapFactory.eINSTANCE.createDiv()));
 
@@ -170,6 +180,16 @@ public class CardItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
+				(BootstrapPackage.Literals.CARD__BODY,
+				 BootstrapFactory.eINSTANCE.createBadge()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(BootstrapPackage.Literals.CARD__BODY,
+				 BootstrapFactory.eINSTANCE.createButton()));
+
+		newChildDescriptors.add
+			(createChildParameter
 				(BootstrapPackage.Literals.CARD__FOOTER,
 				 BootstrapFactory.eINSTANCE.createDiv()));
 
@@ -177,6 +197,16 @@ public class CardItemProvider
 			(createChildParameter
 				(BootstrapPackage.Literals.CARD__FOOTER,
 				 BootstrapFactory.eINSTANCE.createAlert()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(BootstrapPackage.Literals.CARD__FOOTER,
+				 BootstrapFactory.eINSTANCE.createBadge()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(BootstrapPackage.Literals.CARD__FOOTER,
+				 BootstrapFactory.eINSTANCE.createButton()));
 	}
 
 	/**

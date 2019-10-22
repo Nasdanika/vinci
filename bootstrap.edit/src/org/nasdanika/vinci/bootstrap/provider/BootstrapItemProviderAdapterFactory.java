@@ -256,6 +256,466 @@ public class BootstrapItemProviderAdapterFactory extends BootstrapAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.nasdanika.vinci.bootstrap.Badge} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected BadgeItemProvider badgeItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.nasdanika.vinci.bootstrap.Badge}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createBadgeAdapter() {
+		if (badgeItemProvider == null) {
+			badgeItemProvider = new BadgeItemProvider(this);
+		}
+
+		return badgeItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.nasdanika.vinci.bootstrap.Button} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ButtonItemProvider buttonItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.nasdanika.vinci.bootstrap.Button}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createButtonAdapter() {
+		if (buttonItemProvider == null) {
+			buttonItemProvider = new ButtonItemProvider(this);
+		}
+
+		return buttonItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.nasdanika.vinci.bootstrap.ButtonGroup} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ButtonGroupItemProvider buttonGroupItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.nasdanika.vinci.bootstrap.ButtonGroup}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createButtonGroupAdapter() {
+		if (buttonGroupItemProvider == null) {
+			buttonGroupItemProvider = new ButtonGroupItemProvider(this);
+		}
+
+		return buttonGroupItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.nasdanika.vinci.bootstrap.ButtonToolbar} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ButtonToolbarItemProvider buttonToolbarItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.nasdanika.vinci.bootstrap.ButtonToolbar}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createButtonToolbarAdapter() {
+		if (buttonToolbarItemProvider == null) {
+			buttonToolbarItemProvider = new ButtonToolbarItemProvider(this);
+		}
+
+		return buttonToolbarItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.nasdanika.vinci.bootstrap.Dropdown} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected DropdownItemProvider dropdownItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.nasdanika.vinci.bootstrap.Dropdown}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createDropdownAdapter() {
+		if (dropdownItemProvider == null) {
+			dropdownItemProvider = new DropdownItemProvider(this);
+		}
+
+		return dropdownItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.nasdanika.vinci.bootstrap.ActionGroup} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ActionGroupItemProvider actionGroupItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.nasdanika.vinci.bootstrap.ActionGroup}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createActionGroupAdapter() {
+		if (actionGroupItemProvider == null) {
+			actionGroupItemProvider = new ActionGroupItemProvider(this);
+		}
+
+		return actionGroupItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.nasdanika.vinci.bootstrap.Breadcrumbs} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected BreadcrumbsItemProvider breadcrumbsItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.nasdanika.vinci.bootstrap.Breadcrumbs}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createBreadcrumbsAdapter() {
+		if (breadcrumbsItemProvider == null) {
+			breadcrumbsItemProvider = new BreadcrumbsItemProvider(this);
+		}
+
+		return breadcrumbsItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.nasdanika.vinci.bootstrap.Form} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected FormItemProvider formItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.nasdanika.vinci.bootstrap.Form}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createFormAdapter() {
+		if (formItemProvider == null) {
+			formItemProvider = new FormItemProvider(this);
+		}
+
+		return formItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.nasdanika.vinci.bootstrap.ListGroup} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ListGroupItemProvider listGroupItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.nasdanika.vinci.bootstrap.ListGroup}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createListGroupAdapter() {
+		if (listGroupItemProvider == null) {
+			listGroupItemProvider = new ListGroupItemProvider(this);
+		}
+
+		return listGroupItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.nasdanika.vinci.bootstrap.Navs} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected NavsItemProvider navsItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.nasdanika.vinci.bootstrap.Navs}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createNavsAdapter() {
+		if (navsItemProvider == null) {
+			navsItemProvider = new NavsItemProvider(this);
+		}
+
+		return navsItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.nasdanika.vinci.bootstrap.Navbar} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected NavbarItemProvider navbarItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.nasdanika.vinci.bootstrap.Navbar}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createNavbarAdapter() {
+		if (navbarItemProvider == null) {
+			navbarItemProvider = new NavbarItemProvider(this);
+		}
+
+		return navbarItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.nasdanika.vinci.bootstrap.Table} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected TableItemProvider tableItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.nasdanika.vinci.bootstrap.Table}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createTableAdapter() {
+		if (tableItemProvider == null) {
+			tableItemProvider = new TableItemProvider(this);
+		}
+
+		return tableItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.nasdanika.vinci.bootstrap.TableRow} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected TableRowItemProvider tableRowItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.nasdanika.vinci.bootstrap.TableRow}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createTableRowAdapter() {
+		if (tableRowItemProvider == null) {
+			tableRowItemProvider = new TableRowItemProvider(this);
+		}
+
+		return tableRowItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.nasdanika.vinci.bootstrap.TableColumn} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected TableColumnItemProvider tableColumnItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.nasdanika.vinci.bootstrap.TableColumn}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createTableColumnAdapter() {
+		if (tableColumnItemProvider == null) {
+			tableColumnItemProvider = new TableColumnItemProvider(this);
+		}
+
+		return tableColumnItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.nasdanika.vinci.bootstrap.Tooltip} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected TooltipItemProvider tooltipItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.nasdanika.vinci.bootstrap.Tooltip}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createTooltipAdapter() {
+		if (tooltipItemProvider == null) {
+			tooltipItemProvider = new TooltipItemProvider(this);
+		}
+
+		return tooltipItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.nasdanika.vinci.bootstrap.InputGroup} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected InputGroupItemProvider inputGroupItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.nasdanika.vinci.bootstrap.InputGroup}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createInputGroupAdapter() {
+		if (inputGroupItemProvider == null) {
+			inputGroupItemProvider = new InputGroupItemProvider(this);
+		}
+
+		return inputGroupItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.nasdanika.vinci.bootstrap.FormGroup} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected FormGroupItemProvider formGroupItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.nasdanika.vinci.bootstrap.FormGroup}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createFormGroupAdapter() {
+		if (formGroupItemProvider == null) {
+			formGroupItemProvider = new FormGroupItemProvider(this);
+		}
+
+		return formGroupItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.nasdanika.vinci.bootstrap.Collapse} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected CollapseItemProvider collapseItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.nasdanika.vinci.bootstrap.Collapse}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createCollapseAdapter() {
+		if (collapseItemProvider == null) {
+			collapseItemProvider = new CollapseItemProvider(this);
+		}
+
+		return collapseItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.nasdanika.vinci.bootstrap.Modal} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ModalItemProvider modalItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.nasdanika.vinci.bootstrap.Modal}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createModalAdapter() {
+		if (modalItemProvider == null) {
+			modalItemProvider = new ModalItemProvider(this);
+		}
+
+		return modalItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.nasdanika.vinci.bootstrap.Accordion} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected AccordionItemProvider accordionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.nasdanika.vinci.bootstrap.Accordion}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createAccordionAdapter() {
+		if (accordionItemProvider == null) {
+			accordionItemProvider = new AccordionItemProvider(this);
+		}
+
+		return accordionItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -368,6 +828,26 @@ public class BootstrapItemProviderAdapterFactory extends BootstrapAdapterFactory
 		if (tagItemProvider != null) tagItemProvider.dispose();
 		if (divItemProvider != null) divItemProvider.dispose();
 		if (alertItemProvider != null) alertItemProvider.dispose();
+		if (badgeItemProvider != null) badgeItemProvider.dispose();
+		if (buttonItemProvider != null) buttonItemProvider.dispose();
+		if (buttonGroupItemProvider != null) buttonGroupItemProvider.dispose();
+		if (buttonToolbarItemProvider != null) buttonToolbarItemProvider.dispose();
+		if (dropdownItemProvider != null) dropdownItemProvider.dispose();
+		if (actionGroupItemProvider != null) actionGroupItemProvider.dispose();
+		if (breadcrumbsItemProvider != null) breadcrumbsItemProvider.dispose();
+		if (formItemProvider != null) formItemProvider.dispose();
+		if (listGroupItemProvider != null) listGroupItemProvider.dispose();
+		if (navsItemProvider != null) navsItemProvider.dispose();
+		if (navbarItemProvider != null) navbarItemProvider.dispose();
+		if (tableItemProvider != null) tableItemProvider.dispose();
+		if (tableRowItemProvider != null) tableRowItemProvider.dispose();
+		if (tableColumnItemProvider != null) tableColumnItemProvider.dispose();
+		if (tooltipItemProvider != null) tooltipItemProvider.dispose();
+		if (inputGroupItemProvider != null) inputGroupItemProvider.dispose();
+		if (formGroupItemProvider != null) formGroupItemProvider.dispose();
+		if (collapseItemProvider != null) collapseItemProvider.dispose();
+		if (modalItemProvider != null) modalItemProvider.dispose();
+		if (accordionItemProvider != null) accordionItemProvider.dispose();
 	}
 
 }

@@ -10,7 +10,7 @@
   <genPackages prefix="Bootstrap" basePackage="org.nasdanika.vinci" disposableProviderFactory="true"
       ecorePackage="bootstrap.ecore#/">
     <genDataTypes ecoreDataType="bootstrap.ecore#//IBootstrapElement"/>
-    <genDataTypes ecoreDataType="bootstrap.ecore#//Color" propertyEditorFactory=""/>
+    <genDataTypes ecoreDataType="bootstrap.ecore#//Color" convert=""/>
     <genClasses ecoreClass="bootstrap.ecore#//BootstrapElement"/>
     <genClasses ecoreClass="bootstrap.ecore#//Container">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference bootstrap.ecore#//Container/rows"/>
@@ -30,5 +30,30 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bootstrap.ecore#//Alert/color"
           propertyEditorFactory=""/>
     </genClasses>
+    <genClasses ecoreClass="bootstrap.ecore#//Badge">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bootstrap.ecore#//Badge/color"/>
+    </genClasses>
+    <genClasses ecoreClass="bootstrap.ecore#//Button">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bootstrap.ecore#//Button/color"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bootstrap.ecore#//Button/outline"/>
+    </genClasses>
+    <genClasses ecoreClass="bootstrap.ecore#//ButtonGroup"/>
+    <genClasses ecoreClass="bootstrap.ecore#//ButtonToolbar"/>
+    <genClasses ecoreClass="bootstrap.ecore#//Dropdown"/>
+    <genClasses ecoreClass="bootstrap.ecore#//ActionGroup"/>
+    <genClasses ecoreClass="bootstrap.ecore#//Breadcrumbs"/>
+    <genClasses ecoreClass="bootstrap.ecore#//Form"/>
+    <genClasses ecoreClass="bootstrap.ecore#//ListGroup"/>
+    <genClasses ecoreClass="bootstrap.ecore#//Navs"/>
+    <genClasses ecoreClass="bootstrap.ecore#//Navbar"/>
+    <genClasses ecoreClass="bootstrap.ecore#//Table"/>
+    <genClasses ecoreClass="bootstrap.ecore#//TableRow"/>
+    <genClasses ecoreClass="bootstrap.ecore#//TableColumn"/>
+    <genClasses ecoreClass="bootstrap.ecore#//Tooltip"/>
+    <genClasses ecoreClass="bootstrap.ecore#//InputGroup"/>
+    <genClasses ecoreClass="bootstrap.ecore#//FormGroup"/>
+    <genClasses ecoreClass="bootstrap.ecore#//Collapse"/>
+    <genClasses ecoreClass="bootstrap.ecore#//Modal"/>
+    <genClasses ecoreClass="bootstrap.ecore#//Accordion"/>
   </genPackages>
 </genmodel:GenModel>

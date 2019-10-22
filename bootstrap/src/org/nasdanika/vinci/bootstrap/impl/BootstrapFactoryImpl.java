@@ -66,6 +66,26 @@ public class BootstrapFactoryImpl extends EFactoryImpl implements BootstrapFacto
 			case BootstrapPackage.TAG: return createTag();
 			case BootstrapPackage.DIV: return createDiv();
 			case BootstrapPackage.ALERT: return createAlert();
+			case BootstrapPackage.BADGE: return createBadge();
+			case BootstrapPackage.BUTTON: return createButton();
+			case BootstrapPackage.BUTTON_GROUP: return createButtonGroup();
+			case BootstrapPackage.BUTTON_TOOLBAR: return createButtonToolbar();
+			case BootstrapPackage.DROPDOWN: return createDropdown();
+			case BootstrapPackage.ACTION_GROUP: return createActionGroup();
+			case BootstrapPackage.BREADCRUMBS: return createBreadcrumbs();
+			case BootstrapPackage.FORM: return createForm();
+			case BootstrapPackage.LIST_GROUP: return createListGroup();
+			case BootstrapPackage.NAVS: return createNavs();
+			case BootstrapPackage.NAVBAR: return createNavbar();
+			case BootstrapPackage.TABLE: return createTable();
+			case BootstrapPackage.TABLE_ROW: return createTableRow();
+			case BootstrapPackage.TABLE_COLUMN: return createTableColumn();
+			case BootstrapPackage.TOOLTIP: return createTooltip();
+			case BootstrapPackage.INPUT_GROUP: return createInputGroup();
+			case BootstrapPackage.FORM_GROUP: return createFormGroup();
+			case BootstrapPackage.COLLAPSE: return createCollapse();
+			case BootstrapPackage.MODAL: return createModal();
+			case BootstrapPackage.ACCORDION: return createAccordion();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -198,6 +218,226 @@ public class BootstrapFactoryImpl extends EFactoryImpl implements BootstrapFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
+	public Badge createBadge() {
+		BadgeImpl badge = new BadgeImpl();
+		return badge;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Button createButton() {
+		ButtonImpl button = new ButtonImpl();
+		return button;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ButtonGroup createButtonGroup() {
+		ButtonGroupImpl buttonGroup = new ButtonGroupImpl();
+		return buttonGroup;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ButtonToolbar createButtonToolbar() {
+		ButtonToolbarImpl buttonToolbar = new ButtonToolbarImpl();
+		return buttonToolbar;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Dropdown createDropdown() {
+		DropdownImpl dropdown = new DropdownImpl();
+		return dropdown;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ActionGroup createActionGroup() {
+		ActionGroupImpl actionGroup = new ActionGroupImpl();
+		return actionGroup;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Breadcrumbs createBreadcrumbs() {
+		BreadcrumbsImpl breadcrumbs = new BreadcrumbsImpl();
+		return breadcrumbs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Form createForm() {
+		FormImpl form = new FormImpl();
+		return form;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ListGroup createListGroup() {
+		ListGroupImpl listGroup = new ListGroupImpl();
+		return listGroup;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Navs createNavs() {
+		NavsImpl navs = new NavsImpl();
+		return navs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Navbar createNavbar() {
+		NavbarImpl navbar = new NavbarImpl();
+		return navbar;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Table createTable() {
+		TableImpl table = new TableImpl();
+		return table;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public TableRow createTableRow() {
+		TableRowImpl tableRow = new TableRowImpl();
+		return tableRow;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public TableColumn createTableColumn() {
+		TableColumnImpl tableColumn = new TableColumnImpl();
+		return tableColumn;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Tooltip createTooltip() {
+		TooltipImpl tooltip = new TooltipImpl();
+		return tooltip;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public InputGroup createInputGroup() {
+		InputGroupImpl inputGroup = new InputGroupImpl();
+		return inputGroup;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public FormGroup createFormGroup() {
+		FormGroupImpl formGroup = new FormGroupImpl();
+		return formGroup;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Collapse createCollapse() {
+		CollapseImpl collapse = new CollapseImpl();
+		return collapse;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Modal createModal() {
+		ModalImpl modal = new ModalImpl();
+		return modal;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Accordion createAccordion() {
+		AccordionImpl accordion = new AccordionImpl();
+		return accordion;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public org.nasdanika.html.bootstrap.BootstrapElement createIBootstrapElementFromString(EDataType eDataType, String initialValue) {
 		return (org.nasdanika.html.bootstrap.BootstrapElement)super.createFromString(eDataType, initialValue);
 	}
@@ -225,8 +465,17 @@ public class BootstrapFactoryImpl extends EFactoryImpl implements BootstrapFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String convertColor(Color it) {
+		return it.name();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public String convertColorToString(EDataType eDataType, Object instanceValue) {
-		return super.convertToString(eDataType, instanceValue);
+		return convertColor((Color)instanceValue);
 	}
 
 	/**

@@ -45,4 +45,32 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="color" eType="#//Color"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="Color" instanceClassName="org.nasdanika.html.bootstrap.Color"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Badge" eSuperTypes="#//Div">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="color" eType="#//Color"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Button" eSuperTypes="#//Div">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="TODO - size - enum? Block, active, disabled."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="color" eType="#//Color"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="outline" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ButtonGroup"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ButtonToolbar"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Dropdown"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ActionGroup"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Breadcrumbs"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Form"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ListGroup"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Navs"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Navbar"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Table"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TableRow"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TableColumn"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Tooltip"/>
+  <eClassifiers xsi:type="ecore:EClass" name="InputGroup"/>
+  <eClassifiers xsi:type="ecore:EClass" name="FormGroup"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Collapse"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Modal"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Accordion"/>
 </ecore:EPackage>

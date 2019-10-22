@@ -94,6 +94,186 @@ public interface BootstrapFactory extends EFactory {
 	Alert createAlert();
 
 	/**
+	 * Returns a new object of class '<em>Badge</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Badge</em>'.
+	 * @generated
+	 */
+	Badge createBadge();
+
+	/**
+	 * Returns a new object of class '<em>Button</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Button</em>'.
+	 * @generated
+	 */
+	Button createButton();
+
+	/**
+	 * Returns a new object of class '<em>Button Group</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Button Group</em>'.
+	 * @generated
+	 */
+	ButtonGroup createButtonGroup();
+
+	/**
+	 * Returns a new object of class '<em>Button Toolbar</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Button Toolbar</em>'.
+	 * @generated
+	 */
+	ButtonToolbar createButtonToolbar();
+
+	/**
+	 * Returns a new object of class '<em>Dropdown</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Dropdown</em>'.
+	 * @generated
+	 */
+	Dropdown createDropdown();
+
+	/**
+	 * Returns a new object of class '<em>Action Group</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Action Group</em>'.
+	 * @generated
+	 */
+	ActionGroup createActionGroup();
+
+	/**
+	 * Returns a new object of class '<em>Breadcrumbs</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Breadcrumbs</em>'.
+	 * @generated
+	 */
+	Breadcrumbs createBreadcrumbs();
+
+	/**
+	 * Returns a new object of class '<em>Form</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Form</em>'.
+	 * @generated
+	 */
+	Form createForm();
+
+	/**
+	 * Returns a new object of class '<em>List Group</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>List Group</em>'.
+	 * @generated
+	 */
+	ListGroup createListGroup();
+
+	/**
+	 * Returns a new object of class '<em>Navs</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Navs</em>'.
+	 * @generated
+	 */
+	Navs createNavs();
+
+	/**
+	 * Returns a new object of class '<em>Navbar</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Navbar</em>'.
+	 * @generated
+	 */
+	Navbar createNavbar();
+
+	/**
+	 * Returns a new object of class '<em>Table</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Table</em>'.
+	 * @generated
+	 */
+	Table createTable();
+
+	/**
+	 * Returns a new object of class '<em>Table Row</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Table Row</em>'.
+	 * @generated
+	 */
+	TableRow createTableRow();
+
+	/**
+	 * Returns a new object of class '<em>Table Column</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Table Column</em>'.
+	 * @generated
+	 */
+	TableColumn createTableColumn();
+
+	/**
+	 * Returns a new object of class '<em>Tooltip</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Tooltip</em>'.
+	 * @generated
+	 */
+	Tooltip createTooltip();
+
+	/**
+	 * Returns a new object of class '<em>Input Group</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Input Group</em>'.
+	 * @generated
+	 */
+	InputGroup createInputGroup();
+
+	/**
+	 * Returns a new object of class '<em>Form Group</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Form Group</em>'.
+	 * @generated
+	 */
+	FormGroup createFormGroup();
+
+	/**
+	 * Returns a new object of class '<em>Collapse</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Collapse</em>'.
+	 * @generated
+	 */
+	Collapse createCollapse();
+
+	/**
+	 * Returns a new object of class '<em>Modal</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Modal</em>'.
+	 * @generated
+	 */
+	Modal createModal();
+
+	/**
+	 * Returns a new object of class '<em>Accordion</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Accordion</em>'.
+	 * @generated
+	 */
+	Accordion createAccordion();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

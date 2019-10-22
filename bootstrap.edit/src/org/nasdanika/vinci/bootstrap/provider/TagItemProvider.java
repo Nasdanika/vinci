@@ -136,6 +136,16 @@ public class TagItemProvider extends org.nasdanika.vinci.html.provider.TagItemPr
 			(createChildParameter
 				(HtmlPackage.Literals.CONTAINER__CONTENT,
 				 BootstrapFactory.eINSTANCE.createAlert()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(HtmlPackage.Literals.CONTAINER__CONTENT,
+				 BootstrapFactory.eINSTANCE.createBadge()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(HtmlPackage.Literals.CONTAINER__CONTENT,
+				 BootstrapFactory.eINSTANCE.createButton()));
 	}
 
 	/**

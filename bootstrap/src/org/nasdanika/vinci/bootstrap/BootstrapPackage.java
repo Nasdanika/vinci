@@ -550,6 +550,665 @@ public interface BootstrapPackage extends EPackage {
 	int ALERT_OPERATION_COUNT = DIV_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link org.nasdanika.vinci.bootstrap.impl.BadgeImpl <em>Badge</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.vinci.bootstrap.impl.BadgeImpl
+	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getBadge()
+	 * @generated
+	 */
+	int BADGE = 8;
+
+	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BADGE__TITLE = DIV__TITLE;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BADGE__DESCRIPTION = DIV__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Content</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BADGE__CONTENT = DIV__CONTENT;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BADGE__NAME = DIV__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Color</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BADGE__COLOR = DIV_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Badge</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BADGE_FEATURE_COUNT = DIV_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Badge</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BADGE_OPERATION_COUNT = DIV_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.nasdanika.vinci.bootstrap.impl.ButtonImpl <em>Button</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.vinci.bootstrap.impl.ButtonImpl
+	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getButton()
+	 * @generated
+	 */
+	int BUTTON = 9;
+
+	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUTTON__TITLE = DIV__TITLE;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUTTON__DESCRIPTION = DIV__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Content</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUTTON__CONTENT = DIV__CONTENT;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUTTON__NAME = DIV__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Color</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUTTON__COLOR = DIV_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Outline</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUTTON__OUTLINE = DIV_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Button</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUTTON_FEATURE_COUNT = DIV_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of operations of the '<em>Button</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUTTON_OPERATION_COUNT = DIV_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.nasdanika.vinci.bootstrap.impl.ButtonGroupImpl <em>Button Group</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.vinci.bootstrap.impl.ButtonGroupImpl
+	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getButtonGroup()
+	 * @generated
+	 */
+	int BUTTON_GROUP = 10;
+
+	/**
+	 * The number of structural features of the '<em>Button Group</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUTTON_GROUP_FEATURE_COUNT = 0;
+
+	/**
+	 * The number of operations of the '<em>Button Group</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUTTON_GROUP_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link org.nasdanika.vinci.bootstrap.impl.ButtonToolbarImpl <em>Button Toolbar</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.vinci.bootstrap.impl.ButtonToolbarImpl
+	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getButtonToolbar()
+	 * @generated
+	 */
+	int BUTTON_TOOLBAR = 11;
+
+	/**
+	 * The number of structural features of the '<em>Button Toolbar</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUTTON_TOOLBAR_FEATURE_COUNT = 0;
+
+	/**
+	 * The number of operations of the '<em>Button Toolbar</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUTTON_TOOLBAR_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link org.nasdanika.vinci.bootstrap.impl.DropdownImpl <em>Dropdown</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.vinci.bootstrap.impl.DropdownImpl
+	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getDropdown()
+	 * @generated
+	 */
+	int DROPDOWN = 12;
+
+	/**
+	 * The number of structural features of the '<em>Dropdown</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DROPDOWN_FEATURE_COUNT = 0;
+
+	/**
+	 * The number of operations of the '<em>Dropdown</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DROPDOWN_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link org.nasdanika.vinci.bootstrap.impl.ActionGroupImpl <em>Action Group</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.vinci.bootstrap.impl.ActionGroupImpl
+	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getActionGroup()
+	 * @generated
+	 */
+	int ACTION_GROUP = 13;
+
+	/**
+	 * The number of structural features of the '<em>Action Group</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION_GROUP_FEATURE_COUNT = 0;
+
+	/**
+	 * The number of operations of the '<em>Action Group</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION_GROUP_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link org.nasdanika.vinci.bootstrap.impl.BreadcrumbsImpl <em>Breadcrumbs</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.vinci.bootstrap.impl.BreadcrumbsImpl
+	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getBreadcrumbs()
+	 * @generated
+	 */
+	int BREADCRUMBS = 14;
+
+	/**
+	 * The number of structural features of the '<em>Breadcrumbs</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BREADCRUMBS_FEATURE_COUNT = 0;
+
+	/**
+	 * The number of operations of the '<em>Breadcrumbs</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BREADCRUMBS_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link org.nasdanika.vinci.bootstrap.impl.FormImpl <em>Form</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.vinci.bootstrap.impl.FormImpl
+	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getForm()
+	 * @generated
+	 */
+	int FORM = 15;
+
+	/**
+	 * The number of structural features of the '<em>Form</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FORM_FEATURE_COUNT = 0;
+
+	/**
+	 * The number of operations of the '<em>Form</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FORM_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link org.nasdanika.vinci.bootstrap.impl.ListGroupImpl <em>List Group</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.vinci.bootstrap.impl.ListGroupImpl
+	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getListGroup()
+	 * @generated
+	 */
+	int LIST_GROUP = 16;
+
+	/**
+	 * The number of structural features of the '<em>List Group</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LIST_GROUP_FEATURE_COUNT = 0;
+
+	/**
+	 * The number of operations of the '<em>List Group</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LIST_GROUP_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link org.nasdanika.vinci.bootstrap.impl.NavsImpl <em>Navs</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.vinci.bootstrap.impl.NavsImpl
+	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getNavs()
+	 * @generated
+	 */
+	int NAVS = 17;
+
+	/**
+	 * The number of structural features of the '<em>Navs</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAVS_FEATURE_COUNT = 0;
+
+	/**
+	 * The number of operations of the '<em>Navs</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAVS_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link org.nasdanika.vinci.bootstrap.impl.NavbarImpl <em>Navbar</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.vinci.bootstrap.impl.NavbarImpl
+	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getNavbar()
+	 * @generated
+	 */
+	int NAVBAR = 18;
+
+	/**
+	 * The number of structural features of the '<em>Navbar</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAVBAR_FEATURE_COUNT = 0;
+
+	/**
+	 * The number of operations of the '<em>Navbar</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAVBAR_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link org.nasdanika.vinci.bootstrap.impl.TableImpl <em>Table</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.vinci.bootstrap.impl.TableImpl
+	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getTable()
+	 * @generated
+	 */
+	int TABLE = 19;
+
+	/**
+	 * The number of structural features of the '<em>Table</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_FEATURE_COUNT = 0;
+
+	/**
+	 * The number of operations of the '<em>Table</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link org.nasdanika.vinci.bootstrap.impl.TableRowImpl <em>Table Row</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.vinci.bootstrap.impl.TableRowImpl
+	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getTableRow()
+	 * @generated
+	 */
+	int TABLE_ROW = 20;
+
+	/**
+	 * The number of structural features of the '<em>Table Row</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_ROW_FEATURE_COUNT = 0;
+
+	/**
+	 * The number of operations of the '<em>Table Row</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_ROW_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link org.nasdanika.vinci.bootstrap.impl.TableColumnImpl <em>Table Column</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.vinci.bootstrap.impl.TableColumnImpl
+	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getTableColumn()
+	 * @generated
+	 */
+	int TABLE_COLUMN = 21;
+
+	/**
+	 * The number of structural features of the '<em>Table Column</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_COLUMN_FEATURE_COUNT = 0;
+
+	/**
+	 * The number of operations of the '<em>Table Column</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_COLUMN_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link org.nasdanika.vinci.bootstrap.impl.TooltipImpl <em>Tooltip</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.vinci.bootstrap.impl.TooltipImpl
+	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getTooltip()
+	 * @generated
+	 */
+	int TOOLTIP = 22;
+
+	/**
+	 * The number of structural features of the '<em>Tooltip</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TOOLTIP_FEATURE_COUNT = 0;
+
+	/**
+	 * The number of operations of the '<em>Tooltip</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TOOLTIP_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link org.nasdanika.vinci.bootstrap.impl.InputGroupImpl <em>Input Group</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.vinci.bootstrap.impl.InputGroupImpl
+	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getInputGroup()
+	 * @generated
+	 */
+	int INPUT_GROUP = 23;
+
+	/**
+	 * The number of structural features of the '<em>Input Group</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INPUT_GROUP_FEATURE_COUNT = 0;
+
+	/**
+	 * The number of operations of the '<em>Input Group</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INPUT_GROUP_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link org.nasdanika.vinci.bootstrap.impl.FormGroupImpl <em>Form Group</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.vinci.bootstrap.impl.FormGroupImpl
+	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getFormGroup()
+	 * @generated
+	 */
+	int FORM_GROUP = 24;
+
+	/**
+	 * The number of structural features of the '<em>Form Group</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FORM_GROUP_FEATURE_COUNT = 0;
+
+	/**
+	 * The number of operations of the '<em>Form Group</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FORM_GROUP_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link org.nasdanika.vinci.bootstrap.impl.CollapseImpl <em>Collapse</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.vinci.bootstrap.impl.CollapseImpl
+	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getCollapse()
+	 * @generated
+	 */
+	int COLLAPSE = 25;
+
+	/**
+	 * The number of structural features of the '<em>Collapse</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLLAPSE_FEATURE_COUNT = 0;
+
+	/**
+	 * The number of operations of the '<em>Collapse</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLLAPSE_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link org.nasdanika.vinci.bootstrap.impl.ModalImpl <em>Modal</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.vinci.bootstrap.impl.ModalImpl
+	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getModal()
+	 * @generated
+	 */
+	int MODAL = 26;
+
+	/**
+	 * The number of structural features of the '<em>Modal</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODAL_FEATURE_COUNT = 0;
+
+	/**
+	 * The number of operations of the '<em>Modal</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODAL_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link org.nasdanika.vinci.bootstrap.impl.AccordionImpl <em>Accordion</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.vinci.bootstrap.impl.AccordionImpl
+	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getAccordion()
+	 * @generated
+	 */
+	int ACCORDION = 27;
+
+	/**
+	 * The number of structural features of the '<em>Accordion</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACCORDION_FEATURE_COUNT = 0;
+
+	/**
+	 * The number of operations of the '<em>Accordion</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACCORDION_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '<em>IBootstrap Element</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -557,7 +1216,7 @@ public interface BootstrapPackage extends EPackage {
 	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getIBootstrapElement()
 	 * @generated
 	 */
-	int IBOOTSTRAP_ELEMENT = 8;
+	int IBOOTSTRAP_ELEMENT = 28;
 
 
 	/**
@@ -568,7 +1227,7 @@ public interface BootstrapPackage extends EPackage {
 	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getColor()
 	 * @generated
 	 */
-	int COLOR = 9;
+	int COLOR = 29;
 
 
 	/**
@@ -716,6 +1375,239 @@ public interface BootstrapPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getAlert_Color();
+
+	/**
+	 * Returns the meta object for class '{@link org.nasdanika.vinci.bootstrap.Badge <em>Badge</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Badge</em>'.
+	 * @see org.nasdanika.vinci.bootstrap.Badge
+	 * @generated
+	 */
+	EClass getBadge();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.bootstrap.Badge#getColor <em>Color</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Color</em>'.
+	 * @see org.nasdanika.vinci.bootstrap.Badge#getColor()
+	 * @see #getBadge()
+	 * @generated
+	 */
+	EAttribute getBadge_Color();
+
+	/**
+	 * Returns the meta object for class '{@link org.nasdanika.vinci.bootstrap.Button <em>Button</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Button</em>'.
+	 * @see org.nasdanika.vinci.bootstrap.Button
+	 * @generated
+	 */
+	EClass getButton();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.bootstrap.Button#getColor <em>Color</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Color</em>'.
+	 * @see org.nasdanika.vinci.bootstrap.Button#getColor()
+	 * @see #getButton()
+	 * @generated
+	 */
+	EAttribute getButton_Color();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.bootstrap.Button#isOutline <em>Outline</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Outline</em>'.
+	 * @see org.nasdanika.vinci.bootstrap.Button#isOutline()
+	 * @see #getButton()
+	 * @generated
+	 */
+	EAttribute getButton_Outline();
+
+	/**
+	 * Returns the meta object for class '{@link org.nasdanika.vinci.bootstrap.ButtonGroup <em>Button Group</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Button Group</em>'.
+	 * @see org.nasdanika.vinci.bootstrap.ButtonGroup
+	 * @generated
+	 */
+	EClass getButtonGroup();
+
+	/**
+	 * Returns the meta object for class '{@link org.nasdanika.vinci.bootstrap.ButtonToolbar <em>Button Toolbar</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Button Toolbar</em>'.
+	 * @see org.nasdanika.vinci.bootstrap.ButtonToolbar
+	 * @generated
+	 */
+	EClass getButtonToolbar();
+
+	/**
+	 * Returns the meta object for class '{@link org.nasdanika.vinci.bootstrap.Dropdown <em>Dropdown</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Dropdown</em>'.
+	 * @see org.nasdanika.vinci.bootstrap.Dropdown
+	 * @generated
+	 */
+	EClass getDropdown();
+
+	/**
+	 * Returns the meta object for class '{@link org.nasdanika.vinci.bootstrap.ActionGroup <em>Action Group</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Action Group</em>'.
+	 * @see org.nasdanika.vinci.bootstrap.ActionGroup
+	 * @generated
+	 */
+	EClass getActionGroup();
+
+	/**
+	 * Returns the meta object for class '{@link org.nasdanika.vinci.bootstrap.Breadcrumbs <em>Breadcrumbs</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Breadcrumbs</em>'.
+	 * @see org.nasdanika.vinci.bootstrap.Breadcrumbs
+	 * @generated
+	 */
+	EClass getBreadcrumbs();
+
+	/**
+	 * Returns the meta object for class '{@link org.nasdanika.vinci.bootstrap.Form <em>Form</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Form</em>'.
+	 * @see org.nasdanika.vinci.bootstrap.Form
+	 * @generated
+	 */
+	EClass getForm();
+
+	/**
+	 * Returns the meta object for class '{@link org.nasdanika.vinci.bootstrap.ListGroup <em>List Group</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>List Group</em>'.
+	 * @see org.nasdanika.vinci.bootstrap.ListGroup
+	 * @generated
+	 */
+	EClass getListGroup();
+
+	/**
+	 * Returns the meta object for class '{@link org.nasdanika.vinci.bootstrap.Navs <em>Navs</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Navs</em>'.
+	 * @see org.nasdanika.vinci.bootstrap.Navs
+	 * @generated
+	 */
+	EClass getNavs();
+
+	/**
+	 * Returns the meta object for class '{@link org.nasdanika.vinci.bootstrap.Navbar <em>Navbar</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Navbar</em>'.
+	 * @see org.nasdanika.vinci.bootstrap.Navbar
+	 * @generated
+	 */
+	EClass getNavbar();
+
+	/**
+	 * Returns the meta object for class '{@link org.nasdanika.vinci.bootstrap.Table <em>Table</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Table</em>'.
+	 * @see org.nasdanika.vinci.bootstrap.Table
+	 * @generated
+	 */
+	EClass getTable();
+
+	/**
+	 * Returns the meta object for class '{@link org.nasdanika.vinci.bootstrap.TableRow <em>Table Row</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Table Row</em>'.
+	 * @see org.nasdanika.vinci.bootstrap.TableRow
+	 * @generated
+	 */
+	EClass getTableRow();
+
+	/**
+	 * Returns the meta object for class '{@link org.nasdanika.vinci.bootstrap.TableColumn <em>Table Column</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Table Column</em>'.
+	 * @see org.nasdanika.vinci.bootstrap.TableColumn
+	 * @generated
+	 */
+	EClass getTableColumn();
+
+	/**
+	 * Returns the meta object for class '{@link org.nasdanika.vinci.bootstrap.Tooltip <em>Tooltip</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Tooltip</em>'.
+	 * @see org.nasdanika.vinci.bootstrap.Tooltip
+	 * @generated
+	 */
+	EClass getTooltip();
+
+	/**
+	 * Returns the meta object for class '{@link org.nasdanika.vinci.bootstrap.InputGroup <em>Input Group</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Input Group</em>'.
+	 * @see org.nasdanika.vinci.bootstrap.InputGroup
+	 * @generated
+	 */
+	EClass getInputGroup();
+
+	/**
+	 * Returns the meta object for class '{@link org.nasdanika.vinci.bootstrap.FormGroup <em>Form Group</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Form Group</em>'.
+	 * @see org.nasdanika.vinci.bootstrap.FormGroup
+	 * @generated
+	 */
+	EClass getFormGroup();
+
+	/**
+	 * Returns the meta object for class '{@link org.nasdanika.vinci.bootstrap.Collapse <em>Collapse</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Collapse</em>'.
+	 * @see org.nasdanika.vinci.bootstrap.Collapse
+	 * @generated
+	 */
+	EClass getCollapse();
+
+	/**
+	 * Returns the meta object for class '{@link org.nasdanika.vinci.bootstrap.Modal <em>Modal</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Modal</em>'.
+	 * @see org.nasdanika.vinci.bootstrap.Modal
+	 * @generated
+	 */
+	EClass getModal();
+
+	/**
+	 * Returns the meta object for class '{@link org.nasdanika.vinci.bootstrap.Accordion <em>Accordion</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Accordion</em>'.
+	 * @see org.nasdanika.vinci.bootstrap.Accordion
+	 * @generated
+	 */
+	EClass getAccordion();
 
 	/**
 	 * Returns the meta object for data type '{@link org.nasdanika.html.bootstrap.BootstrapElement <em>IBootstrap Element</em>}'.
@@ -876,6 +1768,207 @@ public interface BootstrapPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute ALERT__COLOR = eINSTANCE.getAlert_Color();
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.vinci.bootstrap.impl.BadgeImpl <em>Badge</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.vinci.bootstrap.impl.BadgeImpl
+		 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getBadge()
+		 * @generated
+		 */
+		EClass BADGE = eINSTANCE.getBadge();
+		/**
+		 * The meta object literal for the '<em><b>Color</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BADGE__COLOR = eINSTANCE.getBadge_Color();
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.vinci.bootstrap.impl.ButtonImpl <em>Button</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.vinci.bootstrap.impl.ButtonImpl
+		 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getButton()
+		 * @generated
+		 */
+		EClass BUTTON = eINSTANCE.getButton();
+		/**
+		 * The meta object literal for the '<em><b>Color</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BUTTON__COLOR = eINSTANCE.getButton_Color();
+		/**
+		 * The meta object literal for the '<em><b>Outline</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BUTTON__OUTLINE = eINSTANCE.getButton_Outline();
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.vinci.bootstrap.impl.ButtonGroupImpl <em>Button Group</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.vinci.bootstrap.impl.ButtonGroupImpl
+		 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getButtonGroup()
+		 * @generated
+		 */
+		EClass BUTTON_GROUP = eINSTANCE.getButtonGroup();
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.vinci.bootstrap.impl.ButtonToolbarImpl <em>Button Toolbar</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.vinci.bootstrap.impl.ButtonToolbarImpl
+		 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getButtonToolbar()
+		 * @generated
+		 */
+		EClass BUTTON_TOOLBAR = eINSTANCE.getButtonToolbar();
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.vinci.bootstrap.impl.DropdownImpl <em>Dropdown</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.vinci.bootstrap.impl.DropdownImpl
+		 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getDropdown()
+		 * @generated
+		 */
+		EClass DROPDOWN = eINSTANCE.getDropdown();
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.vinci.bootstrap.impl.ActionGroupImpl <em>Action Group</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.vinci.bootstrap.impl.ActionGroupImpl
+		 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getActionGroup()
+		 * @generated
+		 */
+		EClass ACTION_GROUP = eINSTANCE.getActionGroup();
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.vinci.bootstrap.impl.BreadcrumbsImpl <em>Breadcrumbs</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.vinci.bootstrap.impl.BreadcrumbsImpl
+		 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getBreadcrumbs()
+		 * @generated
+		 */
+		EClass BREADCRUMBS = eINSTANCE.getBreadcrumbs();
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.vinci.bootstrap.impl.FormImpl <em>Form</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.vinci.bootstrap.impl.FormImpl
+		 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getForm()
+		 * @generated
+		 */
+		EClass FORM = eINSTANCE.getForm();
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.vinci.bootstrap.impl.ListGroupImpl <em>List Group</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.vinci.bootstrap.impl.ListGroupImpl
+		 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getListGroup()
+		 * @generated
+		 */
+		EClass LIST_GROUP = eINSTANCE.getListGroup();
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.vinci.bootstrap.impl.NavsImpl <em>Navs</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.vinci.bootstrap.impl.NavsImpl
+		 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getNavs()
+		 * @generated
+		 */
+		EClass NAVS = eINSTANCE.getNavs();
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.vinci.bootstrap.impl.NavbarImpl <em>Navbar</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.vinci.bootstrap.impl.NavbarImpl
+		 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getNavbar()
+		 * @generated
+		 */
+		EClass NAVBAR = eINSTANCE.getNavbar();
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.vinci.bootstrap.impl.TableImpl <em>Table</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.vinci.bootstrap.impl.TableImpl
+		 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getTable()
+		 * @generated
+		 */
+		EClass TABLE = eINSTANCE.getTable();
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.vinci.bootstrap.impl.TableRowImpl <em>Table Row</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.vinci.bootstrap.impl.TableRowImpl
+		 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getTableRow()
+		 * @generated
+		 */
+		EClass TABLE_ROW = eINSTANCE.getTableRow();
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.vinci.bootstrap.impl.TableColumnImpl <em>Table Column</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.vinci.bootstrap.impl.TableColumnImpl
+		 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getTableColumn()
+		 * @generated
+		 */
+		EClass TABLE_COLUMN = eINSTANCE.getTableColumn();
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.vinci.bootstrap.impl.TooltipImpl <em>Tooltip</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.vinci.bootstrap.impl.TooltipImpl
+		 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getTooltip()
+		 * @generated
+		 */
+		EClass TOOLTIP = eINSTANCE.getTooltip();
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.vinci.bootstrap.impl.InputGroupImpl <em>Input Group</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.vinci.bootstrap.impl.InputGroupImpl
+		 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getInputGroup()
+		 * @generated
+		 */
+		EClass INPUT_GROUP = eINSTANCE.getInputGroup();
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.vinci.bootstrap.impl.FormGroupImpl <em>Form Group</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.vinci.bootstrap.impl.FormGroupImpl
+		 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getFormGroup()
+		 * @generated
+		 */
+		EClass FORM_GROUP = eINSTANCE.getFormGroup();
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.vinci.bootstrap.impl.CollapseImpl <em>Collapse</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.vinci.bootstrap.impl.CollapseImpl
+		 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getCollapse()
+		 * @generated
+		 */
+		EClass COLLAPSE = eINSTANCE.getCollapse();
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.vinci.bootstrap.impl.ModalImpl <em>Modal</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.vinci.bootstrap.impl.ModalImpl
+		 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getModal()
+		 * @generated
+		 */
+		EClass MODAL = eINSTANCE.getModal();
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.vinci.bootstrap.impl.AccordionImpl <em>Accordion</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.vinci.bootstrap.impl.AccordionImpl
+		 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getAccordion()
+		 * @generated
+		 */
+		EClass ACCORDION = eINSTANCE.getAccordion();
 		/**
 		 * The meta object literal for the '<em>IBootstrap Element</em>' data type.
 		 * <!-- begin-user-doc -->
