@@ -9,6 +9,7 @@
   <foreignModel>bootstrap.ecore</foreignModel>
   <genPackages prefix="Bootstrap" basePackage="org.nasdanika.vinci" disposableProviderFactory="true"
       ecorePackage="bootstrap.ecore#/">
+    <genDataTypes ecoreDataType="bootstrap.ecore#//IBootstrapElement"/>
     <genClasses ecoreClass="bootstrap.ecore#//BootstrapElement"/>
     <genClasses ecoreClass="bootstrap.ecore#//Container">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference bootstrap.ecore#//Container/rows"/>
@@ -22,5 +23,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference bootstrap.ecore#//Card/body"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference bootstrap.ecore#//Card/footer"/>
     </genClasses>
+    <genClasses ecoreClass="bootstrap.ecore#//Tag"/>
+    <genClasses ecoreClass="bootstrap.ecore#//Div"/>
   </genPackages>
 </genmodel:GenModel>

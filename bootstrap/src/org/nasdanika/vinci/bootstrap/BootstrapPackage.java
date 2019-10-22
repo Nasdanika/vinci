@@ -3,6 +3,7 @@
 package org.nasdanika.vinci.bootstrap;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EPackage;
 
 import org.eclipse.emf.ecore.EReference;
@@ -202,13 +203,13 @@ public interface BootstrapPackage extends EPackage {
 	int CARD = 4;
 
 	/**
-	 * The feature id for the '<em><b>Header</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Header</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CARD__HEADER = 0;
+	int CARD__HEADER = BOOTSTRAP_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Body</b></em>' containment reference list.
@@ -217,16 +218,16 @@ public interface BootstrapPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CARD__BODY = 1;
+	int CARD__BODY = BOOTSTRAP_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Footer</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Footer</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CARD__FOOTER = 2;
+	int CARD__FOOTER = BOOTSTRAP_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Card</em>' class.
@@ -235,7 +236,7 @@ public interface BootstrapPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CARD_FEATURE_COUNT = 3;
+	int CARD_FEATURE_COUNT = BOOTSTRAP_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>Card</em>' class.
@@ -244,7 +245,110 @@ public interface BootstrapPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CARD_OPERATION_COUNT = 0;
+	int CARD_OPERATION_COUNT = BOOTSTRAP_ELEMENT_OPERATION_COUNT + 0;
+
+
+	/**
+	 * The meta object id for the '{@link org.nasdanika.vinci.bootstrap.impl.TagImpl <em>Tag</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.vinci.bootstrap.impl.TagImpl
+	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getTag()
+	 * @generated
+	 */
+	int TAG = 5;
+
+	/**
+	 * The feature id for the '<em><b>Content</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TAG__CONTENT = HtmlPackage.TAG__CONTENT;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TAG__NAME = HtmlPackage.TAG__NAME;
+
+	/**
+	 * The number of structural features of the '<em>Tag</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TAG_FEATURE_COUNT = HtmlPackage.TAG_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Tag</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TAG_OPERATION_COUNT = HtmlPackage.TAG_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.nasdanika.vinci.bootstrap.impl.DivImpl <em>Div</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.vinci.bootstrap.impl.DivImpl
+	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getDiv()
+	 * @generated
+	 */
+	int DIV = 6;
+
+	/**
+	 * The feature id for the '<em><b>Content</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DIV__CONTENT = TAG__CONTENT;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DIV__NAME = TAG__NAME;
+
+	/**
+	 * The number of structural features of the '<em>Div</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DIV_FEATURE_COUNT = TAG_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Div</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DIV_OPERATION_COUNT = TAG_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '<em>IBootstrap Element</em>' data type.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.html.bootstrap.BootstrapElement
+	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getIBootstrapElement()
+	 * @generated
+	 */
+	int IBOOTSTRAP_ELEMENT = 7;
 
 
 	/**
@@ -320,10 +424,10 @@ public interface BootstrapPackage extends EPackage {
 	EClass getCard();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link org.nasdanika.vinci.bootstrap.Card#getHeader <em>Header</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.nasdanika.vinci.bootstrap.Card#getHeader <em>Header</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Header</em>'.
+	 * @return the meta object for the containment reference '<em>Header</em>'.
 	 * @see org.nasdanika.vinci.bootstrap.Card#getHeader()
 	 * @see #getCard()
 	 * @generated
@@ -342,15 +446,46 @@ public interface BootstrapPackage extends EPackage {
 	EReference getCard_Body();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link org.nasdanika.vinci.bootstrap.Card#getFooter <em>Footer</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.nasdanika.vinci.bootstrap.Card#getFooter <em>Footer</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Footer</em>'.
+	 * @return the meta object for the containment reference '<em>Footer</em>'.
 	 * @see org.nasdanika.vinci.bootstrap.Card#getFooter()
 	 * @see #getCard()
 	 * @generated
 	 */
 	EReference getCard_Footer();
+
+	/**
+	 * Returns the meta object for class '{@link org.nasdanika.vinci.bootstrap.Tag <em>Tag</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Tag</em>'.
+	 * @see org.nasdanika.vinci.bootstrap.Tag
+	 * @generated
+	 */
+	EClass getTag();
+
+	/**
+	 * Returns the meta object for class '{@link org.nasdanika.vinci.bootstrap.Div <em>Div</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Div</em>'.
+	 * @see org.nasdanika.vinci.bootstrap.Div
+	 * @generated
+	 */
+	EClass getDiv();
+
+	/**
+	 * Returns the meta object for data type '{@link org.nasdanika.html.bootstrap.BootstrapElement <em>IBootstrap Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for data type '<em>IBootstrap Element</em>'.
+	 * @see org.nasdanika.html.bootstrap.BootstrapElement
+	 * @model instanceClass="org.nasdanika.html.bootstrap.BootstrapElement"
+	 * @generated
+	 */
+	EDataType getIBootstrapElement();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -435,7 +570,7 @@ public interface BootstrapPackage extends EPackage {
 		 */
 		EClass CARD = eINSTANCE.getCard();
 		/**
-		 * The meta object literal for the '<em><b>Header</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Header</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -449,12 +584,39 @@ public interface BootstrapPackage extends EPackage {
 		 */
 		EReference CARD__BODY = eINSTANCE.getCard_Body();
 		/**
-		 * The meta object literal for the '<em><b>Footer</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Footer</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EReference CARD__FOOTER = eINSTANCE.getCard_Footer();
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.vinci.bootstrap.impl.TagImpl <em>Tag</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.vinci.bootstrap.impl.TagImpl
+		 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getTag()
+		 * @generated
+		 */
+		EClass TAG = eINSTANCE.getTag();
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.vinci.bootstrap.impl.DivImpl <em>Div</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.vinci.bootstrap.impl.DivImpl
+		 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getDiv()
+		 * @generated
+		 */
+		EClass DIV = eINSTANCE.getDiv();
+		/**
+		 * The meta object literal for the '<em>IBootstrap Element</em>' data type.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.html.bootstrap.BootstrapElement
+		 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getIBootstrapElement()
+		 * @generated
+		 */
+		EDataType IBOOTSTRAP_ELEMENT = eINSTANCE.getIBootstrapElement();
 
 	}
 

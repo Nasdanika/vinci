@@ -9,10 +9,14 @@
   <foreignModel>html.ecore</foreignModel>
   <genPackages prefix="Html" basePackage="org.nasdanika.vinci" disposableProviderFactory="true"
       ecorePackage="html.ecore#/">
+    <genDataTypes ecoreDataType="html.ecore#//TagName"/>
+    <genDataTypes ecoreDataType="html.ecore#//ITag"/>
     <genClasses ecoreClass="html.ecore#//HtmlElement"/>
     <genClasses ecoreClass="html.ecore#//Container">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference html.ecore#//Container/content"/>
     </genClasses>
-    <genClasses ecoreClass="html.ecore#//Tag"/>
+    <genClasses ecoreClass="html.ecore#//Tag">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute html.ecore#//Tag/name"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>

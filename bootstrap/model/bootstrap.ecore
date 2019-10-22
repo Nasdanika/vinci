@@ -4,10 +4,15 @@
   <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
     <details key="documentation" value="Model of Bootstrap elements."/>
   </eAnnotations>
+  <eClassifiers xsi:type="ecore:EDataType" name="IBootstrapElement" instanceClassName="org.nasdanika.html.bootstrap.BootstrapElement"/>
   <eClassifiers xsi:type="ecore:EClass" name="BootstrapElement" eSuperTypes="../../org.nasdanika.vinci.html/model/html.ecore#//HtmlElement"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Container" eSuperTypes="#//BootstrapElement">
+  <eClassifiers xsi:type="ecore:EClass" name="Container">
     <eStructuralFeatures xsi:type="ecore:EReference" name="rows" upperBound="-1" eType="#//Row"
         containment="true"/>
+    <eGenericSuperTypes eClassifier="#//BootstrapElement"/>
+    <eGenericSuperTypes eClassifier="ecore:EClass ../../org.nasdanika.ncore/model/ncore.ecore#//CommandFactory">
+      <eTypeArguments eClassifier="#//IBootstrapElement"/>
+    </eGenericSuperTypes>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Row" eSuperTypes="#//BootstrapElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="columns" upperBound="-1"
@@ -15,22 +20,25 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Column" eSuperTypes="#//BootstrapElement"/>
   <eClassifiers xsi:type="ecore:EClass" name="Card">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="header" upperBound="-1"
-        containment="true">
-      <eGenericType eClassifier="ecore:EClass ../../org.nasdanika.ncore/model/ncore.ecore#//CommandFactory">
-        <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
-      </eGenericType>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="body" upperBound="-1" containment="true">
-      <eGenericType eClassifier="ecore:EClass ../../org.nasdanika.ncore/model/ncore.ecore#//CommandFactory">
-        <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
-      </eGenericType>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="footer" upperBound="-1"
-        containment="true">
-      <eGenericType eClassifier="ecore:EClass ../../org.nasdanika.ncore/model/ncore.ecore#//CommandFactory">
-        <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
-      </eGenericType>
-    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="header" eType="#//Div"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="body" upperBound="-1" eType="#//Div"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="footer" eType="#//Div"
+        containment="true"/>
+    <eGenericSuperTypes eClassifier="#//BootstrapElement"/>
+    <eGenericSuperTypes eClassifier="ecore:EClass ../../org.nasdanika.ncore/model/ncore.ecore#//CommandFactory">
+      <eTypeArguments eClassifier="#//IBootstrapElement"/>
+    </eGenericSuperTypes>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Tag" eSuperTypes="../../org.nasdanika.vinci.html/model/html.ecore#//Tag #//BootstrapElement">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="HTML tag with bootstrap styling"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Div" eSuperTypes="#//Tag">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="HTML DIV with bootstrap styling"/>
+    </eAnnotations>
   </eClassifiers>
 </ecore:EPackage>

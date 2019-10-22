@@ -2,10 +2,11 @@
  */
 package org.nasdanika.vinci.html;
 
+import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
-import org.nasdanika.ncore.NcorePackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -76,7 +77,7 @@ public interface HtmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int HTML_ELEMENT_FEATURE_COUNT = NcorePackage.COMMAND_FACTORY_FEATURE_COUNT + 0;
+	int HTML_ELEMENT_FEATURE_COUNT = 0;
 
 	/**
 	 * The number of operations of the '<em>Element</em>' class.
@@ -85,7 +86,7 @@ public interface HtmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int HTML_ELEMENT_OPERATION_COUNT = NcorePackage.COMMAND_FACTORY_OPERATION_COUNT + 0;
+	int HTML_ELEMENT_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.vinci.html.impl.ContainerImpl <em>Container</em>}' class.
@@ -144,13 +145,22 @@ public interface HtmlPackage extends EPackage {
 	int TAG__CONTENT = HTML_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TAG__NAME = HTML_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Tag</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TAG_FEATURE_COUNT = HTML_ELEMENT_FEATURE_COUNT + 1;
+	int TAG_FEATURE_COUNT = HTML_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Tag</em>' class.
@@ -160,6 +170,27 @@ public interface HtmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int TAG_OPERATION_COUNT = HTML_ELEMENT_OPERATION_COUNT + 0;
+
+
+	/**
+	 * The meta object id for the '<em>Tag Name</em>' data type.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.html.TagName
+	 * @see org.nasdanika.vinci.html.impl.HtmlPackageImpl#getTagName()
+	 * @generated
+	 */
+	int TAG_NAME = 3;
+
+	/**
+	 * The meta object id for the '<em>ITag</em>' data type.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.html.Tag
+	 * @see org.nasdanika.vinci.html.impl.HtmlPackageImpl#getITag()
+	 * @generated
+	 */
+	int ITAG = 4;
 
 
 	/**
@@ -202,6 +233,39 @@ public interface HtmlPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getTag();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.html.Tag#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see org.nasdanika.vinci.html.Tag#getName()
+	 * @see #getTag()
+	 * @generated
+	 */
+	EAttribute getTag_Name();
+
+	/**
+	 * Returns the meta object for data type '{@link org.nasdanika.html.TagName <em>Tag Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for data type '<em>Tag Name</em>'.
+	 * @see org.nasdanika.html.TagName
+	 * @model instanceClass="org.nasdanika.html.TagName"
+	 * @generated
+	 */
+	EDataType getTagName();
+
+	/**
+	 * Returns the meta object for data type '{@link org.nasdanika.html.Tag <em>ITag</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for data type '<em>ITag</em>'.
+	 * @see org.nasdanika.html.Tag
+	 * @model instanceClass="org.nasdanika.html.Tag"
+	 * @generated
+	 */
+	EDataType getITag();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -263,6 +327,34 @@ public interface HtmlPackage extends EPackage {
 		 * @generated
 		 */
 		EClass TAG = eINSTANCE.getTag();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TAG__NAME = eINSTANCE.getTag_Name();
+
+		/**
+		 * The meta object literal for the '<em>Tag Name</em>' data type.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.html.TagName
+		 * @see org.nasdanika.vinci.html.impl.HtmlPackageImpl#getTagName()
+		 * @generated
+		 */
+		EDataType TAG_NAME = eINSTANCE.getTagName();
+
+		/**
+		 * The meta object literal for the '<em>ITag</em>' data type.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.html.Tag
+		 * @see org.nasdanika.vinci.html.impl.HtmlPackageImpl#getITag()
+		 * @generated
+		 */
+		EDataType ITAG = eINSTANCE.getITag();
 
 	}
 

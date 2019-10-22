@@ -12,7 +12,9 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.util.InternalEList;
-
+import org.nasdanika.common.Command;
+import org.nasdanika.common.Context;
+import org.nasdanika.html.bootstrap.BootstrapElement;
 import org.nasdanika.vinci.bootstrap.BootstrapPackage;
 import org.nasdanika.vinci.bootstrap.Row;
 
@@ -132,6 +134,12 @@ public class ContainerImpl extends BootstrapElementImpl implements org.nasdanika
 				return !getRows().isEmpty();
 		}
 		return super.eIsSet(featureID);
+	}
+
+	@Override
+	public Command<BootstrapElement> create(Context context) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 } //ContainerImpl

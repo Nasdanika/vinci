@@ -4,11 +4,9 @@
   <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
     <details key="documentation" value="HTML model"/>
   </eAnnotations>
-  <eClassifiers xsi:type="ecore:EClass" name="HtmlElement" abstract="true">
-    <eGenericSuperTypes eClassifier="ecore:EClass ../../org.nasdanika.ncore/model/ncore.ecore#//CommandFactory">
-      <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
-    </eGenericSuperTypes>
-  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="TagName" instanceClassName="org.nasdanika.html.TagName"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="ITag" instanceClassName="org.nasdanika.html.Tag"/>
+  <eClassifiers xsi:type="ecore:EClass" name="HtmlElement" abstract="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="Container">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Container of content such as text and HTML markup."/>
@@ -20,5 +18,12 @@
       </eGenericType>
     </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Tag" eSuperTypes="#//HtmlElement #//Container"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Tag">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="#//TagName"/>
+    <eGenericSuperTypes eClassifier="#//HtmlElement"/>
+    <eGenericSuperTypes eClassifier="#//Container"/>
+    <eGenericSuperTypes eClassifier="ecore:EClass ../../org.nasdanika.ncore/model/ncore.ecore#//CommandFactory">
+      <eTypeArguments eClassifier="#//ITag"/>
+    </eGenericSuperTypes>
+  </eClassifiers>
 </ecore:EPackage>

@@ -3,6 +3,7 @@
 package org.nasdanika.vinci.bootstrap.impl;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EGenericType;
 import org.eclipse.emf.ecore.EPackage;
 
@@ -16,7 +17,9 @@ import org.nasdanika.vinci.bootstrap.BootstrapPackage;
 
 import org.nasdanika.vinci.bootstrap.Card;
 import org.nasdanika.vinci.bootstrap.Column;
+import org.nasdanika.vinci.bootstrap.Div;
 import org.nasdanika.vinci.bootstrap.Row;
+import org.nasdanika.vinci.bootstrap.Tag;
 import org.nasdanika.vinci.html.HtmlPackage;
 
 /**
@@ -57,6 +60,27 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 	 * @generated
 	 */
 	private EClass cardEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass tagEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass divEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EDataType iBootstrapElementEDataType = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -229,6 +253,36 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 	 * @generated
 	 */
 	@Override
+	public EClass getTag() {
+		return tagEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getDiv() {
+		return divEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EDataType getIBootstrapElement() {
+		return iBootstrapElementEDataType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public BootstrapFactory getBootstrapFactory() {
 		return (BootstrapFactory)getEFactoryInstance();
 	}
@@ -266,6 +320,13 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 		createEReference(cardEClass, CARD__HEADER);
 		createEReference(cardEClass, CARD__BODY);
 		createEReference(cardEClass, CARD__FOOTER);
+
+		tagEClass = createEClass(TAG);
+
+		divEClass = createEClass(DIV);
+
+		// Create data types
+		iBootstrapElementEDataType = createEDataType(IBOOTSTRAP_ELEMENT);
 	}
 
 	/**
@@ -301,9 +362,23 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 
 		// Add supertypes to classes
 		bootstrapElementEClass.getESuperTypes().add(theHtmlPackage.getHtmlElement());
-		containerEClass.getESuperTypes().add(this.getBootstrapElement());
+		EGenericType g1 = createEGenericType(this.getBootstrapElement());
+		containerEClass.getEGenericSuperTypes().add(g1);
+		g1 = createEGenericType(theNcorePackage.getCommandFactory());
+		EGenericType g2 = createEGenericType(this.getIBootstrapElement());
+		g1.getETypeArguments().add(g2);
+		containerEClass.getEGenericSuperTypes().add(g1);
 		rowEClass.getESuperTypes().add(this.getBootstrapElement());
 		columnEClass.getESuperTypes().add(this.getBootstrapElement());
+		g1 = createEGenericType(this.getBootstrapElement());
+		cardEClass.getEGenericSuperTypes().add(g1);
+		g1 = createEGenericType(theNcorePackage.getCommandFactory());
+		g2 = createEGenericType(this.getIBootstrapElement());
+		g1.getETypeArguments().add(g2);
+		cardEClass.getEGenericSuperTypes().add(g1);
+		tagEClass.getESuperTypes().add(theHtmlPackage.getTag());
+		tagEClass.getESuperTypes().add(this.getBootstrapElement());
+		divEClass.getESuperTypes().add(this.getTag());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(bootstrapElementEClass, BootstrapElement.class, "BootstrapElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -317,18 +392,16 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 		initEClass(columnEClass, Column.class, "Column", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(cardEClass, Card.class, "Card", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		EGenericType g1 = createEGenericType(theNcorePackage.getCommandFactory());
-		EGenericType g2 = createEGenericType(ecorePackage.getEJavaObject());
-		g1.getETypeArguments().add(g2);
-		initEReference(getCard_Header(), g1, null, "header", null, 0, -1, Card.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		g1 = createEGenericType(theNcorePackage.getCommandFactory());
-		g2 = createEGenericType(ecorePackage.getEJavaObject());
-		g1.getETypeArguments().add(g2);
-		initEReference(getCard_Body(), g1, null, "body", null, 0, -1, Card.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		g1 = createEGenericType(theNcorePackage.getCommandFactory());
-		g2 = createEGenericType(ecorePackage.getEJavaObject());
-		g1.getETypeArguments().add(g2);
-		initEReference(getCard_Footer(), g1, null, "footer", null, 0, -1, Card.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCard_Header(), this.getDiv(), null, "header", null, 0, 1, Card.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCard_Body(), this.getDiv(), null, "body", null, 0, -1, Card.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCard_Footer(), this.getDiv(), null, "footer", null, 0, 1, Card.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(tagEClass, Tag.class, "Tag", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(divEClass, Div.class, "Div", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		// Initialize data types
+		initEDataType(iBootstrapElementEDataType, org.nasdanika.html.bootstrap.BootstrapElement.class, "IBootstrapElement", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);

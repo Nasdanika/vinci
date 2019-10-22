@@ -8,28 +8,12 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
-import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.ecore.EStructuralFeature;
-
-import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
-import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.IItemPropertySource;
-import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
-import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-
-import org.nasdanika.emf.edit.NasdanikaItemProviderAdapter;
-
-import org.nasdanika.ncore.NcoreFactory;
-
 import org.nasdanika.vinci.bootstrap.BootstrapFactory;
 import org.nasdanika.vinci.bootstrap.BootstrapPackage;
 import org.nasdanika.vinci.bootstrap.Card;
-
-import org.nasdanika.vinci.html.HtmlFactory;
 
 /**
  * This is the item provider adapter for a {@link org.nasdanika.vinci.bootstrap.Card} object.
@@ -38,13 +22,7 @@ import org.nasdanika.vinci.html.HtmlFactory;
  * @generated
  */
 public class CardItemProvider 
-	extends NasdanikaItemProviderAdapter
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+	extends BootstrapElementItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -170,332 +148,17 @@ public class CardItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(BootstrapPackage.Literals.CARD__HEADER,
-				 BootstrapFactory.eINSTANCE.createBootstrapElement()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(BootstrapPackage.Literals.CARD__HEADER,
-				 BootstrapFactory.eINSTANCE.createContainer()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(BootstrapPackage.Literals.CARD__HEADER,
-				 BootstrapFactory.eINSTANCE.createRow()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(BootstrapPackage.Literals.CARD__HEADER,
-				 BootstrapFactory.eINSTANCE.createColumn()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(BootstrapPackage.Literals.CARD__HEADER,
-				 HtmlFactory.eINSTANCE.createTag()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(BootstrapPackage.Literals.CARD__HEADER,
-				 NcoreFactory.eINSTANCE.createTypedElement()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(BootstrapPackage.Literals.CARD__HEADER,
-				 NcoreFactory.eINSTANCE.createProvider()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(BootstrapPackage.Literals.CARD__HEADER,
-				 NcoreFactory.eINSTANCE.createValue()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(BootstrapPackage.Literals.CARD__HEADER,
-				 NcoreFactory.eINSTANCE.createNull()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(BootstrapPackage.Literals.CARD__HEADER,
-				 NcoreFactory.eINSTANCE.createOperation()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(BootstrapPackage.Literals.CARD__HEADER,
-				 NcoreFactory.eINSTANCE.createArray()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(BootstrapPackage.Literals.CARD__HEADER,
-				 NcoreFactory.eINSTANCE.createContext()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(BootstrapPackage.Literals.CARD__HEADER,
-				 NcoreFactory.eINSTANCE.createTypedEntry()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(BootstrapPackage.Literals.CARD__HEADER,
-				 NcoreFactory.eINSTANCE.createProviderEntry()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(BootstrapPackage.Literals.CARD__HEADER,
-				 NcoreFactory.eINSTANCE.createMap()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(BootstrapPackage.Literals.CARD__HEADER,
-				 NcoreFactory.eINSTANCE.createProperty()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(BootstrapPackage.Literals.CARD__HEADER,
-				 NcoreFactory.eINSTANCE.createFunction()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(BootstrapPackage.Literals.CARD__HEADER,
-				 NcoreFactory.eINSTANCE.createList()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(BootstrapPackage.Literals.CARD__HEADER,
-				 NcoreFactory.eINSTANCE.createObject()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(BootstrapPackage.Literals.CARD__HEADER,
-				 NcoreFactory.eINSTANCE.createHttpCall()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(BootstrapPackage.Literals.CARD__HEADER,
-				 NcoreFactory.eINSTANCE.createRestOperation()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(BootstrapPackage.Literals.CARD__HEADER,
-				 NcoreFactory.eINSTANCE.createRestFunction()));
+				 BootstrapFactory.eINSTANCE.createDiv()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(BootstrapPackage.Literals.CARD__BODY,
-				 BootstrapFactory.eINSTANCE.createBootstrapElement()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(BootstrapPackage.Literals.CARD__BODY,
-				 BootstrapFactory.eINSTANCE.createContainer()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(BootstrapPackage.Literals.CARD__BODY,
-				 BootstrapFactory.eINSTANCE.createRow()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(BootstrapPackage.Literals.CARD__BODY,
-				 BootstrapFactory.eINSTANCE.createColumn()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(BootstrapPackage.Literals.CARD__BODY,
-				 HtmlFactory.eINSTANCE.createTag()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(BootstrapPackage.Literals.CARD__BODY,
-				 NcoreFactory.eINSTANCE.createTypedElement()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(BootstrapPackage.Literals.CARD__BODY,
-				 NcoreFactory.eINSTANCE.createProvider()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(BootstrapPackage.Literals.CARD__BODY,
-				 NcoreFactory.eINSTANCE.createValue()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(BootstrapPackage.Literals.CARD__BODY,
-				 NcoreFactory.eINSTANCE.createNull()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(BootstrapPackage.Literals.CARD__BODY,
-				 NcoreFactory.eINSTANCE.createOperation()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(BootstrapPackage.Literals.CARD__BODY,
-				 NcoreFactory.eINSTANCE.createArray()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(BootstrapPackage.Literals.CARD__BODY,
-				 NcoreFactory.eINSTANCE.createContext()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(BootstrapPackage.Literals.CARD__BODY,
-				 NcoreFactory.eINSTANCE.createTypedEntry()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(BootstrapPackage.Literals.CARD__BODY,
-				 NcoreFactory.eINSTANCE.createProviderEntry()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(BootstrapPackage.Literals.CARD__BODY,
-				 NcoreFactory.eINSTANCE.createMap()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(BootstrapPackage.Literals.CARD__BODY,
-				 NcoreFactory.eINSTANCE.createProperty()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(BootstrapPackage.Literals.CARD__BODY,
-				 NcoreFactory.eINSTANCE.createFunction()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(BootstrapPackage.Literals.CARD__BODY,
-				 NcoreFactory.eINSTANCE.createList()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(BootstrapPackage.Literals.CARD__BODY,
-				 NcoreFactory.eINSTANCE.createObject()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(BootstrapPackage.Literals.CARD__BODY,
-				 NcoreFactory.eINSTANCE.createHttpCall()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(BootstrapPackage.Literals.CARD__BODY,
-				 NcoreFactory.eINSTANCE.createRestOperation()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(BootstrapPackage.Literals.CARD__BODY,
-				 NcoreFactory.eINSTANCE.createRestFunction()));
+				 BootstrapFactory.eINSTANCE.createDiv()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(BootstrapPackage.Literals.CARD__FOOTER,
-				 BootstrapFactory.eINSTANCE.createBootstrapElement()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(BootstrapPackage.Literals.CARD__FOOTER,
-				 BootstrapFactory.eINSTANCE.createContainer()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(BootstrapPackage.Literals.CARD__FOOTER,
-				 BootstrapFactory.eINSTANCE.createRow()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(BootstrapPackage.Literals.CARD__FOOTER,
-				 BootstrapFactory.eINSTANCE.createColumn()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(BootstrapPackage.Literals.CARD__FOOTER,
-				 HtmlFactory.eINSTANCE.createTag()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(BootstrapPackage.Literals.CARD__FOOTER,
-				 NcoreFactory.eINSTANCE.createTypedElement()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(BootstrapPackage.Literals.CARD__FOOTER,
-				 NcoreFactory.eINSTANCE.createProvider()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(BootstrapPackage.Literals.CARD__FOOTER,
-				 NcoreFactory.eINSTANCE.createValue()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(BootstrapPackage.Literals.CARD__FOOTER,
-				 NcoreFactory.eINSTANCE.createNull()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(BootstrapPackage.Literals.CARD__FOOTER,
-				 NcoreFactory.eINSTANCE.createOperation()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(BootstrapPackage.Literals.CARD__FOOTER,
-				 NcoreFactory.eINSTANCE.createArray()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(BootstrapPackage.Literals.CARD__FOOTER,
-				 NcoreFactory.eINSTANCE.createContext()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(BootstrapPackage.Literals.CARD__FOOTER,
-				 NcoreFactory.eINSTANCE.createTypedEntry()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(BootstrapPackage.Literals.CARD__FOOTER,
-				 NcoreFactory.eINSTANCE.createProviderEntry()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(BootstrapPackage.Literals.CARD__FOOTER,
-				 NcoreFactory.eINSTANCE.createMap()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(BootstrapPackage.Literals.CARD__FOOTER,
-				 NcoreFactory.eINSTANCE.createProperty()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(BootstrapPackage.Literals.CARD__FOOTER,
-				 NcoreFactory.eINSTANCE.createFunction()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(BootstrapPackage.Literals.CARD__FOOTER,
-				 NcoreFactory.eINSTANCE.createList()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(BootstrapPackage.Literals.CARD__FOOTER,
-				 NcoreFactory.eINSTANCE.createObject()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(BootstrapPackage.Literals.CARD__FOOTER,
-				 NcoreFactory.eINSTANCE.createHttpCall()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(BootstrapPackage.Literals.CARD__FOOTER,
-				 NcoreFactory.eINSTANCE.createRestOperation()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(BootstrapPackage.Literals.CARD__FOOTER,
-				 NcoreFactory.eINSTANCE.createRestFunction()));
+				 BootstrapFactory.eINSTANCE.createDiv()));
 	}
 
 	/**
@@ -520,17 +183,6 @@ public class CardItemProvider
 				 new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
 		}
 		return super.getCreateChildText(owner, feature, child, selection);
-	}
-
-	/**
-	 * Return the resource locator for this item provider's resources.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public ResourceLocator getResourceLocator() {
-		return BootstrapEditPlugin.INSTANCE;
 	}
 
 }

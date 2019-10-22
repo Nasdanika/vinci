@@ -70,7 +70,6 @@ public class HtmlSwitch<T1> extends Switch<T1> {
 			case HtmlPackage.HTML_ELEMENT: {
 				HtmlElement htmlElement = (HtmlElement)theEObject;
 				T1 result = caseHtmlElement(htmlElement);
-				if (result == null) result = caseCommandFactory(htmlElement);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}

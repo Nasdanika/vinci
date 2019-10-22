@@ -10,15 +10,13 @@ import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import org.eclipse.emf.ecore.util.InternalEList;
-
-import org.nasdanika.common.CommandFactory;
-
+import org.nasdanika.common.Command;
+import org.nasdanika.common.Context;
+import org.nasdanika.html.bootstrap.BootstrapElement;
 import org.nasdanika.vinci.bootstrap.BootstrapPackage;
 import org.nasdanika.vinci.bootstrap.Card;
+import org.nasdanika.vinci.bootstrap.Div;
 
 /**
  * <!-- begin-user-doc -->
@@ -35,7 +33,7 @@ import org.nasdanika.vinci.bootstrap.Card;
  *
  * @generated
  */
-public class CardImpl extends MinimalEObjectImpl.Container implements Card {
+public class CardImpl extends BootstrapElementImpl implements Card {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -60,9 +58,30 @@ public class CardImpl extends MinimalEObjectImpl.Container implements Card {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
-	protected int eStaticFeatureCount() {
-		return 0;
+	public Div getHeader() {
+		return (Div)eDynamicGet(BootstrapPackage.CARD__HEADER, BootstrapPackage.Literals.CARD__HEADER, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetHeader(Div newHeader, NotificationChain msgs) {
+		msgs = eDynamicInverseAdd((InternalEObject)newHeader, BootstrapPackage.CARD__HEADER, msgs);
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setHeader(Div newHeader) {
+		eDynamicSet(BootstrapPackage.CARD__HEADER, BootstrapPackage.Literals.CARD__HEADER, newHeader);
 	}
 
 	/**
@@ -72,8 +91,8 @@ public class CardImpl extends MinimalEObjectImpl.Container implements Card {
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public EList<CommandFactory<Object>> getHeader() {
-		return (EList<CommandFactory<Object>>)eDynamicGet(BootstrapPackage.CARD__HEADER, BootstrapPackage.Literals.CARD__HEADER, true, true);
+	public EList<Div> getBody() {
+		return (EList<Div>)eDynamicGet(BootstrapPackage.CARD__BODY, BootstrapPackage.Literals.CARD__BODY, true, true);
 	}
 
 	/**
@@ -83,8 +102,8 @@ public class CardImpl extends MinimalEObjectImpl.Container implements Card {
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public EList<CommandFactory<Object>> getBody() {
-		return (EList<CommandFactory<Object>>)eDynamicGet(BootstrapPackage.CARD__BODY, BootstrapPackage.Literals.CARD__BODY, true, true);
+	public Div getFooter() {
+		return (Div)eDynamicGet(BootstrapPackage.CARD__FOOTER, BootstrapPackage.Literals.CARD__FOOTER, true, true);
 	}
 
 	/**
@@ -92,10 +111,19 @@ public class CardImpl extends MinimalEObjectImpl.Container implements Card {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@SuppressWarnings("unchecked")
+	public NotificationChain basicSetFooter(Div newFooter, NotificationChain msgs) {
+		msgs = eDynamicInverseAdd((InternalEObject)newFooter, BootstrapPackage.CARD__FOOTER, msgs);
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
-	public EList<CommandFactory<Object>> getFooter() {
-		return (EList<CommandFactory<Object>>)eDynamicGet(BootstrapPackage.CARD__FOOTER, BootstrapPackage.Literals.CARD__FOOTER, true, true);
+	public void setFooter(Div newFooter) {
+		eDynamicSet(BootstrapPackage.CARD__FOOTER, BootstrapPackage.Literals.CARD__FOOTER, newFooter);
 	}
 
 	/**
@@ -107,11 +135,11 @@ public class CardImpl extends MinimalEObjectImpl.Container implements Card {
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case BootstrapPackage.CARD__HEADER:
-				return ((InternalEList<?>)getHeader()).basicRemove(otherEnd, msgs);
+				return basicSetHeader(null, msgs);
 			case BootstrapPackage.CARD__BODY:
 				return ((InternalEList<?>)getBody()).basicRemove(otherEnd, msgs);
 			case BootstrapPackage.CARD__FOOTER:
-				return ((InternalEList<?>)getFooter()).basicRemove(otherEnd, msgs);
+				return basicSetFooter(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -144,16 +172,14 @@ public class CardImpl extends MinimalEObjectImpl.Container implements Card {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case BootstrapPackage.CARD__HEADER:
-				getHeader().clear();
-				getHeader().addAll((Collection<? extends CommandFactory<Object>>)newValue);
+				setHeader((Div)newValue);
 				return;
 			case BootstrapPackage.CARD__BODY:
 				getBody().clear();
-				getBody().addAll((Collection<? extends CommandFactory<Object>>)newValue);
+				getBody().addAll((Collection<? extends Div>)newValue);
 				return;
 			case BootstrapPackage.CARD__FOOTER:
-				getFooter().clear();
-				getFooter().addAll((Collection<? extends CommandFactory<Object>>)newValue);
+				setFooter((Div)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -168,13 +194,13 @@ public class CardImpl extends MinimalEObjectImpl.Container implements Card {
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case BootstrapPackage.CARD__HEADER:
-				getHeader().clear();
+				setHeader((Div)null);
 				return;
 			case BootstrapPackage.CARD__BODY:
 				getBody().clear();
 				return;
 			case BootstrapPackage.CARD__FOOTER:
-				getFooter().clear();
+				setFooter((Div)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -189,13 +215,19 @@ public class CardImpl extends MinimalEObjectImpl.Container implements Card {
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case BootstrapPackage.CARD__HEADER:
-				return !getHeader().isEmpty();
+				return getHeader() != null;
 			case BootstrapPackage.CARD__BODY:
 				return !getBody().isEmpty();
 			case BootstrapPackage.CARD__FOOTER:
-				return !getFooter().isEmpty();
+				return getFooter() != null;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	@Override
+	public Command<BootstrapElement> create(Context context) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 } //CardImpl

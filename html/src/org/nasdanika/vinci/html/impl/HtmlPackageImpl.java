@@ -2,13 +2,16 @@
  */
 package org.nasdanika.vinci.html.impl;
 
+import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EGenericType;
 import org.eclipse.emf.ecore.EPackage;
 
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
+import org.nasdanika.html.TagName;
 import org.nasdanika.ncore.NcorePackage;
 import org.nasdanika.vinci.html.HtmlElement;
 import org.nasdanika.vinci.html.HtmlFactory;
@@ -42,6 +45,20 @@ public class HtmlPackageImpl extends EPackageImpl implements HtmlPackage {
 	 * @generated
 	 */
 	private EClass tagEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EDataType tagNameEDataType = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EDataType iTagEDataType = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -153,6 +170,36 @@ public class HtmlPackageImpl extends EPackageImpl implements HtmlPackage {
 	 * @generated
 	 */
 	@Override
+	public EAttribute getTag_Name() {
+		return (EAttribute)tagEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EDataType getTagName() {
+		return tagNameEDataType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EDataType getITag() {
+		return iTagEDataType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public HtmlFactory getHtmlFactory() {
 		return (HtmlFactory)getEFactoryInstance();
 	}
@@ -182,6 +229,11 @@ public class HtmlPackageImpl extends EPackageImpl implements HtmlPackage {
 		createEReference(containerEClass, CONTAINER__CONTENT);
 
 		tagEClass = createEClass(TAG);
+		createEAttribute(tagEClass, TAG__NAME);
+
+		// Create data types
+		tagNameEDataType = createEDataType(TAG_NAME);
+		iTagEDataType = createEDataType(ITAG);
 	}
 
 	/**
@@ -215,12 +267,14 @@ public class HtmlPackageImpl extends EPackageImpl implements HtmlPackage {
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		EGenericType g1 = createEGenericType(theNcorePackage.getCommandFactory());
-		EGenericType g2 = createEGenericType(ecorePackage.getEJavaObject());
+		EGenericType g1 = createEGenericType(this.getHtmlElement());
+		tagEClass.getEGenericSuperTypes().add(g1);
+		g1 = createEGenericType(this.getContainer());
+		tagEClass.getEGenericSuperTypes().add(g1);
+		g1 = createEGenericType(theNcorePackage.getCommandFactory());
+		EGenericType g2 = createEGenericType(this.getITag());
 		g1.getETypeArguments().add(g2);
-		htmlElementEClass.getEGenericSuperTypes().add(g1);
-		tagEClass.getESuperTypes().add(this.getHtmlElement());
-		tagEClass.getESuperTypes().add(this.getContainer());
+		tagEClass.getEGenericSuperTypes().add(g1);
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(htmlElementEClass, HtmlElement.class, "HtmlElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -232,6 +286,11 @@ public class HtmlPackageImpl extends EPackageImpl implements HtmlPackage {
 		initEReference(getContainer_Content(), g1, null, "content", null, 0, -1, org.nasdanika.vinci.html.Container.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(tagEClass, Tag.class, "Tag", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getTag_Name(), this.getTagName(), "name", null, 0, 1, Tag.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		// Initialize data types
+		initEDataType(tagNameEDataType, TagName.class, "TagName", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
+		initEDataType(iTagEDataType, org.nasdanika.html.Tag.class, "ITag", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);

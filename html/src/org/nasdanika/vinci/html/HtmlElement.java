@@ -3,7 +3,6 @@
 package org.nasdanika.vinci.html;
 
 import org.eclipse.emf.ecore.EObject;
-import org.nasdanika.common.CommandFactory;
 
 /**
  * <!-- begin-user-doc -->
@@ -12,8 +11,8 @@ import org.nasdanika.common.CommandFactory;
  *
  *
  * @see org.nasdanika.vinci.html.HtmlPackage#getHtmlElement()
- * @model abstract="true" superTypes="org.nasdanika.ncore.CommandFactory&lt;org.eclipse.emf.ecore.EJavaObject&gt;"
+ * @model abstract="true"
  * @generated
  */
-public interface HtmlElement extends EObject, CommandFactory<Object> {
+public interface HtmlElement extends EObject {
 } // HtmlElement
