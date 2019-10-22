@@ -5,7 +5,7 @@ package org.nasdanika.vinci.presentation;
 import org.eclipse.emf.common.EMFPlugin;
 import org.eclipse.emf.common.ui.EclipseUIPlugin;
 import org.eclipse.emf.common.util.ResourceLocator;
-import org.nasdanika.codegen.provider.CodegenEditPlugin;
+import org.nasdanika.ncore.provider.NcoreEditPlugin;
 
 /**
  * This is the central singleton for the App editor plugin.
@@ -39,7 +39,7 @@ public final class VinciEditorPlugin extends EMFPlugin {
 	public VinciEditorPlugin() {
 		super
 			(new ResourceLocator [] {
-				CodegenEditPlugin.INSTANCE,
+				NcoreEditPlugin.INSTANCE,
 			});
 	}
 

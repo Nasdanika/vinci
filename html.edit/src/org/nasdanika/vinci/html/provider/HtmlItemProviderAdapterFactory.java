@@ -72,6 +72,29 @@ public class HtmlItemProviderAdapterFactory extends HtmlAdapterFactory implement
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.nasdanika.vinci.html.Container} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ContainerItemProvider containerItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.nasdanika.vinci.html.Container}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createContainerAdapter() {
+		if (containerItemProvider == null) {
+			containerItemProvider = new ContainerItemProvider(this);
+		}
+
+		return containerItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link org.nasdanika.vinci.html.Tag} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -199,6 +222,7 @@ public class HtmlItemProviderAdapterFactory extends HtmlAdapterFactory implement
 	 */
 	@Override
 	public void dispose() {
+		if (containerItemProvider != null) containerItemProvider.dispose();
 		if (tagItemProvider != null) tagItemProvider.dispose();
 	}
 

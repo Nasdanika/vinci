@@ -3,10 +3,13 @@
 package org.nasdanika.vinci.html.impl;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EGenericType;
 import org.eclipse.emf.ecore.EPackage;
 
+import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
+import org.nasdanika.ncore.NcorePackage;
 import org.nasdanika.vinci.html.HtmlElement;
 import org.nasdanika.vinci.html.HtmlFactory;
 import org.nasdanika.vinci.html.HtmlPackage;
@@ -25,6 +28,13 @@ public class HtmlPackageImpl extends EPackageImpl implements HtmlPackage {
 	 * @generated
 	 */
 	private EClass htmlElementEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass containerEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -80,6 +90,9 @@ public class HtmlPackageImpl extends EPackageImpl implements HtmlPackage {
 
 		isInited = true;
 
+		// Initialize simple dependencies
+		NcorePackage.eINSTANCE.eClass();
+
 		// Create package meta-data objects
 		theHtmlPackage.createPackageContents();
 
@@ -102,6 +115,26 @@ public class HtmlPackageImpl extends EPackageImpl implements HtmlPackage {
 	@Override
 	public EClass getHtmlElement() {
 		return htmlElementEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getContainer() {
+		return containerEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getContainer_Content() {
+		return (EReference)containerEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -145,6 +178,9 @@ public class HtmlPackageImpl extends EPackageImpl implements HtmlPackage {
 		// Create classes and their features
 		htmlElementEClass = createEClass(HTML_ELEMENT);
 
+		containerEClass = createEClass(CONTAINER);
+		createEReference(containerEClass, CONTAINER__CONTENT);
+
 		tagEClass = createEClass(TAG);
 	}
 
@@ -171,15 +207,29 @@ public class HtmlPackageImpl extends EPackageImpl implements HtmlPackage {
 		setNsPrefix(eNS_PREFIX);
 		setNsURI(eNS_URI);
 
+		// Obtain other dependent packages
+		NcorePackage theNcorePackage = (NcorePackage)EPackage.Registry.INSTANCE.getEPackage(NcorePackage.eNS_URI);
+
 		// Create type parameters
 
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
+		EGenericType g1 = createEGenericType(theNcorePackage.getCommandFactory());
+		EGenericType g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		htmlElementEClass.getEGenericSuperTypes().add(g1);
 		tagEClass.getESuperTypes().add(this.getHtmlElement());
+		tagEClass.getESuperTypes().add(this.getContainer());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(htmlElementEClass, HtmlElement.class, "HtmlElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(containerEClass, org.nasdanika.vinci.html.Container.class, "Container", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		g1 = createEGenericType(theNcorePackage.getCommandFactory());
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		initEReference(getContainer_Content(), g1, null, "content", null, 0, -1, org.nasdanika.vinci.html.Container.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(tagEClass, Tag.class, "Tag", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

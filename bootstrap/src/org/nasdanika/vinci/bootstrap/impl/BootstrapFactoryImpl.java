@@ -57,6 +57,10 @@ public class BootstrapFactoryImpl extends EFactoryImpl implements BootstrapFacto
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
 			case BootstrapPackage.BOOTSTRAP_ELEMENT: return createBootstrapElement();
+			case BootstrapPackage.CONTAINER: return createContainer();
+			case BootstrapPackage.ROW: return createRow();
+			case BootstrapPackage.COLUMN: return createColumn();
+			case BootstrapPackage.CARD: return createCard();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -71,6 +75,50 @@ public class BootstrapFactoryImpl extends EFactoryImpl implements BootstrapFacto
 	public BootstrapElement createBootstrapElement() {
 		BootstrapElementImpl bootstrapElement = new BootstrapElementImpl();
 		return bootstrapElement;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public org.nasdanika.vinci.bootstrap.Container createContainer() {
+		ContainerImpl container = new ContainerImpl();
+		return container;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Row createRow() {
+		RowImpl row = new RowImpl();
+		return row;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Column createColumn() {
+		ColumnImpl column = new ColumnImpl();
+		return column;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Card createCard() {
+		CardImpl card = new CardImpl();
+		return card;
 	}
 
 	/**

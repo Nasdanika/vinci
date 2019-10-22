@@ -15,6 +15,7 @@ Require-Bundle: org.eclipse.core.runtime,
  org.nasdanika.common;bundle-version="1.0.0";visibility:=reexport,
  org.nasdanika.emf;bundle-version="1.0.0";visibility:=reexport,
  org.nasdanika.vinci.html;bundle-version="0.1.0";visibility:=reexport,
+ org.nasdanika.ncore;visibility:=reexport,
  org.nasdanika.html.bootstrap;bundle-version="2.0.0";visibility:=reexport
 Bundle-ActivationPolicy: lazy
 Automatic-Module-Name: org.nasdanika.vinci.bootstrap

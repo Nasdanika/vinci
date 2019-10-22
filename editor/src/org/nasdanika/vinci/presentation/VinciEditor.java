@@ -118,7 +118,7 @@ import org.eclipse.ui.views.contentoutline.IContentOutlinePage;
 import org.eclipse.ui.views.properties.IPropertySheetPage;
 import org.eclipse.ui.views.properties.PropertySheet;
 import org.eclipse.ui.views.properties.PropertySheetPage;
-import org.nasdanika.codegen.provider.CodegenItemProviderAdapterFactory;
+import org.nasdanika.ncore.provider.NcoreItemProviderAdapterFactory;
 import org.nasdanika.vinci.app.provider.AppItemProviderAdapterFactory;
 
 
@@ -673,7 +673,7 @@ public class VinciEditor
 
 		adapterFactory.addAdapterFactory(new ResourceItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new AppItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new CodegenItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new NcoreItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
 
 		// Create the command stack that will notify this editor as commands are executed.

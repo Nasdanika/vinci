@@ -7,6 +7,7 @@ import org.eclipse.emf.ecore.EPackage;
 
 import org.eclipse.emf.ecore.util.Switch;
 
+import org.nasdanika.common.CommandFactory;
 import org.nasdanika.vinci.html.*;
 
 /**
@@ -22,7 +23,7 @@ import org.nasdanika.vinci.html.*;
  * @see org.nasdanika.vinci.html.HtmlPackage
  * @generated
  */
-public class HtmlSwitch<T> extends Switch<T> {
+public class HtmlSwitch<T1> extends Switch<T1> {
 	/**
 	 * The cached model package
 	 * <!-- begin-user-doc -->
@@ -64,18 +65,27 @@ public class HtmlSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	@Override
-	protected T doSwitch(int classifierID, EObject theEObject) {
+	protected T1 doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
 			case HtmlPackage.HTML_ELEMENT: {
 				HtmlElement htmlElement = (HtmlElement)theEObject;
-				T result = caseHtmlElement(htmlElement);
+				T1 result = caseHtmlElement(htmlElement);
+				if (result == null) result = caseCommandFactory(htmlElement);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case HtmlPackage.CONTAINER: {
+				Container container = (Container)theEObject;
+				T1 result = caseContainer(container);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case HtmlPackage.TAG: {
 				Tag tag = (Tag)theEObject;
-				T result = caseTag(tag);
+				T1 result = caseTag(tag);
 				if (result == null) result = caseHtmlElement(tag);
+				if (result == null) result = caseContainer(tag);
+				if (result == null) result = caseCommandFactory(tag);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -94,7 +104,22 @@ public class HtmlSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseHtmlElement(HtmlElement object) {
+	public T1 caseHtmlElement(HtmlElement object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Container</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Container</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseContainer(Container object) {
 		return null;
 	}
 
@@ -109,7 +134,22 @@ public class HtmlSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseTag(Tag object) {
+	public T1 caseTag(Tag object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Command Factory</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Command Factory</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public <T> T1 caseCommandFactory(CommandFactory<T> object) {
 		return null;
 	}
 
@@ -125,7 +165,7 @@ public class HtmlSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	@Override
-	public T defaultCase(EObject object) {
+	public T1 defaultCase(EObject object) {
 		return null;
 	}
 

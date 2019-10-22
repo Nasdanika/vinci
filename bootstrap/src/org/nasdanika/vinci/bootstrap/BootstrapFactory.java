@@ -31,6 +31,42 @@ public interface BootstrapFactory extends EFactory {
 	BootstrapElement createBootstrapElement();
 
 	/**
+	 * Returns a new object of class '<em>Container</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Container</em>'.
+	 * @generated
+	 */
+	Container createContainer();
+
+	/**
+	 * Returns a new object of class '<em>Row</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Row</em>'.
+	 * @generated
+	 */
+	Row createRow();
+
+	/**
+	 * Returns a new object of class '<em>Column</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Column</em>'.
+	 * @generated
+	 */
+	Column createColumn();
+
+	/**
+	 * Returns a new object of class '<em>Card</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Card</em>'.
+	 * @generated
+	 */
+	Card createCard();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

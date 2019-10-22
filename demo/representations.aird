@@ -6,7 +6,6 @@
     <semanticResources>environment:/viewpoint</semanticResources>
     <semanticResources>platform:/resource/org.nasdanika.vinci.app/model/app.ecore</semanticResources>
     <semanticResources>http://www.eclipse.org/emf/2002/Ecore</semanticResources>
-    <semanticResources>platform:/resource/org.nasdanika.codegen/model/codegen.ecore</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_O1o_UOUtEemTGLfpR1bNxw">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/resource/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']"/>
       <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_-Wjq0OU5EemjGu4BxMdqpA" name="new Action Diagram" repPath="#_-WW2gOU5EemjGu4BxMdqpA">

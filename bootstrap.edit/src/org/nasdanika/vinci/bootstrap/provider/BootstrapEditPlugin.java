@@ -6,6 +6,7 @@ import org.eclipse.emf.common.EMFPlugin;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 
+import org.nasdanika.ncore.provider.NcoreEditPlugin;
 import org.nasdanika.vinci.html.provider.HtmlEditPlugin;
 
 /**
@@ -41,6 +42,7 @@ public final class BootstrapEditPlugin extends EMFPlugin {
 		super
 		  (new ResourceLocator [] {
 		     HtmlEditPlugin.INSTANCE,
+		     NcoreEditPlugin.INSTANCE,
 		   });
 	}
 

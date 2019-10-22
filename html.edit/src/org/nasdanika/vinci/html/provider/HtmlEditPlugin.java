@@ -5,6 +5,7 @@ package org.nasdanika.vinci.html.provider;
 import org.eclipse.emf.common.EMFPlugin;
 
 import org.eclipse.emf.common.util.ResourceLocator;
+import org.nasdanika.ncore.provider.NcoreEditPlugin;
 
 /**
  * This is the central singleton for the Html edit plugin.
@@ -38,6 +39,7 @@ public final class HtmlEditPlugin extends EMFPlugin {
 	public HtmlEditPlugin() {
 		super
 		  (new ResourceLocator [] {
+		     NcoreEditPlugin.INSTANCE,
 		   });
 	}
 

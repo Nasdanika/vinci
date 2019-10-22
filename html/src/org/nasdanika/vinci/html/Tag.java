@@ -13,5 +13,5 @@ package org.nasdanika.vinci.html;
  * @model
  * @generated
  */
-public interface Tag extends HtmlElement {
+public interface Tag extends HtmlElement, Container {
 } // Tag

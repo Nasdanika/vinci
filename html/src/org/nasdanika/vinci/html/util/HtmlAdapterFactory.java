@@ -9,6 +9,7 @@ import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 
 import org.eclipse.emf.ecore.EObject;
 
+import org.nasdanika.common.CommandFactory;
 import org.nasdanika.vinci.html.*;
 
 /**
@@ -72,8 +73,16 @@ public class HtmlAdapterFactory extends AdapterFactoryImpl {
 				return createHtmlElementAdapter();
 			}
 			@Override
+			public Adapter caseContainer(Container object) {
+				return createContainerAdapter();
+			}
+			@Override
 			public Adapter caseTag(Tag object) {
 				return createTagAdapter();
+			}
+			@Override
+			public <T> Adapter caseCommandFactory(CommandFactory<T> object) {
+				return createCommandFactoryAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -110,6 +119,20 @@ public class HtmlAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.vinci.html.Container <em>Container</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.vinci.html.Container
+	 * @generated
+	 */
+	public Adapter createContainerAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link org.nasdanika.vinci.html.Tag <em>Tag</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -120,6 +143,20 @@ public class HtmlAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createTagAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.common.CommandFactory <em>Command Factory</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.common.CommandFactory
+	 * @generated
+	 */
+	public Adapter createCommandFactoryAdapter() {
 		return null;
 	}
 

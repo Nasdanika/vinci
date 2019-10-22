@@ -7,6 +7,7 @@ import org.eclipse.emf.ecore.EPackage;
 
 import org.eclipse.emf.ecore.util.Switch;
 
+import org.nasdanika.common.CommandFactory;
 import org.nasdanika.vinci.bootstrap.*;
 
 import org.nasdanika.vinci.html.HtmlElement;
@@ -24,7 +25,7 @@ import org.nasdanika.vinci.html.HtmlElement;
  * @see org.nasdanika.vinci.bootstrap.BootstrapPackage
  * @generated
  */
-public class BootstrapSwitch<T> extends Switch<T> {
+public class BootstrapSwitch<T1> extends Switch<T1> {
 	/**
 	 * The cached model package
 	 * <!-- begin-user-doc -->
@@ -66,12 +67,46 @@ public class BootstrapSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	@Override
-	protected T doSwitch(int classifierID, EObject theEObject) {
+	protected T1 doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
 			case BootstrapPackage.BOOTSTRAP_ELEMENT: {
 				BootstrapElement bootstrapElement = (BootstrapElement)theEObject;
-				T result = caseBootstrapElement(bootstrapElement);
+				T1 result = caseBootstrapElement(bootstrapElement);
 				if (result == null) result = caseHtmlElement(bootstrapElement);
+				if (result == null) result = caseCommandFactory(bootstrapElement);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case BootstrapPackage.CONTAINER: {
+				Container container = (Container)theEObject;
+				T1 result = caseContainer(container);
+				if (result == null) result = caseBootstrapElement(container);
+				if (result == null) result = caseHtmlElement(container);
+				if (result == null) result = caseCommandFactory(container);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case BootstrapPackage.ROW: {
+				Row row = (Row)theEObject;
+				T1 result = caseRow(row);
+				if (result == null) result = caseBootstrapElement(row);
+				if (result == null) result = caseHtmlElement(row);
+				if (result == null) result = caseCommandFactory(row);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case BootstrapPackage.COLUMN: {
+				Column column = (Column)theEObject;
+				T1 result = caseColumn(column);
+				if (result == null) result = caseBootstrapElement(column);
+				if (result == null) result = caseHtmlElement(column);
+				if (result == null) result = caseCommandFactory(column);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case BootstrapPackage.CARD: {
+				Card card = (Card)theEObject;
+				T1 result = caseCard(card);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -90,7 +125,82 @@ public class BootstrapSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseBootstrapElement(BootstrapElement object) {
+	public T1 caseBootstrapElement(BootstrapElement object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Container</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Container</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseContainer(Container object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Row</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Row</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseRow(Row object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Column</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Column</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseColumn(Column object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Card</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Card</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseCard(Card object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Command Factory</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Command Factory</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public <T> T1 caseCommandFactory(CommandFactory<T> object) {
 		return null;
 	}
 
@@ -105,7 +215,7 @@ public class BootstrapSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseHtmlElement(HtmlElement object) {
+	public T1 caseHtmlElement(HtmlElement object) {
 		return null;
 	}
 
@@ -121,7 +231,7 @@ public class BootstrapSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	@Override
-	public T defaultCase(EObject object) {
+	public T1 defaultCase(EObject object) {
 		return null;
 	}
 
