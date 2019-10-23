@@ -5,7 +5,7 @@ package org.nasdanika.vinci.app.util;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
-import org.nasdanika.common.CommandFactory;
+import org.nasdanika.common.WorkFactory;
 import org.nasdanika.ncore.ModelElement;
 import org.nasdanika.vinci.app.*;
 
@@ -89,7 +89,7 @@ public class AppSwitch<T1> extends Switch<T1> {
 				Label<?> label = (Label<?>)theEObject;
 				T1 result = caseLabel(label);
 				if (result == null) result = caseModelElement(label);
-				if (result == null) result = caseCommandFactory(label);
+				if (result == null) result = caseWorkFactory(label);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -99,7 +99,7 @@ public class AppSwitch<T1> extends Switch<T1> {
 				if (result == null) result = caseLabel(category);
 				if (result == null) result = caseContainer(category);
 				if (result == null) result = caseModelElement(category);
-				if (result == null) result = caseCommandFactory(category);
+				if (result == null) result = caseWorkFactory(category);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -124,7 +124,7 @@ public class AppSwitch<T1> extends Switch<T1> {
 				if (result == null) result = caseLabel(actionCategory);
 				if (result == null) result = caseContainer(actionCategory);
 				if (result == null) result = caseModelElement(actionCategory);
-				if (result == null) result = caseCommandFactory(actionCategory);
+				if (result == null) result = caseWorkFactory(actionCategory);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -135,7 +135,7 @@ public class AppSwitch<T1> extends Switch<T1> {
 				if (result == null) result = caseAbstractAction(actionBase);
 				if (result == null) result = caseContainer(actionBase);
 				if (result == null) result = caseModelElement(actionBase);
-				if (result == null) result = caseCommandFactory(actionBase);
+				if (result == null) result = caseWorkFactory(actionBase);
 				if (result == null) result = caseActionElement(actionBase);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -170,7 +170,7 @@ public class AppSwitch<T1> extends Switch<T1> {
 				if (result == null) result = caseAbstractAction(action);
 				if (result == null) result = caseContainer(action);
 				if (result == null) result = caseModelElement(action);
-				if (result == null) result = caseCommandFactory(action);
+				if (result == null) result = caseWorkFactory(action);
 				if (result == null) result = caseActionElement(action);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -183,7 +183,7 @@ public class AppSwitch<T1> extends Switch<T1> {
 				if (result == null) result = caseAbstractAction(partition);
 				if (result == null) result = caseContainer(partition);
 				if (result == null) result = caseModelElement(partition);
-				if (result == null) result = caseCommandFactory(partition);
+				if (result == null) result = caseWorkFactory(partition);
 				if (result == null) result = caseActionElement(partition);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -268,17 +268,17 @@ public class AppSwitch<T1> extends Switch<T1> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Command Factory</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Work Factory</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Command Factory</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Work Factory</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public <T> T1 caseCommandFactory(CommandFactory<T> object) {
+	public <T> T1 caseWorkFactory(WorkFactory<T> object) {
 		return null;
 	}
 

@@ -13,7 +13,7 @@
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="content" upperBound="-1"
         containment="true">
-      <eGenericType eClassifier="ecore:EClass ../../org.nasdanika.ncore/model/ncore.ecore#//CommandFactory">
+      <eGenericType eClassifier="ecore:EClass ../../org.nasdanika.ncore/model/ncore.ecore#//WorkFactory">
         <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
       </eGenericType>
     </eStructuralFeatures>
@@ -22,7 +22,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="#//TagName"/>
     <eGenericSuperTypes eClassifier="#//HtmlElement"/>
     <eGenericSuperTypes eClassifier="#//Container"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass ../../org.nasdanika.ncore/model/ncore.ecore#//CommandFactory">
+    <eGenericSuperTypes eClassifier="ecore:EClass ../../org.nasdanika.ncore/model/ncore.ecore#//WorkFactory">
       <eTypeArguments eClassifier="#//ITag"/>
     </eGenericSuperTypes>
   </eClassifiers>

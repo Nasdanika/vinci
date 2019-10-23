@@ -9,14 +9,13 @@ import java.util.concurrent.Executor;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.InternalEList;
-import org.nasdanika.common.Command;
-import org.nasdanika.common.CommandFactory;
-import org.nasdanika.common.CompoundCommand;
+import org.nasdanika.common.CompoundWork;
 import org.nasdanika.common.Context;
 import org.nasdanika.common.ProgressMonitor;
+import org.nasdanika.common.Work;
+import org.nasdanika.common.WorkFactory;
 import org.nasdanika.html.HTMLFactory;
 import org.nasdanika.html.TagName;
 import org.nasdanika.vinci.html.HtmlPackage;
@@ -73,8 +72,8 @@ public class TagImpl extends HtmlElementImpl implements Tag {
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public EList<CommandFactory<Object>> getContent() {
-		return (EList<CommandFactory<Object>>)eDynamicGet(HtmlPackage.TAG__CONTENT, HtmlPackage.Literals.CONTAINER__CONTENT, true, true);
+	public EList<WorkFactory<Object>> getContent() {
+		return (EList<WorkFactory<Object>>)eDynamicGet(HtmlPackage.TAG__CONTENT, HtmlPackage.Literals.CONTAINER__CONTENT, true, true);
 	}
 
 	/**
@@ -138,7 +137,7 @@ public class TagImpl extends HtmlElementImpl implements Tag {
 		switch (featureID) {
 			case HtmlPackage.TAG__CONTENT:
 				getContent().clear();
-				getContent().addAll((Collection<? extends CommandFactory<Object>>)newValue);
+				getContent().addAll((Collection<? extends WorkFactory<Object>>)newValue);
 				return;
 			case HtmlPackage.TAG__NAME:
 				setName((TagName)newValue);
@@ -194,7 +193,7 @@ public class TagImpl extends HtmlElementImpl implements Tag {
 				default: return -1;
 			}
 		}
-		if (baseClass == CommandFactory.class) {
+		if (baseClass == WorkFactory.class) {
 			switch (derivedFeatureID) {
 				default: return -1;
 			}
@@ -215,7 +214,7 @@ public class TagImpl extends HtmlElementImpl implements Tag {
 				default: return -1;
 			}
 		}
-		if (baseClass == CommandFactory.class) {
+		if (baseClass == WorkFactory.class) {
 			switch (baseFeatureID) {
 				default: return -1;
 			}
@@ -224,8 +223,8 @@ public class TagImpl extends HtmlElementImpl implements Tag {
 	}
 
 	@Override
-	public Command<org.nasdanika.html.Tag> create(Context context) throws Exception {
-		CompoundCommand<org.nasdanika.html.Tag, Object> ret = new CompoundCommand<org.nasdanika.html.Tag, Object>(context.get(Executor.class), false) {
+	public Work<org.nasdanika.html.Tag> create(Context context) throws Exception {
+		CompoundWork<org.nasdanika.html.Tag, Object> ret = new CompoundWork<org.nasdanika.html.Tag, Object>(getTitle(), context.get(Executor.class)) {
 			
 			@Override
 			protected org.nasdanika.html.Tag combine(List<Object> results, ProgressMonitor progressMonitor) throws Exception {
@@ -235,8 +234,8 @@ public class TagImpl extends HtmlElementImpl implements Tag {
 			}
 		};
 		
-		for (CommandFactory<Object> content: getContent()) {
-			ret.add(content.create(context), "Content", 1);
+		for (WorkFactory<Object> content: getContent()) {
+			ret.add(content.create(context));
 		}
 		
 		return ret;

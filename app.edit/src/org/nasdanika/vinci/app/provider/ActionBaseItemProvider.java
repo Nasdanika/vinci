@@ -3,18 +3,20 @@
 package org.nasdanika.vinci.app.provider;
 
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+import org.nasdanika.emf.edit.EReferenceItemProvider;
 import org.nasdanika.ncore.NcoreFactory;
 import org.nasdanika.vinci.app.ActionBase;
 import org.nasdanika.vinci.app.AppFactory;
@@ -280,6 +282,19 @@ public class ActionBaseItemProvider extends LabelItemProvider {
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
 				 null,
 				 null));
+	}
+	
+	@Override
+	public Collection<?> getChildren(Object object) {
+		List<EReferenceItemProvider> children = eReferenceItemProviders.get(object);
+		if (children == null) {
+			children = new ArrayList<>();
+			eReferenceItemProviders.put(object, children);
+			children.add(new EReferenceItemProvider(this, (EObject) object, AppPackage.Literals.CONTAINER__ELEMENTS));
+			children.add(new EReferenceItemProvider(this, (EObject) object, AppPackage.Literals.ABSTRACT_ACTION__ACTION_MAPPINGS)); 
+			children.add(new EReferenceItemProvider(this, (EObject) object, AppPackage.Literals.ACTION_BASE__CONTENT)); 
+		}
+		return children;
 	}
 
 	/**
@@ -635,23 +650,23 @@ public class ActionBaseItemProvider extends LabelItemProvider {
 	 * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getCreateChildText(Object owner, Object feature, Object child, Collection<?> selection) {
-		Object childFeature = feature;
-		Object childObject = child;
-
-		boolean qualify =
-			childFeature == AppPackage.Literals.ABSTRACT_ACTION__ACTION_MAPPINGS ||
-			childFeature == AppPackage.Literals.CONTAINER__ELEMENTS ||
-			childFeature == AppPackage.Literals.ACTION_BASE__CONTENT;
-
-		if (qualify) {
-			return getString
-				("_UI_CreateChild_text2",
-				 new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
-		}
+//		Object childFeature = feature;
+//		Object childObject = child;
+//
+//		boolean qualify =
+//			childFeature == AppPackage.Literals.ABSTRACT_ACTION__ACTION_MAPPINGS ||
+//			childFeature == AppPackage.Literals.CONTAINER__ELEMENTS ||
+//			childFeature == AppPackage.Literals.ACTION_BASE__CONTENT;
+//
+//		if (qualify) {
+//			return getString
+//				("_UI_CreateChild_text2",
+//				 new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
+//		}
 		return super.getCreateChildText(owner, feature, child, selection);
 	}
 

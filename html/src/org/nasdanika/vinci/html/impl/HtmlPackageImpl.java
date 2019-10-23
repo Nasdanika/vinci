@@ -271,7 +271,7 @@ public class HtmlPackageImpl extends EPackageImpl implements HtmlPackage {
 		tagEClass.getEGenericSuperTypes().add(g1);
 		g1 = createEGenericType(this.getContainer());
 		tagEClass.getEGenericSuperTypes().add(g1);
-		g1 = createEGenericType(theNcorePackage.getCommandFactory());
+		g1 = createEGenericType(theNcorePackage.getWorkFactory());
 		EGenericType g2 = createEGenericType(this.getITag());
 		g1.getETypeArguments().add(g2);
 		tagEClass.getEGenericSuperTypes().add(g1);
@@ -280,7 +280,7 @@ public class HtmlPackageImpl extends EPackageImpl implements HtmlPackage {
 		initEClass(htmlElementEClass, HtmlElement.class, "HtmlElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(containerEClass, org.nasdanika.vinci.html.Container.class, "Container", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		g1 = createEGenericType(theNcorePackage.getCommandFactory());
+		g1 = createEGenericType(theNcorePackage.getWorkFactory());
 		g2 = createEGenericType(ecorePackage.getEJavaObject());
 		g1.getETypeArguments().add(g2);
 		initEReference(getContainer_Content(), g1, null, "content", null, 0, -1, org.nasdanika.vinci.html.Container.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

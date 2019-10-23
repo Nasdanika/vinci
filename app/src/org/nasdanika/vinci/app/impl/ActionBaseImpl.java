@@ -3,14 +3,15 @@
 package org.nasdanika.vinci.app.impl;
 
 import java.util.Collection;
+
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.InternalEList;
-import org.nasdanika.common.Command;
-import org.nasdanika.common.CommandFactory;
 import org.nasdanika.common.Context;
+import org.nasdanika.common.Work;
+import org.nasdanika.common.WorkFactory;
 import org.nasdanika.vinci.app.AbstractAction;
 import org.nasdanika.vinci.app.ActionBase;
 import org.nasdanika.vinci.app.ActionElement;
@@ -376,8 +377,8 @@ public abstract class ActionBaseImpl extends LabelImpl<ActionSpec> implements Ac
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public EList<CommandFactory<Object>> getContent() {
-		return (EList<CommandFactory<Object>>)eDynamicGet(AppPackage.ACTION_BASE__CONTENT, AppPackage.Literals.ACTION_BASE__CONTENT, true, true);
+	public EList<WorkFactory<Object>> getContent() {
+		return (EList<WorkFactory<Object>>)eDynamicGet(AppPackage.ACTION_BASE__CONTENT, AppPackage.Literals.ACTION_BASE__CONTENT, true, true);
 	}
 
 	/**
@@ -486,7 +487,7 @@ public abstract class ActionBaseImpl extends LabelImpl<ActionSpec> implements Ac
 				return;
 			case AppPackage.ACTION_BASE__CONTENT:
 				getContent().clear();
-				getContent().addAll((Collection<? extends CommandFactory<Object>>)newValue);
+				getContent().addAll((Collection<? extends WorkFactory<Object>>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -638,7 +639,7 @@ public abstract class ActionBaseImpl extends LabelImpl<ActionSpec> implements Ac
 	}
 	
 	@Override
-	public Command<Object> create(Context context) throws Exception {
+	public Work<Object> create(Context context) throws Exception {
 		throw new UnsupportedOperationException();
 	}
 

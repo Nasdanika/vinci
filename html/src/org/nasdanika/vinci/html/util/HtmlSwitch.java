@@ -6,8 +6,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 
 import org.eclipse.emf.ecore.util.Switch;
-
-import org.nasdanika.common.CommandFactory;
+import org.nasdanika.common.WorkFactory;
 import org.nasdanika.ncore.ModelElement;
 import org.nasdanika.vinci.html.*;
 
@@ -86,7 +85,7 @@ public class HtmlSwitch<T1> extends Switch<T1> {
 				T1 result = caseTag(tag);
 				if (result == null) result = caseHtmlElement(tag);
 				if (result == null) result = caseContainer(tag);
-				if (result == null) result = caseCommandFactory(tag);
+				if (result == null) result = caseWorkFactory(tag);
 				if (result == null) result = caseModelElement(tag);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -156,17 +155,17 @@ public class HtmlSwitch<T1> extends Switch<T1> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Command Factory</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Work Factory</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Command Factory</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Work Factory</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public <T> T1 caseCommandFactory(CommandFactory<T> object) {
+	public <T> T1 caseWorkFactory(WorkFactory<T> object) {
 		return null;
 	}
 

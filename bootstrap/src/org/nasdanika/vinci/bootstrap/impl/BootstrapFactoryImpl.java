@@ -463,7 +463,7 @@ public class BootstrapFactoryImpl extends EFactoryImpl implements BootstrapFacto
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public String convertColor(Color it) {
 		return it.name();

@@ -9,7 +9,7 @@ import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.InternalEList;
-import org.nasdanika.common.CommandFactory;
+import org.nasdanika.common.WorkFactory;
 import org.nasdanika.vinci.bootstrap.BootstrapPackage;
 import org.nasdanika.vinci.bootstrap.Column;
 import org.nasdanika.vinci.html.HtmlPackage;
@@ -54,8 +54,8 @@ public class ColumnImpl extends BootstrapElementImpl implements Column {
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public EList<CommandFactory<Object>> getContent() {
-		return (EList<CommandFactory<Object>>)eDynamicGet(BootstrapPackage.COLUMN__CONTENT, HtmlPackage.Literals.CONTAINER__CONTENT, true, true);
+	public EList<WorkFactory<Object>> getContent() {
+		return (EList<WorkFactory<Object>>)eDynamicGet(BootstrapPackage.COLUMN__CONTENT, HtmlPackage.Literals.CONTAINER__CONTENT, true, true);
 	}
 
 	/**
@@ -97,7 +97,7 @@ public class ColumnImpl extends BootstrapElementImpl implements Column {
 		switch (featureID) {
 			case BootstrapPackage.COLUMN__CONTENT:
 				getContent().clear();
-				getContent().addAll((Collection<? extends CommandFactory<Object>>)newValue);
+				getContent().addAll((Collection<? extends WorkFactory<Object>>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

@@ -6,8 +6,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 
 import org.eclipse.emf.ecore.util.Switch;
-
-import org.nasdanika.common.CommandFactory;
+import org.nasdanika.common.WorkFactory;
 import org.nasdanika.ncore.ModelElement;
 import org.nasdanika.vinci.bootstrap.*;
 
@@ -82,7 +81,7 @@ public class BootstrapSwitch<T1> extends Switch<T1> {
 				Container container = (Container)theEObject;
 				T1 result = caseContainer(container);
 				if (result == null) result = caseBootstrapElement(container);
-				if (result == null) result = caseCommandFactory(container);
+				if (result == null) result = caseWorkFactory(container);
 				if (result == null) result = caseHtmlElement(container);
 				if (result == null) result = caseModelElement(container);
 				if (result == null) result = defaultCase(theEObject);
@@ -111,7 +110,7 @@ public class BootstrapSwitch<T1> extends Switch<T1> {
 				Card card = (Card)theEObject;
 				T1 result = caseCard(card);
 				if (result == null) result = caseBootstrapElement(card);
-				if (result == null) result = caseCommandFactory(card);
+				if (result == null) result = caseWorkFactory(card);
 				if (result == null) result = caseHtmlElement(card);
 				if (result == null) result = caseModelElement(card);
 				if (result == null) result = defaultCase(theEObject);
@@ -124,7 +123,7 @@ public class BootstrapSwitch<T1> extends Switch<T1> {
 				if (result == null) result = caseBootstrapElement(tag);
 				if (result == null) result = caseHtmlElement(tag);
 				if (result == null) result = caseHtml_Container(tag);
-				if (result == null) result = caseCommandFactory(tag);
+				if (result == null) result = caseWorkFactory(tag);
 				if (result == null) result = caseModelElement(tag);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -137,7 +136,7 @@ public class BootstrapSwitch<T1> extends Switch<T1> {
 				if (result == null) result = caseBootstrapElement(div);
 				if (result == null) result = caseHtmlElement(div);
 				if (result == null) result = caseHtml_Container(div);
-				if (result == null) result = caseCommandFactory(div);
+				if (result == null) result = caseWorkFactory(div);
 				if (result == null) result = caseModelElement(div);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -151,7 +150,7 @@ public class BootstrapSwitch<T1> extends Switch<T1> {
 				if (result == null) result = caseBootstrapElement(alert);
 				if (result == null) result = caseHtmlElement(alert);
 				if (result == null) result = caseHtml_Container(alert);
-				if (result == null) result = caseCommandFactory(alert);
+				if (result == null) result = caseWorkFactory(alert);
 				if (result == null) result = caseModelElement(alert);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -165,7 +164,7 @@ public class BootstrapSwitch<T1> extends Switch<T1> {
 				if (result == null) result = caseBootstrapElement(badge);
 				if (result == null) result = caseHtmlElement(badge);
 				if (result == null) result = caseHtml_Container(badge);
-				if (result == null) result = caseCommandFactory(badge);
+				if (result == null) result = caseWorkFactory(badge);
 				if (result == null) result = caseModelElement(badge);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -179,7 +178,7 @@ public class BootstrapSwitch<T1> extends Switch<T1> {
 				if (result == null) result = caseBootstrapElement(button);
 				if (result == null) result = caseHtmlElement(button);
 				if (result == null) result = caseHtml_Container(button);
-				if (result == null) result = caseCommandFactory(button);
+				if (result == null) result = caseWorkFactory(button);
 				if (result == null) result = caseModelElement(button);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -732,21 +731,6 @@ public class BootstrapSwitch<T1> extends Switch<T1> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Command Factory</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Command Factory</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public <T> T1 caseCommandFactory(CommandFactory<T> object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Container</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -788,6 +772,21 @@ public class BootstrapSwitch<T1> extends Switch<T1> {
 	 * @generated
 	 */
 	public T1 caseHtmlElement(HtmlElement object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Work Factory</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Work Factory</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public <T> T1 caseWorkFactory(WorkFactory<T> object) {
 		return null;
 	}
 

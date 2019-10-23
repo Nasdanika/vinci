@@ -3,7 +3,7 @@
 package org.nasdanika.vinci.bootstrap;
 
 import org.eclipse.emf.common.util.EList;
-import org.nasdanika.common.CommandFactory;
+import org.nasdanika.common.WorkFactory;
 
 /**
  * <!-- begin-user-doc -->
@@ -20,10 +20,10 @@ import org.nasdanika.common.CommandFactory;
  * </ul>
  *
  * @see org.nasdanika.vinci.bootstrap.BootstrapPackage#getCard()
- * @model superTypes="org.nasdanika.vinci.bootstrap.BootstrapElement org.nasdanika.ncore.CommandFactory&lt;org.nasdanika.vinci.bootstrap.IBootstrapElement&gt;"
+ * @model superTypes="org.nasdanika.vinci.bootstrap.BootstrapElement org.nasdanika.ncore.WorkFactory&lt;org.nasdanika.vinci.bootstrap.IBootstrapElement&gt;"
  * @generated
  */
-public interface Card extends BootstrapElement, CommandFactory<org.nasdanika.html.bootstrap.BootstrapElement> {
+public interface Card extends BootstrapElement, WorkFactory<org.nasdanika.html.bootstrap.BootstrapElement> {
 	/**
 	 * Returns the value of the '<em><b>Header</b></em>' containment reference.
 	 * <!-- begin-user-doc -->

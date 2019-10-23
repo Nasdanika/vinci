@@ -10,7 +10,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="rows" upperBound="-1" eType="#//Row"
         containment="true"/>
     <eGenericSuperTypes eClassifier="#//BootstrapElement"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass ../../org.nasdanika.ncore/model/ncore.ecore#//CommandFactory">
+    <eGenericSuperTypes eClassifier="ecore:EClass ../../org.nasdanika.ncore/model/ncore.ecore#//WorkFactory">
       <eTypeArguments eClassifier="#//IBootstrapElement"/>
     </eGenericSuperTypes>
   </eClassifiers>
@@ -27,7 +27,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="footer" eType="#//Div"
         containment="true"/>
     <eGenericSuperTypes eClassifier="#//BootstrapElement"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass ../../org.nasdanika.ncore/model/ncore.ecore#//CommandFactory">
+    <eGenericSuperTypes eClassifier="ecore:EClass ../../org.nasdanika.ncore/model/ncore.ecore#//WorkFactory">
       <eTypeArguments eClassifier="#//IBootstrapElement"/>
     </eGenericSuperTypes>
   </eClassifiers>

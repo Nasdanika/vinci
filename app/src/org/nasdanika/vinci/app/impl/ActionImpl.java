@@ -3,8 +3,6 @@
 package org.nasdanika.vinci.app.impl;
 
 import org.eclipse.emf.ecore.EClass;
-import org.nasdanika.common.Command;
-import org.nasdanika.common.Context;
 import org.nasdanika.vinci.app.Action;
 import org.nasdanika.vinci.app.AppPackage;
 

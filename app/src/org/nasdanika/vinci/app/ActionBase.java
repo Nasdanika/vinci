@@ -3,7 +3,7 @@
 package org.nasdanika.vinci.app;
 
 import org.eclipse.emf.common.util.EList;
-import org.nasdanika.common.CommandFactory;
+import org.nasdanika.common.WorkFactory;
 
 /**
  * <!-- begin-user-doc -->
@@ -264,7 +264,7 @@ public interface ActionBase extends Label<ActionSpec>, AbstractAction, Container
 
 	/**
 	 * Returns the value of the '<em><b>Content</b></em>' containment reference list.
-	 * The list contents are of type {@link org.nasdanika.common.CommandFactory}<code>&lt;java.lang.Object&gt;</code>.
+	 * The list contents are of type {@link org.nasdanika.common.WorkFactory}<code>&lt;java.lang.Object&gt;</code>.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
@@ -272,9 +272,9 @@ public interface ActionBase extends Label<ActionSpec>, AbstractAction, Container
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Content</em>' containment reference list.
 	 * @see org.nasdanika.vinci.app.AppPackage#getActionBase_Content()
-	 * @model type="org.nasdanika.ncore.CommandFactory&lt;org.eclipse.emf.ecore.EJavaObject&gt;" containment="true"
+	 * @model type="org.nasdanika.ncore.WorkFactory&lt;org.eclipse.emf.ecore.EJavaObject&gt;" containment="true"
 	 * @generated
 	 */
-	EList<CommandFactory<Object>> getContent();
+	EList<WorkFactory<Object>> getContent();
 
 } // ActionBase

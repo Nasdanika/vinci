@@ -848,7 +848,7 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 		bootstrapElementEClass.getESuperTypes().add(theHtmlPackage.getHtmlElement());
 		EGenericType g1 = createEGenericType(this.getBootstrapElement());
 		containerEClass.getEGenericSuperTypes().add(g1);
-		g1 = createEGenericType(theNcorePackage.getCommandFactory());
+		g1 = createEGenericType(theNcorePackage.getWorkFactory());
 		EGenericType g2 = createEGenericType(this.getIBootstrapElement());
 		g1.getETypeArguments().add(g2);
 		containerEClass.getEGenericSuperTypes().add(g1);
@@ -857,7 +857,7 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 		columnEClass.getESuperTypes().add(theHtmlPackage.getContainer());
 		g1 = createEGenericType(this.getBootstrapElement());
 		cardEClass.getEGenericSuperTypes().add(g1);
-		g1 = createEGenericType(theNcorePackage.getCommandFactory());
+		g1 = createEGenericType(theNcorePackage.getWorkFactory());
 		g2 = createEGenericType(this.getIBootstrapElement());
 		g1.getETypeArguments().add(g2);
 		cardEClass.getEGenericSuperTypes().add(g1);

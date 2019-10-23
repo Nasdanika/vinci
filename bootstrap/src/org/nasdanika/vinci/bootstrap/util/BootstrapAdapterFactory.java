@@ -8,8 +8,7 @@ import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 
 import org.eclipse.emf.ecore.EObject;
-
-import org.nasdanika.common.CommandFactory;
+import org.nasdanika.common.WorkFactory;
 import org.nasdanika.ncore.ModelElement;
 import org.nasdanika.vinci.bootstrap.*;
 
@@ -192,8 +191,8 @@ public class BootstrapAdapterFactory extends AdapterFactoryImpl {
 				return createHtmlElementAdapter();
 			}
 			@Override
-			public <T> Adapter caseCommandFactory(CommandFactory<T> object) {
-				return createCommandFactoryAdapter();
+			public <T> Adapter caseWorkFactory(WorkFactory<T> object) {
+				return createWorkFactoryAdapter();
 			}
 			@Override
 			public Adapter caseHtml_Container(org.nasdanika.vinci.html.Container object) {
@@ -630,20 +629,6 @@ public class BootstrapAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.nasdanika.common.CommandFactory <em>Command Factory</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.nasdanika.common.CommandFactory
-	 * @generated
-	 */
-	public Adapter createCommandFactoryAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link org.nasdanika.vinci.html.Container <em>Container</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -682,6 +667,20 @@ public class BootstrapAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createHtmlElementAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.common.WorkFactory <em>Work Factory</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.common.WorkFactory
+	 * @generated
+	 */
+	public Adapter createWorkFactoryAdapter() {
 		return null;
 	}
 
