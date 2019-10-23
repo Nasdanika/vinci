@@ -21,16 +21,31 @@
               <content xsi:type="org.nasdanika.vinci.html:Tag"/>
             </body>
           </content>
-          <content xsi:type="org.nasdanika.vinci.bootstrap:Tag" title="Xmm" name="input"/>
+          <content xsi:type="org.nasdanika.vinci.bootstrap:Tag" title="Xmm" name="input">
+            <content xsi:type="org.nasdanika.ncore:Null"/>
+          </content>
         </columns>
+        <columns/>
       </rows>
+      <rows/>
     </content>
     <content xsi:type="org.nasdanika.vinci.bootstrap:Alert" name="div"/>
     <content xsi:type="org.nasdanika.ncore:RestOperation"/>
     <content xsi:type="org.nasdanika.ncore:Operation"/>
   </elements>
-  <elements xsi:type="org.nasdanika.vinci.app:Action" text="Action-7"/>
-  <elements xsi:type="org.nasdanika.vinci.app:Action" title="Action-7"/>
+  <elements xsi:type="org.nasdanika.vinci.app:Action" text="Action-6">
+    <elements xsi:type="org.nasdanika.vinci.app:Action">
+      <elements xsi:type="org.nasdanika.vinci.app:Partition"/>
+    </elements>
+    <content xsi:type="org.nasdanika.vinci.bootstrap:Card">
+      <body name="div"/>
+    </content>
+  </elements>
+  <elements xsi:type="org.nasdanika.vinci.app:Action" title="Action-7">
+    <elements xsi:type="org.nasdanika.vinci.app:Action"/>
+  </elements>
   <elements xsi:type="org.nasdanika.vinci.app:ActionReference" title="dd"/>
   <elements xsi:type="org.nasdanika.vinci.app:ActionLink" title="fgtv"/>
+  <elements xsi:type="org.nasdanika.vinci.app:Action"/>
+  <content xsi:type="org.nasdanika.ncore:RestFunction"/>
 </org.nasdanika.vinci.app:Action>

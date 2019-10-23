@@ -26,6 +26,7 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
@@ -55,9 +56,9 @@ import org.eclipse.ui.actions.WorkspaceModifyOperation;
 import org.eclipse.ui.dialogs.WizardNewFileCreationPage;
 import org.eclipse.ui.part.FileEditorInput;
 import org.eclipse.ui.part.ISetSelectionTarget;
-import org.nasdanika.vinci.app.AppFactory;
 import org.nasdanika.vinci.app.AppPackage;
 import org.nasdanika.vinci.app.provider.AppEditPlugin;
+import org.nasdanika.vinci.bootstrap.BootstrapPackage;
 
 
 /**
@@ -91,15 +92,10 @@ public class VinciModelWizard extends Wizard implements INewWizard {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected AppPackage appPackage = AppPackage.eINSTANCE;
-
-	/**
-	 * This caches an instance of the model factory.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected AppFactory appFactory = appPackage.getAppFactory();
+	protected EPackage[] ePackages = {
+			AppPackage.eINSTANCE,
+			BootstrapPackage.eINSTANCE
+	};
 
 	/**
 	 * This is the file creation page.
@@ -164,11 +160,13 @@ public class VinciModelWizard extends Wizard implements INewWizard {
 	protected Collection<String> getInitialObjectNames() {
 		if (initialObjectNames == null) {
 			initialObjectNames = new ArrayList<String>();
-			for (EClassifier eClassifier : appPackage.getEClassifiers()) {
-				if (eClassifier instanceof EClass) {
-					EClass eClass = (EClass)eClassifier;
-					if (!eClass.isAbstract()) {
-						initialObjectNames.add(eClass.getName());
+			for (EPackage ePackage: ePackages) {
+				for (EClassifier eClassifier : ePackage.getEClassifiers()) {
+					if (eClassifier instanceof EClass) {
+						EClass eClass = (EClass)eClassifier;
+						if (!eClass.isAbstract()) {
+							initialObjectNames.add(ePackage.getName()+" "+eClass.getName());
+						}
 					}
 				}
 			}
@@ -184,9 +182,14 @@ public class VinciModelWizard extends Wizard implements INewWizard {
 	 * @generated
 	 */
 	protected EObject createInitialModel() {
-		EClass eClass = (EClass)appPackage.getEClassifier(initialObjectCreationPage.getInitialObjectName());
-		EObject rootObject = appFactory.create(eClass);
-		return rootObject;
+		String[] initialObjectName = initialObjectCreationPage.getInitialObjectName().split(" ");
+		for (EPackage ePackage: ePackages) {
+			if (initialObjectName[0].equals(ePackage.getName())) {  
+				EClass eClass = (EClass) ePackage.getEClassifier(initialObjectName[1]);
+				return ePackage.getEFactoryInstance().create(eClass);
+			}
+		}
+		return null;
 	}
 
 	/**
