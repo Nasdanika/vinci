@@ -2,15 +2,9 @@
  */
 package org.nasdanika.vinci.html.impl;
 
-import java.util.Collection;
 import java.util.List;
 import java.util.concurrent.Executor;
-
-import org.eclipse.emf.common.notify.NotificationChain;
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.util.InternalEList;
 import org.nasdanika.common.CompoundWork;
 import org.nasdanika.common.Context;
 import org.nasdanika.common.ProgressMonitor;
@@ -29,7 +23,6 @@ import org.nasdanika.vinci.html.Tag;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.nasdanika.vinci.html.impl.TagImpl#getContent <em>Content</em>}</li>
  *   <li>{@link org.nasdanika.vinci.html.impl.TagImpl#getName <em>Name</em>}</li>
  * </ul>
  *
@@ -70,17 +63,6 @@ public class TagImpl extends HtmlElementImpl implements Tag {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@SuppressWarnings("unchecked")
-	@Override
-	public EList<WorkFactory<Object>> getContent() {
-		return (EList<WorkFactory<Object>>)eDynamicGet(HtmlPackage.TAG__CONTENT, HtmlPackage.Literals.CONTAINER__CONTENT, true, true);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public TagName getName() {
 		return (TagName)eDynamicGet(HtmlPackage.TAG__NAME, HtmlPackage.Literals.TAG__NAME, true, true);
@@ -102,24 +84,8 @@ public class TagImpl extends HtmlElementImpl implements Tag {
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case HtmlPackage.TAG__CONTENT:
-				return ((InternalEList<?>)getContent()).basicRemove(otherEnd, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case HtmlPackage.TAG__CONTENT:
-				return getContent();
 			case HtmlPackage.TAG__NAME:
 				return getName();
 		}
@@ -135,10 +101,6 @@ public class TagImpl extends HtmlElementImpl implements Tag {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case HtmlPackage.TAG__CONTENT:
-				getContent().clear();
-				getContent().addAll((Collection<? extends WorkFactory<Object>>)newValue);
-				return;
 			case HtmlPackage.TAG__NAME:
 				setName((TagName)newValue);
 				return;
@@ -154,9 +116,6 @@ public class TagImpl extends HtmlElementImpl implements Tag {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case HtmlPackage.TAG__CONTENT:
-				getContent().clear();
-				return;
 			case HtmlPackage.TAG__NAME:
 				setName(NAME_EDEFAULT);
 				return;
@@ -172,59 +131,15 @@ public class TagImpl extends HtmlElementImpl implements Tag {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case HtmlPackage.TAG__CONTENT:
-				return !getContent().isEmpty();
 			case HtmlPackage.TAG__NAME:
 				return NAME_EDEFAULT == null ? getName() != null : !NAME_EDEFAULT.equals(getName());
 		}
 		return super.eIsSet(featureID);
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
-	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
-		if (baseClass == org.nasdanika.vinci.html.Container.class) {
-			switch (derivedFeatureID) {
-				case HtmlPackage.TAG__CONTENT: return HtmlPackage.CONTAINER__CONTENT;
-				default: return -1;
-			}
-		}
-		if (baseClass == WorkFactory.class) {
-			switch (derivedFeatureID) {
-				default: return -1;
-			}
-		}
-		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
-		if (baseClass == org.nasdanika.vinci.html.Container.class) {
-			switch (baseFeatureID) {
-				case HtmlPackage.CONTAINER__CONTENT: return HtmlPackage.TAG__CONTENT;
-				default: return -1;
-			}
-		}
-		if (baseClass == WorkFactory.class) {
-			switch (baseFeatureID) {
-				default: return -1;
-			}
-		}
-		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
-	}
-
-	@Override
-	public Work<org.nasdanika.html.Tag> create(Context context) throws Exception {
-		CompoundWork<org.nasdanika.html.Tag, Object> ret = new CompoundWork<org.nasdanika.html.Tag, Object>(getTitle(), context.get(Executor.class)) {
+	public Work<Object> create(Context context) throws Exception {
+		CompoundWork<Object, Object> ret = new CompoundWork<Object, Object>(getTitle(), context.get(Executor.class)) {
 			
 			@Override
 			protected org.nasdanika.html.Tag combine(List<Object> results, ProgressMonitor progressMonitor) throws Exception {
@@ -233,10 +148,6 @@ public class TagImpl extends HtmlElementImpl implements Tag {
 				return tag;
 			}
 		};
-		
-		for (WorkFactory<Object> content: getContent()) {
-			ret.add(content.create(context));
-		}
 		
 		return ret;
 	}

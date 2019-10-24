@@ -9,9 +9,39 @@
   <foreignModel>bootstrap.ecore</foreignModel>
   <genPackages prefix="Bootstrap" basePackage="org.nasdanika.vinci" disposableProviderFactory="true"
       ecorePackage="bootstrap.ecore#/">
-    <genDataTypes ecoreDataType="bootstrap.ecore#//IBootstrapElement"/>
     <genDataTypes ecoreDataType="bootstrap.ecore#//Color" convert=""/>
     <genClasses ecoreClass="bootstrap.ecore#//BootstrapElement"/>
+    <genClasses ecoreClass="bootstrap.ecore#//Tag"/>
+    <genClasses ecoreClass="bootstrap.ecore#//Div"/>
+    <genClasses image="false" ecoreClass="bootstrap.ecore#//Item">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bootstrap.ecore#//Item/active"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bootstrap.ecore#//Item/disabled"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bootstrap.ecore#//Item/color"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="bootstrap.ecore#//ActionGroupItem">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference bootstrap.ecore#//ActionGroupItem/name"/>
+    </genClasses>
+    <genClasses ecoreClass="bootstrap.ecore#//LinkActionGroupItem">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bootstrap.ecore#//LinkActionGroupItem/href"/>
+    </genClasses>
+    <genClasses ecoreClass="bootstrap.ecore#//ContentActionGroupItem"/>
+    <genClasses ecoreClass="bootstrap.ecore#//ActionGroup">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference bootstrap.ecore#//ActionGroup/items"/>
+    </genClasses>
+    <genClasses ecoreClass="bootstrap.ecore#//Alert">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bootstrap.ecore#//Alert/color"
+          propertyEditorFactory=""/>
+    </genClasses>
+    <genClasses ecoreClass="bootstrap.ecore#//Badge">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bootstrap.ecore#//Badge/color"/>
+    </genClasses>
+    <genClasses ecoreClass="bootstrap.ecore#//Breadcrumbs"/>
+    <genClasses ecoreClass="bootstrap.ecore#//Button">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bootstrap.ecore#//Button/color"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bootstrap.ecore#//Button/outline"/>
+    </genClasses>
+    <genClasses ecoreClass="bootstrap.ecore#//ButtonGroup"/>
+    <genClasses ecoreClass="bootstrap.ecore#//ButtonToolbar"/>
     <genClasses ecoreClass="bootstrap.ecore#//Container">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference bootstrap.ecore#//Container/rows"/>
     </genClasses>
@@ -24,24 +54,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference bootstrap.ecore#//Card/body"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference bootstrap.ecore#//Card/footer"/>
     </genClasses>
-    <genClasses ecoreClass="bootstrap.ecore#//Tag"/>
-    <genClasses ecoreClass="bootstrap.ecore#//Div"/>
-    <genClasses ecoreClass="bootstrap.ecore#//Alert">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bootstrap.ecore#//Alert/color"
-          propertyEditorFactory=""/>
-    </genClasses>
-    <genClasses ecoreClass="bootstrap.ecore#//Badge">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bootstrap.ecore#//Badge/color"/>
-    </genClasses>
-    <genClasses ecoreClass="bootstrap.ecore#//Button">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bootstrap.ecore#//Button/color"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bootstrap.ecore#//Button/outline"/>
-    </genClasses>
-    <genClasses ecoreClass="bootstrap.ecore#//ButtonGroup"/>
-    <genClasses ecoreClass="bootstrap.ecore#//ButtonToolbar"/>
     <genClasses ecoreClass="bootstrap.ecore#//Dropdown"/>
-    <genClasses ecoreClass="bootstrap.ecore#//ActionGroup"/>
-    <genClasses ecoreClass="bootstrap.ecore#//Breadcrumbs"/>
     <genClasses ecoreClass="bootstrap.ecore#//Form"/>
     <genClasses ecoreClass="bootstrap.ecore#//ListGroup"/>
     <genClasses ecoreClass="bootstrap.ecore#//Navs"/>

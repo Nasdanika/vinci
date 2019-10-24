@@ -19,10 +19,10 @@ import org.nasdanika.html.TagName;
  * </ul>
  *
  * @see org.nasdanika.vinci.html.HtmlPackage#getTag()
- * @model superTypes="org.nasdanika.vinci.html.HtmlElement org.nasdanika.vinci.html.Container org.nasdanika.ncore.WorkFactory&lt;org.nasdanika.vinci.html.ITag&gt;"
+ * @model superTypes="org.nasdanika.vinci.html.HtmlElement org.nasdanika.ncore.WorkFactory&lt;org.eclipse.emf.ecore.EJavaObject&gt;"
  * @generated
  */
-public interface Tag extends HtmlElement, Container, WorkFactory<org.nasdanika.html.Tag> {
+public interface Tag extends HtmlElement, WorkFactory<Object> {
 
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.

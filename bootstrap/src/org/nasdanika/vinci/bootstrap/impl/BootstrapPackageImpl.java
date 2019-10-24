@@ -15,6 +15,7 @@ import org.nasdanika.html.bootstrap.Color;
 import org.nasdanika.ncore.NcorePackage;
 import org.nasdanika.vinci.bootstrap.Accordion;
 import org.nasdanika.vinci.bootstrap.ActionGroup;
+import org.nasdanika.vinci.bootstrap.ActionGroupItem;
 import org.nasdanika.vinci.bootstrap.Alert;
 import org.nasdanika.vinci.bootstrap.Badge;
 import org.nasdanika.vinci.bootstrap.BootstrapElement;
@@ -28,11 +29,14 @@ import org.nasdanika.vinci.bootstrap.ButtonToolbar;
 import org.nasdanika.vinci.bootstrap.Card;
 import org.nasdanika.vinci.bootstrap.Collapse;
 import org.nasdanika.vinci.bootstrap.Column;
+import org.nasdanika.vinci.bootstrap.ContentActionGroupItem;
 import org.nasdanika.vinci.bootstrap.Div;
 import org.nasdanika.vinci.bootstrap.Dropdown;
 import org.nasdanika.vinci.bootstrap.Form;
 import org.nasdanika.vinci.bootstrap.FormGroup;
 import org.nasdanika.vinci.bootstrap.InputGroup;
+import org.nasdanika.vinci.bootstrap.Item;
+import org.nasdanika.vinci.bootstrap.LinkActionGroupItem;
 import org.nasdanika.vinci.bootstrap.ListGroup;
 import org.nasdanika.vinci.bootstrap.Modal;
 import org.nasdanika.vinci.bootstrap.Navbar;
@@ -97,6 +101,34 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 	 * @generated
 	 */
 	private EClass divEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass itemEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass actionGroupItemEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass linkActionGroupItemEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass contentActionGroupItemEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -244,13 +276,6 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 	 * @generated
 	 */
 	private EClass accordionEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EDataType iBootstrapElementEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -450,6 +475,96 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 	 * @generated
 	 */
 	@Override
+	public EClass getItem() {
+		return itemEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getItem_Active() {
+		return (EAttribute)itemEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getItem_Disabled() {
+		return (EAttribute)itemEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getItem_Color() {
+		return (EAttribute)itemEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getActionGroupItem() {
+		return actionGroupItemEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getActionGroupItem_Name() {
+		return (EReference)actionGroupItemEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getLinkActionGroupItem() {
+		return linkActionGroupItemEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getLinkActionGroupItem_Href() {
+		return (EAttribute)linkActionGroupItemEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getContentActionGroupItem() {
+		return contentActionGroupItemEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getAlert() {
 		return alertEClass;
 	}
@@ -552,6 +667,16 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 	@Override
 	public EClass getActionGroup() {
 		return actionGroupEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getActionGroup_Items() {
+		return (EReference)actionGroupEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -700,16 +825,6 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 	 * @generated
 	 */
 	@Override
-	public EDataType getIBootstrapElement() {
-		return iBootstrapElementEDataType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EDataType getColor() {
 		return colorEDataType;
 	}
@@ -745,6 +860,42 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 		// Create classes and their features
 		bootstrapElementEClass = createEClass(BOOTSTRAP_ELEMENT);
 
+		tagEClass = createEClass(TAG);
+
+		divEClass = createEClass(DIV);
+
+		itemEClass = createEClass(ITEM);
+		createEAttribute(itemEClass, ITEM__ACTIVE);
+		createEAttribute(itemEClass, ITEM__DISABLED);
+		createEAttribute(itemEClass, ITEM__COLOR);
+
+		actionGroupItemEClass = createEClass(ACTION_GROUP_ITEM);
+		createEReference(actionGroupItemEClass, ACTION_GROUP_ITEM__NAME);
+
+		linkActionGroupItemEClass = createEClass(LINK_ACTION_GROUP_ITEM);
+		createEAttribute(linkActionGroupItemEClass, LINK_ACTION_GROUP_ITEM__HREF);
+
+		contentActionGroupItemEClass = createEClass(CONTENT_ACTION_GROUP_ITEM);
+
+		actionGroupEClass = createEClass(ACTION_GROUP);
+		createEReference(actionGroupEClass, ACTION_GROUP__ITEMS);
+
+		alertEClass = createEClass(ALERT);
+		createEAttribute(alertEClass, ALERT__COLOR);
+
+		badgeEClass = createEClass(BADGE);
+		createEAttribute(badgeEClass, BADGE__COLOR);
+
+		breadcrumbsEClass = createEClass(BREADCRUMBS);
+
+		buttonEClass = createEClass(BUTTON);
+		createEAttribute(buttonEClass, BUTTON__COLOR);
+		createEAttribute(buttonEClass, BUTTON__OUTLINE);
+
+		buttonGroupEClass = createEClass(BUTTON_GROUP);
+
+		buttonToolbarEClass = createEClass(BUTTON_TOOLBAR);
+
 		containerEClass = createEClass(CONTAINER);
 		createEReference(containerEClass, CONTAINER__ROWS);
 
@@ -758,29 +909,7 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 		createEReference(cardEClass, CARD__BODY);
 		createEReference(cardEClass, CARD__FOOTER);
 
-		tagEClass = createEClass(TAG);
-
-		divEClass = createEClass(DIV);
-
-		alertEClass = createEClass(ALERT);
-		createEAttribute(alertEClass, ALERT__COLOR);
-
-		badgeEClass = createEClass(BADGE);
-		createEAttribute(badgeEClass, BADGE__COLOR);
-
-		buttonEClass = createEClass(BUTTON);
-		createEAttribute(buttonEClass, BUTTON__COLOR);
-		createEAttribute(buttonEClass, BUTTON__OUTLINE);
-
-		buttonGroupEClass = createEClass(BUTTON_GROUP);
-
-		buttonToolbarEClass = createEClass(BUTTON_TOOLBAR);
-
 		dropdownEClass = createEClass(DROPDOWN);
-
-		actionGroupEClass = createEClass(ACTION_GROUP);
-
-		breadcrumbsEClass = createEClass(BREADCRUMBS);
 
 		formEClass = createEClass(FORM);
 
@@ -809,7 +938,6 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 		accordionEClass = createEClass(ACCORDION);
 
 		// Create data types
-		iBootstrapElementEDataType = createEDataType(IBOOTSTRAP_ELEMENT);
 		colorEDataType = createEDataType(COLOR);
 	}
 
@@ -846,10 +974,22 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 
 		// Add supertypes to classes
 		bootstrapElementEClass.getESuperTypes().add(theHtmlPackage.getHtmlElement());
+		tagEClass.getESuperTypes().add(theHtmlPackage.getTag());
+		tagEClass.getESuperTypes().add(this.getBootstrapElement());
+		divEClass.getESuperTypes().add(this.getTag());
+		itemEClass.getESuperTypes().add(theNcorePackage.getModelElement());
+		actionGroupItemEClass.getESuperTypes().add(this.getItem());
+		linkActionGroupItemEClass.getESuperTypes().add(this.getActionGroupItem());
+		contentActionGroupItemEClass.getESuperTypes().add(this.getActionGroupItem());
+		contentActionGroupItemEClass.getESuperTypes().add(theHtmlPackage.getContainer());
+		actionGroupEClass.getESuperTypes().add(this.getDiv());
+		alertEClass.getESuperTypes().add(this.getDiv());
+		badgeEClass.getESuperTypes().add(this.getDiv());
+		buttonEClass.getESuperTypes().add(this.getDiv());
 		EGenericType g1 = createEGenericType(this.getBootstrapElement());
 		containerEClass.getEGenericSuperTypes().add(g1);
 		g1 = createEGenericType(theNcorePackage.getWorkFactory());
-		EGenericType g2 = createEGenericType(this.getIBootstrapElement());
+		EGenericType g2 = createEGenericType(ecorePackage.getEJavaObject());
 		g1.getETypeArguments().add(g2);
 		containerEClass.getEGenericSuperTypes().add(g1);
 		rowEClass.getESuperTypes().add(this.getBootstrapElement());
@@ -858,18 +998,51 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 		g1 = createEGenericType(this.getBootstrapElement());
 		cardEClass.getEGenericSuperTypes().add(g1);
 		g1 = createEGenericType(theNcorePackage.getWorkFactory());
-		g2 = createEGenericType(this.getIBootstrapElement());
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
 		g1.getETypeArguments().add(g2);
 		cardEClass.getEGenericSuperTypes().add(g1);
-		tagEClass.getESuperTypes().add(theHtmlPackage.getTag());
-		tagEClass.getESuperTypes().add(this.getBootstrapElement());
-		divEClass.getESuperTypes().add(this.getTag());
-		alertEClass.getESuperTypes().add(this.getDiv());
-		badgeEClass.getESuperTypes().add(this.getDiv());
-		buttonEClass.getESuperTypes().add(this.getDiv());
 
 		// Initialize classes, features, and operations; add parameters
-		initEClass(bootstrapElementEClass, BootstrapElement.class, "BootstrapElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(bootstrapElementEClass, BootstrapElement.class, "BootstrapElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(tagEClass, Tag.class, "Tag", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(divEClass, Div.class, "Div", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(itemEClass, Item.class, "Item", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getItem_Active(), ecorePackage.getEBoolean(), "active", null, 0, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getItem_Disabled(), ecorePackage.getEBoolean(), "disabled", null, 0, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getItem_Color(), this.getColor(), "color", null, 0, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(actionGroupItemEClass, ActionGroupItem.class, "ActionGroupItem", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		g1 = createEGenericType(theNcorePackage.getWorkFactory());
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		initEReference(getActionGroupItem_Name(), g1, null, "name", null, 0, -1, ActionGroupItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(linkActionGroupItemEClass, LinkActionGroupItem.class, "LinkActionGroupItem", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getLinkActionGroupItem_Href(), ecorePackage.getEString(), "href", null, 1, 1, LinkActionGroupItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(contentActionGroupItemEClass, ContentActionGroupItem.class, "ContentActionGroupItem", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(actionGroupEClass, ActionGroup.class, "ActionGroup", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getActionGroup_Items(), this.getActionGroupItem(), null, "items", null, 0, -1, ActionGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(alertEClass, Alert.class, "Alert", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getAlert_Color(), this.getColor(), "color", null, 0, 1, Alert.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(badgeEClass, Badge.class, "Badge", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getBadge_Color(), this.getColor(), "color", null, 0, 1, Badge.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(breadcrumbsEClass, Breadcrumbs.class, "Breadcrumbs", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(buttonEClass, Button.class, "Button", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getButton_Color(), this.getColor(), "color", null, 0, 1, Button.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getButton_Outline(), ecorePackage.getEBoolean(), "outline", null, 0, 1, Button.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(buttonGroupEClass, ButtonGroup.class, "ButtonGroup", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(buttonToolbarEClass, ButtonToolbar.class, "ButtonToolbar", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(containerEClass, org.nasdanika.vinci.bootstrap.Container.class, "Container", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getContainer_Rows(), this.getRow(), null, "rows", null, 0, -1, org.nasdanika.vinci.bootstrap.Container.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -884,29 +1057,7 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 		initEReference(getCard_Body(), this.getDiv(), null, "body", null, 0, -1, Card.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getCard_Footer(), this.getDiv(), null, "footer", null, 0, 1, Card.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(tagEClass, Tag.class, "Tag", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(divEClass, Div.class, "Div", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(alertEClass, Alert.class, "Alert", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getAlert_Color(), this.getColor(), "color", null, 0, 1, Alert.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(badgeEClass, Badge.class, "Badge", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getBadge_Color(), this.getColor(), "color", null, 0, 1, Badge.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(buttonEClass, Button.class, "Button", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getButton_Color(), this.getColor(), "color", null, 0, 1, Button.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getButton_Outline(), ecorePackage.getEBoolean(), "outline", null, 0, 1, Button.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(buttonGroupEClass, ButtonGroup.class, "ButtonGroup", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(buttonToolbarEClass, ButtonToolbar.class, "ButtonToolbar", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
 		initEClass(dropdownEClass, Dropdown.class, "Dropdown", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(actionGroupEClass, ActionGroup.class, "ActionGroup", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(breadcrumbsEClass, Breadcrumbs.class, "Breadcrumbs", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(formEClass, Form.class, "Form", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -935,7 +1086,6 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 		initEClass(accordionEClass, Accordion.class, "Accordion", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Initialize data types
-		initEDataType(iBootstrapElementEDataType, org.nasdanika.html.bootstrap.BootstrapElement.class, "IBootstrapElement", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(colorEDataType, Color.class, "Color", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource

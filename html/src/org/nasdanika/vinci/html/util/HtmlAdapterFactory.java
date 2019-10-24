@@ -81,6 +81,10 @@ public class HtmlAdapterFactory extends AdapterFactoryImpl {
 				return createTagAdapter();
 			}
 			@Override
+			public Adapter caseContentTag(ContentTag object) {
+				return createContentTagAdapter();
+			}
+			@Override
 			public Adapter caseModelElement(ModelElement object) {
 				return createModelElementAdapter();
 			}
@@ -147,6 +151,20 @@ public class HtmlAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createTagAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.vinci.html.ContentTag <em>Content Tag</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.vinci.html.ContentTag
+	 * @generated
+	 */
+	public Adapter createContentTagAdapter() {
 		return null;
 	}
 

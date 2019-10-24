@@ -16,7 +16,7 @@ import org.nasdanika.vinci.html.impl.HtmlElementImpl;
  *
  * @generated
  */
-public class BootstrapElementImpl extends HtmlElementImpl implements BootstrapElement {
+public abstract class BootstrapElementImpl extends HtmlElementImpl implements BootstrapElement {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

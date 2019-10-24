@@ -1,6 +1,6 @@
 /**
  */
-package org.nasdanika.vinci.html.provider;
+package org.nasdanika.vinci.bootstrap.provider;
 
 
 import java.util.Collection;
@@ -9,47 +9,33 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
-import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.ecore.EStructuralFeature;
 
-import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
-import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.IItemPropertySource;
-import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
-import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-
-import org.nasdanika.emf.edit.NasdanikaItemProviderAdapter;
 
 import org.nasdanika.ncore.NcoreFactory;
 
-import org.nasdanika.vinci.html.Container;
+import org.nasdanika.vinci.bootstrap.ActionGroupItem;
+import org.nasdanika.vinci.bootstrap.BootstrapFactory;
+import org.nasdanika.vinci.bootstrap.BootstrapPackage;
+
 import org.nasdanika.vinci.html.HtmlFactory;
-import org.nasdanika.vinci.html.HtmlPackage;
 
 /**
- * This is the item provider adapter for a {@link org.nasdanika.vinci.html.Container} object.
+ * This is the item provider adapter for a {@link org.nasdanika.vinci.bootstrap.ActionGroupItem} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class ContainerItemProvider 
-	extends NasdanikaItemProviderAdapter
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+public class ActionGroupItemItemProvider extends ItemItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ContainerItemProvider(AdapterFactory adapterFactory) {
+	public ActionGroupItemItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -80,7 +66,7 @@ public class ContainerItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(HtmlPackage.Literals.CONTAINER__CONTENT);
+			childrenFeatures.add(BootstrapPackage.Literals.ACTION_GROUP_ITEM__NAME);
 		}
 		return childrenFeatures;
 	}
@@ -96,17 +82,6 @@ public class ContainerItemProvider
 		// adding (see {@link AddCommand}) it as a child.
 
 		return super.getChildFeature(object, child);
-	}
-
-	/**
-	 * This returns Container.gif.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Container"));
 	}
 
 	/**
@@ -127,7 +102,10 @@ public class ContainerItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_Container_type");
+		String label = ((ActionGroupItem)object).getTitle();
+		return label == null || label.length() == 0 ?
+			getString("_UI_ActionGroupItem_type") :
+			getString("_UI_ActionGroupItem_type") + " " + label;
 	}
 
 
@@ -142,8 +120,8 @@ public class ContainerItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(Container.class)) {
-			case HtmlPackage.CONTAINER__CONTENT:
+		switch (notification.getFeatureID(ActionGroupItem.class)) {
+			case BootstrapPackage.ACTION_GROUP_ITEM__NAME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -163,109 +141,138 @@ public class ContainerItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(HtmlPackage.Literals.CONTAINER__CONTENT,
+				(BootstrapPackage.Literals.ACTION_GROUP_ITEM__NAME,
+				 BootstrapFactory.eINSTANCE.createTag()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(BootstrapPackage.Literals.ACTION_GROUP_ITEM__NAME,
+				 BootstrapFactory.eINSTANCE.createDiv()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(BootstrapPackage.Literals.ACTION_GROUP_ITEM__NAME,
+				 BootstrapFactory.eINSTANCE.createActionGroup()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(BootstrapPackage.Literals.ACTION_GROUP_ITEM__NAME,
+				 BootstrapFactory.eINSTANCE.createAlert()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(BootstrapPackage.Literals.ACTION_GROUP_ITEM__NAME,
+				 BootstrapFactory.eINSTANCE.createBadge()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(BootstrapPackage.Literals.ACTION_GROUP_ITEM__NAME,
+				 BootstrapFactory.eINSTANCE.createButton()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(BootstrapPackage.Literals.ACTION_GROUP_ITEM__NAME,
+				 BootstrapFactory.eINSTANCE.createContainer()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(BootstrapPackage.Literals.ACTION_GROUP_ITEM__NAME,
+				 BootstrapFactory.eINSTANCE.createCard()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(BootstrapPackage.Literals.ACTION_GROUP_ITEM__NAME,
 				 HtmlFactory.eINSTANCE.createTag()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(HtmlPackage.Literals.CONTAINER__CONTENT,
+				(BootstrapPackage.Literals.ACTION_GROUP_ITEM__NAME,
 				 HtmlFactory.eINSTANCE.createContentTag()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(HtmlPackage.Literals.CONTAINER__CONTENT,
+				(BootstrapPackage.Literals.ACTION_GROUP_ITEM__NAME,
 				 NcoreFactory.eINSTANCE.createTypedElement()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(HtmlPackage.Literals.CONTAINER__CONTENT,
+				(BootstrapPackage.Literals.ACTION_GROUP_ITEM__NAME,
 				 NcoreFactory.eINSTANCE.createProvider()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(HtmlPackage.Literals.CONTAINER__CONTENT,
+				(BootstrapPackage.Literals.ACTION_GROUP_ITEM__NAME,
 				 NcoreFactory.eINSTANCE.createValue()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(HtmlPackage.Literals.CONTAINER__CONTENT,
+				(BootstrapPackage.Literals.ACTION_GROUP_ITEM__NAME,
 				 NcoreFactory.eINSTANCE.createNull()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(HtmlPackage.Literals.CONTAINER__CONTENT,
+				(BootstrapPackage.Literals.ACTION_GROUP_ITEM__NAME,
 				 NcoreFactory.eINSTANCE.createOperation()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(HtmlPackage.Literals.CONTAINER__CONTENT,
+				(BootstrapPackage.Literals.ACTION_GROUP_ITEM__NAME,
 				 NcoreFactory.eINSTANCE.createArray()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(HtmlPackage.Literals.CONTAINER__CONTENT,
+				(BootstrapPackage.Literals.ACTION_GROUP_ITEM__NAME,
 				 NcoreFactory.eINSTANCE.createContext()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(HtmlPackage.Literals.CONTAINER__CONTENT,
+				(BootstrapPackage.Literals.ACTION_GROUP_ITEM__NAME,
 				 NcoreFactory.eINSTANCE.createTypedEntry()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(HtmlPackage.Literals.CONTAINER__CONTENT,
+				(BootstrapPackage.Literals.ACTION_GROUP_ITEM__NAME,
 				 NcoreFactory.eINSTANCE.createProviderEntry()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(HtmlPackage.Literals.CONTAINER__CONTENT,
+				(BootstrapPackage.Literals.ACTION_GROUP_ITEM__NAME,
 				 NcoreFactory.eINSTANCE.createMap()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(HtmlPackage.Literals.CONTAINER__CONTENT,
+				(BootstrapPackage.Literals.ACTION_GROUP_ITEM__NAME,
 				 NcoreFactory.eINSTANCE.createProperty()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(HtmlPackage.Literals.CONTAINER__CONTENT,
+				(BootstrapPackage.Literals.ACTION_GROUP_ITEM__NAME,
 				 NcoreFactory.eINSTANCE.createFunction()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(HtmlPackage.Literals.CONTAINER__CONTENT,
+				(BootstrapPackage.Literals.ACTION_GROUP_ITEM__NAME,
 				 NcoreFactory.eINSTANCE.createList()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(HtmlPackage.Literals.CONTAINER__CONTENT,
+				(BootstrapPackage.Literals.ACTION_GROUP_ITEM__NAME,
 				 NcoreFactory.eINSTANCE.createObject()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(HtmlPackage.Literals.CONTAINER__CONTENT,
+				(BootstrapPackage.Literals.ACTION_GROUP_ITEM__NAME,
 				 NcoreFactory.eINSTANCE.createHttpCall()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(HtmlPackage.Literals.CONTAINER__CONTENT,
+				(BootstrapPackage.Literals.ACTION_GROUP_ITEM__NAME,
 				 NcoreFactory.eINSTANCE.createRestOperation()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(HtmlPackage.Literals.CONTAINER__CONTENT,
+				(BootstrapPackage.Literals.ACTION_GROUP_ITEM__NAME,
 				 NcoreFactory.eINSTANCE.createRestFunction()));
-	}
-
-	/**
-	 * Return the resource locator for this item provider's resources.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public ResourceLocator getResourceLocator() {
-		return HtmlEditPlugin.INSTANCE;
 	}
 
 }

@@ -20,10 +20,10 @@ import org.nasdanika.common.WorkFactory;
  * </ul>
  *
  * @see org.nasdanika.vinci.bootstrap.BootstrapPackage#getCard()
- * @model superTypes="org.nasdanika.vinci.bootstrap.BootstrapElement org.nasdanika.ncore.WorkFactory&lt;org.nasdanika.vinci.bootstrap.IBootstrapElement&gt;"
+ * @model superTypes="org.nasdanika.vinci.bootstrap.BootstrapElement org.nasdanika.ncore.WorkFactory&lt;org.eclipse.emf.ecore.EJavaObject&gt;"
  * @generated
  */
-public interface Card extends BootstrapElement, WorkFactory<org.nasdanika.html.bootstrap.BootstrapElement> {
+public interface Card extends BootstrapElement, WorkFactory<Object> {
 	/**
 	 * Returns the value of the '<em><b>Header</b></em>' containment reference.
 	 * <!-- begin-user-doc -->

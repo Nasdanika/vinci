@@ -1,6 +1,6 @@
 /**
  */
-package org.nasdanika.vinci.html.provider;
+package org.nasdanika.vinci.bootstrap.provider;
 
 
 import java.util.Collection;
@@ -8,28 +8,29 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-import org.nasdanika.html.TagName;
-import org.nasdanika.vinci.html.HtmlPackage;
-import org.nasdanika.vinci.html.Tag;
+
+import org.nasdanika.vinci.bootstrap.BootstrapPackage;
+import org.nasdanika.vinci.bootstrap.LinkActionGroupItem;
 
 /**
- * This is the item provider adapter for a {@link org.nasdanika.vinci.html.Tag} object.
+ * This is the item provider adapter for a {@link org.nasdanika.vinci.bootstrap.LinkActionGroupItem} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class TagItemProvider extends HtmlElementItemProvider {
+public class LinkActionGroupItemItemProvider extends ActionGroupItemItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public TagItemProvider(AdapterFactory adapterFactory) {
+	public LinkActionGroupItemItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -44,25 +45,25 @@ public class TagItemProvider extends HtmlElementItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addNamePropertyDescriptor(object);
+			addHrefPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Name feature.
+	 * This adds a property descriptor for the Href feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addNamePropertyDescriptor(Object object) {
+	protected void addHrefPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Tag_name_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Tag_name_feature", "_UI_Tag_type"),
-				 HtmlPackage.Literals.TAG__NAME,
+				 getString("_UI_LinkActionGroupItem_href_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_LinkActionGroupItem_href_feature", "_UI_LinkActionGroupItem_type"),
+				 BootstrapPackage.Literals.LINK_ACTION_GROUP_ITEM__HREF,
 				 true,
 				 false,
 				 false,
@@ -72,14 +73,14 @@ public class TagItemProvider extends HtmlElementItemProvider {
 	}
 
 	/**
-	 * This returns Tag.gif.
+	 * This returns LinkActionGroupItem.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Tag"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/LinkActionGroupItem"));
 	}
 
 	/**
@@ -100,11 +101,10 @@ public class TagItemProvider extends HtmlElementItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		TagName labelValue = ((Tag)object).getName();
-		String label = labelValue == null ? null : labelValue.toString();
+		String label = ((LinkActionGroupItem)object).getTitle();
 		return label == null || label.length() == 0 ?
-			getString("_UI_Tag_type") :
-			getString("_UI_Tag_type") + " " + label;
+			getString("_UI_LinkActionGroupItem_type") :
+			getString("_UI_LinkActionGroupItem_type") + " " + label;
 	}
 
 
@@ -119,8 +119,8 @@ public class TagItemProvider extends HtmlElementItemProvider {
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(Tag.class)) {
-			case HtmlPackage.TAG__NAME:
+		switch (notification.getFeatureID(LinkActionGroupItem.class)) {
+			case BootstrapPackage.LINK_ACTION_GROUP_ITEM__HREF:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

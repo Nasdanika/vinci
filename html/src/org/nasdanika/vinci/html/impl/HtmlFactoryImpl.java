@@ -59,6 +59,7 @@ public class HtmlFactoryImpl extends EFactoryImpl implements HtmlFactory {
 		switch (eClass.getClassifierID()) {
 			case HtmlPackage.CONTAINER: return createContainer();
 			case HtmlPackage.TAG: return createTag();
+			case HtmlPackage.CONTENT_TAG: return createContentTag();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -72,8 +73,6 @@ public class HtmlFactoryImpl extends EFactoryImpl implements HtmlFactory {
 	@Override
 	public Object createFromString(EDataType eDataType, String initialValue) {
 		switch (eDataType.getClassifierID()) {
-			case HtmlPackage.ITAG:
-				return createITagFromString(eDataType, initialValue);
 			case HtmlPackage.TAG_NAME:
 				return createTagNameFromString(eDataType, initialValue);
 			default:
@@ -89,8 +88,6 @@ public class HtmlFactoryImpl extends EFactoryImpl implements HtmlFactory {
 	@Override
 	public String convertToString(EDataType eDataType, Object instanceValue) {
 		switch (eDataType.getClassifierID()) {
-			case HtmlPackage.ITAG:
-				return convertITagToString(eDataType, instanceValue);
 			case HtmlPackage.TAG_NAME:
 				return convertTagNameToString(eDataType, instanceValue);
 			default:
@@ -125,6 +122,17 @@ public class HtmlFactoryImpl extends EFactoryImpl implements HtmlFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
+	public ContentTag createContentTag() {
+		ContentTagImpl contentTag = new ContentTagImpl();
+		return contentTag;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public TagName createTagNameFromString(EDataType eDataType, String initialValue) {
 		return (TagName)super.createFromString(eDataType, initialValue);
 	}
@@ -135,24 +143,6 @@ public class HtmlFactoryImpl extends EFactoryImpl implements HtmlFactory {
 	 * @generated
 	 */
 	public String convertTagNameToString(EDataType eDataType, Object instanceValue) {
-		return super.convertToString(eDataType, instanceValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public org.nasdanika.html.Tag createITagFromString(EDataType eDataType, String initialValue) {
-		return (org.nasdanika.html.Tag)super.createFromString(eDataType, initialValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertITagToString(EDataType eDataType, Object instanceValue) {
 		return super.convertToString(eDataType, instanceValue);
 	}
 

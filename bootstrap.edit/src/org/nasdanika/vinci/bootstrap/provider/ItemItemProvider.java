@@ -1,6 +1,6 @@
 /**
  */
-package org.nasdanika.vinci.html.provider;
+package org.nasdanika.vinci.bootstrap.provider;
 
 
 import java.util.Collection;
@@ -8,28 +8,33 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+
+import org.eclipse.emf.common.util.ResourceLocator;
+
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-import org.nasdanika.html.TagName;
-import org.nasdanika.vinci.html.HtmlPackage;
-import org.nasdanika.vinci.html.Tag;
+
+import org.nasdanika.ncore.provider.ModelElementItemProvider;
+
+import org.nasdanika.vinci.bootstrap.BootstrapPackage;
+import org.nasdanika.vinci.bootstrap.Item;
 
 /**
- * This is the item provider adapter for a {@link org.nasdanika.vinci.html.Tag} object.
+ * This is the item provider adapter for a {@link org.nasdanika.vinci.bootstrap.Item} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class TagItemProvider extends HtmlElementItemProvider {
+public class ItemItemProvider extends ModelElementItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public TagItemProvider(AdapterFactory adapterFactory) {
+	public ItemItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -44,42 +49,77 @@ public class TagItemProvider extends HtmlElementItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addNamePropertyDescriptor(object);
+			addActivePropertyDescriptor(object);
+			addDisabledPropertyDescriptor(object);
+			addColorPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Name feature.
+	 * This adds a property descriptor for the Active feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addNamePropertyDescriptor(Object object) {
+	protected void addActivePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Tag_name_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Tag_name_feature", "_UI_Tag_type"),
-				 HtmlPackage.Literals.TAG__NAME,
+				 getString("_UI_Item_active_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Item_active_feature", "_UI_Item_type"),
+				 BootstrapPackage.Literals.ITEM__ACTIVE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Disabled feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addDisabledPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Item_disabled_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Item_disabled_feature", "_UI_Item_type"),
+				 BootstrapPackage.Literals.ITEM__DISABLED,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Color feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addColorPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Item_color_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Item_color_feature", "_UI_Item_type"),
+				 BootstrapPackage.Literals.ITEM__COLOR,
 				 true,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
-	}
-
-	/**
-	 * This returns Tag.gif.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Tag"));
 	}
 
 	/**
@@ -100,11 +140,10 @@ public class TagItemProvider extends HtmlElementItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		TagName labelValue = ((Tag)object).getName();
-		String label = labelValue == null ? null : labelValue.toString();
+		String label = ((Item)object).getTitle();
 		return label == null || label.length() == 0 ?
-			getString("_UI_Tag_type") :
-			getString("_UI_Tag_type") + " " + label;
+			getString("_UI_Item_type") :
+			getString("_UI_Item_type") + " " + label;
 	}
 
 
@@ -119,8 +158,10 @@ public class TagItemProvider extends HtmlElementItemProvider {
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(Tag.class)) {
-			case HtmlPackage.TAG__NAME:
+		switch (notification.getFeatureID(Item.class)) {
+			case BootstrapPackage.ITEM__ACTIVE:
+			case BootstrapPackage.ITEM__DISABLED:
+			case BootstrapPackage.ITEM__COLOR:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}
@@ -137,6 +178,17 @@ public class TagItemProvider extends HtmlElementItemProvider {
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+	}
+
+	/**
+	 * Return the resource locator for this item provider's resources.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ResourceLocator getResourceLocator() {
+		return BootstrapEditPlugin.INSTANCE;
 	}
 
 }

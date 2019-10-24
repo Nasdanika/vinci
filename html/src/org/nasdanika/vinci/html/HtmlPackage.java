@@ -173,22 +173,13 @@ public interface HtmlPackage extends EPackage {
 	int TAG__DESCRIPTION = HTML_ELEMENT__DESCRIPTION;
 
 	/**
-	 * The feature id for the '<em><b>Content</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TAG__CONTENT = HTML_ELEMENT_FEATURE_COUNT + 0;
-
-	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TAG__NAME = HTML_ELEMENT_FEATURE_COUNT + 1;
+	int TAG__NAME = HTML_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Tag</em>' class.
@@ -197,7 +188,7 @@ public interface HtmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TAG_FEATURE_COUNT = HTML_ELEMENT_FEATURE_COUNT + 2;
+	int TAG_FEATURE_COUNT = HTML_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Tag</em>' class.
@@ -210,6 +201,70 @@ public interface HtmlPackage extends EPackage {
 
 
 	/**
+	 * The meta object id for the '{@link org.nasdanika.vinci.html.impl.ContentTagImpl <em>Content Tag</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.vinci.html.impl.ContentTagImpl
+	 * @see org.nasdanika.vinci.html.impl.HtmlPackageImpl#getContentTag()
+	 * @generated
+	 */
+	int CONTENT_TAG = 3;
+
+	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTENT_TAG__TITLE = TAG__TITLE;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTENT_TAG__DESCRIPTION = TAG__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTENT_TAG__NAME = TAG__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Content</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTENT_TAG__CONTENT = TAG_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Content Tag</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTENT_TAG_FEATURE_COUNT = TAG_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Content Tag</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTENT_TAG_OPERATION_COUNT = TAG_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '<em>Tag Name</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -218,17 +273,6 @@ public interface HtmlPackage extends EPackage {
 	 * @generated
 	 */
 	int TAG_NAME = 4;
-
-	/**
-	 * The meta object id for the '<em>ITag</em>' data type.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.nasdanika.html.Tag
-	 * @see org.nasdanika.vinci.html.impl.HtmlPackageImpl#getITag()
-	 * @generated
-	 */
-	int ITAG = 3;
-
 
 	/**
 	 * Returns the meta object for class '{@link org.nasdanika.vinci.html.HtmlElement <em>Element</em>}'.
@@ -283,6 +327,16 @@ public interface HtmlPackage extends EPackage {
 	EAttribute getTag_Name();
 
 	/**
+	 * Returns the meta object for class '{@link org.nasdanika.vinci.html.ContentTag <em>Content Tag</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Content Tag</em>'.
+	 * @see org.nasdanika.vinci.html.ContentTag
+	 * @generated
+	 */
+	EClass getContentTag();
+
+	/**
 	 * Returns the meta object for data type '{@link org.nasdanika.html.TagName <em>Tag Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -292,17 +346,6 @@ public interface HtmlPackage extends EPackage {
 	 * @generated
 	 */
 	EDataType getTagName();
-
-	/**
-	 * Returns the meta object for data type '{@link org.nasdanika.html.Tag <em>ITag</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for data type '<em>ITag</em>'.
-	 * @see org.nasdanika.html.Tag
-	 * @model instanceClass="org.nasdanika.html.Tag"
-	 * @generated
-	 */
-	EDataType getITag();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -374,6 +417,16 @@ public interface HtmlPackage extends EPackage {
 		EAttribute TAG__NAME = eINSTANCE.getTag_Name();
 
 		/**
+		 * The meta object literal for the '{@link org.nasdanika.vinci.html.impl.ContentTagImpl <em>Content Tag</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.vinci.html.impl.ContentTagImpl
+		 * @see org.nasdanika.vinci.html.impl.HtmlPackageImpl#getContentTag()
+		 * @generated
+		 */
+		EClass CONTENT_TAG = eINSTANCE.getContentTag();
+
+		/**
 		 * The meta object literal for the '<em>Tag Name</em>' data type.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -382,16 +435,6 @@ public interface HtmlPackage extends EPackage {
 		 * @generated
 		 */
 		EDataType TAG_NAME = eINSTANCE.getTagName();
-
-		/**
-		 * The meta object literal for the '<em>ITag</em>' data type.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.nasdanika.html.Tag
-		 * @see org.nasdanika.vinci.html.impl.HtmlPackageImpl#getITag()
-		 * @generated
-		 */
-		EDataType ITAG = eINSTANCE.getITag();
 
 	}
 

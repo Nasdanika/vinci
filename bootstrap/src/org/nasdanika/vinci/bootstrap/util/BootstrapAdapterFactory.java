@@ -75,6 +75,58 @@ public class BootstrapAdapterFactory extends AdapterFactoryImpl {
 				return createBootstrapElementAdapter();
 			}
 			@Override
+			public Adapter caseTag(Tag object) {
+				return createTagAdapter();
+			}
+			@Override
+			public Adapter caseDiv(Div object) {
+				return createDivAdapter();
+			}
+			@Override
+			public Adapter caseItem(Item object) {
+				return createItemAdapter();
+			}
+			@Override
+			public Adapter caseActionGroupItem(ActionGroupItem object) {
+				return createActionGroupItemAdapter();
+			}
+			@Override
+			public Adapter caseLinkActionGroupItem(LinkActionGroupItem object) {
+				return createLinkActionGroupItemAdapter();
+			}
+			@Override
+			public Adapter caseContentActionGroupItem(ContentActionGroupItem object) {
+				return createContentActionGroupItemAdapter();
+			}
+			@Override
+			public Adapter caseActionGroup(ActionGroup object) {
+				return createActionGroupAdapter();
+			}
+			@Override
+			public Adapter caseAlert(Alert object) {
+				return createAlertAdapter();
+			}
+			@Override
+			public Adapter caseBadge(Badge object) {
+				return createBadgeAdapter();
+			}
+			@Override
+			public Adapter caseBreadcrumbs(Breadcrumbs object) {
+				return createBreadcrumbsAdapter();
+			}
+			@Override
+			public Adapter caseButton(Button object) {
+				return createButtonAdapter();
+			}
+			@Override
+			public Adapter caseButtonGroup(ButtonGroup object) {
+				return createButtonGroupAdapter();
+			}
+			@Override
+			public Adapter caseButtonToolbar(ButtonToolbar object) {
+				return createButtonToolbarAdapter();
+			}
+			@Override
 			public Adapter caseContainer(Container object) {
 				return createContainerAdapter();
 			}
@@ -91,44 +143,8 @@ public class BootstrapAdapterFactory extends AdapterFactoryImpl {
 				return createCardAdapter();
 			}
 			@Override
-			public Adapter caseTag(Tag object) {
-				return createTagAdapter();
-			}
-			@Override
-			public Adapter caseDiv(Div object) {
-				return createDivAdapter();
-			}
-			@Override
-			public Adapter caseAlert(Alert object) {
-				return createAlertAdapter();
-			}
-			@Override
-			public Adapter caseBadge(Badge object) {
-				return createBadgeAdapter();
-			}
-			@Override
-			public Adapter caseButton(Button object) {
-				return createButtonAdapter();
-			}
-			@Override
-			public Adapter caseButtonGroup(ButtonGroup object) {
-				return createButtonGroupAdapter();
-			}
-			@Override
-			public Adapter caseButtonToolbar(ButtonToolbar object) {
-				return createButtonToolbarAdapter();
-			}
-			@Override
 			public Adapter caseDropdown(Dropdown object) {
 				return createDropdownAdapter();
-			}
-			@Override
-			public Adapter caseActionGroup(ActionGroup object) {
-				return createActionGroupAdapter();
-			}
-			@Override
-			public Adapter caseBreadcrumbs(Breadcrumbs object) {
-				return createBreadcrumbsAdapter();
 			}
 			@Override
 			public Adapter caseForm(Form object) {
@@ -195,12 +211,12 @@ public class BootstrapAdapterFactory extends AdapterFactoryImpl {
 				return createWorkFactoryAdapter();
 			}
 			@Override
-			public Adapter caseHtml_Container(org.nasdanika.vinci.html.Container object) {
-				return createHtml_ContainerAdapter();
-			}
-			@Override
 			public Adapter caseHtml_Tag(org.nasdanika.vinci.html.Tag object) {
 				return createHtml_TagAdapter();
+			}
+			@Override
+			public Adapter caseHtml_Container(org.nasdanika.vinci.html.Container object) {
+				return createHtml_ContainerAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -317,6 +333,62 @@ public class BootstrapAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createDivAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.vinci.bootstrap.Item <em>Item</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.vinci.bootstrap.Item
+	 * @generated
+	 */
+	public Adapter createItemAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.vinci.bootstrap.ActionGroupItem <em>Action Group Item</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.vinci.bootstrap.ActionGroupItem
+	 * @generated
+	 */
+	public Adapter createActionGroupItemAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.vinci.bootstrap.LinkActionGroupItem <em>Link Action Group Item</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.vinci.bootstrap.LinkActionGroupItem
+	 * @generated
+	 */
+	public Adapter createLinkActionGroupItemAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.vinci.bootstrap.ContentActionGroupItem <em>Content Action Group Item</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.vinci.bootstrap.ContentActionGroupItem
+	 * @generated
+	 */
+	public Adapter createContentActionGroupItemAdapter() {
 		return null;
 	}
 

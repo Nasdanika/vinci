@@ -58,21 +58,22 @@ public class BootstrapFactoryImpl extends EFactoryImpl implements BootstrapFacto
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case BootstrapPackage.BOOTSTRAP_ELEMENT: return createBootstrapElement();
+			case BootstrapPackage.TAG: return createTag();
+			case BootstrapPackage.DIV: return createDiv();
+			case BootstrapPackage.LINK_ACTION_GROUP_ITEM: return createLinkActionGroupItem();
+			case BootstrapPackage.CONTENT_ACTION_GROUP_ITEM: return createContentActionGroupItem();
+			case BootstrapPackage.ACTION_GROUP: return createActionGroup();
+			case BootstrapPackage.ALERT: return createAlert();
+			case BootstrapPackage.BADGE: return createBadge();
+			case BootstrapPackage.BREADCRUMBS: return createBreadcrumbs();
+			case BootstrapPackage.BUTTON: return createButton();
+			case BootstrapPackage.BUTTON_GROUP: return createButtonGroup();
+			case BootstrapPackage.BUTTON_TOOLBAR: return createButtonToolbar();
 			case BootstrapPackage.CONTAINER: return createContainer();
 			case BootstrapPackage.ROW: return createRow();
 			case BootstrapPackage.COLUMN: return createColumn();
 			case BootstrapPackage.CARD: return createCard();
-			case BootstrapPackage.TAG: return createTag();
-			case BootstrapPackage.DIV: return createDiv();
-			case BootstrapPackage.ALERT: return createAlert();
-			case BootstrapPackage.BADGE: return createBadge();
-			case BootstrapPackage.BUTTON: return createButton();
-			case BootstrapPackage.BUTTON_GROUP: return createButtonGroup();
-			case BootstrapPackage.BUTTON_TOOLBAR: return createButtonToolbar();
 			case BootstrapPackage.DROPDOWN: return createDropdown();
-			case BootstrapPackage.ACTION_GROUP: return createActionGroup();
-			case BootstrapPackage.BREADCRUMBS: return createBreadcrumbs();
 			case BootstrapPackage.FORM: return createForm();
 			case BootstrapPackage.LIST_GROUP: return createListGroup();
 			case BootstrapPackage.NAVS: return createNavs();
@@ -99,8 +100,6 @@ public class BootstrapFactoryImpl extends EFactoryImpl implements BootstrapFacto
 	@Override
 	public Object createFromString(EDataType eDataType, String initialValue) {
 		switch (eDataType.getClassifierID()) {
-			case BootstrapPackage.IBOOTSTRAP_ELEMENT:
-				return createIBootstrapElementFromString(eDataType, initialValue);
 			case BootstrapPackage.COLOR:
 				return createColorFromString(eDataType, initialValue);
 			default:
@@ -116,24 +115,11 @@ public class BootstrapFactoryImpl extends EFactoryImpl implements BootstrapFacto
 	@Override
 	public String convertToString(EDataType eDataType, Object instanceValue) {
 		switch (eDataType.getClassifierID()) {
-			case BootstrapPackage.IBOOTSTRAP_ELEMENT:
-				return convertIBootstrapElementToString(eDataType, instanceValue);
 			case BootstrapPackage.COLOR:
 				return convertColorToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public BootstrapElement createBootstrapElement() {
-		BootstrapElementImpl bootstrapElement = new BootstrapElementImpl();
-		return bootstrapElement;
 	}
 
 	/**
@@ -200,6 +186,28 @@ public class BootstrapFactoryImpl extends EFactoryImpl implements BootstrapFacto
 	public Div createDiv() {
 		DivImpl div = new DivImpl();
 		return div;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public LinkActionGroupItem createLinkActionGroupItem() {
+		LinkActionGroupItemImpl linkActionGroupItem = new LinkActionGroupItemImpl();
+		return linkActionGroupItem;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ContentActionGroupItem createContentActionGroupItem() {
+		ContentActionGroupItemImpl contentActionGroupItem = new ContentActionGroupItemImpl();
+		return contentActionGroupItem;
 	}
 
 	/**
@@ -431,24 +439,6 @@ public class BootstrapFactoryImpl extends EFactoryImpl implements BootstrapFacto
 	public Accordion createAccordion() {
 		AccordionImpl accordion = new AccordionImpl();
 		return accordion;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public org.nasdanika.html.bootstrap.BootstrapElement createIBootstrapElementFromString(EDataType eDataType, String initialValue) {
-		return (org.nasdanika.html.bootstrap.BootstrapElement)super.createFromString(eDataType, initialValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertIBootstrapElementToString(EDataType eDataType, Object instanceValue) {
-		return super.convertToString(eDataType, instanceValue);
 	}
 
 	/**

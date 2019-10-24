@@ -11,7 +11,7 @@ import org.nasdanika.vinci.html.HtmlElement;
  *
  *
  * @see org.nasdanika.vinci.bootstrap.BootstrapPackage#getBootstrapElement()
- * @model
+ * @model abstract="true"
  * @generated
  */
 public interface BootstrapElement extends HtmlElement {

@@ -150,22 +150,17 @@ public class ColumnItemProvider extends BootstrapElementItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(HtmlPackage.Literals.CONTAINER__CONTENT,
-				 BootstrapFactory.eINSTANCE.createContainer()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(HtmlPackage.Literals.CONTAINER__CONTENT,
-				 BootstrapFactory.eINSTANCE.createCard()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(HtmlPackage.Literals.CONTAINER__CONTENT,
 				 BootstrapFactory.eINSTANCE.createTag()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(HtmlPackage.Literals.CONTAINER__CONTENT,
 				 BootstrapFactory.eINSTANCE.createDiv()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(HtmlPackage.Literals.CONTAINER__CONTENT,
+				 BootstrapFactory.eINSTANCE.createActionGroup()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -185,7 +180,22 @@ public class ColumnItemProvider extends BootstrapElementItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(HtmlPackage.Literals.CONTAINER__CONTENT,
+				 BootstrapFactory.eINSTANCE.createContainer()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(HtmlPackage.Literals.CONTAINER__CONTENT,
+				 BootstrapFactory.eINSTANCE.createCard()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(HtmlPackage.Literals.CONTAINER__CONTENT,
 				 HtmlFactory.eINSTANCE.createTag()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(HtmlPackage.Literals.CONTAINER__CONTENT,
+				 HtmlFactory.eINSTANCE.createContentTag()));
 
 		newChildDescriptors.add
 			(createChildParameter

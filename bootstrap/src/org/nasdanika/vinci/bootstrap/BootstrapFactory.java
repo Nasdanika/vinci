@@ -22,15 +22,6 @@ public interface BootstrapFactory extends EFactory {
 	BootstrapFactory eINSTANCE = org.nasdanika.vinci.bootstrap.impl.BootstrapFactoryImpl.init();
 
 	/**
-	 * Returns a new object of class '<em>Element</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Element</em>'.
-	 * @generated
-	 */
-	BootstrapElement createBootstrapElement();
-
-	/**
 	 * Returns a new object of class '<em>Container</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -83,6 +74,24 @@ public interface BootstrapFactory extends EFactory {
 	 * @generated
 	 */
 	Div createDiv();
+
+	/**
+	 * Returns a new object of class '<em>Link Action Group Item</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Link Action Group Item</em>'.
+	 * @generated
+	 */
+	LinkActionGroupItem createLinkActionGroupItem();
+
+	/**
+	 * Returns a new object of class '<em>Content Action Group Item</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Content Action Group Item</em>'.
+	 * @generated
+	 */
+	ContentActionGroupItem createContentActionGroupItem();
 
 	/**
 	 * Returns a new object of class '<em>Alert</em>'.

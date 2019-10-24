@@ -1,6 +1,6 @@
 /**
  */
-package org.nasdanika.vinci.html.provider;
+package org.nasdanika.vinci.bootstrap.provider;
 
 
 import java.util.Collection;
@@ -9,47 +9,34 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
-import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.ecore.EStructuralFeature;
 
-import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
-import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.IItemPropertySource;
-import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
-import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-
-import org.nasdanika.emf.edit.NasdanikaItemProviderAdapter;
 
 import org.nasdanika.ncore.NcoreFactory;
 
-import org.nasdanika.vinci.html.Container;
+import org.nasdanika.vinci.bootstrap.BootstrapFactory;
+import org.nasdanika.vinci.bootstrap.BootstrapPackage;
+import org.nasdanika.vinci.bootstrap.ContentActionGroupItem;
+
 import org.nasdanika.vinci.html.HtmlFactory;
 import org.nasdanika.vinci.html.HtmlPackage;
 
 /**
- * This is the item provider adapter for a {@link org.nasdanika.vinci.html.Container} object.
+ * This is the item provider adapter for a {@link org.nasdanika.vinci.bootstrap.ContentActionGroupItem} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class ContainerItemProvider 
-	extends NasdanikaItemProviderAdapter
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+public class ContentActionGroupItemItemProvider extends ActionGroupItemItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ContainerItemProvider(AdapterFactory adapterFactory) {
+	public ContentActionGroupItemItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -99,14 +86,14 @@ public class ContainerItemProvider
 	}
 
 	/**
-	 * This returns Container.gif.
+	 * This returns ContentActionGroupItem.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Container"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ContentActionGroupItem"));
 	}
 
 	/**
@@ -127,7 +114,10 @@ public class ContainerItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_Container_type");
+		String label = ((ContentActionGroupItem)object).getTitle();
+		return label == null || label.length() == 0 ?
+			getString("_UI_ContentActionGroupItem_type") :
+			getString("_UI_ContentActionGroupItem_type") + " " + label;
 	}
 
 
@@ -142,8 +132,8 @@ public class ContainerItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(Container.class)) {
-			case HtmlPackage.CONTAINER__CONTENT:
+		switch (notification.getFeatureID(ContentActionGroupItem.class)) {
+			case BootstrapPackage.CONTENT_ACTION_GROUP_ITEM__CONTENT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -160,6 +150,46 @@ public class ContainerItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		newChildDescriptors.add
+			(createChildParameter
+				(HtmlPackage.Literals.CONTAINER__CONTENT,
+				 BootstrapFactory.eINSTANCE.createTag()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(HtmlPackage.Literals.CONTAINER__CONTENT,
+				 BootstrapFactory.eINSTANCE.createDiv()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(HtmlPackage.Literals.CONTAINER__CONTENT,
+				 BootstrapFactory.eINSTANCE.createActionGroup()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(HtmlPackage.Literals.CONTAINER__CONTENT,
+				 BootstrapFactory.eINSTANCE.createAlert()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(HtmlPackage.Literals.CONTAINER__CONTENT,
+				 BootstrapFactory.eINSTANCE.createBadge()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(HtmlPackage.Literals.CONTAINER__CONTENT,
+				 BootstrapFactory.eINSTANCE.createButton()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(HtmlPackage.Literals.CONTAINER__CONTENT,
+				 BootstrapFactory.eINSTANCE.createContainer()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(HtmlPackage.Literals.CONTAINER__CONTENT,
+				 BootstrapFactory.eINSTANCE.createCard()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -258,14 +288,26 @@ public class ContainerItemProvider
 	}
 
 	/**
-	 * Return the resource locator for this item provider's resources.
+	 * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public ResourceLocator getResourceLocator() {
-		return HtmlEditPlugin.INSTANCE;
+	public String getCreateChildText(Object owner, Object feature, Object child, Collection<?> selection) {
+		Object childFeature = feature;
+		Object childObject = child;
+
+		boolean qualify =
+			childFeature == BootstrapPackage.Literals.ACTION_GROUP_ITEM__NAME ||
+			childFeature == HtmlPackage.Literals.CONTAINER__CONTENT;
+
+		if (qualify) {
+			return getString
+				("_UI_CreateChild_text2",
+				 new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
+		}
+		return super.getCreateChildText(owner, feature, child, selection);
 	}
 
 }

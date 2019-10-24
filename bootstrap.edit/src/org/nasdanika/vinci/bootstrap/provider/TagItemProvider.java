@@ -14,11 +14,7 @@ import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 
 import org.nasdanika.html.TagName;
-
-import org.nasdanika.vinci.bootstrap.BootstrapFactory;
 import org.nasdanika.vinci.bootstrap.Tag;
-
-import org.nasdanika.vinci.html.HtmlPackage;
 
 /**
  * This is the item provider adapter for a {@link org.nasdanika.vinci.bootstrap.Tag} object.
@@ -111,41 +107,6 @@ public class TagItemProvider extends org.nasdanika.vinci.html.provider.TagItemPr
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add
-			(createChildParameter
-				(HtmlPackage.Literals.CONTAINER__CONTENT,
-				 BootstrapFactory.eINSTANCE.createContainer()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(HtmlPackage.Literals.CONTAINER__CONTENT,
-				 BootstrapFactory.eINSTANCE.createCard()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(HtmlPackage.Literals.CONTAINER__CONTENT,
-				 BootstrapFactory.eINSTANCE.createTag()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(HtmlPackage.Literals.CONTAINER__CONTENT,
-				 BootstrapFactory.eINSTANCE.createDiv()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(HtmlPackage.Literals.CONTAINER__CONTENT,
-				 BootstrapFactory.eINSTANCE.createAlert()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(HtmlPackage.Literals.CONTAINER__CONTENT,
-				 BootstrapFactory.eINSTANCE.createBadge()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(HtmlPackage.Literals.CONTAINER__CONTENT,
-				 BootstrapFactory.eINSTANCE.createButton()));
 	}
 
 	/**

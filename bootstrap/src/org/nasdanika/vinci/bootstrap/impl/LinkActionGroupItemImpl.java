@@ -2,36 +2,41 @@
  */
 package org.nasdanika.vinci.bootstrap.impl;
 
-import java.util.Collection;
-import org.eclipse.emf.common.notify.NotificationChain;
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.util.InternalEList;
-import org.nasdanika.vinci.bootstrap.ActionGroup;
-import org.nasdanika.vinci.bootstrap.ActionGroupItem;
+
 import org.nasdanika.vinci.bootstrap.BootstrapPackage;
+import org.nasdanika.vinci.bootstrap.LinkActionGroupItem;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Action Group</b></em>'.
+ * An implementation of the model object '<em><b>Link Action Group Item</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.nasdanika.vinci.bootstrap.impl.ActionGroupImpl#getItems <em>Items</em>}</li>
+ *   <li>{@link org.nasdanika.vinci.bootstrap.impl.LinkActionGroupItemImpl#getHref <em>Href</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class ActionGroupImpl extends DivImpl implements ActionGroup {
+public class LinkActionGroupItemImpl extends ActionGroupItemImpl implements LinkActionGroupItem {
+	/**
+	 * The default value of the '{@link #getHref() <em>Href</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getHref()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String HREF_EDEFAULT = null;
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ActionGroupImpl() {
+	protected LinkActionGroupItemImpl() {
 		super();
 	}
 
@@ -42,18 +47,7 @@ public class ActionGroupImpl extends DivImpl implements ActionGroup {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return BootstrapPackage.Literals.ACTION_GROUP;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@SuppressWarnings("unchecked")
-	@Override
-	public EList<ActionGroupItem> getItems() {
-		return (EList<ActionGroupItem>)eDynamicGet(BootstrapPackage.ACTION_GROUP__ITEMS, BootstrapPackage.Literals.ACTION_GROUP__ITEMS, true, true);
+		return BootstrapPackage.Literals.LINK_ACTION_GROUP_ITEM;
 	}
 
 	/**
@@ -62,12 +56,18 @@ public class ActionGroupImpl extends DivImpl implements ActionGroup {
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case BootstrapPackage.ACTION_GROUP__ITEMS:
-				return ((InternalEList<?>)getItems()).basicRemove(otherEnd, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
+	public String getHref() {
+		return (String)eDynamicGet(BootstrapPackage.LINK_ACTION_GROUP_ITEM__HREF, BootstrapPackage.Literals.LINK_ACTION_GROUP_ITEM__HREF, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setHref(String newHref) {
+		eDynamicSet(BootstrapPackage.LINK_ACTION_GROUP_ITEM__HREF, BootstrapPackage.Literals.LINK_ACTION_GROUP_ITEM__HREF, newHref);
 	}
 
 	/**
@@ -78,8 +78,8 @@ public class ActionGroupImpl extends DivImpl implements ActionGroup {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case BootstrapPackage.ACTION_GROUP__ITEMS:
-				return getItems();
+			case BootstrapPackage.LINK_ACTION_GROUP_ITEM__HREF:
+				return getHref();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -89,13 +89,11 @@ public class ActionGroupImpl extends DivImpl implements ActionGroup {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case BootstrapPackage.ACTION_GROUP__ITEMS:
-				getItems().clear();
-				getItems().addAll((Collection<? extends ActionGroupItem>)newValue);
+			case BootstrapPackage.LINK_ACTION_GROUP_ITEM__HREF:
+				setHref((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -109,8 +107,8 @@ public class ActionGroupImpl extends DivImpl implements ActionGroup {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case BootstrapPackage.ACTION_GROUP__ITEMS:
-				getItems().clear();
+			case BootstrapPackage.LINK_ACTION_GROUP_ITEM__HREF:
+				setHref(HREF_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -124,10 +122,10 @@ public class ActionGroupImpl extends DivImpl implements ActionGroup {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case BootstrapPackage.ACTION_GROUP__ITEMS:
-				return !getItems().isEmpty();
+			case BootstrapPackage.LINK_ACTION_GROUP_ITEM__HREF:
+				return HREF_EDEFAULT == null ? getHref() != null : !HREF_EDEFAULT.equals(getHref());
 		}
 		return super.eIsSet(featureID);
 	}
 
-} //ActionGroupImpl
+} //LinkActionGroupItemImpl

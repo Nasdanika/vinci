@@ -11,7 +11,6 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.nasdanika.common.Context;
 import org.nasdanika.common.Work;
-import org.nasdanika.html.bootstrap.BootstrapElement;
 import org.nasdanika.vinci.bootstrap.BootstrapPackage;
 import org.nasdanika.vinci.bootstrap.Card;
 import org.nasdanika.vinci.bootstrap.Div;
@@ -223,7 +222,7 @@ public class CardImpl extends BootstrapElementImpl implements Card {
 	}
 
 	@Override
-	public Work<BootstrapElement> create(Context context) throws Exception {
+	public Work<Object> create(Context context) throws Exception {
 		throw new UnsupportedOperationException();
 	}
 

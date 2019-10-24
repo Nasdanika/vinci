@@ -9,47 +9,33 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
-import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.ecore.EStructuralFeature;
 
-import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
-import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.IItemPropertySource;
-import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
-import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import org.nasdanika.emf.edit.NasdanikaItemProviderAdapter;
+import org.nasdanika.html.TagName;
 
 import org.nasdanika.ncore.NcoreFactory;
 
-import org.nasdanika.vinci.html.Container;
+import org.nasdanika.vinci.html.ContentTag;
 import org.nasdanika.vinci.html.HtmlFactory;
 import org.nasdanika.vinci.html.HtmlPackage;
 
 /**
- * This is the item provider adapter for a {@link org.nasdanika.vinci.html.Container} object.
+ * This is the item provider adapter for a {@link org.nasdanika.vinci.html.ContentTag} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class ContainerItemProvider 
-	extends NasdanikaItemProviderAdapter
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+public class ContentTagItemProvider extends TagItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ContainerItemProvider(AdapterFactory adapterFactory) {
+	public ContentTagItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -99,14 +85,14 @@ public class ContainerItemProvider
 	}
 
 	/**
-	 * This returns Container.gif.
+	 * This returns ContentTag.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Container"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ContentTag"));
 	}
 
 	/**
@@ -127,7 +113,11 @@ public class ContainerItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_Container_type");
+		TagName labelValue = ((ContentTag)object).getName();
+		String label = labelValue == null ? null : labelValue.toString();
+		return label == null || label.length() == 0 ?
+			getString("_UI_ContentTag_type") :
+			getString("_UI_ContentTag_type") + " " + label;
 	}
 
 
@@ -142,8 +132,8 @@ public class ContainerItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(Container.class)) {
-			case HtmlPackage.CONTAINER__CONTENT:
+		switch (notification.getFeatureID(ContentTag.class)) {
+			case HtmlPackage.CONTENT_TAG__CONTENT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -255,17 +245,6 @@ public class ContainerItemProvider
 			(createChildParameter
 				(HtmlPackage.Literals.CONTAINER__CONTENT,
 				 NcoreFactory.eINSTANCE.createRestFunction()));
-	}
-
-	/**
-	 * Return the resource locator for this item provider's resources.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public ResourceLocator getResourceLocator() {
-		return HtmlEditPlugin.INSTANCE;
 	}
 
 }

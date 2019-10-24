@@ -118,6 +118,29 @@ public class HtmlItemProviderAdapterFactory extends HtmlAdapterFactory implement
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.nasdanika.vinci.html.ContentTag} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ContentTagItemProvider contentTagItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.nasdanika.vinci.html.ContentTag}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createContentTagAdapter() {
+		if (contentTagItemProvider == null) {
+			contentTagItemProvider = new ContentTagItemProvider(this);
+		}
+
+		return contentTagItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -224,6 +247,7 @@ public class HtmlItemProviderAdapterFactory extends HtmlAdapterFactory implement
 	public void dispose() {
 		if (containerItemProvider != null) containerItemProvider.dispose();
 		if (tagItemProvider != null) tagItemProvider.dispose();
+		if (contentTagItemProvider != null) contentTagItemProvider.dispose();
 	}
 
 }

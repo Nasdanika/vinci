@@ -59,6 +59,7 @@ import org.eclipse.ui.part.ISetSelectionTarget;
 import org.nasdanika.vinci.app.AppPackage;
 import org.nasdanika.vinci.app.provider.AppEditPlugin;
 import org.nasdanika.vinci.bootstrap.BootstrapPackage;
+import org.nasdanika.vinci.html.HtmlPackage;
 
 
 /**
@@ -94,7 +95,8 @@ public class VinciModelWizard extends Wizard implements INewWizard {
 	 */
 	protected EPackage[] ePackages = {
 			AppPackage.eINSTANCE,
-			BootstrapPackage.eINSTANCE
+			BootstrapPackage.eINSTANCE,
+			HtmlPackage.eINSTANCE
 	};
 
 	/**

@@ -12,6 +12,7 @@ import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 import org.nasdanika.html.TagName;
 import org.nasdanika.ncore.NcorePackage;
+import org.nasdanika.vinci.html.ContentTag;
 import org.nasdanika.vinci.html.HtmlElement;
 import org.nasdanika.vinci.html.HtmlFactory;
 import org.nasdanika.vinci.html.HtmlPackage;
@@ -50,7 +51,7 @@ public class HtmlPackageImpl extends EPackageImpl implements HtmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType iTagEDataType = null;
+	private EClass contentTagEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -179,8 +180,8 @@ public class HtmlPackageImpl extends EPackageImpl implements HtmlPackage {
 	 * @generated
 	 */
 	@Override
-	public EDataType getTagName() {
-		return tagNameEDataType;
+	public EClass getContentTag() {
+		return contentTagEClass;
 	}
 
 	/**
@@ -189,8 +190,8 @@ public class HtmlPackageImpl extends EPackageImpl implements HtmlPackage {
 	 * @generated
 	 */
 	@Override
-	public EDataType getITag() {
-		return iTagEDataType;
+	public EDataType getTagName() {
+		return tagNameEDataType;
 	}
 
 	/**
@@ -230,8 +231,9 @@ public class HtmlPackageImpl extends EPackageImpl implements HtmlPackage {
 		tagEClass = createEClass(TAG);
 		createEAttribute(tagEClass, TAG__NAME);
 
+		contentTagEClass = createEClass(CONTENT_TAG);
+
 		// Create data types
-		iTagEDataType = createEDataType(ITAG);
 		tagNameEDataType = createEDataType(TAG_NAME);
 	}
 
@@ -269,12 +271,12 @@ public class HtmlPackageImpl extends EPackageImpl implements HtmlPackage {
 		htmlElementEClass.getESuperTypes().add(theNcorePackage.getModelElement());
 		EGenericType g1 = createEGenericType(this.getHtmlElement());
 		tagEClass.getEGenericSuperTypes().add(g1);
-		g1 = createEGenericType(this.getContainer());
-		tagEClass.getEGenericSuperTypes().add(g1);
 		g1 = createEGenericType(theNcorePackage.getWorkFactory());
-		EGenericType g2 = createEGenericType(this.getITag());
+		EGenericType g2 = createEGenericType(ecorePackage.getEJavaObject());
 		g1.getETypeArguments().add(g2);
 		tagEClass.getEGenericSuperTypes().add(g1);
+		contentTagEClass.getESuperTypes().add(this.getTag());
+		contentTagEClass.getESuperTypes().add(this.getContainer());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(htmlElementEClass, HtmlElement.class, "HtmlElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -288,8 +290,9 @@ public class HtmlPackageImpl extends EPackageImpl implements HtmlPackage {
 		initEClass(tagEClass, Tag.class, "Tag", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTag_Name(), this.getTagName(), "name", null, 0, 1, Tag.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEClass(contentTagEClass, ContentTag.class, "ContentTag", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
 		// Initialize data types
-		initEDataType(iTagEDataType, org.nasdanika.html.Tag.class, "ITag", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(tagNameEDataType, TagName.class, "TagName", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource

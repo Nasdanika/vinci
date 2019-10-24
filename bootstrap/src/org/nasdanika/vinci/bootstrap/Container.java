@@ -18,10 +18,10 @@ import org.nasdanika.common.WorkFactory;
  * </ul>
  *
  * @see org.nasdanika.vinci.bootstrap.BootstrapPackage#getContainer()
- * @model superTypes="org.nasdanika.vinci.bootstrap.BootstrapElement org.nasdanika.ncore.WorkFactory&lt;org.nasdanika.vinci.bootstrap.IBootstrapElement&gt;"
+ * @model superTypes="org.nasdanika.vinci.bootstrap.BootstrapElement org.nasdanika.ncore.WorkFactory&lt;org.eclipse.emf.ecore.EJavaObject&gt;"
  * @generated
  */
-public interface Container extends BootstrapElement, WorkFactory<org.nasdanika.html.bootstrap.BootstrapElement> {
+public interface Container extends BootstrapElement, WorkFactory<Object> {
 	/**
 	 * Returns the value of the '<em><b>Rows</b></em>' containment reference list.
 	 * The list contents are of type {@link org.nasdanika.vinci.bootstrap.Row}.

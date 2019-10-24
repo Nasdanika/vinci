@@ -84,9 +84,19 @@ public class HtmlSwitch<T1> extends Switch<T1> {
 				Tag tag = (Tag)theEObject;
 				T1 result = caseTag(tag);
 				if (result == null) result = caseHtmlElement(tag);
-				if (result == null) result = caseContainer(tag);
 				if (result == null) result = caseWorkFactory(tag);
 				if (result == null) result = caseModelElement(tag);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case HtmlPackage.CONTENT_TAG: {
+				ContentTag contentTag = (ContentTag)theEObject;
+				T1 result = caseContentTag(contentTag);
+				if (result == null) result = caseTag(contentTag);
+				if (result == null) result = caseContainer(contentTag);
+				if (result == null) result = caseHtmlElement(contentTag);
+				if (result == null) result = caseWorkFactory(contentTag);
+				if (result == null) result = caseModelElement(contentTag);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -136,6 +146,21 @@ public class HtmlSwitch<T1> extends Switch<T1> {
 	 * @generated
 	 */
 	public T1 caseTag(Tag object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Content Tag</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Content Tag</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseContentTag(ContentTag object) {
 		return null;
 	}
 

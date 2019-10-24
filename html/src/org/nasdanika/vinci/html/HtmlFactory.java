@@ -40,6 +40,15 @@ public interface HtmlFactory extends EFactory {
 	Tag createTag();
 
 	/**
+	 * Returns a new object of class '<em>Content Tag</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Content Tag</em>'.
+	 * @generated
+	 */
+	ContentTag createContentTag();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

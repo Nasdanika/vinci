@@ -4,14 +4,75 @@
   <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
     <details key="documentation" value="Model of Bootstrap elements."/>
   </eAnnotations>
-  <eClassifiers xsi:type="ecore:EDataType" name="IBootstrapElement" instanceClassName="org.nasdanika.html.bootstrap.BootstrapElement"/>
-  <eClassifiers xsi:type="ecore:EClass" name="BootstrapElement" eSuperTypes="../../org.nasdanika.vinci.html/model/html.ecore#//HtmlElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="BootstrapElement" abstract="true" eSuperTypes="../../org.nasdanika.vinci.html/model/html.ecore#//HtmlElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Tag" eSuperTypes="../../org.nasdanika.vinci.html/model/html.ecore#//Tag #//BootstrapElement">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="HTML tag with bootstrap styling"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Div" eSuperTypes="#//Tag">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="HTML DIV with bootstrap styling"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Item" abstract="true" eSuperTypes="../../org.nasdanika.ncore/model/ncore.ecore#//ModelElement">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Base class for model elements which can be active, disabled, and have color."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="active" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="disabled" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="color" eType="#//Color"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ActionGroupItem" abstract="true" eSuperTypes="#//Item">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Base class for action group items"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="name" upperBound="-1" containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Item name"/>
+      </eAnnotations>
+      <eGenericType eClassifier="ecore:EClass ../../org.nasdanika.ncore/model/ncore.ecore#//WorkFactory">
+        <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+      </eGenericType>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="LinkActionGroupItem" eSuperTypes="#//ActionGroupItem">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="href" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ContentActionGroupItem" eSuperTypes="#//ActionGroupItem ../../org.nasdanika.vinci.html/model/html.ecore#//Container"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ActionGroup" eSuperTypes="#//Div">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="A group of actions (links). "/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="items" upperBound="-1"
+        eType="#//ActionGroupItem" containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Item name"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Alert" eSuperTypes="#//Div">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="color" eType="#//Color"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Badge" eSuperTypes="#//Div">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="color" eType="#//Color"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Breadcrumbs"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Button" eSuperTypes="#//Div">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="TODO - size - enum? Block, active, disabled."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="color" eType="#//Color"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="outline" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ButtonGroup"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ButtonToolbar"/>
   <eClassifiers xsi:type="ecore:EClass" name="Container">
     <eStructuralFeatures xsi:type="ecore:EReference" name="rows" upperBound="-1" eType="#//Row"
         containment="true"/>
     <eGenericSuperTypes eClassifier="#//BootstrapElement"/>
     <eGenericSuperTypes eClassifier="ecore:EClass ../../org.nasdanika.ncore/model/ncore.ecore#//WorkFactory">
-      <eTypeArguments eClassifier="#//IBootstrapElement"/>
+      <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
     </eGenericSuperTypes>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Row" eSuperTypes="#//BootstrapElement">
@@ -28,38 +89,11 @@
         containment="true"/>
     <eGenericSuperTypes eClassifier="#//BootstrapElement"/>
     <eGenericSuperTypes eClassifier="ecore:EClass ../../org.nasdanika.ncore/model/ncore.ecore#//WorkFactory">
-      <eTypeArguments eClassifier="#//IBootstrapElement"/>
+      <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
     </eGenericSuperTypes>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Tag" eSuperTypes="../../org.nasdanika.vinci.html/model/html.ecore#//Tag #//BootstrapElement">
-    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="HTML tag with bootstrap styling"/>
-    </eAnnotations>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Div" eSuperTypes="#//Tag">
-    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="HTML DIV with bootstrap styling"/>
-    </eAnnotations>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Alert" eSuperTypes="#//Div">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="color" eType="#//Color"/>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="Color" instanceClassName="org.nasdanika.html.bootstrap.Color"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Badge" eSuperTypes="#//Div">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="color" eType="#//Color"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Button" eSuperTypes="#//Div">
-    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="TODO - size - enum? Block, active, disabled."/>
-    </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="color" eType="#//Color"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="outline" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ButtonGroup"/>
-  <eClassifiers xsi:type="ecore:EClass" name="ButtonToolbar"/>
   <eClassifiers xsi:type="ecore:EClass" name="Dropdown"/>
-  <eClassifiers xsi:type="ecore:EClass" name="ActionGroup"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Breadcrumbs"/>
   <eClassifiers xsi:type="ecore:EClass" name="Form"/>
   <eClassifiers xsi:type="ecore:EClass" name="ListGroup"/>
   <eClassifiers xsi:type="ecore:EClass" name="Navs"/>

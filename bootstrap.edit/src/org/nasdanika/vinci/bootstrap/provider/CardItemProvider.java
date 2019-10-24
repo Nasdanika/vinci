@@ -156,6 +156,11 @@ public class CardItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(BootstrapPackage.Literals.CARD__HEADER,
+				 BootstrapFactory.eINSTANCE.createActionGroup()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(BootstrapPackage.Literals.CARD__HEADER,
 				 BootstrapFactory.eINSTANCE.createAlert()));
 
 		newChildDescriptors.add
@@ -172,6 +177,11 @@ public class CardItemProvider
 			(createChildParameter
 				(BootstrapPackage.Literals.CARD__BODY,
 				 BootstrapFactory.eINSTANCE.createDiv()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(BootstrapPackage.Literals.CARD__BODY,
+				 BootstrapFactory.eINSTANCE.createActionGroup()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -192,6 +202,11 @@ public class CardItemProvider
 			(createChildParameter
 				(BootstrapPackage.Literals.CARD__FOOTER,
 				 BootstrapFactory.eINSTANCE.createDiv()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(BootstrapPackage.Literals.CARD__FOOTER,
+				 BootstrapFactory.eINSTANCE.createActionGroup()));
 
 		newChildDescriptors.add
 			(createChildParameter

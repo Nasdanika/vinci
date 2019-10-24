@@ -72,29 +72,6 @@ public class BootstrapItemProviderAdapterFactory extends BootstrapAdapterFactory
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.nasdanika.vinci.bootstrap.BootstrapElement} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected BootstrapElementItemProvider bootstrapElementItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link org.nasdanika.vinci.bootstrap.BootstrapElement}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createBootstrapElementAdapter() {
-		if (bootstrapElementItemProvider == null) {
-			bootstrapElementItemProvider = new BootstrapElementItemProvider(this);
-		}
-
-		return bootstrapElementItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link org.nasdanika.vinci.bootstrap.Container} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -230,6 +207,52 @@ public class BootstrapItemProviderAdapterFactory extends BootstrapAdapterFactory
 		}
 
 		return divItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.nasdanika.vinci.bootstrap.LinkActionGroupItem} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected LinkActionGroupItemItemProvider linkActionGroupItemItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.nasdanika.vinci.bootstrap.LinkActionGroupItem}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createLinkActionGroupItemAdapter() {
+		if (linkActionGroupItemItemProvider == null) {
+			linkActionGroupItemItemProvider = new LinkActionGroupItemItemProvider(this);
+		}
+
+		return linkActionGroupItemItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.nasdanika.vinci.bootstrap.ContentActionGroupItem} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ContentActionGroupItemItemProvider contentActionGroupItemItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.nasdanika.vinci.bootstrap.ContentActionGroupItem}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createContentActionGroupItemAdapter() {
+		if (contentActionGroupItemItemProvider == null) {
+			contentActionGroupItemItemProvider = new ContentActionGroupItemItemProvider(this);
+		}
+
+		return contentActionGroupItemItemProvider;
 	}
 
 	/**
@@ -820,21 +843,22 @@ public class BootstrapItemProviderAdapterFactory extends BootstrapAdapterFactory
 	 */
 	@Override
 	public void dispose() {
-		if (bootstrapElementItemProvider != null) bootstrapElementItemProvider.dispose();
+		if (tagItemProvider != null) tagItemProvider.dispose();
+		if (divItemProvider != null) divItemProvider.dispose();
+		if (linkActionGroupItemItemProvider != null) linkActionGroupItemItemProvider.dispose();
+		if (contentActionGroupItemItemProvider != null) contentActionGroupItemItemProvider.dispose();
+		if (actionGroupItemProvider != null) actionGroupItemProvider.dispose();
+		if (alertItemProvider != null) alertItemProvider.dispose();
+		if (badgeItemProvider != null) badgeItemProvider.dispose();
+		if (breadcrumbsItemProvider != null) breadcrumbsItemProvider.dispose();
+		if (buttonItemProvider != null) buttonItemProvider.dispose();
+		if (buttonGroupItemProvider != null) buttonGroupItemProvider.dispose();
+		if (buttonToolbarItemProvider != null) buttonToolbarItemProvider.dispose();
 		if (containerItemProvider != null) containerItemProvider.dispose();
 		if (rowItemProvider != null) rowItemProvider.dispose();
 		if (columnItemProvider != null) columnItemProvider.dispose();
 		if (cardItemProvider != null) cardItemProvider.dispose();
-		if (tagItemProvider != null) tagItemProvider.dispose();
-		if (divItemProvider != null) divItemProvider.dispose();
-		if (alertItemProvider != null) alertItemProvider.dispose();
-		if (badgeItemProvider != null) badgeItemProvider.dispose();
-		if (buttonItemProvider != null) buttonItemProvider.dispose();
-		if (buttonGroupItemProvider != null) buttonGroupItemProvider.dispose();
-		if (buttonToolbarItemProvider != null) buttonToolbarItemProvider.dispose();
 		if (dropdownItemProvider != null) dropdownItemProvider.dispose();
-		if (actionGroupItemProvider != null) actionGroupItemProvider.dispose();
-		if (breadcrumbsItemProvider != null) breadcrumbsItemProvider.dispose();
 		if (formItemProvider != null) formItemProvider.dispose();
 		if (listGroupItemProvider != null) listGroupItemProvider.dispose();
 		if (navsItemProvider != null) navsItemProvider.dispose();
