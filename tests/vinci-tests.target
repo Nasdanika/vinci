@@ -4,18 +4,18 @@
 	<locations>
 		<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
 			<unit id="org.nasdanika.equinox.feature.feature.group" version="1.0.0.201909071324"/>
-			<repository location="https://www.nasdanika.org/home/products/third-party/repository"/>
+			<repository location="https://www.nasdanika.org/master/products/third-party/repository"/>
 			<unit id="org.nasdanika.third-party.feature.feature.group" version="2.2019.9.201909071324"/>
 		</location>
 		<location path="${eclipse_home}" type="Profile"/>
 		<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
-			<repository location="https://www.nasdanika.org/home/foundation-repository"/>
+			<repository location="https://www.nasdanika.org/master/foundation-repository"/>
 			<unit id="org.hamcrest.library" version="1.3.0.v20180524-2246"/>
 			<unit id="org.junit" version="4.12.0.v201504281640"/>
 			<unit id="org.eclipse.emf.sdk.feature.group" version="2.18.0.v20190528-0845"/>
 		</location>
 		<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
-			<repository location="https://www.nasdanika.org/home/products/maven-osgi/repository"/>
+			<repository location="https://www.nasdanika.org/master/products/maven-osgi/repository"/>
 			<unit id="json" version="20190722.0.0"/>
 			<unit id="net.sourceforge.plantuml" version="1.2019.9"/>
 			<unit id="org.apache.commons.commons-codec" version="1.13.0"/>

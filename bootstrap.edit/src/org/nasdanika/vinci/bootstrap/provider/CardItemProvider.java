@@ -11,6 +11,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+import org.nasdanika.html.TagName;
 import org.nasdanika.vinci.bootstrap.BootstrapFactory;
 import org.nasdanika.vinci.bootstrap.BootstrapPackage;
 import org.nasdanika.vinci.bootstrap.Card;
@@ -22,7 +23,7 @@ import org.nasdanika.vinci.bootstrap.Card;
  * @generated
  */
 public class CardItemProvider 
-	extends BootstrapElementItemProvider {
+	extends DivItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -109,7 +110,8 @@ public class CardItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Card)object).getTitle();
+		TagName labelValue = ((Card)object).getName();
+		String label = labelValue == null ? null : labelValue.toString();
 		return label == null || label.length() == 0 ?
 			getString("_UI_Card_type") :
 			getString("_UI_Card_type") + " " + label;
@@ -175,6 +177,11 @@ public class CardItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
+				(BootstrapPackage.Literals.CARD__HEADER,
+				 BootstrapFactory.eINSTANCE.createCard()));
+
+		newChildDescriptors.add
+			(createChildParameter
 				(BootstrapPackage.Literals.CARD__BODY,
 				 BootstrapFactory.eINSTANCE.createDiv()));
 
@@ -200,6 +207,11 @@ public class CardItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
+				(BootstrapPackage.Literals.CARD__BODY,
+				 BootstrapFactory.eINSTANCE.createCard()));
+
+		newChildDescriptors.add
+			(createChildParameter
 				(BootstrapPackage.Literals.CARD__FOOTER,
 				 BootstrapFactory.eINSTANCE.createDiv()));
 
@@ -222,6 +234,11 @@ public class CardItemProvider
 			(createChildParameter
 				(BootstrapPackage.Literals.CARD__FOOTER,
 				 BootstrapFactory.eINSTANCE.createButton()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(BootstrapPackage.Literals.CARD__FOOTER,
+				 BootstrapFactory.eINSTANCE.createCard()));
 	}
 
 	/**

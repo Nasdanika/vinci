@@ -675,8 +675,18 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 	 * @generated
 	 */
 	@Override
+	public EAttribute getActionGroup_Flush() {
+		return (EAttribute)actionGroupEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EReference getActionGroup_Items() {
-		return (EReference)actionGroupEClass.getEStructuralFeatures().get(0);
+		return (EReference)actionGroupEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -878,6 +888,7 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 		contentActionGroupItemEClass = createEClass(CONTENT_ACTION_GROUP_ITEM);
 
 		actionGroupEClass = createEClass(ACTION_GROUP);
+		createEAttribute(actionGroupEClass, ACTION_GROUP__FLUSH);
 		createEReference(actionGroupEClass, ACTION_GROUP__ITEMS);
 
 		alertEClass = createEClass(ALERT);
@@ -978,7 +989,12 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 		tagEClass.getESuperTypes().add(this.getBootstrapElement());
 		divEClass.getESuperTypes().add(this.getTag());
 		itemEClass.getESuperTypes().add(theNcorePackage.getModelElement());
-		actionGroupItemEClass.getESuperTypes().add(this.getItem());
+		EGenericType g1 = createEGenericType(this.getItem());
+		actionGroupItemEClass.getEGenericSuperTypes().add(g1);
+		g1 = createEGenericType(theNcorePackage.getWorkFactory());
+		EGenericType g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		actionGroupItemEClass.getEGenericSuperTypes().add(g1);
 		linkActionGroupItemEClass.getESuperTypes().add(this.getActionGroupItem());
 		contentActionGroupItemEClass.getESuperTypes().add(this.getActionGroupItem());
 		contentActionGroupItemEClass.getESuperTypes().add(theHtmlPackage.getContainer());
@@ -986,21 +1002,16 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 		alertEClass.getESuperTypes().add(this.getDiv());
 		badgeEClass.getESuperTypes().add(this.getDiv());
 		buttonEClass.getESuperTypes().add(this.getDiv());
-		EGenericType g1 = createEGenericType(this.getBootstrapElement());
+		g1 = createEGenericType(this.getBootstrapElement());
 		containerEClass.getEGenericSuperTypes().add(g1);
 		g1 = createEGenericType(theNcorePackage.getWorkFactory());
-		EGenericType g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
 		g1.getETypeArguments().add(g2);
 		containerEClass.getEGenericSuperTypes().add(g1);
 		rowEClass.getESuperTypes().add(this.getBootstrapElement());
 		columnEClass.getESuperTypes().add(this.getBootstrapElement());
 		columnEClass.getESuperTypes().add(theHtmlPackage.getContainer());
-		g1 = createEGenericType(this.getBootstrapElement());
-		cardEClass.getEGenericSuperTypes().add(g1);
-		g1 = createEGenericType(theNcorePackage.getWorkFactory());
-		g2 = createEGenericType(ecorePackage.getEJavaObject());
-		g1.getETypeArguments().add(g2);
-		cardEClass.getEGenericSuperTypes().add(g1);
+		cardEClass.getESuperTypes().add(this.getDiv());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(bootstrapElementEClass, BootstrapElement.class, "BootstrapElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1012,7 +1023,7 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 		initEClass(itemEClass, Item.class, "Item", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getItem_Active(), ecorePackage.getEBoolean(), "active", null, 0, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getItem_Disabled(), ecorePackage.getEBoolean(), "disabled", null, 0, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getItem_Color(), this.getColor(), "color", null, 0, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getItem_Color(), ecorePackage.getEString(), "color", null, 0, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(actionGroupItemEClass, ActionGroupItem.class, "ActionGroupItem", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		g1 = createEGenericType(theNcorePackage.getWorkFactory());
@@ -1026,6 +1037,7 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 		initEClass(contentActionGroupItemEClass, ContentActionGroupItem.class, "ContentActionGroupItem", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(actionGroupEClass, ActionGroup.class, "ActionGroup", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getActionGroup_Flush(), ecorePackage.getEBoolean(), "flush", null, 0, 1, ActionGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getActionGroup_Items(), this.getActionGroupItem(), null, "items", null, 0, -1, ActionGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(alertEClass, Alert.class, "Alert", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

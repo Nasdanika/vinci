@@ -3,24 +3,22 @@
 package org.nasdanika.vinci.bootstrap.provider;
 
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
-
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-
+import org.nasdanika.emf.edit.EReferenceItemProvider;
 import org.nasdanika.ncore.NcoreFactory;
-
 import org.nasdanika.vinci.bootstrap.BootstrapFactory;
 import org.nasdanika.vinci.bootstrap.BootstrapPackage;
 import org.nasdanika.vinci.bootstrap.ContentActionGroupItem;
-
-import org.nasdanika.vinci.html.HtmlFactory;
 import org.nasdanika.vinci.html.HtmlPackage;
 
 /**
@@ -54,6 +52,22 @@ public class ContentActionGroupItemItemProvider extends ActionGroupItemItemProvi
 		}
 		return itemPropertyDescriptors;
 	}
+	
+	/**
+	 * Creates {@link EReferenceItemProvider} children to group contained elements into "folders".
+	 */
+	@Override
+	public Collection<?> getChildren(Object object) {
+		List<EReferenceItemProvider> children = eReferenceItemProviders.get(object);
+		if (children == null) {
+			children = new ArrayList<>();
+			eReferenceItemProviders.put(object, children);
+			children.add(new EReferenceItemProvider(this, (EObject) object, BootstrapPackage.Literals.ACTION_GROUP_ITEM__NAME));
+			children.add(new EReferenceItemProvider(this, (EObject) object, HtmlPackage.Literals.CONTAINER__CONTENT)); 
+		}
+		return children;
+	}
+	
 
 	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
@@ -145,168 +159,28 @@ public class ContentActionGroupItemItemProvider extends ActionGroupItemItemProvi
 	 * that can be created under this object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add
-			(createChildParameter
-				(HtmlPackage.Literals.CONTAINER__CONTENT,
-				 BootstrapFactory.eINSTANCE.createTag()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(HtmlPackage.Literals.CONTAINER__CONTENT,
-				 BootstrapFactory.eINSTANCE.createDiv()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(HtmlPackage.Literals.CONTAINER__CONTENT,
-				 BootstrapFactory.eINSTANCE.createActionGroup()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(HtmlPackage.Literals.CONTAINER__CONTENT,
-				 BootstrapFactory.eINSTANCE.createAlert()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(HtmlPackage.Literals.CONTAINER__CONTENT,
-				 BootstrapFactory.eINSTANCE.createBadge()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(HtmlPackage.Literals.CONTAINER__CONTENT,
-				 BootstrapFactory.eINSTANCE.createButton()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(HtmlPackage.Literals.CONTAINER__CONTENT,
-				 BootstrapFactory.eINSTANCE.createContainer()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(HtmlPackage.Literals.CONTAINER__CONTENT,
-				 BootstrapFactory.eINSTANCE.createCard()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(HtmlPackage.Literals.CONTAINER__CONTENT,
-				 HtmlFactory.eINSTANCE.createTag()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(HtmlPackage.Literals.CONTAINER__CONTENT,
-				 HtmlFactory.eINSTANCE.createContentTag()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(HtmlPackage.Literals.CONTAINER__CONTENT,
-				 NcoreFactory.eINSTANCE.createTypedElement()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(HtmlPackage.Literals.CONTAINER__CONTENT,
-				 NcoreFactory.eINSTANCE.createProvider()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(HtmlPackage.Literals.CONTAINER__CONTENT,
-				 NcoreFactory.eINSTANCE.createValue()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(HtmlPackage.Literals.CONTAINER__CONTENT,
-				 NcoreFactory.eINSTANCE.createNull()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(HtmlPackage.Literals.CONTAINER__CONTENT,
-				 NcoreFactory.eINSTANCE.createOperation()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(HtmlPackage.Literals.CONTAINER__CONTENT,
-				 NcoreFactory.eINSTANCE.createArray()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(HtmlPackage.Literals.CONTAINER__CONTENT,
-				 NcoreFactory.eINSTANCE.createContext()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(HtmlPackage.Literals.CONTAINER__CONTENT,
-				 NcoreFactory.eINSTANCE.createTypedEntry()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(HtmlPackage.Literals.CONTAINER__CONTENT,
-				 NcoreFactory.eINSTANCE.createProviderEntry()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(HtmlPackage.Literals.CONTAINER__CONTENT,
-				 NcoreFactory.eINSTANCE.createMap()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(HtmlPackage.Literals.CONTAINER__CONTENT,
-				 NcoreFactory.eINSTANCE.createProperty()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(HtmlPackage.Literals.CONTAINER__CONTENT,
-				 NcoreFactory.eINSTANCE.createFunction()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(HtmlPackage.Literals.CONTAINER__CONTENT,
-				 NcoreFactory.eINSTANCE.createList()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(HtmlPackage.Literals.CONTAINER__CONTENT,
-				 NcoreFactory.eINSTANCE.createObject()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(HtmlPackage.Literals.CONTAINER__CONTENT,
-				 NcoreFactory.eINSTANCE.createHttpCall()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(HtmlPackage.Literals.CONTAINER__CONTENT,
-				 NcoreFactory.eINSTANCE.createRestOperation()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(HtmlPackage.Literals.CONTAINER__CONTENT,
-				 NcoreFactory.eINSTANCE.createRestFunction()));
+		
+		for (EClass eClass: org.nasdanika.ncore.util.Palettes.EXPRESSIONS) {
+			newChildDescriptors.add(createChildParameter(HtmlPackage.Literals.CONTAINER__CONTENT, NcoreFactory.eINSTANCE.create(eClass)));						
+		}
+		for (EClass eClass: org.nasdanika.vinci.bootstrap.util.Palettes.BOOTSTRAP) {
+			newChildDescriptors.add(createChildParameter(HtmlPackage.Literals.CONTAINER__CONTENT, BootstrapFactory.eINSTANCE.create(eClass)));						
+		}
 	}
 
 	/**
 	 * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getCreateChildText(Object owner, Object feature, Object child, Collection<?> selection) {
-		Object childFeature = feature;
-		Object childObject = child;
-
-		boolean qualify =
-			childFeature == BootstrapPackage.Literals.ACTION_GROUP_ITEM__NAME ||
-			childFeature == HtmlPackage.Literals.CONTAINER__CONTENT;
-
-		if (qualify) {
-			return getString
-				("_UI_CreateChild_text2",
-				 new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
-		}
 		return super.getCreateChildText(owner, feature, child, selection);
 	}
 

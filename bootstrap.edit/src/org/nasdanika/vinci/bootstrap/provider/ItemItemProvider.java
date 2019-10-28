@@ -3,21 +3,20 @@
 package org.nasdanika.vinci.bootstrap.provider;
 
 
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-
+import org.nasdanika.html.bootstrap.Color;
 import org.nasdanika.ncore.provider.ModelElementItemProvider;
-
 import org.nasdanika.vinci.bootstrap.BootstrapPackage;
 import org.nasdanika.vinci.bootstrap.Item;
 
@@ -104,22 +103,21 @@ public class ItemItemProvider extends ModelElementItemProvider {
 	 * This adds a property descriptor for the Color feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
-	protected void addColorPropertyDescriptor(Object object) {
+	protected void addColorPropertyDescriptor(Object object) {		
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
+				(getResourceLocator(),
 				 getString("_UI_Item_color_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Item_color_feature", "_UI_Item_type"),
 				 BootstrapPackage.Literals.ITEM__COLOR,
 				 true,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
-				 null));
+				 null,
+				 Arrays.stream(Color.values()).map(Color::name).collect(Collectors.toList())));
 	}
 
 	/**

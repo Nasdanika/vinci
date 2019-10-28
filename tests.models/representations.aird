@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<viewpoint:DAnalysis xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" uid="_iTq8kPh5EemxOe8SGGgbEg" version="14.1.0.201810161215">
+  <semanticResources>platform:/resource/org.nasdanika.vinci.html/model/html.genmodel</semanticResources>
+  <semanticResources>platform:/resource/org.nasdanika.ncore/model/ncore.genmodel</semanticResources>
+  <semanticResources>platform:/resource/org.nasdanika.vinci.html/model/html.ecore</semanticResources>
+  <semanticResources>platform:/resource/org.nasdanika.ncore/model/ncore.ecore</semanticResources>
+  <semanticResources>http://www.eclipse.org/emf/2002/Ecore</semanticResources>
+  <semanticResources>models/bootstrap/action-group-content.vinci</semanticResources>
+</viewpoint:DAnalysis>

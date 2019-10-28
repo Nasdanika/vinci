@@ -17,6 +17,7 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link org.nasdanika.vinci.bootstrap.ActionGroup#isFlush <em>Flush</em>}</li>
  *   <li>{@link org.nasdanika.vinci.bootstrap.ActionGroup#getItems <em>Items</em>}</li>
  * </ul>
  *
@@ -25,6 +26,28 @@ import org.eclipse.emf.common.util.EList;
  * @generated
  */
 public interface ActionGroup extends Div {
+
+	/**
+	 * Returns the value of the '<em><b>Flush</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Flush</em>' attribute.
+	 * @see #setFlush(boolean)
+	 * @see org.nasdanika.vinci.bootstrap.BootstrapPackage#getActionGroup_Flush()
+	 * @model
+	 * @generated
+	 */
+	boolean isFlush();
+
+	/**
+	 * Sets the value of the '{@link org.nasdanika.vinci.bootstrap.ActionGroup#isFlush <em>Flush</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Flush</em>' attribute.
+	 * @see #isFlush()
+	 * @generated
+	 */
+	void setFlush(boolean value);
 
 	/**
 	 * Returns the value of the '<em><b>Items</b></em>' containment reference list.

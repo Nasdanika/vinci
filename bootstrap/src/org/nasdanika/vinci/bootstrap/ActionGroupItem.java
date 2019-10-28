@@ -23,10 +23,10 @@ import org.nasdanika.common.WorkFactory;
  * </ul>
  *
  * @see org.nasdanika.vinci.bootstrap.BootstrapPackage#getActionGroupItem()
- * @model abstract="true"
+ * @model abstract="true" superTypes="org.nasdanika.vinci.bootstrap.Item org.nasdanika.ncore.WorkFactory&lt;org.eclipse.emf.ecore.EJavaObject&gt;"
  * @generated
  */
-public interface ActionGroupItem extends Item {
+public interface ActionGroupItem extends Item, WorkFactory<Object> {
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' containment reference list.
 	 * The list contents are of type {@link org.nasdanika.common.WorkFactory}<code>&lt;java.lang.Object&gt;</code>.

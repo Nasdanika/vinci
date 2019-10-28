@@ -26,6 +26,7 @@
     </genClasses>
     <genClasses ecoreClass="bootstrap.ecore#//ContentActionGroupItem"/>
     <genClasses ecoreClass="bootstrap.ecore#//ActionGroup">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bootstrap.ecore#//ActionGroup/flush"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference bootstrap.ecore#//ActionGroup/items"/>
     </genClasses>
     <genClasses ecoreClass="bootstrap.ecore#//Alert">

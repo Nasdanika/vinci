@@ -3,14 +3,23 @@
 package org.nasdanika.vinci.bootstrap.impl;
 
 import java.util.Collection;
+import java.util.List;
+import java.util.concurrent.Executor;
+
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.InternalEList;
+import org.nasdanika.common.CompoundWork;
+import org.nasdanika.common.Context;
+import org.nasdanika.common.ProgressMonitor;
+import org.nasdanika.common.Work;
+import org.nasdanika.html.bootstrap.BootstrapFactory;
 import org.nasdanika.vinci.bootstrap.ActionGroup;
 import org.nasdanika.vinci.bootstrap.ActionGroupItem;
 import org.nasdanika.vinci.bootstrap.BootstrapPackage;
+import org.nasdanika.vinci.bootstrap.ContentActionGroupItem;
 
 /**
  * <!-- begin-user-doc -->
@@ -20,12 +29,23 @@ import org.nasdanika.vinci.bootstrap.BootstrapPackage;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link org.nasdanika.vinci.bootstrap.impl.ActionGroupImpl#isFlush <em>Flush</em>}</li>
  *   <li>{@link org.nasdanika.vinci.bootstrap.impl.ActionGroupImpl#getItems <em>Items</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class ActionGroupImpl extends DivImpl implements ActionGroup {
+	/**
+	 * The default value of the '{@link #isFlush() <em>Flush</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isFlush()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean FLUSH_EDEFAULT = false;
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -43,6 +63,26 @@ public class ActionGroupImpl extends DivImpl implements ActionGroup {
 	@Override
 	protected EClass eStaticClass() {
 		return BootstrapPackage.Literals.ACTION_GROUP;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean isFlush() {
+		return (Boolean)eDynamicGet(BootstrapPackage.ACTION_GROUP__FLUSH, BootstrapPackage.Literals.ACTION_GROUP__FLUSH, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setFlush(boolean newFlush) {
+		eDynamicSet(BootstrapPackage.ACTION_GROUP__FLUSH, BootstrapPackage.Literals.ACTION_GROUP__FLUSH, newFlush);
 	}
 
 	/**
@@ -78,6 +118,8 @@ public class ActionGroupImpl extends DivImpl implements ActionGroup {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case BootstrapPackage.ACTION_GROUP__FLUSH:
+				return isFlush();
 			case BootstrapPackage.ACTION_GROUP__ITEMS:
 				return getItems();
 		}
@@ -93,6 +135,9 @@ public class ActionGroupImpl extends DivImpl implements ActionGroup {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case BootstrapPackage.ACTION_GROUP__FLUSH:
+				setFlush((Boolean)newValue);
+				return;
 			case BootstrapPackage.ACTION_GROUP__ITEMS:
 				getItems().clear();
 				getItems().addAll((Collection<? extends ActionGroupItem>)newValue);
@@ -109,6 +154,9 @@ public class ActionGroupImpl extends DivImpl implements ActionGroup {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case BootstrapPackage.ACTION_GROUP__FLUSH:
+				setFlush(FLUSH_EDEFAULT);
+				return;
 			case BootstrapPackage.ACTION_GROUP__ITEMS:
 				getItems().clear();
 				return;
@@ -124,10 +172,35 @@ public class ActionGroupImpl extends DivImpl implements ActionGroup {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case BootstrapPackage.ACTION_GROUP__FLUSH:
+				return isFlush() != FLUSH_EDEFAULT;
 			case BootstrapPackage.ACTION_GROUP__ITEMS:
 				return !getItems().isEmpty();
 		}
 		return super.eIsSet(featureID);
+	}
+	
+	@Override
+	public Work<Object> create(Context context) throws Exception {
+		org.nasdanika.html.bootstrap.ActionGroup actionGroup = context.get(BootstrapFactory.class, BootstrapFactory.INSTANCE).actionGroup(isFlush());
+		
+		CompoundWork<Object, Object> ret = new CompoundWork<Object, Object>(getTitle(), context.get(Executor.class)) {
+			
+			@Override
+			protected Object combine(List<Object> results, ProgressMonitor progressMonitor) throws Exception {
+				boolean hasContentItems = getItems().stream().filter(ContentActionGroupItem.class::isInstance).findAny().isPresent();				
+				return hasContentItems ? actionGroup.asContainer() : actionGroup;
+			}
+		};
+		
+		Context itemContext = Context.singleton(org.nasdanika.html.bootstrap.ActionGroup.class, actionGroup);
+		
+		for (ActionGroupItem item: getItems()) {
+			ret.add(item.create(itemContext));
+		}
+		
+		
+		return ret;
 	}
 
 } //ActionGroupImpl

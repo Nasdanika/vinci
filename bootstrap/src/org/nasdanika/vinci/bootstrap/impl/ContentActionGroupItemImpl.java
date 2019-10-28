@@ -3,6 +3,8 @@
 package org.nasdanika.vinci.bootstrap.impl;
 
 import java.util.Collection;
+import java.util.List;
+import java.util.concurrent.Executor;
 
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -12,9 +14,15 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.util.InternalEList;
-
+import org.nasdanika.common.CompoundWork;
+import org.nasdanika.common.Context;
+import org.nasdanika.common.ProgressMonitor;
+import org.nasdanika.common.Work;
 import org.nasdanika.common.WorkFactory;
-
+import org.nasdanika.html.Fragment;
+import org.nasdanika.html.HTMLFactory;
+import org.nasdanika.html.bootstrap.ActionGroup;
+import org.nasdanika.html.bootstrap.Color;
 import org.nasdanika.vinci.bootstrap.BootstrapPackage;
 import org.nasdanika.vinci.bootstrap.ContentActionGroupItem;
 
@@ -168,6 +176,57 @@ public class ContentActionGroupItemImpl extends ActionGroupItemImpl implements C
 			}
 		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
+	}
+	
+	protected Work<List<Object>> createContentWork(Context context) throws Exception {
+		CompoundWork<List<Object>, Object> ret = new CompoundWork<List<Object>, Object>("Content", context.get(Executor.class)) {
+
+			@Override
+			protected List<Object> combine(List<Object> results, ProgressMonitor progressMonitor) throws Exception {
+				return results;
+			}
+			
+		}; 
+		
+		for (WorkFactory<Object> ce: getContent()) {
+			ret.add(ce.create(context));
+		}
+		
+		return ret;
+	}
+
+	@Override
+	public Work<Object> create(Context context) throws Exception {
+		CompoundWork<Object, List<Object>> ret = new CompoundWork<Object, List<Object>>(getTitle(), context.get(Executor.class)) {
+
+			@Override
+			protected Object combine(List<List<Object>> results, ProgressMonitor progressMonitor) throws Exception {
+				HTMLFactory htmlFactory = context.get(HTMLFactory.class, HTMLFactory.INSTANCE);
+				ActionGroup actionGroup = context.get(ActionGroup.class);				
+
+				Fragment nameFragment = htmlFactory.fragment();
+				results.get(0).forEach(nameFragment);
+				
+				Fragment contentFragment = htmlFactory.fragment();
+				results.get(1).forEach(contentFragment);
+				
+				actionGroup.contentAction(
+						nameFragment, 
+						isActive(), 
+						isDisabled(), 
+						Color.valueOf(getColor()), 
+						null, 
+						contentFragment);
+				
+				return actionGroup; // Not used
+			}
+			
+		}; 
+		
+		ret.add(createNameWork(context));
+		ret.add(createContentWork(context));
+		
+		return ret;
 	}
 
 } //ContentActionGroupItemImpl

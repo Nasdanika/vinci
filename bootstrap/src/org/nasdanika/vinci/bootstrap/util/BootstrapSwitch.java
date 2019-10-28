@@ -111,6 +111,7 @@ public class BootstrapSwitch<T1> extends Switch<T1> {
 				ActionGroupItem actionGroupItem = (ActionGroupItem)theEObject;
 				T1 result = caseActionGroupItem(actionGroupItem);
 				if (result == null) result = caseItem(actionGroupItem);
+				if (result == null) result = caseWorkFactory(actionGroupItem);
 				if (result == null) result = caseModelElement(actionGroupItem);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -120,6 +121,7 @@ public class BootstrapSwitch<T1> extends Switch<T1> {
 				T1 result = caseLinkActionGroupItem(linkActionGroupItem);
 				if (result == null) result = caseActionGroupItem(linkActionGroupItem);
 				if (result == null) result = caseItem(linkActionGroupItem);
+				if (result == null) result = caseWorkFactory(linkActionGroupItem);
 				if (result == null) result = caseModelElement(linkActionGroupItem);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -130,6 +132,7 @@ public class BootstrapSwitch<T1> extends Switch<T1> {
 				if (result == null) result = caseActionGroupItem(contentActionGroupItem);
 				if (result == null) result = caseHtml_Container(contentActionGroupItem);
 				if (result == null) result = caseItem(contentActionGroupItem);
+				if (result == null) result = caseWorkFactory(contentActionGroupItem);
 				if (result == null) result = caseModelElement(contentActionGroupItem);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -236,9 +239,12 @@ public class BootstrapSwitch<T1> extends Switch<T1> {
 			case BootstrapPackage.CARD: {
 				Card card = (Card)theEObject;
 				T1 result = caseCard(card);
+				if (result == null) result = caseDiv(card);
+				if (result == null) result = caseTag(card);
+				if (result == null) result = caseHtml_Tag(card);
 				if (result == null) result = caseBootstrapElement(card);
-				if (result == null) result = caseWorkFactory(card);
 				if (result == null) result = caseHtmlElement(card);
+				if (result == null) result = caseWorkFactory(card);
 				if (result == null) result = caseModelElement(card);
 				if (result == null) result = defaultCase(theEObject);
 				return result;

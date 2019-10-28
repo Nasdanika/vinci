@@ -30,7 +30,7 @@ import org.nasdanika.vinci.bootstrap.Div;
  *
  * @generated
  */
-public class CardImpl extends BootstrapElementImpl implements Card {
+public class CardImpl extends DivImpl implements Card {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

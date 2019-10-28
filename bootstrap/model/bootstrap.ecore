@@ -21,9 +21,9 @@
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="active" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="disabled" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="color" eType="#//Color"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="color" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ActionGroupItem" abstract="true" eSuperTypes="#//Item">
+  <eClassifiers xsi:type="ecore:EClass" name="ActionGroupItem" abstract="true">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Base class for action group items"/>
     </eAnnotations>
@@ -35,6 +35,10 @@
         <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
       </eGenericType>
     </eStructuralFeatures>
+    <eGenericSuperTypes eClassifier="#//Item"/>
+    <eGenericSuperTypes eClassifier="ecore:EClass ../../org.nasdanika.ncore/model/ncore.ecore#//WorkFactory">
+      <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+    </eGenericSuperTypes>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="LinkActionGroupItem" eSuperTypes="#//ActionGroupItem">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="href" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -44,6 +48,7 @@
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="A group of actions (links). "/>
     </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="flush" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="items" upperBound="-1"
         eType="#//ActionGroupItem" containment="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -80,17 +85,13 @@
         eType="#//Column" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Column" eSuperTypes="#//BootstrapElement ../../org.nasdanika.vinci.html/model/html.ecore#//Container"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Card">
+  <eClassifiers xsi:type="ecore:EClass" name="Card" eSuperTypes="#//Div">
     <eStructuralFeatures xsi:type="ecore:EReference" name="header" eType="#//Div"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="body" upperBound="-1" eType="#//Div"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="footer" eType="#//Div"
         containment="true"/>
-    <eGenericSuperTypes eClassifier="#//BootstrapElement"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass ../../org.nasdanika.ncore/model/ncore.ecore#//WorkFactory">
-      <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
-    </eGenericSuperTypes>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="Color" instanceClassName="org.nasdanika.html.bootstrap.Color"/>
   <eClassifiers xsi:type="ecore:EClass" name="Dropdown"/>

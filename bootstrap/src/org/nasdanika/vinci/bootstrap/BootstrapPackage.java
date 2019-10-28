@@ -695,13 +695,22 @@ public interface BootstrapPackage extends EPackage {
 	int ACTION_GROUP__NAME = DIV__NAME;
 
 	/**
+	 * The feature id for the '<em><b>Flush</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION_GROUP__FLUSH = DIV_FEATURE_COUNT + 0;
+
+	/**
 	 * The feature id for the '<em><b>Items</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION_GROUP__ITEMS = DIV_FEATURE_COUNT + 0;
+	int ACTION_GROUP__ITEMS = DIV_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Action Group</em>' class.
@@ -710,7 +719,7 @@ public interface BootstrapPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION_GROUP_FEATURE_COUNT = DIV_FEATURE_COUNT + 1;
+	int ACTION_GROUP_FEATURE_COUNT = DIV_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Action Group</em>' class.
@@ -1098,7 +1107,7 @@ public interface BootstrapPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CARD__TITLE = BOOTSTRAP_ELEMENT__TITLE;
+	int CARD__TITLE = DIV__TITLE;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -1107,7 +1116,16 @@ public interface BootstrapPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CARD__DESCRIPTION = BOOTSTRAP_ELEMENT__DESCRIPTION;
+	int CARD__DESCRIPTION = DIV__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CARD__NAME = DIV__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Header</b></em>' containment reference.
@@ -1116,7 +1134,7 @@ public interface BootstrapPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CARD__HEADER = BOOTSTRAP_ELEMENT_FEATURE_COUNT + 0;
+	int CARD__HEADER = DIV_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Body</b></em>' containment reference list.
@@ -1125,7 +1143,7 @@ public interface BootstrapPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CARD__BODY = BOOTSTRAP_ELEMENT_FEATURE_COUNT + 1;
+	int CARD__BODY = DIV_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Footer</b></em>' containment reference.
@@ -1134,7 +1152,7 @@ public interface BootstrapPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CARD__FOOTER = BOOTSTRAP_ELEMENT_FEATURE_COUNT + 2;
+	int CARD__FOOTER = DIV_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Card</em>' class.
@@ -1143,7 +1161,7 @@ public interface BootstrapPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CARD_FEATURE_COUNT = BOOTSTRAP_ELEMENT_FEATURE_COUNT + 3;
+	int CARD_FEATURE_COUNT = DIV_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>Card</em>' class.
@@ -1152,7 +1170,7 @@ public interface BootstrapPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CARD_OPERATION_COUNT = BOOTSTRAP_ELEMENT_OPERATION_COUNT + 0;
+	int CARD_OPERATION_COUNT = DIV_OPERATION_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Dropdown</em>' class.
@@ -1882,6 +1900,17 @@ public interface BootstrapPackage extends EPackage {
 	EClass getActionGroup();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.bootstrap.ActionGroup#isFlush <em>Flush</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Flush</em>'.
+	 * @see org.nasdanika.vinci.bootstrap.ActionGroup#isFlush()
+	 * @see #getActionGroup()
+	 * @generated
+	 */
+	EAttribute getActionGroup_Flush();
+
+	/**
 	 * Returns the meta object for the containment reference list '{@link org.nasdanika.vinci.bootstrap.ActionGroup#getItems <em>Items</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2326,6 +2355,13 @@ public interface BootstrapPackage extends EPackage {
 		 * @generated
 		 */
 		EClass ACTION_GROUP = eINSTANCE.getActionGroup();
+		/**
+		 * The meta object literal for the '<em><b>Flush</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ACTION_GROUP__FLUSH = eINSTANCE.getActionGroup_Flush();
 		/**
 		 * The meta object literal for the '<em><b>Items</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->

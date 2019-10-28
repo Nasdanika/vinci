@@ -3,18 +3,19 @@
 package org.nasdanika.vinci.bootstrap.impl;
 
 import java.util.Collection;
+import java.util.List;
+import java.util.concurrent.Executor;
 
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.util.InternalEList;
-
+import org.nasdanika.common.CompoundWork;
+import org.nasdanika.common.Context;
+import org.nasdanika.common.ProgressMonitor;
+import org.nasdanika.common.Work;
 import org.nasdanika.common.WorkFactory;
-
 import org.nasdanika.vinci.bootstrap.ActionGroupItem;
 import org.nasdanika.vinci.bootstrap.BootstrapPackage;
 
@@ -134,6 +135,23 @@ public abstract class ActionGroupItemImpl extends ItemImpl implements ActionGrou
 				return !getName().isEmpty();
 		}
 		return super.eIsSet(featureID);
+	}
+	
+	protected Work<List<Object>> createNameWork(Context context) throws Exception {
+		CompoundWork<List<Object>, Object> ret = new CompoundWork<List<Object>, Object>("Name", context.get(Executor.class)) {
+
+			@Override
+			protected List<Object> combine(List<Object> results, ProgressMonitor progressMonitor) throws Exception {
+				return results;
+			}
+			
+		}; 
+		
+		for (WorkFactory<Object> ne: getName()) {
+			ret.add(ne.create(context));
+		}
+		
+		return ret;
 	}
 
 } //ActionGroupItemImpl

@@ -3,7 +3,8 @@
 package org.nasdanika.vinci.bootstrap.impl;
 
 import org.eclipse.emf.ecore.EClass;
-
+import org.nasdanika.common.Context;
+import org.nasdanika.common.Work;
 import org.nasdanika.vinci.bootstrap.BootstrapPackage;
 import org.nasdanika.vinci.bootstrap.LinkActionGroupItem;
 
@@ -126,6 +127,11 @@ public class LinkActionGroupItemImpl extends ActionGroupItemImpl implements Link
 				return HREF_EDEFAULT == null ? getHref() != null : !HREF_EDEFAULT.equals(getHref());
 		}
 		return super.eIsSet(featureID);
+	}
+
+	@Override
+	public Work<Object> create(Context context) throws Exception {
+		throw new UnsupportedOperationException();
 	}
 
 } //LinkActionGroupItemImpl

@@ -8,19 +8,13 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
+import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EStructuralFeature;
-
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-
 import org.nasdanika.ncore.NcoreFactory;
-
 import org.nasdanika.vinci.bootstrap.ActionGroupItem;
-import org.nasdanika.vinci.bootstrap.BootstrapFactory;
 import org.nasdanika.vinci.bootstrap.BootstrapPackage;
-
-import org.nasdanika.vinci.html.HtmlFactory;
 
 /**
  * This is the item provider adapter for a {@link org.nasdanika.vinci.bootstrap.ActionGroupItem} object.
@@ -133,146 +127,18 @@ public class ActionGroupItemItemProvider extends ItemItemProvider {
 	 * that can be created under this object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add
-			(createChildParameter
-				(BootstrapPackage.Literals.ACTION_GROUP_ITEM__NAME,
-				 BootstrapFactory.eINSTANCE.createTag()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(BootstrapPackage.Literals.ACTION_GROUP_ITEM__NAME,
-				 BootstrapFactory.eINSTANCE.createDiv()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(BootstrapPackage.Literals.ACTION_GROUP_ITEM__NAME,
-				 BootstrapFactory.eINSTANCE.createActionGroup()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(BootstrapPackage.Literals.ACTION_GROUP_ITEM__NAME,
-				 BootstrapFactory.eINSTANCE.createAlert()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(BootstrapPackage.Literals.ACTION_GROUP_ITEM__NAME,
-				 BootstrapFactory.eINSTANCE.createBadge()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(BootstrapPackage.Literals.ACTION_GROUP_ITEM__NAME,
-				 BootstrapFactory.eINSTANCE.createButton()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(BootstrapPackage.Literals.ACTION_GROUP_ITEM__NAME,
-				 BootstrapFactory.eINSTANCE.createContainer()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(BootstrapPackage.Literals.ACTION_GROUP_ITEM__NAME,
-				 BootstrapFactory.eINSTANCE.createCard()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(BootstrapPackage.Literals.ACTION_GROUP_ITEM__NAME,
-				 HtmlFactory.eINSTANCE.createTag()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(BootstrapPackage.Literals.ACTION_GROUP_ITEM__NAME,
-				 HtmlFactory.eINSTANCE.createContentTag()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(BootstrapPackage.Literals.ACTION_GROUP_ITEM__NAME,
-				 NcoreFactory.eINSTANCE.createTypedElement()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(BootstrapPackage.Literals.ACTION_GROUP_ITEM__NAME,
-				 NcoreFactory.eINSTANCE.createProvider()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(BootstrapPackage.Literals.ACTION_GROUP_ITEM__NAME,
-				 NcoreFactory.eINSTANCE.createValue()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(BootstrapPackage.Literals.ACTION_GROUP_ITEM__NAME,
-				 NcoreFactory.eINSTANCE.createNull()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(BootstrapPackage.Literals.ACTION_GROUP_ITEM__NAME,
-				 NcoreFactory.eINSTANCE.createOperation()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(BootstrapPackage.Literals.ACTION_GROUP_ITEM__NAME,
-				 NcoreFactory.eINSTANCE.createArray()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(BootstrapPackage.Literals.ACTION_GROUP_ITEM__NAME,
-				 NcoreFactory.eINSTANCE.createContext()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(BootstrapPackage.Literals.ACTION_GROUP_ITEM__NAME,
-				 NcoreFactory.eINSTANCE.createTypedEntry()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(BootstrapPackage.Literals.ACTION_GROUP_ITEM__NAME,
-				 NcoreFactory.eINSTANCE.createProviderEntry()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(BootstrapPackage.Literals.ACTION_GROUP_ITEM__NAME,
-				 NcoreFactory.eINSTANCE.createMap()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(BootstrapPackage.Literals.ACTION_GROUP_ITEM__NAME,
-				 NcoreFactory.eINSTANCE.createProperty()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(BootstrapPackage.Literals.ACTION_GROUP_ITEM__NAME,
-				 NcoreFactory.eINSTANCE.createFunction()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(BootstrapPackage.Literals.ACTION_GROUP_ITEM__NAME,
-				 NcoreFactory.eINSTANCE.createList()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(BootstrapPackage.Literals.ACTION_GROUP_ITEM__NAME,
-				 NcoreFactory.eINSTANCE.createObject()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(BootstrapPackage.Literals.ACTION_GROUP_ITEM__NAME,
-				 NcoreFactory.eINSTANCE.createHttpCall()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(BootstrapPackage.Literals.ACTION_GROUP_ITEM__NAME,
-				 NcoreFactory.eINSTANCE.createRestOperation()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(BootstrapPackage.Literals.ACTION_GROUP_ITEM__NAME,
-				 NcoreFactory.eINSTANCE.createRestFunction()));
+		
+		for (EClass eClass: org.nasdanika.ncore.util.Palettes.EXPRESSIONS) {
+			newChildDescriptors.add(createChildParameter(BootstrapPackage.Literals.ACTION_GROUP_ITEM__NAME, NcoreFactory.eINSTANCE.create(eClass)));						
+		}
+		for (EClass eClass: org.nasdanika.vinci.bootstrap.util.Palettes.BOOTSTRAP) {
+			newChildDescriptors.add(createChildParameter(BootstrapPackage.Literals.ACTION_GROUP_ITEM__NAME, eClass.getEPackage().getEFactoryInstance().create(eClass)));						
+		}
 	}
 
 }

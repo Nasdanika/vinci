@@ -2,8 +2,6 @@
  */
 package org.nasdanika.vinci.bootstrap;
 
-import org.nasdanika.html.bootstrap.Color;
-
 import org.nasdanika.ncore.ModelElement;
 
 /**
@@ -78,12 +76,12 @@ public interface Item extends ModelElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Color</em>' attribute.
-	 * @see #setColor(Color)
+	 * @see #setColor(String)
 	 * @see org.nasdanika.vinci.bootstrap.BootstrapPackage#getItem_Color()
-	 * @model dataType="org.nasdanika.vinci.bootstrap.Color"
+	 * @model
 	 * @generated
 	 */
-	Color getColor();
+	String getColor();
 
 	/**
 	 * Sets the value of the '{@link org.nasdanika.vinci.bootstrap.Item#getColor <em>Color</em>}' attribute.
@@ -93,6 +91,6 @@ public interface Item extends ModelElement {
 	 * @see #getColor()
 	 * @generated
 	 */
-	void setColor(Color value);
+	void setColor(String value);
 
 } // Item
