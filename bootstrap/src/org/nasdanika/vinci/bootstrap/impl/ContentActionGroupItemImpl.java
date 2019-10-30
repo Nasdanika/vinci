@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import org.nasdanika.common.CompoundWork;
 import org.nasdanika.common.Context;
 import org.nasdanika.common.ProgressMonitor;
+import org.nasdanika.common.Util;
 import org.nasdanika.common.Work;
 import org.nasdanika.common.WorkFactory;
 import org.nasdanika.html.Fragment;
@@ -214,7 +215,7 @@ public class ContentActionGroupItemImpl extends ActionGroupItemImpl implements C
 						nameFragment, 
 						isActive(), 
 						isDisabled(), 
-						Color.valueOf(getColor()), 
+						Util.isBlank(getColor()) ? null : Color.valueOf(getColor()), 
 						null, 
 						contentFragment);
 				

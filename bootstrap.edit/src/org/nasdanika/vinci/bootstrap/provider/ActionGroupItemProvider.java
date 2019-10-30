@@ -56,20 +56,19 @@ public class ActionGroupItemProvider
 	 * This adds a property descriptor for the Flush feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void addFlushPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+			(createItemPropertyDescriptor(
 				 getResourceLocator(),
 				 getString("_UI_ActionGroup_flush_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ActionGroup_flush_feature", "_UI_ActionGroup_type"),
 				 BootstrapPackage.Literals.ACTION_GROUP__FLUSH,
 				 true,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
 				 null,
 				 null));
 	}
@@ -129,12 +128,12 @@ public class ActionGroupItemProvider
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getText(Object object) {
-		TagName labelValue = ((ActionGroup)object).getName();
-		String label = labelValue == null ? null : labelValue.toString();
+		ActionGroup actionGroup = (ActionGroup) object;
+		String label = actionGroup.getTitle();
 		return label == null || label.length() == 0 ?
 			getString("_UI_ActionGroup_type") :
 			getString("_UI_ActionGroup_type") + " " + label;

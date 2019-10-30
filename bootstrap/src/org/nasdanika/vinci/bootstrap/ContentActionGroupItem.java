@@ -9,6 +9,10 @@ import org.nasdanika.vinci.html.Container;
  * A representation of the model object '<em><b>Content Action Group Item</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <!-- begin-model-doc -->
+ * Action Group Item with content. Click on the item show the content in the content container.
+ * <!-- end-model-doc -->
+ *
  *
  * @see org.nasdanika.vinci.bootstrap.BootstrapPackage#getContentActionGroupItem()
  * @model

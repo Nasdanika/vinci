@@ -2,9 +2,19 @@
  */
 package org.nasdanika.vinci.bootstrap.impl;
 
+import java.util.List;
+import java.util.concurrent.Executor;
+
 import org.eclipse.emf.ecore.EClass;
+import org.nasdanika.common.CompoundWork;
 import org.nasdanika.common.Context;
+import org.nasdanika.common.ProgressMonitor;
+import org.nasdanika.common.Util;
 import org.nasdanika.common.Work;
+import org.nasdanika.html.Fragment;
+import org.nasdanika.html.HTMLFactory;
+import org.nasdanika.html.bootstrap.ActionGroup;
+import org.nasdanika.html.bootstrap.Color;
 import org.nasdanika.vinci.bootstrap.BootstrapPackage;
 import org.nasdanika.vinci.bootstrap.LinkActionGroupItem;
 
@@ -131,7 +141,33 @@ public class LinkActionGroupItemImpl extends ActionGroupItemImpl implements Link
 
 	@Override
 	public Work<Object> create(Context context) throws Exception {
-		throw new UnsupportedOperationException();
+		CompoundWork<Object, List<Object>> ret = new CompoundWork<Object, List<Object>>(getTitle(), context.get(Executor.class)) {
+
+			@Override
+			protected Object combine(List<List<Object>> results, ProgressMonitor progressMonitor) throws Exception {
+				HTMLFactory htmlFactory = context.get(HTMLFactory.class, HTMLFactory.INSTANCE);
+				ActionGroup actionGroup = context.get(ActionGroup.class);				
+
+				Fragment nameFragment = htmlFactory.fragment();
+				results.get(0).forEach(nameFragment);
+				
+				Fragment contentFragment = htmlFactory.fragment();
+				results.get(1).forEach(contentFragment);
+				
+				actionGroup.action(
+						isActive(), 
+						isDisabled(), 
+						Util.isBlank(getColor()) ? null : Color.valueOf(getColor()), 
+						nameFragment);
+				
+				return actionGroup; // Not used
+			}
+			
+		}; 
+		
+		ret.add(createNameWork(context));
+		
+		return ret;
 	}
 
 } //LinkActionGroupItemImpl

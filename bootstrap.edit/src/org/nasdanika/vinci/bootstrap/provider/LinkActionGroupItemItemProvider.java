@@ -54,20 +54,19 @@ public class LinkActionGroupItemItemProvider extends ActionGroupItemItemProvider
 	 * This adds a property descriptor for the Href feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void addHrefPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+			(createItemPropertyDescriptor(
 				 getResourceLocator(),
 				 getString("_UI_LinkActionGroupItem_href_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_LinkActionGroupItem_href_feature", "_UI_LinkActionGroupItem_type"),
 				 BootstrapPackage.Literals.LINK_ACTION_GROUP_ITEM__HREF,
 				 true,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
 				 null,
 				 null));
 	}

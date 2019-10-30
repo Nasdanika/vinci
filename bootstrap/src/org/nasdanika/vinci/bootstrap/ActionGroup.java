@@ -10,7 +10,7 @@ import org.eclipse.emf.common.util.EList;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * A group of actions (links). 
+ * [List group](https://getbootstrap.com/docs/4.0/components/list-group/) with actions (links). 
  * <!-- end-model-doc -->
  *
  * <p>
@@ -22,7 +22,7 @@ import org.eclipse.emf.common.util.EList;
  * </ul>
  *
  * @see org.nasdanika.vinci.bootstrap.BootstrapPackage#getActionGroup()
- * @model
+ * @model annotation="http://www.eclipse.org/emf/2002/Ecore"
  * @generated
  */
 public interface ActionGroup extends Div {
@@ -31,6 +31,9 @@ public interface ActionGroup extends Div {
 	 * Returns the value of the '<em><b>Flush</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Removes borders to render action group items edge-to-edge in a parent container.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Flush</em>' attribute.
 	 * @see #setFlush(boolean)
 	 * @see org.nasdanika.vinci.bootstrap.BootstrapPackage#getActionGroup_Flush()
@@ -55,7 +58,7 @@ public interface ActionGroup extends Div {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Item name
+	 * Group items.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Items</em>' containment reference list.
 	 * @see org.nasdanika.vinci.bootstrap.BootstrapPackage#getActionGroup_Items()

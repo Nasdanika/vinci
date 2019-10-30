@@ -24,6 +24,7 @@ import org.nasdanika.ncore.ModelElement;
  *
  * @see org.nasdanika.vinci.bootstrap.BootstrapPackage#getItem()
  * @model abstract="true"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore constraints='color activeAndDisabled'"
  * @generated
  */
 public interface Item extends ModelElement {
@@ -75,6 +76,9 @@ public interface Item extends ModelElement {
 	 * Returns the value of the '<em><b>Color</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Bootstrap color.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Color</em>' attribute.
 	 * @see #setColor(String)
 	 * @see org.nasdanika.vinci.bootstrap.BootstrapPackage#getItem_Color()

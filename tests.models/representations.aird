@@ -6,4 +6,5 @@
   <semanticResources>platform:/resource/org.nasdanika.ncore/model/ncore.ecore</semanticResources>
   <semanticResources>http://www.eclipse.org/emf/2002/Ecore</semanticResources>
   <semanticResources>models/bootstrap/action-group-content.vinci</semanticResources>
+  <semanticResources>models/bootstrap/action-group-link.vinci</semanticResources>
 </viewpoint:DAnalysis>

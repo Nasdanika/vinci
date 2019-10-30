@@ -9,6 +9,7 @@ import org.eclipse.emf.ecore.EGenericType;
 import org.eclipse.emf.ecore.EPackage;
 
 import org.eclipse.emf.ecore.EReference;
+import org.eclipse.emf.ecore.EValidator;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import org.nasdanika.html.bootstrap.Color;
@@ -47,6 +48,7 @@ import org.nasdanika.vinci.bootstrap.TableColumn;
 import org.nasdanika.vinci.bootstrap.TableRow;
 import org.nasdanika.vinci.bootstrap.Tag;
 import org.nasdanika.vinci.bootstrap.Tooltip;
+import org.nasdanika.vinci.bootstrap.util.BootstrapValidator;
 import org.nasdanika.vinci.html.HtmlPackage;
 
 /**
@@ -340,6 +342,16 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 
 		// Initialize created meta-data
 		theBootstrapPackage.initializePackageContents();
+
+		// Register package validator
+		EValidator.Registry.INSTANCE.put
+			(theBootstrapPackage,
+			 new EValidator.Descriptor() {
+				 @Override
+				 public EValidator getEValidator() {
+					 return BootstrapValidator.INSTANCE;
+				 }
+			 });
 
 		// Mark meta-data to indicate it can't be changed
 		theBootstrapPackage.freeze();
@@ -1029,7 +1041,7 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 		g1 = createEGenericType(theNcorePackage.getWorkFactory());
 		g2 = createEGenericType(ecorePackage.getEJavaObject());
 		g1.getETypeArguments().add(g2);
-		initEReference(getActionGroupItem_Name(), g1, null, "name", null, 0, -1, ActionGroupItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getActionGroupItem_Name(), g1, null, "name", null, 1, -1, ActionGroupItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(linkActionGroupItemEClass, LinkActionGroupItem.class, "LinkActionGroupItem", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getLinkActionGroupItem_Href(), ecorePackage.getEString(), "href", null, 1, 1, LinkActionGroupItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1106,6 +1118,8 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 		// Create annotations
 		// http://www.eclipse.org/emf/2002/GenModel
 		createGenModelAnnotations();
+		// http://www.eclipse.org/emf/2002/Ecore
+		createEcoreAnnotations();
 	}
 
 	/**
@@ -1141,6 +1155,12 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 			   "documentation", "Base class for model elements which can be active, disabled, and have color."
 		   });
 		addAnnotation
+		  (getItem_Color(),
+		   source,
+		   new String[] {
+			   "documentation", "Bootstrap color."
+		   });
+		addAnnotation
 		  (actionGroupItemEClass,
 		   source,
 		   new String[] {
@@ -1153,22 +1173,61 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 			   "documentation", "Item name"
 		   });
 		addAnnotation
+		  (getLinkActionGroupItem_Href(),
+		   source,
+		   new String[] {
+			   "documentation", "Link URL."
+		   });
+		addAnnotation
+		  (contentActionGroupItemEClass,
+		   source,
+		   new String[] {
+			   "documentation", "Action Group Item with content. Click on the item show the content in the content container."
+		   });
+		addAnnotation
 		  (actionGroupEClass,
 		   source,
 		   new String[] {
-			   "documentation", "A group of actions (links). "
+			   "documentation", "[List group](https://getbootstrap.com/docs/4.0/components/list-group/) with actions (links). "
+		   });
+		addAnnotation
+		  (getActionGroup_Flush(),
+		   source,
+		   new String[] {
+			   "documentation", "Removes borders to render action group items edge-to-edge in a parent container."
 		   });
 		addAnnotation
 		  (getActionGroup_Items(),
 		   source,
 		   new String[] {
-			   "documentation", "Item name"
+			   "documentation", "Group items."
 		   });
 		addAnnotation
 		  (buttonEClass,
 		   source,
 		   new String[] {
 			   "documentation", "TODO - size - enum? Block, active, disabled."
+		   });
+	}
+
+	/**
+	 * Initializes the annotations for <b>http://www.eclipse.org/emf/2002/Ecore</b>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void createEcoreAnnotations() {
+		String source = "http://www.eclipse.org/emf/2002/Ecore";
+		addAnnotation
+		  (itemEClass,
+		   source,
+		   new String[] {
+			   "constraints", "color activeAndDisabled"
+		   });
+		addAnnotation
+		  (actionGroupEClass,
+		   source,
+		   new String[] {
 		   });
 	}
 

@@ -59,20 +59,19 @@ public class ItemItemProvider extends ModelElementItemProvider {
 	 * This adds a property descriptor for the Active feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void addActivePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+			(createItemPropertyDescriptor(
 				 getResourceLocator(),
 				 getString("_UI_Item_active_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Item_active_feature", "_UI_Item_type"),
 				 BootstrapPackage.Literals.ITEM__ACTIVE,
 				 true,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
 				 null,
 				 null));
 	}
@@ -81,20 +80,19 @@ public class ItemItemProvider extends ModelElementItemProvider {
 	 * This adds a property descriptor for the Disabled feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void addDisabledPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+			(createItemPropertyDescriptor(
 				 getResourceLocator(),
 				 getString("_UI_Item_disabled_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Item_disabled_feature", "_UI_Item_type"),
 				 BootstrapPackage.Literals.ITEM__DISABLED,
 				 true,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
 				 null,
 				 null));
 	}

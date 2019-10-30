@@ -24,6 +24,9 @@ public interface LinkActionGroupItem extends ActionGroupItem {
 	 * Returns the value of the '<em><b>Href</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Link URL.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Href</em>' attribute.
 	 * @see #setHref(String)
 	 * @see org.nasdanika.vinci.bootstrap.BootstrapPackage#getLinkActionGroupItem_Href()

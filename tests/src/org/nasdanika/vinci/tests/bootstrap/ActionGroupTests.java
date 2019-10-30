@@ -16,7 +16,15 @@ public class ActionGroupTests extends TestsBase {
 	 */
 	@Test
 	public void testContentItems() throws Exception {
-		execute("bootstrap/action-group-content").writeThemedPage("index.html", "Bootstrap action group", new PrintStreamProgressMonitor()); 		
+		execute("bootstrap/action-group-content").writeThemedPage("index.html", "Bootstrap action group with content items", new PrintStreamProgressMonitor()); 		
+	}
+	
+	/**
+	 * @throws Exception
+	 */
+	@Test
+	public void testLinkItems() throws Exception {
+		execute("bootstrap/action-group-link").writeThemedPage("index.html", "Bootstrap action group with link items", new PrintStreamProgressMonitor()); 		
 	}
 	
 }
