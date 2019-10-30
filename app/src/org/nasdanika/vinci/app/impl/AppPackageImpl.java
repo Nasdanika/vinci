@@ -958,6 +958,302 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 
 		// Create resource
 		createResource(eNS_URI);
+
+		// Create annotations
+		// http://www.eclipse.org/emf/2002/GenModel
+		createGenModelAnnotations();
+	}
+
+	/**
+	 * Initializes the annotations for <b>http://www.eclipse.org/emf/2002/GenModel</b>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void createGenModelAnnotations() {
+		String source = "http://www.eclipse.org/emf/2002/GenModel";
+		addAnnotation
+		  (this,
+		   source,
+		   new String[] {
+			   "documentation", "Application model."
+		   });
+		addAnnotation
+		  (labelSpecEClass,
+		   source,
+		   new String[] {
+			   "documentation", "java.uitl.Map subclass containing label specification. It can be stored to YAML or JSON to be used by runtime components."
+		   });
+		addAnnotation
+		  (actionSpecEClass,
+		   source,
+		   new String[] {
+			   "documentation", "LabelSpec subclass containing action specification. It can be stored to YAML or JSON to be used by runtime components."
+		   });
+		addAnnotation
+		  (colorEDataType,
+		   source,
+		   new String[] {
+			   "documentation", "Bootstrap color."
+		   });
+		addAnnotation
+		  (containerEClass,
+		   source,
+		   new String[] {
+			   "documentation", "Container of elements"
+		   });
+		addAnnotation
+		  (getContainer_Elements(),
+		   source,
+		   new String[] {
+			   "documentation", "Container elements"
+		   });
+		addAnnotation
+		  (getContainer_LinkedElements(),
+		   source,
+		   new String[] {
+			   "documentation", "Elements contained by another objects and logically linked to this container."
+		   });
+		addAnnotation
+		  (labelEClass,
+		   source,
+		   new String[] {
+			   "documentation", ""
+		   });
+		addAnnotation
+		  (getLabel_Color(),
+		   source,
+		   new String[] {
+			   "documentation", ""
+		   });
+		addAnnotation
+		  (getLabel_Id(),
+		   source,
+		   new String[] {
+			   "documentation", ""
+		   });
+		addAnnotation
+		  (getLabel_Text(),
+		   source,
+		   new String[] {
+			   "documentation", ""
+		   });
+		addAnnotation
+		  (getLabel_Icon(),
+		   source,
+		   new String[] {
+			   "documentation", "Label icon. Treated as URL if contains ``/`` or as a CSS class otherwise. E.g. ``fas fa-wrench`` would be treated as a CSS class."
+		   });
+		addAnnotation
+		  (getLabel_Tooltip(),
+		   source,
+		   new String[] {
+			   "documentation", ""
+		   });
+		addAnnotation
+		  (getLabel_Outline(),
+		   source,
+		   new String[] {
+			   "documentation", ""
+		   });
+		addAnnotation
+		  (getLabel_Notification(),
+		   source,
+		   new String[] {
+			   "documentation", ""
+		   });
+		addAnnotation
+		  (categoryEClass,
+		   source,
+		   new String[] {
+			   "documentation", "Categories are used for grouping of its elements such as actions or properties. "
+		   });
+		addAnnotation
+		  (actionElementEClass,
+		   source,
+		   new String[] {
+			   "documentation", "An element which can be contained by an action - action category or abstract action."
+		   });
+		addAnnotation
+		  (abstractActionEClass,
+		   source,
+		   new String[] {
+			   "documentation", "Base class for different types of actions - action, action link, and action reference."
+		   });
+		addAnnotation
+		  (getAbstractAction_ActionMappings(),
+		   source,
+		   new String[] {
+			   "documentation", "A collection of mappings of action logical names to target actions. Aliases are inherited by action children."
+		   });
+		addAnnotation
+		  (actionCategoryEClass,
+		   source,
+		   new String[] {
+			   "documentation", ""
+		   });
+		addAnnotation
+		  (actionBaseEClass,
+		   source,
+		   new String[] {
+			   "documentation", "Base class for concrete action classes - Action and Partition. These sub-classes are semantically equivalent and differ only in diagram representation - Action is represented by a node, Partition by a container node.\nAction can be a child of another action or of an action category. It may contain content and action elements - abstract actions and action categories. It may also contain action aliases - logical names of actions referenced by this action\'s content."
+		   });
+		addAnnotation
+		  (getActionBase_Role(),
+		   source,
+		   new String[] {
+			   "documentation", "Actions may play different roles in their container."
+		   });
+		addAnnotation
+		  (getActionBase_SectionColumns(),
+		   source,
+		   new String[] {
+			   "documentation", "Applicable to section style \"Card\". Defines how many columns shall be in a row of section cards."
+		   });
+		addAnnotation
+		  (getActionBase_Confirmation(),
+		   source,
+		   new String[] {
+			   "documentation", "Confirmation to display in a confirmation dialog before action execution to give the user an opportunity to cancel the action. E.g. confirmation of deletion."
+		   });
+		addAnnotation
+		  (getActionBase_Disabled(),
+		   source,
+		   new String[] {
+			   "documentation", "If true, then action is displayed as disabled. "
+		   });
+		addAnnotation
+		  (getActionBase_FloatRight(),
+		   source,
+		   new String[] {
+			   "documentation", "This attribute is applicable for actions displayed in a navbar. If true, then action is displayed on the right."
+		   });
+		addAnnotation
+		  (getActionBase_Embedded(),
+		   source,
+		   new String[] {
+			   "documentation", "If true, then action content is displayed instead of action label. For example, a login form action or a search action can be embedded into a navbar."
+		   });
+		addAnnotation
+		  (getActionBase_Content(),
+		   source,
+		   new String[] {
+			   "documentation", "Action content generator(s)."
+		   });
+		addAnnotation
+		  (actionMappingEClass,
+		   source,
+		   new String[] {
+			   "documentation", "Action mapping provides a logical name (alias) for another (abstract) action for convenient linking/referencing from action\'s content."
+		   });
+		addAnnotation
+		  (getActionMapping_Alias(),
+		   source,
+		   new String[] {
+			   "documentation", "Logical name of the target action."
+		   });
+		addAnnotation
+		  (actionLinkEClass,
+		   source,
+		   new String[] {
+			   "documentation", "A link to an external action specification in JSON or YAML format."
+		   });
+		addAnnotation
+		  (getActionLink_Ref(),
+		   source,
+		   new String[] {
+			   "documentation", "Action specification URL relsolved relative to the model location."
+		   });
+		addAnnotation
+		  (actionReferenceEClass,
+		   source,
+		   new String[] {
+			   "documentation", "Action reference allows to \"mount\" an existing action as a child of another action."
+		   });
+		addAnnotation
+		  (getActionReference_Action(),
+		   source,
+		   new String[] {
+			   "documentation", "Referenced/mounted action."
+		   });
+		addAnnotation
+		  (actionRoleEEnum,
+		   source,
+		   new String[] {
+			   "documentation", "Actions may play different roles in their container."
+		   });
+		addAnnotation
+		  (actionRoleEEnum.getELiterals().get(0),
+		   source,
+		   new String[] {
+			   "documentation", "Navigation actions are displayed as action children in the navigation panel. For the root action the first navigation child is the principal action and the rest is displayed in the right-top navs in the header."
+		   });
+		addAnnotation
+		  (actionRoleEEnum.getELiterals().get(1),
+		   source,
+		   new String[] {
+			   "documentation", "Context actions are displayed in the navbar for the principal action, in the context menu in jsTree, and in the right navs in the content panel."
+		   });
+		addAnnotation
+		  (actionRoleEEnum.getELiterals().get(2),
+		   source,
+		   new String[] {
+			   "documentation", "Section actions are displayed as content sections - paragraphs, tabs, etc. depending on sections style."
+		   });
+		addAnnotation
+		  (actionRoleEEnum.getELiterals().get(3),
+		   source,
+		   new String[] {
+			   "documentation", "Actions to display during viewing. Applicable to property and property source actions. "
+		   });
+		addAnnotation
+		  (actionRoleEEnum.getELiterals().get(4),
+		   source,
+		   new String[] {
+			   "documentation", "Actions to display during editing. Applicable to property and property source actions. "
+		   });
+		addAnnotation
+		  (sectionStyleEEnum,
+		   source,
+		   new String[] {
+			   "documentation", "Defines how section child actions shall be displayed."
+		   });
+		addAnnotation
+		  (activatorTypeEEnum,
+		   source,
+		   new String[] {
+			   "documentation", "Type of action activator."
+		   });
+		addAnnotation
+		  (activatorTypeEEnum.getELiterals().get(0),
+		   source,
+		   new String[] {
+			   "documentation", "Activator is a URL."
+		   });
+		addAnnotation
+		  (activatorTypeEEnum.getELiterals().get(1),
+		   source,
+		   new String[] {
+			   "documentation", "Activator is a script."
+		   });
+		addAnnotation
+		  (activatorTypeEEnum.getELiterals().get(2),
+		   source,
+		   new String[] {
+			   "documentation", "Activator is a script executed to bind action to its activator, e.g. set knockoutjs data-bind attribute."
+		   });
+		addAnnotation
+		  (actionEClass,
+		   source,
+		   new String[] {
+			   "documentation", "Concrete action."
+		   });
+		addAnnotation
+		  (partitionEClass,
+		   source,
+		   new String[] {
+			   "documentation", "Concrete action class represented as a container node on a diagram containing actions and other partitions."
+		   });
 	}
 
 } //AppPackageImpl

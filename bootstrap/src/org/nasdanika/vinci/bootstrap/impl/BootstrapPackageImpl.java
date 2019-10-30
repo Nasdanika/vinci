@@ -1102,6 +1102,74 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 
 		// Create resource
 		createResource(eNS_URI);
+
+		// Create annotations
+		// http://www.eclipse.org/emf/2002/GenModel
+		createGenModelAnnotations();
+	}
+
+	/**
+	 * Initializes the annotations for <b>http://www.eclipse.org/emf/2002/GenModel</b>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void createGenModelAnnotations() {
+		String source = "http://www.eclipse.org/emf/2002/GenModel";
+		addAnnotation
+		  (this,
+		   source,
+		   new String[] {
+			   "documentation", "Model of Bootstrap elements."
+		   });
+		addAnnotation
+		  (tagEClass,
+		   source,
+		   new String[] {
+			   "documentation", "HTML tag with bootstrap styling"
+		   });
+		addAnnotation
+		  (divEClass,
+		   source,
+		   new String[] {
+			   "documentation", "HTML DIV with bootstrap styling"
+		   });
+		addAnnotation
+		  (itemEClass,
+		   source,
+		   new String[] {
+			   "documentation", "Base class for model elements which can be active, disabled, and have color."
+		   });
+		addAnnotation
+		  (actionGroupItemEClass,
+		   source,
+		   new String[] {
+			   "documentation", "Base class for action group items"
+		   });
+		addAnnotation
+		  (getActionGroupItem_Name(),
+		   source,
+		   new String[] {
+			   "documentation", "Item name"
+		   });
+		addAnnotation
+		  (actionGroupEClass,
+		   source,
+		   new String[] {
+			   "documentation", "A group of actions (links). "
+		   });
+		addAnnotation
+		  (getActionGroup_Items(),
+		   source,
+		   new String[] {
+			   "documentation", "Item name"
+		   });
+		addAnnotation
+		  (buttonEClass,
+		   source,
+		   new String[] {
+			   "documentation", "TODO - size - enum? Block, active, disabled."
+		   });
 	}
 
 } //BootstrapPackageImpl

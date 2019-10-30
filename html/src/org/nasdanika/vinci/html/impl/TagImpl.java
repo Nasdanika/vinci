@@ -9,7 +9,6 @@ import org.nasdanika.common.CompoundWork;
 import org.nasdanika.common.Context;
 import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.common.Work;
-import org.nasdanika.common.WorkFactory;
 import org.nasdanika.html.HTMLFactory;
 import org.nasdanika.html.TagName;
 import org.nasdanika.vinci.html.HtmlPackage;

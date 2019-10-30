@@ -297,6 +297,32 @@ public class HtmlPackageImpl extends EPackageImpl implements HtmlPackage {
 
 		// Create resource
 		createResource(eNS_URI);
+
+		// Create annotations
+		// http://www.eclipse.org/emf/2002/GenModel
+		createGenModelAnnotations();
+	}
+
+	/**
+	 * Initializes the annotations for <b>http://www.eclipse.org/emf/2002/GenModel</b>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void createGenModelAnnotations() {
+		String source = "http://www.eclipse.org/emf/2002/GenModel";
+		addAnnotation
+		  (this,
+		   source,
+		   new String[] {
+			   "documentation", "HTML model"
+		   });
+		addAnnotation
+		  (containerEClass,
+		   source,
+		   new String[] {
+			   "documentation", "Container of content such as text and HTML markup."
+		   });
 	}
 
 } //HtmlPackageImpl
