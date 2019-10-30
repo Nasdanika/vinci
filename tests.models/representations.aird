@@ -8,4 +8,5 @@
   <semanticResources>models/bootstrap/action-group-content.vinci</semanticResources>
   <semanticResources>models/bootstrap/action-group-link-bak.vinci</semanticResources>
   <semanticResources>models/bootstrap/action-group-link.vinci</semanticResources>
+  <semanticResources>models/bootstrap/action-group-mixed.vinci</semanticResources>
 </viewpoint:DAnalysis>

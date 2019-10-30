@@ -12,5 +12,4 @@
   <items xsi:type="org.nasdanika.vinci.bootstrap:LinkActionGroupItem" color="WARNING" url="#">
     <name xsi:type="org.nasdanika.ncore:Value" value="Item Four"/>
   </items>
-  
 </org.nasdanika.vinci.bootstrap:ActionGroup>

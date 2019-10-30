@@ -27,4 +27,12 @@ public class ActionGroupTests extends TestsBase {
 		execute("bootstrap/action-group-link").writeThemedPage("index.html", "Bootstrap action group with link items", new PrintStreamProgressMonitor()); 		
 	}
 	
+	/**
+	 * @throws Exception
+	 */
+	@Test
+	public void testMixedItems() throws Exception {
+		execute("bootstrap/action-group-mixed").writeThemedPage("index.html", "Bootstrap action group with mixed items", new PrintStreamProgressMonitor()); 		
+	}
+	
 }
