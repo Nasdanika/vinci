@@ -557,7 +557,7 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 	 * @generated
 	 */
 	@Override
-	public EAttribute getLinkActionGroupItem_Href() {
+	public EAttribute getLinkActionGroupItem_Url() {
 		return (EAttribute)linkActionGroupItemEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -895,7 +895,7 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 		createEReference(actionGroupItemEClass, ACTION_GROUP_ITEM__NAME);
 
 		linkActionGroupItemEClass = createEClass(LINK_ACTION_GROUP_ITEM);
-		createEAttribute(linkActionGroupItemEClass, LINK_ACTION_GROUP_ITEM__HREF);
+		createEAttribute(linkActionGroupItemEClass, LINK_ACTION_GROUP_ITEM__URL);
 
 		contentActionGroupItemEClass = createEClass(CONTENT_ACTION_GROUP_ITEM);
 
@@ -1044,7 +1044,7 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 		initEReference(getActionGroupItem_Name(), g1, null, "name", null, 0, -1, ActionGroupItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(linkActionGroupItemEClass, LinkActionGroupItem.class, "LinkActionGroupItem", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getLinkActionGroupItem_Href(), ecorePackage.getEString(), "href", null, 1, 1, LinkActionGroupItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getLinkActionGroupItem_Url(), ecorePackage.getEString(), "url", null, 1, 1, LinkActionGroupItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(contentActionGroupItemEClass, ContentActionGroupItem.class, "ContentActionGroupItem", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1179,7 +1179,7 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 			   "documentation", "Click on the item navigates to the link URL."
 		   });
 		addAnnotation
-		  (getLinkActionGroupItem_Href(),
+		  (getLinkActionGroupItem_Url(),
 		   source,
 		   new String[] {
 			   "documentation", "Link URL."

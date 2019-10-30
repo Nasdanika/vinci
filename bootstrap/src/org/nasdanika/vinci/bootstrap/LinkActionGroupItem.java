@@ -16,7 +16,7 @@ package org.nasdanika.vinci.bootstrap;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.nasdanika.vinci.bootstrap.LinkActionGroupItem#getHref <em>Href</em>}</li>
+ *   <li>{@link org.nasdanika.vinci.bootstrap.LinkActionGroupItem#getUrl <em>Url</em>}</li>
  * </ul>
  *
  * @see org.nasdanika.vinci.bootstrap.BootstrapPackage#getLinkActionGroupItem()
@@ -25,28 +25,28 @@ package org.nasdanika.vinci.bootstrap;
  */
 public interface LinkActionGroupItem extends ActionGroupItem {
 	/**
-	 * Returns the value of the '<em><b>Href</b></em>' attribute.
+	 * Returns the value of the '<em><b>Url</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * Link URL.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Href</em>' attribute.
-	 * @see #setHref(String)
-	 * @see org.nasdanika.vinci.bootstrap.BootstrapPackage#getLinkActionGroupItem_Href()
+	 * @return the value of the '<em>Url</em>' attribute.
+	 * @see #setUrl(String)
+	 * @see org.nasdanika.vinci.bootstrap.BootstrapPackage#getLinkActionGroupItem_Url()
 	 * @model required="true"
 	 * @generated
 	 */
-	String getHref();
+	String getUrl();
 
 	/**
-	 * Sets the value of the '{@link org.nasdanika.vinci.bootstrap.LinkActionGroupItem#getHref <em>Href</em>}' attribute.
+	 * Sets the value of the '{@link org.nasdanika.vinci.bootstrap.LinkActionGroupItem#getUrl <em>Url</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Href</em>' attribute.
-	 * @see #getHref()
+	 * @param value the new value of the '<em>Url</em>' attribute.
+	 * @see #getUrl()
 	 * @generated
 	 */
-	void setHref(String value);
+	void setUrl(String value);
 
 } // LinkActionGroupItem

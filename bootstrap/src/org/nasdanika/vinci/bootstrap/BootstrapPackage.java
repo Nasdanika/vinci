@@ -480,13 +480,13 @@ public interface BootstrapPackage extends EPackage {
 	int LINK_ACTION_GROUP_ITEM__NAME = ACTION_GROUP_ITEM__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Href</b></em>' attribute.
+	 * The feature id for the '<em><b>Url</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LINK_ACTION_GROUP_ITEM__HREF = ACTION_GROUP_ITEM_FEATURE_COUNT + 0;
+	int LINK_ACTION_GROUP_ITEM__URL = ACTION_GROUP_ITEM_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Link Action Group Item</em>' class.
@@ -1765,15 +1765,15 @@ public interface BootstrapPackage extends EPackage {
 	EClass getLinkActionGroupItem();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.bootstrap.LinkActionGroupItem#getHref <em>Href</em>}'.
+	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.bootstrap.LinkActionGroupItem#getUrl <em>Url</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Href</em>'.
-	 * @see org.nasdanika.vinci.bootstrap.LinkActionGroupItem#getHref()
+	 * @return the meta object for the attribute '<em>Url</em>'.
+	 * @see org.nasdanika.vinci.bootstrap.LinkActionGroupItem#getUrl()
 	 * @see #getLinkActionGroupItem()
 	 * @generated
 	 */
-	EAttribute getLinkActionGroupItem_Href();
+	EAttribute getLinkActionGroupItem_Url();
 
 	/**
 	 * Returns the meta object for class '{@link org.nasdanika.vinci.bootstrap.ContentActionGroupItem <em>Content Action Group Item</em>}'.
@@ -2249,12 +2249,12 @@ public interface BootstrapPackage extends EPackage {
 		 */
 		EClass LINK_ACTION_GROUP_ITEM = eINSTANCE.getLinkActionGroupItem();
 		/**
-		 * The meta object literal for the '<em><b>Href</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Url</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute LINK_ACTION_GROUP_ITEM__HREF = eINSTANCE.getLinkActionGroupItem_Href();
+		EAttribute LINK_ACTION_GROUP_ITEM__URL = eINSTANCE.getLinkActionGroupItem_Url();
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.vinci.bootstrap.impl.ContentActionGroupItemImpl <em>Content Action Group Item</em>}' class.
 		 * <!-- begin-user-doc -->

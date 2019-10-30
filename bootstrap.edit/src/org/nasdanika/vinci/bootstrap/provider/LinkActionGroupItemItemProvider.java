@@ -8,6 +8,7 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
@@ -43,23 +44,23 @@ public class LinkActionGroupItemItemProvider extends ActionGroupItemItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addHrefPropertyDescriptor(object);
+			addUrlPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Href feature.
+	 * This adds a property descriptor for the Url feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	protected void addHrefPropertyDescriptor(Object object) {
+	protected void addUrlPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor(
 				 getResourceLocator(),
-				 getString("_UI_LinkActionGroupItem_href_feature"),
-				 BootstrapPackage.Literals.LINK_ACTION_GROUP_ITEM__HREF,
+				 getString("_UI_LinkActionGroupItem_url_feature"),
+				 BootstrapPackage.Literals.LINK_ACTION_GROUP_ITEM__URL,
 				 true,
 				 false,
 				 false,
@@ -117,7 +118,7 @@ public class LinkActionGroupItemItemProvider extends ActionGroupItemItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(LinkActionGroupItem.class)) {
-			case BootstrapPackage.LINK_ACTION_GROUP_ITEM__HREF:
+			case BootstrapPackage.LINK_ACTION_GROUP_ITEM__URL:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

@@ -23,7 +23,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference bootstrap.ecore#//ActionGroupItem/name"/>
     </genClasses>
     <genClasses ecoreClass="bootstrap.ecore#//LinkActionGroupItem">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bootstrap.ecore#//LinkActionGroupItem/href"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bootstrap.ecore#//LinkActionGroupItem/url"/>
     </genClasses>
     <genClasses ecoreClass="bootstrap.ecore#//ContentActionGroupItem"/>
     <genClasses ecoreClass="bootstrap.ecore#//ActionGroup">

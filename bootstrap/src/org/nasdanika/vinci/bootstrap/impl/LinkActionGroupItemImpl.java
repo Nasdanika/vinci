@@ -26,22 +26,21 @@ import org.nasdanika.vinci.bootstrap.LinkActionGroupItem;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.nasdanika.vinci.bootstrap.impl.LinkActionGroupItemImpl#getHref <em>Href</em>}</li>
+ *   <li>{@link org.nasdanika.vinci.bootstrap.impl.LinkActionGroupItemImpl#getUrl <em>Url</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class LinkActionGroupItemImpl extends ActionGroupItemImpl implements LinkActionGroupItem {
 	/**
-	 * The default value of the '{@link #getHref() <em>Href</em>}' attribute.
+	 * The default value of the '{@link #getUrl() <em>Url</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getHref()
+	 * @see #getUrl()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String HREF_EDEFAULT = null;
-
+	protected static final String URL_EDEFAULT = null;
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -60,15 +59,15 @@ public class LinkActionGroupItemImpl extends ActionGroupItemImpl implements Link
 	protected EClass eStaticClass() {
 		return BootstrapPackage.Literals.LINK_ACTION_GROUP_ITEM;
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public String getHref() {
-		return (String)eDynamicGet(BootstrapPackage.LINK_ACTION_GROUP_ITEM__HREF, BootstrapPackage.Literals.LINK_ACTION_GROUP_ITEM__HREF, true, true);
+	public String getUrl() {
+		return (String)eDynamicGet(BootstrapPackage.LINK_ACTION_GROUP_ITEM__URL, BootstrapPackage.Literals.LINK_ACTION_GROUP_ITEM__URL, true, true);
 	}
 
 	/**
@@ -77,8 +76,8 @@ public class LinkActionGroupItemImpl extends ActionGroupItemImpl implements Link
 	 * @generated
 	 */
 	@Override
-	public void setHref(String newHref) {
-		eDynamicSet(BootstrapPackage.LINK_ACTION_GROUP_ITEM__HREF, BootstrapPackage.Literals.LINK_ACTION_GROUP_ITEM__HREF, newHref);
+	public void setUrl(String newUrl) {
+		eDynamicSet(BootstrapPackage.LINK_ACTION_GROUP_ITEM__URL, BootstrapPackage.Literals.LINK_ACTION_GROUP_ITEM__URL, newUrl);
 	}
 
 	/**
@@ -89,8 +88,8 @@ public class LinkActionGroupItemImpl extends ActionGroupItemImpl implements Link
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case BootstrapPackage.LINK_ACTION_GROUP_ITEM__HREF:
-				return getHref();
+			case BootstrapPackage.LINK_ACTION_GROUP_ITEM__URL:
+				return getUrl();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -103,8 +102,8 @@ public class LinkActionGroupItemImpl extends ActionGroupItemImpl implements Link
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case BootstrapPackage.LINK_ACTION_GROUP_ITEM__HREF:
-				setHref((String)newValue);
+			case BootstrapPackage.LINK_ACTION_GROUP_ITEM__URL:
+				setUrl((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -118,8 +117,8 @@ public class LinkActionGroupItemImpl extends ActionGroupItemImpl implements Link
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case BootstrapPackage.LINK_ACTION_GROUP_ITEM__HREF:
-				setHref(HREF_EDEFAULT);
+			case BootstrapPackage.LINK_ACTION_GROUP_ITEM__URL:
+				setUrl(URL_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -133,8 +132,8 @@ public class LinkActionGroupItemImpl extends ActionGroupItemImpl implements Link
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case BootstrapPackage.LINK_ACTION_GROUP_ITEM__HREF:
-				return HREF_EDEFAULT == null ? getHref() != null : !HREF_EDEFAULT.equals(getHref());
+			case BootstrapPackage.LINK_ACTION_GROUP_ITEM__URL:
+				return URL_EDEFAULT == null ? getUrl() != null : !URL_EDEFAULT.equals(getUrl());
 		}
 		return super.eIsSet(featureID);
 	}
@@ -154,7 +153,8 @@ public class LinkActionGroupItemImpl extends ActionGroupItemImpl implements Link
 				actionGroup.action(
 						isActive(), 
 						isDisabled(), 
-						Util.isBlank(getColor()) ? null : Color.valueOf(getColor()), 
+						Util.isBlank(getColor()) ? null : Color.valueOf(getColor()),
+						getUrl(),		
 						nameFragment);
 				
 				return actionGroup; // Not used
