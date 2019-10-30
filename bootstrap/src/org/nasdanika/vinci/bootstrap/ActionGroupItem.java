@@ -37,7 +37,7 @@ public interface ActionGroupItem extends Item, WorkFactory<Object> {
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Name</em>' containment reference list.
 	 * @see org.nasdanika.vinci.bootstrap.BootstrapPackage#getActionGroupItem_Name()
-	 * @model type="org.nasdanika.ncore.WorkFactory&lt;org.eclipse.emf.ecore.EJavaObject&gt;" containment="true" required="true"
+	 * @model type="org.nasdanika.ncore.WorkFactory&lt;org.eclipse.emf.ecore.EJavaObject&gt;" containment="true"
 	 * @generated
 	 */
 	EList<WorkFactory<Object>> getName();

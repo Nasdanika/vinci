@@ -10,7 +10,7 @@ import org.nasdanika.vinci.html.Container;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * Action Group Item with content. Click on the item show the content in the content container.
+ * Action Group Item with content. Click on the item shows the content in the content container.
  * <!-- end-model-doc -->
  *
  *

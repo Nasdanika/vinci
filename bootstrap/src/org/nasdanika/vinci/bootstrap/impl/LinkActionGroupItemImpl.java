@@ -151,9 +151,6 @@ public class LinkActionGroupItemImpl extends ActionGroupItemImpl implements Link
 				Fragment nameFragment = htmlFactory.fragment();
 				results.get(0).forEach(nameFragment);
 				
-				Fragment contentFragment = htmlFactory.fragment();
-				results.get(1).forEach(contentFragment);
-				
 				actionGroup.action(
 						isActive(), 
 						isDisabled(), 

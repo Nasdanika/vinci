@@ -1041,7 +1041,7 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 		g1 = createEGenericType(theNcorePackage.getWorkFactory());
 		g2 = createEGenericType(ecorePackage.getEJavaObject());
 		g1.getETypeArguments().add(g2);
-		initEReference(getActionGroupItem_Name(), g1, null, "name", null, 1, -1, ActionGroupItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getActionGroupItem_Name(), g1, null, "name", null, 0, -1, ActionGroupItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(linkActionGroupItemEClass, LinkActionGroupItem.class, "LinkActionGroupItem", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getLinkActionGroupItem_Href(), ecorePackage.getEString(), "href", null, 1, 1, LinkActionGroupItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1173,6 +1173,12 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 			   "documentation", "Item name"
 		   });
 		addAnnotation
+		  (linkActionGroupItemEClass,
+		   source,
+		   new String[] {
+			   "documentation", "Click on the item navigates to the link URL."
+		   });
+		addAnnotation
 		  (getLinkActionGroupItem_Href(),
 		   source,
 		   new String[] {
@@ -1182,7 +1188,7 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 		  (contentActionGroupItemEClass,
 		   source,
 		   new String[] {
-			   "documentation", "Action Group Item with content. Click on the item show the content in the content container."
+			   "documentation", "Action Group Item with content. Click on the item shows the content in the content container."
 		   });
 		addAnnotation
 		  (actionGroupEClass,

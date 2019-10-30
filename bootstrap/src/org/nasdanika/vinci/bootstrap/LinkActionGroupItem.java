@@ -8,6 +8,10 @@ package org.nasdanika.vinci.bootstrap;
  * A representation of the model object '<em><b>Link Action Group Item</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <!-- begin-model-doc -->
+ * Click on the item navigates to the link URL.
+ * <!-- end-model-doc -->
+ *
  * <p>
  * The following features are supported:
  * </p>
