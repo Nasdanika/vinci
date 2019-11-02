@@ -8,11 +8,10 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-import org.nasdanika.ncore.NcoreFactory;
 import org.nasdanika.vinci.bootstrap.ActionGroupItem;
 import org.nasdanika.vinci.bootstrap.BootstrapPackage;
 
@@ -133,11 +132,11 @@ public class ActionGroupItemItemProvider extends ItemItemProvider {
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 		
-		for (EClass eClass: org.nasdanika.ncore.util.Palettes.EXPRESSIONS) {
-			newChildDescriptors.add(createChildParameter(BootstrapPackage.Literals.ACTION_GROUP_ITEM__NAME, NcoreFactory.eINSTANCE.create(eClass)));						
+		for (EObject expr: org.nasdanika.ncore.util.Activator.EXPRESSIONS_PALETTE.getElements()) {
+			newChildDescriptors.add(createChildParameter(BootstrapPackage.Literals.ACTION_GROUP_ITEM__NAME, expr));						
 		}
-		for (EClass eClass: org.nasdanika.vinci.bootstrap.util.Palettes.BOOTSTRAP) {
-			newChildDescriptors.add(createChildParameter(BootstrapPackage.Literals.ACTION_GROUP_ITEM__NAME, eClass.getEPackage().getEFactoryInstance().create(eClass)));						
+		for (EObject expr: org.nasdanika.vinci.html.util.Activator.HTML_CONTENT_PALETTE.getElements()) {
+			newChildDescriptors.add(createChildParameter(BootstrapPackage.Literals.ACTION_GROUP_ITEM__NAME, expr));						
 		}
 	}
 

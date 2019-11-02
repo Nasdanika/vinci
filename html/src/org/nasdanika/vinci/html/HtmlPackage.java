@@ -265,6 +265,115 @@ public interface HtmlPackage extends EPackage {
 	int CONTENT_TAG_OPERATION_COUNT = TAG_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link org.nasdanika.vinci.html.impl.PageImpl <em>Page</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.vinci.html.impl.PageImpl
+	 * @see org.nasdanika.vinci.html.impl.HtmlPackageImpl#getPage()
+	 * @generated
+	 */
+	int PAGE = 4;
+
+	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PAGE__TITLE = NcorePackage.NAMED_ELEMENT__TITLE;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PAGE__DESCRIPTION = NcorePackage.NAMED_ELEMENT__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PAGE__NAME = NcorePackage.NAMED_ELEMENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Head</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PAGE__HEAD = NcorePackage.NAMED_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Body</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PAGE__BODY = NcorePackage.NAMED_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Builders</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PAGE__BUILDERS = NcorePackage.NAMED_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Language</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PAGE__LANGUAGE = NcorePackage.NAMED_ELEMENT_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Stylesheets</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PAGE__STYLESHEETS = NcorePackage.NAMED_ELEMENT_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Scripts</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PAGE__SCRIPTS = NcorePackage.NAMED_ELEMENT_FEATURE_COUNT + 5;
+
+	/**
+	 * The number of structural features of the '<em>Page</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PAGE_FEATURE_COUNT = NcorePackage.NAMED_ELEMENT_FEATURE_COUNT + 6;
+
+	/**
+	 * The number of operations of the '<em>Page</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PAGE_OPERATION_COUNT = NcorePackage.NAMED_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '<em>Tag Name</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -272,7 +381,7 @@ public interface HtmlPackage extends EPackage {
 	 * @see org.nasdanika.vinci.html.impl.HtmlPackageImpl#getTagName()
 	 * @generated
 	 */
-	int TAG_NAME = 4;
+	int TAG_NAME = 5;
 
 	/**
 	 * Returns the meta object for class '{@link org.nasdanika.vinci.html.HtmlElement <em>Element</em>}'.
@@ -335,6 +444,82 @@ public interface HtmlPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getContentTag();
+
+	/**
+	 * Returns the meta object for class '{@link org.nasdanika.vinci.html.Page <em>Page</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Page</em>'.
+	 * @see org.nasdanika.vinci.html.Page
+	 * @generated
+	 */
+	EClass getPage();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.nasdanika.vinci.html.Page#getHead <em>Head</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Head</em>'.
+	 * @see org.nasdanika.vinci.html.Page#getHead()
+	 * @see #getPage()
+	 * @generated
+	 */
+	EReference getPage_Head();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.nasdanika.vinci.html.Page#getBody <em>Body</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Body</em>'.
+	 * @see org.nasdanika.vinci.html.Page#getBody()
+	 * @see #getPage()
+	 * @generated
+	 */
+	EReference getPage_Body();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.nasdanika.vinci.html.Page#getBuilders <em>Builders</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Builders</em>'.
+	 * @see org.nasdanika.vinci.html.Page#getBuilders()
+	 * @see #getPage()
+	 * @generated
+	 */
+	EReference getPage_Builders();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.html.Page#getLanguage <em>Language</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Language</em>'.
+	 * @see org.nasdanika.vinci.html.Page#getLanguage()
+	 * @see #getPage()
+	 * @generated
+	 */
+	EAttribute getPage_Language();
+
+	/**
+	 * Returns the meta object for the attribute list '{@link org.nasdanika.vinci.html.Page#getStylesheets <em>Stylesheets</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Stylesheets</em>'.
+	 * @see org.nasdanika.vinci.html.Page#getStylesheets()
+	 * @see #getPage()
+	 * @generated
+	 */
+	EAttribute getPage_Stylesheets();
+
+	/**
+	 * Returns the meta object for the attribute list '{@link org.nasdanika.vinci.html.Page#getScripts <em>Scripts</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Scripts</em>'.
+	 * @see org.nasdanika.vinci.html.Page#getScripts()
+	 * @see #getPage()
+	 * @generated
+	 */
+	EAttribute getPage_Scripts();
 
 	/**
 	 * Returns the meta object for data type '{@link org.nasdanika.html.TagName <em>Tag Name</em>}'.
@@ -425,6 +610,64 @@ public interface HtmlPackage extends EPackage {
 		 * @generated
 		 */
 		EClass CONTENT_TAG = eINSTANCE.getContentTag();
+
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.vinci.html.impl.PageImpl <em>Page</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.vinci.html.impl.PageImpl
+		 * @see org.nasdanika.vinci.html.impl.HtmlPackageImpl#getPage()
+		 * @generated
+		 */
+		EClass PAGE = eINSTANCE.getPage();
+
+		/**
+		 * The meta object literal for the '<em><b>Head</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PAGE__HEAD = eINSTANCE.getPage_Head();
+
+		/**
+		 * The meta object literal for the '<em><b>Body</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PAGE__BODY = eINSTANCE.getPage_Body();
+
+		/**
+		 * The meta object literal for the '<em><b>Builders</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PAGE__BUILDERS = eINSTANCE.getPage_Builders();
+
+		/**
+		 * The meta object literal for the '<em><b>Language</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PAGE__LANGUAGE = eINSTANCE.getPage_Language();
+
+		/**
+		 * The meta object literal for the '<em><b>Stylesheets</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PAGE__STYLESHEETS = eINSTANCE.getPage_Stylesheets();
+
+		/**
+		 * The meta object literal for the '<em><b>Scripts</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PAGE__SCRIPTS = eINSTANCE.getPage_Scripts();
 
 		/**
 		 * The meta object literal for the '<em>Tag Name</em>' data type.

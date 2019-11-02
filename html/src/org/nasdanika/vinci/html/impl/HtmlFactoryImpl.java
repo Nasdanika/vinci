@@ -60,6 +60,7 @@ public class HtmlFactoryImpl extends EFactoryImpl implements HtmlFactory {
 			case HtmlPackage.CONTAINER: return createContainer();
 			case HtmlPackage.TAG: return createTag();
 			case HtmlPackage.CONTENT_TAG: return createContentTag();
+			case HtmlPackage.PAGE: return createPage();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -126,6 +127,17 @@ public class HtmlFactoryImpl extends EFactoryImpl implements HtmlFactory {
 	public ContentTag createContentTag() {
 		ContentTagImpl contentTag = new ContentTagImpl();
 		return contentTag;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Page createPage() {
+		PageImpl page = new PageImpl();
+		return page;
 	}
 
 	/**

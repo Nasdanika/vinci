@@ -141,6 +141,29 @@ public class HtmlItemProviderAdapterFactory extends HtmlAdapterFactory implement
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.nasdanika.vinci.html.Page} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected PageItemProvider pageItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.nasdanika.vinci.html.Page}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createPageAdapter() {
+		if (pageItemProvider == null) {
+			pageItemProvider = new PageItemProvider(this);
+		}
+
+		return pageItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -248,6 +271,7 @@ public class HtmlItemProviderAdapterFactory extends HtmlAdapterFactory implement
 		if (containerItemProvider != null) containerItemProvider.dispose();
 		if (tagItemProvider != null) tagItemProvider.dispose();
 		if (contentTagItemProvider != null) contentTagItemProvider.dispose();
+		if (pageItemProvider != null) pageItemProvider.dispose();
 	}
 
 }

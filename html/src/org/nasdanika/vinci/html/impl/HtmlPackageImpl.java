@@ -16,6 +16,7 @@ import org.nasdanika.vinci.html.ContentTag;
 import org.nasdanika.vinci.html.HtmlElement;
 import org.nasdanika.vinci.html.HtmlFactory;
 import org.nasdanika.vinci.html.HtmlPackage;
+import org.nasdanika.vinci.html.Page;
 import org.nasdanika.vinci.html.Tag;
 
 /**
@@ -52,6 +53,13 @@ public class HtmlPackageImpl extends EPackageImpl implements HtmlPackage {
 	 * @generated
 	 */
 	private EClass contentTagEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass pageEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -190,6 +198,76 @@ public class HtmlPackageImpl extends EPackageImpl implements HtmlPackage {
 	 * @generated
 	 */
 	@Override
+	public EClass getPage() {
+		return pageEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getPage_Head() {
+		return (EReference)pageEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getPage_Body() {
+		return (EReference)pageEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getPage_Builders() {
+		return (EReference)pageEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getPage_Language() {
+		return (EAttribute)pageEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getPage_Stylesheets() {
+		return (EAttribute)pageEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getPage_Scripts() {
+		return (EAttribute)pageEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EDataType getTagName() {
 		return tagNameEDataType;
 	}
@@ -232,6 +310,14 @@ public class HtmlPackageImpl extends EPackageImpl implements HtmlPackage {
 		createEAttribute(tagEClass, TAG__NAME);
 
 		contentTagEClass = createEClass(CONTENT_TAG);
+
+		pageEClass = createEClass(PAGE);
+		createEReference(pageEClass, PAGE__HEAD);
+		createEReference(pageEClass, PAGE__BODY);
+		createEReference(pageEClass, PAGE__BUILDERS);
+		createEAttribute(pageEClass, PAGE__LANGUAGE);
+		createEAttribute(pageEClass, PAGE__STYLESHEETS);
+		createEAttribute(pageEClass, PAGE__SCRIPTS);
 
 		// Create data types
 		tagNameEDataType = createEDataType(TAG_NAME);
@@ -277,6 +363,12 @@ public class HtmlPackageImpl extends EPackageImpl implements HtmlPackage {
 		tagEClass.getEGenericSuperTypes().add(g1);
 		contentTagEClass.getESuperTypes().add(this.getTag());
 		contentTagEClass.getESuperTypes().add(this.getContainer());
+		g1 = createEGenericType(theNcorePackage.getNamedElement());
+		pageEClass.getEGenericSuperTypes().add(g1);
+		g1 = createEGenericType(theNcorePackage.getWorkFactory());
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		pageEClass.getEGenericSuperTypes().add(g1);
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(htmlElementEClass, HtmlElement.class, "HtmlElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -291,6 +383,23 @@ public class HtmlPackageImpl extends EPackageImpl implements HtmlPackage {
 		initEAttribute(getTag_Name(), this.getTagName(), "name", null, 0, 1, Tag.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(contentTagEClass, ContentTag.class, "ContentTag", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(pageEClass, Page.class, "Page", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		g1 = createEGenericType(theNcorePackage.getWorkFactory());
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		initEReference(getPage_Head(), g1, null, "head", null, 0, -1, Page.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		g1 = createEGenericType(theNcorePackage.getWorkFactory());
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		initEReference(getPage_Body(), g1, null, "body", null, 0, -1, Page.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		g1 = createEGenericType(theNcorePackage.getConsumer());
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		initEReference(getPage_Builders(), g1, null, "builders", null, 0, -1, Page.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPage_Language(), ecorePackage.getEString(), "language", null, 0, 1, Page.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPage_Stylesheets(), ecorePackage.getEString(), "stylesheets", null, 0, -1, Page.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPage_Scripts(), ecorePackage.getEString(), "scripts", null, 0, -1, Page.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize data types
 		initEDataType(tagNameEDataType, TagName.class, "TagName", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
@@ -322,6 +431,48 @@ public class HtmlPackageImpl extends EPackageImpl implements HtmlPackage {
 		   source,
 		   new String[] {
 			   "documentation", "Container of content such as text and HTML markup."
+		   });
+		addAnnotation
+		  (pageEClass,
+		   source,
+		   new String[] {
+			   "documentation", "HTML page. The name attribute is output as ``<TITLE>`` in the head."
+		   });
+		addAnnotation
+		  (getPage_Head(),
+		   source,
+		   new String[] {
+			   "documentation", "Head content."
+		   });
+		addAnnotation
+		  (getPage_Body(),
+		   source,
+		   new String[] {
+			   "documentation", "Body content."
+		   });
+		addAnnotation
+		  (getPage_Builders(),
+		   source,
+		   new String[] {
+			   "documentation", "Builders operate on an instance of ``org.nasdanika.html.HTMLPage`` created by the the page element."
+		   });
+		addAnnotation
+		  (getPage_Language(),
+		   source,
+		   new String[] {
+			   "documentation", "Page language - ``lang`` attribute."
+		   });
+		addAnnotation
+		  (getPage_Stylesheets(),
+		   source,
+		   new String[] {
+			   "documentation", "URL\'s of external stylesheets used by the page."
+		   });
+		addAnnotation
+		  (getPage_Scripts(),
+		   source,
+		   new String[] {
+			   "documentation", "URL\'s of external scripts used by the page, e.g. jQuery."
 		   });
 	}
 

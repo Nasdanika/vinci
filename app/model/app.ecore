@@ -4,18 +4,6 @@
   <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
     <details key="documentation" value="Application model."/>
   </eAnnotations>
-  <eClassifiers xsi:type="ecore:EClass" name="LabelSpec" instanceClassName="org.nasdanika.vinci.app.LabelSpec"
-      abstract="true" interface="true">
-    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="java.uitl.Map subclass containing label specification. It can be stored to YAML or JSON to be used by runtime components."/>
-    </eAnnotations>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ActionSpec" instanceClassName="org.nasdanika.vinci.app.ActionSpec"
-      abstract="true" interface="true" eSuperTypes="#//LabelSpec">
-    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="LabelSpec subclass containing action specification. It can be stored to YAML or JSON to be used by runtime components."/>
-    </eAnnotations>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="Color" instanceClassName="org.nasdanika.html.bootstrap.Color">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Bootstrap color."/>
@@ -45,7 +33,7 @@
       <details key="documentation" value=""/>
     </eAnnotations>
     <eTypeParameters name="T">
-      <eBounds eClassifier="#//LabelSpec"/>
+      <eBounds/>
     </eTypeParameters>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="color" eType="#//Color">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -93,7 +81,7 @@
     </eAnnotations>
     <eTypeParameters name="E"/>
     <eGenericSuperTypes eClassifier="#//Label">
-      <eTypeArguments eClassifier="#//LabelSpec"/>
+      <eTypeArguments/>
     </eGenericSuperTypes>
     <eGenericSuperTypes eClassifier="#//Container">
       <eTypeArguments eTypeParameter="#//Category/E"/>
@@ -173,7 +161,7 @@
       </eGenericType>
     </eStructuralFeatures>
     <eGenericSuperTypes eClassifier="#//Label">
-      <eTypeArguments eClassifier="#//ActionSpec"/>
+      <eTypeArguments/>
     </eGenericSuperTypes>
     <eGenericSuperTypes eClassifier="#//AbstractAction"/>
     <eGenericSuperTypes eClassifier="#//Container">

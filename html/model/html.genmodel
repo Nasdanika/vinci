@@ -19,5 +19,13 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute html.ecore#//Tag/name"/>
     </genClasses>
     <genClasses ecoreClass="html.ecore#//ContentTag"/>
+    <genClasses ecoreClass="html.ecore#//Page">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference html.ecore#//Page/head"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference html.ecore#//Page/body"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference html.ecore#//Page/builders"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute html.ecore#//Page/language"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute html.ecore#//Page/stylesheets"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute html.ecore#//Page/scripts"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>
