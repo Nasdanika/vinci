@@ -6,7 +6,7 @@ import org.junit.runners.Suite.SuiteClasses;
 
 @RunWith(Suite.class)
 @SuiteClasses({
-	HtmlTests.class
+	PageTests.class
 })
 public class HtmlTests {
 	
