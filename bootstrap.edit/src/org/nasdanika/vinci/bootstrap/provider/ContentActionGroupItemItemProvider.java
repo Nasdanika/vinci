@@ -65,7 +65,6 @@ public class ContentActionGroupItemItemProvider extends ActionGroupItemItemProvi
 		return children;
 	}
 	
-
 	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or

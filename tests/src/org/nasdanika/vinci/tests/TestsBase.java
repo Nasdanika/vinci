@@ -70,7 +70,7 @@ public class TestsBase {
 		 * @throws Exception
 		 */
 		public void writePage(String path, String title, ProgressMonitor monitor) throws IOException {
-			TestsBase.writePage(output, path, title, monitor, result);
+			TestsBase.writeBootstrapPage(output, path, title, monitor, result);
 		}
 		
 		/**
@@ -83,6 +83,16 @@ public class TestsBase {
 		 */
 		public void writeThemedPage(String path, String title, ProgressMonitor monitor) throws IOException {
 			TestsBase.writeThemedPage(output, path, title, monitor, result);
+		}
+		
+		/**
+		 * Writes content to a file under repository site.
+		 * @param path
+		 * @param content
+		 * @throws IOException
+		 */
+		public void writeFile(String path, ProgressMonitor monitor) throws IOException {
+			TestsBase.writeFile(output, path, monitor, result);
 		}		
 		
 	}
@@ -235,7 +245,7 @@ public class TestsBase {
 	 * @param content
 	 * @throws Exception
 	 */
-	public static void writePage(BinaryEntityContainer container, String path, String title, ProgressMonitor monitor, Object... content) throws IOException {		
+	public static void writeBootstrapPage(BinaryEntityContainer container, String path, String title, ProgressMonitor monitor, Object... content) throws IOException {		
 		HTMLPage bootstrapPage = BootstrapFactory.INSTANCE.bootstrapCdnHTMLPage();
 		FontAwesomeFactory.INSTANCE.cdn(bootstrapPage);
 		JsTreeFactory.INSTANCE.cdn(bootstrapPage);
@@ -244,9 +254,13 @@ public class TestsBase {
 		// More declarations as needed.		
 		bootstrapPage.title(title);
 		bootstrapPage.body(content);
+		writeFile(container, path, monitor, bootstrapPage);
+	}
+
+	public static void writeFile(BinaryEntityContainer container, String path, ProgressMonitor monitor, Object content) {
 		org.nasdanika.common.resources.Container<Object> contentContainer = container.stateAdapter().adapt(null, ENCODER);
-		try (ProgressMonitor pageMonitor = monitor.split("Writing bootstrap page "+path, 1)) {
-			contentContainer.put(path, bootstrapPage.toString(), pageMonitor);
+		try (ProgressMonitor pageMonitor = monitor.split("Writing cotent "+path, 1)) {
+			contentContainer.put(path, content.toString(), pageMonitor);
 		}
 	}
 	
@@ -268,6 +282,6 @@ public class TestsBase {
 		selectInputGroup.input(select);		
 		container.row().margin().bottom(1).toBootstrapElement().col(selectInputGroup);
 		container.row().col(content);
-		writePage(bec, path, title, monitor, container);
+		writeBootstrapPage(bec, path, title, monitor, container);
 	}
 }

@@ -3,26 +3,21 @@
 package org.nasdanika.vinci.html.provider;
 
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.util.ResourceLocator;
-
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
-
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-
-import org.nasdanika.ncore.NcoreFactory;
-
+import org.nasdanika.common.Util;
+import org.nasdanika.emf.edit.EReferenceItemProvider;
 import org.nasdanika.ncore.provider.NamedElementItemProvider;
-
-import org.nasdanika.vinci.html.HtmlFactory;
 import org.nasdanika.vinci.html.HtmlPackage;
 import org.nasdanika.vinci.html.Page;
 
@@ -42,6 +37,24 @@ public class PageItemProvider extends NamedElementItemProvider {
 	public PageItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
+	
+	
+	/**
+	 * Creates {@link EReferenceItemProvider} children to group contained elements into "folders".
+	 */
+	@Override
+	public Collection<?> getChildren(Object object) {
+		List<EReferenceItemProvider> children = eReferenceItemProviders.get(object);
+		if (children == null) {
+			children = new ArrayList<>();
+			eReferenceItemProviders.put(object, children);
+			children.add(new EReferenceItemProvider(this, (EObject) object, HtmlPackage.Literals.PAGE__HEAD)); 
+			children.add(new EReferenceItemProvider(this, (EObject) object, HtmlPackage.Literals.PAGE__BODY)); 
+			children.add(new EReferenceItemProvider(this, (EObject) object, HtmlPackage.Literals.PAGE__BUILDERS)); 
+		}
+		return children;
+	}
+	
 
 	/**
 	 * This returns the property descriptors for the adapted class.
@@ -65,20 +78,19 @@ public class PageItemProvider extends NamedElementItemProvider {
 	 * This adds a property descriptor for the Language feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void addLanguagePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+			(createItemPropertyDescriptor(
 				 getResourceLocator(),
 				 getString("_UI_Page_language_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Page_language_feature", "_UI_Page_type"),
 				 HtmlPackage.Literals.PAGE__LANGUAGE,
 				 true,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
 				 null,
 				 null));
 	}
@@ -87,20 +99,19 @@ public class PageItemProvider extends NamedElementItemProvider {
 	 * This adds a property descriptor for the Stylesheets feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void addStylesheetsPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+			(createItemPropertyDescriptor(
 				 getResourceLocator(),
 				 getString("_UI_Page_stylesheets_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Page_stylesheets_feature", "_UI_Page_type"),
 				 HtmlPackage.Literals.PAGE__STYLESHEETS,
 				 true,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
 				 null,
 				 null));
 	}
@@ -109,20 +120,19 @@ public class PageItemProvider extends NamedElementItemProvider {
 	 * This adds a property descriptor for the Scripts feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void addScriptsPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+			(createItemPropertyDescriptor(
 				 getResourceLocator(),
 				 getString("_UI_Page_scripts_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Page_scripts_feature", "_UI_Page_type"),
 				 HtmlPackage.Literals.PAGE__SCRIPTS,
 				 true,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
 				 null,
 				 null));
 	}
@@ -184,16 +194,17 @@ public class PageItemProvider extends NamedElementItemProvider {
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Page)object).getName();
-		return label == null || label.length() == 0 ?
-			getString("_UI_Page_type") :
-			getString("_UI_Page_type") + " " + label;
+		Page page = (Page)object;
+		String label = page.getTitle();
+		if (Util.isBlank(label)) {
+			label = page.getName();
+		}
+		return label == null || label.length() == 0 ? getString("_UI_Page_type") : getString("_UI_Page_type") + " " + label;
 	}
-
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached
@@ -226,233 +237,33 @@ public class PageItemProvider extends NamedElementItemProvider {
 	 * that can be created under this object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add
-			(createChildParameter
-				(HtmlPackage.Literals.PAGE__HEAD,
-				 HtmlFactory.eINSTANCE.createTag()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(HtmlPackage.Literals.PAGE__HEAD,
-				 HtmlFactory.eINSTANCE.createContentTag()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(HtmlPackage.Literals.PAGE__HEAD,
-				 HtmlFactory.eINSTANCE.createPage()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(HtmlPackage.Literals.PAGE__HEAD,
-				 NcoreFactory.eINSTANCE.createTypedElement()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(HtmlPackage.Literals.PAGE__HEAD,
-				 NcoreFactory.eINSTANCE.createProvider()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(HtmlPackage.Literals.PAGE__HEAD,
-				 NcoreFactory.eINSTANCE.createValue()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(HtmlPackage.Literals.PAGE__HEAD,
-				 NcoreFactory.eINSTANCE.createNull()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(HtmlPackage.Literals.PAGE__HEAD,
-				 NcoreFactory.eINSTANCE.createOperation()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(HtmlPackage.Literals.PAGE__HEAD,
-				 NcoreFactory.eINSTANCE.createArray()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(HtmlPackage.Literals.PAGE__HEAD,
-				 NcoreFactory.eINSTANCE.createContext()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(HtmlPackage.Literals.PAGE__HEAD,
-				 NcoreFactory.eINSTANCE.createTypedEntry()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(HtmlPackage.Literals.PAGE__HEAD,
-				 NcoreFactory.eINSTANCE.createProviderEntry()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(HtmlPackage.Literals.PAGE__HEAD,
-				 NcoreFactory.eINSTANCE.createMap()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(HtmlPackage.Literals.PAGE__HEAD,
-				 NcoreFactory.eINSTANCE.createProperty()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(HtmlPackage.Literals.PAGE__HEAD,
-				 NcoreFactory.eINSTANCE.createFunction()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(HtmlPackage.Literals.PAGE__HEAD,
-				 NcoreFactory.eINSTANCE.createList()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(HtmlPackage.Literals.PAGE__HEAD,
-				 NcoreFactory.eINSTANCE.createObject()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(HtmlPackage.Literals.PAGE__HEAD,
-				 NcoreFactory.eINSTANCE.createHttpCall()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(HtmlPackage.Literals.PAGE__HEAD,
-				 NcoreFactory.eINSTANCE.createRestOperation()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(HtmlPackage.Literals.PAGE__HEAD,
-				 NcoreFactory.eINSTANCE.createRestFunction()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(HtmlPackage.Literals.PAGE__BODY,
-				 HtmlFactory.eINSTANCE.createTag()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(HtmlPackage.Literals.PAGE__BODY,
-				 HtmlFactory.eINSTANCE.createContentTag()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(HtmlPackage.Literals.PAGE__BODY,
-				 HtmlFactory.eINSTANCE.createPage()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(HtmlPackage.Literals.PAGE__BODY,
-				 NcoreFactory.eINSTANCE.createTypedElement()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(HtmlPackage.Literals.PAGE__BODY,
-				 NcoreFactory.eINSTANCE.createProvider()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(HtmlPackage.Literals.PAGE__BODY,
-				 NcoreFactory.eINSTANCE.createValue()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(HtmlPackage.Literals.PAGE__BODY,
-				 NcoreFactory.eINSTANCE.createNull()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(HtmlPackage.Literals.PAGE__BODY,
-				 NcoreFactory.eINSTANCE.createOperation()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(HtmlPackage.Literals.PAGE__BODY,
-				 NcoreFactory.eINSTANCE.createArray()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(HtmlPackage.Literals.PAGE__BODY,
-				 NcoreFactory.eINSTANCE.createContext()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(HtmlPackage.Literals.PAGE__BODY,
-				 NcoreFactory.eINSTANCE.createTypedEntry()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(HtmlPackage.Literals.PAGE__BODY,
-				 NcoreFactory.eINSTANCE.createProviderEntry()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(HtmlPackage.Literals.PAGE__BODY,
-				 NcoreFactory.eINSTANCE.createMap()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(HtmlPackage.Literals.PAGE__BODY,
-				 NcoreFactory.eINSTANCE.createProperty()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(HtmlPackage.Literals.PAGE__BODY,
-				 NcoreFactory.eINSTANCE.createFunction()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(HtmlPackage.Literals.PAGE__BODY,
-				 NcoreFactory.eINSTANCE.createList()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(HtmlPackage.Literals.PAGE__BODY,
-				 NcoreFactory.eINSTANCE.createObject()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(HtmlPackage.Literals.PAGE__BODY,
-				 NcoreFactory.eINSTANCE.createHttpCall()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(HtmlPackage.Literals.PAGE__BODY,
-				 NcoreFactory.eINSTANCE.createRestOperation()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(HtmlPackage.Literals.PAGE__BODY,
-				 NcoreFactory.eINSTANCE.createRestFunction()));
+		for (EObject expr: org.nasdanika.ncore.util.Activator.EXPRESSIONS_PALETTE.getElements()) {
+			newChildDescriptors.add(createChildParameter(HtmlPackage.Literals.PAGE__HEAD, expr));						
+		}
+		for (EObject expr: org.nasdanika.ncore.util.Activator.EXPRESSIONS_PALETTE.getElements()) {
+			newChildDescriptors.add(createChildParameter(HtmlPackage.Literals.PAGE__BODY, expr));						
+		}
+		for (EObject expr: org.nasdanika.vinci.html.util.Activator.HTML_CONTENT_PALETTE.getElements()) {
+			newChildDescriptors.add(createChildParameter(HtmlPackage.Literals.PAGE__BODY, expr));						
+		}
+		
+		// TODO - builders.
+		
 	}
 
 	/**
 	 * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getCreateChildText(Object owner, Object feature, Object child, Collection<?> selection) {
-		Object childFeature = feature;
-		Object childObject = child;
-
-		boolean qualify =
-			childFeature == HtmlPackage.Literals.PAGE__HEAD ||
-			childFeature == HtmlPackage.Literals.PAGE__BODY;
-
-		if (qualify) {
-			return getString
-				("_UI_CreateChild_text2",
-				 new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
-		}
 		return super.getCreateChildText(owner, feature, child, selection);
 	}
 

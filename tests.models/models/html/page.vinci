@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.nasdanika.vinci.html:Page xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.nasdanika.ncore="urn:org.nasdanika.ncore" xmlns:org.nasdanika.vinci.html="urn:org.nasdanika.vinci.html" name="Test HTML page">
+  <body xsi:type="org.nasdanika.ncore:Value" value="Hello world!"/>
+</org.nasdanika.vinci.html:Page>

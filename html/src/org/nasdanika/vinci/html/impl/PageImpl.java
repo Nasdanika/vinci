@@ -3,23 +3,26 @@
 package org.nasdanika.vinci.html.impl;
 
 import java.util.Collection;
+import java.util.List;
+import java.util.concurrent.Executor;
+
 
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.util.InternalEList;
-
+import org.nasdanika.common.CompoundConsumer;
+import org.nasdanika.common.CompoundWork;
 import org.nasdanika.common.Consumer;
 import org.nasdanika.common.Context;
+import org.nasdanika.common.ProgressMonitor;
+import org.nasdanika.common.Util;
 import org.nasdanika.common.Work;
 import org.nasdanika.common.WorkFactory;
-
+import org.nasdanika.html.HTMLFactory;
+import org.nasdanika.html.HTMLPage;
 import org.nasdanika.ncore.impl.NamedElementImpl;
-
 import org.nasdanika.vinci.html.HtmlPackage;
 import org.nasdanika.vinci.html.Page;
 
@@ -277,11 +280,106 @@ public class PageImpl extends NamedElementImpl implements Page {
 		}
 		return super.eIsSet(featureID);
 	}
+		
+	protected Work<List<Object>> createHeadWork(Context context) throws Exception {
+		CompoundWork<List<Object>, Object> ret = new CompoundWork<List<Object>, Object>("Head", context.get(Executor.class)) {
 
+			@Override
+			protected List<Object> combine(List<Object> results, ProgressMonitor progressMonitor) throws Exception {
+				return results;
+			}
+			
+		}; 
+		
+		for (WorkFactory<Object> ce: getHead()) {
+			ret.add(ce.create(context));
+		}
+		
+		return ret;
+	}
+	
+	protected Work<List<Object>> createBodyWork(Context context) throws Exception {
+		CompoundWork<List<Object>, Object> ret = new CompoundWork<List<Object>, Object>("Body", context.get(Executor.class)) {
+
+			@Override
+			protected List<Object> combine(List<Object> results, ProgressMonitor progressMonitor) throws Exception {
+				return results;
+			}
+			
+		}; 
+		
+		for (WorkFactory<Object> ce: getBody()) {
+			ret.add(ce.create(context));
+		}
+		
+		return ret;
+	}
+	
+	protected WorkFactory<Void> createBuildersWorkFactory(HTMLPage page) throws Exception {
+		CompoundConsumer<Object> cf = new CompoundConsumer<>();
+		
+		for (Consumer<Object> builder: getBuilders()) {
+			cf.add(builder);;
+		}
+		
+		return cf.create(page);
+	}
+	
+	/**
+	 * Override in sub-classes to create a specialized page.
+	 * @param context
+	 * @return
+	 */
+	protected HTMLPage createPage(Context context) {
+		return context.get(HTMLFactory.class, HTMLFactory.INSTANCE).page();
+	}
+	
 	@Override
 	public Work<Object> create(Context context) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		CompoundWork<Object,List<Object>> ret = new CompoundWork<Object,List<Object>>(getTitle(), context.get(Executor.class)) {
+			
+			@Override
+			public double size() {
+				return super.size() + 1;
+			}
+
+			@Override
+			protected Object combine(List<List<Object>> results, ProgressMonitor progressMonitor) throws Exception {
+				HTMLPage page = createPage(context);
+				
+				for (Object c: results.get(0)) {
+					page.head(c);
+				}
+				
+				for (Object c: results.get(1)) {
+					page.body(c);
+				}
+				
+				for (String script: getScripts()) {
+					if (!Util.isBlank(script)) {
+						page.script(context.interpolate(script));						
+					}
+				}
+
+				for (String stylesheet: getStylesheets()) {
+					if (!Util.isBlank(stylesheet)) {
+						page.stylesheet(context.interpolate(stylesheet));						
+					}
+				}
+
+				if (!Util.isBlank(getName())) {
+					page.title(context.interpolate(getName()));
+				}
+				
+				createBuildersWorkFactory(page).create(context).execute(progressMonitor.split("Builders", 1));
+				return page;
+			}
+		};
+		
+		ret.add(createHeadWork(context));
+		ret.add(createBodyWork(context));
+		
+		return ret;
 	}
 
 } //PageImpl
