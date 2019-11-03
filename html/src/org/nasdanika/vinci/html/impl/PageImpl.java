@@ -367,8 +367,9 @@ public class PageImpl extends NamedElementImpl implements Page {
 					}
 				}
 
-				if (!Util.isBlank(getName())) {
-					page.title(context.interpolate(getName()));
+				String name = context.interpolate(PageImpl.this.getName());
+				if (!Util.isBlank(name)) {
+					page.title(name);
 				}
 				
 				createBuildersWorkFactory(page).create(context).execute(progressMonitor.split("Builders", 1));
