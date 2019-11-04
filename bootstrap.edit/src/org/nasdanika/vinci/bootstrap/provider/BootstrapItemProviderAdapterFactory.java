@@ -70,6 +70,29 @@ public class BootstrapItemProviderAdapterFactory extends BootstrapAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.nasdanika.vinci.bootstrap.BootstrapPage} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected BootstrapPageItemProvider bootstrapPageItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.nasdanika.vinci.bootstrap.BootstrapPage}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createBootstrapPageAdapter() {
+		if (bootstrapPageItemProvider == null) {
+			bootstrapPageItemProvider = new BootstrapPageItemProvider(this);
+		}
+
+		return bootstrapPageItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link org.nasdanika.vinci.bootstrap.Container} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -841,6 +864,7 @@ public class BootstrapItemProviderAdapterFactory extends BootstrapAdapterFactory
 	 */
 	@Override
 	public void dispose() {
+		if (bootstrapPageItemProvider != null) bootstrapPageItemProvider.dispose();
 		if (tagItemProvider != null) tagItemProvider.dispose();
 		if (divItemProvider != null) divItemProvider.dispose();
 		if (linkActionGroupItemItemProvider != null) linkActionGroupItemItemProvider.dispose();

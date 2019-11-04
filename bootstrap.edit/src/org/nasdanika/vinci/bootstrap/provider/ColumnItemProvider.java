@@ -149,6 +149,11 @@ public class ColumnItemProvider extends BootstrapElementItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(HtmlPackage.Literals.CONTAINER__CONTENT,
+				 BootstrapFactory.eINSTANCE.createBootstrapPage()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(HtmlPackage.Literals.CONTAINER__CONTENT,
 				 BootstrapFactory.eINSTANCE.createTag()));
 
 		newChildDescriptors.add
@@ -205,6 +210,11 @@ public class ColumnItemProvider extends BootstrapElementItemProvider {
 			(createChildParameter
 				(HtmlPackage.Literals.CONTAINER__CONTENT,
 				 HtmlFactory.eINSTANCE.createContentTag()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(HtmlPackage.Literals.CONTAINER__CONTENT,
+				 HtmlFactory.eINSTANCE.createPage()));
 
 		newChildDescriptors.add
 			(createChildParameter

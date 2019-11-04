@@ -10,9 +10,11 @@ import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
 import org.nasdanika.common.WorkFactory;
 import org.nasdanika.ncore.ModelElement;
+import org.nasdanika.ncore.NamedElement;
 import org.nasdanika.vinci.bootstrap.*;
 
 import org.nasdanika.vinci.html.HtmlElement;
+import org.nasdanika.vinci.html.Page;
 
 /**
  * <!-- begin-user-doc -->
@@ -70,6 +72,10 @@ public class BootstrapAdapterFactory extends AdapterFactoryImpl {
 	 */
 	protected BootstrapSwitch<Adapter> modelSwitch =
 		new BootstrapSwitch<Adapter>() {
+			@Override
+			public Adapter caseBootstrapPage(BootstrapPage object) {
+				return createBootstrapPageAdapter();
+			}
 			@Override
 			public Adapter caseBootstrapElement(BootstrapElement object) {
 				return createBootstrapElementAdapter();
@@ -203,12 +209,20 @@ public class BootstrapAdapterFactory extends AdapterFactoryImpl {
 				return createModelElementAdapter();
 			}
 			@Override
-			public Adapter caseHtmlElement(HtmlElement object) {
-				return createHtmlElementAdapter();
+			public Adapter caseNamedElement(NamedElement object) {
+				return createNamedElementAdapter();
 			}
 			@Override
 			public <T> Adapter caseWorkFactory(WorkFactory<T> object) {
 				return createWorkFactoryAdapter();
+			}
+			@Override
+			public Adapter casePage(Page object) {
+				return createPageAdapter();
+			}
+			@Override
+			public Adapter caseHtmlElement(HtmlElement object) {
+				return createHtmlElementAdapter();
 			}
 			@Override
 			public Adapter caseHtml_Tag(org.nasdanika.vinci.html.Tag object) {
@@ -237,6 +251,20 @@ public class BootstrapAdapterFactory extends AdapterFactoryImpl {
 		return modelSwitch.doSwitch((EObject)target);
 	}
 
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.vinci.bootstrap.BootstrapPage <em>Page</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.vinci.bootstrap.BootstrapPage
+	 * @generated
+	 */
+	public Adapter createBootstrapPageAdapter() {
+		return null;
+	}
 
 	/**
 	 * Creates a new adapter for an object of class '{@link org.nasdanika.vinci.bootstrap.BootstrapElement <em>Element</em>}'.
@@ -701,6 +729,20 @@ public class BootstrapAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.ncore.NamedElement <em>Named Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.ncore.NamedElement
+	 * @generated
+	 */
+	public Adapter createNamedElementAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link org.nasdanika.vinci.html.Container <em>Container</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -753,6 +795,20 @@ public class BootstrapAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createWorkFactoryAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.vinci.html.Page <em>Page</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.vinci.html.Page
+	 * @generated
+	 */
+	public Adapter createPageAdapter() {
 		return null;
 	}
 

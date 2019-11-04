@@ -23,6 +23,7 @@ import org.nasdanika.vinci.bootstrap.BootstrapElement;
 import org.nasdanika.vinci.bootstrap.BootstrapFactory;
 import org.nasdanika.vinci.bootstrap.BootstrapPackage;
 
+import org.nasdanika.vinci.bootstrap.BootstrapPage;
 import org.nasdanika.vinci.bootstrap.Breadcrumbs;
 import org.nasdanika.vinci.bootstrap.Button;
 import org.nasdanika.vinci.bootstrap.ButtonGroup;
@@ -58,6 +59,13 @@ import org.nasdanika.vinci.html.HtmlPackage;
  * @generated
  */
 public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPackage {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass bootstrapPageEClass = null;
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -359,6 +367,36 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 		// Update the registry and return the package
 		EPackage.Registry.INSTANCE.put(BootstrapPackage.eNS_URI, theBootstrapPackage);
 		return theBootstrapPackage;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getBootstrapPage() {
+		return bootstrapPageEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getBootstrapPage_Cdn() {
+		return (EAttribute)bootstrapPageEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getBootstrapPage_Theme() {
+		return (EAttribute)bootstrapPageEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -880,6 +918,10 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 		isCreated = true;
 
 		// Create classes and their features
+		bootstrapPageEClass = createEClass(BOOTSTRAP_PAGE);
+		createEAttribute(bootstrapPageEClass, BOOTSTRAP_PAGE__CDN);
+		createEAttribute(bootstrapPageEClass, BOOTSTRAP_PAGE__THEME);
+
 		bootstrapElementEClass = createEClass(BOOTSTRAP_ELEMENT);
 
 		tagEClass = createEClass(TAG);
@@ -996,6 +1038,7 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
+		bootstrapPageEClass.getESuperTypes().add(theHtmlPackage.getPage());
 		bootstrapElementEClass.getESuperTypes().add(theHtmlPackage.getHtmlElement());
 		tagEClass.getESuperTypes().add(theHtmlPackage.getTag());
 		tagEClass.getESuperTypes().add(this.getBootstrapElement());
@@ -1026,6 +1069,10 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 		cardEClass.getESuperTypes().add(this.getDiv());
 
 		// Initialize classes, features, and operations; add parameters
+		initEClass(bootstrapPageEClass, BootstrapPage.class, "BootstrapPage", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getBootstrapPage_Cdn(), ecorePackage.getEBoolean(), "cdn", "true", 0, 1, BootstrapPage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getBootstrapPage_Theme(), ecorePackage.getEString(), "theme", null, 0, 1, BootstrapPage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		initEClass(bootstrapElementEClass, BootstrapElement.class, "BootstrapElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(tagEClass, Tag.class, "Tag", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1137,6 +1184,24 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 			   "documentation", "Model of Bootstrap elements."
 		   });
 		addAnnotation
+		  (bootstrapPageEClass,
+		   source,
+		   new String[] {
+			   "documentation", "HTML page with bootstrap elements in the head - meta, stylesheets, and scripts."
+		   });
+		addAnnotation
+		  (getBootstrapPage_Cdn(),
+		   source,
+		   new String[] {
+			   "documentation", "If this attribute is true (default) then a generated page contains stylesheet and script elements pointing to Bootstrap CDN (Content Delivery Network)."
+		   });
+		addAnnotation
+		  (getBootstrapPage_Theme(),
+		   source,
+		   new String[] {
+			   "documentation", "Bootstrap [theme](https://www.nasdanika.org/master/products/html/apidocs/org.nasdanika.html.bootstrap/apidocs/org/nasdanika/html/bootstrap/Theme.html). This attribute is applicable only if CDN is set to true. In this case Bootstrap stylesheets added to the page point to a specific theme."
+		   });
+		addAnnotation
 		  (tagEClass,
 		   source,
 		   new String[] {
@@ -1224,6 +1289,12 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 	 */
 	protected void createEcoreAnnotations() {
 		String source = "http://www.eclipse.org/emf/2002/Ecore";
+		addAnnotation
+		  (bootstrapPageEClass,
+		   source,
+		   new String[] {
+			   "constraints", "theme"
+		   });
 		addAnnotation
 		  (itemEClass,
 		   source,

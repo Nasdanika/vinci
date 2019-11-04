@@ -4,17 +4,49 @@ package org.nasdanika.vinci.bootstrap.util;
 
 import java.util.Arrays;
 import java.util.Map;
+
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.nasdanika.common.Util;
 import org.nasdanika.emf.DiagnosticHelper;
 import org.nasdanika.html.bootstrap.Color;
-
-import org.nasdanika.vinci.bootstrap.*;
+import org.nasdanika.html.bootstrap.Theme;
+import org.nasdanika.vinci.bootstrap.Accordion;
+import org.nasdanika.vinci.bootstrap.ActionGroup;
+import org.nasdanika.vinci.bootstrap.ActionGroupItem;
+import org.nasdanika.vinci.bootstrap.Alert;
+import org.nasdanika.vinci.bootstrap.Badge;
+import org.nasdanika.vinci.bootstrap.BootstrapElement;
+import org.nasdanika.vinci.bootstrap.BootstrapPackage;
+import org.nasdanika.vinci.bootstrap.BootstrapPage;
+import org.nasdanika.vinci.bootstrap.Breadcrumbs;
+import org.nasdanika.vinci.bootstrap.Button;
+import org.nasdanika.vinci.bootstrap.ButtonGroup;
+import org.nasdanika.vinci.bootstrap.ButtonToolbar;
+import org.nasdanika.vinci.bootstrap.Card;
+import org.nasdanika.vinci.bootstrap.Collapse;
+import org.nasdanika.vinci.bootstrap.Column;
+import org.nasdanika.vinci.bootstrap.Container;
+import org.nasdanika.vinci.bootstrap.ContentActionGroupItem;
+import org.nasdanika.vinci.bootstrap.Div;
+import org.nasdanika.vinci.bootstrap.Dropdown;
+import org.nasdanika.vinci.bootstrap.Form;
+import org.nasdanika.vinci.bootstrap.FormGroup;
+import org.nasdanika.vinci.bootstrap.InputGroup;
+import org.nasdanika.vinci.bootstrap.Item;
+import org.nasdanika.vinci.bootstrap.LinkActionGroupItem;
+import org.nasdanika.vinci.bootstrap.ListGroup;
+import org.nasdanika.vinci.bootstrap.Modal;
+import org.nasdanika.vinci.bootstrap.Navbar;
+import org.nasdanika.vinci.bootstrap.Navs;
+import org.nasdanika.vinci.bootstrap.Row;
+import org.nasdanika.vinci.bootstrap.Table;
+import org.nasdanika.vinci.bootstrap.TableColumn;
+import org.nasdanika.vinci.bootstrap.TableRow;
+import org.nasdanika.vinci.bootstrap.Tag;
+import org.nasdanika.vinci.bootstrap.Tooltip;
 
 /**
  * <!-- begin-user-doc -->
@@ -88,6 +120,8 @@ public class BootstrapValidator extends EObjectValidator {
 	@Override
 	protected boolean validate(int classifierID, Object value, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		switch (classifierID) {
+			case BootstrapPackage.BOOTSTRAP_PAGE:
+				return validateBootstrapPage((BootstrapPage)value, diagnostics, context);
 			case BootstrapPackage.BOOTSTRAP_ELEMENT:
 				return validateBootstrapElement((BootstrapElement)value, diagnostics, context);
 			case BootstrapPackage.TAG:
@@ -157,6 +191,44 @@ public class BootstrapValidator extends EObjectValidator {
 			default:
 				return true;
 		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateBootstrapPage(BootstrapPage bootstrapPage, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (!validate_NoCircularContainment(bootstrapPage, diagnostics, context)) return false;
+		boolean result = validate_EveryMultiplicityConforms(bootstrapPage, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(bootstrapPage, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(bootstrapPage, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(bootstrapPage, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(bootstrapPage, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(bootstrapPage, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(bootstrapPage, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(bootstrapPage, diagnostics, context);
+		if (result || diagnostics != null) result &= validateBootstrapPage_theme(bootstrapPage, diagnostics, context);
+		return result;
+	}
+
+	/**
+	 * Validates the theme constraint of '<em>Page</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public boolean validateBootstrapPage_theme(BootstrapPage bootstrapPage, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (diagnostics != null && !Util.isBlank(bootstrapPage.getTheme())) {			
+			DiagnosticHelper helper = new DiagnosticHelper(diagnostics, DIAGNOSTIC_SOURCE, 0, bootstrapPage);
+			try {
+				Theme.valueOf(bootstrapPage.getTheme());				
+			} catch (Exception e) {
+				helper.error("Invalid theme: "+bootstrapPage.getTheme()+", shall be one of the Theme enum constants: " + Arrays.toString(Theme.values()), BootstrapPackage.Literals.BOOTSTRAP_PAGE__THEME);
+			}
+			return helper.isSuccess();
+		}
+		return true;
 	}
 
 	/**

@@ -64,6 +64,133 @@ public interface BootstrapPackage extends EPackage {
 	BootstrapPackage eINSTANCE = org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl.init();
 
 	/**
+	 * The meta object id for the '{@link org.nasdanika.vinci.bootstrap.impl.BootstrapPageImpl <em>Page</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPageImpl
+	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getBootstrapPage()
+	 * @generated
+	 */
+	int BOOTSTRAP_PAGE = 0;
+
+	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOTSTRAP_PAGE__TITLE = HtmlPackage.PAGE__TITLE;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOTSTRAP_PAGE__DESCRIPTION = HtmlPackage.PAGE__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOTSTRAP_PAGE__NAME = HtmlPackage.PAGE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Head</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOTSTRAP_PAGE__HEAD = HtmlPackage.PAGE__HEAD;
+
+	/**
+	 * The feature id for the '<em><b>Body</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOTSTRAP_PAGE__BODY = HtmlPackage.PAGE__BODY;
+
+	/**
+	 * The feature id for the '<em><b>Builders</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOTSTRAP_PAGE__BUILDERS = HtmlPackage.PAGE__BUILDERS;
+
+	/**
+	 * The feature id for the '<em><b>Language</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOTSTRAP_PAGE__LANGUAGE = HtmlPackage.PAGE__LANGUAGE;
+
+	/**
+	 * The feature id for the '<em><b>Stylesheets</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOTSTRAP_PAGE__STYLESHEETS = HtmlPackage.PAGE__STYLESHEETS;
+
+	/**
+	 * The feature id for the '<em><b>Scripts</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOTSTRAP_PAGE__SCRIPTS = HtmlPackage.PAGE__SCRIPTS;
+
+	/**
+	 * The feature id for the '<em><b>Cdn</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOTSTRAP_PAGE__CDN = HtmlPackage.PAGE_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Theme</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOTSTRAP_PAGE__THEME = HtmlPackage.PAGE_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Page</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOTSTRAP_PAGE_FEATURE_COUNT = HtmlPackage.PAGE_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of operations of the '<em>Page</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOTSTRAP_PAGE_OPERATION_COUNT = HtmlPackage.PAGE_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link org.nasdanika.vinci.bootstrap.impl.BootstrapElementImpl <em>Element</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -71,7 +198,7 @@ public interface BootstrapPackage extends EPackage {
 	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getBootstrapElement()
 	 * @generated
 	 */
-	int BOOTSTRAP_ELEMENT = 0;
+	int BOOTSTRAP_ELEMENT = 1;
 
 	/**
 	 * The feature id for the '<em><b>Title</b></em>' attribute.
@@ -118,7 +245,7 @@ public interface BootstrapPackage extends EPackage {
 	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getContainer()
 	 * @generated
 	 */
-	int CONTAINER = 14;
+	int CONTAINER = 15;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.vinci.bootstrap.impl.RowImpl <em>Row</em>}' class.
@@ -128,7 +255,7 @@ public interface BootstrapPackage extends EPackage {
 	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getRow()
 	 * @generated
 	 */
-	int ROW = 15;
+	int ROW = 16;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.vinci.bootstrap.impl.ColumnImpl <em>Column</em>}' class.
@@ -138,7 +265,7 @@ public interface BootstrapPackage extends EPackage {
 	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getColumn()
 	 * @generated
 	 */
-	int COLUMN = 16;
+	int COLUMN = 17;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.vinci.bootstrap.impl.CardImpl <em>Card</em>}' class.
@@ -148,7 +275,7 @@ public interface BootstrapPackage extends EPackage {
 	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getCard()
 	 * @generated
 	 */
-	int CARD = 17;
+	int CARD = 18;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.vinci.bootstrap.impl.TagImpl <em>Tag</em>}' class.
@@ -158,7 +285,7 @@ public interface BootstrapPackage extends EPackage {
 	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getTag()
 	 * @generated
 	 */
-	int TAG = 1;
+	int TAG = 2;
 
 	/**
 	 * The feature id for the '<em><b>Title</b></em>' attribute.
@@ -213,7 +340,7 @@ public interface BootstrapPackage extends EPackage {
 	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getDiv()
 	 * @generated
 	 */
-	int DIV = 2;
+	int DIV = 3;
 
 	/**
 	 * The feature id for the '<em><b>Title</b></em>' attribute.
@@ -268,7 +395,7 @@ public interface BootstrapPackage extends EPackage {
 	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getItem()
 	 * @generated
 	 */
-	int ITEM = 3;
+	int ITEM = 4;
 
 	/**
 	 * The feature id for the '<em><b>Title</b></em>' attribute.
@@ -341,7 +468,7 @@ public interface BootstrapPackage extends EPackage {
 	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getActionGroupItem()
 	 * @generated
 	 */
-	int ACTION_GROUP_ITEM = 4;
+	int ACTION_GROUP_ITEM = 5;
 
 	/**
 	 * The feature id for the '<em><b>Title</b></em>' attribute.
@@ -423,7 +550,7 @@ public interface BootstrapPackage extends EPackage {
 	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getLinkActionGroupItem()
 	 * @generated
 	 */
-	int LINK_ACTION_GROUP_ITEM = 5;
+	int LINK_ACTION_GROUP_ITEM = 6;
 
 	/**
 	 * The feature id for the '<em><b>Title</b></em>' attribute.
@@ -514,7 +641,7 @@ public interface BootstrapPackage extends EPackage {
 	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getContentActionGroupItem()
 	 * @generated
 	 */
-	int CONTENT_ACTION_GROUP_ITEM = 6;
+	int CONTENT_ACTION_GROUP_ITEM = 7;
 
 	/**
 	 * The feature id for the '<em><b>Title</b></em>' attribute.
@@ -605,7 +732,7 @@ public interface BootstrapPackage extends EPackage {
 	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getAlert()
 	 * @generated
 	 */
-	int ALERT = 8;
+	int ALERT = 9;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.vinci.bootstrap.impl.BadgeImpl <em>Badge</em>}' class.
@@ -615,7 +742,7 @@ public interface BootstrapPackage extends EPackage {
 	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getBadge()
 	 * @generated
 	 */
-	int BADGE = 9;
+	int BADGE = 10;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.vinci.bootstrap.impl.ButtonImpl <em>Button</em>}' class.
@@ -625,7 +752,7 @@ public interface BootstrapPackage extends EPackage {
 	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getButton()
 	 * @generated
 	 */
-	int BUTTON = 11;
+	int BUTTON = 12;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.vinci.bootstrap.impl.ButtonGroupImpl <em>Button Group</em>}' class.
@@ -635,7 +762,7 @@ public interface BootstrapPackage extends EPackage {
 	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getButtonGroup()
 	 * @generated
 	 */
-	int BUTTON_GROUP = 12;
+	int BUTTON_GROUP = 13;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.vinci.bootstrap.impl.ButtonToolbarImpl <em>Button Toolbar</em>}' class.
@@ -645,7 +772,7 @@ public interface BootstrapPackage extends EPackage {
 	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getButtonToolbar()
 	 * @generated
 	 */
-	int BUTTON_TOOLBAR = 13;
+	int BUTTON_TOOLBAR = 14;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.vinci.bootstrap.impl.DropdownImpl <em>Dropdown</em>}' class.
@@ -655,7 +782,7 @@ public interface BootstrapPackage extends EPackage {
 	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getDropdown()
 	 * @generated
 	 */
-	int DROPDOWN = 18;
+	int DROPDOWN = 19;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.vinci.bootstrap.impl.ActionGroupImpl <em>Action Group</em>}' class.
@@ -665,7 +792,7 @@ public interface BootstrapPackage extends EPackage {
 	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getActionGroup()
 	 * @generated
 	 */
-	int ACTION_GROUP = 7;
+	int ACTION_GROUP = 8;
 
 	/**
 	 * The feature id for the '<em><b>Title</b></em>' attribute.
@@ -846,7 +973,7 @@ public interface BootstrapPackage extends EPackage {
 	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getBreadcrumbs()
 	 * @generated
 	 */
-	int BREADCRUMBS = 10;
+	int BREADCRUMBS = 11;
 
 	/**
 	 * The number of structural features of the '<em>Breadcrumbs</em>' class.
@@ -1198,7 +1325,7 @@ public interface BootstrapPackage extends EPackage {
 	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getForm()
 	 * @generated
 	 */
-	int FORM = 19;
+	int FORM = 20;
 
 	/**
 	 * The number of structural features of the '<em>Form</em>' class.
@@ -1226,7 +1353,7 @@ public interface BootstrapPackage extends EPackage {
 	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getListGroup()
 	 * @generated
 	 */
-	int LIST_GROUP = 20;
+	int LIST_GROUP = 21;
 
 	/**
 	 * The number of structural features of the '<em>List Group</em>' class.
@@ -1254,7 +1381,7 @@ public interface BootstrapPackage extends EPackage {
 	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getNavs()
 	 * @generated
 	 */
-	int NAVS = 21;
+	int NAVS = 22;
 
 	/**
 	 * The number of structural features of the '<em>Navs</em>' class.
@@ -1282,7 +1409,7 @@ public interface BootstrapPackage extends EPackage {
 	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getNavbar()
 	 * @generated
 	 */
-	int NAVBAR = 22;
+	int NAVBAR = 23;
 
 	/**
 	 * The number of structural features of the '<em>Navbar</em>' class.
@@ -1310,7 +1437,7 @@ public interface BootstrapPackage extends EPackage {
 	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getTable()
 	 * @generated
 	 */
-	int TABLE = 23;
+	int TABLE = 24;
 
 	/**
 	 * The number of structural features of the '<em>Table</em>' class.
@@ -1338,7 +1465,7 @@ public interface BootstrapPackage extends EPackage {
 	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getTableRow()
 	 * @generated
 	 */
-	int TABLE_ROW = 24;
+	int TABLE_ROW = 25;
 
 	/**
 	 * The number of structural features of the '<em>Table Row</em>' class.
@@ -1366,7 +1493,7 @@ public interface BootstrapPackage extends EPackage {
 	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getTableColumn()
 	 * @generated
 	 */
-	int TABLE_COLUMN = 25;
+	int TABLE_COLUMN = 26;
 
 	/**
 	 * The number of structural features of the '<em>Table Column</em>' class.
@@ -1394,7 +1521,7 @@ public interface BootstrapPackage extends EPackage {
 	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getTooltip()
 	 * @generated
 	 */
-	int TOOLTIP = 26;
+	int TOOLTIP = 27;
 
 	/**
 	 * The number of structural features of the '<em>Tooltip</em>' class.
@@ -1422,7 +1549,7 @@ public interface BootstrapPackage extends EPackage {
 	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getInputGroup()
 	 * @generated
 	 */
-	int INPUT_GROUP = 27;
+	int INPUT_GROUP = 28;
 
 	/**
 	 * The number of structural features of the '<em>Input Group</em>' class.
@@ -1450,7 +1577,7 @@ public interface BootstrapPackage extends EPackage {
 	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getFormGroup()
 	 * @generated
 	 */
-	int FORM_GROUP = 28;
+	int FORM_GROUP = 29;
 
 	/**
 	 * The number of structural features of the '<em>Form Group</em>' class.
@@ -1478,7 +1605,7 @@ public interface BootstrapPackage extends EPackage {
 	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getCollapse()
 	 * @generated
 	 */
-	int COLLAPSE = 29;
+	int COLLAPSE = 30;
 
 	/**
 	 * The number of structural features of the '<em>Collapse</em>' class.
@@ -1506,7 +1633,7 @@ public interface BootstrapPackage extends EPackage {
 	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getModal()
 	 * @generated
 	 */
-	int MODAL = 30;
+	int MODAL = 31;
 
 	/**
 	 * The number of structural features of the '<em>Modal</em>' class.
@@ -1534,7 +1661,7 @@ public interface BootstrapPackage extends EPackage {
 	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getAccordion()
 	 * @generated
 	 */
-	int ACCORDION = 31;
+	int ACCORDION = 32;
 
 	/**
 	 * The number of structural features of the '<em>Accordion</em>' class.
@@ -1562,8 +1689,40 @@ public interface BootstrapPackage extends EPackage {
 	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getColor()
 	 * @generated
 	 */
-	int COLOR = 32;
+	int COLOR = 33;
 
+
+	/**
+	 * Returns the meta object for class '{@link org.nasdanika.vinci.bootstrap.BootstrapPage <em>Page</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Page</em>'.
+	 * @see org.nasdanika.vinci.bootstrap.BootstrapPage
+	 * @generated
+	 */
+	EClass getBootstrapPage();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.bootstrap.BootstrapPage#isCdn <em>Cdn</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Cdn</em>'.
+	 * @see org.nasdanika.vinci.bootstrap.BootstrapPage#isCdn()
+	 * @see #getBootstrapPage()
+	 * @generated
+	 */
+	EAttribute getBootstrapPage_Cdn();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.bootstrap.BootstrapPage#getTheme <em>Theme</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Theme</em>'.
+	 * @see org.nasdanika.vinci.bootstrap.BootstrapPage#getTheme()
+	 * @see #getBootstrapPage()
+	 * @generated
+	 */
+	EAttribute getBootstrapPage_Theme();
 
 	/**
 	 * Returns the meta object for class '{@link org.nasdanika.vinci.bootstrap.BootstrapElement <em>Element</em>}'.
@@ -2095,6 +2254,29 @@ public interface BootstrapPackage extends EPackage {
 	 * @generated
 	 */
 	interface Literals {
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.vinci.bootstrap.impl.BootstrapPageImpl <em>Page</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPageImpl
+		 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getBootstrapPage()
+		 * @generated
+		 */
+		EClass BOOTSTRAP_PAGE = eINSTANCE.getBootstrapPage();
+		/**
+		 * The meta object literal for the '<em><b>Cdn</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BOOTSTRAP_PAGE__CDN = eINSTANCE.getBootstrapPage_Cdn();
+		/**
+		 * The meta object literal for the '<em><b>Theme</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BOOTSTRAP_PAGE__THEME = eINSTANCE.getBootstrapPage_Theme();
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.vinci.bootstrap.impl.BootstrapElementImpl <em>Element</em>}' class.
 		 * <!-- begin-user-doc -->

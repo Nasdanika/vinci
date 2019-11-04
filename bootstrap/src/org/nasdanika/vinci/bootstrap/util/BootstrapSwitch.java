@@ -8,9 +8,11 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
 import org.nasdanika.common.WorkFactory;
 import org.nasdanika.ncore.ModelElement;
+import org.nasdanika.ncore.NamedElement;
 import org.nasdanika.vinci.bootstrap.*;
 
 import org.nasdanika.vinci.html.HtmlElement;
+import org.nasdanika.vinci.html.Page;
 
 /**
  * <!-- begin-user-doc -->
@@ -69,6 +71,16 @@ public class BootstrapSwitch<T1> extends Switch<T1> {
 	@Override
 	protected T1 doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
+			case BootstrapPackage.BOOTSTRAP_PAGE: {
+				BootstrapPage bootstrapPage = (BootstrapPage)theEObject;
+				T1 result = caseBootstrapPage(bootstrapPage);
+				if (result == null) result = casePage(bootstrapPage);
+				if (result == null) result = caseNamedElement(bootstrapPage);
+				if (result == null) result = caseWorkFactory(bootstrapPage);
+				if (result == null) result = caseModelElement(bootstrapPage);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case BootstrapPackage.BOOTSTRAP_ELEMENT: {
 				BootstrapElement bootstrapElement = (BootstrapElement)theEObject;
 				T1 result = caseBootstrapElement(bootstrapElement);
@@ -335,6 +347,21 @@ public class BootstrapSwitch<T1> extends Switch<T1> {
 			}
 			default: return defaultCase(theEObject);
 		}
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Page</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Page</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseBootstrapPage(BootstrapPage object) {
+		return null;
 	}
 
 	/**
@@ -833,6 +860,21 @@ public class BootstrapSwitch<T1> extends Switch<T1> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Named Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Named Element</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseNamedElement(NamedElement object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Container</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -889,6 +931,21 @@ public class BootstrapSwitch<T1> extends Switch<T1> {
 	 * @generated
 	 */
 	public <T> T1 caseWorkFactory(WorkFactory<T> object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Page</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Page</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 casePage(Page object) {
 		return null;
 	}
 

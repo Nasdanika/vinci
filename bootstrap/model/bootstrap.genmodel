@@ -11,6 +11,10 @@
   <genPackages prefix="Bootstrap" basePackage="org.nasdanika.vinci" disposableProviderFactory="true"
       ecorePackage="bootstrap.ecore#/">
     <genDataTypes ecoreDataType="bootstrap.ecore#//Color" convert=""/>
+    <genClasses ecoreClass="bootstrap.ecore#//BootstrapPage">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bootstrap.ecore#//BootstrapPage/cdn"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bootstrap.ecore#//BootstrapPage/theme"/>
+    </genClasses>
     <genClasses ecoreClass="bootstrap.ecore#//BootstrapElement"/>
     <genClasses ecoreClass="bootstrap.ecore#//Tag"/>
     <genClasses ecoreClass="bootstrap.ecore#//Div"/>
