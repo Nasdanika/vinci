@@ -6,7 +6,8 @@ import org.junit.runners.Suite.SuiteClasses;
 
 @RunWith(Suite.class)
 @SuiteClasses({
-	ActionGroupTests.class
+	ActionGroupTests.class,
+	BootstrapPageTests.class
 })
 public class BootstrapTests {
 	

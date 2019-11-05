@@ -17,7 +17,6 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.nasdanika.html.bootstrap.Theme;
 import org.nasdanika.vinci.bootstrap.BootstrapPackage;
 import org.nasdanika.vinci.bootstrap.BootstrapPage;
-import org.nasdanika.vinci.html.HtmlPackage;
 import org.nasdanika.vinci.html.provider.PageItemProvider;
 
 /**
@@ -168,22 +167,10 @@ public class BootstrapPageItemProvider extends PageItemProvider {
 	 * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getCreateChildText(Object owner, Object feature, Object child, Collection<?> selection) {
-		Object childFeature = feature;
-		Object childObject = child;
-
-		boolean qualify =
-			childFeature == HtmlPackage.Literals.PAGE__HEAD ||
-			childFeature == HtmlPackage.Literals.PAGE__BODY;
-
-		if (qualify) {
-			return getString
-				("_UI_CreateChild_text2",
-				 new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
-		}
 		return super.getCreateChildText(owner, feature, child, selection);
 	}
 
