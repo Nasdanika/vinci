@@ -18,5 +18,4 @@
       <content xsi:type="org.nasdanika.ncore:Value" value="Item four content"/>
     </items>
   </body>
-  <builders xsi:type="org.nasdanika.vinci.app:BootstrapApplication"/>
 </org.nasdanika.vinci.bootstrap:BootstrapPage>
