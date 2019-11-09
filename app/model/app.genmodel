@@ -5,8 +5,8 @@
     rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" importerID="org.eclipse.emf.importer.ecore"
     featureDelegation="Dynamic" complianceLevel="8.0" suppressGenModelAnnotations="false"
     copyrightFields="false" providerRootExtendsClass="org.nasdanika.emf.edit.NasdanikaItemProviderAdapter"
-    usedGenPackages="../../org.nasdanika.ncore/model/ncore.genmodel#//ncore" operationReflection="true"
-    importOrganizing="true">
+    usedGenPackages="../../org.nasdanika.vinci.bootstrap/model/bootstrap.genmodel#//bootstrap ../../org.nasdanika.vinci.html/model/html.genmodel#//html ../../org.nasdanika.ncore/model/ncore.genmodel#//ncore"
+    operationReflection="true" importOrganizing="true">
   <foreignModel>app.ecore</foreignModel>
   <genPackages prefix="App" basePackage="org.nasdanika.vinci" disposableProviderFactory="true"
       ecorePackage="app.ecore#/">
@@ -82,6 +82,15 @@
     </genClasses>
     <genClasses ecoreClass="app.ecore#//Action"/>
     <genClasses ecoreClass="app.ecore#//Partition"/>
-    <genClasses ecoreClass="app.ecore#//BootstrapContainerApplication"/>
+    <genClasses ecoreClass="app.ecore#//BootstrapContainerApplication">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute app.ecore#//BootstrapContainerApplication/fluid"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute app.ecore#//BootstrapContainerApplication/router"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference app.ecore#//BootstrapContainerApplication/header"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference app.ecore#//BootstrapContainerApplication/navigationBar"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference app.ecore#//BootstrapContainerApplication/navigationPanel"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference app.ecore#//BootstrapContainerApplication/contentPanel"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference app.ecore#//BootstrapContainerApplication/footer"/>
+    </genClasses>
+    <genClasses ecoreClass="app.ecore#//BootstrapContainerApplicationSection"/>
   </genPackages>
 </genmodel:GenModel>

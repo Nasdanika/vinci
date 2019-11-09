@@ -435,6 +435,16 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 	 * @generated
 	 */
 	@Override
+	public EAttribute getContainer_Fluid() {
+		return (EAttribute)containerEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getRow() {
 		return rowEClass;
 	}
@@ -963,6 +973,7 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 
 		containerEClass = createEClass(CONTAINER);
 		createEReference(containerEClass, CONTAINER__ROWS);
+		createEAttribute(containerEClass, CONTAINER__FLUID);
 
 		rowEClass = createEClass(ROW);
 		createEReference(rowEClass, ROW__COLUMNS);
@@ -1117,6 +1128,7 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 
 		initEClass(containerEClass, org.nasdanika.vinci.bootstrap.Container.class, "Container", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getContainer_Rows(), this.getRow(), null, "rows", null, 0, -1, org.nasdanika.vinci.bootstrap.Container.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getContainer_Fluid(), ecorePackage.getEBoolean(), "fluid", null, 0, 1, org.nasdanika.vinci.bootstrap.Container.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(rowEClass, Row.class, "Row", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getRow_Columns(), this.getColumn(), null, "columns", null, 0, -1, Row.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1278,6 +1290,12 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 		   source,
 		   new String[] {
 			   "documentation", "TODO - size - enum? Block, active, disabled."
+		   });
+		addAnnotation
+		  (getContainer_Fluid(),
+		   source,
+		   new String[] {
+			   "documentation", "Fluid container takes 100% width of the parent."
 		   });
 	}
 

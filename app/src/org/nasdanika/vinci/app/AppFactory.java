@@ -58,6 +58,15 @@ public interface AppFactory extends EFactory {
 	BootstrapContainerApplication createBootstrapContainerApplication();
 
 	/**
+	 * Returns a new object of class '<em>Bootstrap Container Application Section</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Bootstrap Container Application Section</em>'.
+	 * @generated
+	 */
+	BootstrapContainerApplicationSection createBootstrapContainerApplicationSection();
+
+	/**
 	 * Returns a new object of class '<em>Action Mapping</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

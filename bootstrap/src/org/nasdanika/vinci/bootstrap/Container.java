@@ -15,6 +15,7 @@ import org.nasdanika.common.WorkFactory;
  * </p>
  * <ul>
  *   <li>{@link org.nasdanika.vinci.bootstrap.Container#getRows <em>Rows</em>}</li>
+ *   <li>{@link org.nasdanika.vinci.bootstrap.Container#isFluid <em>Fluid</em>}</li>
  * </ul>
  *
  * @see org.nasdanika.vinci.bootstrap.BootstrapPackage#getContainer()
@@ -33,5 +34,30 @@ public interface Container extends BootstrapElement, WorkFactory<Object> {
 	 * @generated
 	 */
 	EList<Row> getRows();
+
+	/**
+	 * Returns the value of the '<em><b>Fluid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Fluid container takes 100% width of the parent.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Fluid</em>' attribute.
+	 * @see #setFluid(boolean)
+	 * @see org.nasdanika.vinci.bootstrap.BootstrapPackage#getContainer_Fluid()
+	 * @model
+	 * @generated
+	 */
+	boolean isFluid();
+
+	/**
+	 * Sets the value of the '{@link org.nasdanika.vinci.bootstrap.Container#isFluid <em>Fluid</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Fluid</em>' attribute.
+	 * @see #isFluid()
+	 * @generated
+	 */
+	void setFluid(boolean value);
 
 } // Container

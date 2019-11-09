@@ -73,6 +73,7 @@ public class AppFactoryImpl extends EFactoryImpl implements AppFactory {
 			case AppPackage.ACTION: return createAction();
 			case AppPackage.PARTITION: return createPartition();
 			case AppPackage.BOOTSTRAP_CONTAINER_APPLICATION: return createBootstrapContainerApplication();
+			case AppPackage.BOOTSTRAP_CONTAINER_APPLICATION_SECTION: return createBootstrapContainerApplicationSection();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -162,6 +163,17 @@ public class AppFactoryImpl extends EFactoryImpl implements AppFactory {
 	public BootstrapContainerApplication createBootstrapContainerApplication() {
 		BootstrapContainerApplicationImpl bootstrapContainerApplication = new BootstrapContainerApplicationImpl();
 		return bootstrapContainerApplication;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public BootstrapContainerApplicationSection createBootstrapContainerApplicationSection() {
+		BootstrapContainerApplicationSectionImpl bootstrapContainerApplicationSection = new BootstrapContainerApplicationSectionImpl();
+		return bootstrapContainerApplicationSection;
 	}
 
 	/**

@@ -23,11 +23,22 @@ import org.nasdanika.vinci.bootstrap.Row;
  * </p>
  * <ul>
  *   <li>{@link org.nasdanika.vinci.bootstrap.impl.ContainerImpl#getRows <em>Rows</em>}</li>
+ *   <li>{@link org.nasdanika.vinci.bootstrap.impl.ContainerImpl#isFluid <em>Fluid</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class ContainerImpl extends BootstrapElementImpl implements org.nasdanika.vinci.bootstrap.Container {
+	/**
+	 * The default value of the '{@link #isFluid() <em>Fluid</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isFluid()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean FLUID_EDEFAULT = false;
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -64,6 +75,26 @@ public class ContainerImpl extends BootstrapElementImpl implements org.nasdanika
 	 * @generated
 	 */
 	@Override
+	public boolean isFluid() {
+		return (Boolean)eDynamicGet(BootstrapPackage.CONTAINER__FLUID, BootstrapPackage.Literals.CONTAINER__FLUID, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setFluid(boolean newFluid) {
+		eDynamicSet(BootstrapPackage.CONTAINER__FLUID, BootstrapPackage.Literals.CONTAINER__FLUID, newFluid);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case BootstrapPackage.CONTAINER__ROWS:
@@ -82,6 +113,8 @@ public class ContainerImpl extends BootstrapElementImpl implements org.nasdanika
 		switch (featureID) {
 			case BootstrapPackage.CONTAINER__ROWS:
 				return getRows();
+			case BootstrapPackage.CONTAINER__FLUID:
+				return isFluid();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -99,6 +132,9 @@ public class ContainerImpl extends BootstrapElementImpl implements org.nasdanika
 				getRows().clear();
 				getRows().addAll((Collection<? extends Row>)newValue);
 				return;
+			case BootstrapPackage.CONTAINER__FLUID:
+				setFluid((Boolean)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -114,6 +150,9 @@ public class ContainerImpl extends BootstrapElementImpl implements org.nasdanika
 			case BootstrapPackage.CONTAINER__ROWS:
 				getRows().clear();
 				return;
+			case BootstrapPackage.CONTAINER__FLUID:
+				setFluid(FLUID_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -128,12 +167,16 @@ public class ContainerImpl extends BootstrapElementImpl implements org.nasdanika
 		switch (featureID) {
 			case BootstrapPackage.CONTAINER__ROWS:
 				return !getRows().isEmpty();
+			case BootstrapPackage.CONTAINER__FLUID:
+				return isFluid() != FLUID_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
 
 	@Override
 	public Work<Object> create(Context context) throws Exception {
+		
+		// TODO - take fluid into account.
 		throw new UnsupportedOperationException();
 	}
 

@@ -9,6 +9,7 @@ import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.nasdanika.ncore.NcorePackage;
+import org.nasdanika.vinci.bootstrap.BootstrapPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -1408,13 +1409,103 @@ public interface AppPackage extends EPackage {
 	int BOOTSTRAP_CONTAINER_APPLICATION = 12;
 
 	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOTSTRAP_CONTAINER_APPLICATION__TITLE = BootstrapPackage.BOOTSTRAP_ELEMENT__TITLE;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOTSTRAP_CONTAINER_APPLICATION__DESCRIPTION = BootstrapPackage.BOOTSTRAP_ELEMENT__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Fluid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOTSTRAP_CONTAINER_APPLICATION__FLUID = BootstrapPackage.BOOTSTRAP_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Router</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOTSTRAP_CONTAINER_APPLICATION__ROUTER = BootstrapPackage.BOOTSTRAP_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Header</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOTSTRAP_CONTAINER_APPLICATION__HEADER = BootstrapPackage.BOOTSTRAP_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Navigation Bar</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOTSTRAP_CONTAINER_APPLICATION__NAVIGATION_BAR = BootstrapPackage.BOOTSTRAP_ELEMENT_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Navigation Panel</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOTSTRAP_CONTAINER_APPLICATION__NAVIGATION_PANEL = BootstrapPackage.BOOTSTRAP_ELEMENT_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Content Panel</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOTSTRAP_CONTAINER_APPLICATION__CONTENT_PANEL = BootstrapPackage.BOOTSTRAP_ELEMENT_FEATURE_COUNT + 5;
+
+	/**
+	 * The feature id for the '<em><b>Footer</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOTSTRAP_CONTAINER_APPLICATION__FOOTER = BootstrapPackage.BOOTSTRAP_ELEMENT_FEATURE_COUNT + 6;
+
+	/**
 	 * The number of structural features of the '<em>Bootstrap Container Application</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BOOTSTRAP_CONTAINER_APPLICATION_FEATURE_COUNT = NcorePackage.CONSUMER_FEATURE_COUNT + 0;
+	int BOOTSTRAP_CONTAINER_APPLICATION_FEATURE_COUNT = BootstrapPackage.BOOTSTRAP_ELEMENT_FEATURE_COUNT + 7;
+
+	/**
+	 * The operation id for the '<em>As Builder</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOTSTRAP_CONTAINER_APPLICATION___AS_BUILDER = BootstrapPackage.BOOTSTRAP_ELEMENT___AS_BUILDER;
 
 	/**
 	 * The number of operations of the '<em>Bootstrap Container Application</em>' class.
@@ -1423,7 +1514,71 @@ public interface AppPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOOTSTRAP_CONTAINER_APPLICATION_OPERATION_COUNT = NcorePackage.CONSUMER_OPERATION_COUNT + 0;
+	int BOOTSTRAP_CONTAINER_APPLICATION_OPERATION_COUNT = BootstrapPackage.BOOTSTRAP_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.nasdanika.vinci.app.impl.BootstrapContainerApplicationSectionImpl <em>Bootstrap Container Application Section</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.vinci.app.impl.BootstrapContainerApplicationSectionImpl
+	 * @see org.nasdanika.vinci.app.impl.AppPackageImpl#getBootstrapContainerApplicationSection()
+	 * @generated
+	 */
+	int BOOTSTRAP_CONTAINER_APPLICATION_SECTION = 13;
+
+	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOTSTRAP_CONTAINER_APPLICATION_SECTION__TITLE = BootstrapPackage.BOOTSTRAP_ELEMENT__TITLE;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOTSTRAP_CONTAINER_APPLICATION_SECTION__DESCRIPTION = BootstrapPackage.BOOTSTRAP_ELEMENT__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Content</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOTSTRAP_CONTAINER_APPLICATION_SECTION__CONTENT = BootstrapPackage.BOOTSTRAP_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Bootstrap Container Application Section</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOTSTRAP_CONTAINER_APPLICATION_SECTION_FEATURE_COUNT = BootstrapPackage.BOOTSTRAP_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>As Builder</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOTSTRAP_CONTAINER_APPLICATION_SECTION___AS_BUILDER = BootstrapPackage.BOOTSTRAP_ELEMENT___AS_BUILDER;
+
+	/**
+	 * The number of operations of the '<em>Bootstrap Container Application Section</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOTSTRAP_CONTAINER_APPLICATION_SECTION_OPERATION_COUNT = BootstrapPackage.BOOTSTRAP_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.vinci.app.ActionRole <em>Action Role</em>}' enum.
@@ -1433,7 +1588,7 @@ public interface AppPackage extends EPackage {
 	 * @see org.nasdanika.vinci.app.impl.AppPackageImpl#getActionRole()
 	 * @generated
 	 */
-	int ACTION_ROLE = 13;
+	int ACTION_ROLE = 14;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.vinci.app.SectionStyle <em>Section Style</em>}' enum.
@@ -1443,7 +1598,7 @@ public interface AppPackage extends EPackage {
 	 * @see org.nasdanika.vinci.app.impl.AppPackageImpl#getSectionStyle()
 	 * @generated
 	 */
-	int SECTION_STYLE = 14;
+	int SECTION_STYLE = 15;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.vinci.app.ActivatorType <em>Activator Type</em>}' enum.
@@ -1453,7 +1608,7 @@ public interface AppPackage extends EPackage {
 	 * @see org.nasdanika.vinci.app.impl.AppPackageImpl#getActivatorType()
 	 * @generated
 	 */
-	int ACTIVATOR_TYPE = 15;
+	int ACTIVATOR_TYPE = 16;
 
 	/**
 	 * The meta object id for the '<em>Color</em>' data type.
@@ -1463,7 +1618,7 @@ public interface AppPackage extends EPackage {
 	 * @see org.nasdanika.vinci.app.impl.AppPackageImpl#getColor()
 	 * @generated
 	 */
-	int COLOR = 16;
+	int COLOR = 17;
 
 
 	/**
@@ -1592,6 +1747,93 @@ public interface AppPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getBootstrapContainerApplication();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.app.BootstrapContainerApplication#isFluid <em>Fluid</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Fluid</em>'.
+	 * @see org.nasdanika.vinci.app.BootstrapContainerApplication#isFluid()
+	 * @see #getBootstrapContainerApplication()
+	 * @generated
+	 */
+	EAttribute getBootstrapContainerApplication_Fluid();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.app.BootstrapContainerApplication#isRouter <em>Router</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Router</em>'.
+	 * @see org.nasdanika.vinci.app.BootstrapContainerApplication#isRouter()
+	 * @see #getBootstrapContainerApplication()
+	 * @generated
+	 */
+	EAttribute getBootstrapContainerApplication_Router();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.nasdanika.vinci.app.BootstrapContainerApplication#getHeader <em>Header</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Header</em>'.
+	 * @see org.nasdanika.vinci.app.BootstrapContainerApplication#getHeader()
+	 * @see #getBootstrapContainerApplication()
+	 * @generated
+	 */
+	EReference getBootstrapContainerApplication_Header();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.nasdanika.vinci.app.BootstrapContainerApplication#getNavigationBar <em>Navigation Bar</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Navigation Bar</em>'.
+	 * @see org.nasdanika.vinci.app.BootstrapContainerApplication#getNavigationBar()
+	 * @see #getBootstrapContainerApplication()
+	 * @generated
+	 */
+	EReference getBootstrapContainerApplication_NavigationBar();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.nasdanika.vinci.app.BootstrapContainerApplication#getNavigationPanel <em>Navigation Panel</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Navigation Panel</em>'.
+	 * @see org.nasdanika.vinci.app.BootstrapContainerApplication#getNavigationPanel()
+	 * @see #getBootstrapContainerApplication()
+	 * @generated
+	 */
+	EReference getBootstrapContainerApplication_NavigationPanel();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.nasdanika.vinci.app.BootstrapContainerApplication#getContentPanel <em>Content Panel</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Content Panel</em>'.
+	 * @see org.nasdanika.vinci.app.BootstrapContainerApplication#getContentPanel()
+	 * @see #getBootstrapContainerApplication()
+	 * @generated
+	 */
+	EReference getBootstrapContainerApplication_ContentPanel();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.nasdanika.vinci.app.BootstrapContainerApplication#getFooter <em>Footer</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Footer</em>'.
+	 * @see org.nasdanika.vinci.app.BootstrapContainerApplication#getFooter()
+	 * @see #getBootstrapContainerApplication()
+	 * @generated
+	 */
+	EReference getBootstrapContainerApplication_Footer();
+
+	/**
+	 * Returns the meta object for class '{@link org.nasdanika.vinci.app.BootstrapContainerApplicationSection <em>Bootstrap Container Application Section</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Bootstrap Container Application Section</em>'.
+	 * @see org.nasdanika.vinci.app.BootstrapContainerApplicationSection
+	 * @generated
+	 */
+	EClass getBootstrapContainerApplicationSection();
 
 	/**
 	 * Returns the meta object for class '{@link org.nasdanika.vinci.app.ActionMapping <em>Action Mapping</em>}'.
@@ -2087,6 +2329,72 @@ public interface AppPackage extends EPackage {
 		 * @generated
 		 */
 		EClass BOOTSTRAP_CONTAINER_APPLICATION = eINSTANCE.getBootstrapContainerApplication();
+
+		/**
+		 * The meta object literal for the '<em><b>Fluid</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BOOTSTRAP_CONTAINER_APPLICATION__FLUID = eINSTANCE.getBootstrapContainerApplication_Fluid();
+
+		/**
+		 * The meta object literal for the '<em><b>Router</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BOOTSTRAP_CONTAINER_APPLICATION__ROUTER = eINSTANCE.getBootstrapContainerApplication_Router();
+
+		/**
+		 * The meta object literal for the '<em><b>Header</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BOOTSTRAP_CONTAINER_APPLICATION__HEADER = eINSTANCE.getBootstrapContainerApplication_Header();
+
+		/**
+		 * The meta object literal for the '<em><b>Navigation Bar</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BOOTSTRAP_CONTAINER_APPLICATION__NAVIGATION_BAR = eINSTANCE.getBootstrapContainerApplication_NavigationBar();
+
+		/**
+		 * The meta object literal for the '<em><b>Navigation Panel</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BOOTSTRAP_CONTAINER_APPLICATION__NAVIGATION_PANEL = eINSTANCE.getBootstrapContainerApplication_NavigationPanel();
+
+		/**
+		 * The meta object literal for the '<em><b>Content Panel</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BOOTSTRAP_CONTAINER_APPLICATION__CONTENT_PANEL = eINSTANCE.getBootstrapContainerApplication_ContentPanel();
+
+		/**
+		 * The meta object literal for the '<em><b>Footer</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BOOTSTRAP_CONTAINER_APPLICATION__FOOTER = eINSTANCE.getBootstrapContainerApplication_Footer();
+
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.vinci.app.impl.BootstrapContainerApplicationSectionImpl <em>Bootstrap Container Application Section</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.vinci.app.impl.BootstrapContainerApplicationSectionImpl
+		 * @see org.nasdanika.vinci.app.impl.AppPackageImpl#getBootstrapContainerApplicationSection()
+		 * @generated
+		 */
+		EClass BOOTSTRAP_CONTAINER_APPLICATION_SECTION = eINSTANCE.getBootstrapContainerApplicationSection();
 
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.vinci.app.impl.ActionMappingImpl <em>Action Mapping</em>}' class.

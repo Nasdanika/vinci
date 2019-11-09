@@ -228,6 +228,15 @@ public interface BootstrapPackage extends EPackage {
 	int BOOTSTRAP_ELEMENT_FEATURE_COUNT = HtmlPackage.HTML_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
+	 * The operation id for the '<em>As Builder</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOTSTRAP_ELEMENT___AS_BUILDER = HtmlPackage.HTML_ELEMENT___AS_BUILDER;
+
+	/**
 	 * The number of operations of the '<em>Element</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -324,6 +333,15 @@ public interface BootstrapPackage extends EPackage {
 	int TAG_FEATURE_COUNT = HtmlPackage.TAG_FEATURE_COUNT + 0;
 
 	/**
+	 * The operation id for the '<em>As Builder</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TAG___AS_BUILDER = HtmlPackage.TAG___AS_BUILDER;
+
+	/**
 	 * The number of operations of the '<em>Tag</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -377,6 +395,15 @@ public interface BootstrapPackage extends EPackage {
 	 * @ordered
 	 */
 	int DIV_FEATURE_COUNT = TAG_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>As Builder</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DIV___AS_BUILDER = TAG___AS_BUILDER;
 
 	/**
 	 * The number of operations of the '<em>Div</em>' class.
@@ -849,6 +876,15 @@ public interface BootstrapPackage extends EPackage {
 	int ACTION_GROUP_FEATURE_COUNT = DIV_FEATURE_COUNT + 2;
 
 	/**
+	 * The operation id for the '<em>As Builder</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION_GROUP___AS_BUILDER = DIV___AS_BUILDER;
+
+	/**
 	 * The number of operations of the '<em>Action Group</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -903,6 +939,15 @@ public interface BootstrapPackage extends EPackage {
 	int ALERT_FEATURE_COUNT = DIV_FEATURE_COUNT + 1;
 
 	/**
+	 * The operation id for the '<em>As Builder</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ALERT___AS_BUILDER = DIV___AS_BUILDER;
+
+	/**
 	 * The number of operations of the '<em>Alert</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -955,6 +1000,15 @@ public interface BootstrapPackage extends EPackage {
 	 * @ordered
 	 */
 	int BADGE_FEATURE_COUNT = DIV_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>As Builder</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BADGE___AS_BUILDER = DIV___AS_BUILDER;
 
 	/**
 	 * The number of operations of the '<em>Badge</em>' class.
@@ -1048,6 +1102,15 @@ public interface BootstrapPackage extends EPackage {
 	int BUTTON_FEATURE_COUNT = DIV_FEATURE_COUNT + 2;
 
 	/**
+	 * The operation id for the '<em>As Builder</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUTTON___AS_BUILDER = DIV___AS_BUILDER;
+
+	/**
 	 * The number of operations of the '<em>Button</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1120,13 +1183,31 @@ public interface BootstrapPackage extends EPackage {
 	int CONTAINER__ROWS = BOOTSTRAP_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Fluid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTAINER__FLUID = BOOTSTRAP_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Container</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONTAINER_FEATURE_COUNT = BOOTSTRAP_ELEMENT_FEATURE_COUNT + 1;
+	int CONTAINER_FEATURE_COUNT = BOOTSTRAP_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The operation id for the '<em>As Builder</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTAINER___AS_BUILDER = BOOTSTRAP_ELEMENT___AS_BUILDER;
 
 	/**
 	 * The number of operations of the '<em>Container</em>' class.
@@ -1174,6 +1255,15 @@ public interface BootstrapPackage extends EPackage {
 	int ROW_FEATURE_COUNT = BOOTSTRAP_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
+	 * The operation id for the '<em>As Builder</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROW___AS_BUILDER = BOOTSTRAP_ELEMENT___AS_BUILDER;
+
+	/**
 	 * The number of operations of the '<em>Row</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1217,6 +1307,15 @@ public interface BootstrapPackage extends EPackage {
 	 * @ordered
 	 */
 	int COLUMN_FEATURE_COUNT = BOOTSTRAP_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>As Builder</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLUMN___AS_BUILDER = BOOTSTRAP_ELEMENT___AS_BUILDER;
 
 	/**
 	 * The number of operations of the '<em>Column</em>' class.
@@ -1289,6 +1388,15 @@ public interface BootstrapPackage extends EPackage {
 	 * @ordered
 	 */
 	int CARD_FEATURE_COUNT = DIV_FEATURE_COUNT + 3;
+
+	/**
+	 * The operation id for the '<em>As Builder</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CARD___AS_BUILDER = DIV___AS_BUILDER;
 
 	/**
 	 * The number of operations of the '<em>Card</em>' class.
@@ -1754,6 +1862,17 @@ public interface BootstrapPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getContainer_Rows();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.bootstrap.Container#isFluid <em>Fluid</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Fluid</em>'.
+	 * @see org.nasdanika.vinci.bootstrap.Container#isFluid()
+	 * @see #getContainer()
+	 * @generated
+	 */
+	EAttribute getContainer_Fluid();
 
 	/**
 	 * Returns the meta object for class '{@link org.nasdanika.vinci.bootstrap.Row <em>Row</em>}'.
@@ -2302,6 +2421,13 @@ public interface BootstrapPackage extends EPackage {
 		 * @generated
 		 */
 		EReference CONTAINER__ROWS = eINSTANCE.getContainer_Rows();
+		/**
+		 * The meta object literal for the '<em><b>Fluid</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CONTAINER__FLUID = eINSTANCE.getContainer_Fluid();
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.vinci.bootstrap.impl.RowImpl <em>Row</em>}' class.
 		 * <!-- begin-user-doc -->

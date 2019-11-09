@@ -16,6 +16,8 @@ import org.nasdanika.ncore.NcoreFactory;
 import org.nasdanika.vinci.app.AppFactory;
 import org.nasdanika.vinci.app.AppPackage;
 import org.nasdanika.vinci.app.Category;
+import org.nasdanika.vinci.bootstrap.BootstrapFactory;
+import org.nasdanika.vinci.html.HtmlFactory;
 
 /**
  * This is the item provider adapter for a {@link org.nasdanika.vinci.app.Category} object.
@@ -202,6 +204,181 @@ public class CategoryItemProvider extends LabelItemProvider {
 			(createChildParameter
 				(AppPackage.Literals.CONTAINER__ELEMENTS,
 				 AppFactory.eINSTANCE.createBootstrapContainerApplication()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(AppPackage.Literals.CONTAINER__ELEMENTS,
+				 AppFactory.eINSTANCE.createBootstrapContainerApplicationSection()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(AppPackage.Literals.CONTAINER__ELEMENTS,
+				 BootstrapFactory.eINSTANCE.createBootstrapPage()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(AppPackage.Literals.CONTAINER__ELEMENTS,
+				 BootstrapFactory.eINSTANCE.createTag()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(AppPackage.Literals.CONTAINER__ELEMENTS,
+				 BootstrapFactory.eINSTANCE.createDiv()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(AppPackage.Literals.CONTAINER__ELEMENTS,
+				 BootstrapFactory.eINSTANCE.createLinkActionGroupItem()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(AppPackage.Literals.CONTAINER__ELEMENTS,
+				 BootstrapFactory.eINSTANCE.createContentActionGroupItem()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(AppPackage.Literals.CONTAINER__ELEMENTS,
+				 BootstrapFactory.eINSTANCE.createActionGroup()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(AppPackage.Literals.CONTAINER__ELEMENTS,
+				 BootstrapFactory.eINSTANCE.createAlert()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(AppPackage.Literals.CONTAINER__ELEMENTS,
+				 BootstrapFactory.eINSTANCE.createBadge()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(AppPackage.Literals.CONTAINER__ELEMENTS,
+				 BootstrapFactory.eINSTANCE.createBreadcrumbs()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(AppPackage.Literals.CONTAINER__ELEMENTS,
+				 BootstrapFactory.eINSTANCE.createButton()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(AppPackage.Literals.CONTAINER__ELEMENTS,
+				 BootstrapFactory.eINSTANCE.createButtonGroup()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(AppPackage.Literals.CONTAINER__ELEMENTS,
+				 BootstrapFactory.eINSTANCE.createButtonToolbar()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(AppPackage.Literals.CONTAINER__ELEMENTS,
+				 BootstrapFactory.eINSTANCE.createContainer()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(AppPackage.Literals.CONTAINER__ELEMENTS,
+				 BootstrapFactory.eINSTANCE.createRow()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(AppPackage.Literals.CONTAINER__ELEMENTS,
+				 BootstrapFactory.eINSTANCE.createColumn()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(AppPackage.Literals.CONTAINER__ELEMENTS,
+				 BootstrapFactory.eINSTANCE.createCard()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(AppPackage.Literals.CONTAINER__ELEMENTS,
+				 BootstrapFactory.eINSTANCE.createDropdown()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(AppPackage.Literals.CONTAINER__ELEMENTS,
+				 BootstrapFactory.eINSTANCE.createForm()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(AppPackage.Literals.CONTAINER__ELEMENTS,
+				 BootstrapFactory.eINSTANCE.createListGroup()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(AppPackage.Literals.CONTAINER__ELEMENTS,
+				 BootstrapFactory.eINSTANCE.createNavs()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(AppPackage.Literals.CONTAINER__ELEMENTS,
+				 BootstrapFactory.eINSTANCE.createNavbar()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(AppPackage.Literals.CONTAINER__ELEMENTS,
+				 BootstrapFactory.eINSTANCE.createTable()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(AppPackage.Literals.CONTAINER__ELEMENTS,
+				 BootstrapFactory.eINSTANCE.createTableRow()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(AppPackage.Literals.CONTAINER__ELEMENTS,
+				 BootstrapFactory.eINSTANCE.createTableColumn()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(AppPackage.Literals.CONTAINER__ELEMENTS,
+				 BootstrapFactory.eINSTANCE.createTooltip()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(AppPackage.Literals.CONTAINER__ELEMENTS,
+				 BootstrapFactory.eINSTANCE.createInputGroup()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(AppPackage.Literals.CONTAINER__ELEMENTS,
+				 BootstrapFactory.eINSTANCE.createFormGroup()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(AppPackage.Literals.CONTAINER__ELEMENTS,
+				 BootstrapFactory.eINSTANCE.createCollapse()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(AppPackage.Literals.CONTAINER__ELEMENTS,
+				 BootstrapFactory.eINSTANCE.createModal()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(AppPackage.Literals.CONTAINER__ELEMENTS,
+				 BootstrapFactory.eINSTANCE.createAccordion()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(AppPackage.Literals.CONTAINER__ELEMENTS,
+				 HtmlFactory.eINSTANCE.createContainer()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(AppPackage.Literals.CONTAINER__ELEMENTS,
+				 HtmlFactory.eINSTANCE.createTag()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(AppPackage.Literals.CONTAINER__ELEMENTS,
+				 HtmlFactory.eINSTANCE.createContentTag()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(AppPackage.Literals.CONTAINER__ELEMENTS,
+				 HtmlFactory.eINSTANCE.createPage()));
 
 		newChildDescriptors.add
 			(createChildParameter

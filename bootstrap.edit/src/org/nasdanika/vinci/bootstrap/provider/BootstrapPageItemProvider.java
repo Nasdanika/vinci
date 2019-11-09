@@ -3,19 +3,16 @@
 package org.nasdanika.vinci.bootstrap.provider;
 
 
-import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
-import java.util.stream.Collectors;
-
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-import org.nasdanika.html.bootstrap.Theme;
 import org.nasdanika.vinci.bootstrap.BootstrapPackage;
 import org.nasdanika.vinci.bootstrap.BootstrapPage;
 import org.nasdanika.vinci.html.HtmlPackage;
@@ -84,17 +81,18 @@ public class BootstrapPageItemProvider extends PageItemProvider {
 	 */
 	protected void addThemePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor(
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
 				 getString("_UI_BootstrapPage_theme_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_BootstrapPage_theme_feature", "_UI_BootstrapPage_type"),
 				 BootstrapPackage.Literals.BOOTSTRAP_PAGE__THEME,
 				 true,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
-				 null,
-				 Arrays.stream(Theme.values()).map(Theme::name).collect(Collectors.toList())));
+				 null));
 	}
 
 	/**

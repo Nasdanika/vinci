@@ -10,6 +10,8 @@ import org.nasdanika.common.Consumer;
 import org.nasdanika.common.WorkFactory;
 import org.nasdanika.ncore.ModelElement;
 import org.nasdanika.vinci.app.*;
+import org.nasdanika.vinci.bootstrap.BootstrapElement;
+import org.nasdanika.vinci.html.HtmlElement;
 
 /**
  * <!-- begin-user-doc -->
@@ -120,6 +122,10 @@ public class AppAdapterFactory extends AdapterFactoryImpl {
 				return createBootstrapContainerApplicationAdapter();
 			}
 			@Override
+			public Adapter caseBootstrapContainerApplicationSection(BootstrapContainerApplicationSection object) {
+				return createBootstrapContainerApplicationSectionAdapter();
+			}
+			@Override
 			public Adapter caseModelElement(ModelElement object) {
 				return createModelElementAdapter();
 			}
@@ -128,8 +134,20 @@ public class AppAdapterFactory extends AdapterFactoryImpl {
 				return createWorkFactoryAdapter();
 			}
 			@Override
+			public Adapter caseHtmlElement(HtmlElement object) {
+				return createHtmlElementAdapter();
+			}
+			@Override
+			public Adapter caseBootstrapElement(BootstrapElement object) {
+				return createBootstrapElementAdapter();
+			}
+			@Override
 			public <T> Adapter caseConsumer(Consumer<T> object) {
 				return createConsumerAdapter();
+			}
+			@Override
+			public Adapter caseHtml_Container(org.nasdanika.vinci.html.Container object) {
+				return createHtml_ContainerAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -222,6 +240,20 @@ public class AppAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.vinci.app.BootstrapContainerApplicationSection <em>Bootstrap Container Application Section</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.vinci.app.BootstrapContainerApplicationSection
+	 * @generated
+	 */
+	public Adapter createBootstrapContainerApplicationSectionAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link org.nasdanika.ncore.ModelElement <em>Model Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -250,6 +282,34 @@ public class AppAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.vinci.html.HtmlElement <em>Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.vinci.html.HtmlElement
+	 * @generated
+	 */
+	public Adapter createHtmlElementAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.vinci.bootstrap.BootstrapElement <em>Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.vinci.bootstrap.BootstrapElement
+	 * @generated
+	 */
+	public Adapter createBootstrapElementAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link org.nasdanika.common.Consumer <em>Consumer</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -260,6 +320,20 @@ public class AppAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createConsumerAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.vinci.html.Container <em>Container</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.vinci.html.Container
+	 * @generated
+	 */
+	public Adapter createHtml_ContainerAdapter() {
 		return null;
 	}
 

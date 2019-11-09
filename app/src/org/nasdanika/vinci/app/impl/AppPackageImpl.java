@@ -28,10 +28,13 @@ import org.nasdanika.vinci.app.ActivatorType;
 import org.nasdanika.vinci.app.AppFactory;
 import org.nasdanika.vinci.app.AppPackage;
 import org.nasdanika.vinci.app.BootstrapContainerApplication;
+import org.nasdanika.vinci.app.BootstrapContainerApplicationSection;
 import org.nasdanika.vinci.app.Category;
 import org.nasdanika.vinci.app.Label;
 import org.nasdanika.vinci.app.Partition;
 import org.nasdanika.vinci.app.SectionStyle;
+import org.nasdanika.vinci.bootstrap.BootstrapPackage;
+import org.nasdanika.vinci.html.HtmlPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -74,6 +77,13 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 	 * @generated
 	 */
 	private EClass bootstrapContainerApplicationEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass bootstrapContainerApplicationSectionEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -207,6 +217,8 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 		isInited = true;
 
 		// Initialize simple dependencies
+		BootstrapPackage.eINSTANCE.eClass();
+		HtmlPackage.eINSTANCE.eClass();
 		NcorePackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
@@ -341,6 +353,86 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 	@Override
 	public EClass getBootstrapContainerApplication() {
 		return bootstrapContainerApplicationEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getBootstrapContainerApplication_Fluid() {
+		return (EAttribute)bootstrapContainerApplicationEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getBootstrapContainerApplication_Router() {
+		return (EAttribute)bootstrapContainerApplicationEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getBootstrapContainerApplication_Header() {
+		return (EReference)bootstrapContainerApplicationEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getBootstrapContainerApplication_NavigationBar() {
+		return (EReference)bootstrapContainerApplicationEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getBootstrapContainerApplication_NavigationPanel() {
+		return (EReference)bootstrapContainerApplicationEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getBootstrapContainerApplication_ContentPanel() {
+		return (EReference)bootstrapContainerApplicationEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getBootstrapContainerApplication_Footer() {
+		return (EReference)bootstrapContainerApplicationEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getBootstrapContainerApplicationSection() {
+		return bootstrapContainerApplicationSectionEClass;
 	}
 
 	/**
@@ -766,6 +858,15 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 		partitionEClass = createEClass(PARTITION);
 
 		bootstrapContainerApplicationEClass = createEClass(BOOTSTRAP_CONTAINER_APPLICATION);
+		createEAttribute(bootstrapContainerApplicationEClass, BOOTSTRAP_CONTAINER_APPLICATION__FLUID);
+		createEAttribute(bootstrapContainerApplicationEClass, BOOTSTRAP_CONTAINER_APPLICATION__ROUTER);
+		createEReference(bootstrapContainerApplicationEClass, BOOTSTRAP_CONTAINER_APPLICATION__HEADER);
+		createEReference(bootstrapContainerApplicationEClass, BOOTSTRAP_CONTAINER_APPLICATION__NAVIGATION_BAR);
+		createEReference(bootstrapContainerApplicationEClass, BOOTSTRAP_CONTAINER_APPLICATION__NAVIGATION_PANEL);
+		createEReference(bootstrapContainerApplicationEClass, BOOTSTRAP_CONTAINER_APPLICATION__CONTENT_PANEL);
+		createEReference(bootstrapContainerApplicationEClass, BOOTSTRAP_CONTAINER_APPLICATION__FOOTER);
+
+		bootstrapContainerApplicationSectionEClass = createEClass(BOOTSTRAP_CONTAINER_APPLICATION_SECTION);
 
 		// Create enums
 		actionRoleEEnum = createEEnum(ACTION_ROLE);
@@ -801,6 +902,8 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 
 		// Obtain other dependent packages
 		NcorePackage theNcorePackage = (NcorePackage)EPackage.Registry.INSTANCE.getEPackage(NcorePackage.eNS_URI);
+		BootstrapPackage theBootstrapPackage = (BootstrapPackage)EPackage.Registry.INSTANCE.getEPackage(BootstrapPackage.eNS_URI);
+		HtmlPackage theHtmlPackage = (HtmlPackage)EPackage.Registry.INSTANCE.getEPackage(HtmlPackage.eNS_URI);
 
 		// Create type parameters
 		ETypeParameter containerEClass_E = addETypeParameter(containerEClass, "E");
@@ -840,10 +943,14 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 		actionReferenceEClass.getESuperTypes().add(this.getAbstractAction());
 		actionEClass.getESuperTypes().add(this.getActionBase());
 		partitionEClass.getESuperTypes().add(this.getActionBase());
+		g1 = createEGenericType(theBootstrapPackage.getBootstrapElement());
+		bootstrapContainerApplicationEClass.getEGenericSuperTypes().add(g1);
 		g1 = createEGenericType(theNcorePackage.getConsumer());
 		g2 = createEGenericType(ecorePackage.getEJavaObject());
 		g1.getETypeArguments().add(g2);
 		bootstrapContainerApplicationEClass.getEGenericSuperTypes().add(g1);
+		bootstrapContainerApplicationSectionEClass.getESuperTypes().add(theBootstrapPackage.getBootstrapElement());
+		bootstrapContainerApplicationSectionEClass.getESuperTypes().add(theHtmlPackage.getContainer());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(containerEClass, org.nasdanika.vinci.app.Container.class, "Container", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -905,6 +1012,15 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 		initEClass(partitionEClass, Partition.class, "Partition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(bootstrapContainerApplicationEClass, BootstrapContainerApplication.class, "BootstrapContainerApplication", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getBootstrapContainerApplication_Fluid(), ecorePackage.getEBoolean(), "fluid", null, 0, 1, BootstrapContainerApplication.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getBootstrapContainerApplication_Router(), ecorePackage.getEBoolean(), "router", null, 0, 1, BootstrapContainerApplication.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBootstrapContainerApplication_Header(), this.getBootstrapContainerApplicationSection(), null, "header", null, 0, 1, BootstrapContainerApplication.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBootstrapContainerApplication_NavigationBar(), this.getBootstrapContainerApplicationSection(), null, "navigationBar", null, 0, 1, BootstrapContainerApplication.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBootstrapContainerApplication_NavigationPanel(), this.getBootstrapContainerApplicationSection(), null, "navigationPanel", null, 0, 1, BootstrapContainerApplication.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBootstrapContainerApplication_ContentPanel(), this.getBootstrapContainerApplicationSection(), null, "contentPanel", null, 0, 1, BootstrapContainerApplication.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBootstrapContainerApplication_Footer(), this.getBootstrapContainerApplicationSection(), null, "footer", null, 0, 1, BootstrapContainerApplication.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(bootstrapContainerApplicationSectionEClass, BootstrapContainerApplicationSection.class, "BootstrapContainerApplicationSection", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Initialize enums and add enum literals
 		initEEnum(actionRoleEEnum, ActionRole.class, "ActionRole");
@@ -1221,6 +1337,24 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 		   source,
 		   new String[] {
 			   "documentation", "Bootstrap container application is a page builder which structures a page into 6 areas:\n\n* Header\n* Navigation bar\n* Navigation pane\n* Content pane\n* Footer\n\nPage structuring is performed with Bootstrap container, rows and columns."
+		   });
+		addAnnotation
+		  (getBootstrapContainerApplication_Fluid(),
+		   source,
+		   new String[] {
+			   "documentation", "If true the application takes the whole width of the page."
+		   });
+		addAnnotation
+		  (getBootstrapContainerApplication_Router(),
+		   source,
+		   new String[] {
+			   "documentation", "If true, a Backbone router code is generated in the header, which allows to build single-page applications. Such applications typically deliver better user experience, but don\'t work over the file protocol, i.e. when files are opened from disk."
+		   });
+		addAnnotation
+		  (bootstrapContainerApplicationSectionEClass,
+		   source,
+		   new String[] {
+			   "documentation", "Bootstrap container application section - header, navigation bar, navigation panel, content panel, or footer."
 		   });
 	}
 

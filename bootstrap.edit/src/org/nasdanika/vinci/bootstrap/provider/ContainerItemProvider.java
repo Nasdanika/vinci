@@ -9,7 +9,9 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.nasdanika.vinci.bootstrap.BootstrapFactory;
 import org.nasdanika.vinci.bootstrap.BootstrapPackage;
@@ -43,8 +45,31 @@ public class ContainerItemProvider extends BootstrapElementItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addFluidPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Fluid feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addFluidPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Container_fluid_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Container_fluid_feature", "_UI_Container_type"),
+				 BootstrapPackage.Literals.CONTAINER__FLUID,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -125,6 +150,9 @@ public class ContainerItemProvider extends BootstrapElementItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Container.class)) {
+			case BootstrapPackage.CONTAINER__FLUID:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
 			case BootstrapPackage.CONTAINER__ROWS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;

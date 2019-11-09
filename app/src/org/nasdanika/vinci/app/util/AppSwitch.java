@@ -9,6 +9,8 @@ import org.nasdanika.common.Consumer;
 import org.nasdanika.common.WorkFactory;
 import org.nasdanika.ncore.ModelElement;
 import org.nasdanika.vinci.app.*;
+import org.nasdanika.vinci.bootstrap.BootstrapElement;
+import org.nasdanika.vinci.html.HtmlElement;
 
 /**
  * <!-- begin-user-doc -->
@@ -179,7 +181,20 @@ public class AppSwitch<T1> extends Switch<T1> {
 			case AppPackage.BOOTSTRAP_CONTAINER_APPLICATION: {
 				BootstrapContainerApplication bootstrapContainerApplication = (BootstrapContainerApplication)theEObject;
 				T1 result = caseBootstrapContainerApplication(bootstrapContainerApplication);
+				if (result == null) result = caseBootstrapElement(bootstrapContainerApplication);
 				if (result == null) result = caseConsumer(bootstrapContainerApplication);
+				if (result == null) result = caseHtmlElement(bootstrapContainerApplication);
+				if (result == null) result = caseModelElement(bootstrapContainerApplication);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case AppPackage.BOOTSTRAP_CONTAINER_APPLICATION_SECTION: {
+				BootstrapContainerApplicationSection bootstrapContainerApplicationSection = (BootstrapContainerApplicationSection)theEObject;
+				T1 result = caseBootstrapContainerApplicationSection(bootstrapContainerApplicationSection);
+				if (result == null) result = caseBootstrapElement(bootstrapContainerApplicationSection);
+				if (result == null) result = caseHtml_Container(bootstrapContainerApplicationSection);
+				if (result == null) result = caseHtmlElement(bootstrapContainerApplicationSection);
+				if (result == null) result = caseModelElement(bootstrapContainerApplicationSection);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -263,6 +278,21 @@ public class AppSwitch<T1> extends Switch<T1> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Bootstrap Container Application Section</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Bootstrap Container Application Section</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseBootstrapContainerApplicationSection(BootstrapContainerApplicationSection object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Model Element</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -293,6 +323,36 @@ public class AppSwitch<T1> extends Switch<T1> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Element</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseHtmlElement(HtmlElement object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Element</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseBootstrapElement(BootstrapElement object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Consumer</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -304,6 +364,21 @@ public class AppSwitch<T1> extends Switch<T1> {
 	 * @generated
 	 */
 	public <T> T1 caseConsumer(Consumer<T> object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Container</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Container</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseHtml_Container(org.nasdanika.vinci.html.Container object) {
 		return null;
 	}
 
