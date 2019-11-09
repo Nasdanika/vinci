@@ -26,7 +26,7 @@ import org.nasdanika.emf.edit.NasdanikaItemProviderAdapter;
  * <!-- end-user-doc -->
  * @generated
  */
-public class BootstrapApplicationItemProvider 
+public class BootstrapContainerApplicationItemProvider 
 	extends NasdanikaItemProviderAdapter
 	implements
 		IEditingDomainItemProvider,
@@ -40,7 +40,7 @@ public class BootstrapApplicationItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public BootstrapApplicationItemProvider(AdapterFactory adapterFactory) {
+	public BootstrapContainerApplicationItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -88,7 +88,7 @@ public class BootstrapApplicationItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_BootstrapApplication_type");
+		return getString("_UI_BootstrapContainerApplication_type");
 	}
 
 

@@ -201,7 +201,7 @@ public class CategoryItemProvider extends LabelItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(AppPackage.Literals.CONTAINER__ELEMENTS,
-				 AppFactory.eINSTANCE.createBootstrapApplication()));
+				 AppFactory.eINSTANCE.createBootstrapContainerApplication()));
 
 		newChildDescriptors.add
 			(createChildParameter

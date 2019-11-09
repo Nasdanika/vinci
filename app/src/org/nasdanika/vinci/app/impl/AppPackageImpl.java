@@ -27,7 +27,7 @@ import org.nasdanika.vinci.app.ActionRole;
 import org.nasdanika.vinci.app.ActivatorType;
 import org.nasdanika.vinci.app.AppFactory;
 import org.nasdanika.vinci.app.AppPackage;
-import org.nasdanika.vinci.app.BootstrapApplication;
+import org.nasdanika.vinci.app.BootstrapContainerApplication;
 import org.nasdanika.vinci.app.Category;
 import org.nasdanika.vinci.app.Label;
 import org.nasdanika.vinci.app.Partition;
@@ -73,7 +73,7 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass bootstrapApplicationEClass = null;
+	private EClass bootstrapContainerApplicationEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -339,8 +339,8 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 	 * @generated
 	 */
 	@Override
-	public EClass getBootstrapApplication() {
-		return bootstrapApplicationEClass;
+	public EClass getBootstrapContainerApplication() {
+		return bootstrapContainerApplicationEClass;
 	}
 
 	/**
@@ -765,7 +765,7 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 
 		partitionEClass = createEClass(PARTITION);
 
-		bootstrapApplicationEClass = createEClass(BOOTSTRAP_APPLICATION);
+		bootstrapContainerApplicationEClass = createEClass(BOOTSTRAP_CONTAINER_APPLICATION);
 
 		// Create enums
 		actionRoleEEnum = createEEnum(ACTION_ROLE);
@@ -843,7 +843,7 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 		g1 = createEGenericType(theNcorePackage.getConsumer());
 		g2 = createEGenericType(ecorePackage.getEJavaObject());
 		g1.getETypeArguments().add(g2);
-		bootstrapApplicationEClass.getEGenericSuperTypes().add(g1);
+		bootstrapContainerApplicationEClass.getEGenericSuperTypes().add(g1);
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(containerEClass, org.nasdanika.vinci.app.Container.class, "Container", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -904,7 +904,7 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 
 		initEClass(partitionEClass, Partition.class, "Partition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(bootstrapApplicationEClass, BootstrapApplication.class, "BootstrapApplication", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(bootstrapContainerApplicationEClass, BootstrapContainerApplication.class, "BootstrapContainerApplication", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Initialize enums and add enum literals
 		initEEnum(actionRoleEEnum, ActionRole.class, "ActionRole");
@@ -1217,10 +1217,10 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 			   "documentation", "Concrete action class represented as a container node on a diagram containing actions and other partitions."
 		   });
 		addAnnotation
-		  (bootstrapApplicationEClass,
+		  (bootstrapContainerApplicationEClass,
 		   source,
 		   new String[] {
-			   "documentation", "Bootstrap application is a page builder which structures a page into 6 areas:\n\n* Header\n* Navigation bar\n* Navigation pane\n* Content pane\n* Footer"
+			   "documentation", "Bootstrap container application is a page builder which structures a page into 6 areas:\n\n* Header\n* Navigation bar\n* Navigation pane\n* Content pane\n* Footer\n\nPage structuring is performed with Bootstrap container, rows and columns."
 		   });
 	}
 

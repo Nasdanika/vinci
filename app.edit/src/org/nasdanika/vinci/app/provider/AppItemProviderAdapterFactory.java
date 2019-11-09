@@ -139,26 +139,26 @@ public class AppItemProviderAdapterFactory extends AppAdapterFactory implements 
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.nasdanika.vinci.app.BootstrapApplication} instances.
+	 * This keeps track of the one adapter used for all {@link org.nasdanika.vinci.app.BootstrapContainerApplication} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected BootstrapApplicationItemProvider bootstrapApplicationItemProvider;
+	protected BootstrapContainerApplicationItemProvider bootstrapContainerApplicationItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link org.nasdanika.vinci.app.BootstrapApplication}.
+	 * This creates an adapter for a {@link org.nasdanika.vinci.app.BootstrapContainerApplication}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createBootstrapApplicationAdapter() {
-		if (bootstrapApplicationItemProvider == null) {
-			bootstrapApplicationItemProvider = new BootstrapApplicationItemProvider(this);
+	public Adapter createBootstrapContainerApplicationAdapter() {
+		if (bootstrapContainerApplicationItemProvider == null) {
+			bootstrapContainerApplicationItemProvider = new BootstrapContainerApplicationItemProvider(this);
 		}
 
-		return bootstrapApplicationItemProvider;
+		return bootstrapContainerApplicationItemProvider;
 	}
 
 	/**
@@ -341,7 +341,7 @@ public class AppItemProviderAdapterFactory extends AppAdapterFactory implements 
 		if (actionReferenceItemProvider != null) actionReferenceItemProvider.dispose();
 		if (actionItemProvider != null) actionItemProvider.dispose();
 		if (partitionItemProvider != null) partitionItemProvider.dispose();
-		if (bootstrapApplicationItemProvider != null) bootstrapApplicationItemProvider.dispose();
+		if (bootstrapContainerApplicationItemProvider != null) bootstrapContainerApplicationItemProvider.dispose();
 	}
 
 }

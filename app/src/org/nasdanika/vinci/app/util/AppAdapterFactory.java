@@ -116,8 +116,8 @@ public class AppAdapterFactory extends AdapterFactoryImpl {
 				return createPartitionAdapter();
 			}
 			@Override
-			public Adapter caseBootstrapApplication(BootstrapApplication object) {
-				return createBootstrapApplicationAdapter();
+			public Adapter caseBootstrapContainerApplication(BootstrapContainerApplication object) {
+				return createBootstrapContainerApplicationAdapter();
 			}
 			@Override
 			public Adapter caseModelElement(ModelElement object) {
@@ -208,16 +208,16 @@ public class AppAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.nasdanika.vinci.app.BootstrapApplication <em>Bootstrap Application</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.vinci.app.BootstrapContainerApplication <em>Bootstrap Container Application</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.nasdanika.vinci.app.BootstrapApplication
+	 * @see org.nasdanika.vinci.app.BootstrapContainerApplication
 	 * @generated
 	 */
-	public Adapter createBootstrapApplicationAdapter() {
+	public Adapter createBootstrapContainerApplicationAdapter() {
 		return null;
 	}
 

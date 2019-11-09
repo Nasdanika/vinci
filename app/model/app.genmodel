@@ -82,6 +82,6 @@
     </genClasses>
     <genClasses ecoreClass="app.ecore#//Action"/>
     <genClasses ecoreClass="app.ecore#//Partition"/>
-    <genClasses ecoreClass="app.ecore#//BootstrapApplication"/>
+    <genClasses ecoreClass="app.ecore#//BootstrapContainerApplication"/>
   </genPackages>
 </genmodel:GenModel>

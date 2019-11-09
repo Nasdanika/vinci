@@ -7,7 +7,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.nasdanika.common.WorkFactory;
 import org.nasdanika.vinci.app.AppPackage;
-import org.nasdanika.vinci.app.BootstrapApplication;
+import org.nasdanika.vinci.app.BootstrapContainerApplication;
 
 /**
  * <!-- begin-user-doc -->
@@ -16,13 +16,13 @@ import org.nasdanika.vinci.app.BootstrapApplication;
  *
  * @generated
  */
-public class BootstrapApplicationImpl extends MinimalEObjectImpl.Container implements BootstrapApplication {
+public class BootstrapContainerApplicationImpl extends MinimalEObjectImpl.Container implements BootstrapContainerApplication {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected BootstrapApplicationImpl() {
+	protected BootstrapContainerApplicationImpl() {
 		super();
 	}
 
@@ -33,7 +33,7 @@ public class BootstrapApplicationImpl extends MinimalEObjectImpl.Container imple
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return AppPackage.Literals.BOOTSTRAP_APPLICATION;
+		return AppPackage.Literals.BOOTSTRAP_CONTAINER_APPLICATION;
 	}
 
 	/**
@@ -51,4 +51,4 @@ public class BootstrapApplicationImpl extends MinimalEObjectImpl.Container imple
 		throw new UnsupportedOperationException();
 	}
 
-} //BootstrapApplicationImpl
+} //BootstrapContainerApplicationImpl

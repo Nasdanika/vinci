@@ -176,10 +176,10 @@ public class AppSwitch<T1> extends Switch<T1> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case AppPackage.BOOTSTRAP_APPLICATION: {
-				BootstrapApplication bootstrapApplication = (BootstrapApplication)theEObject;
-				T1 result = caseBootstrapApplication(bootstrapApplication);
-				if (result == null) result = caseConsumer(bootstrapApplication);
+			case AppPackage.BOOTSTRAP_CONTAINER_APPLICATION: {
+				BootstrapContainerApplication bootstrapContainerApplication = (BootstrapContainerApplication)theEObject;
+				T1 result = caseBootstrapContainerApplication(bootstrapContainerApplication);
+				if (result == null) result = caseConsumer(bootstrapContainerApplication);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -248,17 +248,17 @@ public class AppSwitch<T1> extends Switch<T1> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Bootstrap Application</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Bootstrap Container Application</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Bootstrap Application</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Bootstrap Container Application</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseBootstrapApplication(BootstrapApplication object) {
+	public T1 caseBootstrapContainerApplication(BootstrapContainerApplication object) {
 		return null;
 	}
 

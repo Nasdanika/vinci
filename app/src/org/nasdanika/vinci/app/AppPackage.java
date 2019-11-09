@@ -1398,32 +1398,32 @@ public interface AppPackage extends EPackage {
 	int PARTITION_OPERATION_COUNT = ACTION_BASE_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link org.nasdanika.vinci.app.impl.BootstrapApplicationImpl <em>Bootstrap Application</em>}' class.
+	 * The meta object id for the '{@link org.nasdanika.vinci.app.impl.BootstrapContainerApplicationImpl <em>Bootstrap Container Application</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.nasdanika.vinci.app.impl.BootstrapApplicationImpl
-	 * @see org.nasdanika.vinci.app.impl.AppPackageImpl#getBootstrapApplication()
+	 * @see org.nasdanika.vinci.app.impl.BootstrapContainerApplicationImpl
+	 * @see org.nasdanika.vinci.app.impl.AppPackageImpl#getBootstrapContainerApplication()
 	 * @generated
 	 */
-	int BOOTSTRAP_APPLICATION = 12;
+	int BOOTSTRAP_CONTAINER_APPLICATION = 12;
 
 	/**
-	 * The number of structural features of the '<em>Bootstrap Application</em>' class.
+	 * The number of structural features of the '<em>Bootstrap Container Application</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BOOTSTRAP_APPLICATION_FEATURE_COUNT = NcorePackage.CONSUMER_FEATURE_COUNT + 0;
+	int BOOTSTRAP_CONTAINER_APPLICATION_FEATURE_COUNT = NcorePackage.CONSUMER_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of operations of the '<em>Bootstrap Application</em>' class.
+	 * The number of operations of the '<em>Bootstrap Container Application</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BOOTSTRAP_APPLICATION_OPERATION_COUNT = NcorePackage.CONSUMER_OPERATION_COUNT + 0;
+	int BOOTSTRAP_CONTAINER_APPLICATION_OPERATION_COUNT = NcorePackage.CONSUMER_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.vinci.app.ActionRole <em>Action Role</em>}' enum.
@@ -1584,14 +1584,14 @@ public interface AppPackage extends EPackage {
 	EClass getPartition();
 
 	/**
-	 * Returns the meta object for class '{@link org.nasdanika.vinci.app.BootstrapApplication <em>Bootstrap Application</em>}'.
+	 * Returns the meta object for class '{@link org.nasdanika.vinci.app.BootstrapContainerApplication <em>Bootstrap Container Application</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Bootstrap Application</em>'.
-	 * @see org.nasdanika.vinci.app.BootstrapApplication
+	 * @return the meta object for class '<em>Bootstrap Container Application</em>'.
+	 * @see org.nasdanika.vinci.app.BootstrapContainerApplication
 	 * @generated
 	 */
-	EClass getBootstrapApplication();
+	EClass getBootstrapContainerApplication();
 
 	/**
 	 * Returns the meta object for class '{@link org.nasdanika.vinci.app.ActionMapping <em>Action Mapping</em>}'.
@@ -2079,14 +2079,14 @@ public interface AppPackage extends EPackage {
 		EClass PARTITION = eINSTANCE.getPartition();
 
 		/**
-		 * The meta object literal for the '{@link org.nasdanika.vinci.app.impl.BootstrapApplicationImpl <em>Bootstrap Application</em>}' class.
+		 * The meta object literal for the '{@link org.nasdanika.vinci.app.impl.BootstrapContainerApplicationImpl <em>Bootstrap Container Application</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.nasdanika.vinci.app.impl.BootstrapApplicationImpl
-		 * @see org.nasdanika.vinci.app.impl.AppPackageImpl#getBootstrapApplication()
+		 * @see org.nasdanika.vinci.app.impl.BootstrapContainerApplicationImpl
+		 * @see org.nasdanika.vinci.app.impl.AppPackageImpl#getBootstrapContainerApplication()
 		 * @generated
 		 */
-		EClass BOOTSTRAP_APPLICATION = eINSTANCE.getBootstrapApplication();
+		EClass BOOTSTRAP_CONTAINER_APPLICATION = eINSTANCE.getBootstrapContainerApplication();
 
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.vinci.app.impl.ActionMappingImpl <em>Action Mapping</em>}' class.
