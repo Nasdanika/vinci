@@ -7,7 +7,6 @@ import org.nasdanika.html.bootstrap.Color;
 import org.nasdanika.ncore.impl.ModelElementImpl;
 import org.nasdanika.vinci.app.AppPackage;
 import org.nasdanika.vinci.app.Label;
-import org.nasdanika.vinci.app.LabelSpec;
 
 /**
  * <!-- begin-user-doc -->
@@ -28,7 +27,7 @@ import org.nasdanika.vinci.app.LabelSpec;
  *
  * @generated
  */
-public abstract class LabelImpl<T extends LabelSpec> extends ModelElementImpl implements Label<T> {
+public abstract class LabelImpl extends ModelElementImpl implements Label {
 	/**
 	 * The default value of the '{@link #getColor() <em>Color</em>}' attribute.
 	 * <!-- begin-user-doc -->

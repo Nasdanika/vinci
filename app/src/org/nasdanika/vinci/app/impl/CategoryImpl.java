@@ -11,7 +11,6 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.nasdanika.vinci.app.AppPackage;
 import org.nasdanika.vinci.app.Category;
-import org.nasdanika.vinci.app.LabelSpec;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,7 +26,7 @@ import org.nasdanika.vinci.app.LabelSpec;
  *
  * @generated
  */
-public abstract class CategoryImpl<E> extends LabelImpl<LabelSpec> implements Category<E> {
+public abstract class CategoryImpl<E> extends LabelImpl implements Category<E> {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

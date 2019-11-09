@@ -240,7 +240,7 @@ public class LabelItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Label<?>)object).getId();
+		String label = ((Label)object).getId();
 		return label == null || label.length() == 0 ?
 			getString("_UI_Label_type") :
 			getString("_UI_Label_type") + " " + label;

@@ -32,10 +32,10 @@ import org.nasdanika.common.WorkFactory;
  * </ul>
  *
  * @see org.nasdanika.vinci.app.AppPackage#getActionBase()
- * @model abstract="true" superTypes="org.nasdanika.vinci.app.Label&lt;org.nasdanika.vinci.app.ActionSpec&gt; org.nasdanika.vinci.app.AbstractAction org.nasdanika.vinci.app.Container&lt;org.nasdanika.vinci.app.ActionElement&gt;"
+ * @model abstract="true"
  * @generated
  */
-public interface ActionBase extends Label<ActionSpec>, AbstractAction, Container<ActionElement> {
+public interface ActionBase extends Label, AbstractAction, Container<ActionElement> {
 	/**
 	 * Returns the value of the '<em><b>Role</b></em>' attribute.
 	 * The literals are from the enumeration {@link org.nasdanika.vinci.app.ActionRole}.

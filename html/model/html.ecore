@@ -5,7 +5,19 @@
     <details key="documentation" value="HTML model"/>
   </eAnnotations>
   <eClassifiers xsi:type="ecore:EDataType" name="TagName" instanceClassName="org.nasdanika.html.TagName"/>
-  <eClassifiers xsi:type="ecore:EClass" name="HtmlElement" abstract="true" eSuperTypes="../../org.nasdanika.ncore/model/ncore.ecore#//ModelElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="HtmlElement" abstract="true" eSuperTypes="../../org.nasdanika.ncore/model/ncore.ecore#//ModelElement">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Base class for other HTML and bootstrap elements. "/>
+    </eAnnotations>
+    <eOperations name="asBuilder">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Wraps element into a Consumer so it can be used as a builder - an existing object can be passed to HTML element's consumer and it will &quot;build&quot; it by applying styles, attriutes, etc."/>
+      </eAnnotations>
+      <eGenericType eClassifier="ecore:EClass ../../org.nasdanika.ncore/model/ncore.ecore#//Consumer">
+        <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+      </eGenericType>
+    </eOperations>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Container">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Container of content such as text and HTML markup."/>

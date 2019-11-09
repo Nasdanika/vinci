@@ -9,6 +9,7 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import org.nasdanika.html.bootstrap.Color;
+import org.nasdanika.vinci.app.*;
 import org.nasdanika.vinci.app.Action;
 import org.nasdanika.vinci.app.ActionCategory;
 import org.nasdanika.vinci.app.ActionLink;
@@ -71,6 +72,7 @@ public class AppFactoryImpl extends EFactoryImpl implements AppFactory {
 			case AppPackage.ACTION_REFERENCE: return createActionReference();
 			case AppPackage.ACTION: return createAction();
 			case AppPackage.PARTITION: return createPartition();
+			case AppPackage.BOOTSTRAP_APPLICATION: return createBootstrapApplication();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -149,6 +151,17 @@ public class AppFactoryImpl extends EFactoryImpl implements AppFactory {
 	public Partition createPartition() {
 		PartitionImpl partition = new PartitionImpl();
 		return partition;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public BootstrapApplication createBootstrapApplication() {
+		BootstrapApplicationImpl bootstrapApplication = new BootstrapApplicationImpl();
+		return bootstrapApplication;
 	}
 
 	/**

@@ -5,6 +5,7 @@ package org.nasdanika.vinci.html;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
+import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.nasdanika.ncore.NcorePackage;
@@ -99,13 +100,22 @@ public interface HtmlPackage extends EPackage {
 	int HTML_ELEMENT_FEATURE_COUNT = NcorePackage.MODEL_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
+	 * The operation id for the '<em>As Builder</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HTML_ELEMENT___AS_BUILDER = NcorePackage.MODEL_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
 	 * The number of operations of the '<em>Element</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int HTML_ELEMENT_OPERATION_COUNT = NcorePackage.MODEL_ELEMENT_OPERATION_COUNT + 0;
+	int HTML_ELEMENT_OPERATION_COUNT = NcorePackage.MODEL_ELEMENT_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.vinci.html.impl.ContainerImpl <em>Container</em>}' class.
@@ -191,6 +201,15 @@ public interface HtmlPackage extends EPackage {
 	int TAG_FEATURE_COUNT = HTML_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
+	 * The operation id for the '<em>As Builder</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TAG___AS_BUILDER = HTML_ELEMENT___AS_BUILDER;
+
+	/**
 	 * The number of operations of the '<em>Tag</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -254,6 +273,15 @@ public interface HtmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int CONTENT_TAG_FEATURE_COUNT = TAG_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>As Builder</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTENT_TAG___AS_BUILDER = TAG___AS_BUILDER;
 
 	/**
 	 * The number of operations of the '<em>Content Tag</em>' class.
@@ -392,6 +420,16 @@ public interface HtmlPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getHtmlElement();
+
+	/**
+	 * Returns the meta object for the '{@link org.nasdanika.vinci.html.HtmlElement#asBuilder() <em>As Builder</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>As Builder</em>' operation.
+	 * @see org.nasdanika.vinci.html.HtmlElement#asBuilder()
+	 * @generated
+	 */
+	EOperation getHtmlElement__AsBuilder();
 
 	/**
 	 * Returns the meta object for class '{@link org.nasdanika.vinci.html.Container <em>Container</em>}'.
@@ -564,6 +602,14 @@ public interface HtmlPackage extends EPackage {
 		 * @generated
 		 */
 		EClass HTML_ELEMENT = eINSTANCE.getHtmlElement();
+
+		/**
+		 * The meta object literal for the '<em><b>As Builder</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation HTML_ELEMENT___AS_BUILDER = eINSTANCE.getHtmlElement__AsBuilder();
 
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.vinci.html.impl.ContainerImpl <em>Container</em>}' class.

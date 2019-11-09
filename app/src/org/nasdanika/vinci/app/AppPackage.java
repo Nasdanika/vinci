@@ -70,7 +70,7 @@ public interface AppPackage extends EPackage {
 	 * @see org.nasdanika.vinci.app.impl.AppPackageImpl#getLabel()
 	 * @generated
 	 */
-	int LABEL = 3;
+	int LABEL = 1;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.vinci.app.impl.CategoryImpl <em>Category</em>}' class.
@@ -80,7 +80,7 @@ public interface AppPackage extends EPackage {
 	 * @see org.nasdanika.vinci.app.impl.AppPackageImpl#getCategory()
 	 * @generated
 	 */
-	int CATEGORY = 4;
+	int CATEGORY = 2;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.vinci.app.impl.ActionImpl <em>Action</em>}' class.
@@ -90,7 +90,7 @@ public interface AppPackage extends EPackage {
 	 * @see org.nasdanika.vinci.app.impl.AppPackageImpl#getAction()
 	 * @generated
 	 */
-	int ACTION = 12;
+	int ACTION = 10;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.vinci.app.impl.ActionMappingImpl <em>Action Mapping</em>}' class.
@@ -100,7 +100,7 @@ public interface AppPackage extends EPackage {
 	 * @see org.nasdanika.vinci.app.impl.AppPackageImpl#getActionMapping()
 	 * @generated
 	 */
-	int ACTION_MAPPING = 9;
+	int ACTION_MAPPING = 7;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.vinci.app.impl.ActionLinkImpl <em>Action Link</em>}' class.
@@ -110,7 +110,7 @@ public interface AppPackage extends EPackage {
 	 * @see org.nasdanika.vinci.app.impl.AppPackageImpl#getActionLink()
 	 * @generated
 	 */
-	int ACTION_LINK = 10;
+	int ACTION_LINK = 8;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.vinci.app.impl.ActionReferenceImpl <em>Action Reference</em>}' class.
@@ -120,7 +120,7 @@ public interface AppPackage extends EPackage {
 	 * @see org.nasdanika.vinci.app.impl.AppPackageImpl#getActionReference()
 	 * @generated
 	 */
-	int ACTION_REFERENCE = 11;
+	int ACTION_REFERENCE = 9;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.vinci.app.ActionElement <em>Action Element</em>}' class.
@@ -130,7 +130,7 @@ public interface AppPackage extends EPackage {
 	 * @see org.nasdanika.vinci.app.impl.AppPackageImpl#getActionElement()
 	 * @generated
 	 */
-	int ACTION_ELEMENT = 5;
+	int ACTION_ELEMENT = 3;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.vinci.app.AbstractAction <em>Abstract Action</em>}' class.
@@ -140,7 +140,7 @@ public interface AppPackage extends EPackage {
 	 * @see org.nasdanika.vinci.app.impl.AppPackageImpl#getAbstractAction()
 	 * @generated
 	 */
-	int ABSTRACT_ACTION = 6;
+	int ABSTRACT_ACTION = 4;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.vinci.app.impl.ActionCategoryImpl <em>Action Category</em>}' class.
@@ -150,63 +150,7 @@ public interface AppPackage extends EPackage {
 	 * @see org.nasdanika.vinci.app.impl.AppPackageImpl#getActionCategory()
 	 * @generated
 	 */
-	int ACTION_CATEGORY = 7;
-
-	/**
-	 * The meta object id for the '{@link org.nasdanika.vinci.app.LabelSpec <em>Label Spec</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.nasdanika.vinci.app.LabelSpec
-	 * @see org.nasdanika.vinci.app.impl.AppPackageImpl#getLabelSpec()
-	 * @generated
-	 */
-	int LABEL_SPEC = 0;
-
-	/**
-	 * The number of structural features of the '<em>Label Spec</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LABEL_SPEC_FEATURE_COUNT = 0;
-
-	/**
-	 * The number of operations of the '<em>Label Spec</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LABEL_SPEC_OPERATION_COUNT = 0;
-
-	/**
-	 * The meta object id for the '{@link org.nasdanika.vinci.app.ActionSpec <em>Action Spec</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.nasdanika.vinci.app.ActionSpec
-	 * @see org.nasdanika.vinci.app.impl.AppPackageImpl#getActionSpec()
-	 * @generated
-	 */
-	int ACTION_SPEC = 1;
-
-	/**
-	 * The number of structural features of the '<em>Action Spec</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTION_SPEC_FEATURE_COUNT = LABEL_SPEC_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>Action Spec</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTION_SPEC_OPERATION_COUNT = LABEL_SPEC_OPERATION_COUNT + 0;
+	int ACTION_CATEGORY = 5;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.vinci.app.Container <em>Container</em>}' class.
@@ -216,7 +160,7 @@ public interface AppPackage extends EPackage {
 	 * @see org.nasdanika.vinci.app.impl.AppPackageImpl#getContainer()
 	 * @generated
 	 */
-	int CONTAINER = 2;
+	int CONTAINER = 0;
 
 	/**
 	 * The feature id for the '<em><b>Elements</b></em>' containment reference list.
@@ -640,7 +584,7 @@ public interface AppPackage extends EPackage {
 	 * @see org.nasdanika.vinci.app.impl.AppPackageImpl#getActionBase()
 	 * @generated
 	 */
-	int ACTION_BASE = 8;
+	int ACTION_BASE = 6;
 
 	/**
 	 * The feature id for the '<em><b>Title</b></em>' attribute.
@@ -866,7 +810,7 @@ public interface AppPackage extends EPackage {
 	 * @see org.nasdanika.vinci.app.impl.AppPackageImpl#getPartition()
 	 * @generated
 	 */
-	int PARTITION = 13;
+	int PARTITION = 11;
 
 	/**
 	 * The feature id for the '<em><b>Alias</b></em>' attribute.
@@ -1454,6 +1398,34 @@ public interface AppPackage extends EPackage {
 	int PARTITION_OPERATION_COUNT = ACTION_BASE_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link org.nasdanika.vinci.app.impl.BootstrapApplicationImpl <em>Bootstrap Application</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.vinci.app.impl.BootstrapApplicationImpl
+	 * @see org.nasdanika.vinci.app.impl.AppPackageImpl#getBootstrapApplication()
+	 * @generated
+	 */
+	int BOOTSTRAP_APPLICATION = 12;
+
+	/**
+	 * The number of structural features of the '<em>Bootstrap Application</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOTSTRAP_APPLICATION_FEATURE_COUNT = NcorePackage.CONSUMER_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Bootstrap Application</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOTSTRAP_APPLICATION_OPERATION_COUNT = NcorePackage.CONSUMER_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link org.nasdanika.vinci.app.ActionRole <em>Action Role</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1461,7 +1433,7 @@ public interface AppPackage extends EPackage {
 	 * @see org.nasdanika.vinci.app.impl.AppPackageImpl#getActionRole()
 	 * @generated
 	 */
-	int ACTION_ROLE = 14;
+	int ACTION_ROLE = 13;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.vinci.app.SectionStyle <em>Section Style</em>}' enum.
@@ -1471,7 +1443,7 @@ public interface AppPackage extends EPackage {
 	 * @see org.nasdanika.vinci.app.impl.AppPackageImpl#getSectionStyle()
 	 * @generated
 	 */
-	int SECTION_STYLE = 15;
+	int SECTION_STYLE = 14;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.vinci.app.ActivatorType <em>Activator Type</em>}' enum.
@@ -1481,7 +1453,7 @@ public interface AppPackage extends EPackage {
 	 * @see org.nasdanika.vinci.app.impl.AppPackageImpl#getActivatorType()
 	 * @generated
 	 */
-	int ACTIVATOR_TYPE = 16;
+	int ACTIVATOR_TYPE = 15;
 
 	/**
 	 * The meta object id for the '<em>Color</em>' data type.
@@ -1491,7 +1463,7 @@ public interface AppPackage extends EPackage {
 	 * @see org.nasdanika.vinci.app.impl.AppPackageImpl#getColor()
 	 * @generated
 	 */
-	int COLOR = 17;
+	int COLOR = 16;
 
 
 	/**
@@ -1610,6 +1582,16 @@ public interface AppPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getPartition();
+
+	/**
+	 * Returns the meta object for class '{@link org.nasdanika.vinci.app.BootstrapApplication <em>Bootstrap Application</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Bootstrap Application</em>'.
+	 * @see org.nasdanika.vinci.app.BootstrapApplication
+	 * @generated
+	 */
+	EClass getBootstrapApplication();
 
 	/**
 	 * Returns the meta object for class '{@link org.nasdanika.vinci.app.ActionMapping <em>Action Mapping</em>}'.
@@ -1932,28 +1914,6 @@ public interface AppPackage extends EPackage {
 	EReference getActionBase_Content();
 
 	/**
-	 * Returns the meta object for class '{@link org.nasdanika.vinci.app.LabelSpec <em>Label Spec</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Label Spec</em>'.
-	 * @see org.nasdanika.vinci.app.LabelSpec
-	 * @model instanceClass="org.nasdanika.vinci.app.LabelSpec"
-	 * @generated
-	 */
-	EClass getLabelSpec();
-
-	/**
-	 * Returns the meta object for class '{@link org.nasdanika.vinci.app.ActionSpec <em>Action Spec</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Action Spec</em>'.
-	 * @see org.nasdanika.vinci.app.ActionSpec
-	 * @model instanceClass="org.nasdanika.vinci.app.ActionSpec" superTypes="org.nasdanika.vinci.app.LabelSpec"
-	 * @generated
-	 */
-	EClass getActionSpec();
-
-	/**
 	 * Returns the meta object for class '{@link org.nasdanika.vinci.app.Container <em>Container</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2117,6 +2077,16 @@ public interface AppPackage extends EPackage {
 		 * @generated
 		 */
 		EClass PARTITION = eINSTANCE.getPartition();
+
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.vinci.app.impl.BootstrapApplicationImpl <em>Bootstrap Application</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.vinci.app.impl.BootstrapApplicationImpl
+		 * @see org.nasdanika.vinci.app.impl.AppPackageImpl#getBootstrapApplication()
+		 * @generated
+		 */
+		EClass BOOTSTRAP_APPLICATION = eINSTANCE.getBootstrapApplication();
 
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.vinci.app.impl.ActionMappingImpl <em>Action Mapping</em>}' class.
@@ -2377,26 +2347,6 @@ public interface AppPackage extends EPackage {
 		 * @generated
 		 */
 		EReference ACTION_BASE__CONTENT = eINSTANCE.getActionBase_Content();
-
-		/**
-		 * The meta object literal for the '{@link org.nasdanika.vinci.app.LabelSpec <em>Label Spec</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.nasdanika.vinci.app.LabelSpec
-		 * @see org.nasdanika.vinci.app.impl.AppPackageImpl#getLabelSpec()
-		 * @generated
-		 */
-		EClass LABEL_SPEC = eINSTANCE.getLabelSpec();
-
-		/**
-		 * The meta object literal for the '{@link org.nasdanika.vinci.app.ActionSpec <em>Action Spec</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.nasdanika.vinci.app.ActionSpec
-		 * @see org.nasdanika.vinci.app.impl.AppPackageImpl#getActionSpec()
-		 * @generated
-		 */
-		EClass ACTION_SPEC = eINSTANCE.getActionSpec();
 
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.vinci.app.Container <em>Container</em>}' class.

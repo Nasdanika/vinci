@@ -6,6 +6,7 @@ import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EGenericType;
+import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 
 import org.eclipse.emf.ecore.EReference;
@@ -140,6 +141,16 @@ public class HtmlPackageImpl extends EPackageImpl implements HtmlPackage {
 	@Override
 	public EClass getHtmlElement() {
 		return htmlElementEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getHtmlElement__AsBuilder() {
+		return htmlElementEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -302,6 +313,7 @@ public class HtmlPackageImpl extends EPackageImpl implements HtmlPackage {
 
 		// Create classes and their features
 		htmlElementEClass = createEClass(HTML_ELEMENT);
+		createEOperation(htmlElementEClass, HTML_ELEMENT___AS_BUILDER);
 
 		containerEClass = createEClass(CONTAINER);
 		createEReference(containerEClass, CONTAINER__CONTENT);
@@ -373,6 +385,12 @@ public class HtmlPackageImpl extends EPackageImpl implements HtmlPackage {
 		// Initialize classes, features, and operations; add parameters
 		initEClass(htmlElementEClass, HtmlElement.class, "HtmlElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
+		EOperation op = initEOperation(getHtmlElement__AsBuilder(), null, "asBuilder", 0, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(theNcorePackage.getConsumer());
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		initEOperation(op, g1);
+
 		initEClass(containerEClass, org.nasdanika.vinci.html.Container.class, "Container", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		g1 = createEGenericType(theNcorePackage.getWorkFactory());
 		g2 = createEGenericType(ecorePackage.getEJavaObject());
@@ -425,6 +443,18 @@ public class HtmlPackageImpl extends EPackageImpl implements HtmlPackage {
 		   source,
 		   new String[] {
 			   "documentation", "HTML model"
+		   });
+		addAnnotation
+		  (htmlElementEClass,
+		   source,
+		   new String[] {
+			   "documentation", "Base class for other HTML and bootstrap elements. "
+		   });
+		addAnnotation
+		  (getHtmlElement__AsBuilder(),
+		   source,
+		   new String[] {
+			   "documentation", "Wraps element into a Consumer so it can be used as a builder - an existing object can be passed to HTML element\'s consumer and it will \"build\" it by applying styles, attriutes, etc."
 		   });
 		addAnnotation
 		  (containerEClass,

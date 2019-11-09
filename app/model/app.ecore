@@ -32,9 +32,6 @@
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value=""/>
     </eAnnotations>
-    <eTypeParameters name="T">
-      <eBounds/>
-    </eTypeParameters>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="color" eType="#//Color">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value=""/>
@@ -80,9 +77,7 @@
       <details key="documentation" value="Categories are used for grouping of its elements such as actions or properties. "/>
     </eAnnotations>
     <eTypeParameters name="E"/>
-    <eGenericSuperTypes eClassifier="#//Label">
-      <eTypeArguments/>
-    </eGenericSuperTypes>
+    <eGenericSuperTypes eClassifier="#//Label"/>
     <eGenericSuperTypes eClassifier="#//Container">
       <eTypeArguments eTypeParameter="#//Category/E"/>
     </eGenericSuperTypes>
@@ -160,9 +155,7 @@
         <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
       </eGenericType>
     </eStructuralFeatures>
-    <eGenericSuperTypes eClassifier="#//Label">
-      <eTypeArguments/>
-    </eGenericSuperTypes>
+    <eGenericSuperTypes eClassifier="#//Label"/>
     <eGenericSuperTypes eClassifier="#//AbstractAction"/>
     <eGenericSuperTypes eClassifier="#//Container">
       <eTypeArguments eClassifier="#//ActionElement"/>
@@ -275,5 +268,13 @@
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Concrete action class represented as a container node on a diagram containing actions and other partitions."/>
     </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BootstrapApplication">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Bootstrap application is a page builder which structures a page into 6 areas:&#xA;&#xA;* Header&#xA;* Navigation bar&#xA;* Navigation pane&#xA;* Content pane&#xA;* Footer"/>
+    </eAnnotations>
+    <eGenericSuperTypes eClassifier="ecore:EClass ../../org.nasdanika.ncore/model/ncore.ecore#//Consumer">
+      <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+    </eGenericSuperTypes>
   </eClassifiers>
 </ecore:EPackage>

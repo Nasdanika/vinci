@@ -322,7 +322,7 @@ public class PageImpl extends NamedElementImpl implements Page {
 			cf.add(builder);;
 		}
 		
-		return cf.create(page);
+		return cf.create(WorkFactory.from(page, "HTML Page"));
 	}
 	
 	/**

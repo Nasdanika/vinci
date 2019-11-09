@@ -17,7 +17,6 @@ import org.nasdanika.vinci.app.ActionBase;
 import org.nasdanika.vinci.app.ActionElement;
 import org.nasdanika.vinci.app.ActionMapping;
 import org.nasdanika.vinci.app.ActionRole;
-import org.nasdanika.vinci.app.ActionSpec;
 import org.nasdanika.vinci.app.ActivatorType;
 import org.nasdanika.vinci.app.AppPackage;
 import org.nasdanika.vinci.app.SectionStyle;
@@ -47,7 +46,7 @@ import org.nasdanika.vinci.app.SectionStyle;
  *
  * @generated
  */
-public abstract class ActionBaseImpl extends LabelImpl<ActionSpec> implements ActionBase {
+public abstract class ActionBaseImpl extends LabelImpl implements ActionBase {
 	/**
 	 * The default value of the '{@link #getRole() <em>Role</em>}' attribute.
 	 * <!-- begin-user-doc -->

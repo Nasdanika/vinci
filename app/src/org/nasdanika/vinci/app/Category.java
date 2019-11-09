@@ -13,9 +13,9 @@ package org.nasdanika.vinci.app;
  *
  *
  * @see org.nasdanika.vinci.app.AppPackage#getCategory()
- * @model abstract="true" superTypes="org.nasdanika.vinci.app.Label&lt;org.nasdanika.vinci.app.LabelSpec&gt; org.nasdanika.vinci.app.Container&lt;E&gt;"
+ * @model abstract="true"
  * @generated
  */
-public interface Category<E> extends Label<LabelSpec>, Container<E> {
+public interface Category<E> extends Label, Container<E> {
 
 } // Category

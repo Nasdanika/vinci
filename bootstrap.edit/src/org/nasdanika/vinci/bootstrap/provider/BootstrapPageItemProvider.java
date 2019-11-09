@@ -11,12 +11,14 @@ import java.util.stream.Collectors;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.nasdanika.html.bootstrap.Theme;
 import org.nasdanika.vinci.bootstrap.BootstrapPackage;
 import org.nasdanika.vinci.bootstrap.BootstrapPage;
+import org.nasdanika.vinci.html.HtmlPackage;
 import org.nasdanika.vinci.html.provider.PageItemProvider;
 
 /**
@@ -161,6 +163,9 @@ public class BootstrapPageItemProvider extends PageItemProvider {
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+		for (EObject pageBuilder: org.nasdanika.vinci.bootstrap.util.Activator.BOOTSTRAP_PAGE_BUILDERS_PALETTE.getElements()) {
+			newChildDescriptors.add(createChildParameter(HtmlPackage.Literals.PAGE__BUILDERS, pageBuilder));						
+		}		
 	}
 
 	/**

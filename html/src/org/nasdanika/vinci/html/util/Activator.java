@@ -8,7 +8,7 @@ import org.osgi.framework.BundleContext;
 public class Activator implements BundleActivator {
 
 	/**
-	 * HTML content panel - elements which can be added to HTML page body and other body HTML elements.
+	 * HTML content palette - elements which can be added to HTML page body and other body HTML elements.
 	 */
 	public static final Palette HTML_CONTENT_PALETTE = Palette.Registry.INSTANCE.get("org.nasdanika.vinci.html:htlm-content");
 	

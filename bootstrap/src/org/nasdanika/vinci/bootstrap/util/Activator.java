@@ -2,10 +2,16 @@ package org.nasdanika.vinci.bootstrap.util;
 
 import org.nasdanika.emf.Palette;
 import org.nasdanika.vinci.bootstrap.BootstrapPackage;
+import org.nasdanika.vinci.bootstrap.BootstrapPage;
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
 
 public class Activator implements BundleActivator {
+	
+	/**
+	 * Bootstrap page builders palette - elements which can build {@link BootstrapPage}.
+	 */
+	public static final Palette BOOTSTRAP_PAGE_BUILDERS_PALETTE = Palette.Registry.INSTANCE.get("org.nasdanika.vinci.bootstrap:bootstrap-page-builders");	
 
 	@Override
 	public void start(BundleContext context) throws Exception {

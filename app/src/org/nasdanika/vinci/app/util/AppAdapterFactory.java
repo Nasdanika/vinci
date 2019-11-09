@@ -6,6 +6,7 @@ import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
+import org.nasdanika.common.Consumer;
 import org.nasdanika.common.WorkFactory;
 import org.nasdanika.ncore.ModelElement;
 import org.nasdanika.vinci.app.*;
@@ -67,19 +68,11 @@ public class AppAdapterFactory extends AdapterFactoryImpl {
 	protected AppSwitch<Adapter> modelSwitch =
 		new AppSwitch<Adapter>() {
 			@Override
-			public Adapter caseLabelSpec(LabelSpec object) {
-				return createLabelSpecAdapter();
-			}
-			@Override
-			public Adapter caseActionSpec(ActionSpec object) {
-				return createActionSpecAdapter();
-			}
-			@Override
 			public <E> Adapter caseContainer(Container<E> object) {
 				return createContainerAdapter();
 			}
 			@Override
-			public <T extends LabelSpec> Adapter caseLabel(Label<T> object) {
+			public Adapter caseLabel(Label object) {
 				return createLabelAdapter();
 			}
 			@Override
@@ -123,12 +116,20 @@ public class AppAdapterFactory extends AdapterFactoryImpl {
 				return createPartitionAdapter();
 			}
 			@Override
+			public Adapter caseBootstrapApplication(BootstrapApplication object) {
+				return createBootstrapApplicationAdapter();
+			}
+			@Override
 			public Adapter caseModelElement(ModelElement object) {
 				return createModelElementAdapter();
 			}
 			@Override
 			public <T> Adapter caseWorkFactory(WorkFactory<T> object) {
 				return createWorkFactoryAdapter();
+			}
+			@Override
+			public <T> Adapter caseConsumer(Consumer<T> object) {
+				return createConsumerAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -207,6 +208,20 @@ public class AppAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.vinci.app.BootstrapApplication <em>Bootstrap Application</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.vinci.app.BootstrapApplication
+	 * @generated
+	 */
+	public Adapter createBootstrapApplicationAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link org.nasdanika.ncore.ModelElement <em>Model Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -231,6 +246,20 @@ public class AppAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createWorkFactoryAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.common.Consumer <em>Consumer</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.common.Consumer
+	 * @generated
+	 */
+	public Adapter createConsumerAdapter() {
 		return null;
 	}
 
@@ -329,34 +358,6 @@ public class AppAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createActionBaseAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.nasdanika.vinci.app.LabelSpec <em>Label Spec</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.nasdanika.vinci.app.LabelSpec
-	 * @generated
-	 */
-	public Adapter createLabelSpecAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.nasdanika.vinci.app.ActionSpec <em>Action Spec</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.nasdanika.vinci.app.ActionSpec
-	 * @generated
-	 */
-	public Adapter createActionSpecAdapter() {
 		return null;
 	}
 

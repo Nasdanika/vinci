@@ -29,10 +29,10 @@ import org.nasdanika.ncore.ModelElement;
  * </ul>
  *
  * @see org.nasdanika.vinci.app.AppPackage#getLabel()
- * @model abstract="true" superTypes="org.nasdanika.ncore.ModelElement org.nasdanika.ncore.WorkFactory&lt;org.eclipse.emf.ecore.EJavaObject&gt;" TBounds="org.nasdanika.vinci.app.LabelSpec"
+ * @model abstract="true" superTypes="org.nasdanika.ncore.ModelElement org.nasdanika.ncore.WorkFactory&lt;org.eclipse.emf.ecore.EJavaObject&gt;"
  * @generated
  */
-public interface Label<T extends LabelSpec> extends ModelElement, WorkFactory<Object> {
+public interface Label extends ModelElement, WorkFactory<Object> {
 	/**
 	 * Returns the value of the '<em><b>Color</b></em>' attribute.
 	 * <!-- begin-user-doc -->

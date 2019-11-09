@@ -49,6 +49,15 @@ public interface AppFactory extends EFactory {
 	Partition createPartition();
 
 	/**
+	 * Returns a new object of class '<em>Bootstrap Application</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Bootstrap Application</em>'.
+	 * @generated
+	 */
+	BootstrapApplication createBootstrapApplication();
+
+	/**
 	 * Returns a new object of class '<em>Action Mapping</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

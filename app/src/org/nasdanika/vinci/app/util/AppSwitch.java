@@ -5,6 +5,7 @@ package org.nasdanika.vinci.app.util;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
+import org.nasdanika.common.Consumer;
 import org.nasdanika.common.WorkFactory;
 import org.nasdanika.ncore.ModelElement;
 import org.nasdanika.vinci.app.*;
@@ -66,19 +67,6 @@ public class AppSwitch<T1> extends Switch<T1> {
 	@Override
 	protected T1 doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
-			case AppPackage.LABEL_SPEC: {
-				LabelSpec labelSpec = (LabelSpec)theEObject;
-				T1 result = caseLabelSpec(labelSpec);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case AppPackage.ACTION_SPEC: {
-				ActionSpec actionSpec = (ActionSpec)theEObject;
-				T1 result = caseActionSpec(actionSpec);
-				if (result == null) result = caseLabelSpec(actionSpec);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case AppPackage.CONTAINER: {
 				Container<?> container = (Container<?>)theEObject;
 				T1 result = caseContainer(container);
@@ -86,7 +74,7 @@ public class AppSwitch<T1> extends Switch<T1> {
 				return result;
 			}
 			case AppPackage.LABEL: {
-				Label<?> label = (Label<?>)theEObject;
+				Label label = (Label)theEObject;
 				T1 result = caseLabel(label);
 				if (result == null) result = caseModelElement(label);
 				if (result == null) result = caseWorkFactory(label);
@@ -188,6 +176,13 @@ public class AppSwitch<T1> extends Switch<T1> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case AppPackage.BOOTSTRAP_APPLICATION: {
+				BootstrapApplication bootstrapApplication = (BootstrapApplication)theEObject;
+				T1 result = caseBootstrapApplication(bootstrapApplication);
+				if (result == null) result = caseConsumer(bootstrapApplication);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -203,7 +198,7 @@ public class AppSwitch<T1> extends Switch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public <T extends LabelSpec> T1 caseLabel(Label<T> object) {
+	public T1 caseLabel(Label object) {
 		return null;
 	}
 
@@ -253,6 +248,21 @@ public class AppSwitch<T1> extends Switch<T1> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Bootstrap Application</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Bootstrap Application</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseBootstrapApplication(BootstrapApplication object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Model Element</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -279,6 +289,21 @@ public class AppSwitch<T1> extends Switch<T1> {
 	 * @generated
 	 */
 	public <T> T1 caseWorkFactory(WorkFactory<T> object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Consumer</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Consumer</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public <T> T1 caseConsumer(Consumer<T> object) {
 		return null;
 	}
 
@@ -384,36 +409,6 @@ public class AppSwitch<T1> extends Switch<T1> {
 	 * @generated
 	 */
 	public T1 caseActionBase(ActionBase object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Label Spec</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Label Spec</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T1 caseLabelSpec(LabelSpec object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Action Spec</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Action Spec</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T1 caseActionSpec(ActionSpec object) {
 		return null;
 	}
 

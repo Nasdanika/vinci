@@ -24,13 +24,12 @@ import org.nasdanika.vinci.app.ActionLink;
 import org.nasdanika.vinci.app.ActionMapping;
 import org.nasdanika.vinci.app.ActionReference;
 import org.nasdanika.vinci.app.ActionRole;
-import org.nasdanika.vinci.app.ActionSpec;
 import org.nasdanika.vinci.app.ActivatorType;
 import org.nasdanika.vinci.app.AppFactory;
 import org.nasdanika.vinci.app.AppPackage;
+import org.nasdanika.vinci.app.BootstrapApplication;
 import org.nasdanika.vinci.app.Category;
 import org.nasdanika.vinci.app.Label;
-import org.nasdanika.vinci.app.LabelSpec;
 import org.nasdanika.vinci.app.Partition;
 import org.nasdanika.vinci.app.SectionStyle;
 
@@ -68,6 +67,13 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 	 * @generated
 	 */
 	private EClass partitionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass bootstrapApplicationEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -138,20 +144,6 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 	 * @generated
 	 */
 	private EClass actionBaseEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass labelSpecEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass actionSpecEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -339,6 +331,16 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 	@Override
 	public EClass getPartition() {
 		return partitionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getBootstrapApplication() {
+		return bootstrapApplicationEClass;
 	}
 
 	/**
@@ -647,26 +649,6 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 	 * @generated
 	 */
 	@Override
-	public EClass getLabelSpec() {
-		return labelSpecEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EClass getActionSpec() {
-		return actionSpecEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EClass getContainer() {
 		return containerEClass;
 	}
@@ -730,10 +712,6 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 		isCreated = true;
 
 		// Create classes and their features
-		labelSpecEClass = createEClass(LABEL_SPEC);
-
-		actionSpecEClass = createEClass(ACTION_SPEC);
-
 		containerEClass = createEClass(CONTAINER);
 		createEReference(containerEClass, CONTAINER__ELEMENTS);
 		createEReference(containerEClass, CONTAINER__LINKED_ELEMENTS);
@@ -787,6 +765,8 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 
 		partitionEClass = createEClass(PARTITION);
 
+		bootstrapApplicationEClass = createEClass(BOOTSTRAP_APPLICATION);
+
 		// Create enums
 		actionRoleEEnum = createEEnum(ACTION_ROLE);
 		sectionStyleEEnum = createEEnum(SECTION_STYLE);
@@ -824,24 +804,18 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 
 		// Create type parameters
 		ETypeParameter containerEClass_E = addETypeParameter(containerEClass, "E");
-		ETypeParameter labelEClass_T = addETypeParameter(labelEClass, "T");
 		ETypeParameter categoryEClass_E = addETypeParameter(categoryEClass, "E");
 
 		// Set bounds for type parameters
-		EGenericType g1 = createEGenericType(this.getLabelSpec());
-		labelEClass_T.getEBounds().add(g1);
 
 		// Add supertypes to classes
-		actionSpecEClass.getESuperTypes().add(this.getLabelSpec());
-		g1 = createEGenericType(theNcorePackage.getModelElement());
+		EGenericType g1 = createEGenericType(theNcorePackage.getModelElement());
 		labelEClass.getEGenericSuperTypes().add(g1);
 		g1 = createEGenericType(theNcorePackage.getWorkFactory());
 		EGenericType g2 = createEGenericType(ecorePackage.getEJavaObject());
 		g1.getETypeArguments().add(g2);
 		labelEClass.getEGenericSuperTypes().add(g1);
 		g1 = createEGenericType(this.getLabel());
-		g2 = createEGenericType(this.getLabelSpec());
-		g1.getETypeArguments().add(g2);
 		categoryEClass.getEGenericSuperTypes().add(g1);
 		g1 = createEGenericType(this.getContainer());
 		g2 = createEGenericType(categoryEClass_E);
@@ -855,8 +829,6 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 		g1 = createEGenericType(this.getActionElement());
 		actionCategoryEClass.getEGenericSuperTypes().add(g1);
 		g1 = createEGenericType(this.getLabel());
-		g2 = createEGenericType(this.getActionSpec());
-		g1.getETypeArguments().add(g2);
 		actionBaseEClass.getEGenericSuperTypes().add(g1);
 		g1 = createEGenericType(this.getAbstractAction());
 		actionBaseEClass.getEGenericSuperTypes().add(g1);
@@ -868,12 +840,12 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 		actionReferenceEClass.getESuperTypes().add(this.getAbstractAction());
 		actionEClass.getESuperTypes().add(this.getActionBase());
 		partitionEClass.getESuperTypes().add(this.getActionBase());
+		g1 = createEGenericType(theNcorePackage.getConsumer());
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		bootstrapApplicationEClass.getEGenericSuperTypes().add(g1);
 
 		// Initialize classes, features, and operations; add parameters
-		initEClass(labelSpecEClass, LabelSpec.class, "LabelSpec", IS_ABSTRACT, IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(actionSpecEClass, ActionSpec.class, "ActionSpec", IS_ABSTRACT, IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS);
-
 		initEClass(containerEClass, org.nasdanika.vinci.app.Container.class, "Container", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		g1 = createEGenericType(containerEClass_E);
 		initEReference(getContainer_Elements(), g1, null, "elements", null, 0, -1, org.nasdanika.vinci.app.Container.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -932,6 +904,8 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 
 		initEClass(partitionEClass, Partition.class, "Partition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
+		initEClass(bootstrapApplicationEClass, BootstrapApplication.class, "BootstrapApplication", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
 		// Initialize enums and add enum literals
 		initEEnum(actionRoleEEnum, ActionRole.class, "ActionRole");
 		addEEnumLiteral(actionRoleEEnum, ActionRole.NAVIGATION);
@@ -977,18 +951,6 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 		   source,
 		   new String[] {
 			   "documentation", "Application model."
-		   });
-		addAnnotation
-		  (labelSpecEClass,
-		   source,
-		   new String[] {
-			   "documentation", "java.uitl.Map subclass containing label specification. It can be stored to YAML or JSON to be used by runtime components."
-		   });
-		addAnnotation
-		  (actionSpecEClass,
-		   source,
-		   new String[] {
-			   "documentation", "LabelSpec subclass containing action specification. It can be stored to YAML or JSON to be used by runtime components."
 		   });
 		addAnnotation
 		  (colorEDataType,
@@ -1253,6 +1215,12 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 		   source,
 		   new String[] {
 			   "documentation", "Concrete action class represented as a container node on a diagram containing actions and other partitions."
+		   });
+		addAnnotation
+		  (bootstrapApplicationEClass,
+		   source,
+		   new String[] {
+			   "documentation", "Bootstrap application is a page builder which structures a page into 6 areas:\n\n* Header\n* Navigation bar\n* Navigation pane\n* Content pane\n* Footer"
 		   });
 	}
 
