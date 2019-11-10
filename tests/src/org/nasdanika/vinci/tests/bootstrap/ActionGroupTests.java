@@ -5,7 +5,6 @@ import org.nasdanika.common.PrintStreamProgressMonitor;
 import org.nasdanika.vinci.tests.TestsBase;
 
 /**
- * Tests of {@link StaticText}.
  * @author Pavel
  *
  */

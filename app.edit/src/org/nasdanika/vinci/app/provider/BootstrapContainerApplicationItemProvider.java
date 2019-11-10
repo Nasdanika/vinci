@@ -8,11 +8,9 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.ecore.EStructuralFeature;
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
+import org.eclipse.emf.edit.command.CommandParameter;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
@@ -60,20 +58,19 @@ public class BootstrapContainerApplicationItemProvider
 	 * This adds a property descriptor for the Fluid feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void addFluidPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+			(createItemPropertyDescriptor(
 				 getResourceLocator(),
 				 getString("_UI_BootstrapContainerApplication_fluid_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_BootstrapContainerApplication_fluid_feature", "_UI_BootstrapContainerApplication_type"),
 				 AppPackage.Literals.BOOTSTRAP_CONTAINER_APPLICATION__FLUID,
 				 true,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
 				 null,
 				 null));
 	}
@@ -82,20 +79,19 @@ public class BootstrapContainerApplicationItemProvider
 	 * This adds a property descriptor for the Router feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void addRouterPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+			(createItemPropertyDescriptor(
 				 getResourceLocator(),
 				 getString("_UI_BootstrapContainerApplication_router_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_BootstrapContainerApplication_router_feature", "_UI_BootstrapContainerApplication_type"),
 				 AppPackage.Literals.BOOTSTRAP_CONTAINER_APPLICATION__ROUTER,
 				 true,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
 				 null,
 				 null));
 	}
@@ -208,10 +204,10 @@ public class BootstrapContainerApplicationItemProvider
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		newChildDescriptors.add
-			(createChildParameter
-				(AppPackage.Literals.BOOTSTRAP_CONTAINER_APPLICATION__HEADER,
-				 AppFactory.eINSTANCE.createBootstrapContainerApplicationSection()));
+		CommandParameter headerChildParameter = createChildParameter
+			(AppPackage.Literals.BOOTSTRAP_CONTAINER_APPLICATION__HEADER,
+			 AppFactory.eINSTANCE.createBootstrapContainerApplicationSection());
+		newChildDescriptors.add(headerChildParameter);
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -238,24 +234,24 @@ public class BootstrapContainerApplicationItemProvider
 	 * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getCreateChildText(Object owner, Object feature, Object child, Collection<?> selection) {
-		Object childFeature = feature;
-		Object childObject = child;
-
-		boolean qualify =
-			childFeature == AppPackage.Literals.BOOTSTRAP_CONTAINER_APPLICATION__HEADER ||
-			childFeature == AppPackage.Literals.BOOTSTRAP_CONTAINER_APPLICATION__NAVIGATION_BAR ||
-			childFeature == AppPackage.Literals.BOOTSTRAP_CONTAINER_APPLICATION__NAVIGATION_PANEL ||
-			childFeature == AppPackage.Literals.BOOTSTRAP_CONTAINER_APPLICATION__CONTENT_PANEL ||
-			childFeature == AppPackage.Literals.BOOTSTRAP_CONTAINER_APPLICATION__FOOTER;
-
-		if (qualify) {
-			return getString
-				("_UI_CreateChild_text2",
-				 new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
+		if (feature == AppPackage.Literals.BOOTSTRAP_CONTAINER_APPLICATION__HEADER) {
+			return getString("_UI_BootstrapContainerApplication_header_feature");
+		}
+		if (feature == AppPackage.Literals.BOOTSTRAP_CONTAINER_APPLICATION__NAVIGATION_BAR) {
+			return getString("_UI_BootstrapContainerApplication_navigationBar_feature");
+		}
+		if (feature == AppPackage.Literals.BOOTSTRAP_CONTAINER_APPLICATION__NAVIGATION_PANEL) {
+			return getString("_UI_BootstrapContainerApplication_navigationPanel_feature");
+		}
+		if (feature == AppPackage.Literals.BOOTSTRAP_CONTAINER_APPLICATION__CONTENT_PANEL) {
+			return getString("_UI_BootstrapContainerApplication_contentPanel_feature");
+		}
+		if (feature == AppPackage.Literals.BOOTSTRAP_CONTAINER_APPLICATION__FOOTER) {
+			return getString("_UI_BootstrapContainerApplication_footer_feature");
 		}
 		return super.getCreateChildText(owner, feature, child, selection);
 	}

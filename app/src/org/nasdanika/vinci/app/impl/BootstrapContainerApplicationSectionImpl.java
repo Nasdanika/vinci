@@ -3,23 +3,24 @@
 package org.nasdanika.vinci.app.impl;
 
 import java.util.Collection;
+import java.util.List;
+import java.util.concurrent.Executor;
 
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.util.InternalEList;
-
+import org.nasdanika.common.CompoundWork;
+import org.nasdanika.common.Consumer;
+import org.nasdanika.common.Context;
+import org.nasdanika.common.ProgressMonitor;
+import org.nasdanika.common.Reference;
+import org.nasdanika.common.Work;
 import org.nasdanika.common.WorkFactory;
-
 import org.nasdanika.vinci.app.AppPackage;
 import org.nasdanika.vinci.app.BootstrapContainerApplicationSection;
-
 import org.nasdanika.vinci.bootstrap.impl.BootstrapElementImpl;
-
 import org.nasdanika.vinci.html.HtmlPackage;
 
 /**
@@ -170,6 +171,70 @@ public class BootstrapContainerApplicationSectionImpl extends BootstrapElementIm
 			}
 		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
+	}
+		
+	protected Work<List<Object>> createContentWork(Context context) throws Exception {
+		CompoundWork<List<Object>, Object> ret = new CompoundWork<List<Object>, Object>("Content", context.get(Executor.class)) {
+
+			@Override
+			protected List<Object> combine(List<Object> results, ProgressMonitor progressMonitor) throws Exception {
+				return results;
+			}
+			
+		}; 
+		
+		for (WorkFactory<Object> ce: getContent()) {
+			ret.add(ce.create(context));
+		}
+		
+		return ret;
+	}	
+	
+	@Override
+	public Consumer<Object> asBuilder() {
+		// TODO.
+		Consumer<Object> superBuilder = super.asBuilder();		
+		return new Consumer<Object>() {
+
+			@Override
+			public WorkFactory<Void> create(WorkFactory<Object> arg) throws Exception {
+
+				return new WorkFactory<Void>() {
+					
+					@Override
+					public Work<Void> create(Context context) throws Exception {
+						
+						// Sequential - arg, content
+						CompoundWork<Void, Void> ret = new CompoundWork<Void, Void>(BootstrapContainerApplicationSectionImpl.this.eContainmentFeature().getName(), null) {
+							
+							@Override
+							protected Void combine(List<Void> results, ProgressMonitor progressMonitor) throws Exception {
+								return null;
+							}
+							
+						};
+
+						Reference<Object> containerReference = new Reference<>();
+						
+						Work<Void> argWork = arg.create(context).adapt(c -> {
+							containerReference.set(c);
+							return null;
+						});
+						ret.add(argWork);
+						
+						Work<Void> contentWork = createContentWork(context).adapt(content -> {
+							content.forEach((org.nasdanika.html.bootstrap.Container.Row.Col) containerReference.get()); 
+							return null;
+						});
+						ret.add(contentWork);
+						
+						return ret;
+					}
+				};
+				
+			}
+			
+		};
 	}
 
 } //BootstrapContainerApplicationSectionImpl

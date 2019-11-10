@@ -11,4 +11,5 @@
   <semanticResources>models/bootstrap/action-group-mixed.vinci</semanticResources>
   <semanticResources>models/html/page.vinci</semanticResources>
   <semanticResources>models/bootstrap/bootstrap-page.vinci</semanticResources>
+  <semanticResources>models/app/bootstrap-container-application.vinci</semanticResources>
 </viewpoint:DAnalysis>
