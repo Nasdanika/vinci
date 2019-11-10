@@ -18,6 +18,7 @@ import org.nasdanika.vinci.bootstrap.Accordion;
 import org.nasdanika.vinci.bootstrap.ActionGroup;
 import org.nasdanika.vinci.bootstrap.ActionGroupItem;
 import org.nasdanika.vinci.bootstrap.Alert;
+import org.nasdanika.vinci.bootstrap.Appearance;
 import org.nasdanika.vinci.bootstrap.Badge;
 import org.nasdanika.vinci.bootstrap.BootstrapElement;
 import org.nasdanika.vinci.bootstrap.BootstrapFactory;
@@ -65,6 +66,13 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 	 * @generated
 	 */
 	private EClass bootstrapPageEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass appearanceEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -405,8 +413,38 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 	 * @generated
 	 */
 	@Override
+	public EClass getAppearance() {
+		return appearanceEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getAppearance_Background() {
+		return (EAttribute)appearanceEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getBootstrapElement() {
 		return bootstrapElementEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getBootstrapElement_Appearance() {
+		return (EReference)bootstrapElementEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -932,7 +970,11 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 		createEAttribute(bootstrapPageEClass, BOOTSTRAP_PAGE__CDN);
 		createEAttribute(bootstrapPageEClass, BOOTSTRAP_PAGE__THEME);
 
+		appearanceEClass = createEClass(APPEARANCE);
+		createEAttribute(appearanceEClass, APPEARANCE__BACKGROUND);
+
 		bootstrapElementEClass = createEClass(BOOTSTRAP_ELEMENT);
+		createEReference(bootstrapElementEClass, BOOTSTRAP_ELEMENT__APPEARANCE);
 
 		tagEClass = createEClass(TAG);
 
@@ -1050,15 +1092,21 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 
 		// Add supertypes to classes
 		bootstrapPageEClass.getESuperTypes().add(theHtmlPackage.getPage());
+		EGenericType g1 = createEGenericType(theNcorePackage.getIFunction());
+		EGenericType g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		appearanceEClass.getEGenericSuperTypes().add(g1);
 		bootstrapElementEClass.getESuperTypes().add(theHtmlPackage.getHtmlElement());
 		tagEClass.getESuperTypes().add(theHtmlPackage.getTag());
 		tagEClass.getESuperTypes().add(this.getBootstrapElement());
 		divEClass.getESuperTypes().add(this.getTag());
 		itemEClass.getESuperTypes().add(theNcorePackage.getModelElement());
-		EGenericType g1 = createEGenericType(this.getItem());
+		g1 = createEGenericType(this.getItem());
 		actionGroupItemEClass.getEGenericSuperTypes().add(g1);
 		g1 = createEGenericType(theNcorePackage.getWorkFactory());
-		EGenericType g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
 		g1.getETypeArguments().add(g2);
 		actionGroupItemEClass.getEGenericSuperTypes().add(g1);
 		linkActionGroupItemEClass.getESuperTypes().add(this.getActionGroupItem());
@@ -1084,7 +1132,11 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 		initEAttribute(getBootstrapPage_Cdn(), ecorePackage.getEBoolean(), "cdn", "true", 0, 1, BootstrapPage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getBootstrapPage_Theme(), ecorePackage.getEString(), "theme", null, 0, 1, BootstrapPage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEClass(appearanceEClass, Appearance.class, "Appearance", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getAppearance_Background(), ecorePackage.getEString(), "background", null, 0, 1, Appearance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		initEClass(bootstrapElementEClass, BootstrapElement.class, "BootstrapElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getBootstrapElement_Appearance(), this.getAppearance(), null, "appearance", null, 0, 1, BootstrapElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(tagEClass, Tag.class, "Tag", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1212,6 +1264,18 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 		   source,
 		   new String[] {
 			   "documentation", "Bootstrap [theme](https://www.nasdanika.org/master/products/html/apidocs/org.nasdanika.html.bootstrap/apidocs/org/nasdanika/html/bootstrap/Theme.html). This attribute is applicable only if CDN is set to true. In this case Bootstrap stylesheets added to the page point to a specific theme."
+		   });
+		addAnnotation
+		  (appearanceEClass,
+		   source,
+		   new String[] {
+			   "documentation", "This class is used for configuring common aspects of HTML and Bootstrap elements such as background, spacing, text, etc."
+		   });
+		addAnnotation
+		  (getAppearance_Background(),
+		   source,
+		   new String[] {
+			   "documentation", "Bootstrap color for background."
 		   });
 		addAnnotation
 		  (tagEClass,

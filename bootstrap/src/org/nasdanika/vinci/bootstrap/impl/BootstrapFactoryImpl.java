@@ -59,6 +59,7 @@ public class BootstrapFactoryImpl extends EFactoryImpl implements BootstrapFacto
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
 			case BootstrapPackage.BOOTSTRAP_PAGE: return createBootstrapPage();
+			case BootstrapPackage.APPEARANCE: return createAppearance();
 			case BootstrapPackage.TAG: return createTag();
 			case BootstrapPackage.DIV: return createDiv();
 			case BootstrapPackage.LINK_ACTION_GROUP_ITEM: return createLinkActionGroupItem();
@@ -132,6 +133,17 @@ public class BootstrapFactoryImpl extends EFactoryImpl implements BootstrapFacto
 	public BootstrapPage createBootstrapPage() {
 		BootstrapPageImpl bootstrapPage = new BootstrapPageImpl();
 		return bootstrapPage;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Appearance createAppearance() {
+		AppearanceImpl appearance = new AppearanceImpl();
+		return appearance;
 	}
 
 	/**

@@ -10,7 +10,6 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EStructuralFeature;
-import org.eclipse.emf.edit.command.CommandParameter;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
@@ -204,10 +203,10 @@ public class BootstrapContainerApplicationItemProvider
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		CommandParameter headerChildParameter = createChildParameter
-			(AppPackage.Literals.BOOTSTRAP_CONTAINER_APPLICATION__HEADER,
-			 AppFactory.eINSTANCE.createBootstrapContainerApplicationSection());
-		newChildDescriptors.add(headerChildParameter);
+		newChildDescriptors.add
+			(createChildParameter
+				(AppPackage.Literals.BOOTSTRAP_CONTAINER_APPLICATION__HEADER,
+				 AppFactory.eINSTANCE.createBootstrapContainerApplicationSection()));
 
 		newChildDescriptors.add
 			(createChildParameter

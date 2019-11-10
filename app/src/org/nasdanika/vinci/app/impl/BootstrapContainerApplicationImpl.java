@@ -410,7 +410,7 @@ public class BootstrapContainerApplicationImpl extends BootstrapElementImpl impl
 	}
 
 	@Override
-	public WorkFactory<Void> create(WorkFactory<Object> arg) throws Exception {		
+	public WorkFactory<Object> create(WorkFactory<Object> arg) throws Exception {		
 		/* 
 		 * Steps:
 		 * 
@@ -421,53 +421,56 @@ public class BootstrapContainerApplicationImpl extends BootstrapElementImpl impl
 
 		Reference<Object> headerReference = new Reference<>();		
 		BootstrapContainerApplicationSection header = getHeader();
-		WorkFactory<Void> headerWorkFactory = header == null ? null : header.asBuilder().create(WorkFactory.fromSupplier(headerReference, "Header", 0));
+		WorkFactory<Object> headerWorkFactory = header == null ? null : header.asBuilder().create(WorkFactory.fromSupplier(headerReference, "Header", 0));
 		
 		Reference<Object> navBarReference = new Reference<>();		
 		BootstrapContainerApplicationSection navBar = getNavigationBar();
-		WorkFactory<Void> navBarWorkFactory = navBar == null ? null : navBar.asBuilder().create(WorkFactory.fromSupplier(navBarReference, "Navigation Bar", 0));
+		WorkFactory<Object> navBarWorkFactory = navBar == null ? null : navBar.asBuilder().create(WorkFactory.fromSupplier(navBarReference, "Navigation Bar", 0));
 		
 		Reference<Object> navigationPanelReference = new Reference<>();		
 		BootstrapContainerApplicationSection navigationPanel = getNavigationPanel();
-		WorkFactory<Void> navigationPanelWorkFactory = navigationPanel == null ? null : navigationPanel.asBuilder().create(WorkFactory.fromSupplier(navigationPanelReference, "Navigation Panel", 0));
+		WorkFactory<Object> navigationPanelWorkFactory = navigationPanel == null ? null : navigationPanel.asBuilder().create(WorkFactory.fromSupplier(navigationPanelReference, "Navigation Panel", 0));
 		
 		Reference<Object> contentPanelReference = new Reference<>();		
 		BootstrapContainerApplicationSection contentPanel = getContentPanel();
-		WorkFactory<Void> contentPanelWorkFactory = contentPanel == null ? null : contentPanel.asBuilder().create(WorkFactory.fromSupplier(contentPanelReference, "Content Panel", 0));
+		WorkFactory<Object> contentPanelWorkFactory = contentPanel == null ? null : contentPanel.asBuilder().create(WorkFactory.fromSupplier(contentPanelReference, "Content Panel", 0));
 		
 		Reference<Object> footerReference = new Reference<>();		
 		BootstrapContainerApplicationSection footer = getFooter();
-		WorkFactory<Void> footerWorkFactory = footer == null ? null : footer.asBuilder().create(WorkFactory.fromSupplier(footerReference, "Footer", 0));		
+		WorkFactory<Object> footerWorkFactory = footer == null ? null : footer.asBuilder().create(WorkFactory.fromSupplier(footerReference, "Footer", 0));		
 		
-		return new WorkFactory<Void>() {
+		// TODO - apply super.asBuilder to container.
+		// super.asBuilder();
+		
+		return new WorkFactory<Object>() {
 
 			@Override
-			public Work<Void> create(Context context) throws Exception {
+			public Work<Object> create(Context context) throws Exception {
 				
 				// Sequential - arg, create page, section
-				CompoundWork<Void, Void> ret = new CompoundWork<Void, Void>(BootstrapContainerApplicationImpl.this.getTitle(), null) {
+				CompoundWork<Object, Object> ret = new CompoundWork<Object, Object>(BootstrapContainerApplicationImpl.this.getTitle(), null) {
 					
 					@Override
-					protected Void combine(List<Void> results, ProgressMonitor progressMonitor) throws Exception {
-						return null;
+					protected Object combine(List<Object> results, ProgressMonitor progressMonitor) throws Exception {
+						return results.get(0);
 					}
 					
 				};
 
 				Reference<Object> pageReference = new Reference<>();
 				
-				Work<Void> argWork = arg.create(context).adapt(a -> {
-					pageReference.set(a);
-					return null;
+				Work<Object> argWork = arg.create(context).adapt(page -> {
+					pageReference.set(page);
+					return page;
 				});
 				ret.add(argWork);
 				
-				Work<Void> applicationWork = new Work<Void>() {
+				Work<Object> applicationWork = new Work<Object>() {
 
 					@Override
-					public Void execute(ProgressMonitor progressMonitor) throws Exception {
+					public Object execute(ProgressMonitor progressMonitor) throws Exception {
 						if (isRouter()) {
-							new org.nasdanika.html.app.impl.BootstrapContainerRouterApplication(
+							return new org.nasdanika.html.app.impl.BootstrapContainerRouterApplication(
 									context.get(BootstrapFactory.class, BootstrapFactory.INSTANCE),
 									(HTMLPage) pageReference.get(),
 									isFluid()) {
@@ -501,43 +504,42 @@ public class BootstrapContainerApplicationImpl extends BootstrapElementImpl impl
 								};								
 								
 							};							
-						} else {
-							new org.nasdanika.html.app.impl.BootstrapContainerApplication(
-									context.get(BootstrapFactory.class, BootstrapFactory.INSTANCE),
-									(HTMLPage) pageReference.get(),
-									isFluid()) {
-								
-								protected void configureContainer(org.nasdanika.html.bootstrap.Container container) {
-									// TODO - own config.
-								};
-								
-								protected void configureHeader(org.nasdanika.html.bootstrap.Container.Row.Col header) {
-									headerReference.set(header);
-								};
-								
-								protected void configureNavigationBar(org.nasdanika.html.bootstrap.Container.Row.Col navigationBar) {
-									navBarReference.set(navigationBar);
-								};
-								
-								protected void configureContentRow(org.nasdanika.html.bootstrap.Container.Row contentRow) {
-									// TODO - min height
-								};
-								
-								protected void configureNavigationPanel(org.nasdanika.html.bootstrap.Container.Row.Col navigationPanel) {
-									navigationPanelReference.set(navigationPanel);
-								};
-								
-								protected void configureConentPanel(org.nasdanika.html.bootstrap.Container.Row.Col contentPanel) {
-									contentPanelReference.set(contentPanel);
-								};
-								
-								protected void configureFooter(org.nasdanika.html.bootstrap.Container.Row.Col footer) {
-									footerReference.set(footer);
-								};								
-								
-							};
 						}
-						return null;
+						
+						return new org.nasdanika.html.app.impl.BootstrapContainerApplication(
+								context.get(BootstrapFactory.class, BootstrapFactory.INSTANCE),
+								(HTMLPage) pageReference.get(),
+								isFluid()) {
+							
+							protected void configureContainer(org.nasdanika.html.bootstrap.Container container) {
+								// TODO - own config.
+							};
+							
+							protected void configureHeader(org.nasdanika.html.bootstrap.Container.Row.Col header) {
+								headerReference.set(header);
+							};
+							
+							protected void configureNavigationBar(org.nasdanika.html.bootstrap.Container.Row.Col navigationBar) {
+								navBarReference.set(navigationBar);
+							};
+							
+							protected void configureContentRow(org.nasdanika.html.bootstrap.Container.Row contentRow) {
+								// TODO - min height
+							};
+							
+							protected void configureNavigationPanel(org.nasdanika.html.bootstrap.Container.Row.Col navigationPanel) {
+								navigationPanelReference.set(navigationPanel);
+							};
+							
+							protected void configureConentPanel(org.nasdanika.html.bootstrap.Container.Row.Col contentPanel) {
+								contentPanelReference.set(contentPanel);
+							};
+							
+							protected void configureFooter(org.nasdanika.html.bootstrap.Container.Row.Col footer) {
+								footerReference.set(footer);
+							};								
+							
+						};
 					}
 
 					@Override
@@ -554,10 +556,10 @@ public class BootstrapContainerApplicationImpl extends BootstrapElementImpl impl
 				ret.add(applicationWork);
 				
 				// Section work can be executed in parallel.
-				CompoundWork<Void, Void> sectionWork = new CompoundWork<Void, Void>("Sections", context.get(Executor.class)) {
+				CompoundWork<Object, Object> sectionWork = new CompoundWork<Object, Object>("Sections", context.get(Executor.class)) {
 
 					@Override
-					protected Void combine(List<Void> results, ProgressMonitor progressMonitor) throws Exception {
+					protected Object combine(List<Object> results, ProgressMonitor progressMonitor) throws Exception {
 						return null;
 					}
 					

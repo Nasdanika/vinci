@@ -6,7 +6,7 @@ import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
-import org.nasdanika.common.Consumer;
+import org.nasdanika.common.Function;
 import org.nasdanika.common.WorkFactory;
 import org.nasdanika.ncore.ModelElement;
 import org.nasdanika.vinci.app.*;
@@ -142,8 +142,8 @@ public class AppAdapterFactory extends AdapterFactoryImpl {
 				return createBootstrapElementAdapter();
 			}
 			@Override
-			public <T> Adapter caseConsumer(Consumer<T> object) {
-				return createConsumerAdapter();
+			public <T, R> Adapter caseIFunction(Function<T, R> object) {
+				return createIFunctionAdapter();
 			}
 			@Override
 			public Adapter caseHtml_Container(org.nasdanika.vinci.html.Container object) {
@@ -310,16 +310,16 @@ public class AppAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.nasdanika.common.Consumer <em>Consumer</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.common.Function <em>IFunction</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.nasdanika.common.Consumer
+	 * @see org.nasdanika.common.Function
 	 * @generated
 	 */
-	public Adapter createConsumerAdapter() {
+	public Adapter createIFunctionAdapter() {
 		return null;
 	}
 

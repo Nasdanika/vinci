@@ -3,34 +3,50 @@
 package org.nasdanika.vinci.bootstrap.provider;
 
 
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.common.util.ResourceLocator;
-import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
+import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.IItemPropertySource;
+import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
+import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-import org.nasdanika.vinci.bootstrap.BootstrapElement;
-import org.nasdanika.vinci.bootstrap.BootstrapFactory;
+
+import org.nasdanika.emf.edit.NasdanikaItemProviderAdapter;
+import org.nasdanika.html.bootstrap.Color;
+import org.nasdanika.vinci.bootstrap.Appearance;
 import org.nasdanika.vinci.bootstrap.BootstrapPackage;
-import org.nasdanika.vinci.html.provider.HtmlElementItemProvider;
 
 /**
- * This is the item provider adapter for a {@link org.nasdanika.vinci.bootstrap.BootstrapElement} object.
+ * This is the item provider adapter for a {@link org.nasdanika.vinci.bootstrap.Appearance} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class BootstrapElementItemProvider extends HtmlElementItemProvider {
+public class AppearanceItemProvider 
+	extends NasdanikaItemProviderAdapter
+	implements
+		IEditingDomainItemProvider,
+		IStructuredItemContentProvider,
+		ITreeItemContentProvider,
+		IItemLabelProvider,
+		IItemPropertySource {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public BootstrapElementItemProvider(AdapterFactory adapterFactory) {
+	public AppearanceItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -45,49 +61,41 @@ public class BootstrapElementItemProvider extends HtmlElementItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addBackgroundPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
-	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
-	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
+	 * This adds a property descriptor for the Background feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
-	@Override
-	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-		if (childrenFeatures == null) {
-			super.getChildrenFeatures(object);
-			childrenFeatures.add(BootstrapPackage.Literals.BOOTSTRAP_ELEMENT__APPEARANCE);
-		}
-		return childrenFeatures;
+	protected void addBackgroundPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor(
+				 getResourceLocator(),
+				 getString("_UI_Appearance_background_feature"),
+				 BootstrapPackage.Literals.APPEARANCE__BACKGROUND,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null,
+				 Arrays.stream(Color.values()).map(Color::name).collect(Collectors.toList())));
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected EStructuralFeature getChildFeature(Object object, Object child) {
-		// Check the type of the specified child object and return the proper feature to use for
-		// adding (see {@link AddCommand}) it as a child.
-
-		return super.getChildFeature(object, child);
-	}
-
-	/**
-	 * This returns BootstrapElement.gif.
+	 * This returns Appearance.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/BootstrapElement"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Appearance"));
 	}
 
 	/**
@@ -104,14 +112,11 @@ public class BootstrapElementItemProvider extends HtmlElementItemProvider {
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((BootstrapElement)object).getTitle();
-		return label == null || label.length() == 0 ?
-			getString("_UI_BootstrapElement_type") :
-			getString("_UI_BootstrapElement_type") + " " + label;
+		return getString("_UI_Appearance_type");
 	}
 
 
@@ -126,9 +131,9 @@ public class BootstrapElementItemProvider extends HtmlElementItemProvider {
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(BootstrapElement.class)) {
-			case BootstrapPackage.BOOTSTRAP_ELEMENT__APPEARANCE:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+		switch (notification.getFeatureID(Appearance.class)) {
+			case BootstrapPackage.APPEARANCE__BACKGROUND:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}
 		super.notifyChanged(notification);
@@ -144,11 +149,6 @@ public class BootstrapElementItemProvider extends HtmlElementItemProvider {
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add
-			(createChildParameter
-				(BootstrapPackage.Literals.BOOTSTRAP_ELEMENT__APPEARANCE,
-				 BootstrapFactory.eINSTANCE.createAppearance()));
 	}
 
 	/**

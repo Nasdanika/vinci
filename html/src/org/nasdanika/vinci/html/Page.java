@@ -3,8 +3,7 @@
 package org.nasdanika.vinci.html;
 
 import org.eclipse.emf.common.util.EList;
-
-import org.nasdanika.common.Consumer;
+import org.nasdanika.common.Function;
 import org.nasdanika.common.WorkFactory;
 
 import org.nasdanika.ncore.NamedElement;
@@ -67,7 +66,7 @@ public interface Page extends NamedElement, WorkFactory<Object> {
 
 	/**
 	 * Returns the value of the '<em><b>Builders</b></em>' containment reference list.
-	 * The list contents are of type {@link org.nasdanika.common.Consumer}<code>&lt;java.lang.Object&gt;</code>.
+	 * The list contents are of type {@link org.nasdanika.common.Function}<code>&lt;java.lang.Object, java.lang.Object&gt;</code>.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
@@ -75,10 +74,10 @@ public interface Page extends NamedElement, WorkFactory<Object> {
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Builders</em>' containment reference list.
 	 * @see org.nasdanika.vinci.html.HtmlPackage#getPage_Builders()
-	 * @model type="org.nasdanika.ncore.Consumer&lt;org.eclipse.emf.ecore.EJavaObject&gt;" containment="true"
+	 * @model type="org.nasdanika.ncore.IFunction&lt;org.eclipse.emf.ecore.EJavaObject, org.eclipse.emf.ecore.EJavaObject&gt;" containment="true"
 	 * @generated
 	 */
-	EList<Consumer<Object>> getBuilders();
+	EList<Function<Object, Object>> getBuilders();
 
 	/**
 	 * Returns the value of the '<em><b>Language</b></em>' attribute.

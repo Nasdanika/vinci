@@ -11,9 +11,10 @@
     </eAnnotations>
     <eOperations name="asBuilder">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Wraps element into a Consumer so it can be used as a builder - an existing object can be passed to HTML element's consumer and it will &quot;build&quot; it by applying styles, attriutes, etc."/>
+        <details key="documentation" value="Wraps element into a Function so it can be used as a builder - an existing object can be passed to HTML element's function and it will &quot;build&quot; it by applying styles, attriutes, etc."/>
       </eAnnotations>
-      <eGenericType eClassifier="ecore:EClass ../../org.nasdanika.ncore/model/ncore.ecore#//Consumer">
+      <eGenericType eClassifier="ecore:EClass ../../org.nasdanika.ncore/model/ncore.ecore#//IFunction">
+        <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
         <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
       </eGenericType>
     </eOperations>
@@ -62,7 +63,8 @@
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Builders operate on an instance of ``org.nasdanika.html.HTMLPage`` created by the the page element."/>
       </eAnnotations>
-      <eGenericType eClassifier="ecore:EClass ../../org.nasdanika.ncore/model/ncore.ecore#//Consumer">
+      <eGenericType eClassifier="ecore:EClass ../../org.nasdanika.ncore/model/ncore.ecore#//IFunction">
+        <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
         <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
       </eGenericType>
     </eStructuralFeatures>

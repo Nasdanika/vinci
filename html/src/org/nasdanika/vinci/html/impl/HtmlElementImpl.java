@@ -5,7 +5,7 @@ package org.nasdanika.vinci.html.impl;
 import java.lang.reflect.InvocationTargetException;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-import org.nasdanika.common.Consumer;
+import org.nasdanika.common.Function;
 import org.nasdanika.ncore.impl.ModelElementImpl;
 import org.nasdanika.vinci.html.HtmlElement;
 import org.nasdanika.vinci.html.HtmlPackage;
@@ -36,6 +36,7 @@ public abstract class HtmlElementImpl extends ModelElementImpl implements HtmlEl
 	protected EClass eStaticClass() {
 		return HtmlPackage.Literals.HTML_ELEMENT;
 	}
+	
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -43,11 +44,10 @@ public abstract class HtmlElementImpl extends ModelElementImpl implements HtmlEl
 	 * @generated NOT
 	 */
 	@Override
-	public Consumer<Object> asBuilder() {
-		// TODO - proper implementation
-		return Consumer.from(o -> {
-			// NOP for now.
-		});
+	public Function<Object, Object> asBuilder() {
+		
+		// TODO - implement.
+		return Function.nop();
 	}
 
 	/**

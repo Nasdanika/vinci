@@ -12,6 +12,7 @@ import org.nasdanika.common.Util;
 import org.nasdanika.emf.DiagnosticHelper;
 import org.nasdanika.html.bootstrap.Color;
 import org.nasdanika.html.bootstrap.Theme;
+import org.nasdanika.vinci.bootstrap.*;
 import org.nasdanika.vinci.bootstrap.Accordion;
 import org.nasdanika.vinci.bootstrap.ActionGroup;
 import org.nasdanika.vinci.bootstrap.ActionGroupItem;
@@ -121,6 +122,8 @@ public class BootstrapValidator extends EObjectValidator {
 		switch (classifierID) {
 			case BootstrapPackage.BOOTSTRAP_PAGE:
 				return validateBootstrapPage((BootstrapPage)value, diagnostics, context);
+			case BootstrapPackage.APPEARANCE:
+				return validateAppearance((Appearance)value, diagnostics, context);
 			case BootstrapPackage.BOOTSTRAP_ELEMENT:
 				return validateBootstrapElement((BootstrapElement)value, diagnostics, context);
 			case BootstrapPackage.TAG:
@@ -228,6 +231,15 @@ public class BootstrapValidator extends EObjectValidator {
 			return helper.isSuccess();
 		}
 		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateAppearance(Appearance appearance, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(appearance, diagnostics, context);
 	}
 
 	/**

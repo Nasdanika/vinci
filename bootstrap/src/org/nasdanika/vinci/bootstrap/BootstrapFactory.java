@@ -31,6 +31,15 @@ public interface BootstrapFactory extends EFactory {
 	BootstrapPage createBootstrapPage();
 
 	/**
+	 * Returns a new object of class '<em>Appearance</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Appearance</em>'.
+	 * @generated
+	 */
+	Appearance createAppearance();
+
+	/**
 	 * Returns a new object of class '<em>Container</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

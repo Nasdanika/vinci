@@ -1427,6 +1427,15 @@ public interface AppPackage extends EPackage {
 	int BOOTSTRAP_CONTAINER_APPLICATION__DESCRIPTION = BootstrapPackage.BOOTSTRAP_ELEMENT__DESCRIPTION;
 
 	/**
+	 * The feature id for the '<em><b>Appearance</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOTSTRAP_CONTAINER_APPLICATION__APPEARANCE = BootstrapPackage.BOOTSTRAP_ELEMENT__APPEARANCE;
+
+	/**
 	 * The feature id for the '<em><b>Fluid</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1543,6 +1552,15 @@ public interface AppPackage extends EPackage {
 	 * @ordered
 	 */
 	int BOOTSTRAP_CONTAINER_APPLICATION_SECTION__DESCRIPTION = BootstrapPackage.BOOTSTRAP_ELEMENT__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Appearance</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOTSTRAP_CONTAINER_APPLICATION_SECTION__APPEARANCE = BootstrapPackage.BOOTSTRAP_ELEMENT__APPEARANCE;
 
 	/**
 	 * The feature id for the '<em><b>Content</b></em>' containment reference list.

@@ -6,16 +6,14 @@ import java.util.Collection;
 import java.util.List;
 import java.util.concurrent.Executor;
 
-
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.InternalEList;
-import org.nasdanika.common.CompoundConsumer;
 import org.nasdanika.common.CompoundWork;
-import org.nasdanika.common.Consumer;
 import org.nasdanika.common.Context;
+import org.nasdanika.common.Function;
 import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.common.Util;
 import org.nasdanika.common.Work;
@@ -103,8 +101,8 @@ public class PageImpl extends NamedElementImpl implements Page {
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public EList<Consumer<Object>> getBuilders() {
-		return (EList<Consumer<Object>>)eDynamicGet(HtmlPackage.PAGE__BUILDERS, HtmlPackage.Literals.PAGE__BUILDERS, true, true);
+	public EList<Function<Object, Object>> getBuilders() {
+		return (EList<Function<Object, Object>>)eDynamicGet(HtmlPackage.PAGE__BUILDERS, HtmlPackage.Literals.PAGE__BUILDERS, true, true);
 	}
 
 	/**
@@ -210,7 +208,7 @@ public class PageImpl extends NamedElementImpl implements Page {
 				return;
 			case HtmlPackage.PAGE__BUILDERS:
 				getBuilders().clear();
-				getBuilders().addAll((Collection<? extends Consumer<Object>>)newValue);
+				getBuilders().addAll((Collection<? extends Function<Object, Object>>)newValue);
 				return;
 			case HtmlPackage.PAGE__LANGUAGE:
 				setLanguage((String)newValue);
@@ -315,14 +313,14 @@ public class PageImpl extends NamedElementImpl implements Page {
 		return ret;
 	}
 	
-	protected WorkFactory<Void> createBuildersWorkFactory(HTMLPage page) throws Exception {
-		CompoundConsumer<Object> cf = new CompoundConsumer<>();
+	protected Function<Object, Object> createBuildersFunction() throws Exception {
+		Function<Object, Object> ret = null;
 		
-		for (Consumer<Object> builder: getBuilders()) {
-			cf.add(builder);;
+		for (Function<Object, Object> builder: getBuilders()) {
+			ret = ret == null ? builder : ret.then(builder);
 		}
 		
-		return cf.create(WorkFactory.from(page, "HTML Page"));
+		return ret;
 	}
 	
 	/**
@@ -372,7 +370,10 @@ public class PageImpl extends NamedElementImpl implements Page {
 					page.title(name);
 				}
 				
-				createBuildersWorkFactory(page).create(context).execute(progressMonitor.split("Builders", 1));
+				Function<Object, Object> buildersFunction = createBuildersFunction();
+				if (buildersFunction != null) {				
+					WorkFactory.from((Object) page, "Page").then(buildersFunction).create(context).execute(progressMonitor.split("Builders", 1));
+				}
 				return page;
 			}
 		};

@@ -2,7 +2,7 @@
  */
 package org.nasdanika.vinci.app;
 
-import org.nasdanika.common.Consumer;
+import org.nasdanika.common.Function;
 import org.nasdanika.vinci.bootstrap.BootstrapElement;
 
 /**
@@ -36,10 +36,10 @@ import org.nasdanika.vinci.bootstrap.BootstrapElement;
  * </ul>
  *
  * @see org.nasdanika.vinci.app.AppPackage#getBootstrapContainerApplication()
- * @model superTypes="org.nasdanika.vinci.bootstrap.BootstrapElement org.nasdanika.ncore.Consumer&lt;org.eclipse.emf.ecore.EJavaObject&gt;"
+ * @model superTypes="org.nasdanika.vinci.bootstrap.BootstrapElement org.nasdanika.ncore.IFunction&lt;org.eclipse.emf.ecore.EJavaObject, org.eclipse.emf.ecore.EJavaObject&gt;"
  * @generated
  */
-public interface BootstrapContainerApplication extends BootstrapElement, Consumer<Object> {
+public interface BootstrapContainerApplication extends BootstrapElement, Function<Object, Object> {
 
 	/**
 	 * Returns the value of the '<em><b>Fluid</b></em>' attribute.

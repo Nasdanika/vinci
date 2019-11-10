@@ -5,7 +5,7 @@ package org.nasdanika.vinci.app.util;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
-import org.nasdanika.common.Consumer;
+import org.nasdanika.common.Function;
 import org.nasdanika.common.WorkFactory;
 import org.nasdanika.ncore.ModelElement;
 import org.nasdanika.vinci.app.*;
@@ -182,7 +182,7 @@ public class AppSwitch<T1> extends Switch<T1> {
 				BootstrapContainerApplication bootstrapContainerApplication = (BootstrapContainerApplication)theEObject;
 				T1 result = caseBootstrapContainerApplication(bootstrapContainerApplication);
 				if (result == null) result = caseBootstrapElement(bootstrapContainerApplication);
-				if (result == null) result = caseConsumer(bootstrapContainerApplication);
+				if (result == null) result = caseIFunction(bootstrapContainerApplication);
 				if (result == null) result = caseHtmlElement(bootstrapContainerApplication);
 				if (result == null) result = caseModelElement(bootstrapContainerApplication);
 				if (result == null) result = defaultCase(theEObject);
@@ -353,17 +353,17 @@ public class AppSwitch<T1> extends Switch<T1> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Consumer</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>IFunction</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Consumer</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>IFunction</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public <T> T1 caseConsumer(Consumer<T> object) {
+	public <T, R> T1 caseIFunction(Function<T, R> object) {
 		return null;
 	}
 

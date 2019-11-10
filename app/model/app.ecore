@@ -294,7 +294,8 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="footer" eType="#//BootstrapContainerApplicationSection"
         containment="true"/>
     <eGenericSuperTypes eClassifier="ecore:EClass ../../org.nasdanika.vinci.bootstrap/model/bootstrap.ecore#//BootstrapElement"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass ../../org.nasdanika.ncore/model/ncore.ecore#//Consumer">
+    <eGenericSuperTypes eClassifier="ecore:EClass ../../org.nasdanika.ncore/model/ncore.ecore#//IFunction">
+      <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
       <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
     </eGenericSuperTypes>
   </eClassifiers>

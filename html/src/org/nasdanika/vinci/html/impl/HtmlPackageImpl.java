@@ -386,7 +386,9 @@ public class HtmlPackageImpl extends EPackageImpl implements HtmlPackage {
 		initEClass(htmlElementEClass, HtmlElement.class, "HtmlElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		EOperation op = initEOperation(getHtmlElement__AsBuilder(), null, "asBuilder", 0, 1, IS_UNIQUE, IS_ORDERED);
-		g1 = createEGenericType(theNcorePackage.getConsumer());
+		g1 = createEGenericType(theNcorePackage.getIFunction());
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
 		g2 = createEGenericType(ecorePackage.getEJavaObject());
 		g1.getETypeArguments().add(g2);
 		initEOperation(op, g1);
@@ -411,7 +413,9 @@ public class HtmlPackageImpl extends EPackageImpl implements HtmlPackage {
 		g2 = createEGenericType(ecorePackage.getEJavaObject());
 		g1.getETypeArguments().add(g2);
 		initEReference(getPage_Body(), g1, null, "body", null, 0, -1, Page.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		g1 = createEGenericType(theNcorePackage.getConsumer());
+		g1 = createEGenericType(theNcorePackage.getIFunction());
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
 		g2 = createEGenericType(ecorePackage.getEJavaObject());
 		g1.getETypeArguments().add(g2);
 		initEReference(getPage_Builders(), g1, null, "builders", null, 0, -1, Page.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -454,7 +458,7 @@ public class HtmlPackageImpl extends EPackageImpl implements HtmlPackage {
 		  (getHtmlElement__AsBuilder(),
 		   source,
 		   new String[] {
-			   "documentation", "Wraps element into a Consumer so it can be used as a builder - an existing object can be passed to HTML element\'s consumer and it will \"build\" it by applying styles, attriutes, etc."
+			   "documentation", "Wraps element into a Function so it can be used as a builder - an existing object can be passed to HTML element\'s function and it will \"build\" it by applying styles, attriutes, etc."
 		   });
 		addAnnotation
 		  (containerEClass,

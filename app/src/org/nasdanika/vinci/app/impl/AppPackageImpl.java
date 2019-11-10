@@ -945,7 +945,9 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 		partitionEClass.getESuperTypes().add(this.getActionBase());
 		g1 = createEGenericType(theBootstrapPackage.getBootstrapElement());
 		bootstrapContainerApplicationEClass.getEGenericSuperTypes().add(g1);
-		g1 = createEGenericType(theNcorePackage.getConsumer());
+		g1 = createEGenericType(theNcorePackage.getIFunction());
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
 		g2 = createEGenericType(ecorePackage.getEJavaObject());
 		g1.getETypeArguments().add(g2);
 		bootstrapContainerApplicationEClass.getEGenericSuperTypes().add(g1);

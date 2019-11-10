@@ -8,6 +8,7 @@ import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 
 import org.eclipse.emf.ecore.EObject;
+import org.nasdanika.common.Function;
 import org.nasdanika.common.WorkFactory;
 import org.nasdanika.ncore.ModelElement;
 import org.nasdanika.ncore.NamedElement;
@@ -75,6 +76,10 @@ public class BootstrapAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseBootstrapPage(BootstrapPage object) {
 				return createBootstrapPageAdapter();
+			}
+			@Override
+			public Adapter caseAppearance(Appearance object) {
+				return createAppearanceAdapter();
 			}
 			@Override
 			public Adapter caseBootstrapElement(BootstrapElement object) {
@@ -221,6 +226,10 @@ public class BootstrapAdapterFactory extends AdapterFactoryImpl {
 				return createPageAdapter();
 			}
 			@Override
+			public <T, R> Adapter caseIFunction(Function<T, R> object) {
+				return createIFunctionAdapter();
+			}
+			@Override
 			public Adapter caseHtmlElement(HtmlElement object) {
 				return createHtmlElementAdapter();
 			}
@@ -263,6 +272,20 @@ public class BootstrapAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createBootstrapPageAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.vinci.bootstrap.Appearance <em>Appearance</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.vinci.bootstrap.Appearance
+	 * @generated
+	 */
+	public Adapter createAppearanceAdapter() {
 		return null;
 	}
 
@@ -809,6 +832,20 @@ public class BootstrapAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createPageAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.common.Function <em>IFunction</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.common.Function
+	 * @generated
+	 */
+	public Adapter createIFunctionAdapter() {
 		return null;
 	}
 

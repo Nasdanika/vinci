@@ -15,7 +15,12 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bootstrap.ecore#//BootstrapPage/cdn"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bootstrap.ecore#//BootstrapPage/theme"/>
     </genClasses>
-    <genClasses ecoreClass="bootstrap.ecore#//BootstrapElement"/>
+    <genClasses ecoreClass="bootstrap.ecore#//Appearance">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bootstrap.ecore#//Appearance/background"/>
+    </genClasses>
+    <genClasses ecoreClass="bootstrap.ecore#//BootstrapElement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference bootstrap.ecore#//BootstrapElement/appearance"/>
+    </genClasses>
     <genClasses ecoreClass="bootstrap.ecore#//Tag"/>
     <genClasses ecoreClass="bootstrap.ecore#//Div"/>
     <genClasses image="false" ecoreClass="bootstrap.ecore#//Item">
