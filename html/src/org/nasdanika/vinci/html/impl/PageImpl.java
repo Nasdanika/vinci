@@ -11,13 +11,13 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.InternalEList;
-import org.nasdanika.common.CompoundWork;
 import org.nasdanika.common.Context;
-import org.nasdanika.common.Function;
+import org.nasdanika.common.FunctionFactory;
 import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.common.Util;
-import org.nasdanika.common.Work;
-import org.nasdanika.common.WorkFactory;
+import org.nasdanika.common._legacy.CompoundSupplier;
+import org.nasdanika.common.Supplier;
+import org.nasdanika.common.SupplierFactory;
 import org.nasdanika.html.HTMLFactory;
 import org.nasdanika.html.HTMLPage;
 import org.nasdanika.ncore.impl.NamedElementImpl;
@@ -79,8 +79,8 @@ public class PageImpl extends NamedElementImpl implements Page {
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public EList<WorkFactory<Object>> getHead() {
-		return (EList<WorkFactory<Object>>)eDynamicGet(HtmlPackage.PAGE__HEAD, HtmlPackage.Literals.PAGE__HEAD, true, true);
+	public EList<SupplierFactory<Object>> getHead() {
+		return (EList<SupplierFactory<Object>>)eDynamicGet(HtmlPackage.PAGE__HEAD, HtmlPackage.Literals.PAGE__HEAD, true, true);
 	}
 
 	/**
@@ -90,8 +90,8 @@ public class PageImpl extends NamedElementImpl implements Page {
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public EList<WorkFactory<Object>> getBody() {
-		return (EList<WorkFactory<Object>>)eDynamicGet(HtmlPackage.PAGE__BODY, HtmlPackage.Literals.PAGE__BODY, true, true);
+	public EList<SupplierFactory<Object>> getBody() {
+		return (EList<SupplierFactory<Object>>)eDynamicGet(HtmlPackage.PAGE__BODY, HtmlPackage.Literals.PAGE__BODY, true, true);
 	}
 
 	/**
@@ -101,8 +101,8 @@ public class PageImpl extends NamedElementImpl implements Page {
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public EList<Function<Object, Object>> getBuilders() {
-		return (EList<Function<Object, Object>>)eDynamicGet(HtmlPackage.PAGE__BUILDERS, HtmlPackage.Literals.PAGE__BUILDERS, true, true);
+	public EList<FunctionFactory<Object, Object>> getBuilders() {
+		return (EList<FunctionFactory<Object, Object>>)eDynamicGet(HtmlPackage.PAGE__BUILDERS, HtmlPackage.Literals.PAGE__BUILDERS, true, true);
 	}
 
 	/**
@@ -200,15 +200,15 @@ public class PageImpl extends NamedElementImpl implements Page {
 		switch (featureID) {
 			case HtmlPackage.PAGE__HEAD:
 				getHead().clear();
-				getHead().addAll((Collection<? extends WorkFactory<Object>>)newValue);
+				getHead().addAll((Collection<? extends SupplierFactory<Object>>)newValue);
 				return;
 			case HtmlPackage.PAGE__BODY:
 				getBody().clear();
-				getBody().addAll((Collection<? extends WorkFactory<Object>>)newValue);
+				getBody().addAll((Collection<? extends SupplierFactory<Object>>)newValue);
 				return;
 			case HtmlPackage.PAGE__BUILDERS:
 				getBuilders().clear();
-				getBuilders().addAll((Collection<? extends Function<Object, Object>>)newValue);
+				getBuilders().addAll((Collection<? extends FunctionFactory<Object, Object>>)newValue);
 				return;
 			case HtmlPackage.PAGE__LANGUAGE:
 				setLanguage((String)newValue);
@@ -279,8 +279,8 @@ public class PageImpl extends NamedElementImpl implements Page {
 		return super.eIsSet(featureID);
 	}
 		
-	protected Work<List<Object>> createHeadWork(Context context) throws Exception {
-		CompoundWork<List<Object>, Object> ret = new CompoundWork<List<Object>, Object>("Head", context.get(Executor.class)) {
+	protected Supplier<List<Object>> createHeadWork(Context context) throws Exception {
+		CompoundSupplier<List<Object>, Object> ret = new CompoundSupplier<List<Object>, Object>("Head", context.get(Executor.class)) {
 
 			@Override
 			protected List<Object> combine(List<Object> results, ProgressMonitor progressMonitor) throws Exception {
@@ -289,15 +289,15 @@ public class PageImpl extends NamedElementImpl implements Page {
 			
 		}; 
 		
-		for (WorkFactory<Object> ce: getHead()) {
+		for (SupplierFactory<Object> ce: getHead()) {
 			ret.add(ce.create(context));
 		}
 		
 		return ret;
 	}
 	
-	protected Work<List<Object>> createBodyWork(Context context) throws Exception {
-		CompoundWork<List<Object>, Object> ret = new CompoundWork<List<Object>, Object>("Body", context.get(Executor.class)) {
+	protected Supplier<List<Object>> createBodyWork(Context context) throws Exception {
+		CompoundSupplier<List<Object>, Object> ret = new CompoundSupplier<List<Object>, Object>("Body", context.get(Executor.class)) {
 
 			@Override
 			protected List<Object> combine(List<Object> results, ProgressMonitor progressMonitor) throws Exception {
@@ -306,17 +306,17 @@ public class PageImpl extends NamedElementImpl implements Page {
 			
 		}; 
 		
-		for (WorkFactory<Object> ce: getBody()) {
+		for (SupplierFactory<Object> ce: getBody()) {
 			ret.add(ce.create(context));
 		}
 		
 		return ret;
 	}
 	
-	protected Function<Object, Object> createBuildersFunction() throws Exception {
-		Function<Object, Object> ret = null;
+	protected FunctionFactory<Object, Object> createBuildersFunction() throws Exception {
+		FunctionFactory<Object, Object> ret = null;
 		
-		for (Function<Object, Object> builder: getBuilders()) {
+		for (FunctionFactory<Object, Object> builder: getBuilders()) {
 			ret = ret == null ? builder : ret.then(builder);
 		}
 		
@@ -333,8 +333,8 @@ public class PageImpl extends NamedElementImpl implements Page {
 	}
 	
 	@Override
-	public Work<Object> create(Context context) throws Exception {
-		CompoundWork<Object,List<Object>> ret = new CompoundWork<Object,List<Object>>(getTitle(), context.get(Executor.class)) {
+	public Supplier<Object> create(Context context) throws Exception {
+		CompoundSupplier<Object,List<Object>> ret = new CompoundSupplier<Object,List<Object>>(getTitle(), context.get(Executor.class)) {
 			
 			@Override
 			public double size() {
@@ -370,9 +370,9 @@ public class PageImpl extends NamedElementImpl implements Page {
 					page.title(name);
 				}
 				
-				Function<Object, Object> buildersFunction = createBuildersFunction();
+				FunctionFactory<Object, Object> buildersFunction = createBuildersFunction();
 				if (buildersFunction != null) {				
-					WorkFactory.from((Object) page, "Page").then(buildersFunction).create(context).execute(progressMonitor.split("Builders", 1));
+					SupplierFactory.from((Object) page, "Page").then(buildersFunction).create(context).execute(progressMonitor.split("Builders", 1));
 				}
 				return page;
 			}

@@ -2,7 +2,7 @@
  */
 package org.nasdanika.vinci.html;
 
-import org.nasdanika.common.WorkFactory;
+import org.nasdanika.common.SupplierFactory;
 import org.nasdanika.html.TagName;
 
 
@@ -22,7 +22,7 @@ import org.nasdanika.html.TagName;
  * @model superTypes="org.nasdanika.vinci.html.HtmlElement org.nasdanika.ncore.WorkFactory&lt;org.eclipse.emf.ecore.EJavaObject&gt;"
  * @generated
  */
-public interface Tag extends HtmlElement, WorkFactory<Object> {
+public interface Tag extends HtmlElement, SupplierFactory<Object> {
 
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.

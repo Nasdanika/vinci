@@ -2,7 +2,7 @@
  */
 package org.nasdanika.vinci.app;
 
-import org.nasdanika.common.WorkFactory;
+import org.nasdanika.common.SupplierFactory;
 import org.nasdanika.html.bootstrap.Color;
 import org.nasdanika.ncore.ModelElement;
 
@@ -32,7 +32,7 @@ import org.nasdanika.ncore.ModelElement;
  * @model abstract="true" superTypes="org.nasdanika.ncore.ModelElement org.nasdanika.ncore.WorkFactory&lt;org.eclipse.emf.ecore.EJavaObject&gt;"
  * @generated
  */
-public interface Label extends ModelElement, WorkFactory<Object> {
+public interface Label extends ModelElement, SupplierFactory<Object> {
 	/**
 	 * Returns the value of the '<em><b>Color</b></em>' attribute.
 	 * <!-- begin-user-doc -->

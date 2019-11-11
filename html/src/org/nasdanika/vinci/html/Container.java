@@ -5,7 +5,7 @@ package org.nasdanika.vinci.html;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EObject;
-import org.nasdanika.common.WorkFactory;
+import org.nasdanika.common.SupplierFactory;
 
 /**
  * <!-- begin-user-doc -->
@@ -30,7 +30,7 @@ import org.nasdanika.common.WorkFactory;
 public interface Container extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Content</b></em>' containment reference list.
-	 * The list contents are of type {@link org.nasdanika.common.WorkFactory}<code>&lt;java.lang.Object&gt;</code>.
+	 * The list contents are of type {@link org.nasdanika.common.SupplierFactory}<code>&lt;java.lang.Object&gt;</code>.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Content</em>' containment reference list.
@@ -38,6 +38,6 @@ public interface Container extends EObject {
 	 * @model type="org.nasdanika.ncore.WorkFactory&lt;org.eclipse.emf.ecore.EJavaObject&gt;" containment="true"
 	 * @generated
 	 */
-	EList<WorkFactory<Object>> getContent();
+	EList<SupplierFactory<Object>> getContent();
 
 } // Container

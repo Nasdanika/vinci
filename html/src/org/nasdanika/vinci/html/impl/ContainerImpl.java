@@ -14,7 +14,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.InternalEList;
-import org.nasdanika.common.WorkFactory;
+import org.nasdanika.common.SupplierFactory;
 import org.nasdanika.vinci.html.HtmlPackage;
 
 /**
@@ -67,8 +67,8 @@ public class ContainerImpl extends MinimalEObjectImpl.Container implements org.n
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public EList<WorkFactory<Object>> getContent() {
-		return (EList<WorkFactory<Object>>)eDynamicGet(HtmlPackage.CONTAINER__CONTENT, HtmlPackage.Literals.CONTAINER__CONTENT, true, true);
+	public EList<SupplierFactory<Object>> getContent() {
+		return (EList<SupplierFactory<Object>>)eDynamicGet(HtmlPackage.CONTAINER__CONTENT, HtmlPackage.Literals.CONTAINER__CONTENT, true, true);
 	}
 
 	/**
@@ -110,7 +110,7 @@ public class ContainerImpl extends MinimalEObjectImpl.Container implements org.n
 		switch (featureID) {
 			case HtmlPackage.CONTAINER__CONTENT:
 				getContent().clear();
-				getContent().addAll((Collection<? extends WorkFactory<Object>>)newValue);
+				getContent().addAll((Collection<? extends SupplierFactory<Object>>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

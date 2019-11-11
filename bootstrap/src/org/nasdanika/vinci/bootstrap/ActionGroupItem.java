@@ -4,7 +4,7 @@ package org.nasdanika.vinci.bootstrap;
 
 import org.eclipse.emf.common.util.EList;
 
-import org.nasdanika.common.WorkFactory;
+import org.nasdanika.common.SupplierFactory;
 
 /**
  * <!-- begin-user-doc -->
@@ -26,10 +26,10 @@ import org.nasdanika.common.WorkFactory;
  * @model abstract="true" superTypes="org.nasdanika.vinci.bootstrap.Item org.nasdanika.ncore.WorkFactory&lt;org.eclipse.emf.ecore.EJavaObject&gt;"
  * @generated
  */
-public interface ActionGroupItem extends Item, WorkFactory<Object> {
+public interface ActionGroupItem extends Item, SupplierFactory<Object> {
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' containment reference list.
-	 * The list contents are of type {@link org.nasdanika.common.WorkFactory}<code>&lt;java.lang.Object&gt;</code>.
+	 * The list contents are of type {@link org.nasdanika.common.SupplierFactory}<code>&lt;java.lang.Object&gt;</code>.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
@@ -40,6 +40,6 @@ public interface ActionGroupItem extends Item, WorkFactory<Object> {
 	 * @model type="org.nasdanika.ncore.WorkFactory&lt;org.eclipse.emf.ecore.EJavaObject&gt;" containment="true"
 	 * @generated
 	 */
-	EList<WorkFactory<Object>> getName();
+	EList<SupplierFactory<Object>> getName();
 
 } // ActionGroupItem

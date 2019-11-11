@@ -9,10 +9,10 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.InternalEList;
-import org.nasdanika.common.CompoundWork;
 import org.nasdanika.common.Context;
-import org.nasdanika.common.Work;
-import org.nasdanika.common.WorkFactory;
+import org.nasdanika.common.Supplier;
+import org.nasdanika.common.SupplierFactory;
+import org.nasdanika.common._legacy.CompoundSupplier;
 import org.nasdanika.vinci.html.ContentTag;
 import org.nasdanika.vinci.html.HtmlPackage;
 
@@ -56,8 +56,8 @@ public class ContentTagImpl extends TagImpl implements ContentTag {
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public EList<WorkFactory<Object>> getContent() {
-		return (EList<WorkFactory<Object>>)eDynamicGet(HtmlPackage.CONTENT_TAG__CONTENT, HtmlPackage.Literals.CONTAINER__CONTENT, true, true);
+	public EList<SupplierFactory<Object>> getContent() {
+		return (EList<SupplierFactory<Object>>)eDynamicGet(HtmlPackage.CONTENT_TAG__CONTENT, HtmlPackage.Literals.CONTAINER__CONTENT, true, true);
 	}
 
 	/**
@@ -99,7 +99,7 @@ public class ContentTagImpl extends TagImpl implements ContentTag {
 		switch (featureID) {
 			case HtmlPackage.CONTENT_TAG__CONTENT:
 				getContent().clear();
-				getContent().addAll((Collection<? extends WorkFactory<Object>>)newValue);
+				getContent().addAll((Collection<? extends SupplierFactory<Object>>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -168,11 +168,11 @@ public class ContentTagImpl extends TagImpl implements ContentTag {
 	
 	@SuppressWarnings("unchecked")
 	@Override
-	public Work<Object> create(Context context) throws Exception {
-		Work<Object> work = super.create(context);
+	public Supplier<Object> create(Context context) throws Exception {
+		Supplier<Object> work = super.create(context);
 		
-		for (WorkFactory<Object> content: getContent()) {
-			((CompoundWork<Object,Object>) work).add(content.create(context));
+		for (SupplierFactory<Object> content: getContent()) {
+			((CompoundSupplier<Object,Object>) work).add(content.create(context));
 		}
 		return work;
 	}

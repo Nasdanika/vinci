@@ -11,11 +11,11 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.InternalEList;
-import org.nasdanika.common.CompoundWork;
 import org.nasdanika.common.Context;
 import org.nasdanika.common.ProgressMonitor;
-import org.nasdanika.common.Work;
-import org.nasdanika.common.WorkFactory;
+import org.nasdanika.common.Supplier;
+import org.nasdanika.common.SupplierFactory;
+import org.nasdanika.common._legacy.CompoundSupplier;
 import org.nasdanika.vinci.bootstrap.ActionGroupItem;
 import org.nasdanika.vinci.bootstrap.BootstrapPackage;
 
@@ -59,8 +59,8 @@ public abstract class ActionGroupItemImpl extends ItemImpl implements ActionGrou
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public EList<WorkFactory<Object>> getName() {
-		return (EList<WorkFactory<Object>>)eDynamicGet(BootstrapPackage.ACTION_GROUP_ITEM__NAME, BootstrapPackage.Literals.ACTION_GROUP_ITEM__NAME, true, true);
+	public EList<SupplierFactory<Object>> getName() {
+		return (EList<SupplierFactory<Object>>)eDynamicGet(BootstrapPackage.ACTION_GROUP_ITEM__NAME, BootstrapPackage.Literals.ACTION_GROUP_ITEM__NAME, true, true);
 	}
 
 	/**
@@ -102,7 +102,7 @@ public abstract class ActionGroupItemImpl extends ItemImpl implements ActionGrou
 		switch (featureID) {
 			case BootstrapPackage.ACTION_GROUP_ITEM__NAME:
 				getName().clear();
-				getName().addAll((Collection<? extends WorkFactory<Object>>)newValue);
+				getName().addAll((Collection<? extends SupplierFactory<Object>>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -137,8 +137,8 @@ public abstract class ActionGroupItemImpl extends ItemImpl implements ActionGrou
 		return super.eIsSet(featureID);
 	}
 	
-	protected Work<List<Object>> createNameWork(Context context) throws Exception {
-		CompoundWork<List<Object>, Object> ret = new CompoundWork<List<Object>, Object>("Name", context.get(Executor.class)) {
+	protected Supplier<List<Object>> createNameWork(Context context) throws Exception {
+		CompoundSupplier<List<Object>, Object> ret = new CompoundSupplier<List<Object>, Object>("Name", context.get(Executor.class)) {
 
 			@Override
 			protected List<Object> combine(List<Object> results, ProgressMonitor progressMonitor) throws Exception {
@@ -147,7 +147,7 @@ public abstract class ActionGroupItemImpl extends ItemImpl implements ActionGrou
 			
 		}; 
 		
-		for (WorkFactory<Object> ne: getName()) {
+		for (SupplierFactory<Object> ne: getName()) {
 			ret.add(ne.create(context));
 		}
 		

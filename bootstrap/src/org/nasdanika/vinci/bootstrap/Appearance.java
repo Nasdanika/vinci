@@ -3,7 +3,7 @@
 package org.nasdanika.vinci.bootstrap;
 
 import org.eclipse.emf.ecore.EObject;
-import org.nasdanika.common.Function;
+import org.nasdanika.common.FunctionFactory;
 
 /**
  * <!-- begin-user-doc -->
@@ -25,7 +25,7 @@ import org.nasdanika.common.Function;
  * @model superTypes="org.nasdanika.ncore.IFunction&lt;org.eclipse.emf.ecore.EJavaObject, org.eclipse.emf.ecore.EJavaObject&gt;"
  * @generated
  */
-public interface Appearance extends EObject, Function<Object, Object> {
+public interface Appearance extends EObject, FunctionFactory<Object, Object> {
 	/**
 	 * Returns the value of the '<em><b>Background</b></em>' attribute.
 	 * <!-- begin-user-doc -->

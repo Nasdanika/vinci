@@ -14,12 +14,12 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.util.InternalEList;
-import org.nasdanika.common.CompoundWork;
 import org.nasdanika.common.Context;
 import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.common.Util;
-import org.nasdanika.common.Work;
-import org.nasdanika.common.WorkFactory;
+import org.nasdanika.common._legacy.CompoundSupplier;
+import org.nasdanika.common.Supplier;
+import org.nasdanika.common.SupplierFactory;
 import org.nasdanika.html.Fragment;
 import org.nasdanika.html.HTMLFactory;
 import org.nasdanika.html.bootstrap.ActionGroup;
@@ -69,8 +69,8 @@ public class ContentActionGroupItemImpl extends ActionGroupItemImpl implements C
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public EList<WorkFactory<Object>> getContent() {
-		return (EList<WorkFactory<Object>>)eDynamicGet(BootstrapPackage.CONTENT_ACTION_GROUP_ITEM__CONTENT, HtmlPackage.Literals.CONTAINER__CONTENT, true, true);
+	public EList<SupplierFactory<Object>> getContent() {
+		return (EList<SupplierFactory<Object>>)eDynamicGet(BootstrapPackage.CONTENT_ACTION_GROUP_ITEM__CONTENT, HtmlPackage.Literals.CONTAINER__CONTENT, true, true);
 	}
 
 	/**
@@ -112,7 +112,7 @@ public class ContentActionGroupItemImpl extends ActionGroupItemImpl implements C
 		switch (featureID) {
 			case BootstrapPackage.CONTENT_ACTION_GROUP_ITEM__CONTENT:
 				getContent().clear();
-				getContent().addAll((Collection<? extends WorkFactory<Object>>)newValue);
+				getContent().addAll((Collection<? extends SupplierFactory<Object>>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -179,8 +179,8 @@ public class ContentActionGroupItemImpl extends ActionGroupItemImpl implements C
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 	
-	protected Work<List<Object>> createContentWork(Context context) throws Exception {
-		CompoundWork<List<Object>, Object> ret = new CompoundWork<List<Object>, Object>("Content", context.get(Executor.class)) {
+	protected Supplier<List<Object>> createContentWork(Context context) throws Exception {
+		CompoundSupplier<List<Object>, Object> ret = new CompoundSupplier<List<Object>, Object>("Content", context.get(Executor.class)) {
 
 			@Override
 			protected List<Object> combine(List<Object> results, ProgressMonitor progressMonitor) throws Exception {
@@ -189,7 +189,7 @@ public class ContentActionGroupItemImpl extends ActionGroupItemImpl implements C
 			
 		}; 
 		
-		for (WorkFactory<Object> ce: getContent()) {
+		for (SupplierFactory<Object> ce: getContent()) {
 			ret.add(ce.create(context));
 		}
 		
@@ -197,8 +197,8 @@ public class ContentActionGroupItemImpl extends ActionGroupItemImpl implements C
 	}
 
 	@Override
-	public Work<Object> create(Context context) throws Exception {
-		CompoundWork<Object, List<Object>> ret = new CompoundWork<Object, List<Object>>(getTitle(), context.get(Executor.class)) {
+	public Supplier<Object> create(Context context) throws Exception {
+		CompoundSupplier<Object, List<Object>> ret = new CompoundSupplier<Object, List<Object>>(getTitle(), context.get(Executor.class)) {
 
 			@Override
 			protected Object combine(List<List<Object>> results, ProgressMonitor progressMonitor) throws Exception {

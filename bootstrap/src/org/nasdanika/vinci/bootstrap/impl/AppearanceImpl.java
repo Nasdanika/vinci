@@ -5,7 +5,7 @@ package org.nasdanika.vinci.bootstrap.impl;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-import org.nasdanika.common.WorkFactory;
+import org.nasdanika.common.SupplierFactory;
 import org.nasdanika.vinci.bootstrap.Appearance;
 import org.nasdanika.vinci.bootstrap.BootstrapPackage;
 
@@ -141,7 +141,7 @@ public class AppearanceImpl extends MinimalEObjectImpl.Container implements Appe
 	}
 
 	@Override
-	public WorkFactory<Object> create(WorkFactory<Object> arg) throws Exception {
+	public SupplierFactory<Object> create(SupplierFactory<Object> arg) throws Exception {
 		// TODO Auto-generated method stub
 		return null;
 	}

@@ -10,8 +10,8 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.nasdanika.common.Context;
-import org.nasdanika.common.Work;
-import org.nasdanika.common.WorkFactory;
+import org.nasdanika.common.Supplier;
+import org.nasdanika.common.SupplierFactory;
 import org.nasdanika.vinci.app.AbstractAction;
 import org.nasdanika.vinci.app.ActionBase;
 import org.nasdanika.vinci.app.ActionElement;
@@ -376,8 +376,8 @@ public abstract class ActionBaseImpl extends LabelImpl implements ActionBase {
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public EList<WorkFactory<Object>> getContent() {
-		return (EList<WorkFactory<Object>>)eDynamicGet(AppPackage.ACTION_BASE__CONTENT, AppPackage.Literals.ACTION_BASE__CONTENT, true, true);
+	public EList<SupplierFactory<Object>> getContent() {
+		return (EList<SupplierFactory<Object>>)eDynamicGet(AppPackage.ACTION_BASE__CONTENT, AppPackage.Literals.ACTION_BASE__CONTENT, true, true);
 	}
 
 	/**
@@ -486,7 +486,7 @@ public abstract class ActionBaseImpl extends LabelImpl implements ActionBase {
 				return;
 			case AppPackage.ACTION_BASE__CONTENT:
 				getContent().clear();
-				getContent().addAll((Collection<? extends WorkFactory<Object>>)newValue);
+				getContent().addAll((Collection<? extends SupplierFactory<Object>>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -638,7 +638,7 @@ public abstract class ActionBaseImpl extends LabelImpl implements ActionBase {
 	}
 	
 	@Override
-	public Work<Object> create(Context context) throws Exception {
+	public Supplier<Object> create(Context context) throws Exception {
 		throw new UnsupportedOperationException();
 	}
 

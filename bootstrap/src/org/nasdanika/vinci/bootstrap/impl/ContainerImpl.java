@@ -10,7 +10,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.nasdanika.common.Context;
-import org.nasdanika.common.Work;
+import org.nasdanika.common.Supplier;
 import org.nasdanika.vinci.bootstrap.BootstrapPackage;
 import org.nasdanika.vinci.bootstrap.Row;
 
@@ -174,7 +174,7 @@ public class ContainerImpl extends BootstrapElementImpl implements org.nasdanika
 	}
 
 	@Override
-	public Work<Object> create(Context context) throws Exception {
+	public Supplier<Object> create(Context context) throws Exception {
 		
 		// TODO - take fluid into account.
 		throw new UnsupportedOperationException();

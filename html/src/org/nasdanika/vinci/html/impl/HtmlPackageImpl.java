@@ -458,7 +458,7 @@ public class HtmlPackageImpl extends EPackageImpl implements HtmlPackage {
 		  (getHtmlElement__AsBuilder(),
 		   source,
 		   new String[] {
-			   "documentation", "Wraps element into a Function so it can be used as a builder - an existing object can be passed to HTML element\'s function and it will \"build\" it by applying styles, attriutes, etc."
+			   "documentation", "Wraps element into a FunctionFactory so it can be used as a builder - an existing object can be passed to HTML element\'s function and it will \"build\" it by applying styles, attriutes, etc."
 		   });
 		addAnnotation
 		  (containerEClass,

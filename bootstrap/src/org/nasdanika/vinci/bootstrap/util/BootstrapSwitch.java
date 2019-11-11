@@ -6,8 +6,8 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 
 import org.eclipse.emf.ecore.util.Switch;
-import org.nasdanika.common.Function;
-import org.nasdanika.common.WorkFactory;
+import org.nasdanika.common.FunctionFactory;
+import org.nasdanika.common.SupplierFactory;
 import org.nasdanika.ncore.ModelElement;
 import org.nasdanika.ncore.NamedElement;
 import org.nasdanika.vinci.bootstrap.*;
@@ -943,17 +943,17 @@ public class BootstrapSwitch<T1> extends Switch<T1> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Work Factory</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Supplier Factory</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Work Factory</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Supplier Factory</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public <T> T1 caseWorkFactory(WorkFactory<T> object) {
+	public <T> T1 caseWorkFactory(SupplierFactory<T> object) {
 		return null;
 	}
 
@@ -983,7 +983,7 @@ public class BootstrapSwitch<T1> extends Switch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public <T, R> T1 caseIFunction(Function<T, R> object) {
+	public <T, R> T1 caseIFunction(FunctionFactory<T, R> object) {
 		return null;
 	}
 

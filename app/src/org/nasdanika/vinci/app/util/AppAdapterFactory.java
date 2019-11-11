@@ -6,8 +6,8 @@ import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
-import org.nasdanika.common.Function;
-import org.nasdanika.common.WorkFactory;
+import org.nasdanika.common.FunctionFactory;
+import org.nasdanika.common.SupplierFactory;
 import org.nasdanika.ncore.ModelElement;
 import org.nasdanika.vinci.app.*;
 import org.nasdanika.vinci.bootstrap.BootstrapElement;
@@ -130,7 +130,7 @@ public class AppAdapterFactory extends AdapterFactoryImpl {
 				return createModelElementAdapter();
 			}
 			@Override
-			public <T> Adapter caseWorkFactory(WorkFactory<T> object) {
+			public <T> Adapter caseWorkFactory(SupplierFactory<T> object) {
 				return createWorkFactoryAdapter();
 			}
 			@Override
@@ -142,7 +142,7 @@ public class AppAdapterFactory extends AdapterFactoryImpl {
 				return createBootstrapElementAdapter();
 			}
 			@Override
-			public <T, R> Adapter caseIFunction(Function<T, R> object) {
+			public <T, R> Adapter caseIFunction(FunctionFactory<T, R> object) {
 				return createIFunctionAdapter();
 			}
 			@Override
@@ -268,13 +268,13 @@ public class AppAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.nasdanika.common.WorkFactory <em>Work Factory</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.common.SupplierFactory <em>Supplier Factory</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.nasdanika.common.WorkFactory
+	 * @see org.nasdanika.common.SupplierFactory
 	 * @generated
 	 */
 	public Adapter createWorkFactoryAdapter() {
@@ -310,13 +310,13 @@ public class AppAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.nasdanika.common.Function <em>IFunction</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.common.FunctionFactory <em>IFunction</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.nasdanika.common.Function
+	 * @see org.nasdanika.common.FunctionFactory
 	 * @generated
 	 */
 	public Adapter createIFunctionAdapter() {

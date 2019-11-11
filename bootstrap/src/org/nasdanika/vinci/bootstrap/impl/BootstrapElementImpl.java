@@ -6,7 +6,7 @@ import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.InternalEObject;
-import org.nasdanika.common.Function;
+import org.nasdanika.common.FunctionFactory;
 import org.nasdanika.vinci.bootstrap.Appearance;
 import org.nasdanika.vinci.bootstrap.BootstrapElement;
 import org.nasdanika.vinci.bootstrap.BootstrapPackage;
@@ -149,7 +149,7 @@ public abstract class BootstrapElementImpl extends HtmlElementImpl implements Bo
 	}
 	
 	@Override
-	public Function<Object, Object> asBuilder() {		
+	public FunctionFactory<Object, Object> asBuilder() {		
 		Appearance appearance = getAppearance();
 		return appearance == null ? super.asBuilder() : super.asBuilder().then(appearance);
 	}

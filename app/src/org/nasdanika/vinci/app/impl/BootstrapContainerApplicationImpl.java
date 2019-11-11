@@ -8,12 +8,12 @@ import java.util.concurrent.Executor;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-import org.nasdanika.common.CompoundWork;
 import org.nasdanika.common.Context;
 import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.common.Reference;
-import org.nasdanika.common.Work;
-import org.nasdanika.common.WorkFactory;
+import org.nasdanika.common.Supplier;
+import org.nasdanika.common.SupplierFactory;
+import org.nasdanika.common._legacy.CompoundSupplier;
 import org.nasdanika.html.HTMLPage;
 import org.nasdanika.html.bootstrap.BootstrapFactory;
 import org.nasdanika.vinci.app.AppPackage;
@@ -410,7 +410,7 @@ public class BootstrapContainerApplicationImpl extends BootstrapElementImpl impl
 	}
 
 	@Override
-	public WorkFactory<Object> create(WorkFactory<Object> arg) throws Exception {		
+	public SupplierFactory<Object> create(SupplierFactory<Object> arg) throws Exception {		
 		/* 
 		 * Steps:
 		 * 
@@ -421,34 +421,34 @@ public class BootstrapContainerApplicationImpl extends BootstrapElementImpl impl
 
 		Reference<Object> headerReference = new Reference<>();		
 		BootstrapContainerApplicationSection header = getHeader();
-		WorkFactory<Object> headerWorkFactory = header == null ? null : header.asBuilder().create(WorkFactory.fromSupplier(headerReference, "Header", 0));
+		SupplierFactory<Object> headerWorkFactory = header == null ? null : header.asBuilder().create(SupplierFactory.fromSupplier(headerReference, "Header", 0));
 		
 		Reference<Object> navBarReference = new Reference<>();		
 		BootstrapContainerApplicationSection navBar = getNavigationBar();
-		WorkFactory<Object> navBarWorkFactory = navBar == null ? null : navBar.asBuilder().create(WorkFactory.fromSupplier(navBarReference, "Navigation Bar", 0));
+		SupplierFactory<Object> navBarWorkFactory = navBar == null ? null : navBar.asBuilder().create(SupplierFactory.fromSupplier(navBarReference, "Navigation Bar", 0));
 		
 		Reference<Object> navigationPanelReference = new Reference<>();		
 		BootstrapContainerApplicationSection navigationPanel = getNavigationPanel();
-		WorkFactory<Object> navigationPanelWorkFactory = navigationPanel == null ? null : navigationPanel.asBuilder().create(WorkFactory.fromSupplier(navigationPanelReference, "Navigation Panel", 0));
+		SupplierFactory<Object> navigationPanelWorkFactory = navigationPanel == null ? null : navigationPanel.asBuilder().create(SupplierFactory.fromSupplier(navigationPanelReference, "Navigation Panel", 0));
 		
 		Reference<Object> contentPanelReference = new Reference<>();		
 		BootstrapContainerApplicationSection contentPanel = getContentPanel();
-		WorkFactory<Object> contentPanelWorkFactory = contentPanel == null ? null : contentPanel.asBuilder().create(WorkFactory.fromSupplier(contentPanelReference, "Content Panel", 0));
+		SupplierFactory<Object> contentPanelWorkFactory = contentPanel == null ? null : contentPanel.asBuilder().create(SupplierFactory.fromSupplier(contentPanelReference, "Content Panel", 0));
 		
 		Reference<Object> footerReference = new Reference<>();		
 		BootstrapContainerApplicationSection footer = getFooter();
-		WorkFactory<Object> footerWorkFactory = footer == null ? null : footer.asBuilder().create(WorkFactory.fromSupplier(footerReference, "Footer", 0));		
+		SupplierFactory<Object> footerWorkFactory = footer == null ? null : footer.asBuilder().create(SupplierFactory.fromSupplier(footerReference, "Footer", 0));		
 		
 		// TODO - apply super.asBuilder to container.
 		// super.asBuilder();
 		
-		return new WorkFactory<Object>() {
+		return new SupplierFactory<Object>() {
 
 			@Override
-			public Work<Object> create(Context context) throws Exception {
+			public Supplier<Object> create(Context context) throws Exception {
 				
 				// Sequential - arg, create page, section
-				CompoundWork<Object, Object> ret = new CompoundWork<Object, Object>(BootstrapContainerApplicationImpl.this.getTitle(), null) {
+				CompoundSupplier<Object, Object> ret = new CompoundSupplier<Object, Object>(BootstrapContainerApplicationImpl.this.getTitle(), null) {
 					
 					@Override
 					protected Object combine(List<Object> results, ProgressMonitor progressMonitor) throws Exception {
@@ -459,13 +459,13 @@ public class BootstrapContainerApplicationImpl extends BootstrapElementImpl impl
 
 				Reference<Object> pageReference = new Reference<>();
 				
-				Work<Object> argWork = arg.create(context).adapt(page -> {
+				Supplier<Object> argWork = arg.create(context).adapt(page -> {
 					pageReference.set(page);
 					return page;
 				});
 				ret.add(argWork);
 				
-				Work<Object> applicationWork = new Work<Object>() {
+				Supplier<Object> applicationWork = new Supplier<Object>() {
 
 					@Override
 					public Object execute(ProgressMonitor progressMonitor) throws Exception {
@@ -548,7 +548,7 @@ public class BootstrapContainerApplicationImpl extends BootstrapElementImpl impl
 					}
 
 					@Override
-					public String getName() {
+					public String name() {
 						return "Application";
 					}
 					
@@ -556,7 +556,7 @@ public class BootstrapContainerApplicationImpl extends BootstrapElementImpl impl
 				ret.add(applicationWork);
 				
 				// Section work can be executed in parallel.
-				CompoundWork<Object, Object> sectionWork = new CompoundWork<Object, Object>("Sections", context.get(Executor.class)) {
+				CompoundSupplier<Object, Object> sectionWork = new CompoundSupplier<Object, Object>("Sections", context.get(Executor.class)) {
 
 					@Override
 					protected Object combine(List<Object> results, ProgressMonitor progressMonitor) throws Exception {

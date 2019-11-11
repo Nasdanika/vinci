@@ -11,13 +11,13 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.InternalEList;
-import org.nasdanika.common.CompoundWork;
 import org.nasdanika.common.Context;
-import org.nasdanika.common.Function;
+import org.nasdanika.common.FunctionFactory;
 import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.common.Reference;
-import org.nasdanika.common.Work;
-import org.nasdanika.common.WorkFactory;
+import org.nasdanika.common.Supplier;
+import org.nasdanika.common.SupplierFactory;
+import org.nasdanika.common._legacy.CompoundSupplier;
 import org.nasdanika.vinci.app.AppPackage;
 import org.nasdanika.vinci.app.BootstrapContainerApplicationSection;
 import org.nasdanika.vinci.bootstrap.impl.BootstrapElementImpl;
@@ -63,8 +63,8 @@ public class BootstrapContainerApplicationSectionImpl extends BootstrapElementIm
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public EList<WorkFactory<Object>> getContent() {
-		return (EList<WorkFactory<Object>>)eDynamicGet(AppPackage.BOOTSTRAP_CONTAINER_APPLICATION_SECTION__CONTENT, HtmlPackage.Literals.CONTAINER__CONTENT, true, true);
+	public EList<SupplierFactory<Object>> getContent() {
+		return (EList<SupplierFactory<Object>>)eDynamicGet(AppPackage.BOOTSTRAP_CONTAINER_APPLICATION_SECTION__CONTENT, HtmlPackage.Literals.CONTAINER__CONTENT, true, true);
 	}
 
 	/**
@@ -106,7 +106,7 @@ public class BootstrapContainerApplicationSectionImpl extends BootstrapElementIm
 		switch (featureID) {
 			case AppPackage.BOOTSTRAP_CONTAINER_APPLICATION_SECTION__CONTENT:
 				getContent().clear();
-				getContent().addAll((Collection<? extends WorkFactory<Object>>)newValue);
+				getContent().addAll((Collection<? extends SupplierFactory<Object>>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -173,8 +173,8 @@ public class BootstrapContainerApplicationSectionImpl extends BootstrapElementIm
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 		
-	protected Work<List<Object>> createContentWork(Context context) throws Exception {
-		CompoundWork<List<Object>, Object> ret = new CompoundWork<List<Object>, Object>("Content", context.get(Executor.class)) {
+	protected Supplier<List<Object>> createContentWork(Context context) throws Exception {
+		CompoundSupplier<List<Object>, Object> ret = new CompoundSupplier<List<Object>, Object>("Content", context.get(Executor.class)) {
 
 			@Override
 			protected List<Object> combine(List<Object> results, ProgressMonitor progressMonitor) throws Exception {
@@ -183,7 +183,7 @@ public class BootstrapContainerApplicationSectionImpl extends BootstrapElementIm
 			
 		}; 
 		
-		for (WorkFactory<Object> ce: getContent()) {
+		for (SupplierFactory<Object> ce: getContent()) {
 			ret.add(ce.create(context));
 		}
 		
@@ -191,19 +191,19 @@ public class BootstrapContainerApplicationSectionImpl extends BootstrapElementIm
 	}	
 	
 	@Override
-	public Function<Object, Object> asBuilder() {
-		return super.asBuilder().then(new Function<Object,Object>() {
+	public FunctionFactory<Object, Object> asBuilder() {
+		return super.asBuilder().then(new FunctionFactory<Object,Object>() {
 
 			@Override
-			public WorkFactory<Object> create(WorkFactory<Object> arg) throws Exception {
+			public SupplierFactory<Object> create(SupplierFactory<Object> arg) throws Exception {
 
-				return new WorkFactory<Object>() {
+				return new SupplierFactory<Object>() {
 					
 					@Override
-					public Work<Object> create(Context context) throws Exception {
+					public Supplier<Object> create(Context context) throws Exception {
 						
 						// Sequential - arg, content
-						CompoundWork<Object, Object> ret = new CompoundWork<Object, Object>(BootstrapContainerApplicationSectionImpl.this.eContainmentFeature().getName(), null) {
+						CompoundSupplier<Object, Object> ret = new CompoundSupplier<Object, Object>(BootstrapContainerApplicationSectionImpl.this.eContainmentFeature().getName(), null) {
 							
 							@Override
 							protected Object combine(List<Object> results, ProgressMonitor progressMonitor) throws Exception {
@@ -214,13 +214,13 @@ public class BootstrapContainerApplicationSectionImpl extends BootstrapElementIm
 
 						Reference<Object> containerReference = new Reference<>();
 						
-						Work<Object> argWork = arg.create(context).adapt(c -> {
+						Supplier<Object> argWork = arg.create(context).adapt(c -> {
 							containerReference.set(c);
 							return c;
 						});
 						ret.add(argWork);
 						
-						Work<Object> contentWork = createContentWork(context).adapt(content -> {
+						Supplier<Object> contentWork = createContentWork(context).adapt(content -> {
 							content.forEach((org.nasdanika.html.bootstrap.Container.Row.Col) containerReference.get()); 
 							return null;
 						});

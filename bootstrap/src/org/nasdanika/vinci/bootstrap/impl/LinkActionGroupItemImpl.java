@@ -6,11 +6,11 @@ import java.util.List;
 import java.util.concurrent.Executor;
 
 import org.eclipse.emf.ecore.EClass;
-import org.nasdanika.common.CompoundWork;
 import org.nasdanika.common.Context;
 import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.common.Util;
-import org.nasdanika.common.Work;
+import org.nasdanika.common._legacy.CompoundSupplier;
+import org.nasdanika.common.Supplier;
 import org.nasdanika.html.Fragment;
 import org.nasdanika.html.HTMLFactory;
 import org.nasdanika.html.bootstrap.ActionGroup;
@@ -139,8 +139,8 @@ public class LinkActionGroupItemImpl extends ActionGroupItemImpl implements Link
 	}
 
 	@Override
-	public Work<Object> create(Context context) throws Exception {
-		CompoundWork<Object, List<Object>> ret = new CompoundWork<Object, List<Object>>(getTitle(), context.get(Executor.class)) {
+	public Supplier<Object> create(Context context) throws Exception {
+		CompoundSupplier<Object, List<Object>> ret = new CompoundSupplier<Object, List<Object>>(getTitle(), context.get(Executor.class)) {
 
 			@Override
 			protected Object combine(List<List<Object>> results, ProgressMonitor progressMonitor) throws Exception {

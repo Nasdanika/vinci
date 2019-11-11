@@ -11,10 +11,10 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.InternalEList;
-import org.nasdanika.common.CompoundWork;
 import org.nasdanika.common.Context;
 import org.nasdanika.common.ProgressMonitor;
-import org.nasdanika.common.Work;
+import org.nasdanika.common.Supplier;
+import org.nasdanika.common._legacy.CompoundSupplier;
 import org.nasdanika.html.bootstrap.BootstrapFactory;
 import org.nasdanika.vinci.bootstrap.ActionGroup;
 import org.nasdanika.vinci.bootstrap.ActionGroupItem;
@@ -181,10 +181,10 @@ public class ActionGroupImpl extends DivImpl implements ActionGroup {
 	}
 	
 	@Override
-	public Work<Object> create(Context context) throws Exception {
+	public Supplier<Object> create(Context context) throws Exception {
 		org.nasdanika.html.bootstrap.ActionGroup actionGroup = context.get(BootstrapFactory.class, BootstrapFactory.INSTANCE).actionGroup(isFlush());
 		
-		CompoundWork<Object, Object> ret = new CompoundWork<Object, Object>(getTitle(), context.get(Executor.class)) {
+		CompoundSupplier<Object, Object> ret = new CompoundSupplier<Object, Object>(getTitle(), context.get(Executor.class)) {
 			
 			@Override
 			protected Object combine(List<Object> results, ProgressMonitor progressMonitor) throws Exception {
