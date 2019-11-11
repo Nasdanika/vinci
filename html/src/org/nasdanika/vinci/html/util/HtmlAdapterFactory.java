@@ -94,8 +94,8 @@ public class HtmlAdapterFactory extends AdapterFactoryImpl {
 				return createModelElementAdapter();
 			}
 			@Override
-			public <T> Adapter caseWorkFactory(SupplierFactory<T> object) {
-				return createWorkFactoryAdapter();
+			public <T> Adapter caseSupplierFactory(SupplierFactory<T> object) {
+				return createSupplierFactoryAdapter();
 			}
 			@Override
 			public Adapter caseNamedElement(NamedElement object) {
@@ -215,7 +215,7 @@ public class HtmlAdapterFactory extends AdapterFactoryImpl {
 	 * @see org.nasdanika.common.SupplierFactory
 	 * @generated
 	 */
-	public Adapter createWorkFactoryAdapter() {
+	public Adapter createSupplierFactoryAdapter() {
 		return null;
 	}
 

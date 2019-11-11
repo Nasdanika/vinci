@@ -164,16 +164,6 @@ public class ColumnItemProvider extends BootstrapElementItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(HtmlPackage.Literals.CONTAINER__CONTENT,
-				 BootstrapFactory.eINSTANCE.createLinkActionGroupItem()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(HtmlPackage.Literals.CONTAINER__CONTENT,
-				 BootstrapFactory.eINSTANCE.createContentActionGroupItem()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(HtmlPackage.Literals.CONTAINER__CONTENT,
 				 BootstrapFactory.eINSTANCE.createActionGroup()));
 
 		newChildDescriptors.add

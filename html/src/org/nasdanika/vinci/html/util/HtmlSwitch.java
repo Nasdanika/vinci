@@ -85,7 +85,7 @@ public class HtmlSwitch<T1> extends Switch<T1> {
 				Tag tag = (Tag)theEObject;
 				T1 result = caseTag(tag);
 				if (result == null) result = caseHtmlElement(tag);
-				if (result == null) result = caseWorkFactory(tag);
+				if (result == null) result = caseSupplierFactory(tag);
 				if (result == null) result = caseModelElement(tag);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -96,7 +96,7 @@ public class HtmlSwitch<T1> extends Switch<T1> {
 				if (result == null) result = caseTag(contentTag);
 				if (result == null) result = caseContainer(contentTag);
 				if (result == null) result = caseHtmlElement(contentTag);
-				if (result == null) result = caseWorkFactory(contentTag);
+				if (result == null) result = caseSupplierFactory(contentTag);
 				if (result == null) result = caseModelElement(contentTag);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -105,7 +105,7 @@ public class HtmlSwitch<T1> extends Switch<T1> {
 				Page page = (Page)theEObject;
 				T1 result = casePage(page);
 				if (result == null) result = caseNamedElement(page);
-				if (result == null) result = caseWorkFactory(page);
+				if (result == null) result = caseSupplierFactory(page);
 				if (result == null) result = caseModelElement(page);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -215,7 +215,7 @@ public class HtmlSwitch<T1> extends Switch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public <T> T1 caseWorkFactory(SupplierFactory<T> object) {
+	public <T> T1 caseSupplierFactory(SupplierFactory<T> object) {
 		return null;
 	}
 

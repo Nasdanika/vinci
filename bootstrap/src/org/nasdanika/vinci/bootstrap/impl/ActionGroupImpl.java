@@ -3,18 +3,15 @@
 package org.nasdanika.vinci.bootstrap.impl;
 
 import java.util.Collection;
-import java.util.List;
-import java.util.concurrent.Executor;
 
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.InternalEList;
+import org.nasdanika.common.CompoundConsumer;
 import org.nasdanika.common.Context;
-import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.common.Supplier;
-import org.nasdanika.common._legacy.CompoundSupplier;
 import org.nasdanika.html.bootstrap.BootstrapFactory;
 import org.nasdanika.vinci.bootstrap.ActionGroup;
 import org.nasdanika.vinci.bootstrap.ActionGroupItem;
@@ -182,24 +179,20 @@ public class ActionGroupImpl extends DivImpl implements ActionGroup {
 	
 	@Override
 	public Supplier<Object> create(Context context) throws Exception {
-		org.nasdanika.html.bootstrap.ActionGroup actionGroup = context.get(BootstrapFactory.class, BootstrapFactory.INSTANCE).actionGroup(isFlush());
-		
-		CompoundSupplier<Object, Object> ret = new CompoundSupplier<Object, Object>(getTitle(), context.get(Executor.class)) {
-			
-			@Override
-			protected Object combine(List<Object> results, ProgressMonitor progressMonitor) throws Exception {
-				boolean hasContentItems = getItems().stream().filter(ContentActionGroupItem.class::isInstance).findAny().isPresent();				
-				return hasContentItems ? actionGroup.asContainer() : actionGroup;
-			}
-		};
-		
-		Context itemContext = Context.singleton(org.nasdanika.html.bootstrap.ActionGroup.class, actionGroup);
-		
+		Supplier<org.nasdanika.html.bootstrap.ActionGroup> actionGroupSupplier = Supplier.fromSupplier(() -> context.get(BootstrapFactory.class, BootstrapFactory.INSTANCE).actionGroup(isFlush()), "Action group", 1);		
+
+		@SuppressWarnings("resource")
+		CompoundConsumer<Object> itemsConsumer = new CompoundConsumer<>("Items");
+		boolean hasContentItems = false;
 		for (ActionGroupItem item: getItems()) {
-			ret.add(item.create(itemContext));
+			itemsConsumer.add(item.create(context));
+			hasContentItems = hasContentItems || item instanceof ContentActionGroupItem;
 		}
 		
-		
+		Supplier<Object> ret = actionGroupSupplier.then(itemsConsumer.asFunction());
+		if (hasContentItems) {
+			ret = ret.then(ag -> ((org.nasdanika.html.bootstrap.ActionGroup) ag).asContainer());
+		}
 		return ret;
 	}
 

@@ -19,7 +19,7 @@ import org.nasdanika.html.TagName;
  * </ul>
  *
  * @see org.nasdanika.vinci.html.HtmlPackage#getTag()
- * @model superTypes="org.nasdanika.vinci.html.HtmlElement org.nasdanika.ncore.WorkFactory&lt;org.eclipse.emf.ecore.EJavaObject&gt;"
+ * @model superTypes="org.nasdanika.vinci.html.HtmlElement org.nasdanika.ncore.SupplierFactory&lt;org.eclipse.emf.ecore.EJavaObject&gt;"
  * @generated
  */
 public interface Tag extends HtmlElement, SupplierFactory<Object> {

@@ -8,6 +8,7 @@ import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 
 import org.eclipse.emf.ecore.EObject;
+import org.nasdanika.common.ConsumerFactory;
 import org.nasdanika.common.FunctionFactory;
 import org.nasdanika.common.SupplierFactory;
 import org.nasdanika.ncore.ModelElement;
@@ -218,16 +219,16 @@ public class BootstrapAdapterFactory extends AdapterFactoryImpl {
 				return createNamedElementAdapter();
 			}
 			@Override
-			public <T> Adapter caseWorkFactory(SupplierFactory<T> object) {
-				return createWorkFactoryAdapter();
+			public <T> Adapter caseSupplierFactory(SupplierFactory<T> object) {
+				return createSupplierFactoryAdapter();
 			}
 			@Override
 			public Adapter casePage(Page object) {
 				return createPageAdapter();
 			}
 			@Override
-			public <T, R> Adapter caseIFunction(FunctionFactory<T, R> object) {
-				return createIFunctionAdapter();
+			public <T, R> Adapter caseFunctionFactory(FunctionFactory<T, R> object) {
+				return createFunctionFactoryAdapter();
 			}
 			@Override
 			public Adapter caseHtmlElement(HtmlElement object) {
@@ -236,6 +237,10 @@ public class BootstrapAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseHtml_Tag(org.nasdanika.vinci.html.Tag object) {
 				return createHtml_TagAdapter();
+			}
+			@Override
+			public <T> Adapter caseConsumerFactory(ConsumerFactory<T> object) {
+				return createConsumerFactoryAdapter();
 			}
 			@Override
 			public Adapter caseHtml_Container(org.nasdanika.vinci.html.Container object) {
@@ -766,6 +771,20 @@ public class BootstrapAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.common.SupplierFactory <em>Supplier Factory</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.common.SupplierFactory
+	 * @generated
+	 */
+	public Adapter createSupplierFactoryAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link org.nasdanika.vinci.html.Container <em>Container</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -794,6 +813,20 @@ public class BootstrapAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.common.ConsumerFactory <em>Consumer Factory</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.common.ConsumerFactory
+	 * @generated
+	 */
+	public Adapter createConsumerFactoryAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link org.nasdanika.vinci.html.HtmlElement <em>Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -804,20 +837,6 @@ public class BootstrapAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createHtmlElementAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.nasdanika.common.SupplierFactory <em>Supplier Factory</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.nasdanika.common.SupplierFactory
-	 * @generated
-	 */
-	public Adapter createWorkFactoryAdapter() {
 		return null;
 	}
 
@@ -836,7 +855,7 @@ public class BootstrapAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.nasdanika.common.FunctionFactory <em>IFunction</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.common.FunctionFactory <em>Function Factory</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
@@ -845,7 +864,7 @@ public class BootstrapAdapterFactory extends AdapterFactoryImpl {
 	 * @see org.nasdanika.common.FunctionFactory
 	 * @generated
 	 */
-	public Adapter createIFunctionAdapter() {
+	public Adapter createFunctionFactoryAdapter() {
 		return null;
 	}
 

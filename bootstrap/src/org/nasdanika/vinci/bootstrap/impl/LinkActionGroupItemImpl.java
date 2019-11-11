@@ -2,15 +2,16 @@
  */
 package org.nasdanika.vinci.bootstrap.impl;
 
+import java.util.Collections;
 import java.util.List;
-import java.util.concurrent.Executor;
 
 import org.eclipse.emf.ecore.EClass;
+import org.nasdanika.common.CompoundExecutionParticipant;
+import org.nasdanika.common.Consumer;
 import org.nasdanika.common.Context;
 import org.nasdanika.common.ProgressMonitor;
-import org.nasdanika.common.Util;
-import org.nasdanika.common._legacy.CompoundSupplier;
 import org.nasdanika.common.Supplier;
+import org.nasdanika.common.Util;
 import org.nasdanika.html.Fragment;
 import org.nasdanika.html.HTMLFactory;
 import org.nasdanika.html.bootstrap.ActionGroup;
@@ -139,32 +140,37 @@ public class LinkActionGroupItemImpl extends ActionGroupItemImpl implements Link
 	}
 
 	@Override
-	public Supplier<Object> create(Context context) throws Exception {
-		CompoundSupplier<Object, List<Object>> ret = new CompoundSupplier<Object, List<Object>>(getTitle(), context.get(Executor.class)) {
+	public Consumer<Object> create(Context context) throws Exception {		
+		Supplier<List<Object>> nameSupplier = createNameSupplier(context);
+		
+		class ListActionGroupItemGenerator extends CompoundExecutionParticipant<Supplier<List<Object>>> implements Consumer<Object> {
+
+			protected ListActionGroupItemGenerator(String name) {
+				super(name);
+			}
 
 			@Override
-			protected Object combine(List<List<Object>> results, ProgressMonitor progressMonitor) throws Exception {
+			public void execute(Object arg, ProgressMonitor progressMonitor) throws Exception {
 				HTMLFactory htmlFactory = context.get(HTMLFactory.class, HTMLFactory.INSTANCE);
-				ActionGroup actionGroup = context.get(ActionGroup.class);				
-
 				Fragment nameFragment = htmlFactory.fragment();
-				results.get(0).forEach(nameFragment);
+				getElements().get(0).splitAndExecute(progressMonitor).forEach(nameFragment);
 				
-				actionGroup.action(
+				((ActionGroup) arg).action(
 						isActive(), 
 						isDisabled(), 
 						Util.isBlank(getColor()) ? null : Color.valueOf(getColor()),
 						getUrl(),		
 						nameFragment);
-				
-				return actionGroup; // Not used
+			}
+
+			@Override
+			protected List<Supplier<List<Object>>> getElements() {
+				return Collections.singletonList(nameSupplier);
 			}
 			
-		}; 
+		}
 		
-		ret.add(createNameWork(context));
-		
-		return ret;
+		return new ListActionGroupItemGenerator(getTitle());
 	}
 
 } //LinkActionGroupItemImpl

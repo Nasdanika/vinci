@@ -22,7 +22,7 @@ import org.nasdanika.common.FunctionFactory;
  * </ul>
  *
  * @see org.nasdanika.vinci.bootstrap.BootstrapPackage#getAppearance()
- * @model superTypes="org.nasdanika.ncore.IFunction&lt;org.eclipse.emf.ecore.EJavaObject, org.eclipse.emf.ecore.EJavaObject&gt;"
+ * @model superTypes="org.nasdanika.ncore.FunctionFactory&lt;org.eclipse.emf.ecore.EJavaObject, org.eclipse.emf.ecore.EJavaObject&gt;"
  * @generated
  */
 public interface Appearance extends EObject, FunctionFactory<Object, Object> {

@@ -3,30 +3,30 @@
 package org.nasdanika.vinci.bootstrap.impl;
 
 import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
-import java.util.concurrent.Executor;
+import java.util.Map;
 
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.util.InternalEList;
+import org.nasdanika.common.CompoundExecutionParticipant;
+import org.nasdanika.common.Consumer;
 import org.nasdanika.common.Context;
+import org.nasdanika.common.ListCompoundSupplier;
 import org.nasdanika.common.ProgressMonitor;
-import org.nasdanika.common.Util;
-import org.nasdanika.common._legacy.CompoundSupplier;
+import org.nasdanika.common.StringMapCompoundSupplier;
 import org.nasdanika.common.Supplier;
 import org.nasdanika.common.SupplierFactory;
+import org.nasdanika.common.Util;
 import org.nasdanika.html.Fragment;
 import org.nasdanika.html.HTMLFactory;
 import org.nasdanika.html.bootstrap.ActionGroup;
 import org.nasdanika.html.bootstrap.Color;
 import org.nasdanika.vinci.bootstrap.BootstrapPackage;
 import org.nasdanika.vinci.bootstrap.ContentActionGroupItem;
-
 import org.nasdanika.vinci.html.HtmlPackage;
 
 /**
@@ -179,16 +179,8 @@ public class ContentActionGroupItemImpl extends ActionGroupItemImpl implements C
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 	
-	protected Supplier<List<Object>> createContentWork(Context context) throws Exception {
-		CompoundSupplier<List<Object>, Object> ret = new CompoundSupplier<List<Object>, Object>("Content", context.get(Executor.class)) {
-
-			@Override
-			protected List<Object> combine(List<Object> results, ProgressMonitor progressMonitor) throws Exception {
-				return results;
-			}
-			
-		}; 
-		
+	protected Supplier<List<Object>> createContentSupplier(Context context) throws Exception {
+		ListCompoundSupplier<Object> ret = new ListCompoundSupplier<Object>("Content");		
 		for (SupplierFactory<Object> ce: getContent()) {
 			ret.add(ce.create(context));
 		}
@@ -197,37 +189,45 @@ public class ContentActionGroupItemImpl extends ActionGroupItemImpl implements C
 	}
 
 	@Override
-	public Supplier<Object> create(Context context) throws Exception {
-		CompoundSupplier<Object, List<Object>> ret = new CompoundSupplier<Object, List<Object>>(getTitle(), context.get(Executor.class)) {
+	public Consumer<Object> create(Context context) throws Exception {
+		StringMapCompoundSupplier<List<Object>> partsSupplier = new StringMapCompoundSupplier<>("Parts");
+		partsSupplier.put(createNameSupplier(context));
+		partsSupplier.put(createContentSupplier(context));
+		
+		class ContentActionGroupItemGenerator extends CompoundExecutionParticipant<StringMapCompoundSupplier<List<Object>>> implements Consumer<Object> {
+
+			protected ContentActionGroupItemGenerator(String name) {
+				super(name);
+			}
 
 			@Override
-			protected Object combine(List<List<Object>> results, ProgressMonitor progressMonitor) throws Exception {
+			public void execute(Object arg, ProgressMonitor progressMonitor) throws Exception {
 				HTMLFactory htmlFactory = context.get(HTMLFactory.class, HTMLFactory.INSTANCE);
-				ActionGroup actionGroup = context.get(ActionGroup.class);				
+				Map<String, List<Object>> parts = getElements().get(0).splitAndExecute(progressMonitor);
 
 				Fragment nameFragment = htmlFactory.fragment();
-				results.get(0).forEach(nameFragment);
+				parts.get("Name").forEach(nameFragment);
 				
 				Fragment contentFragment = htmlFactory.fragment();
-				results.get(1).forEach(contentFragment);
+				parts.get("Content").forEach(contentFragment);
 				
-				actionGroup.contentAction(
+				((ActionGroup) arg).contentAction(
 						nameFragment, 
 						isActive(), 
 						isDisabled(), 
 						Util.isBlank(getColor()) ? null : Color.valueOf(getColor()), 
 						null, 
 						contentFragment);
-				
-				return actionGroup; // Not used
+			}
+
+			@Override
+			protected List<StringMapCompoundSupplier<List<Object>>> getElements() {
+				return Collections.singletonList(partsSupplier);
 			}
 			
-		}; 
+		}
 		
-		ret.add(createNameWork(context));
-		ret.add(createContentWork(context));
-		
-		return ret;
+		return new ContentActionGroupItemGenerator(getTitle());
 	}
 
 } //ContentActionGroupItemImpl
