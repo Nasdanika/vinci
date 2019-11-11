@@ -4,7 +4,7 @@ package org.nasdanika.vinci.html.impl;
 
 import java.util.Collection;
 import java.util.List;
-import java.util.concurrent.Executor;
+import java.util.Map;
 
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
@@ -12,12 +12,14 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.nasdanika.common.Context;
+import org.nasdanika.common.Function;
 import org.nasdanika.common.FunctionFactory;
+import org.nasdanika.common.ListCompoundSupplier;
 import org.nasdanika.common.ProgressMonitor;
-import org.nasdanika.common.Util;
-import org.nasdanika.common._legacy.CompoundSupplier;
+import org.nasdanika.common.StringMapCompoundSupplier;
 import org.nasdanika.common.Supplier;
 import org.nasdanika.common.SupplierFactory;
+import org.nasdanika.common.Util;
 import org.nasdanika.html.HTMLFactory;
 import org.nasdanika.html.HTMLPage;
 import org.nasdanika.ncore.impl.NamedElementImpl;
@@ -279,16 +281,8 @@ public class PageImpl extends NamedElementImpl implements Page {
 		return super.eIsSet(featureID);
 	}
 		
-	protected Supplier<List<Object>> createHeadWork(Context context) throws Exception {
-		CompoundSupplier<List<Object>, Object> ret = new CompoundSupplier<List<Object>, Object>("Head", context.get(Executor.class)) {
-
-			@Override
-			protected List<Object> combine(List<Object> results, ProgressMonitor progressMonitor) throws Exception {
-				return results;
-			}
-			
-		}; 
-		
+	protected Supplier<List<Object>> createHeadSupplier(Context context) throws Exception {
+		ListCompoundSupplier<Object> ret = new ListCompoundSupplier<Object>("Head");		
 		for (SupplierFactory<Object> ce: getHead()) {
 			ret.add(ce.create(context));
 		}
@@ -296,28 +290,10 @@ public class PageImpl extends NamedElementImpl implements Page {
 		return ret;
 	}
 	
-	protected Supplier<List<Object>> createBodyWork(Context context) throws Exception {
-		CompoundSupplier<List<Object>, Object> ret = new CompoundSupplier<List<Object>, Object>("Body", context.get(Executor.class)) {
-
-			@Override
-			protected List<Object> combine(List<Object> results, ProgressMonitor progressMonitor) throws Exception {
-				return results;
-			}
-			
-		}; 
-		
+	protected Supplier<List<Object>> createBodySupplier(Context context) throws Exception {
+		ListCompoundSupplier<Object> ret = new ListCompoundSupplier<Object>("Body");		
 		for (SupplierFactory<Object> ce: getBody()) {
 			ret.add(ce.create(context));
-		}
-		
-		return ret;
-	}
-	
-	protected FunctionFactory<Object, Object> createBuildersFunction() throws Exception {
-		FunctionFactory<Object, Object> ret = null;
-		
-		for (FunctionFactory<Object, Object> builder: getBuilders()) {
-			ret = ret == null ? builder : ret.then(builder);
 		}
 		
 		return ret;
@@ -334,22 +310,31 @@ public class PageImpl extends NamedElementImpl implements Page {
 	
 	@Override
 	public Supplier<Object> create(Context context) throws Exception {
-		CompoundSupplier<Object,List<Object>> ret = new CompoundSupplier<Object,List<Object>>(getTitle(), context.get(Executor.class)) {
-			
+		StringMapCompoundSupplier<List<Object>> partsSupplier = new StringMapCompoundSupplier<>(getTitle());
+		partsSupplier.put(createHeadSupplier(context));
+		partsSupplier.put(createBodySupplier(context));
+
+		Function<Map<String,List<Object>>,Object> pageBuilder = new Function<Map<String,List<Object>>,Object>() {
+
 			@Override
 			public double size() {
-				return super.size() + 1;
+				return 1;
 			}
 
 			@Override
-			protected Object combine(List<List<Object>> results, ProgressMonitor progressMonitor) throws Exception {
+			public String name() {
+				return "Page";
+			}
+
+			@Override
+			public Object execute(Map<String, List<Object>> arg, ProgressMonitor progressMonitor) throws Exception {
 				HTMLPage page = createPage(context);
 				
-				for (Object c: results.get(0)) {
+				for (Object c: arg.get("Head")) {
 					page.head(c);
 				}
 				
-				for (Object c: results.get(1)) {
+				for (Object c: arg.get("Body")) {
 					page.body(c);
 				}
 				
@@ -370,17 +355,16 @@ public class PageImpl extends NamedElementImpl implements Page {
 					page.title(name);
 				}
 				
-				FunctionFactory<Object, Object> buildersFunction = createBuildersFunction();
-				if (buildersFunction != null) {				
-					SupplierFactory.from((Object) page, "Page").then(buildersFunction).create(context).execute(progressMonitor.split("Builders", 1));
-				}
 				return page;
 			}
-		};
+		}; 
 		
-		ret.add(createHeadWork(context));
-		ret.add(createBodyWork(context));
+		Supplier<Object> ret = partsSupplier.then(pageBuilder);
 		
+		for (FunctionFactory<Object, Object> builder: getBuilders()) {
+			ret = ret.then(builder.create(context));
+		}
+				
 		return ret;
 	}
 

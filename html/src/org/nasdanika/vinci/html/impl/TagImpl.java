@@ -2,13 +2,9 @@
  */
 package org.nasdanika.vinci.html.impl;
 
-import java.util.List;
-import java.util.concurrent.Executor;
 import org.eclipse.emf.ecore.EClass;
 import org.nasdanika.common.Context;
-import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.common.Supplier;
-import org.nasdanika.common._legacy.CompoundSupplier;
 import org.nasdanika.html.HTMLFactory;
 import org.nasdanika.html.TagName;
 import org.nasdanika.vinci.html.HtmlPackage;
@@ -138,18 +134,7 @@ public class TagImpl extends HtmlElementImpl implements Tag {
 
 	@Override
 	public Supplier<Object> create(Context context) throws Exception {
-		
-		CompoundSupplier<Object, Object> ret = new CompoundSupplier<Object, Object>(getTitle(), context.get(Executor.class)) {
-			
-			@Override
-			protected org.nasdanika.html.Tag combine(List<Object> results, ProgressMonitor progressMonitor) throws Exception {
-				org.nasdanika.html.Tag tag = context.get(HTMLFactory.class, HTMLFactory.INSTANCE).tag(name());
-				results.forEach(tag);
-				return tag;
-			}
-		};
-		
-		return ret;
+		return Supplier.fromSupplier(() -> context.get(HTMLFactory.class, HTMLFactory.INSTANCE).tag(getName()), getTitle(), 1);
 	}
 
 } //TagImpl

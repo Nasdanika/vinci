@@ -5,6 +5,8 @@ package org.nasdanika.vinci.html.impl;
 import java.lang.reflect.InvocationTargetException;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
+import org.nasdanika.common.Context;
+import org.nasdanika.common.Function;
 import org.nasdanika.common.FunctionFactory;
 import org.nasdanika.ncore.impl.ModelElementImpl;
 import org.nasdanika.vinci.html.HtmlElement;
@@ -37,7 +39,6 @@ public abstract class HtmlElementImpl extends ModelElementImpl implements HtmlEl
 		return HtmlPackage.Literals.HTML_ELEMENT;
 	}
 	
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -45,9 +46,13 @@ public abstract class HtmlElementImpl extends ModelElementImpl implements HtmlEl
 	 */
 	@Override
 	public FunctionFactory<Object, Object> asBuilder() {
-		
-		// TODO - implement.
-		return FunctionFactory.nop();
+		return new FunctionFactory<Object, Object>() {
+			
+			@Override
+			public Function<Object, Object> create(Context context) throws Exception {
+				return Function.nop();
+			}
+		};
 	}
 
 	/**

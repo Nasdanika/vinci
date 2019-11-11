@@ -10,9 +10,10 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.nasdanika.common.Context;
+import org.nasdanika.common.ListCompoundSupplier;
+import org.nasdanika.common.StringMapCompoundSupplier;
 import org.nasdanika.common.Supplier;
 import org.nasdanika.common.SupplierFactory;
-import org.nasdanika.common._legacy.CompoundSupplier;
 import org.nasdanika.vinci.html.ContentTag;
 import org.nasdanika.vinci.html.HtmlPackage;
 
@@ -166,15 +167,25 @@ public class ContentTagImpl extends TagImpl implements ContentTag {
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 	
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Override
 	public Supplier<Object> create(Context context) throws Exception {
-		Supplier<Object> work = super.create(context);
-		
+		Supplier<Object> tagSupplier = super.create(context);
+		ListCompoundSupplier<Object> contentSupplier = new ListCompoundSupplier<Object>("Content");
 		for (SupplierFactory<Object> content: getContent()) {
-			((CompoundSupplier<Object,Object>) work).add(content.create(context));
+			contentSupplier.add(content.create(context));
 		}
-		return work;
+		@SuppressWarnings("resource")
+		StringMapCompoundSupplier<Object> mapSupplier = new StringMapCompoundSupplier<>("Parts");
+		mapSupplier.put("Tag", tagSupplier);
+		mapSupplier.put((Supplier) contentSupplier);
+		return mapSupplier.then(map -> {
+			org.nasdanika.html.Tag tag = (org.nasdanika.html.Tag) map.get("Tag");
+			for (Object c: ((Collection<Object>) map.get("Content"))) {
+				tag.accept(c);
+			}
+			return tag;
+		});
 	}
 
 } //ContentTagImpl
