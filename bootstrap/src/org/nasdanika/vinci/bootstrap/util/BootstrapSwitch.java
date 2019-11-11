@@ -7,7 +7,6 @@ import org.eclipse.emf.ecore.EPackage;
 
 import org.eclipse.emf.ecore.util.Switch;
 import org.nasdanika.common.ConsumerFactory;
-import org.nasdanika.common.FunctionFactory;
 import org.nasdanika.common.SupplierFactory;
 import org.nasdanika.ncore.ModelElement;
 import org.nasdanika.ncore.NamedElement;
@@ -86,7 +85,7 @@ public class BootstrapSwitch<T1> extends Switch<T1> {
 			case BootstrapPackage.APPEARANCE: {
 				Appearance appearance = (Appearance)theEObject;
 				T1 result = caseAppearance(appearance);
-				if (result == null) result = caseFunctionFactory(appearance);
+				if (result == null) result = caseConsumerFactory(appearance);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -985,21 +984,6 @@ public class BootstrapSwitch<T1> extends Switch<T1> {
 	 * @generated
 	 */
 	public T1 casePage(Page object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Function Factory</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Function Factory</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public <T, R> T1 caseFunctionFactory(FunctionFactory<T, R> object) {
 		return null;
 	}
 

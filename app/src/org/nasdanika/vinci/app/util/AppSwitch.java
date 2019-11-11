@@ -79,7 +79,7 @@ public class AppSwitch<T1> extends Switch<T1> {
 				Label label = (Label)theEObject;
 				T1 result = caseLabel(label);
 				if (result == null) result = caseModelElement(label);
-				if (result == null) result = caseWorkFactory(label);
+				if (result == null) result = caseSupplierFactory(label);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -89,7 +89,7 @@ public class AppSwitch<T1> extends Switch<T1> {
 				if (result == null) result = caseLabel(category);
 				if (result == null) result = caseContainer(category);
 				if (result == null) result = caseModelElement(category);
-				if (result == null) result = caseWorkFactory(category);
+				if (result == null) result = caseSupplierFactory(category);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -114,7 +114,7 @@ public class AppSwitch<T1> extends Switch<T1> {
 				if (result == null) result = caseLabel(actionCategory);
 				if (result == null) result = caseContainer(actionCategory);
 				if (result == null) result = caseModelElement(actionCategory);
-				if (result == null) result = caseWorkFactory(actionCategory);
+				if (result == null) result = caseSupplierFactory(actionCategory);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -125,7 +125,7 @@ public class AppSwitch<T1> extends Switch<T1> {
 				if (result == null) result = caseAbstractAction(actionBase);
 				if (result == null) result = caseContainer(actionBase);
 				if (result == null) result = caseModelElement(actionBase);
-				if (result == null) result = caseWorkFactory(actionBase);
+				if (result == null) result = caseSupplierFactory(actionBase);
 				if (result == null) result = caseActionElement(actionBase);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -160,7 +160,7 @@ public class AppSwitch<T1> extends Switch<T1> {
 				if (result == null) result = caseAbstractAction(action);
 				if (result == null) result = caseContainer(action);
 				if (result == null) result = caseModelElement(action);
-				if (result == null) result = caseWorkFactory(action);
+				if (result == null) result = caseSupplierFactory(action);
 				if (result == null) result = caseActionElement(action);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -173,7 +173,7 @@ public class AppSwitch<T1> extends Switch<T1> {
 				if (result == null) result = caseAbstractAction(partition);
 				if (result == null) result = caseContainer(partition);
 				if (result == null) result = caseModelElement(partition);
-				if (result == null) result = caseWorkFactory(partition);
+				if (result == null) result = caseSupplierFactory(partition);
 				if (result == null) result = caseActionElement(partition);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -182,7 +182,7 @@ public class AppSwitch<T1> extends Switch<T1> {
 				BootstrapContainerApplication bootstrapContainerApplication = (BootstrapContainerApplication)theEObject;
 				T1 result = caseBootstrapContainerApplication(bootstrapContainerApplication);
 				if (result == null) result = caseBootstrapElement(bootstrapContainerApplication);
-				if (result == null) result = caseIFunction(bootstrapContainerApplication);
+				if (result == null) result = caseFunctionFactory(bootstrapContainerApplication);
 				if (result == null) result = caseHtmlElement(bootstrapContainerApplication);
 				if (result == null) result = caseModelElement(bootstrapContainerApplication);
 				if (result == null) result = defaultCase(theEObject);
@@ -318,7 +318,7 @@ public class AppSwitch<T1> extends Switch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public <T> T1 caseWorkFactory(SupplierFactory<T> object) {
+	public <T> T1 caseSupplierFactory(SupplierFactory<T> object) {
 		return null;
 	}
 
@@ -353,17 +353,17 @@ public class AppSwitch<T1> extends Switch<T1> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>IFunction</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Function Factory</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>IFunction</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Function Factory</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public <T, R> T1 caseIFunction(FunctionFactory<T, R> object) {
+	public <T, R> T1 caseFunctionFactory(FunctionFactory<T, R> object) {
 		return null;
 	}
 

@@ -36,7 +36,7 @@ import org.nasdanika.vinci.bootstrap.BootstrapElement;
  * </ul>
  *
  * @see org.nasdanika.vinci.app.AppPackage#getBootstrapContainerApplication()
- * @model superTypes="org.nasdanika.vinci.bootstrap.BootstrapElement org.nasdanika.ncore.IFunction&lt;org.eclipse.emf.ecore.EJavaObject, org.eclipse.emf.ecore.EJavaObject&gt;"
+ * @model superTypes="org.nasdanika.vinci.bootstrap.BootstrapElement org.nasdanika.ncore.FunctionFactory&lt;org.eclipse.emf.ecore.EJavaObject, org.eclipse.emf.ecore.EJavaObject&gt;"
  * @generated
  */
 public interface BootstrapContainerApplication extends BootstrapElement, FunctionFactory<Object, Object> {

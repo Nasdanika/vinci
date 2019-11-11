@@ -9,7 +9,6 @@ import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 
 import org.eclipse.emf.ecore.EObject;
 import org.nasdanika.common.ConsumerFactory;
-import org.nasdanika.common.FunctionFactory;
 import org.nasdanika.common.SupplierFactory;
 import org.nasdanika.ncore.ModelElement;
 import org.nasdanika.ncore.NamedElement;
@@ -227,8 +226,8 @@ public class BootstrapAdapterFactory extends AdapterFactoryImpl {
 				return createPageAdapter();
 			}
 			@Override
-			public <T, R> Adapter caseFunctionFactory(FunctionFactory<T, R> object) {
-				return createFunctionFactoryAdapter();
+			public <T> Adapter caseConsumerFactory(ConsumerFactory<T> object) {
+				return createConsumerFactoryAdapter();
 			}
 			@Override
 			public Adapter caseHtmlElement(HtmlElement object) {
@@ -237,10 +236,6 @@ public class BootstrapAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseHtml_Tag(org.nasdanika.vinci.html.Tag object) {
 				return createHtml_TagAdapter();
-			}
-			@Override
-			public <T> Adapter caseConsumerFactory(ConsumerFactory<T> object) {
-				return createConsumerFactoryAdapter();
 			}
 			@Override
 			public Adapter caseHtml_Container(org.nasdanika.vinci.html.Container object) {
@@ -851,20 +846,6 @@ public class BootstrapAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createPageAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.nasdanika.common.FunctionFactory <em>Function Factory</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.nasdanika.common.FunctionFactory
-	 * @generated
-	 */
-	public Adapter createFunctionFactoryAdapter() {
 		return null;
 	}
 

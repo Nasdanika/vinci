@@ -207,7 +207,7 @@ public interface BootstrapPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int APPEARANCE__BACKGROUND = NcorePackage.FUNCTION_FACTORY_FEATURE_COUNT + 0;
+	int APPEARANCE__BACKGROUND = NcorePackage.CONSUMER_FACTORY_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Appearance</em>' class.
@@ -216,7 +216,7 @@ public interface BootstrapPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int APPEARANCE_FEATURE_COUNT = NcorePackage.FUNCTION_FACTORY_FEATURE_COUNT + 1;
+	int APPEARANCE_FEATURE_COUNT = NcorePackage.CONSUMER_FACTORY_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Appearance</em>' class.
@@ -225,7 +225,7 @@ public interface BootstrapPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int APPEARANCE_OPERATION_COUNT = NcorePackage.FUNCTION_FACTORY_OPERATION_COUNT + 0;
+	int APPEARANCE_OPERATION_COUNT = NcorePackage.CONSUMER_FACTORY_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.vinci.bootstrap.impl.BootstrapElementImpl <em>Element</em>}' class.

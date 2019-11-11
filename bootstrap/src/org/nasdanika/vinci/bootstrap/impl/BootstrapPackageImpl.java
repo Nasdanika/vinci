@@ -1092,10 +1092,8 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 
 		// Add supertypes to classes
 		bootstrapPageEClass.getESuperTypes().add(theHtmlPackage.getPage());
-		EGenericType g1 = createEGenericType(theNcorePackage.getFunctionFactory());
+		EGenericType g1 = createEGenericType(theNcorePackage.getConsumerFactory());
 		EGenericType g2 = createEGenericType(ecorePackage.getEJavaObject());
-		g1.getETypeArguments().add(g2);
-		g2 = createEGenericType(ecorePackage.getEJavaObject());
 		g1.getETypeArguments().add(g2);
 		appearanceEClass.getEGenericSuperTypes().add(g1);
 		bootstrapElementEClass.getESuperTypes().add(theHtmlPackage.getHtmlElement());

@@ -151,7 +151,7 @@ public abstract class BootstrapElementImpl extends HtmlElementImpl implements Bo
 	@Override
 	public FunctionFactory<Object, Object> asBuilder() {		
 		Appearance appearance = getAppearance();
-		return appearance == null ? super.asBuilder() : super.asBuilder().then(appearance);
+		return appearance == null ? super.asBuilder() : super.asBuilder().then(appearance.asFunctionFactory());
 	}
 
 } //BootstrapElementImpl

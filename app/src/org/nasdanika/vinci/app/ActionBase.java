@@ -272,7 +272,7 @@ public interface ActionBase extends Label, AbstractAction, Container<ActionEleme
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Content</em>' containment reference list.
 	 * @see org.nasdanika.vinci.app.AppPackage#getActionBase_Content()
-	 * @model type="org.nasdanika.ncore.WorkFactory&lt;org.eclipse.emf.ecore.EJavaObject&gt;" containment="true"
+	 * @model type="org.nasdanika.ncore.SupplierFactory&lt;org.eclipse.emf.ecore.EJavaObject&gt;" containment="true"
 	 * @generated
 	 */
 	EList<SupplierFactory<Object>> getContent();

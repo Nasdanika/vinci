@@ -914,7 +914,7 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 		// Add supertypes to classes
 		EGenericType g1 = createEGenericType(theNcorePackage.getModelElement());
 		labelEClass.getEGenericSuperTypes().add(g1);
-		g1 = createEGenericType(theNcorePackage.getWorkFactory());
+		g1 = createEGenericType(theNcorePackage.getSupplierFactory());
 		EGenericType g2 = createEGenericType(ecorePackage.getEJavaObject());
 		g1.getETypeArguments().add(g2);
 		labelEClass.getEGenericSuperTypes().add(g1);
@@ -945,7 +945,7 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 		partitionEClass.getESuperTypes().add(this.getActionBase());
 		g1 = createEGenericType(theBootstrapPackage.getBootstrapElement());
 		bootstrapContainerApplicationEClass.getEGenericSuperTypes().add(g1);
-		g1 = createEGenericType(theNcorePackage.getIFunction());
+		g1 = createEGenericType(theNcorePackage.getFunctionFactory());
 		g2 = createEGenericType(ecorePackage.getEJavaObject());
 		g1.getETypeArguments().add(g2);
 		g2 = createEGenericType(ecorePackage.getEJavaObject());
@@ -989,7 +989,7 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 		initEAttribute(getActionBase_Disabled(), ecorePackage.getEBoolean(), "disabled", null, 0, 1, ActionBase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getActionBase_FloatRight(), ecorePackage.getEBoolean(), "floatRight", null, 0, 1, ActionBase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getActionBase_Embedded(), ecorePackage.getEBoolean(), "embedded", null, 0, 1, ActionBase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		g1 = createEGenericType(theNcorePackage.getWorkFactory());
+		g1 = createEGenericType(theNcorePackage.getSupplierFactory());
 		g2 = createEGenericType(ecorePackage.getEJavaObject());
 		g1.getETypeArguments().add(g2);
 		initEReference(getActionBase_Content(), g1, null, "content", null, 0, -1, ActionBase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

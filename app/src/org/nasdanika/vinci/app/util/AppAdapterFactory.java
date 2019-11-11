@@ -130,8 +130,8 @@ public class AppAdapterFactory extends AdapterFactoryImpl {
 				return createModelElementAdapter();
 			}
 			@Override
-			public <T> Adapter caseWorkFactory(SupplierFactory<T> object) {
-				return createWorkFactoryAdapter();
+			public <T> Adapter caseSupplierFactory(SupplierFactory<T> object) {
+				return createSupplierFactoryAdapter();
 			}
 			@Override
 			public Adapter caseHtmlElement(HtmlElement object) {
@@ -142,8 +142,8 @@ public class AppAdapterFactory extends AdapterFactoryImpl {
 				return createBootstrapElementAdapter();
 			}
 			@Override
-			public <T, R> Adapter caseIFunction(FunctionFactory<T, R> object) {
-				return createIFunctionAdapter();
+			public <T, R> Adapter caseFunctionFactory(FunctionFactory<T, R> object) {
+				return createFunctionFactoryAdapter();
 			}
 			@Override
 			public Adapter caseHtml_Container(org.nasdanika.vinci.html.Container object) {
@@ -277,7 +277,7 @@ public class AppAdapterFactory extends AdapterFactoryImpl {
 	 * @see org.nasdanika.common.SupplierFactory
 	 * @generated
 	 */
-	public Adapter createWorkFactoryAdapter() {
+	public Adapter createSupplierFactoryAdapter() {
 		return null;
 	}
 
@@ -310,7 +310,7 @@ public class AppAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.nasdanika.common.FunctionFactory <em>IFunction</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.common.FunctionFactory <em>Function Factory</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
@@ -319,7 +319,7 @@ public class AppAdapterFactory extends AdapterFactoryImpl {
 	 * @see org.nasdanika.common.FunctionFactory
 	 * @generated
 	 */
-	public Adapter createIFunctionAdapter() {
+	public Adapter createFunctionFactoryAdapter() {
 		return null;
 	}
 
