@@ -3,7 +3,6 @@
 package org.nasdanika.vinci.bootstrap.impl;
 
 import java.util.Collection;
-import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
@@ -12,11 +11,10 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.InternalEList;
-import org.nasdanika.common.CompoundExecutionParticipant;
+import org.nasdanika.common.BiSupplier;
 import org.nasdanika.common.Consumer;
 import org.nasdanika.common.Context;
 import org.nasdanika.common.ListCompoundSupplier;
-import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.common.StringMapCompoundSupplier;
 import org.nasdanika.common.Supplier;
 import org.nasdanika.common.SupplierFactory;
@@ -190,28 +188,24 @@ public class ContentActionGroupItemImpl extends ActionGroupItemImpl implements C
 
 	@Override
 	public Consumer<Object> create(Context context) throws Exception {
+		@SuppressWarnings("resource")
 		StringMapCompoundSupplier<List<Object>> partsSupplier = new StringMapCompoundSupplier<>("Parts");
 		partsSupplier.put(createNameSupplier(context));
 		partsSupplier.put(createContentSupplier(context));
-		
-		class ContentActionGroupItemGenerator extends CompoundExecutionParticipant<StringMapCompoundSupplier<List<Object>>> implements Consumer<Object> {
 
-			protected ContentActionGroupItemGenerator(String name) {
-				super(name);
-			}
+		java.util.function.Consumer<BiSupplier<Object, Map<String,List<Object>>>> consumer = new java.util.function.Consumer<BiSupplier<Object, Map<String,List<Object>>>>() {
 
 			@Override
-			public void execute(Object arg, ProgressMonitor progressMonitor) throws Exception {
+			public void accept(BiSupplier<Object, Map<String,List<Object>>> supplier) {
 				HTMLFactory htmlFactory = context.get(HTMLFactory.class, HTMLFactory.INSTANCE);
-				Map<String, List<Object>> parts = getElements().get(0).splitAndExecute(progressMonitor);
 
 				Fragment nameFragment = htmlFactory.fragment();
-				parts.get("Name").forEach(nameFragment);
+				supplier.getSecond().get("Name").forEach(nameFragment);
 				
 				Fragment contentFragment = htmlFactory.fragment();
-				parts.get("Content").forEach(contentFragment);
+				supplier.getSecond().get("Content").forEach(contentFragment);
 				
-				((ActionGroup) arg).contentAction(
+				((ActionGroup) supplier.getFirst()).contentAction(
 						nameFragment, 
 						isActive(), 
 						isDisabled(), 
@@ -220,14 +214,10 @@ public class ContentActionGroupItemImpl extends ActionGroupItemImpl implements C
 						contentFragment);
 			}
 
-			@Override
-			protected List<StringMapCompoundSupplier<List<Object>>> getElements() {
-				return Collections.singletonList(partsSupplier);
-			}
-			
-		}
+
+		};
 		
-		return new ContentActionGroupItemGenerator(getTitle());
+		return partsSupplier.asFunction().then(Consumer.fromConsumer(consumer, getTitle(), 1));
 	}
 
 } //ContentActionGroupItemImpl

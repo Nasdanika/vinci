@@ -2,15 +2,12 @@
  */
 package org.nasdanika.vinci.bootstrap.impl;
 
-import java.util.Collections;
 import java.util.List;
 
 import org.eclipse.emf.ecore.EClass;
-import org.nasdanika.common.CompoundExecutionParticipant;
+import org.nasdanika.common.BiSupplier;
 import org.nasdanika.common.Consumer;
 import org.nasdanika.common.Context;
-import org.nasdanika.common.ProgressMonitor;
-import org.nasdanika.common.Supplier;
 import org.nasdanika.common.Util;
 import org.nasdanika.html.Fragment;
 import org.nasdanika.html.HTMLFactory;
@@ -140,22 +137,16 @@ public class LinkActionGroupItemImpl extends ActionGroupItemImpl implements Link
 	}
 
 	@Override
-	public Consumer<Object> create(Context context) throws Exception {		
-		Supplier<List<Object>> nameSupplier = createNameSupplier(context);
-		
-		class ListActionGroupItemGenerator extends CompoundExecutionParticipant<Supplier<List<Object>>> implements Consumer<Object> {
-
-			protected ListActionGroupItemGenerator(String name) {
-				super(name);
-			}
+	public Consumer<Object> create(Context context) throws Exception {
+		java.util.function.Consumer<BiSupplier<Object, List<Object>>> consumer = new java.util.function.Consumer<BiSupplier<Object, List<Object>>>() {
 
 			@Override
-			public void execute(Object arg, ProgressMonitor progressMonitor) throws Exception {
+			public void accept(BiSupplier<Object, List<Object>> supplier) {
 				HTMLFactory htmlFactory = context.get(HTMLFactory.class, HTMLFactory.INSTANCE);
 				Fragment nameFragment = htmlFactory.fragment();
-				getElements().get(0).splitAndExecute(progressMonitor).forEach(nameFragment);
+				supplier.getSecond().forEach(nameFragment);
 				
-				((ActionGroup) arg).action(
+				((ActionGroup) supplier.getFirst()).action(
 						isActive(), 
 						isDisabled(), 
 						Util.isBlank(getColor()) ? null : Color.valueOf(getColor()),
@@ -163,14 +154,10 @@ public class LinkActionGroupItemImpl extends ActionGroupItemImpl implements Link
 						nameFragment);
 			}
 
-			@Override
-			protected List<Supplier<List<Object>>> getElements() {
-				return Collections.singletonList(nameSupplier);
-			}
-			
-		}
+
+		};
 		
-		return new ListActionGroupItemGenerator(getTitle());
+		return createNameSupplier(context).asFunction().then(Consumer.fromConsumer(consumer, getTitle(), 1));
 	}
 
 } //LinkActionGroupItemImpl
