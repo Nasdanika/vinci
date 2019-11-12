@@ -2,18 +2,20 @@
  */
 package org.nasdanika.vinci.app.impl;
 
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.concurrent.Executor;
+import java.util.Map;
 
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+import org.nasdanika.common.Command;
+import org.nasdanika.common.CompoundExecutionParticipant;
+import org.nasdanika.common.Consumer;
 import org.nasdanika.common.Context;
 import org.nasdanika.common.ProgressMonitor;
-import org.nasdanika.common.Reference;
 import org.nasdanika.common.Supplier;
-import org.nasdanika.common.SupplierFactory;
-import org.nasdanika.common._legacy.CompoundSupplier;
 import org.nasdanika.html.HTMLPage;
 import org.nasdanika.html.bootstrap.BootstrapFactory;
 import org.nasdanika.vinci.app.AppPackage;
@@ -408,189 +410,187 @@ public class BootstrapContainerApplicationImpl extends BootstrapElementImpl impl
 		}
 		return super.eIsSet(featureID);
 	}
-
+	
+	private enum Section {
+		Container,
+		Header,
+		NavigationBar,
+		NavigationPanel,
+		ContentPanel,
+		Footer
+	}
+			
 	@Override
-	public SupplierFactory<Object> create(SupplierFactory<Object> arg) throws Exception {		
-		/* 
-		 * Steps:
-		 * 
-		 * 1. Arg
-		 * 2. Create BootstrapContainerApp
-		 * 3. Call builders on sections.
-		 */
+	public Consumer<Object> create(Context context) throws Exception {
+		
+		Map<Section, Consumer<Object>> sections = new LinkedHashMap<>();
 
-		Reference<Object> headerReference = new Reference<>();		
+		sections.put(Section.Container, super.asConsumer(context));
+		
 		BootstrapContainerApplicationSection header = getHeader();
-		SupplierFactory<Object> headerWorkFactory = header == null ? null : header.asBuilder().create(SupplierFactory.fromSupplier(headerReference, "Header", 0));
+		if (header != null) {
+			sections.put(Section.Header, header.asConsumer(context));
+		}
 		
-		Reference<Object> navBarReference = new Reference<>();		
 		BootstrapContainerApplicationSection navBar = getNavigationBar();
-		SupplierFactory<Object> navBarWorkFactory = navBar == null ? null : navBar.asBuilder().create(SupplierFactory.fromSupplier(navBarReference, "Navigation Bar", 0));
+		if (navBar != null) {
+			sections.put(Section.NavigationBar, navBar.asConsumer(context));
+		}
 		
-		Reference<Object> navigationPanelReference = new Reference<>();		
-		BootstrapContainerApplicationSection navigationPanel = getNavigationPanel();
-		SupplierFactory<Object> navigationPanelWorkFactory = navigationPanel == null ? null : navigationPanel.asBuilder().create(SupplierFactory.fromSupplier(navigationPanelReference, "Navigation Panel", 0));
+		BootstrapContainerApplicationSection navPanel = getNavigationPanel();
+		if (navPanel != null) {
+			sections.put(Section.NavigationPanel, navPanel.asConsumer(context));
+		}
 		
-		Reference<Object> contentPanelReference = new Reference<>();		
 		BootstrapContainerApplicationSection contentPanel = getContentPanel();
-		SupplierFactory<Object> contentPanelWorkFactory = contentPanel == null ? null : contentPanel.asBuilder().create(SupplierFactory.fromSupplier(contentPanelReference, "Content Panel", 0));
+		if (contentPanel != null) {
+			sections.put(Section.ContentPanel, contentPanel.asConsumer(context));
+		}
 		
-		Reference<Object> footerReference = new Reference<>();		
 		BootstrapContainerApplicationSection footer = getFooter();
-		SupplierFactory<Object> footerWorkFactory = footer == null ? null : footer.asBuilder().create(SupplierFactory.fromSupplier(footerReference, "Footer", 0));		
-		
-		// TODO - apply super.asBuilder to container.
-		// super.asBuilder();
-		
-		return new SupplierFactory<Object>() {
+		if (footer != null) {
+			sections.put(Section.Footer, footer.asConsumer(context));
+		}
+				
+		class Generator extends CompoundExecutionParticipant<Consumer<Object>> implements Consumer<Object> {
+
+			protected Generator(String name) {
+				super(name);
+			}
+			
+			List<Command> sectionBuilders = new ArrayList<>();
 
 			@Override
-			public Supplier<Object> create(Context context) throws Exception {
+			public void execute(Object arg, ProgressMonitor progressMonitor) throws Exception {
+				progressMonitor.setWorkRemaining(size());
 				
-				// Sequential - arg, create page, section
-				CompoundSupplier<Object, Object> ret = new CompoundSupplier<Object, Object>(BootstrapContainerApplicationImpl.this.getTitle(), null) {
-					
-					@Override
-					protected Object combine(List<Object> results, ProgressMonitor progressMonitor) throws Exception {
-						return results.get(0);
-					}
-					
-				};
-
-				Reference<Object> pageReference = new Reference<>();
-				
-				Supplier<Object> argWork = arg.create(context).adapt(page -> {
-					pageReference.set(page);
-					return page;
-				});
-				ret.add(argWork);
-				
-				Supplier<Object> applicationWork = new Supplier<Object>() {
-
-					@Override
-					public Object execute(ProgressMonitor progressMonitor) throws Exception {
-						if (isRouter()) {
-							return new org.nasdanika.html.app.impl.BootstrapContainerRouterApplication(
-									context.get(BootstrapFactory.class, BootstrapFactory.INSTANCE),
-									(HTMLPage) pageReference.get(),
-									isFluid()) {
-								
-								protected void configureContainer(org.nasdanika.html.bootstrap.Container container) {
-									// TODO - own config.
-								};								
-								
-								protected void configureHeader(org.nasdanika.html.bootstrap.Container.Row.Col header) {
-									headerReference.set(header);
-								};
-								
-								protected void configureNavigationBar(org.nasdanika.html.bootstrap.Container.Row.Col navigationBar) {
-									navBarReference.set(navigationBar);
-								};
-								
-								protected void configureContentRow(org.nasdanika.html.bootstrap.Container.Row contentRow) {
-									// TODO - min height
-								};
-								
-								protected void configureNavigationPanel(org.nasdanika.html.bootstrap.Container.Row.Col navigationPanel) {
-									navigationPanelReference.set(navigationPanel);
-								};
-								
-								protected void configureConentPanel(org.nasdanika.html.bootstrap.Container.Row.Col contentPanel) {
-									contentPanelReference.set(contentPanel);
-								};
-								
-								protected void configureFooter(org.nasdanika.html.bootstrap.Container.Row.Col footer) {
-									footerReference.set(footer);
-								};								
-								
-							};							
-						}
+				if (isRouter()) {
+					new org.nasdanika.html.app.impl.BootstrapContainerRouterApplication(
+							context.get(BootstrapFactory.class, BootstrapFactory.INSTANCE),
+							(HTMLPage) arg,
+							isFluid()) {
 						
-						return new org.nasdanika.html.app.impl.BootstrapContainerApplication(
-								context.get(BootstrapFactory.class, BootstrapFactory.INSTANCE),
-								(HTMLPage) pageReference.get(),
-								isFluid()) {
-							
-							protected void configureContainer(org.nasdanika.html.bootstrap.Container container) {
-								// TODO - own config.
-							};
-							
-							protected void configureHeader(org.nasdanika.html.bootstrap.Container.Row.Col header) {
-								headerReference.set(header);
-							};
-							
-							protected void configureNavigationBar(org.nasdanika.html.bootstrap.Container.Row.Col navigationBar) {
-								navBarReference.set(navigationBar);
-							};
-							
-							protected void configureContentRow(org.nasdanika.html.bootstrap.Container.Row contentRow) {
-								// TODO - min height
-							};
-							
-							protected void configureNavigationPanel(org.nasdanika.html.bootstrap.Container.Row.Col navigationPanel) {
-								navigationPanelReference.set(navigationPanel);
-							};
-							
-							protected void configureConentPanel(org.nasdanika.html.bootstrap.Container.Row.Col contentPanel) {
-								contentPanelReference.set(contentPanel);
-							};
-							
-							protected void configureFooter(org.nasdanika.html.bootstrap.Container.Row.Col footer) {
-								footerReference.set(footer);
-							};								
-							
+						protected void configureContainer(org.nasdanika.html.bootstrap.Container container) {
+							Consumer<Object> containerConsumer = sections.get(Section.Container);
+							if (containerConsumer != null) {
+								sectionBuilders.add(Supplier.from(container, "Container").then(containerConsumer));
+							}
+						};								
+						
+						protected void configureHeader(org.nasdanika.html.bootstrap.Container.Row.Col header) {
+							Consumer<Object> headerConsumer = sections.get(Section.Header);
+							if (headerConsumer != null) {
+								sectionBuilders.add(Supplier.from(header, "Header").then(headerConsumer));
+							}
 						};
-					}
-
-					@Override
-					public double size() {
-						return 1;
-					}
-
-					@Override
-					public String name() {
-						return "Application";
-					}
-					
-				};
-				ret.add(applicationWork);
-				
-				// Section work can be executed in parallel.
-				CompoundSupplier<Object, Object> sectionWork = new CompoundSupplier<Object, Object>("Sections", context.get(Executor.class)) {
-
-					@Override
-					protected Object combine(List<Object> results, ProgressMonitor progressMonitor) throws Exception {
-						return null;
-					}
-					
-				};
-				
-				if (headerWorkFactory != null) {
-					sectionWork.add(headerWorkFactory.create(context));
+						
+						protected void configureNavigationBar(org.nasdanika.html.bootstrap.Container.Row.Col navigationBar) {
+							Consumer<Object> navBarConsumer = sections.get(Section.NavigationBar);
+							if (navBarConsumer != null) {
+								sectionBuilders.add(Supplier.from(navigationBar, "Navigation Bar").then(navBarConsumer));
+							}
+						};
+						
+						protected void configureContentRow(org.nasdanika.html.bootstrap.Container.Row contentRow) {
+							// TODO - min height
+						};
+						
+						protected void configureNavigationPanel(org.nasdanika.html.bootstrap.Container.Row.Col navigationPanel) {
+							Consumer<Object> navPanelConsumer = sections.get(Section.NavigationPanel);
+							if (navPanelConsumer != null) {
+								sectionBuilders.add(Supplier.from(navigationPanel, "Container").then(navPanelConsumer));
+							}
+						};
+						
+						protected void configureConentPanel(org.nasdanika.html.bootstrap.Container.Row.Col contentPanel) {
+							Consumer<Object> contentPanelConsumer = sections.get(Section.ContentPanel);
+							if (contentPanelConsumer != null) {
+								sectionBuilders.add(Supplier.from(contentPanel, "Content Panel").then(contentPanelConsumer));
+							}
+						};
+						
+						protected void configureFooter(org.nasdanika.html.bootstrap.Container.Row.Col footer) {
+							Consumer<Object> footerConsumer = sections.get(Section.Footer);
+							if (footerConsumer != null) {
+								sectionBuilders.add(Supplier.from(footer, "Footer").then(footerConsumer));
+							}
+						};								
+						
+					};							
+				} else {				
+					new org.nasdanika.html.app.impl.BootstrapContainerApplication(
+							context.get(BootstrapFactory.class, BootstrapFactory.INSTANCE),
+							(HTMLPage) arg,
+							isFluid()) {
+						
+						
+						protected void configureContainer(org.nasdanika.html.bootstrap.Container container) {
+							Consumer<Object> containerConsumer = sections.get(Section.Container);
+							if (containerConsumer != null) {
+								sectionBuilders.add(Supplier.from(container, "Container").then(containerConsumer));
+							}
+						};								
+						
+						protected void configureHeader(org.nasdanika.html.bootstrap.Container.Row.Col header) {
+							Consumer<Object> headerConsumer = sections.get(Section.Header);
+							if (headerConsumer != null) {
+								sectionBuilders.add(Supplier.from(header, "Header").then(headerConsumer));
+							}
+						};
+						
+						protected void configureNavigationBar(org.nasdanika.html.bootstrap.Container.Row.Col navigationBar) {
+							Consumer<Object> navBarConsumer = sections.get(Section.NavigationBar);
+							if (navBarConsumer != null) {
+								sectionBuilders.add(Supplier.from(navigationBar, "Navigation Bar").then(navBarConsumer));
+							}
+						};
+						
+						protected void configureContentRow(org.nasdanika.html.bootstrap.Container.Row contentRow) {
+							// TODO - min height
+						};
+						
+						protected void configureNavigationPanel(org.nasdanika.html.bootstrap.Container.Row.Col navigationPanel) {
+							Consumer<Object> navPanelConsumer = sections.get(Section.NavigationPanel);
+							if (navPanelConsumer != null) {
+								sectionBuilders.add(Supplier.from(navigationPanel, "Container").then(navPanelConsumer));
+							}
+						};
+						
+						protected void configureConentPanel(org.nasdanika.html.bootstrap.Container.Row.Col contentPanel) {
+							Consumer<Object> contentPanelConsumer = sections.get(Section.ContentPanel);
+							if (contentPanelConsumer != null) {
+								sectionBuilders.add(Supplier.from(contentPanel, "Content Panel").then(contentPanelConsumer));
+							}
+						};
+						
+						protected void configureFooter(org.nasdanika.html.bootstrap.Container.Row.Col footer) {
+							Consumer<Object> footerConsumer = sections.get(Section.Footer);
+							if (footerConsumer != null) {
+								sectionBuilders.add(Supplier.from(footer, "Footer").then(footerConsumer));
+							}
+						};								
+						
+					};
 				}
 				
-				if (navBarWorkFactory != null) {
-					sectionWork.add(navBarWorkFactory.create(context));
+				for (Command sectionBuilder: sectionBuilders) {
+					sectionBuilder.splitAndExecute(progressMonitor);
 				}
 				
-				if (navigationPanelWorkFactory != null) {
-					sectionWork.add(navigationPanelWorkFactory.create(context));
-				}
-				
-				if (contentPanelWorkFactory != null) {
-					sectionWork.add(contentPanelWorkFactory.create(context));
-				}
-				
-				if (footerWorkFactory != null) {
-					sectionWork.add(footerWorkFactory.create(context));
-				}
-				
-				ret.add(sectionWork);
-				
-				return ret;
 			}
-		};
-		
-	}
 
+			@Override
+			protected List<Consumer<Object>> getElements() {
+				return new ArrayList<>(sections.values());
+			}
+			
+		}
+		
+		return new Generator(getTitle());
+	}
+	
+	@Override
+	public Consumer<Object> asConsumer(Context context) throws Exception {
+		return create(context);
+	}
 } //BootstrapContainerApplicationImpl

@@ -11,9 +11,9 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.InternalEList;
+import org.nasdanika.common.ConsumerFactory;
 import org.nasdanika.common.Context;
 import org.nasdanika.common.Function;
-import org.nasdanika.common.FunctionFactory;
 import org.nasdanika.common.ListCompoundSupplier;
 import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.common.StringMapCompoundSupplier;
@@ -103,8 +103,8 @@ public class PageImpl extends NamedElementImpl implements Page {
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public EList<FunctionFactory<Object, Object>> getBuilders() {
-		return (EList<FunctionFactory<Object, Object>>)eDynamicGet(HtmlPackage.PAGE__BUILDERS, HtmlPackage.Literals.PAGE__BUILDERS, true, true);
+	public EList<ConsumerFactory<Object>> getBuilders() {
+		return (EList<ConsumerFactory<Object>>)eDynamicGet(HtmlPackage.PAGE__BUILDERS, HtmlPackage.Literals.PAGE__BUILDERS, true, true);
 	}
 
 	/**
@@ -210,7 +210,7 @@ public class PageImpl extends NamedElementImpl implements Page {
 				return;
 			case HtmlPackage.PAGE__BUILDERS:
 				getBuilders().clear();
-				getBuilders().addAll((Collection<? extends FunctionFactory<Object, Object>>)newValue);
+				getBuilders().addAll((Collection<? extends ConsumerFactory<Object>>)newValue);
 				return;
 			case HtmlPackage.PAGE__LANGUAGE:
 				setLanguage((String)newValue);
@@ -361,8 +361,8 @@ public class PageImpl extends NamedElementImpl implements Page {
 		
 		Supplier<Object> ret = partsSupplier.then(pageBuilder);
 		
-		for (FunctionFactory<Object, Object> builder: getBuilders()) {
-			ret = ret.then(builder.create(context));
+		for (ConsumerFactory<Object> builder: getBuilders()) {
+			ret = ret.then(builder.create(context).asFunction());
 		}
 				
 		return ret;

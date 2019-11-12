@@ -4,20 +4,18 @@ package org.nasdanika.vinci.app.impl;
 
 import java.util.Collection;
 import java.util.List;
-import java.util.concurrent.Executor;
 
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.InternalEList;
+import org.nasdanika.common.BiSupplier;
+import org.nasdanika.common.Consumer;
 import org.nasdanika.common.Context;
-import org.nasdanika.common.FunctionFactory;
-import org.nasdanika.common.ProgressMonitor;
-import org.nasdanika.common.Reference;
+import org.nasdanika.common.ListCompoundSupplier;
 import org.nasdanika.common.Supplier;
 import org.nasdanika.common.SupplierFactory;
-import org.nasdanika.common._legacy.CompoundSupplier;
 import org.nasdanika.vinci.app.AppPackage;
 import org.nasdanika.vinci.app.BootstrapContainerApplicationSection;
 import org.nasdanika.vinci.bootstrap.impl.BootstrapElementImpl;
@@ -173,15 +171,8 @@ public class BootstrapContainerApplicationSectionImpl extends BootstrapElementIm
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 		
-	protected Supplier<List<Object>> createContentWork(Context context) throws Exception {
-		CompoundSupplier<List<Object>, Object> ret = new CompoundSupplier<List<Object>, Object>("Content", context.get(Executor.class)) {
-
-			@Override
-			protected List<Object> combine(List<Object> results, ProgressMonitor progressMonitor) throws Exception {
-				return results;
-			}
-			
-		}; 
+	protected Supplier<List<Object>> createContentSupplier(Context context) throws Exception {
+		ListCompoundSupplier<Object> ret = new ListCompoundSupplier<Object>("Content");
 		
 		for (SupplierFactory<Object> ce: getContent()) {
 			ret.add(ce.create(context));
@@ -191,48 +182,13 @@ public class BootstrapContainerApplicationSectionImpl extends BootstrapElementIm
 	}	
 	
 	@Override
-	public FunctionFactory<Object, Object> asBuilder() {
-		return super.asBuilder().then(new FunctionFactory<Object,Object>() {
-
-			@Override
-			public SupplierFactory<Object> create(SupplierFactory<Object> arg) throws Exception {
-
-				return new SupplierFactory<Object>() {
-					
-					@Override
-					public Supplier<Object> create(Context context) throws Exception {
-						
-						// Sequential - arg, content
-						CompoundSupplier<Object, Object> ret = new CompoundSupplier<Object, Object>(BootstrapContainerApplicationSectionImpl.this.eContainmentFeature().getName(), null) {
-							
-							@Override
-							protected Object combine(List<Object> results, ProgressMonitor progressMonitor) throws Exception {
-								return results.get(0);
-							}
-							
-						};
-
-						Reference<Object> containerReference = new Reference<>();
-						
-						Supplier<Object> argWork = arg.create(context).adapt(c -> {
-							containerReference.set(c);
-							return c;
-						});
-						ret.add(argWork);
-						
-						Supplier<Object> contentWork = createContentWork(context).adapt(content -> {
-							content.forEach((org.nasdanika.html.bootstrap.Container.Row.Col) containerReference.get()); 
-							return null;
-						});
-						ret.add(contentWork);
-						
-						return ret;
-					}
-				};
-				
-			}
-			
-		});
+	public Consumer<Object> asConsumer(Context context) throws Exception {
+		java.util.function.Function<BiSupplier<Object, List<Object>>, Object> builder = biSupplier -> {
+			org.nasdanika.html.bootstrap.Container.Row.Col col = (org.nasdanika.html.bootstrap.Container.Row.Col) biSupplier.getFirst();
+			biSupplier.getSecond().forEach(col);
+			return col;
+		};
+		return createContentSupplier(context).asFunction().then(builder).then(super.asConsumer(context));
 	}
 
 } //BootstrapContainerApplicationSectionImpl

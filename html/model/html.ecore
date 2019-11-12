@@ -63,8 +63,7 @@
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Builders operate on an instance of ``org.nasdanika.html.HTMLPage`` created by the the page element."/>
       </eAnnotations>
-      <eGenericType eClassifier="ecore:EClass ../../org.nasdanika.ncore/model/ncore.ecore#//FunctionFactory">
-        <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+      <eGenericType eClassifier="ecore:EClass ../../org.nasdanika.ncore/model/ncore.ecore#//ConsumerFactory">
         <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
       </eGenericType>
     </eStructuralFeatures>

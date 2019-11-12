@@ -1508,13 +1508,13 @@ public interface AppPackage extends EPackage {
 	int BOOTSTRAP_CONTAINER_APPLICATION_FEATURE_COUNT = BootstrapPackage.BOOTSTRAP_ELEMENT_FEATURE_COUNT + 7;
 
 	/**
-	 * The operation id for the '<em>As Builder</em>' operation.
+	 * The operation id for the '<em>As Consumer</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BOOTSTRAP_CONTAINER_APPLICATION___AS_BUILDER = BootstrapPackage.BOOTSTRAP_ELEMENT___AS_BUILDER;
+	int BOOTSTRAP_CONTAINER_APPLICATION___AS_CONSUMER__CONTEXT = BootstrapPackage.BOOTSTRAP_ELEMENT___AS_CONSUMER__CONTEXT;
 
 	/**
 	 * The number of operations of the '<em>Bootstrap Container Application</em>' class.
@@ -1581,13 +1581,13 @@ public interface AppPackage extends EPackage {
 	int BOOTSTRAP_CONTAINER_APPLICATION_SECTION_FEATURE_COUNT = BootstrapPackage.BOOTSTRAP_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
-	 * The operation id for the '<em>As Builder</em>' operation.
+	 * The operation id for the '<em>As Consumer</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BOOTSTRAP_CONTAINER_APPLICATION_SECTION___AS_BUILDER = BootstrapPackage.BOOTSTRAP_ELEMENT___AS_BUILDER;
+	int BOOTSTRAP_CONTAINER_APPLICATION_SECTION___AS_CONSUMER__CONTEXT = BootstrapPackage.BOOTSTRAP_ELEMENT___AS_CONSUMER__CONTEXT;
 
 	/**
 	 * The number of operations of the '<em>Bootstrap Container Application Section</em>' class.
