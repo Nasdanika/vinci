@@ -149,7 +149,7 @@ public class HtmlPackageImpl extends EPackageImpl implements HtmlPackage {
 	 * @generated
 	 */
 	@Override
-	public EOperation getHtmlElement__AsBuilder() {
+	public EOperation getHtmlElement__AsConsumer__Context() {
 		return htmlElementEClass.getEOperations().get(0);
 	}
 
@@ -313,7 +313,7 @@ public class HtmlPackageImpl extends EPackageImpl implements HtmlPackage {
 
 		// Create classes and their features
 		htmlElementEClass = createEClass(HTML_ELEMENT);
-		createEOperation(htmlElementEClass, HTML_ELEMENT___AS_BUILDER);
+		createEOperation(htmlElementEClass, HTML_ELEMENT___AS_CONSUMER__CONTEXT);
 
 		containerEClass = createEClass(CONTAINER);
 		createEReference(containerEClass, CONTAINER__CONTENT);
@@ -385,10 +385,10 @@ public class HtmlPackageImpl extends EPackageImpl implements HtmlPackage {
 		// Initialize classes, features, and operations; add parameters
 		initEClass(htmlElementEClass, HtmlElement.class, "HtmlElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		EOperation op = initEOperation(getHtmlElement__AsBuilder(), null, "asBuilder", 0, 1, IS_UNIQUE, IS_ORDERED);
-		g1 = createEGenericType(theNcorePackage.getFunctionFactory());
-		g2 = createEGenericType(ecorePackage.getEJavaObject());
-		g1.getETypeArguments().add(g2);
+		EOperation op = initEOperation(getHtmlElement__AsConsumer__Context(), null, "asConsumer", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theNcorePackage.getIContext(), "context", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, theNcorePackage.getException());
+		g1 = createEGenericType(theNcorePackage.getConsumer());
 		g2 = createEGenericType(ecorePackage.getEJavaObject());
 		g1.getETypeArguments().add(g2);
 		initEOperation(op, g1);
@@ -455,7 +455,7 @@ public class HtmlPackageImpl extends EPackageImpl implements HtmlPackage {
 			   "documentation", "Base class for other HTML and bootstrap elements. "
 		   });
 		addAnnotation
-		  (getHtmlElement__AsBuilder(),
+		  (getHtmlElement__AsConsumer__Context(),
 		   source,
 		   new String[] {
 			   "documentation", "Wraps element into a Function so it can be used as a builder - an existing object can be passed to HTML element\'s function and it will \"build\" it by applying styles, attriutes, etc."

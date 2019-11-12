@@ -4,13 +4,13 @@ package org.nasdanika.vinci.bootstrap.impl;
 
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.InternalEObject;
-import org.nasdanika.common.FunctionFactory;
+import org.nasdanika.common.CompoundConsumer;
+import org.nasdanika.common.Consumer;
+import org.nasdanika.common.Context;
 import org.nasdanika.vinci.bootstrap.Appearance;
 import org.nasdanika.vinci.bootstrap.BootstrapElement;
 import org.nasdanika.vinci.bootstrap.BootstrapPackage;
-
 import org.nasdanika.vinci.html.impl.HtmlElementImpl;
 
 /**
@@ -149,9 +149,12 @@ public abstract class BootstrapElementImpl extends HtmlElementImpl implements Bo
 	}
 	
 	@Override
-	public FunctionFactory<Object, Object> asBuilder() {		
+	public Consumer<Object> asConsumer(Context context) throws Exception {
 		Appearance appearance = getAppearance();
-		return appearance == null ? super.asBuilder() : super.asBuilder().then(appearance.asFunctionFactory());
+		if (appearance == null) {
+			return super.asConsumer(context);
+		}
+		return new CompoundConsumer<Object>(getTitle(), super.asConsumer(context), appearance.create(context));
 	}
 
 } //BootstrapElementImpl

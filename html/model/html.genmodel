@@ -12,7 +12,9 @@
       ecorePackage="html.ecore#/">
     <genDataTypes ecoreDataType="html.ecore#//TagName"/>
     <genClasses ecoreClass="html.ecore#//HtmlElement">
-      <genOperations ecoreOperation="html.ecore#//HtmlElement/asBuilder"/>
+      <genOperations ecoreOperation="html.ecore#//HtmlElement/asConsumer">
+        <genParameters ecoreParameter="html.ecore#//HtmlElement/asConsumer/context"/>
+      </genOperations>
     </genClasses>
     <genClasses ecoreClass="html.ecore#//Container">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference html.ecore#//Container/content"/>

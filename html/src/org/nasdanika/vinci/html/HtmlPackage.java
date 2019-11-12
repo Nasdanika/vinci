@@ -100,13 +100,13 @@ public interface HtmlPackage extends EPackage {
 	int HTML_ELEMENT_FEATURE_COUNT = NcorePackage.MODEL_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
-	 * The operation id for the '<em>As Builder</em>' operation.
+	 * The operation id for the '<em>As Consumer</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int HTML_ELEMENT___AS_BUILDER = NcorePackage.MODEL_ELEMENT_OPERATION_COUNT + 0;
+	int HTML_ELEMENT___AS_CONSUMER__CONTEXT = NcorePackage.MODEL_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Element</em>' class.
@@ -201,13 +201,13 @@ public interface HtmlPackage extends EPackage {
 	int TAG_FEATURE_COUNT = HTML_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
-	 * The operation id for the '<em>As Builder</em>' operation.
+	 * The operation id for the '<em>As Consumer</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TAG___AS_BUILDER = HTML_ELEMENT___AS_BUILDER;
+	int TAG___AS_CONSUMER__CONTEXT = HTML_ELEMENT___AS_CONSUMER__CONTEXT;
 
 	/**
 	 * The number of operations of the '<em>Tag</em>' class.
@@ -275,13 +275,13 @@ public interface HtmlPackage extends EPackage {
 	int CONTENT_TAG_FEATURE_COUNT = TAG_FEATURE_COUNT + 1;
 
 	/**
-	 * The operation id for the '<em>As Builder</em>' operation.
+	 * The operation id for the '<em>As Consumer</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONTENT_TAG___AS_BUILDER = TAG___AS_BUILDER;
+	int CONTENT_TAG___AS_CONSUMER__CONTEXT = TAG___AS_CONSUMER__CONTEXT;
 
 	/**
 	 * The number of operations of the '<em>Content Tag</em>' class.
@@ -422,14 +422,14 @@ public interface HtmlPackage extends EPackage {
 	EClass getHtmlElement();
 
 	/**
-	 * Returns the meta object for the '{@link org.nasdanika.vinci.html.HtmlElement#asBuilder() <em>As Builder</em>}' operation.
+	 * Returns the meta object for the '{@link org.nasdanika.vinci.html.HtmlElement#asConsumer(org.nasdanika.common.Context) <em>As Consumer</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>As Builder</em>' operation.
-	 * @see org.nasdanika.vinci.html.HtmlElement#asBuilder()
+	 * @return the meta object for the '<em>As Consumer</em>' operation.
+	 * @see org.nasdanika.vinci.html.HtmlElement#asConsumer(org.nasdanika.common.Context)
 	 * @generated
 	 */
-	EOperation getHtmlElement__AsBuilder();
+	EOperation getHtmlElement__AsConsumer__Context();
 
 	/**
 	 * Returns the meta object for class '{@link org.nasdanika.vinci.html.Container <em>Container</em>}'.
@@ -604,12 +604,12 @@ public interface HtmlPackage extends EPackage {
 		EClass HTML_ELEMENT = eINSTANCE.getHtmlElement();
 
 		/**
-		 * The meta object literal for the '<em><b>As Builder</b></em>' operation.
+		 * The meta object literal for the '<em><b>As Consumer</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation HTML_ELEMENT___AS_BUILDER = eINSTANCE.getHtmlElement__AsBuilder();
+		EOperation HTML_ELEMENT___AS_CONSUMER__CONTEXT = eINSTANCE.getHtmlElement__AsConsumer__Context();
 
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.vinci.html.impl.ContainerImpl <em>Container</em>}' class.

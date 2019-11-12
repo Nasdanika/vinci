@@ -9,14 +9,14 @@
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Base class for other HTML and bootstrap elements. "/>
     </eAnnotations>
-    <eOperations name="asBuilder">
+    <eOperations name="asConsumer" eExceptions="ecore:EDataType ../../org.nasdanika.ncore/model/ncore.ecore#//Exception">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Wraps element into a Function so it can be used as a builder - an existing object can be passed to HTML element's function and it will &quot;build&quot; it by applying styles, attriutes, etc."/>
       </eAnnotations>
-      <eGenericType eClassifier="ecore:EClass ../../org.nasdanika.ncore/model/ncore.ecore#//FunctionFactory">
-        <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+      <eGenericType eClassifier="ecore:EClass ../../org.nasdanika.ncore/model/ncore.ecore#//Consumer">
         <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
       </eGenericType>
+      <eParameters name="context" eType="ecore:EDataType ../../org.nasdanika.ncore/model/ncore.ecore#//IContext"/>
     </eOperations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Container">

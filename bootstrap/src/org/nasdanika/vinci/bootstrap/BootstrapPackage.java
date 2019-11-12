@@ -274,13 +274,13 @@ public interface BootstrapPackage extends EPackage {
 	int BOOTSTRAP_ELEMENT_FEATURE_COUNT = HtmlPackage.HTML_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
-	 * The operation id for the '<em>As Builder</em>' operation.
+	 * The operation id for the '<em>As Consumer</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BOOTSTRAP_ELEMENT___AS_BUILDER = HtmlPackage.HTML_ELEMENT___AS_BUILDER;
+	int BOOTSTRAP_ELEMENT___AS_CONSUMER__CONTEXT = HtmlPackage.HTML_ELEMENT___AS_CONSUMER__CONTEXT;
 
 	/**
 	 * The number of operations of the '<em>Element</em>' class.
@@ -388,13 +388,13 @@ public interface BootstrapPackage extends EPackage {
 	int TAG_FEATURE_COUNT = HtmlPackage.TAG_FEATURE_COUNT + 1;
 
 	/**
-	 * The operation id for the '<em>As Builder</em>' operation.
+	 * The operation id for the '<em>As Consumer</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TAG___AS_BUILDER = HtmlPackage.TAG___AS_BUILDER;
+	int TAG___AS_CONSUMER__CONTEXT = HtmlPackage.TAG___AS_CONSUMER__CONTEXT;
 
 	/**
 	 * The number of operations of the '<em>Tag</em>' class.
@@ -461,13 +461,13 @@ public interface BootstrapPackage extends EPackage {
 	int DIV_FEATURE_COUNT = TAG_FEATURE_COUNT + 0;
 
 	/**
-	 * The operation id for the '<em>As Builder</em>' operation.
+	 * The operation id for the '<em>As Consumer</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DIV___AS_BUILDER = TAG___AS_BUILDER;
+	int DIV___AS_CONSUMER__CONTEXT = TAG___AS_CONSUMER__CONTEXT;
 
 	/**
 	 * The number of operations of the '<em>Div</em>' class.
@@ -949,13 +949,13 @@ public interface BootstrapPackage extends EPackage {
 	int ACTION_GROUP_FEATURE_COUNT = DIV_FEATURE_COUNT + 2;
 
 	/**
-	 * The operation id for the '<em>As Builder</em>' operation.
+	 * The operation id for the '<em>As Consumer</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION_GROUP___AS_BUILDER = DIV___AS_BUILDER;
+	int ACTION_GROUP___AS_CONSUMER__CONTEXT = DIV___AS_CONSUMER__CONTEXT;
 
 	/**
 	 * The number of operations of the '<em>Action Group</em>' class.
@@ -1021,13 +1021,13 @@ public interface BootstrapPackage extends EPackage {
 	int ALERT_FEATURE_COUNT = DIV_FEATURE_COUNT + 1;
 
 	/**
-	 * The operation id for the '<em>As Builder</em>' operation.
+	 * The operation id for the '<em>As Consumer</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ALERT___AS_BUILDER = DIV___AS_BUILDER;
+	int ALERT___AS_CONSUMER__CONTEXT = DIV___AS_CONSUMER__CONTEXT;
 
 	/**
 	 * The number of operations of the '<em>Alert</em>' class.
@@ -1093,13 +1093,13 @@ public interface BootstrapPackage extends EPackage {
 	int BADGE_FEATURE_COUNT = DIV_FEATURE_COUNT + 1;
 
 	/**
-	 * The operation id for the '<em>As Builder</em>' operation.
+	 * The operation id for the '<em>As Consumer</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BADGE___AS_BUILDER = DIV___AS_BUILDER;
+	int BADGE___AS_CONSUMER__CONTEXT = DIV___AS_CONSUMER__CONTEXT;
 
 	/**
 	 * The number of operations of the '<em>Badge</em>' class.
@@ -1202,13 +1202,13 @@ public interface BootstrapPackage extends EPackage {
 	int BUTTON_FEATURE_COUNT = DIV_FEATURE_COUNT + 2;
 
 	/**
-	 * The operation id for the '<em>As Builder</em>' operation.
+	 * The operation id for the '<em>As Consumer</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BUTTON___AS_BUILDER = DIV___AS_BUILDER;
+	int BUTTON___AS_CONSUMER__CONTEXT = DIV___AS_CONSUMER__CONTEXT;
 
 	/**
 	 * The number of operations of the '<em>Button</em>' class.
@@ -1310,13 +1310,13 @@ public interface BootstrapPackage extends EPackage {
 	int CONTAINER_FEATURE_COUNT = BOOTSTRAP_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
-	 * The operation id for the '<em>As Builder</em>' operation.
+	 * The operation id for the '<em>As Consumer</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONTAINER___AS_BUILDER = BOOTSTRAP_ELEMENT___AS_BUILDER;
+	int CONTAINER___AS_CONSUMER__CONTEXT = BOOTSTRAP_ELEMENT___AS_CONSUMER__CONTEXT;
 
 	/**
 	 * The number of operations of the '<em>Container</em>' class.
@@ -1373,13 +1373,13 @@ public interface BootstrapPackage extends EPackage {
 	int ROW_FEATURE_COUNT = BOOTSTRAP_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
-	 * The operation id for the '<em>As Builder</em>' operation.
+	 * The operation id for the '<em>As Consumer</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ROW___AS_BUILDER = BOOTSTRAP_ELEMENT___AS_BUILDER;
+	int ROW___AS_CONSUMER__CONTEXT = BOOTSTRAP_ELEMENT___AS_CONSUMER__CONTEXT;
 
 	/**
 	 * The number of operations of the '<em>Row</em>' class.
@@ -1436,13 +1436,13 @@ public interface BootstrapPackage extends EPackage {
 	int COLUMN_FEATURE_COUNT = BOOTSTRAP_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
-	 * The operation id for the '<em>As Builder</em>' operation.
+	 * The operation id for the '<em>As Consumer</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COLUMN___AS_BUILDER = BOOTSTRAP_ELEMENT___AS_BUILDER;
+	int COLUMN___AS_CONSUMER__CONTEXT = BOOTSTRAP_ELEMENT___AS_CONSUMER__CONTEXT;
 
 	/**
 	 * The number of operations of the '<em>Column</em>' class.
@@ -1526,13 +1526,13 @@ public interface BootstrapPackage extends EPackage {
 	int CARD_FEATURE_COUNT = DIV_FEATURE_COUNT + 3;
 
 	/**
-	 * The operation id for the '<em>As Builder</em>' operation.
+	 * The operation id for the '<em>As Consumer</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CARD___AS_BUILDER = DIV___AS_BUILDER;
+	int CARD___AS_CONSUMER__CONTEXT = DIV___AS_CONSUMER__CONTEXT;
 
 	/**
 	 * The number of operations of the '<em>Card</em>' class.

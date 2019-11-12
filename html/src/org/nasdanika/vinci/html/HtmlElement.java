@@ -2,7 +2,8 @@
  */
 package org.nasdanika.vinci.html;
 
-import org.nasdanika.common.FunctionFactory;
+import org.nasdanika.common.Consumer;
+import org.nasdanika.common.Context;
 import org.nasdanika.ncore.ModelElement;
 
 /**
@@ -27,8 +28,8 @@ public interface HtmlElement extends ModelElement {
 	 * <!-- begin-model-doc -->
 	 * Wraps element into a Function so it can be used as a builder - an existing object can be passed to HTML element's function and it will "build" it by applying styles, attriutes, etc.
 	 * <!-- end-model-doc -->
-	 * @model type="org.nasdanika.ncore.FunctionFactory&lt;org.eclipse.emf.ecore.EJavaObject, org.eclipse.emf.ecore.EJavaObject&gt;"
+	 * @model type="org.nasdanika.ncore.Consumer&lt;org.eclipse.emf.ecore.EJavaObject&gt;" exceptions="org.nasdanika.ncore.Exception" contextDataType="org.nasdanika.ncore.IContext"
 	 * @generated
 	 */
-	FunctionFactory<Object, Object> asBuilder();
+	Consumer<Object> asConsumer(Context context) throws Exception;
 } // HtmlElement
