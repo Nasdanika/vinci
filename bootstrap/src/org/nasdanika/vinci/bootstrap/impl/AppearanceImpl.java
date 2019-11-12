@@ -4,8 +4,11 @@ package org.nasdanika.vinci.bootstrap.impl;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.nasdanika.common.CompoundConsumer;
 import org.nasdanika.common.Consumer;
 import org.nasdanika.common.Context;
+import org.nasdanika.common.ProgressMonitor;
+import org.nasdanika.common.Util;
 import org.nasdanika.vinci.bootstrap.Appearance;
 import org.nasdanika.vinci.bootstrap.BootstrapPackage;
 
@@ -142,8 +145,31 @@ public class AppearanceImpl extends MinimalEObjectImpl.Container implements Appe
 
 	@Override
 	public Consumer<Object> create(Context context) throws Exception {
-		// TODO Auto-generated method stub
-		return Consumer.NOP;
+		Consumer<Object> backGroundConsumer = new Consumer<Object>() {
+
+			@Override
+			public double size() {
+				return 1;
+			}
+
+			@Override
+			public String name() {
+				return "Background";
+			}
+
+			@Override
+			public void execute(Object arg, ProgressMonitor progressMonitor) throws Exception {
+				String bgStr = getBackground();
+				if (!Util.isBlank(bgStr)) {
+					((org.nasdanika.html.bootstrap.BootstrapElement<?,?>) arg).background(org.nasdanika.html.bootstrap.Color.valueOf(bgStr));
+				}				
+			}
+			
+		};
+		
+		CompoundConsumer<Object> ret = new CompoundConsumer<Object>("Appearance", backGroundConsumer);
+		
+		return ret;
 	}
 
 } //AppearanceImpl
