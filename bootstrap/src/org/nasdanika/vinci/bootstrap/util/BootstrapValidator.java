@@ -6,12 +6,14 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
+
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.nasdanika.common.Util;
 import org.nasdanika.emf.DiagnosticHelper;
+import org.nasdanika.html.bootstrap.Breakpoint;
 import org.nasdanika.html.bootstrap.Color;
 import org.nasdanika.html.bootstrap.Theme;
 import org.nasdanika.vinci.bootstrap.Accordion;
@@ -45,6 +47,7 @@ import org.nasdanika.vinci.bootstrap.Modal;
 import org.nasdanika.vinci.bootstrap.Navbar;
 import org.nasdanika.vinci.bootstrap.Navs;
 import org.nasdanika.vinci.bootstrap.Row;
+import org.nasdanika.vinci.bootstrap.Spacing;
 import org.nasdanika.vinci.bootstrap.Table;
 import org.nasdanika.vinci.bootstrap.TableColumn;
 import org.nasdanika.vinci.bootstrap.TableRow;
@@ -129,6 +132,8 @@ public class BootstrapValidator extends EObjectValidator {
 				return validateAppearance((Appearance)value, diagnostics, context);
 			case BootstrapPackage.BORDER:
 				return validateBorder((Border)value, diagnostics, context);
+			case BootstrapPackage.SPACING:
+				return validateSpacing((Spacing)value, diagnostics, context);
 			case BootstrapPackage.BOOTSTRAP_ELEMENT:
 				return validateBootstrapElement((BootstrapElement)value, diagnostics, context);
 			case BootstrapPackage.TAG:
@@ -376,6 +381,64 @@ public class BootstrapValidator extends EObjectValidator {
 				} catch (Exception e) {
 					helper.error("Invalid color: "+border.getColor()+", shall be one of Color enum constants: " + Arrays.toString(Color.values()), BootstrapPackage.Literals.BORDER__COLOR);
 				}
+			}
+			return helper.isSuccess();
+		}
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateSpacing(Spacing spacing, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (!validate_NoCircularContainment(spacing, diagnostics, context)) return false;
+		boolean result = validate_EveryMultiplicityConforms(spacing, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(spacing, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(spacing, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(spacing, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(spacing, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(spacing, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(spacing, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(spacing, diagnostics, context);
+		if (result || diagnostics != null) result &= validateSpacing_size(spacing, diagnostics, context);
+		if (result || diagnostics != null) result &= validateSpacing_breakpoint(spacing, diagnostics, context);
+		return result;
+	}
+
+	/**
+	 * Validates the size constraint of '<em>Spacing</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public boolean validateSpacing_size(Spacing spacing, DiagnosticChain diagnostics, Map<Object, Object> context) {
+//		if (diagnostics != null && !Util.isBlank(spacing.getColor())) {			
+//			DiagnosticHelper helper = new DiagnosticHelper(diagnostics, DIAGNOSTIC_SOURCE, 0, item);
+//			try {
+//				Color.valueOf(item.getColor());				
+//			} catch (Exception e) {
+//				helper.error("Invalid color: "+item.getColor()+", shall be one of Color enum constants: " + Arrays.toString(Color.values()), BootstrapPackage.Literals.ITEM__COLOR);
+//			}
+//			return helper.isSuccess();
+//		}
+		return true;
+	}
+
+	/**
+	 * Validates the breakpoint constraint of '<em>Spacing</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateSpacing_breakpoint(Spacing spacing, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (diagnostics != null && !Util.isBlank(spacing.getBreakpoint())) {			
+			DiagnosticHelper helper = new DiagnosticHelper(diagnostics, DIAGNOSTIC_SOURCE, 0, spacing);
+			try {
+				Breakpoint.valueOf(spacing.getBreakpoint());				
+			} catch (Exception e) {
+				helper.error("Invalid breakpoint: "+spacing.getBreakpoint()+", shall be one of Breakpoint enum constants: " + Arrays.toString(Color.values()), BootstrapPackage.Literals.SPACING__BREAKPOINT);
 			}
 			return helper.isSuccess();
 		}

@@ -86,6 +86,10 @@ public class BootstrapAdapterFactory extends AdapterFactoryImpl {
 				return createBorderAdapter();
 			}
 			@Override
+			public Adapter caseSpacing(Spacing object) {
+				return createSpacingAdapter();
+			}
+			@Override
 			public Adapter caseBootstrapElement(BootstrapElement object) {
 				return createBootstrapElementAdapter();
 			}
@@ -304,6 +308,20 @@ public class BootstrapAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createBorderAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.vinci.bootstrap.Spacing <em>Spacing</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.vinci.bootstrap.Spacing
+	 * @generated
+	 */
+	public Adapter createSpacingAdapter() {
 		return null;
 	}
 

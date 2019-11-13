@@ -95,6 +95,12 @@ public class BootstrapSwitch<T1> extends Switch<T1> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case BootstrapPackage.SPACING: {
+				Spacing spacing = (Spacing)theEObject;
+				T1 result = caseSpacing(spacing);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case BootstrapPackage.BOOTSTRAP_ELEMENT: {
 				BootstrapElement bootstrapElement = (BootstrapElement)theEObject;
 				T1 result = caseBootstrapElement(bootstrapElement);
@@ -405,6 +411,21 @@ public class BootstrapSwitch<T1> extends Switch<T1> {
 	 * @generated
 	 */
 	public T1 caseBorder(Border object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Spacing</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Spacing</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseSpacing(Spacing object) {
 		return null;
 	}
 

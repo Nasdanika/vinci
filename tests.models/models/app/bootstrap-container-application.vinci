@@ -3,6 +3,7 @@
   <builders xsi:type="org.nasdanika.vinci.app:BootstrapContainerApplication">
     <appearance>
       <border color="DARK"/>
+      <margin size="2" breakpoint=""/>
     </appearance>
     <header>
       <appearance background="PRIMARY">

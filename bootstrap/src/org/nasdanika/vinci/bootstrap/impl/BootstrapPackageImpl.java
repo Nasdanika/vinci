@@ -46,6 +46,7 @@ import org.nasdanika.vinci.bootstrap.Modal;
 import org.nasdanika.vinci.bootstrap.Navbar;
 import org.nasdanika.vinci.bootstrap.Navs;
 import org.nasdanika.vinci.bootstrap.Row;
+import org.nasdanika.vinci.bootstrap.Spacing;
 import org.nasdanika.vinci.bootstrap.Table;
 import org.nasdanika.vinci.bootstrap.TableColumn;
 import org.nasdanika.vinci.bootstrap.TableRow;
@@ -81,6 +82,13 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 	 * @generated
 	 */
 	private EClass borderEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass spacingEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -451,6 +459,26 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 	 * @generated
 	 */
 	@Override
+	public EReference getAppearance_Margin() {
+		return (EReference)appearanceEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getAppearance_Padding() {
+		return (EReference)appearanceEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getBorder() {
 		return borderEClass;
 	}
@@ -493,6 +521,96 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 	@Override
 	public EAttribute getBorder_Right() {
 		return (EAttribute)borderEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getSpacing() {
+		return spacingEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getSpacing_Size() {
+		return (EAttribute)spacingEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getSpacing_Breakpoint() {
+		return (EAttribute)spacingEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getSpacing_Top() {
+		return (EAttribute)spacingEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getSpacing_Bottom() {
+		return (EAttribute)spacingEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getSpacing_Left() {
+		return (EAttribute)spacingEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getSpacing_Right() {
+		return (EAttribute)spacingEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getSpacing_X() {
+		return (EAttribute)spacingEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getSpacing_Y() {
+		return (EAttribute)spacingEClass.getEStructuralFeatures().get(7);
 	}
 
 	/**
@@ -1051,6 +1169,8 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 		appearanceEClass = createEClass(APPEARANCE);
 		createEAttribute(appearanceEClass, APPEARANCE__BACKGROUND);
 		createEReference(appearanceEClass, APPEARANCE__BORDER);
+		createEReference(appearanceEClass, APPEARANCE__MARGIN);
+		createEReference(appearanceEClass, APPEARANCE__PADDING);
 
 		borderEClass = createEClass(BORDER);
 		createEAttribute(borderEClass, BORDER__COLOR);
@@ -1058,6 +1178,16 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 		createEAttribute(borderEClass, BORDER__BOTTOM);
 		createEAttribute(borderEClass, BORDER__LEFT);
 		createEAttribute(borderEClass, BORDER__RIGHT);
+
+		spacingEClass = createEClass(SPACING);
+		createEAttribute(spacingEClass, SPACING__SIZE);
+		createEAttribute(spacingEClass, SPACING__BREAKPOINT);
+		createEAttribute(spacingEClass, SPACING__TOP);
+		createEAttribute(spacingEClass, SPACING__BOTTOM);
+		createEAttribute(spacingEClass, SPACING__LEFT);
+		createEAttribute(spacingEClass, SPACING__RIGHT);
+		createEAttribute(spacingEClass, SPACING__X);
+		createEAttribute(spacingEClass, SPACING__Y);
 
 		bootstrapElementEClass = createEClass(BOOTSTRAP_ELEMENT);
 		createEReference(bootstrapElementEClass, BOOTSTRAP_ELEMENT__APPEARANCE);
@@ -1219,6 +1349,8 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 		initEClass(appearanceEClass, Appearance.class, "Appearance", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getAppearance_Background(), ecorePackage.getEString(), "background", null, 0, 1, Appearance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAppearance_Border(), this.getBorder(), null, "border", null, 0, 4, Appearance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAppearance_Margin(), this.getSpacing(), null, "margin", null, 0, -1, Appearance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAppearance_Padding(), this.getSpacing(), null, "padding", null, 0, -1, Appearance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(borderEClass, Border.class, "Border", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getBorder_Color(), ecorePackage.getEString(), "color", null, 1, 1, Border.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1226,6 +1358,16 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 		initEAttribute(getBorder_Bottom(), ecorePackage.getEBoolean(), "bottom", "true", 0, 1, Border.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getBorder_Left(), ecorePackage.getEBoolean(), "left", "true", 0, 1, Border.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getBorder_Right(), ecorePackage.getEBoolean(), "right", "true", 0, 1, Border.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(spacingEClass, Spacing.class, "Spacing", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getSpacing_Size(), ecorePackage.getEString(), "size", null, 1, 1, Spacing.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSpacing_Breakpoint(), ecorePackage.getEString(), "breakpoint", null, 1, 1, Spacing.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSpacing_Top(), ecorePackage.getEBoolean(), "top", "true", 0, 1, Spacing.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSpacing_Bottom(), ecorePackage.getEBoolean(), "bottom", "true", 0, 1, Spacing.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSpacing_Left(), ecorePackage.getEBoolean(), "left", "true", 0, 1, Spacing.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSpacing_Right(), ecorePackage.getEBoolean(), "right", "true", 0, 1, Spacing.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSpacing_X(), ecorePackage.getEBoolean(), "x", "false", 0, 1, Spacing.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSpacing_Y(), ecorePackage.getEBoolean(), "y", "false", 0, 1, Spacing.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(bootstrapElementEClass, BootstrapElement.class, "BootstrapElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getBootstrapElement_Appearance(), this.getAppearance(), null, "appearance", null, 0, 1, BootstrapElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1400,6 +1542,54 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 			   "documentation", "Righ border."
 		   });
 		addAnnotation
+		  (getSpacing_Size(),
+		   source,
+		   new String[] {
+			   "documentation", "Border bootstrap color."
+		   });
+		addAnnotation
+		  (getSpacing_Breakpoint(),
+		   source,
+		   new String[] {
+			   "documentation", "Border bootstrap color."
+		   });
+		addAnnotation
+		  (getSpacing_Top(),
+		   source,
+		   new String[] {
+			   "documentation", "Top spacing."
+		   });
+		addAnnotation
+		  (getSpacing_Bottom(),
+		   source,
+		   new String[] {
+			   "documentation", "Bottom spacing."
+		   });
+		addAnnotation
+		  (getSpacing_Left(),
+		   source,
+		   new String[] {
+			   "documentation", "Left spacing."
+		   });
+		addAnnotation
+		  (getSpacing_Right(),
+		   source,
+		   new String[] {
+			   "documentation", "Righ spacing."
+		   });
+		addAnnotation
+		  (getSpacing_X(),
+		   source,
+		   new String[] {
+			   "documentation", "Horizontal spacing."
+		   });
+		addAnnotation
+		  (getSpacing_Y(),
+		   source,
+		   new String[] {
+			   "documentation", "Vertical spacing."
+		   });
+		addAnnotation
 		  (tagEClass,
 		   source,
 		   new String[] {
@@ -1510,6 +1700,12 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 		   source,
 		   new String[] {
 			   "constraints", "placement color"
+		   });
+		addAnnotation
+		  (spacingEClass,
+		   source,
+		   new String[] {
+			   "constraints", "size breakpoint"
 		   });
 		addAnnotation
 		  (itemEClass,

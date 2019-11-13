@@ -139,6 +139,29 @@ public class BootstrapItemProviderAdapterFactory extends BootstrapAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.nasdanika.vinci.bootstrap.Spacing} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected SpacingItemProvider spacingItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.nasdanika.vinci.bootstrap.Spacing}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createSpacingAdapter() {
+		if (spacingItemProvider == null) {
+			spacingItemProvider = new SpacingItemProvider(this);
+		}
+
+		return spacingItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link org.nasdanika.vinci.bootstrap.Container} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -913,6 +936,7 @@ public class BootstrapItemProviderAdapterFactory extends BootstrapAdapterFactory
 		if (bootstrapPageItemProvider != null) bootstrapPageItemProvider.dispose();
 		if (appearanceItemProvider != null) appearanceItemProvider.dispose();
 		if (borderItemProvider != null) borderItemProvider.dispose();
+		if (spacingItemProvider != null) spacingItemProvider.dispose();
 		if (tagItemProvider != null) tagItemProvider.dispose();
 		if (divItemProvider != null) divItemProvider.dispose();
 		if (linkActionGroupItemItemProvider != null) linkActionGroupItemItemProvider.dispose();

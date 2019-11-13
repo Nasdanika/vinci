@@ -219,13 +219,31 @@ public interface BootstrapPackage extends EPackage {
 	int APPEARANCE__BORDER = NcorePackage.CONSUMER_FACTORY_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Margin</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int APPEARANCE__MARGIN = NcorePackage.CONSUMER_FACTORY_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Padding</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int APPEARANCE__PADDING = NcorePackage.CONSUMER_FACTORY_FEATURE_COUNT + 3;
+
+	/**
 	 * The number of structural features of the '<em>Appearance</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int APPEARANCE_FEATURE_COUNT = NcorePackage.CONSUMER_FACTORY_FEATURE_COUNT + 2;
+	int APPEARANCE_FEATURE_COUNT = NcorePackage.CONSUMER_FACTORY_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of operations of the '<em>Appearance</em>' class.
@@ -310,6 +328,106 @@ public interface BootstrapPackage extends EPackage {
 	int BORDER_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link org.nasdanika.vinci.bootstrap.impl.SpacingImpl <em>Spacing</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.vinci.bootstrap.impl.SpacingImpl
+	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getSpacing()
+	 * @generated
+	 */
+	int SPACING = 3;
+
+	/**
+	 * The feature id for the '<em><b>Size</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPACING__SIZE = 0;
+
+	/**
+	 * The feature id for the '<em><b>Breakpoint</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPACING__BREAKPOINT = 1;
+
+	/**
+	 * The feature id for the '<em><b>Top</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPACING__TOP = 2;
+
+	/**
+	 * The feature id for the '<em><b>Bottom</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPACING__BOTTOM = 3;
+
+	/**
+	 * The feature id for the '<em><b>Left</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPACING__LEFT = 4;
+
+	/**
+	 * The feature id for the '<em><b>Right</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPACING__RIGHT = 5;
+
+	/**
+	 * The feature id for the '<em><b>X</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPACING__X = 6;
+
+	/**
+	 * The feature id for the '<em><b>Y</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPACING__Y = 7;
+
+	/**
+	 * The number of structural features of the '<em>Spacing</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPACING_FEATURE_COUNT = 8;
+
+	/**
+	 * The number of operations of the '<em>Spacing</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPACING_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link org.nasdanika.vinci.bootstrap.impl.BootstrapElementImpl <em>Element</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -317,7 +435,7 @@ public interface BootstrapPackage extends EPackage {
 	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getBootstrapElement()
 	 * @generated
 	 */
-	int BOOTSTRAP_ELEMENT = 3;
+	int BOOTSTRAP_ELEMENT = 4;
 
 	/**
 	 * The feature id for the '<em><b>Title</b></em>' attribute.
@@ -382,7 +500,7 @@ public interface BootstrapPackage extends EPackage {
 	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getContainer()
 	 * @generated
 	 */
-	int CONTAINER = 17;
+	int CONTAINER = 18;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.vinci.bootstrap.impl.RowImpl <em>Row</em>}' class.
@@ -392,7 +510,7 @@ public interface BootstrapPackage extends EPackage {
 	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getRow()
 	 * @generated
 	 */
-	int ROW = 18;
+	int ROW = 19;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.vinci.bootstrap.impl.ColumnImpl <em>Column</em>}' class.
@@ -402,7 +520,7 @@ public interface BootstrapPackage extends EPackage {
 	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getColumn()
 	 * @generated
 	 */
-	int COLUMN = 19;
+	int COLUMN = 20;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.vinci.bootstrap.impl.CardImpl <em>Card</em>}' class.
@@ -412,7 +530,7 @@ public interface BootstrapPackage extends EPackage {
 	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getCard()
 	 * @generated
 	 */
-	int CARD = 20;
+	int CARD = 21;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.vinci.bootstrap.impl.TagImpl <em>Tag</em>}' class.
@@ -422,7 +540,7 @@ public interface BootstrapPackage extends EPackage {
 	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getTag()
 	 * @generated
 	 */
-	int TAG = 4;
+	int TAG = 5;
 
 	/**
 	 * The feature id for the '<em><b>Title</b></em>' attribute.
@@ -495,7 +613,7 @@ public interface BootstrapPackage extends EPackage {
 	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getDiv()
 	 * @generated
 	 */
-	int DIV = 5;
+	int DIV = 6;
 
 	/**
 	 * The feature id for the '<em><b>Title</b></em>' attribute.
@@ -568,7 +686,7 @@ public interface BootstrapPackage extends EPackage {
 	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getItem()
 	 * @generated
 	 */
-	int ITEM = 6;
+	int ITEM = 7;
 
 	/**
 	 * The feature id for the '<em><b>Title</b></em>' attribute.
@@ -641,7 +759,7 @@ public interface BootstrapPackage extends EPackage {
 	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getActionGroupItem()
 	 * @generated
 	 */
-	int ACTION_GROUP_ITEM = 7;
+	int ACTION_GROUP_ITEM = 8;
 
 	/**
 	 * The feature id for the '<em><b>Title</b></em>' attribute.
@@ -723,7 +841,7 @@ public interface BootstrapPackage extends EPackage {
 	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getLinkActionGroupItem()
 	 * @generated
 	 */
-	int LINK_ACTION_GROUP_ITEM = 8;
+	int LINK_ACTION_GROUP_ITEM = 9;
 
 	/**
 	 * The feature id for the '<em><b>Title</b></em>' attribute.
@@ -814,7 +932,7 @@ public interface BootstrapPackage extends EPackage {
 	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getContentActionGroupItem()
 	 * @generated
 	 */
-	int CONTENT_ACTION_GROUP_ITEM = 9;
+	int CONTENT_ACTION_GROUP_ITEM = 10;
 
 	/**
 	 * The feature id for the '<em><b>Title</b></em>' attribute.
@@ -905,7 +1023,7 @@ public interface BootstrapPackage extends EPackage {
 	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getAlert()
 	 * @generated
 	 */
-	int ALERT = 11;
+	int ALERT = 12;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.vinci.bootstrap.impl.BadgeImpl <em>Badge</em>}' class.
@@ -915,7 +1033,7 @@ public interface BootstrapPackage extends EPackage {
 	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getBadge()
 	 * @generated
 	 */
-	int BADGE = 12;
+	int BADGE = 13;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.vinci.bootstrap.impl.ButtonImpl <em>Button</em>}' class.
@@ -925,7 +1043,7 @@ public interface BootstrapPackage extends EPackage {
 	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getButton()
 	 * @generated
 	 */
-	int BUTTON = 14;
+	int BUTTON = 15;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.vinci.bootstrap.impl.ButtonGroupImpl <em>Button Group</em>}' class.
@@ -935,7 +1053,7 @@ public interface BootstrapPackage extends EPackage {
 	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getButtonGroup()
 	 * @generated
 	 */
-	int BUTTON_GROUP = 15;
+	int BUTTON_GROUP = 16;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.vinci.bootstrap.impl.ButtonToolbarImpl <em>Button Toolbar</em>}' class.
@@ -945,7 +1063,7 @@ public interface BootstrapPackage extends EPackage {
 	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getButtonToolbar()
 	 * @generated
 	 */
-	int BUTTON_TOOLBAR = 16;
+	int BUTTON_TOOLBAR = 17;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.vinci.bootstrap.impl.DropdownImpl <em>Dropdown</em>}' class.
@@ -955,7 +1073,7 @@ public interface BootstrapPackage extends EPackage {
 	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getDropdown()
 	 * @generated
 	 */
-	int DROPDOWN = 21;
+	int DROPDOWN = 22;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.vinci.bootstrap.impl.ActionGroupImpl <em>Action Group</em>}' class.
@@ -965,7 +1083,7 @@ public interface BootstrapPackage extends EPackage {
 	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getActionGroup()
 	 * @generated
 	 */
-	int ACTION_GROUP = 10;
+	int ACTION_GROUP = 11;
 
 	/**
 	 * The feature id for the '<em><b>Title</b></em>' attribute.
@@ -1200,7 +1318,7 @@ public interface BootstrapPackage extends EPackage {
 	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getBreadcrumbs()
 	 * @generated
 	 */
-	int BREADCRUMBS = 13;
+	int BREADCRUMBS = 14;
 
 	/**
 	 * The number of structural features of the '<em>Breadcrumbs</em>' class.
@@ -1651,7 +1769,7 @@ public interface BootstrapPackage extends EPackage {
 	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getForm()
 	 * @generated
 	 */
-	int FORM = 22;
+	int FORM = 23;
 
 	/**
 	 * The number of structural features of the '<em>Form</em>' class.
@@ -1679,7 +1797,7 @@ public interface BootstrapPackage extends EPackage {
 	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getListGroup()
 	 * @generated
 	 */
-	int LIST_GROUP = 23;
+	int LIST_GROUP = 24;
 
 	/**
 	 * The number of structural features of the '<em>List Group</em>' class.
@@ -1707,7 +1825,7 @@ public interface BootstrapPackage extends EPackage {
 	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getNavs()
 	 * @generated
 	 */
-	int NAVS = 24;
+	int NAVS = 25;
 
 	/**
 	 * The number of structural features of the '<em>Navs</em>' class.
@@ -1735,7 +1853,7 @@ public interface BootstrapPackage extends EPackage {
 	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getNavbar()
 	 * @generated
 	 */
-	int NAVBAR = 25;
+	int NAVBAR = 26;
 
 	/**
 	 * The number of structural features of the '<em>Navbar</em>' class.
@@ -1763,7 +1881,7 @@ public interface BootstrapPackage extends EPackage {
 	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getTable()
 	 * @generated
 	 */
-	int TABLE = 26;
+	int TABLE = 27;
 
 	/**
 	 * The number of structural features of the '<em>Table</em>' class.
@@ -1791,7 +1909,7 @@ public interface BootstrapPackage extends EPackage {
 	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getTableRow()
 	 * @generated
 	 */
-	int TABLE_ROW = 27;
+	int TABLE_ROW = 28;
 
 	/**
 	 * The number of structural features of the '<em>Table Row</em>' class.
@@ -1819,7 +1937,7 @@ public interface BootstrapPackage extends EPackage {
 	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getTableColumn()
 	 * @generated
 	 */
-	int TABLE_COLUMN = 28;
+	int TABLE_COLUMN = 29;
 
 	/**
 	 * The number of structural features of the '<em>Table Column</em>' class.
@@ -1847,7 +1965,7 @@ public interface BootstrapPackage extends EPackage {
 	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getTooltip()
 	 * @generated
 	 */
-	int TOOLTIP = 29;
+	int TOOLTIP = 30;
 
 	/**
 	 * The number of structural features of the '<em>Tooltip</em>' class.
@@ -1875,7 +1993,7 @@ public interface BootstrapPackage extends EPackage {
 	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getInputGroup()
 	 * @generated
 	 */
-	int INPUT_GROUP = 30;
+	int INPUT_GROUP = 31;
 
 	/**
 	 * The number of structural features of the '<em>Input Group</em>' class.
@@ -1903,7 +2021,7 @@ public interface BootstrapPackage extends EPackage {
 	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getFormGroup()
 	 * @generated
 	 */
-	int FORM_GROUP = 31;
+	int FORM_GROUP = 32;
 
 	/**
 	 * The number of structural features of the '<em>Form Group</em>' class.
@@ -1931,7 +2049,7 @@ public interface BootstrapPackage extends EPackage {
 	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getCollapse()
 	 * @generated
 	 */
-	int COLLAPSE = 32;
+	int COLLAPSE = 33;
 
 	/**
 	 * The number of structural features of the '<em>Collapse</em>' class.
@@ -1959,7 +2077,7 @@ public interface BootstrapPackage extends EPackage {
 	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getModal()
 	 * @generated
 	 */
-	int MODAL = 33;
+	int MODAL = 34;
 
 	/**
 	 * The number of structural features of the '<em>Modal</em>' class.
@@ -1987,7 +2105,7 @@ public interface BootstrapPackage extends EPackage {
 	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getAccordion()
 	 * @generated
 	 */
-	int ACCORDION = 34;
+	int ACCORDION = 35;
 
 	/**
 	 * The number of structural features of the '<em>Accordion</em>' class.
@@ -2015,7 +2133,7 @@ public interface BootstrapPackage extends EPackage {
 	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getColor()
 	 * @generated
 	 */
-	int COLOR = 35;
+	int COLOR = 36;
 
 
 	/**
@@ -2083,6 +2201,28 @@ public interface BootstrapPackage extends EPackage {
 	EReference getAppearance_Border();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link org.nasdanika.vinci.bootstrap.Appearance#getMargin <em>Margin</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Margin</em>'.
+	 * @see org.nasdanika.vinci.bootstrap.Appearance#getMargin()
+	 * @see #getAppearance()
+	 * @generated
+	 */
+	EReference getAppearance_Margin();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.nasdanika.vinci.bootstrap.Appearance#getPadding <em>Padding</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Padding</em>'.
+	 * @see org.nasdanika.vinci.bootstrap.Appearance#getPadding()
+	 * @see #getAppearance()
+	 * @generated
+	 */
+	EReference getAppearance_Padding();
+
+	/**
 	 * Returns the meta object for class '{@link org.nasdanika.vinci.bootstrap.Border <em>Border</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2135,6 +2275,104 @@ public interface BootstrapPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getBorder_Right();
+
+	/**
+	 * Returns the meta object for class '{@link org.nasdanika.vinci.bootstrap.Spacing <em>Spacing</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Spacing</em>'.
+	 * @see org.nasdanika.vinci.bootstrap.Spacing
+	 * @generated
+	 */
+	EClass getSpacing();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.bootstrap.Spacing#getSize <em>Size</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Size</em>'.
+	 * @see org.nasdanika.vinci.bootstrap.Spacing#getSize()
+	 * @see #getSpacing()
+	 * @generated
+	 */
+	EAttribute getSpacing_Size();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.bootstrap.Spacing#getBreakpoint <em>Breakpoint</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Breakpoint</em>'.
+	 * @see org.nasdanika.vinci.bootstrap.Spacing#getBreakpoint()
+	 * @see #getSpacing()
+	 * @generated
+	 */
+	EAttribute getSpacing_Breakpoint();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.bootstrap.Spacing#isTop <em>Top</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Top</em>'.
+	 * @see org.nasdanika.vinci.bootstrap.Spacing#isTop()
+	 * @see #getSpacing()
+	 * @generated
+	 */
+	EAttribute getSpacing_Top();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.bootstrap.Spacing#isBottom <em>Bottom</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Bottom</em>'.
+	 * @see org.nasdanika.vinci.bootstrap.Spacing#isBottom()
+	 * @see #getSpacing()
+	 * @generated
+	 */
+	EAttribute getSpacing_Bottom();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.bootstrap.Spacing#isLeft <em>Left</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Left</em>'.
+	 * @see org.nasdanika.vinci.bootstrap.Spacing#isLeft()
+	 * @see #getSpacing()
+	 * @generated
+	 */
+	EAttribute getSpacing_Left();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.bootstrap.Spacing#isRight <em>Right</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Right</em>'.
+	 * @see org.nasdanika.vinci.bootstrap.Spacing#isRight()
+	 * @see #getSpacing()
+	 * @generated
+	 */
+	EAttribute getSpacing_Right();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.bootstrap.Spacing#isX <em>X</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>X</em>'.
+	 * @see org.nasdanika.vinci.bootstrap.Spacing#isX()
+	 * @see #getSpacing()
+	 * @generated
+	 */
+	EAttribute getSpacing_X();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.bootstrap.Spacing#isY <em>Y</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Y</em>'.
+	 * @see org.nasdanika.vinci.bootstrap.Spacing#isY()
+	 * @see #getSpacing()
+	 * @generated
+	 */
+	EAttribute getSpacing_Y();
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.bootstrap.Border#isBottom <em>Bottom</em>}'.
@@ -2746,6 +2984,20 @@ public interface BootstrapPackage extends EPackage {
 		 */
 		EReference APPEARANCE__BORDER = eINSTANCE.getAppearance_Border();
 		/**
+		 * The meta object literal for the '<em><b>Margin</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference APPEARANCE__MARGIN = eINSTANCE.getAppearance_Margin();
+		/**
+		 * The meta object literal for the '<em><b>Padding</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference APPEARANCE__PADDING = eINSTANCE.getAppearance_Padding();
+		/**
 		 * The meta object literal for the '{@link org.nasdanika.vinci.bootstrap.impl.BorderImpl <em>Border</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2782,6 +3034,71 @@ public interface BootstrapPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute BORDER__RIGHT = eINSTANCE.getBorder_Right();
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.vinci.bootstrap.impl.SpacingImpl <em>Spacing</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.vinci.bootstrap.impl.SpacingImpl
+		 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getSpacing()
+		 * @generated
+		 */
+		EClass SPACING = eINSTANCE.getSpacing();
+		/**
+		 * The meta object literal for the '<em><b>Size</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SPACING__SIZE = eINSTANCE.getSpacing_Size();
+		/**
+		 * The meta object literal for the '<em><b>Breakpoint</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SPACING__BREAKPOINT = eINSTANCE.getSpacing_Breakpoint();
+		/**
+		 * The meta object literal for the '<em><b>Top</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SPACING__TOP = eINSTANCE.getSpacing_Top();
+		/**
+		 * The meta object literal for the '<em><b>Bottom</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SPACING__BOTTOM = eINSTANCE.getSpacing_Bottom();
+		/**
+		 * The meta object literal for the '<em><b>Left</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SPACING__LEFT = eINSTANCE.getSpacing_Left();
+		/**
+		 * The meta object literal for the '<em><b>Right</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SPACING__RIGHT = eINSTANCE.getSpacing_Right();
+		/**
+		 * The meta object literal for the '<em><b>X</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SPACING__X = eINSTANCE.getSpacing_X();
+		/**
+		 * The meta object literal for the '<em><b>Y</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SPACING__Y = eINSTANCE.getSpacing_Y();
 		/**
 		 * The meta object literal for the '<em><b>Bottom</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->

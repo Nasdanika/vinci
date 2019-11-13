@@ -19,6 +19,7 @@ import org.nasdanika.html.bootstrap.Placement;
 import org.nasdanika.vinci.bootstrap.Appearance;
 import org.nasdanika.vinci.bootstrap.BootstrapPackage;
 import org.nasdanika.vinci.bootstrap.Border;
+import org.nasdanika.vinci.bootstrap.Spacing;
 
 /**
  * <!-- begin-user-doc -->
@@ -30,6 +31,8 @@ import org.nasdanika.vinci.bootstrap.Border;
  * <ul>
  *   <li>{@link org.nasdanika.vinci.bootstrap.impl.AppearanceImpl#getBackground <em>Background</em>}</li>
  *   <li>{@link org.nasdanika.vinci.bootstrap.impl.AppearanceImpl#getBorder <em>Border</em>}</li>
+ *   <li>{@link org.nasdanika.vinci.bootstrap.impl.AppearanceImpl#getMargin <em>Margin</em>}</li>
+ *   <li>{@link org.nasdanika.vinci.bootstrap.impl.AppearanceImpl#getPadding <em>Padding</em>}</li>
  * </ul>
  *
  * @generated
@@ -110,11 +113,37 @@ public class AppearanceImpl extends MinimalEObjectImpl.Container implements Appe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public EList<Spacing> getMargin() {
+		return (EList<Spacing>)eDynamicGet(BootstrapPackage.APPEARANCE__MARGIN, BootstrapPackage.Literals.APPEARANCE__MARGIN, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public EList<Spacing> getPadding() {
+		return (EList<Spacing>)eDynamicGet(BootstrapPackage.APPEARANCE__PADDING, BootstrapPackage.Literals.APPEARANCE__PADDING, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case BootstrapPackage.APPEARANCE__BORDER:
 				return ((InternalEList<?>)getBorder()).basicRemove(otherEnd, msgs);
+			case BootstrapPackage.APPEARANCE__MARGIN:
+				return ((InternalEList<?>)getMargin()).basicRemove(otherEnd, msgs);
+			case BootstrapPackage.APPEARANCE__PADDING:
+				return ((InternalEList<?>)getPadding()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -131,6 +160,10 @@ public class AppearanceImpl extends MinimalEObjectImpl.Container implements Appe
 				return getBackground();
 			case BootstrapPackage.APPEARANCE__BORDER:
 				return getBorder();
+			case BootstrapPackage.APPEARANCE__MARGIN:
+				return getMargin();
+			case BootstrapPackage.APPEARANCE__PADDING:
+				return getPadding();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -151,6 +184,14 @@ public class AppearanceImpl extends MinimalEObjectImpl.Container implements Appe
 				getBorder().clear();
 				getBorder().addAll((Collection<? extends Border>)newValue);
 				return;
+			case BootstrapPackage.APPEARANCE__MARGIN:
+				getMargin().clear();
+				getMargin().addAll((Collection<? extends Spacing>)newValue);
+				return;
+			case BootstrapPackage.APPEARANCE__PADDING:
+				getPadding().clear();
+				getPadding().addAll((Collection<? extends Spacing>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -169,6 +210,12 @@ public class AppearanceImpl extends MinimalEObjectImpl.Container implements Appe
 			case BootstrapPackage.APPEARANCE__BORDER:
 				getBorder().clear();
 				return;
+			case BootstrapPackage.APPEARANCE__MARGIN:
+				getMargin().clear();
+				return;
+			case BootstrapPackage.APPEARANCE__PADDING:
+				getPadding().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -185,6 +232,10 @@ public class AppearanceImpl extends MinimalEObjectImpl.Container implements Appe
 				return BACKGROUND_EDEFAULT == null ? getBackground() != null : !BACKGROUND_EDEFAULT.equals(getBackground());
 			case BootstrapPackage.APPEARANCE__BORDER:
 				return !getBorder().isEmpty();
+			case BootstrapPackage.APPEARANCE__MARGIN:
+				return !getMargin().isEmpty();
+			case BootstrapPackage.APPEARANCE__PADDING:
+				return !getPadding().isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

@@ -49,6 +49,15 @@ public interface BootstrapFactory extends EFactory {
 	Border createBorder();
 
 	/**
+	 * Returns a new object of class '<em>Spacing</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Spacing</em>'.
+	 * @generated
+	 */
+	Spacing createSpacing();
+
+	/**
 	 * Returns a new object of class '<em>Container</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

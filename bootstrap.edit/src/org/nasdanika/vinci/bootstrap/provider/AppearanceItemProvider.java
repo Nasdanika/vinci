@@ -102,6 +102,8 @@ public class AppearanceItemProvider
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(BootstrapPackage.Literals.APPEARANCE__BORDER);
+			childrenFeatures.add(BootstrapPackage.Literals.APPEARANCE__MARGIN);
+			childrenFeatures.add(BootstrapPackage.Literals.APPEARANCE__PADDING);
 		}
 		return childrenFeatures;
 	}
@@ -168,6 +170,8 @@ public class AppearanceItemProvider
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case BootstrapPackage.APPEARANCE__BORDER:
+			case BootstrapPackage.APPEARANCE__MARGIN:
+			case BootstrapPackage.APPEARANCE__PADDING:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -189,6 +193,33 @@ public class AppearanceItemProvider
 			(createChildParameter
 				(BootstrapPackage.Literals.APPEARANCE__BORDER,
 				 BootstrapFactory.eINSTANCE.createBorder()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(BootstrapPackage.Literals.APPEARANCE__MARGIN,
+				 BootstrapFactory.eINSTANCE.createSpacing()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(BootstrapPackage.Literals.APPEARANCE__PADDING,
+				 BootstrapFactory.eINSTANCE.createSpacing()));
+	}
+
+	/**
+	 * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public String getCreateChildText(Object owner, Object feature, Object child, Collection<?> selection) {
+		if (feature == BootstrapPackage.Literals.APPEARANCE__MARGIN) {
+			return getString("_UI_Appearance_margin_feature");
+		}
+		if (feature == BootstrapPackage.Literals.APPEARANCE__PADDING) {
+			return getString("_UI_Appearance_padding_feature");
+		}
+		return super.getCreateChildText(owner, feature, child, selection);
 	}
 
 	/**
