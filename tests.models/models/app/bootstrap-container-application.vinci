@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <org.nasdanika.vinci.bootstrap:BootstrapPage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.nasdanika.ncore="urn:org.nasdanika.ncore" xmlns:org.nasdanika.vinci.app="urn:org.nasdanika.vinci.app" xmlns:org.nasdanika.vinci.bootstrap="urn:org.nasdanika.vinci.bootstrap" name="Bootstrap Container Application">
   <builders xsi:type="org.nasdanika.vinci.app:BootstrapContainerApplication">
+    <appearance>
+      <border color="DARK"/>
+    </appearance>
     <header>
-      <appearance background="PRIMARY"/>
+      <appearance background="PRIMARY">
+        <border color="DARK"/>
+      </appearance>
       <content xsi:type="org.nasdanika.ncore:Value" value="Header"/>
     </header>
     <navigationBar>
