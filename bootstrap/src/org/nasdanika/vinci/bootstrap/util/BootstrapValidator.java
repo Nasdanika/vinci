@@ -3,7 +3,9 @@
 package org.nasdanika.vinci.bootstrap.util;
 
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EPackage;
@@ -12,15 +14,16 @@ import org.nasdanika.common.Util;
 import org.nasdanika.emf.DiagnosticHelper;
 import org.nasdanika.html.bootstrap.Color;
 import org.nasdanika.html.bootstrap.Theme;
-import org.nasdanika.vinci.bootstrap.*;
 import org.nasdanika.vinci.bootstrap.Accordion;
 import org.nasdanika.vinci.bootstrap.ActionGroup;
 import org.nasdanika.vinci.bootstrap.ActionGroupItem;
 import org.nasdanika.vinci.bootstrap.Alert;
+import org.nasdanika.vinci.bootstrap.Appearance;
 import org.nasdanika.vinci.bootstrap.Badge;
 import org.nasdanika.vinci.bootstrap.BootstrapElement;
 import org.nasdanika.vinci.bootstrap.BootstrapPackage;
 import org.nasdanika.vinci.bootstrap.BootstrapPage;
+import org.nasdanika.vinci.bootstrap.Border;
 import org.nasdanika.vinci.bootstrap.Breadcrumbs;
 import org.nasdanika.vinci.bootstrap.Button;
 import org.nasdanika.vinci.bootstrap.ButtonGroup;
@@ -124,6 +127,8 @@ public class BootstrapValidator extends EObjectValidator {
 				return validateBootstrapPage((BootstrapPage)value, diagnostics, context);
 			case BootstrapPackage.APPEARANCE:
 				return validateAppearance((Appearance)value, diagnostics, context);
+			case BootstrapPackage.BORDER:
+				return validateBorder((Border)value, diagnostics, context);
 			case BootstrapPackage.BOOTSTRAP_ELEMENT:
 				return validateBootstrapElement((BootstrapElement)value, diagnostics, context);
 			case BootstrapPackage.TAG:
@@ -239,7 +244,142 @@ public class BootstrapValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateAppearance(Appearance appearance, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(appearance, diagnostics, context);
+		if (!validate_NoCircularContainment(appearance, diagnostics, context)) return false;
+		boolean result = validate_EveryMultiplicityConforms(appearance, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(appearance, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(appearance, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(appearance, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(appearance, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(appearance, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(appearance, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(appearance, diagnostics, context);
+		if (result || diagnostics != null) result &= validateAppearance_border_overlap(appearance, diagnostics, context);
+		if (result || diagnostics != null) result &= validateAppearance_background(appearance, diagnostics, context);
+		return result;
+	}
+
+	/**
+	 * Validates the border_overlap constraint of '<em>Appearance</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public boolean validateAppearance_border_overlap(Appearance appearance, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (diagnostics != null) {			
+			Set<String> colors = new HashSet<>();
+			boolean topDefined = false;
+			boolean bottomDefined = false;
+			boolean leftDefined = false;
+			boolean rightDefined = false;
+			for (Border border: appearance.getBorder()) {
+				DiagnosticHelper helper = new DiagnosticHelper(diagnostics, DIAGNOSTIC_SOURCE, 0, appearance);
+				if (!colors.add(border.getColor())) {
+					helper.warning("Duplicate border color: "+border.getColor(), BootstrapPackage.Literals.BORDER__COLOR);
+				}
+				if (border.isTop()) {
+					if (topDefined) {
+						helper.warning("Duplicate top border definition", BootstrapPackage.Literals.BORDER__TOP);						
+					}
+					topDefined = true;
+				}
+				if (border.isBottom()) {
+					if (bottomDefined) {
+						helper.warning("Duplicate bottom border definition", BootstrapPackage.Literals.BORDER__BOTTOM);						
+					}
+					bottomDefined = true;
+				}
+				if (border.isLeft()) {
+					if (leftDefined) {
+						helper.warning("Duplicate left border definition", BootstrapPackage.Literals.BORDER__LEFT);						
+					}
+					leftDefined = true;
+				}
+				if (border.isRight()) {
+					if (rightDefined) {
+						helper.warning("Duplicate right border definition", BootstrapPackage.Literals.BORDER__RIGHT);						
+					}
+					rightDefined = true;
+				}
+			}
+		}
+		return true;
+	}
+
+	/**
+	 * Validates the background constraint of '<em>Appearance</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public boolean validateAppearance_background(Appearance appearance, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (diagnostics != null && !Util.isBlank(appearance.getBackground())) {			
+			DiagnosticHelper helper = new DiagnosticHelper(diagnostics, DIAGNOSTIC_SOURCE, 0, appearance);
+			try {
+				Color.valueOf(appearance.getBackground());				
+			} catch (Exception e) {
+				helper.error("Invalid color: "+appearance.getBackground()+", shall be one of Color enum constants: " + Arrays.toString(Color.values()), BootstrapPackage.Literals.APPEARANCE__BACKGROUND);
+			}
+			return helper.isSuccess();
+		}
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateBorder(Border border, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (!validate_NoCircularContainment(border, diagnostics, context)) return false;
+		boolean result = validate_EveryMultiplicityConforms(border, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(border, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(border, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(border, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(border, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(border, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(border, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(border, diagnostics, context);
+		if (result || diagnostics != null) result &= validateBorder_placement(border, diagnostics, context);
+		if (result || diagnostics != null) result &= validateBorder_color(border, diagnostics, context);
+		return result;
+	}
+
+	/**
+	 * Validates the placement constraint of '<em>Border</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public boolean validateBorder_placement(Border border, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (diagnostics != null && !border.isBottom() && !border.isLeft() && !border.isRight() && !border.isTop()) {			
+			DiagnosticHelper helper = new DiagnosticHelper(diagnostics, DIAGNOSTIC_SOURCE, 0, border);
+			helper.error("At least one of top, bottom, left, or right shall be selected");
+			return helper.isSuccess();
+		}
+		return true;
+	}
+
+	/**
+	 * Validates the color constraint of '<em>Border</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public boolean validateBorder_color(Border border, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (diagnostics != null) {			
+			DiagnosticHelper helper = new DiagnosticHelper(diagnostics, DIAGNOSTIC_SOURCE, 0, border);
+			if (Util.isBlank(border.getColor())) {
+//				 helper.error("Color is mandatory", BootstrapPackage.Literals.BORDER__COLOR);				
+			} else {
+				try {
+					Color.valueOf(border.getColor());				
+				} catch (Exception e) {
+					helper.error("Invalid color: "+border.getColor()+", shall be one of Color enum constants: " + Arrays.toString(Color.values()), BootstrapPackage.Literals.BORDER__COLOR);
+				}
+			}
+			return helper.isSuccess();
+		}
+		return true;
 	}
 
 	/**

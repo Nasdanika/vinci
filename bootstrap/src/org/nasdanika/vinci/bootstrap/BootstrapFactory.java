@@ -40,6 +40,15 @@ public interface BootstrapFactory extends EFactory {
 	Appearance createAppearance();
 
 	/**
+	 * Returns a new object of class '<em>Border</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Border</em>'.
+	 * @generated
+	 */
+	Border createBorder();
+
+	/**
 	 * Returns a new object of class '<em>Container</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

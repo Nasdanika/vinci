@@ -116,6 +116,29 @@ public class BootstrapItemProviderAdapterFactory extends BootstrapAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.nasdanika.vinci.bootstrap.Border} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected BorderItemProvider borderItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.nasdanika.vinci.bootstrap.Border}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createBorderAdapter() {
+		if (borderItemProvider == null) {
+			borderItemProvider = new BorderItemProvider(this);
+		}
+
+		return borderItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link org.nasdanika.vinci.bootstrap.Container} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -889,6 +912,7 @@ public class BootstrapItemProviderAdapterFactory extends BootstrapAdapterFactory
 	public void dispose() {
 		if (bootstrapPageItemProvider != null) bootstrapPageItemProvider.dispose();
 		if (appearanceItemProvider != null) appearanceItemProvider.dispose();
+		if (borderItemProvider != null) borderItemProvider.dispose();
 		if (tagItemProvider != null) tagItemProvider.dispose();
 		if (divItemProvider != null) divItemProvider.dispose();
 		if (linkActionGroupItemItemProvider != null) linkActionGroupItemItemProvider.dispose();

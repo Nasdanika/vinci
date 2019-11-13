@@ -82,6 +82,10 @@ public class BootstrapAdapterFactory extends AdapterFactoryImpl {
 				return createAppearanceAdapter();
 			}
 			@Override
+			public Adapter caseBorder(Border object) {
+				return createBorderAdapter();
+			}
+			@Override
 			public Adapter caseBootstrapElement(BootstrapElement object) {
 				return createBootstrapElementAdapter();
 			}
@@ -286,6 +290,20 @@ public class BootstrapAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createAppearanceAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.vinci.bootstrap.Border <em>Border</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.vinci.bootstrap.Border
+	 * @generated
+	 */
+	public Adapter createBorderAdapter() {
 		return null;
 	}
 

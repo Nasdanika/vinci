@@ -2,15 +2,23 @@
  */
 package org.nasdanika.vinci.bootstrap.impl;
 
+import java.util.Collection;
+import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.emf.ecore.util.InternalEList;
 import org.nasdanika.common.CompoundConsumer;
 import org.nasdanika.common.Consumer;
 import org.nasdanika.common.Context;
 import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.common.Util;
+import org.nasdanika.html.bootstrap.Color;
+import org.nasdanika.html.bootstrap.Placement;
 import org.nasdanika.vinci.bootstrap.Appearance;
 import org.nasdanika.vinci.bootstrap.BootstrapPackage;
+import org.nasdanika.vinci.bootstrap.Border;
 
 /**
  * <!-- begin-user-doc -->
@@ -21,6 +29,7 @@ import org.nasdanika.vinci.bootstrap.BootstrapPackage;
  * </p>
  * <ul>
  *   <li>{@link org.nasdanika.vinci.bootstrap.impl.AppearanceImpl#getBackground <em>Background</em>}</li>
+ *   <li>{@link org.nasdanika.vinci.bootstrap.impl.AppearanceImpl#getBorder <em>Border</em>}</li>
  * </ul>
  *
  * @generated
@@ -90,11 +99,38 @@ public class AppearanceImpl extends MinimalEObjectImpl.Container implements Appe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public EList<Border> getBorder() {
+		return (EList<Border>)eDynamicGet(BootstrapPackage.APPEARANCE__BORDER, BootstrapPackage.Literals.APPEARANCE__BORDER, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case BootstrapPackage.APPEARANCE__BORDER:
+				return ((InternalEList<?>)getBorder()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case BootstrapPackage.APPEARANCE__BACKGROUND:
 				return getBackground();
+			case BootstrapPackage.APPEARANCE__BORDER:
+				return getBorder();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -104,11 +140,16 @@ public class AppearanceImpl extends MinimalEObjectImpl.Container implements Appe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case BootstrapPackage.APPEARANCE__BACKGROUND:
 				setBackground((String)newValue);
+				return;
+			case BootstrapPackage.APPEARANCE__BORDER:
+				getBorder().clear();
+				getBorder().addAll((Collection<? extends Border>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -125,6 +166,9 @@ public class AppearanceImpl extends MinimalEObjectImpl.Container implements Appe
 			case BootstrapPackage.APPEARANCE__BACKGROUND:
 				setBackground(BACKGROUND_EDEFAULT);
 				return;
+			case BootstrapPackage.APPEARANCE__BORDER:
+				getBorder().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -139,6 +183,8 @@ public class AppearanceImpl extends MinimalEObjectImpl.Container implements Appe
 		switch (featureID) {
 			case BootstrapPackage.APPEARANCE__BACKGROUND:
 				return BACKGROUND_EDEFAULT == null ? getBackground() != null : !BACKGROUND_EDEFAULT.equals(getBackground());
+			case BootstrapPackage.APPEARANCE__BORDER:
+				return !getBorder().isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -167,7 +213,50 @@ public class AppearanceImpl extends MinimalEObjectImpl.Container implements Appe
 			
 		};
 		
-		CompoundConsumer<Object> ret = new CompoundConsumer<Object>("Appearance", backGroundConsumer);
+		Consumer<Object> borderConsumer = new Consumer<Object>() {
+
+			@Override
+			public double size() {
+				return 1;
+			}
+
+			@Override
+			public String name() {
+				return "Border";
+			}
+
+			@Override
+			public void execute(Object arg, ProgressMonitor progressMonitor) throws Exception {
+				org.nasdanika.html.bootstrap.BootstrapElement<?,?> bootstrapElement = (org.nasdanika.html.bootstrap.BootstrapElement<?,?>) arg;
+				for (Border border: getBorder()) {
+					Color color = org.nasdanika.html.bootstrap.Color.valueOf(border.getColor());
+					if (border.isBottom() && border.isLeft() && border.isRight() && border.isTop()) {
+						bootstrapElement.border(color);
+					} else {
+						if (border.isBottom()) {
+							bootstrapElement.border(color, Placement.BOTTOM);
+						}
+						if (border.isTop()) {
+							bootstrapElement.border(color, Placement.TOP);
+						}
+						if (border.isLeft()) {
+							bootstrapElement.border(color, Placement.LEFT);
+						}
+						if (border.isRight()) {
+							bootstrapElement.border(color, Placement.RIGHT);
+						}
+					}
+					
+				}
+				String bgStr = getBackground();
+				if (!Util.isBlank(bgStr)) {
+					bootstrapElement.background(org.nasdanika.html.bootstrap.Color.valueOf(bgStr));
+				}				
+			}
+			
+		};
+		
+		CompoundConsumer<Object> ret = new CompoundConsumer<Object>("Appearance", backGroundConsumer, borderConsumer);
 		
 		return ret;
 	}
