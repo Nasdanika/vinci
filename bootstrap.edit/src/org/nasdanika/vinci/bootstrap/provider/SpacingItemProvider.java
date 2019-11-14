@@ -114,7 +114,7 @@ public class SpacingItemProvider
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null,
-				 Arrays.stream(Breakpoint.values()).map((Function<Breakpoint, String>) b -> b.code).collect(Collectors.toList())));
+				 Arrays.stream(Breakpoint.values()).map((Function<Breakpoint, String>) b -> b.label).collect(Collectors.toList())));
 	}
 
 	/**

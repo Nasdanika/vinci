@@ -3,6 +3,7 @@
 package org.nasdanika.vinci.bootstrap.impl;
 
 import java.util.Collection;
+
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
@@ -14,8 +15,10 @@ import org.nasdanika.common.Consumer;
 import org.nasdanika.common.Context;
 import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.common.Util;
+import org.nasdanika.html.bootstrap.Breakpoint;
 import org.nasdanika.html.bootstrap.Color;
 import org.nasdanika.html.bootstrap.Placement;
+import org.nasdanika.html.bootstrap.Size;
 import org.nasdanika.vinci.bootstrap.Appearance;
 import org.nasdanika.vinci.bootstrap.BootstrapPackage;
 import org.nasdanika.vinci.bootstrap.Border;
@@ -306,10 +309,100 @@ public class AppearanceImpl extends MinimalEObjectImpl.Container implements Appe
 			}
 			
 		};
+
+		Consumer<Object> spacingConsumer = new Consumer<Object>() {
+
+			@Override
+			public double size() {
+				return 1;
+			}
+
+			@Override
+			public String name() {
+				return "Spacing";
+			}
+
+			@Override
+			public void execute(Object arg, ProgressMonitor progressMonitor) throws Exception {
+				org.nasdanika.html.bootstrap.BootstrapElement<?,?> bootstrapElement = (org.nasdanika.html.bootstrap.BootstrapElement<?,?>) arg;
+				for (Spacing margin : getMargin()) {
+					Size size = org.nasdanika.html.bootstrap.Size.fromCode(margin.getSize());
+					String bpStr = margin.getBreakpoint();
+					Breakpoint breakpoint = Util.isBlank(bpStr) ? Breakpoint.DEFAULT : Breakpoint.fromLabel(bpStr);
+					
+					if ((margin.isBottom() && margin.isLeft() && margin.isRight() && margin.isTop()) || (margin.isX() && margin.isY())) {
+						bootstrapElement.margin().all(breakpoint, size);
+					} else {
+						if (margin.isBottom()) {
+							bootstrapElement.margin().bottom(breakpoint, size);
+						}
+						if (margin.isTop()) {
+							bootstrapElement.margin().top(breakpoint, size);
+						}
+						if (margin.isLeft()) {
+							bootstrapElement.margin().left(breakpoint, size);
+						}
+						if (margin.isRight()) {
+							bootstrapElement.margin().right(breakpoint, size);
+						}
+						
+						if (margin.isX()) {
+							bootstrapElement.margin().x(breakpoint, size);
+						}
+						if (margin.isY()) {
+							bootstrapElement.margin().y(breakpoint, size);
+						}						
+					}					
+				}
+
+				for (Spacing padding : getPadding()) {
+					Size size = org.nasdanika.html.bootstrap.Size.fromCode(padding.getSize());
+					String bpStr = padding.getBreakpoint();
+					Breakpoint breakpoint = Util.isBlank(bpStr) ? Breakpoint.DEFAULT : Breakpoint.fromLabel(bpStr);
+					if (!Util.isBlank(bpStr)) {
+						for (Breakpoint candidate: Breakpoint.values()) {
+							if (candidate.label.equals(bpStr)) {
+								breakpoint = candidate;
+								break;
+							}
+						}
+					}
+					
+					if ((padding.isBottom() && padding.isLeft() && padding.isRight() && padding.isTop()) || (padding.isX() && padding.isY())) {
+						bootstrapElement.padding().all(breakpoint, size);
+					} else {
+						if (padding.isBottom()) {
+							bootstrapElement.padding().bottom(breakpoint, size);
+						}
+						if (padding.isTop()) {
+							bootstrapElement.padding().top(breakpoint, size);
+						}
+						if (padding.isLeft()) {
+							bootstrapElement.padding().left(breakpoint, size);
+						}
+						if (padding.isRight()) {
+							bootstrapElement.padding().right(breakpoint, size);
+						}
+						
+						if (padding.isX()) {
+							bootstrapElement.padding().x(breakpoint, size);
+						}
+						if (padding.isY()) {
+							bootstrapElement.padding().y(breakpoint, size);
+						}						
+					}					
+				}
+				
+			}
+			
+		};
 		
-		CompoundConsumer<Object> ret = new CompoundConsumer<Object>("Appearance", backGroundConsumer, borderConsumer);
 		
-		return ret;
+		return new CompoundConsumer<Object>(
+				"Appearance", 
+				backGroundConsumer, 
+				borderConsumer,
+				spacingConsumer);
 	}
 
 } //AppearanceImpl
