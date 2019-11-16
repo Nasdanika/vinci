@@ -131,7 +131,7 @@ public interface Appearance extends EObject, ConsumerFactory<Object> {
 
 	/**
 	 * Returns the value of the '<em><b>Float</b></em>' containment reference list.
-	 * The list contents are of type {@link org.nasdanika.vinci.bootstrap.Text}.
+	 * The list contents are of type {@link org.nasdanika.vinci.bootstrap.Float}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Float</em>' containment reference list.
@@ -139,6 +139,6 @@ public interface Appearance extends EObject, ConsumerFactory<Object> {
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<Text> getFloat();
+	EList<org.nasdanika.vinci.bootstrap.Float> getFloat();
 
 } // Appearance

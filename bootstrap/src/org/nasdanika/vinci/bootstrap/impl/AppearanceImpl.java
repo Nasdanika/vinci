@@ -185,8 +185,8 @@ public class AppearanceImpl extends MinimalEObjectImpl.Container implements Appe
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public EList<Text> getFloat() {
-		return (EList<Text>)eDynamicGet(BootstrapPackage.APPEARANCE__FLOAT, BootstrapPackage.Literals.APPEARANCE__FLOAT, true, true);
+	public EList<org.nasdanika.vinci.bootstrap.Float> getFloat() {
+		return (EList<org.nasdanika.vinci.bootstrap.Float>)eDynamicGet(BootstrapPackage.APPEARANCE__FLOAT, BootstrapPackage.Literals.APPEARANCE__FLOAT, true, true);
 	}
 
 	/**
@@ -270,7 +270,7 @@ public class AppearanceImpl extends MinimalEObjectImpl.Container implements Appe
 				return;
 			case BootstrapPackage.APPEARANCE__FLOAT:
 				getFloat().clear();
-				getFloat().addAll((Collection<? extends Text>)newValue);
+				getFloat().addAll((Collection<? extends org.nasdanika.vinci.bootstrap.Float>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
