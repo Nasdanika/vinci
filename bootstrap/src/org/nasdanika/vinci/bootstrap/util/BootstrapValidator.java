@@ -7,13 +7,13 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
+import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.nasdanika.common.Util;
 import org.nasdanika.emf.DiagnosticHelper;
-import org.nasdanika.html.bootstrap.Breakpoint;
 import org.nasdanika.html.bootstrap.Color;
 import org.nasdanika.html.bootstrap.Theme;
 import org.nasdanika.vinci.bootstrap.Accordion;
@@ -52,6 +52,7 @@ import org.nasdanika.vinci.bootstrap.Table;
 import org.nasdanika.vinci.bootstrap.TableColumn;
 import org.nasdanika.vinci.bootstrap.TableRow;
 import org.nasdanika.vinci.bootstrap.Tag;
+import org.nasdanika.vinci.bootstrap.Text;
 import org.nasdanika.vinci.bootstrap.Tooltip;
 
 /**
@@ -134,6 +135,10 @@ public class BootstrapValidator extends EObjectValidator {
 				return validateBorder((Border)value, diagnostics, context);
 			case BootstrapPackage.SPACING:
 				return validateSpacing((Spacing)value, diagnostics, context);
+			case BootstrapPackage.TEXT:
+				return validateText((Text)value, diagnostics, context);
+			case BootstrapPackage.FLOAT:
+				return validateFloat((org.nasdanika.vinci.bootstrap.Float)value, diagnostics, context);
 			case BootstrapPackage.BOOTSTRAP_ELEMENT:
 				return validateBootstrapElement((BootstrapElement)value, diagnostics, context);
 			case BootstrapPackage.TAG:
@@ -433,16 +438,43 @@ public class BootstrapValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateSpacing_breakpoint(Spacing spacing, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (diagnostics != null && !Util.isBlank(spacing.getBreakpoint())) {			
-			DiagnosticHelper helper = new DiagnosticHelper(diagnostics, DIAGNOSTIC_SOURCE, 0, spacing);
-			try {
-				Breakpoint.valueOf(spacing.getBreakpoint());				
-			} catch (Exception e) {
-				helper.error("Invalid breakpoint: "+spacing.getBreakpoint()+", shall be one of Breakpoint enum constants: " + Arrays.toString(Color.values()), BootstrapPackage.Literals.SPACING__BREAKPOINT);
+		// TODO implement the constraint
+		// -> specify the condition that violates the constraint
+		// -> verify the diagnostic details, including severity, code, and message
+		// Ensure that you remove @generated or mark it @generated NOT
+		if (false) {
+			if (diagnostics != null) {
+				diagnostics.add
+					(createDiagnostic
+						(Diagnostic.ERROR,
+						 DIAGNOSTIC_SOURCE,
+						 0,
+						 "_UI_GenericConstraint_diagnostic",
+						 new Object[] { "breakpoint", getObjectLabel(spacing, context) },
+						 new Object[] { spacing },
+						 context));
 			}
-			return helper.isSuccess();
+			return false;
 		}
 		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateText(Text text, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(text, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateFloat(org.nasdanika.vinci.bootstrap.Float float_, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(float_, diagnostics, context);
 	}
 
 	/**

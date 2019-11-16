@@ -10,6 +10,44 @@ import org.nasdanika.common.ConsumerFactory;
 import org.nasdanika.common.SupplierFactory;
 import org.nasdanika.ncore.ModelElement;
 import org.nasdanika.ncore.NamedElement;
+import org.nasdanika.vinci.bootstrap.Accordion;
+import org.nasdanika.vinci.bootstrap.ActionGroup;
+import org.nasdanika.vinci.bootstrap.ActionGroupItem;
+import org.nasdanika.vinci.bootstrap.Alert;
+import org.nasdanika.vinci.bootstrap.Appearance;
+import org.nasdanika.vinci.bootstrap.Badge;
+import org.nasdanika.vinci.bootstrap.BootstrapElement;
+import org.nasdanika.vinci.bootstrap.BootstrapPackage;
+import org.nasdanika.vinci.bootstrap.BootstrapPage;
+import org.nasdanika.vinci.bootstrap.Border;
+import org.nasdanika.vinci.bootstrap.Breadcrumbs;
+import org.nasdanika.vinci.bootstrap.Button;
+import org.nasdanika.vinci.bootstrap.ButtonGroup;
+import org.nasdanika.vinci.bootstrap.ButtonToolbar;
+import org.nasdanika.vinci.bootstrap.Card;
+import org.nasdanika.vinci.bootstrap.Collapse;
+import org.nasdanika.vinci.bootstrap.Column;
+import org.nasdanika.vinci.bootstrap.Container;
+import org.nasdanika.vinci.bootstrap.ContentActionGroupItem;
+import org.nasdanika.vinci.bootstrap.Div;
+import org.nasdanika.vinci.bootstrap.Dropdown;
+import org.nasdanika.vinci.bootstrap.Form;
+import org.nasdanika.vinci.bootstrap.FormGroup;
+import org.nasdanika.vinci.bootstrap.InputGroup;
+import org.nasdanika.vinci.bootstrap.Item;
+import org.nasdanika.vinci.bootstrap.LinkActionGroupItem;
+import org.nasdanika.vinci.bootstrap.ListGroup;
+import org.nasdanika.vinci.bootstrap.Modal;
+import org.nasdanika.vinci.bootstrap.Navbar;
+import org.nasdanika.vinci.bootstrap.Navs;
+import org.nasdanika.vinci.bootstrap.Row;
+import org.nasdanika.vinci.bootstrap.Spacing;
+import org.nasdanika.vinci.bootstrap.Table;
+import org.nasdanika.vinci.bootstrap.TableColumn;
+import org.nasdanika.vinci.bootstrap.TableRow;
+import org.nasdanika.vinci.bootstrap.Tag;
+import org.nasdanika.vinci.bootstrap.Text;
+import org.nasdanika.vinci.bootstrap.Tooltip;
 import org.nasdanika.vinci.bootstrap.*;
 
 import org.nasdanika.vinci.html.HtmlElement;
@@ -98,6 +136,18 @@ public class BootstrapSwitch<T1> extends Switch<T1> {
 			case BootstrapPackage.SPACING: {
 				Spacing spacing = (Spacing)theEObject;
 				T1 result = caseSpacing(spacing);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case BootstrapPackage.TEXT: {
+				Text text = (Text)theEObject;
+				T1 result = caseText(text);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case BootstrapPackage.FLOAT: {
+				org.nasdanika.vinci.bootstrap.Float float_ = (org.nasdanika.vinci.bootstrap.Float)theEObject;
+				T1 result = caseFloat(float_);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -426,6 +476,36 @@ public class BootstrapSwitch<T1> extends Switch<T1> {
 	 * @generated
 	 */
 	public T1 caseSpacing(Spacing object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Text</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Text</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseText(Text object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Float</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Float</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseFloat(org.nasdanika.vinci.bootstrap.Float object) {
 		return null;
 	}
 

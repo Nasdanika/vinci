@@ -23,6 +23,7 @@ import org.nasdanika.vinci.bootstrap.Appearance;
 import org.nasdanika.vinci.bootstrap.BootstrapPackage;
 import org.nasdanika.vinci.bootstrap.Border;
 import org.nasdanika.vinci.bootstrap.Spacing;
+import org.nasdanika.vinci.bootstrap.Text;
 
 /**
  * <!-- begin-user-doc -->
@@ -33,9 +34,12 @@ import org.nasdanika.vinci.bootstrap.Spacing;
  * </p>
  * <ul>
  *   <li>{@link org.nasdanika.vinci.bootstrap.impl.AppearanceImpl#getBackground <em>Background</em>}</li>
+ *   <li>{@link org.nasdanika.vinci.bootstrap.impl.AppearanceImpl#getAttributes <em>Attributes</em>}</li>
  *   <li>{@link org.nasdanika.vinci.bootstrap.impl.AppearanceImpl#getBorder <em>Border</em>}</li>
  *   <li>{@link org.nasdanika.vinci.bootstrap.impl.AppearanceImpl#getMargin <em>Margin</em>}</li>
  *   <li>{@link org.nasdanika.vinci.bootstrap.impl.AppearanceImpl#getPadding <em>Padding</em>}</li>
+ *   <li>{@link org.nasdanika.vinci.bootstrap.impl.AppearanceImpl#getText <em>Text</em>}</li>
+ *   <li>{@link org.nasdanika.vinci.bootstrap.impl.AppearanceImpl#getFloat <em>Float</em>}</li>
  * </ul>
  *
  * @generated
@@ -50,6 +54,16 @@ public class AppearanceImpl extends MinimalEObjectImpl.Container implements Appe
 	 * @ordered
 	 */
 	protected static final String BACKGROUND_EDEFAULT = null;
+
+	/**
+	 * The default value of the '{@link #getAttributes() <em>Attributes</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAttributes()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String ATTRIBUTES_EDEFAULT = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -105,6 +119,26 @@ public class AppearanceImpl extends MinimalEObjectImpl.Container implements Appe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
+	public String getAttributes() {
+		return (String)eDynamicGet(BootstrapPackage.APPEARANCE__ATTRIBUTES, BootstrapPackage.Literals.APPEARANCE__ATTRIBUTES, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setAttributes(String newAttributes) {
+		eDynamicSet(BootstrapPackage.APPEARANCE__ATTRIBUTES, BootstrapPackage.Literals.APPEARANCE__ATTRIBUTES, newAttributes);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public EList<Border> getBorder() {
@@ -138,6 +172,28 @@ public class AppearanceImpl extends MinimalEObjectImpl.Container implements Appe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public EList<Text> getText() {
+		return (EList<Text>)eDynamicGet(BootstrapPackage.APPEARANCE__TEXT, BootstrapPackage.Literals.APPEARANCE__TEXT, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public EList<Text> getFloat() {
+		return (EList<Text>)eDynamicGet(BootstrapPackage.APPEARANCE__FLOAT, BootstrapPackage.Literals.APPEARANCE__FLOAT, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -147,6 +203,10 @@ public class AppearanceImpl extends MinimalEObjectImpl.Container implements Appe
 				return ((InternalEList<?>)getMargin()).basicRemove(otherEnd, msgs);
 			case BootstrapPackage.APPEARANCE__PADDING:
 				return ((InternalEList<?>)getPadding()).basicRemove(otherEnd, msgs);
+			case BootstrapPackage.APPEARANCE__TEXT:
+				return ((InternalEList<?>)getText()).basicRemove(otherEnd, msgs);
+			case BootstrapPackage.APPEARANCE__FLOAT:
+				return ((InternalEList<?>)getFloat()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -161,12 +221,18 @@ public class AppearanceImpl extends MinimalEObjectImpl.Container implements Appe
 		switch (featureID) {
 			case BootstrapPackage.APPEARANCE__BACKGROUND:
 				return getBackground();
+			case BootstrapPackage.APPEARANCE__ATTRIBUTES:
+				return getAttributes();
 			case BootstrapPackage.APPEARANCE__BORDER:
 				return getBorder();
 			case BootstrapPackage.APPEARANCE__MARGIN:
 				return getMargin();
 			case BootstrapPackage.APPEARANCE__PADDING:
 				return getPadding();
+			case BootstrapPackage.APPEARANCE__TEXT:
+				return getText();
+			case BootstrapPackage.APPEARANCE__FLOAT:
+				return getFloat();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -183,6 +249,9 @@ public class AppearanceImpl extends MinimalEObjectImpl.Container implements Appe
 			case BootstrapPackage.APPEARANCE__BACKGROUND:
 				setBackground((String)newValue);
 				return;
+			case BootstrapPackage.APPEARANCE__ATTRIBUTES:
+				setAttributes((String)newValue);
+				return;
 			case BootstrapPackage.APPEARANCE__BORDER:
 				getBorder().clear();
 				getBorder().addAll((Collection<? extends Border>)newValue);
@@ -194,6 +263,14 @@ public class AppearanceImpl extends MinimalEObjectImpl.Container implements Appe
 			case BootstrapPackage.APPEARANCE__PADDING:
 				getPadding().clear();
 				getPadding().addAll((Collection<? extends Spacing>)newValue);
+				return;
+			case BootstrapPackage.APPEARANCE__TEXT:
+				getText().clear();
+				getText().addAll((Collection<? extends Text>)newValue);
+				return;
+			case BootstrapPackage.APPEARANCE__FLOAT:
+				getFloat().clear();
+				getFloat().addAll((Collection<? extends Text>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -210,6 +287,9 @@ public class AppearanceImpl extends MinimalEObjectImpl.Container implements Appe
 			case BootstrapPackage.APPEARANCE__BACKGROUND:
 				setBackground(BACKGROUND_EDEFAULT);
 				return;
+			case BootstrapPackage.APPEARANCE__ATTRIBUTES:
+				setAttributes(ATTRIBUTES_EDEFAULT);
+				return;
 			case BootstrapPackage.APPEARANCE__BORDER:
 				getBorder().clear();
 				return;
@@ -218,6 +298,12 @@ public class AppearanceImpl extends MinimalEObjectImpl.Container implements Appe
 				return;
 			case BootstrapPackage.APPEARANCE__PADDING:
 				getPadding().clear();
+				return;
+			case BootstrapPackage.APPEARANCE__TEXT:
+				getText().clear();
+				return;
+			case BootstrapPackage.APPEARANCE__FLOAT:
+				getFloat().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -233,12 +319,18 @@ public class AppearanceImpl extends MinimalEObjectImpl.Container implements Appe
 		switch (featureID) {
 			case BootstrapPackage.APPEARANCE__BACKGROUND:
 				return BACKGROUND_EDEFAULT == null ? getBackground() != null : !BACKGROUND_EDEFAULT.equals(getBackground());
+			case BootstrapPackage.APPEARANCE__ATTRIBUTES:
+				return ATTRIBUTES_EDEFAULT == null ? getAttributes() != null : !ATTRIBUTES_EDEFAULT.equals(getAttributes());
 			case BootstrapPackage.APPEARANCE__BORDER:
 				return !getBorder().isEmpty();
 			case BootstrapPackage.APPEARANCE__MARGIN:
 				return !getMargin().isEmpty();
 			case BootstrapPackage.APPEARANCE__PADDING:
 				return !getPadding().isEmpty();
+			case BootstrapPackage.APPEARANCE__TEXT:
+				return !getText().isEmpty();
+			case BootstrapPackage.APPEARANCE__FLOAT:
+				return !getFloat().isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

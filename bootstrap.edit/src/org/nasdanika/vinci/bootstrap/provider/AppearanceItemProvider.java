@@ -13,6 +13,7 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
@@ -64,6 +65,7 @@ public class AppearanceItemProvider
 			super.getPropertyDescriptors(object);
 
 			addBackgroundPropertyDescriptor(object);
+			addAttributesPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -90,6 +92,28 @@ public class AppearanceItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Attributes feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addAttributesPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Appearance_attributes_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Appearance_attributes_feature", "_UI_Appearance_type"),
+				 BootstrapPackage.Literals.APPEARANCE__ATTRIBUTES,
+				 true,
+				 true,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -104,6 +128,8 @@ public class AppearanceItemProvider
 			childrenFeatures.add(BootstrapPackage.Literals.APPEARANCE__BORDER);
 			childrenFeatures.add(BootstrapPackage.Literals.APPEARANCE__MARGIN);
 			childrenFeatures.add(BootstrapPackage.Literals.APPEARANCE__PADDING);
+			childrenFeatures.add(BootstrapPackage.Literals.APPEARANCE__TEXT);
+			childrenFeatures.add(BootstrapPackage.Literals.APPEARANCE__FLOAT);
 		}
 		return childrenFeatures;
 	}
@@ -167,11 +193,14 @@ public class AppearanceItemProvider
 
 		switch (notification.getFeatureID(Appearance.class)) {
 			case BootstrapPackage.APPEARANCE__BACKGROUND:
+			case BootstrapPackage.APPEARANCE__ATTRIBUTES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case BootstrapPackage.APPEARANCE__BORDER:
 			case BootstrapPackage.APPEARANCE__MARGIN:
 			case BootstrapPackage.APPEARANCE__PADDING:
+			case BootstrapPackage.APPEARANCE__TEXT:
+			case BootstrapPackage.APPEARANCE__FLOAT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -203,6 +232,16 @@ public class AppearanceItemProvider
 			(createChildParameter
 				(BootstrapPackage.Literals.APPEARANCE__PADDING,
 				 BootstrapFactory.eINSTANCE.createSpacing()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(BootstrapPackage.Literals.APPEARANCE__TEXT,
+				 BootstrapFactory.eINSTANCE.createText()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(BootstrapPackage.Literals.APPEARANCE__FLOAT,
+				 BootstrapFactory.eINSTANCE.createText()));
 	}
 
 	/**

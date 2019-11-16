@@ -12,6 +12,41 @@ import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
 import org.nasdanika.html.bootstrap.Color;
+import org.nasdanika.vinci.bootstrap.Accordion;
+import org.nasdanika.vinci.bootstrap.ActionGroup;
+import org.nasdanika.vinci.bootstrap.Alert;
+import org.nasdanika.vinci.bootstrap.Appearance;
+import org.nasdanika.vinci.bootstrap.Badge;
+import org.nasdanika.vinci.bootstrap.BootstrapFactory;
+import org.nasdanika.vinci.bootstrap.BootstrapPackage;
+import org.nasdanika.vinci.bootstrap.BootstrapPage;
+import org.nasdanika.vinci.bootstrap.Border;
+import org.nasdanika.vinci.bootstrap.Breadcrumbs;
+import org.nasdanika.vinci.bootstrap.Button;
+import org.nasdanika.vinci.bootstrap.ButtonGroup;
+import org.nasdanika.vinci.bootstrap.ButtonToolbar;
+import org.nasdanika.vinci.bootstrap.Card;
+import org.nasdanika.vinci.bootstrap.Collapse;
+import org.nasdanika.vinci.bootstrap.Column;
+import org.nasdanika.vinci.bootstrap.ContentActionGroupItem;
+import org.nasdanika.vinci.bootstrap.Div;
+import org.nasdanika.vinci.bootstrap.Dropdown;
+import org.nasdanika.vinci.bootstrap.Form;
+import org.nasdanika.vinci.bootstrap.FormGroup;
+import org.nasdanika.vinci.bootstrap.InputGroup;
+import org.nasdanika.vinci.bootstrap.LinkActionGroupItem;
+import org.nasdanika.vinci.bootstrap.ListGroup;
+import org.nasdanika.vinci.bootstrap.Modal;
+import org.nasdanika.vinci.bootstrap.Navbar;
+import org.nasdanika.vinci.bootstrap.Navs;
+import org.nasdanika.vinci.bootstrap.Row;
+import org.nasdanika.vinci.bootstrap.Spacing;
+import org.nasdanika.vinci.bootstrap.Table;
+import org.nasdanika.vinci.bootstrap.TableColumn;
+import org.nasdanika.vinci.bootstrap.TableRow;
+import org.nasdanika.vinci.bootstrap.Tag;
+import org.nasdanika.vinci.bootstrap.Text;
+import org.nasdanika.vinci.bootstrap.Tooltip;
 import org.nasdanika.vinci.bootstrap.*;
 
 /**
@@ -62,6 +97,8 @@ public class BootstrapFactoryImpl extends EFactoryImpl implements BootstrapFacto
 			case BootstrapPackage.APPEARANCE: return createAppearance();
 			case BootstrapPackage.BORDER: return createBorder();
 			case BootstrapPackage.SPACING: return createSpacing();
+			case BootstrapPackage.TEXT: return createText();
+			case BootstrapPackage.FLOAT: return createFloat();
 			case BootstrapPackage.TAG: return createTag();
 			case BootstrapPackage.DIV: return createDiv();
 			case BootstrapPackage.LINK_ACTION_GROUP_ITEM: return createLinkActionGroupItem();
@@ -168,6 +205,28 @@ public class BootstrapFactoryImpl extends EFactoryImpl implements BootstrapFacto
 	public Spacing createSpacing() {
 		SpacingImpl spacing = new SpacingImpl();
 		return spacing;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Text createText() {
+		TextImpl text = new TextImpl();
+		return text;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public org.nasdanika.vinci.bootstrap.Float createFloat() {
+		FloatImpl float_ = new FloatImpl();
+		return float_;
 	}
 
 	/**

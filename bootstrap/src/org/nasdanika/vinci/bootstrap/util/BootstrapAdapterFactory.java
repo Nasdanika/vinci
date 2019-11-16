@@ -12,6 +12,44 @@ import org.nasdanika.common.ConsumerFactory;
 import org.nasdanika.common.SupplierFactory;
 import org.nasdanika.ncore.ModelElement;
 import org.nasdanika.ncore.NamedElement;
+import org.nasdanika.vinci.bootstrap.Accordion;
+import org.nasdanika.vinci.bootstrap.ActionGroup;
+import org.nasdanika.vinci.bootstrap.ActionGroupItem;
+import org.nasdanika.vinci.bootstrap.Alert;
+import org.nasdanika.vinci.bootstrap.Appearance;
+import org.nasdanika.vinci.bootstrap.Badge;
+import org.nasdanika.vinci.bootstrap.BootstrapElement;
+import org.nasdanika.vinci.bootstrap.BootstrapPackage;
+import org.nasdanika.vinci.bootstrap.BootstrapPage;
+import org.nasdanika.vinci.bootstrap.Border;
+import org.nasdanika.vinci.bootstrap.Breadcrumbs;
+import org.nasdanika.vinci.bootstrap.Button;
+import org.nasdanika.vinci.bootstrap.ButtonGroup;
+import org.nasdanika.vinci.bootstrap.ButtonToolbar;
+import org.nasdanika.vinci.bootstrap.Card;
+import org.nasdanika.vinci.bootstrap.Collapse;
+import org.nasdanika.vinci.bootstrap.Column;
+import org.nasdanika.vinci.bootstrap.Container;
+import org.nasdanika.vinci.bootstrap.ContentActionGroupItem;
+import org.nasdanika.vinci.bootstrap.Div;
+import org.nasdanika.vinci.bootstrap.Dropdown;
+import org.nasdanika.vinci.bootstrap.Form;
+import org.nasdanika.vinci.bootstrap.FormGroup;
+import org.nasdanika.vinci.bootstrap.InputGroup;
+import org.nasdanika.vinci.bootstrap.Item;
+import org.nasdanika.vinci.bootstrap.LinkActionGroupItem;
+import org.nasdanika.vinci.bootstrap.ListGroup;
+import org.nasdanika.vinci.bootstrap.Modal;
+import org.nasdanika.vinci.bootstrap.Navbar;
+import org.nasdanika.vinci.bootstrap.Navs;
+import org.nasdanika.vinci.bootstrap.Row;
+import org.nasdanika.vinci.bootstrap.Spacing;
+import org.nasdanika.vinci.bootstrap.Table;
+import org.nasdanika.vinci.bootstrap.TableColumn;
+import org.nasdanika.vinci.bootstrap.TableRow;
+import org.nasdanika.vinci.bootstrap.Tag;
+import org.nasdanika.vinci.bootstrap.Text;
+import org.nasdanika.vinci.bootstrap.Tooltip;
 import org.nasdanika.vinci.bootstrap.*;
 
 import org.nasdanika.vinci.html.HtmlElement;
@@ -88,6 +126,14 @@ public class BootstrapAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseSpacing(Spacing object) {
 				return createSpacingAdapter();
+			}
+			@Override
+			public Adapter caseText(Text object) {
+				return createTextAdapter();
+			}
+			@Override
+			public Adapter caseFloat(org.nasdanika.vinci.bootstrap.Float object) {
+				return createFloatAdapter();
 			}
 			@Override
 			public Adapter caseBootstrapElement(BootstrapElement object) {
@@ -322,6 +368,34 @@ public class BootstrapAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createSpacingAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.vinci.bootstrap.Text <em>Text</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.vinci.bootstrap.Text
+	 * @generated
+	 */
+	public Adapter createTextAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.vinci.bootstrap.Float <em>Float</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.vinci.bootstrap.Float
+	 * @generated
+	 */
+	public Adapter createFloatAdapter() {
 		return null;
 	}
 

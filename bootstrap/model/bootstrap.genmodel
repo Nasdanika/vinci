@@ -17,9 +17,12 @@
     </genClasses>
     <genClasses ecoreClass="bootstrap.ecore#//Appearance">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bootstrap.ecore#//Appearance/background"/>
+      <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute bootstrap.ecore#//Appearance/attributes"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference bootstrap.ecore#//Appearance/border"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference bootstrap.ecore#//Appearance/margin"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference bootstrap.ecore#//Appearance/padding"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference bootstrap.ecore#//Appearance/text"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference bootstrap.ecore#//Appearance/Float"/>
     </genClasses>
     <genClasses ecoreClass="bootstrap.ecore#//Border">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bootstrap.ecore#//Border/color"/>
@@ -37,6 +40,20 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bootstrap.ecore#//Spacing/right"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bootstrap.ecore#//Spacing/x"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bootstrap.ecore#//Spacing/y"/>
+    </genClasses>
+    <genClasses ecoreClass="bootstrap.ecore#//Text">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bootstrap.ecore#//Text/alignment"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bootstrap.ecore#//Text/color"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bootstrap.ecore#//Text/transform"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bootstrap.ecore#//Text/weight"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bootstrap.ecore#//Text/monospace"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bootstrap.ecore#//Text/italic"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bootstrap.ecore#//Text/nowrap"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bootstrap.ecore#//Text/truncate"/>
+    </genClasses>
+    <genClasses ecoreClass="bootstrap.ecore#//Float">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bootstrap.ecore#//Float/side"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bootstrap.ecore#//Float/breakpoint"/>
     </genClasses>
     <genClasses ecoreClass="bootstrap.ecore#//BootstrapElement">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference bootstrap.ecore#//BootstrapElement/appearance"/>

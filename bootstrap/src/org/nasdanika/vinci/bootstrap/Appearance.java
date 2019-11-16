@@ -20,9 +20,12 @@ import org.nasdanika.common.ConsumerFactory;
  * </p>
  * <ul>
  *   <li>{@link org.nasdanika.vinci.bootstrap.Appearance#getBackground <em>Background</em>}</li>
+ *   <li>{@link org.nasdanika.vinci.bootstrap.Appearance#getAttributes <em>Attributes</em>}</li>
  *   <li>{@link org.nasdanika.vinci.bootstrap.Appearance#getBorder <em>Border</em>}</li>
  *   <li>{@link org.nasdanika.vinci.bootstrap.Appearance#getMargin <em>Margin</em>}</li>
  *   <li>{@link org.nasdanika.vinci.bootstrap.Appearance#getPadding <em>Padding</em>}</li>
+ *   <li>{@link org.nasdanika.vinci.bootstrap.Appearance#getText <em>Text</em>}</li>
+ *   <li>{@link org.nasdanika.vinci.bootstrap.Appearance#getFloat <em>Float</em>}</li>
  * </ul>
  *
  * @see org.nasdanika.vinci.bootstrap.BootstrapPackage#getAppearance()
@@ -55,6 +58,28 @@ public interface Appearance extends EObject, ConsumerFactory<Object> {
 	 * @generated
 	 */
 	void setBackground(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Attributes</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Attributes</em>' attribute.
+	 * @see #setAttributes(String)
+	 * @see org.nasdanika.vinci.bootstrap.BootstrapPackage#getAppearance_Attributes()
+	 * @model
+	 * @generated
+	 */
+	String getAttributes();
+
+	/**
+	 * Sets the value of the '{@link org.nasdanika.vinci.bootstrap.Appearance#getAttributes <em>Attributes</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Attributes</em>' attribute.
+	 * @see #getAttributes()
+	 * @generated
+	 */
+	void setAttributes(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Border</b></em>' containment reference list.
@@ -91,5 +116,29 @@ public interface Appearance extends EObject, ConsumerFactory<Object> {
 	 * @generated
 	 */
 	EList<Spacing> getPadding();
+
+	/**
+	 * Returns the value of the '<em><b>Text</b></em>' containment reference list.
+	 * The list contents are of type {@link org.nasdanika.vinci.bootstrap.Text}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Text</em>' containment reference list.
+	 * @see org.nasdanika.vinci.bootstrap.BootstrapPackage#getAppearance_Text()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<Text> getText();
+
+	/**
+	 * Returns the value of the '<em><b>Float</b></em>' containment reference list.
+	 * The list contents are of type {@link org.nasdanika.vinci.bootstrap.Text}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Float</em>' containment reference list.
+	 * @see org.nasdanika.vinci.bootstrap.BootstrapPackage#getAppearance_Float()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<Text> getFloat();
 
 } // Appearance

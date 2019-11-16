@@ -162,6 +162,52 @@ public class BootstrapItemProviderAdapterFactory extends BootstrapAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.nasdanika.vinci.bootstrap.Text} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected TextItemProvider textItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.nasdanika.vinci.bootstrap.Text}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createTextAdapter() {
+		if (textItemProvider == null) {
+			textItemProvider = new TextItemProvider(this);
+		}
+
+		return textItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.nasdanika.vinci.bootstrap.Float} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected FloatItemProvider floatItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.nasdanika.vinci.bootstrap.Float}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createFloatAdapter() {
+		if (floatItemProvider == null) {
+			floatItemProvider = new FloatItemProvider(this);
+		}
+
+		return floatItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link org.nasdanika.vinci.bootstrap.Container} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -937,6 +983,8 @@ public class BootstrapItemProviderAdapterFactory extends BootstrapAdapterFactory
 		if (appearanceItemProvider != null) appearanceItemProvider.dispose();
 		if (borderItemProvider != null) borderItemProvider.dispose();
 		if (spacingItemProvider != null) spacingItemProvider.dispose();
+		if (textItemProvider != null) textItemProvider.dispose();
+		if (floatItemProvider != null) floatItemProvider.dispose();
 		if (tagItemProvider != null) tagItemProvider.dispose();
 		if (divItemProvider != null) divItemProvider.dispose();
 		if (linkActionGroupItemItemProvider != null) linkActionGroupItemItemProvider.dispose();
