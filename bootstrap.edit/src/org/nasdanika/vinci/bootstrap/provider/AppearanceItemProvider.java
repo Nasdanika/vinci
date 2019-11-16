@@ -95,20 +95,19 @@ public class AppearanceItemProvider
 	 * This adds a property descriptor for the Attributes feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void addAttributesPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+			(createItemPropertyDescriptor(
 				 getResourceLocator(),
 				 getString("_UI_Appearance_attributes_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Appearance_attributes_feature", "_UI_Appearance_type"),
 				 BootstrapPackage.Literals.APPEARANCE__ATTRIBUTES,
 				 true,
 				 true,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
 				 null,
 				 null));
 	}
