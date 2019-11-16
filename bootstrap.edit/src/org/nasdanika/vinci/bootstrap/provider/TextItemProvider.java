@@ -8,9 +8,7 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -20,9 +18,8 @@ import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-
+import org.nasdanika.common.Util;
 import org.nasdanika.emf.edit.NasdanikaItemProviderAdapter;
-
 import org.nasdanika.vinci.bootstrap.BootstrapPackage;
 import org.nasdanika.vinci.bootstrap.Text;
 
@@ -77,108 +74,103 @@ public class TextItemProvider
 	 * This adds a property descriptor for the Alignment feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void addAlignmentPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+			(createItemPropertyDescriptor(
 				 getResourceLocator(),
 				 getString("_UI_Text_alignment_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Text_alignment_feature", "_UI_Text_type"),
 				 BootstrapPackage.Literals.TEXT__ALIGNMENT,
 				 true,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
-				 null));
+				 null,
+				 enumChoices(org.nasdanika.html.bootstrap.Text.Alignment.class, true, null)));
 	}
 
 	/**
 	 * This adds a property descriptor for the Color feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void addColorPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+			(createItemPropertyDescriptor(
 				 getResourceLocator(),
 				 getString("_UI_Text_color_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Text_color_feature", "_UI_Text_type"),
 				 BootstrapPackage.Literals.TEXT__COLOR,
 				 true,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
-				 null));
+				 null,
+				 enumChoices(org.nasdanika.html.bootstrap.Color.class, true, null)));
 	}
 
 	/**
 	 * This adds a property descriptor for the Transform feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void addTransformPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+			(createItemPropertyDescriptor(
 				 getResourceLocator(),
 				 getString("_UI_Text_transform_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Text_transform_feature", "_UI_Text_type"),
 				 BootstrapPackage.Literals.TEXT__TRANSFORM,
 				 true,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
-				 null));
+				 null,
+				 enumChoices(org.nasdanika.html.bootstrap.Text.Transform.class, true, null)));
 	}
 
 	/**
 	 * This adds a property descriptor for the Weight feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void addWeightPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+			(createItemPropertyDescriptor(
 				 getResourceLocator(),
 				 getString("_UI_Text_weight_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Text_weight_feature", "_UI_Text_type"),
 				 BootstrapPackage.Literals.TEXT__WEIGHT,
 				 true,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
-				 null));
+				 null,
+				 enumChoices(org.nasdanika.html.bootstrap.Text.Weight.class, true, null)));
 	}
 
 	/**
 	 * This adds a property descriptor for the Monospace feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void addMonospacePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+			(createItemPropertyDescriptor(
 				 getResourceLocator(),
 				 getString("_UI_Text_monospace_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Text_monospace_feature", "_UI_Text_type"),
 				 BootstrapPackage.Literals.TEXT__MONOSPACE,
 				 true,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
 				 null,
 				 null));
 	}
@@ -187,20 +179,19 @@ public class TextItemProvider
 	 * This adds a property descriptor for the Italic feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void addItalicPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+			(createItemPropertyDescriptor(
 				 getResourceLocator(),
 				 getString("_UI_Text_italic_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Text_italic_feature", "_UI_Text_type"),
 				 BootstrapPackage.Literals.TEXT__ITALIC,
 				 true,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
 				 null,
 				 null));
 	}
@@ -209,20 +200,19 @@ public class TextItemProvider
 	 * This adds a property descriptor for the Nowrap feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void addNowrapPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+			(createItemPropertyDescriptor(
 				 getResourceLocator(),
 				 getString("_UI_Text_nowrap_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Text_nowrap_feature", "_UI_Text_type"),
 				 BootstrapPackage.Literals.TEXT__NOWRAP,
 				 true,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
 				 null,
 				 null));
 	}
@@ -231,20 +221,19 @@ public class TextItemProvider
 	 * This adds a property descriptor for the Truncate feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void addTruncatePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+			(createItemPropertyDescriptor(
 				 getResourceLocator(),
 				 getString("_UI_Text_truncate_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Text_truncate_feature", "_UI_Text_type"),
 				 BootstrapPackage.Literals.TEXT__TRUNCATE,
 				 true,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
 				 null,
 				 null));
 	}
@@ -274,11 +263,33 @@ public class TextItemProvider
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Text)object).getAlignment();
+		Text text = (Text)object;
+		String label = text.getColor();
+		if (!Util.isBlank(text.getAlignment())) {
+			label += " " + text.getAlignment();
+		}
+		if (!Util.isBlank(text.getWeight())) {
+			label += " " + text.getWeight();
+		}
+		if (!Util.isBlank(text.getTransform())) {
+			label += " " + text.getTransform();
+		}
+		if (text.isMonospace()) {
+			label += " monospace";
+		}
+		if (text.isItalic()) {
+			label += " italic";
+		}
+		if (text.isNowrap()) {
+			label += " nowrap";
+		}
+		if (text.isTruncate()) {
+			label += " truncate";
+		}
 		return label == null || label.length() == 0 ?
 			getString("_UI_Text_type") :
 			getString("_UI_Text_type") + " " + label;
