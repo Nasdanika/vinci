@@ -118,16 +118,26 @@ public interface Appearance extends EObject, ConsumerFactory<Object> {
 	EList<Spacing> getPadding();
 
 	/**
-	 * Returns the value of the '<em><b>Text</b></em>' containment reference list.
-	 * The list contents are of type {@link org.nasdanika.vinci.bootstrap.Text}.
+	 * Returns the value of the '<em><b>Text</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Text</em>' containment reference list.
+	 * @return the value of the '<em>Text</em>' containment reference.
+	 * @see #setText(Text)
 	 * @see org.nasdanika.vinci.bootstrap.BootstrapPackage#getAppearance_Text()
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<Text> getText();
+	Text getText();
+
+	/**
+	 * Sets the value of the '{@link org.nasdanika.vinci.bootstrap.Appearance#getText <em>Text</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Text</em>' containment reference.
+	 * @see #getText()
+	 * @generated
+	 */
+	void setText(Text value);
 
 	/**
 	 * Returns the value of the '<em><b>Float</b></em>' containment reference list.

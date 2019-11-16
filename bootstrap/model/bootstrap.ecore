@@ -42,8 +42,7 @@
         eType="#//Spacing" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="padding" upperBound="-1"
         eType="#//Spacing" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="text" upperBound="-1" eType="#//Text"
-        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="text" eType="#//Text" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Float" upperBound="-1"
         eType="#//Float" containment="true"/>
     <eGenericSuperTypes eClassifier="ecore:EClass ../../org.nasdanika.ncore/model/ncore.ecore#//ConsumerFactory">

@@ -246,7 +246,7 @@ public interface BootstrapPackage extends EPackage {
 	int APPEARANCE__PADDING = NcorePackage.CONSUMER_FACTORY_FEATURE_COUNT + 4;
 
 	/**
-	 * The feature id for the '<em><b>Text</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Text</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -2407,10 +2407,10 @@ public interface BootstrapPackage extends EPackage {
 	EReference getAppearance_Padding();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link org.nasdanika.vinci.bootstrap.Appearance#getText <em>Text</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.nasdanika.vinci.bootstrap.Appearance#getText <em>Text</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Text</em>'.
+	 * @return the meta object for the containment reference '<em>Text</em>'.
 	 * @see org.nasdanika.vinci.bootstrap.Appearance#getText()
 	 * @see #getAppearance()
 	 * @generated
@@ -3341,7 +3341,7 @@ public interface BootstrapPackage extends EPackage {
 		 */
 		EReference APPEARANCE__PADDING = eINSTANCE.getAppearance_Padding();
 		/**
-		 * The meta object literal for the '<em><b>Text</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Text</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated

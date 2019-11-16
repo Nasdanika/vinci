@@ -174,8 +174,28 @@ public class AppearanceImpl extends MinimalEObjectImpl.Container implements Appe
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public EList<Text> getText() {
-		return (EList<Text>)eDynamicGet(BootstrapPackage.APPEARANCE__TEXT, BootstrapPackage.Literals.APPEARANCE__TEXT, true, true);
+	public Text getText() {
+		return (Text)eDynamicGet(BootstrapPackage.APPEARANCE__TEXT, BootstrapPackage.Literals.APPEARANCE__TEXT, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetText(Text newText, NotificationChain msgs) {
+		msgs = eDynamicInverseAdd((InternalEObject)newText, BootstrapPackage.APPEARANCE__TEXT, msgs);
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setText(Text newText) {
+		eDynamicSet(BootstrapPackage.APPEARANCE__TEXT, BootstrapPackage.Literals.APPEARANCE__TEXT, newText);
 	}
 
 	/**
@@ -204,7 +224,7 @@ public class AppearanceImpl extends MinimalEObjectImpl.Container implements Appe
 			case BootstrapPackage.APPEARANCE__PADDING:
 				return ((InternalEList<?>)getPadding()).basicRemove(otherEnd, msgs);
 			case BootstrapPackage.APPEARANCE__TEXT:
-				return ((InternalEList<?>)getText()).basicRemove(otherEnd, msgs);
+				return basicSetText(null, msgs);
 			case BootstrapPackage.APPEARANCE__FLOAT:
 				return ((InternalEList<?>)getFloat()).basicRemove(otherEnd, msgs);
 		}
@@ -265,8 +285,7 @@ public class AppearanceImpl extends MinimalEObjectImpl.Container implements Appe
 				getPadding().addAll((Collection<? extends Spacing>)newValue);
 				return;
 			case BootstrapPackage.APPEARANCE__TEXT:
-				getText().clear();
-				getText().addAll((Collection<? extends Text>)newValue);
+				setText((Text)newValue);
 				return;
 			case BootstrapPackage.APPEARANCE__FLOAT:
 				getFloat().clear();
@@ -300,7 +319,7 @@ public class AppearanceImpl extends MinimalEObjectImpl.Container implements Appe
 				getPadding().clear();
 				return;
 			case BootstrapPackage.APPEARANCE__TEXT:
-				getText().clear();
+				setText((Text)null);
 				return;
 			case BootstrapPackage.APPEARANCE__FLOAT:
 				getFloat().clear();
@@ -328,7 +347,7 @@ public class AppearanceImpl extends MinimalEObjectImpl.Container implements Appe
 			case BootstrapPackage.APPEARANCE__PADDING:
 				return !getPadding().isEmpty();
 			case BootstrapPackage.APPEARANCE__TEXT:
-				return !getText().isEmpty();
+				return getText() != null;
 			case BootstrapPackage.APPEARANCE__FLOAT:
 				return !getFloat().isEmpty();
 		}
