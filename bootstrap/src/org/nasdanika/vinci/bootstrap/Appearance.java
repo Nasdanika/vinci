@@ -30,7 +30,7 @@ import org.nasdanika.common.ConsumerFactory;
  *
  * @see org.nasdanika.vinci.bootstrap.BootstrapPackage#getAppearance()
  * @model superTypes="org.nasdanika.ncore.ConsumerFactory&lt;org.eclipse.emf.ecore.EJavaObject&gt;"
- *        annotation="http://www.eclipse.org/emf/2002/Ecore constraints='border_overlap background'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore constraints='border_overlap background attributes'"
  * @generated
  */
 public interface Appearance extends EObject, ConsumerFactory<Object> {

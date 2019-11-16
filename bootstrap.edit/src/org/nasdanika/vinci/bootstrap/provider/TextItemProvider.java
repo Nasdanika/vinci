@@ -267,27 +267,49 @@ public class TextItemProvider
 	@Override
 	public String getText(Object object) {
 		Text text = (Text)object;
-		String label = text.getColor();
+		String label = Util.isBlank(text.getColor()) ? "" : text.getColor();
+
 		if (!Util.isBlank(text.getAlignment())) {
-			label += " " + text.getAlignment();
+			if (!Util.isBlank(label)) {
+				label += " ";
+			}
+			label += text.getAlignment();
 		}
 		if (!Util.isBlank(text.getWeight())) {
-			label += " " + text.getWeight();
+			if (!Util.isBlank(label)) {
+				label += " ";
+			}
+			label += text.getWeight();
 		}
 		if (!Util.isBlank(text.getTransform())) {
-			label += " " + text.getTransform();
+			if (!Util.isBlank(label)) {
+				label += " ";
+			}
+			label += text.getTransform();
 		}
 		if (text.isMonospace()) {
-			label += " monospace";
+			if (!Util.isBlank(label)) {
+				label += " ";
+			}
+			label += "monospace";
 		}
 		if (text.isItalic()) {
-			label += " italic";
+			if (!Util.isBlank(label)) {
+				label += " ";
+			}
+			label += "italic";
 		}
 		if (text.isNowrap()) {
-			label += " nowrap";
+			if (!Util.isBlank(label)) {
+				label += " ";
+			}
+			label += "nowrap";
 		}
 		if (text.isTruncate()) {
-			label += " truncate";
+			if (!Util.isBlank(label)) {
+				label += " ";
+			}
+			label += "truncate";
 		}
 		return label == null || label.length() == 0 ?
 			getString("_UI_Text_type") :

@@ -28,7 +28,7 @@
       <details key="documentation" value="This class is used for configuring common aspects of HTML and Bootstrap elements such as background, spacing, text, etc."/>
     </eAnnotations>
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
-      <details key="constraints" value="border_overlap background"/>
+      <details key="constraints" value="border_overlap background attributes"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="background" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">

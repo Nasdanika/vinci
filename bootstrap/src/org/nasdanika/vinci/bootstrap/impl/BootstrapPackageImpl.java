@@ -1940,7 +1940,7 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 		  (appearanceEClass,
 		   source,
 		   new String[] {
-			   "constraints", "border_overlap background"
+			   "constraints", "border_overlap background attributes"
 		   });
 		addAnnotation
 		  (borderEClass,

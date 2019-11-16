@@ -6,8 +6,9 @@
       <margin size="2" breakpoint=""/>
     </appearance>
     <header>
-      <appearance background="PRIMARY">
+      <appearance background="PRIMARY" attributes="class:&#xA;    display: 4&#xA;        ">
         <border color="DARK"/>
+        <text color="SUCCESS" weight="BOLD" monospace="true"/>
       </appearance>
       <content xsi:type="org.nasdanika.ncore:Value" value="Header"/>
     </header>
@@ -21,6 +22,9 @@
       <content xsi:type="org.nasdanika.ncore:Value" value="Content panel"/>
     </contentPanel>
     <footer>
+      <appearance>
+        <text alignment="CENTER" italic="true"/>
+      </appearance>
       <content xsi:type="org.nasdanika.ncore:Value" value="Footer"/>
     </footer>
   </builders>

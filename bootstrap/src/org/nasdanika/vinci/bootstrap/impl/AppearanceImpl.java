@@ -3,6 +3,9 @@
 package org.nasdanika.vinci.bootstrap.impl;
 
 import java.util.Collection;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
 
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
@@ -14,7 +17,9 @@ import org.nasdanika.common.CompoundConsumer;
 import org.nasdanika.common.Consumer;
 import org.nasdanika.common.Context;
 import org.nasdanika.common.ProgressMonitor;
+import org.nasdanika.common.Status;
 import org.nasdanika.common.Util;
+import org.nasdanika.html.HTMLElement;
 import org.nasdanika.html.bootstrap.Breakpoint;
 import org.nasdanika.html.bootstrap.Color;
 import org.nasdanika.html.bootstrap.Placement;
@@ -22,8 +27,10 @@ import org.nasdanika.html.bootstrap.Size;
 import org.nasdanika.vinci.bootstrap.Appearance;
 import org.nasdanika.vinci.bootstrap.BootstrapPackage;
 import org.nasdanika.vinci.bootstrap.Border;
+import org.nasdanika.vinci.bootstrap.Float;
 import org.nasdanika.vinci.bootstrap.Spacing;
 import org.nasdanika.vinci.bootstrap.Text;
+import org.yaml.snakeyaml.Yaml;
 
 /**
  * <!-- begin-user-doc -->
@@ -508,12 +515,196 @@ public class AppearanceImpl extends MinimalEObjectImpl.Container implements Appe
 			
 		};
 		
+		Consumer<Object> textConsumer = new Consumer<Object>() {
+
+			@Override
+			public double size() {
+				return 1;
+			}
+
+			@Override
+			public String name() {
+				return "Text";
+			}
+
+			@Override
+			public void execute(Object arg, ProgressMonitor progressMonitor) throws Exception {
+				org.nasdanika.html.bootstrap.BootstrapElement<?,?> bootstrapElement = (org.nasdanika.html.bootstrap.BootstrapElement<?,?>) arg;
+				Text text = getText();
+				if (text != null) {
+					org.nasdanika.html.bootstrap.Text<?> bsText = bootstrapElement.text();
+
+					String colorStr = text.getColor();
+					if (!Util.isBlank(colorStr)) {						
+						bsText.color(org.nasdanika.html.bootstrap.Color.valueOf(colorStr));
+					}
+					
+					String alignmentStr = text.getAlignment();
+					if (!Util.isBlank(alignmentStr)) {						
+						bsText.alignment(org.nasdanika.html.bootstrap.Text.Alignment.valueOf(alignmentStr));
+					}				
+
+					String transformStr = text.getTransform();
+					if (!Util.isBlank(transformStr)) {						
+						bsText.transform(org.nasdanika.html.bootstrap.Text.Transform.valueOf(transformStr));
+					}				
+
+					String weightStr = text.getWeight();
+					if (!Util.isBlank(weightStr)) {						
+						bsText.weight(org.nasdanika.html.bootstrap.Text.Weight.valueOf(weightStr));
+					}				
+					
+					bsText.monospace(text.isMonospace());
+					bsText.italic(text.isItalic());
+					bsText.nowrap(text.isNowrap());
+					bsText.truncate(text.isTruncate());
+					
+				}
+			}
+			
+		};
+				
+		Consumer<Object> floatConsumer = new Consumer<Object>() {
+
+			@Override
+			public double size() {
+				return 1;
+			}
+
+			@Override
+			public String name() {
+				return "Float";
+			}
+
+			@Override
+			public void execute(Object arg, ProgressMonitor progressMonitor) throws Exception {
+				org.nasdanika.html.bootstrap.BootstrapElement<?,?> bootstrapElement = (org.nasdanika.html.bootstrap.BootstrapElement<?,?>) arg;
+				for (Float _float: getFloat()) {
+					org.nasdanika.html.bootstrap.Float<?> bsFloat = bootstrapElement._float();
+					Breakpoint breakpoint = Breakpoint.fromLabel(_float.getBreakpoint());
+					switch (_float.getSide()) {
+					case "Left":
+						bsFloat.left(breakpoint);
+						break;
+					case "Right":
+						bsFloat.right(breakpoint);
+						break;
+					case "None":
+						bsFloat.none(breakpoint);
+						break;
+					default:
+						throw new IllegalArgumentException("Invalid float side: "+_float.getSide()+", shall be Left, Right, or None");
+					}
+				}
+			}
+			
+		};
+				
+		Consumer<Object> attributesConsumer = new Consumer<Object>() {
+
+			@Override
+			public double size() {
+				return 1;
+			}
+
+			@Override
+			public String name() {
+				return "Attributes";
+			}
+
+			@SuppressWarnings("unchecked")
+			@Override
+			public void execute(Object arg, ProgressMonitor progressMonitor) throws Exception {
+				String attributesStr = getAttributes();
+				if (!Util.isBlank(attributesStr)) {
+					Yaml yaml = new Yaml();
+					Map<String,Object> attributes = yaml.load(attributesStr);
+					org.nasdanika.html.bootstrap.BootstrapElement<?,?> bootstrapElement = (org.nasdanika.html.bootstrap.BootstrapElement<?,?>) arg;
+					HTMLElement<?> htmlElement = bootstrapElement.toHTMLElement();
+					for (Entry<String, Object> entry: attributes.entrySet()) {
+						Object value = entry.getValue();
+						switch (entry.getKey()) {
+						case "class":
+							addClass(htmlElement, null, value);
+							break;
+						case "style":
+							if (value instanceof Map) {
+								for (Entry<String, Object> se: ((Map<String,Object>) value).entrySet()) {
+									setStyle(htmlElement, se.getKey(), se.getValue());
+								}
+							} else {
+								throw new IllegalArgumentException("Style shall be a map: " + value);
+							}
+							break;
+						case "data":
+							setDataAttribute(htmlElement, entry.getKey(), value);
+							break;
+						default:
+							if (value instanceof List || value instanceof Map) {
+								progressMonitor.worked(Status.WARNING, 0, "Structured value for attribute "+entry.getKey()+": "+value, entry);
+							}
+							htmlElement.attribute(entry.getKey(), context.interpolate(String.valueOf(value)));
+						}
+					}
+				}
+			}
+			
+			@SuppressWarnings("unchecked")
+			private void setDataAttribute(HTMLElement<?> htmlElement, String key, Object value) {
+				if (value instanceof Map) {
+					for (Entry<String, Object> entry: ((Map<String,Object>) value).entrySet()) {
+						setDataAttribute(htmlElement, key+"-"+entry.getKey(), value);
+					}
+				} else {
+					htmlElement.attribute(key, context.interpolate(String.valueOf(value)));
+				}				
+			}
+
+			@SuppressWarnings("unchecked")
+			private void setStyle(HTMLElement<?> htmlElement, String key, Object value) {
+				if (value instanceof Map) {
+					for (Entry<String, Object> entry: ((Map<String,Object>) value).entrySet()) {
+						setStyle(htmlElement, key + "-" + entry.getKey(), entry.getValue());
+					}
+				} else if (value instanceof Collection) {
+					StringBuilder styleBuilder = new StringBuilder();
+					for (Object e: (Collection<?>) value) {
+						if (styleBuilder.length() > 0) {
+							styleBuilder.append(" ");
+						}
+						styleBuilder.append(context.interpolate(String.valueOf(e)));
+					}
+					htmlElement.style(key, styleBuilder.toString());
+				} else {
+					htmlElement.style(key, context.interpolate(String.valueOf(value)));
+				}				
+			}
+
+			@SuppressWarnings("unchecked")
+			private void addClass(HTMLElement<?> htmlElement, String prefix, Object value) {
+				if (value instanceof Map) {
+					for (Entry<String, Object> entry: ((Map<String,Object>) value).entrySet()) {
+						addClass(htmlElement, prefix == null ? String.valueOf(entry.getKey()) : prefix + "-" + entry.getKey(), entry.getValue());
+					}
+				} else if (value instanceof Collection) {
+					for (Object e: (Collection<?>) value) {
+						addClass(htmlElement, prefix, e);
+					}
+				} else {
+					htmlElement.addClass(prefix == null ? String.valueOf(value) : prefix + "-" + context.interpolate(String.valueOf(value)));
+				}				
+			}
+			
+		};
 		
 		return new CompoundConsumer<Object>(
 				"Appearance", 
 				backGroundConsumer, 
 				borderConsumer,
-				spacingConsumer);
-	}
+				spacingConsumer,
+				textConsumer,
+				floatConsumer,
+				attributesConsumer);
+	}		
 
 } //AppearanceImpl

@@ -4,7 +4,10 @@ package org.nasdanika.vinci.bootstrap.util;
 
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
+import java.util.stream.Collectors;
 import java.util.Set;
 
 import org.eclipse.emf.common.util.Diagnostic;
@@ -14,6 +17,7 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.nasdanika.common.Util;
 import org.nasdanika.emf.DiagnosticHelper;
+import org.nasdanika.html.bootstrap.Breakpoint;
 import org.nasdanika.html.bootstrap.Color;
 import org.nasdanika.html.bootstrap.Theme;
 import org.nasdanika.vinci.bootstrap.Accordion;
@@ -54,6 +58,7 @@ import org.nasdanika.vinci.bootstrap.TableRow;
 import org.nasdanika.vinci.bootstrap.Tag;
 import org.nasdanika.vinci.bootstrap.Text;
 import org.nasdanika.vinci.bootstrap.Tooltip;
+import org.yaml.snakeyaml.Yaml;
 
 /**
  * <!-- begin-user-doc -->
@@ -265,6 +270,7 @@ public class BootstrapValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(appearance, diagnostics, context);
 		if (result || diagnostics != null) result &= validateAppearance_border_overlap(appearance, diagnostics, context);
 		if (result || diagnostics != null) result &= validateAppearance_background(appearance, diagnostics, context);
+		if (result || diagnostics != null) result &= validateAppearance_attributes(appearance, diagnostics, context);
 		return result;
 	}
 
@@ -331,6 +337,44 @@ public class BootstrapValidator extends EObjectValidator {
 			}
 			return helper.isSuccess();
 		}
+		return true;
+	}
+
+	/**
+	 * Validates the attributes constraint of '<em>Appearance</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public boolean validateAppearance_attributes(Appearance appearance, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (diagnostics != null && !Util.isBlank(appearance.getAttributes())) {			
+			DiagnosticHelper helper = new DiagnosticHelper(diagnostics, DIAGNOSTIC_SOURCE, 0, appearance);			
+			try {
+				Yaml yaml = new Yaml();
+				Map<String,Object> attributes = yaml.load(appearance.getAttributes());
+				for (Entry<String, Object> entry: attributes.entrySet()) {
+					Object value = entry.getValue();
+					switch (entry.getKey()) {
+					case "class":
+					case "data":
+						break;
+					case "style":
+						if (!(value instanceof Map)) {
+							helper.warning("Style shall be a map: "+value, BootstrapPackage.Literals.APPEARANCE__ATTRIBUTES);
+						}
+						break;
+					default:
+						if (value instanceof List || value instanceof Map) {
+							helper.warning("Structured value for attribute "+entry.getKey()+": "+value, BootstrapPackage.Literals.APPEARANCE__ATTRIBUTES);
+						}
+					}
+				}
+			} catch (Exception e) {
+				helper.error("Cannot load attributes: "+e, BootstrapPackage.Literals.APPEARANCE__ATTRIBUTES);
+			}
+			return helper.isSuccess();
+		}
+		
 		return true;
 	}
 
@@ -482,26 +526,48 @@ public class BootstrapValidator extends EObjectValidator {
 	 * Validates the attributes constraint of '<em>Text</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public boolean validateText_attributes(Text text, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		// TODO implement the constraint
-		// -> specify the condition that violates the constraint
-		// -> verify the diagnostic details, including severity, code, and message
-		// Ensure that you remove @generated or mark it @generated NOT
-		if (false) {
-			if (diagnostics != null) {
-				diagnostics.add
-					(createDiagnostic
-						(Diagnostic.ERROR,
-						 DIAGNOSTIC_SOURCE,
-						 0,
-						 "_UI_GenericConstraint_diagnostic",
-						 new Object[] { "attributes", getObjectLabel(text, context) },
-						 new Object[] { text },
-						 context));
+		if (diagnostics != null) {			
+			DiagnosticHelper helper = new DiagnosticHelper(diagnostics, DIAGNOSTIC_SOURCE, 0, text);
+			if (!Util.isBlank(text.getColor())) {
+				try {
+					Color.valueOf(text.getColor());				
+				} catch (Exception e) {
+					helper.error(
+							"Invalid color: "+text.getColor()+", shall be one of Color enum constants: " + Arrays.toString(Color.values()), 
+							BootstrapPackage.Literals.TEXT__COLOR);
+				}
 			}
-			return false;
+			if (!Util.isBlank(text.getAlignment())) {
+				try {
+					org.nasdanika.html.bootstrap.Text.Alignment.valueOf(text.getAlignment());				
+				} catch (Exception e) {
+					helper.error(
+							"Invalid alignment: "+text.getAlignment()+", shall be one of Text.Alignment enum constants: " + Arrays.toString(org.nasdanika.html.bootstrap.Text.Alignment.values()), 
+							BootstrapPackage.Literals.TEXT__ALIGNMENT);
+				}
+			}
+			if (!Util.isBlank(text.getTransform())) {
+				try {
+					org.nasdanika.html.bootstrap.Text.Transform.valueOf(text.getTransform());				
+				} catch (Exception e) {
+					helper.error(
+							"Invalid transform: "+text.getTransform()+", shall be one of Text.Transform enum constants: " + Arrays.toString(org.nasdanika.html.bootstrap.Text.Transform.values()), 
+							BootstrapPackage.Literals.TEXT__TRANSFORM);
+				}
+			}
+			if (!Util.isBlank(text.getWeight())) {
+				try {
+					org.nasdanika.html.bootstrap.Text.Weight.valueOf(text.getWeight());				
+				} catch (Exception e) {
+					helper.error(
+							"Invalid weight: "+text.getWeight()+", shall be one of Text.Weight enum constants: " + Arrays.toString(org.nasdanika.html.bootstrap.Text.Weight.values()), 
+							BootstrapPackage.Literals.TEXT__WEIGHT);
+				}
+			}
+			return helper.isSuccess();
 		}
 		return true;
 	}
@@ -529,26 +595,29 @@ public class BootstrapValidator extends EObjectValidator {
 	 * Validates the attributes constraint of '<em>Float</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public boolean validateFloat_attributes(org.nasdanika.vinci.bootstrap.Float float_, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		// TODO implement the constraint
-		// -> specify the condition that violates the constraint
-		// -> verify the diagnostic details, including severity, code, and message
-		// Ensure that you remove @generated or mark it @generated NOT
-		if (false) {
-			if (diagnostics != null) {
-				diagnostics.add
-					(createDiagnostic
-						(Diagnostic.ERROR,
-						 DIAGNOSTIC_SOURCE,
-						 0,
-						 "_UI_GenericConstraint_diagnostic",
-						 new Object[] { "attributes", getObjectLabel(float_, context) },
-						 new Object[] { float_ },
-						 context));
+		if (diagnostics != null) {			
+			DiagnosticHelper helper = new DiagnosticHelper(diagnostics, DIAGNOSTIC_SOURCE, 0, float_);
+			if (!Util.isBlank(float_.getBreakpoint())) {
+				try {
+					Breakpoint.fromLabel(float_.getBreakpoint());				
+				} catch (Exception e) {
+					helper.error("Invalid breakpoint: "+float_.getBreakpoint()+", shall be one of Breakpoint values: " + Arrays.stream(Breakpoint.values()).map(b -> b.label).collect(Collectors.toList()), BootstrapPackage.Literals.FLOAT__BREAKPOINT);
+				}
 			}
-			return false;
+			if (!Util.isBlank(float_.getSide())) {
+				switch (float_.getSide()) {
+				case "Left":
+				case "Right":
+				case "None":
+					break;
+				default:
+					helper.error("Invalid side value: "+float_.getSide()+", shall be Left, Right, or None", BootstrapPackage.Literals.FLOAT__SIDE);
+				}
+			}
+			return helper.isSuccess();
 		}
 		return true;
 	}
