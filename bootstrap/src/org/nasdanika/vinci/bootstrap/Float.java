@@ -18,7 +18,7 @@ import org.eclipse.emf.ecore.EObject;
  * </ul>
  *
  * @see org.nasdanika.vinci.bootstrap.BootstrapPackage#getFloat()
- * @model
+ * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='attributes'"
  * @generated
  */
 public interface Float extends EObject {
@@ -29,7 +29,7 @@ public interface Float extends EObject {
 	 * @return the value of the '<em>Side</em>' attribute.
 	 * @see #setSide(String)
 	 * @see org.nasdanika.vinci.bootstrap.BootstrapPackage#getFloat_Side()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
 	String getSide();

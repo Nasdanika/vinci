@@ -47,7 +47,6 @@ import org.nasdanika.vinci.bootstrap.TableRow;
 import org.nasdanika.vinci.bootstrap.Tag;
 import org.nasdanika.vinci.bootstrap.Text;
 import org.nasdanika.vinci.bootstrap.Tooltip;
-import org.nasdanika.vinci.bootstrap.*;
 
 /**
  * <!-- begin-user-doc -->

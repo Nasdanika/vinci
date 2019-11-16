@@ -465,7 +465,45 @@ public class BootstrapValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateText(Text text, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(text, diagnostics, context);
+		if (!validate_NoCircularContainment(text, diagnostics, context)) return false;
+		boolean result = validate_EveryMultiplicityConforms(text, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(text, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(text, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(text, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(text, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(text, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(text, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(text, diagnostics, context);
+		if (result || diagnostics != null) result &= validateText_attributes(text, diagnostics, context);
+		return result;
+	}
+
+	/**
+	 * Validates the attributes constraint of '<em>Text</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateText_attributes(Text text, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		// TODO implement the constraint
+		// -> specify the condition that violates the constraint
+		// -> verify the diagnostic details, including severity, code, and message
+		// Ensure that you remove @generated or mark it @generated NOT
+		if (false) {
+			if (diagnostics != null) {
+				diagnostics.add
+					(createDiagnostic
+						(Diagnostic.ERROR,
+						 DIAGNOSTIC_SOURCE,
+						 0,
+						 "_UI_GenericConstraint_diagnostic",
+						 new Object[] { "attributes", getObjectLabel(text, context) },
+						 new Object[] { text },
+						 context));
+			}
+			return false;
+		}
+		return true;
 	}
 
 	/**
@@ -474,7 +512,45 @@ public class BootstrapValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateFloat(org.nasdanika.vinci.bootstrap.Float float_, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(float_, diagnostics, context);
+		if (!validate_NoCircularContainment(float_, diagnostics, context)) return false;
+		boolean result = validate_EveryMultiplicityConforms(float_, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(float_, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(float_, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(float_, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(float_, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(float_, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(float_, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(float_, diagnostics, context);
+		if (result || diagnostics != null) result &= validateFloat_attributes(float_, diagnostics, context);
+		return result;
+	}
+
+	/**
+	 * Validates the attributes constraint of '<em>Float</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateFloat_attributes(org.nasdanika.vinci.bootstrap.Float float_, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		// TODO implement the constraint
+		// -> specify the condition that violates the constraint
+		// -> verify the diagnostic details, including severity, code, and message
+		// Ensure that you remove @generated or mark it @generated NOT
+		if (false) {
+			if (diagnostics != null) {
+				diagnostics.add
+					(createDiagnostic
+						(Diagnostic.ERROR,
+						 DIAGNOSTIC_SOURCE,
+						 0,
+						 "_UI_GenericConstraint_diagnostic",
+						 new Object[] { "attributes", getObjectLabel(float_, context) },
+						 new Object[] { float_ },
+						 context));
+			}
+			return false;
+		}
+		return true;
 	}
 
 	/**

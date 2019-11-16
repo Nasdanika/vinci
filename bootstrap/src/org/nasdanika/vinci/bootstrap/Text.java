@@ -24,7 +24,7 @@ import org.eclipse.emf.ecore.EObject;
  * </ul>
  *
  * @see org.nasdanika.vinci.bootstrap.BootstrapPackage#getText()
- * @model
+ * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='attributes'"
  * @generated
  */
 public interface Text extends EObject {

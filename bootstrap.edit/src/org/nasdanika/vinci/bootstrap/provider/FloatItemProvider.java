@@ -3,15 +3,15 @@
 package org.nasdanika.vinci.bootstrap.provider;
 
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.util.ResourceLocator;
-
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
@@ -20,9 +20,9 @@ import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-
+import org.nasdanika.common.Util;
 import org.nasdanika.emf.edit.NasdanikaItemProviderAdapter;
-
+import org.nasdanika.html.bootstrap.Breakpoint;
 import org.nasdanika.vinci.bootstrap.BootstrapPackage;
 
 /**
@@ -70,44 +70,47 @@ public class FloatItemProvider
 	 * This adds a property descriptor for the Side feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void addSidePropertyDescriptor(Object object) {
+		List<Object> sides = new ArrayList<>();
+		sides.add("Left");
+		sides.add("Right");
+		sides.add("None");
+		
 		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+			(createItemPropertyDescriptor(
 				 getResourceLocator(),
 				 getString("_UI_Float_side_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Float_side_feature", "_UI_Float_type"),
 				 BootstrapPackage.Literals.FLOAT__SIDE,
 				 true,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
-				 null));
+				 null,
+				 sides));
 	}
 
 	/**
 	 * This adds a property descriptor for the Breakpoint feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void addBreakpointPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+			(createItemPropertyDescriptor(
 				 getResourceLocator(),
 				 getString("_UI_Float_breakpoint_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Float_breakpoint_feature", "_UI_Float_type"),
 				 BootstrapPackage.Literals.FLOAT__BREAKPOINT,
 				 true,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
-				 null));
+				 null,
+				 Arrays.stream(Breakpoint.values()).map(b -> b.label).collect(Collectors.toList())));
 	}
 
 	/**
@@ -135,11 +138,16 @@ public class FloatItemProvider
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((org.nasdanika.vinci.bootstrap.Float)object).getSide();
+		org.nasdanika.vinci.bootstrap.Float _float = (org.nasdanika.vinci.bootstrap.Float)object;
+		String label = _float.getSide();
+		String breakpoint = _float.getBreakpoint();
+		if (!Util.isBlank(breakpoint)) {
+			label += " " + _float.getBreakpoint();
+		}
 		return label == null || label.length() == 0 ?
 			getString("_UI_Float_type") :
 			getString("_UI_Float_type") + " " + label;

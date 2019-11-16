@@ -1565,7 +1565,7 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 		initEAttribute(getText_Truncate(), ecorePackage.getEBoolean(), "truncate", null, 0, 1, Text.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(floatEClass, org.nasdanika.vinci.bootstrap.Float.class, "Float", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getFloat_Side(), ecorePackage.getEString(), "side", null, 0, 1, org.nasdanika.vinci.bootstrap.Float.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getFloat_Side(), ecorePackage.getEString(), "side", null, 1, 1, org.nasdanika.vinci.bootstrap.Float.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getFloat_Breakpoint(), ecorePackage.getEString(), "breakpoint", null, 0, 1, org.nasdanika.vinci.bootstrap.Float.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(bootstrapElementEClass, BootstrapElement.class, "BootstrapElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1953,6 +1953,18 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 		   source,
 		   new String[] {
 			   "constraints", "size breakpoint"
+		   });
+		addAnnotation
+		  (textEClass,
+		   source,
+		   new String[] {
+			   "constraints", "attributes"
+		   });
+		addAnnotation
+		  (floatEClass,
+		   source,
+		   new String[] {
+			   "constraints", "attributes"
 		   });
 		addAnnotation
 		  (itemEClass,
