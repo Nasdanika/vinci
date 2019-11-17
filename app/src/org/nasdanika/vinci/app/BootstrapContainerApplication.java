@@ -20,6 +20,8 @@ import org.nasdanika.vinci.bootstrap.BootstrapElement;
  * * Footer
  * 
  * Page structuring is performed with Bootstrap container, rows and columns.
+ * 
+ * [YouTube video](#) in Russian.
  * <!-- end-model-doc -->
  *
  * <p>

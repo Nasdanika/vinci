@@ -223,6 +223,26 @@ public class CategoryItemProvider extends LabelItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(AppPackage.Literals.CONTAINER__ELEMENTS,
+				 BootstrapFactory.eINSTANCE.createBorder()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(AppPackage.Literals.CONTAINER__ELEMENTS,
+				 BootstrapFactory.eINSTANCE.createSpacing()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(AppPackage.Literals.CONTAINER__ELEMENTS,
+				 BootstrapFactory.eINSTANCE.createText()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(AppPackage.Literals.CONTAINER__ELEMENTS,
+				 BootstrapFactory.eINSTANCE.createFloat()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(AppPackage.Literals.CONTAINER__ELEMENTS,
 				 BootstrapFactory.eINSTANCE.createTag()));
 
 		newChildDescriptors.add
