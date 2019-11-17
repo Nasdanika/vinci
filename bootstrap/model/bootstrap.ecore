@@ -6,7 +6,7 @@
   </eAnnotations>
   <eClassifiers xsi:type="ecore:EClass" name="BootstrapPage" eSuperTypes="../../org.nasdanika.vinci.html/model/html.ecore#//Page">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="HTML page with bootstrap elements in the head - meta, stylesheets, and scripts."/>
+      <details key="documentation" value="HTML page with bootstrap elements in the head - meta, stylesheets, and scripts.&#xA;&#xA;[Overview video](https://www.youtube.com/watch?v=Q6u6hL10xXA) in Russian."/>
     </eAnnotations>
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
       <details key="constraints" value="theme"/>

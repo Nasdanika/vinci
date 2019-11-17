@@ -40,7 +40,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="ContentTag" eSuperTypes="#//Tag #//Container"/>
   <eClassifiers xsi:type="ecore:EClass" name="Page">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="HTML page. The name attribute is output as ``&lt;TITLE>`` in the head.&#xA;&#xA;[Overview video](https://www.youtube.com/watch?v=S28UszI-2g8&amp;t=8s) - in Russian."/>
+      <details key="documentation" value="HTML page. The name attribute is output as ``&lt;TITLE>`` in the head.&#xA;&#xA;[Overview video](https://www.youtube.com/watch?v=S28UszI-2g8) - in Russian."/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="head" upperBound="-1" containment="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">

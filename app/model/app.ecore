@@ -271,7 +271,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BootstrapContainerApplication">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="Bootstrap container application is a page builder which structures a page into 6 areas:&#xA;&#xA;* Header&#xA;* Navigation bar&#xA;* Navigation pane&#xA;* Content pane&#xA;* Footer&#xA;&#xA;Page structuring is performed with Bootstrap container, rows and columns.&#xA;&#xA;[YouTube video](#) in Russian."/>
+      <details key="documentation" value="Bootstrap container application is a page builder which structures a page into 6 areas:&#xA;&#xA;* Header&#xA;* Navigation bar&#xA;* Navigation pane&#xA;* Content pane&#xA;* Footer&#xA;&#xA;Page structuring is performed with Bootstrap container, rows and columns.&#xA;&#xA;[Overview video](#) in Russian.&#xA;"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="fluid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">

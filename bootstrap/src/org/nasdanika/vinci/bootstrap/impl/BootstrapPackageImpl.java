@@ -1684,7 +1684,7 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 		  (bootstrapPageEClass,
 		   source,
 		   new String[] {
-			   "documentation", "HTML page with bootstrap elements in the head - meta, stylesheets, and scripts."
+			   "documentation", "HTML page with bootstrap elements in the head - meta, stylesheets, and scripts.\n\n[Overview video](https://www.youtube.com/watch?v=Q6u6hL10xXA) in Russian."
 		   });
 		addAnnotation
 		  (getBootstrapPage_Cdn(),

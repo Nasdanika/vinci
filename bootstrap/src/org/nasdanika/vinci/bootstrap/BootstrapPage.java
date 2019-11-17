@@ -11,6 +11,8 @@ import org.nasdanika.vinci.html.Page;
  *
  * <!-- begin-model-doc -->
  * HTML page with bootstrap elements in the head - meta, stylesheets, and scripts.
+ * 
+ * [Overview video](https://www.youtube.com/watch?v=Q6u6hL10xXA) in Russian.
  * <!-- end-model-doc -->
  *
  * <p>

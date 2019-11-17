@@ -21,7 +21,8 @@ import org.nasdanika.vinci.bootstrap.BootstrapElement;
  * 
  * Page structuring is performed with Bootstrap container, rows and columns.
  * 
- * [YouTube video](#) in Russian.
+ * [Overview video](#) in Russian.
+ * 
  * <!-- end-model-doc -->
  *
  * <p>

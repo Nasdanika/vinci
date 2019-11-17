@@ -468,7 +468,7 @@ public class HtmlPackageImpl extends EPackageImpl implements HtmlPackage {
 		  (pageEClass,
 		   source,
 		   new String[] {
-			   "documentation", "HTML page. The name attribute is output as ``<TITLE>`` in the head.\n\n[Overview video](https://www.youtube.com/watch?v=S28UszI-2g8&t=8s) - in Russian."
+			   "documentation", "HTML page. The name attribute is output as ``<TITLE>`` in the head.\n\n[Overview video](https://www.youtube.com/watch?v=S28UszI-2g8) - in Russian."
 		   });
 		addAnnotation
 		  (getPage_Head(),
