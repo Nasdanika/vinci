@@ -83,7 +83,7 @@ public interface Appearance extends EObject, ConsumerFactory<Object> {
 	 * 
 	 * ### Example
 	 * 
-	 * ```
+	 * ```yaml
 	 * title: Hello
 	 * href: "https://www.nasdanika.org"
 	 * data-toggle: "#mybutton"
@@ -99,13 +99,13 @@ public interface Appearance extends EObject, ConsumerFactory<Object> {
 	 * 
 	 * #### String value
 	 * 
-	 * ```
+	 * ```yaml
 	 * class: d-none d-lg-block d-print-block
 	 * ```
 	 * 
 	 * #### List
 	 * 
-	 * ```
+	 * ```yaml
 	 * class: 
 	 *     - d-none 
 	 *     - d-lg-block 
@@ -114,7 +114,7 @@ public interface Appearance extends EObject, ConsumerFactory<Object> {
 	 * 
 	 * #### Map and List
 	 * 
-	 * ```
+	 * ```yaml
 	 * class: 
 	 *     - d:
 	 *         - none 
@@ -124,7 +124,7 @@ public interface Appearance extends EObject, ConsumerFactory<Object> {
 	 * 
 	 * #### Map
 	 * 
-	 * ```
+	 * ```yaml
 	 * class: 
 	 *     d:
 	 *         none: true # Boolean values are not concatenated into the class name, they serve as flags. In this case true is needed because none is part of a map, not a list
@@ -138,7 +138,7 @@ public interface Appearance extends EObject, ConsumerFactory<Object> {
 	 * 
 	 * ### Example
 	 * 
-	 * ```
+	 * ```yaml
 	 * data:
 	 *     toggle: collapse
 	 *     target: "#collapseexample"
@@ -155,7 +155,7 @@ public interface Appearance extends EObject, ConsumerFactory<Object> {
 	 * 
 	 * ### Example
 	 * 
-	 * ```
+	 * ```yaml
 	 * style:
 	 *     text:
 	 *         decoration: none
@@ -167,12 +167,6 @@ public interface Appearance extends EObject, ConsumerFactory<Object> {
 	 *             - red
 	 *     border: 1px solid black
 	 * ```
-	 * 
-	 * 
-	 * 
-	 * 
-	 * 
-	 * 
 	 * 
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Attributes</em>' attribute.
