@@ -11,7 +11,7 @@ import org.nasdanika.vinci.bootstrap.BootstrapElement;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * Bootstrap container application is a page builder which structures a page into 6 areas:
+ * Bootstrap container application is a page builder which structures a page into 5 areas:
  * 
  * * Header
  * * Navigation bar
@@ -21,7 +21,7 @@ import org.nasdanika.vinci.bootstrap.BootstrapElement;
  * 
  * Page structuring is performed with Bootstrap container, rows and columns.
  * 
- * [Overview video](#) in Russian.
+ * [Overview video](https://www.youtube.com/watch?v=W-hGbnM9wNM) in Russian.
  * 
  * <!-- end-model-doc -->
  *

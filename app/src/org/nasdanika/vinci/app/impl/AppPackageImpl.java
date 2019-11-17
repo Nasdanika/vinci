@@ -1336,7 +1336,7 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 		  (bootstrapContainerApplicationEClass,
 		   source,
 		   new String[] {
-			   "documentation", "Bootstrap container application is a page builder which structures a page into 6 areas:\n\n* Header\n* Navigation bar\n* Navigation pane\n* Content pane\n* Footer\n\nPage structuring is performed with Bootstrap container, rows and columns.\n\n[Overview video](#) in Russian.\n"
+			   "documentation", "Bootstrap container application is a page builder which structures a page into 5 areas:\n\n* Header\n* Navigation bar\n* Navigation pane\n* Content pane\n* Footer\n\nPage structuring is performed with Bootstrap container, rows and columns.\n\n[Overview video](https://www.youtube.com/watch?v=W-hGbnM9wNM) in Russian.\n"
 		   });
 		addAnnotation
 		  (getBootstrapContainerApplication_Fluid(),
