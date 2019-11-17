@@ -13,6 +13,8 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.InternalEList;
+import org.json.JSONArray;
+import org.json.JSONObject;
 import org.nasdanika.common.CompoundConsumer;
 import org.nasdanika.common.Consumer;
 import org.nasdanika.common.Context;
@@ -628,22 +630,39 @@ public class AppearanceImpl extends MinimalEObjectImpl.Container implements Appe
 							addClass(htmlElement, null, value);
 							break;
 						case "style":
-							if (value instanceof Map) {
+							if (value instanceof Collection) {
+								StringBuilder styleBuilder = new StringBuilder();
+								for (Object e: (Collection<?>) value) {
+									if (styleBuilder.length() > 0) {
+										styleBuilder.append(" ");
+									}
+									styleBuilder.append(context.interpolate(String.valueOf(e)));
+								}
+								htmlElement.attribute(entry.getKey(), styleBuilder.toString());								
+							} else if (value instanceof Map) {
 								for (Entry<String, Object> se: ((Map<String,Object>) value).entrySet()) {
 									setStyle(htmlElement, se.getKey(), se.getValue());
 								}
 							} else {
-								throw new IllegalArgumentException("Style shall be a map: " + value);
+								htmlElement.attribute(entry.getKey(), context.interpolate(String.valueOf(value)));								
 							}
 							break;
 						case "data":
 							setDataAttribute(htmlElement, entry.getKey(), value);
 							break;
 						default:
-							if (value instanceof List || value instanceof Map) {
+							if (!(entry.getKey().startsWith("data-")) && (value instanceof List || value instanceof Map)) {
 								progressMonitor.worked(Status.WARNING, 0, "Structured value for attribute "+entry.getKey()+": "+value, entry);
 							}
-							htmlElement.attribute(entry.getKey(), context.interpolate(String.valueOf(value)));
+							if (value instanceof Map) {
+								JSONObject jsonObject = new JSONObject((Map<?,?>) value);
+								htmlElement.attribute(entry.getKey(), context.interpolate(jsonObject.toString())); // TODO - interpolate only scalar values?								
+							} else if (value instanceof Collection) {
+								JSONArray jsonArray = new JSONArray((Collection<?>) value);
+								htmlElement.attribute(entry.getKey(), context.interpolate(jsonArray.toString())); // TODO - interpolate only scalar values?																
+							} else {
+								htmlElement.attribute(entry.getKey(), context.interpolate(String.valueOf(value)));
+							}
 						}
 					}
 				}
@@ -655,6 +674,9 @@ public class AppearanceImpl extends MinimalEObjectImpl.Container implements Appe
 					for (Entry<String, Object> entry: ((Map<String,Object>) value).entrySet()) {
 						setDataAttribute(htmlElement, key+"-"+entry.getKey(), value);
 					}
+				} else if (value instanceof Collection) {
+					JSONArray jsonArray = new JSONArray((Collection<?>) value);
+					htmlElement.attribute(key, context.interpolate(jsonArray.toString())); // TODO - interpolate only scalar values?																
 				} else {
 					htmlElement.attribute(key, context.interpolate(String.valueOf(value)));
 				}				
@@ -691,7 +713,13 @@ public class AppearanceImpl extends MinimalEObjectImpl.Container implements Appe
 						addClass(htmlElement, prefix, e);
 					}
 				} else {
-					htmlElement.addClass(prefix == null ? String.valueOf(value) : prefix + "-" + context.interpolate(String.valueOf(value)));
+					if (value instanceof Boolean) {
+						if (Boolean.TRUE.equals(value) && prefix != null) {
+							htmlElement.addClass(prefix);
+						}
+					} else {
+						htmlElement.addClass(prefix == null ? String.valueOf(value) : prefix + "-" + context.interpolate(String.valueOf(value)));
+					}
 				}				
 			}
 			

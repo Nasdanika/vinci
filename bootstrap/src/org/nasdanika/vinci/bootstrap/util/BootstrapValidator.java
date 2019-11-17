@@ -7,10 +7,8 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
-import java.util.stream.Collectors;
 import java.util.Set;
-
-import org.eclipse.emf.common.util.Diagnostic;
+import java.util.stream.Collectors;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EPackage;
@@ -19,6 +17,7 @@ import org.nasdanika.common.Util;
 import org.nasdanika.emf.DiagnosticHelper;
 import org.nasdanika.html.bootstrap.Breakpoint;
 import org.nasdanika.html.bootstrap.Color;
+import org.nasdanika.html.bootstrap.Size;
 import org.nasdanika.html.bootstrap.Theme;
 import org.nasdanika.vinci.bootstrap.Accordion;
 import org.nasdanika.vinci.bootstrap.ActionGroup;
@@ -357,14 +356,10 @@ public class BootstrapValidator extends EObjectValidator {
 					switch (entry.getKey()) {
 					case "class":
 					case "data":
-						break;
 					case "style":
-						if (!(value instanceof Map)) {
-							helper.warning("Style shall be a map: "+value, BootstrapPackage.Literals.APPEARANCE__ATTRIBUTES);
-						}
 						break;
 					default:
-						if (value instanceof List || value instanceof Map) {
+						if (!(entry.getKey().startsWith("data-")) && (value instanceof List || value instanceof Map)) {
 							helper.warning("Structured value for attribute "+entry.getKey()+": "+value, BootstrapPackage.Literals.APPEARANCE__ATTRIBUTES);
 						}
 					}
@@ -463,15 +458,17 @@ public class BootstrapValidator extends EObjectValidator {
 	 * @generated NOT
 	 */
 	public boolean validateSpacing_size(Spacing spacing, DiagnosticChain diagnostics, Map<Object, Object> context) {
-//		if (diagnostics != null && !Util.isBlank(spacing.getColor())) {			
-//			DiagnosticHelper helper = new DiagnosticHelper(diagnostics, DIAGNOSTIC_SOURCE, 0, item);
-//			try {
-//				Color.valueOf(item.getColor());				
-//			} catch (Exception e) {
-//				helper.error("Invalid color: "+item.getColor()+", shall be one of Color enum constants: " + Arrays.toString(Color.values()), BootstrapPackage.Literals.ITEM__COLOR);
-//			}
-//			return helper.isSuccess();
-//		}
+		if (diagnostics != null) {			
+			DiagnosticHelper helper = new DiagnosticHelper(diagnostics, DIAGNOSTIC_SOURCE, 0, spacing);
+			if (!Util.isBlank(spacing.getSize())) {
+				try {
+					Size.fromCode(spacing.getSize());				
+				} catch (Exception e) {
+					helper.error("Invalid size: "+spacing.getSize()+", shall be one of the following values: " + Arrays.stream(Size.values()).map(s -> s.code).collect(Collectors.toList()), BootstrapPackage.Literals.SPACING__SIZE);
+				}
+			}
+			return helper.isSuccess();
+		}
 		return true;
 	}
 
@@ -479,26 +476,19 @@ public class BootstrapValidator extends EObjectValidator {
 	 * Validates the breakpoint constraint of '<em>Spacing</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public boolean validateSpacing_breakpoint(Spacing spacing, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		// TODO implement the constraint
-		// -> specify the condition that violates the constraint
-		// -> verify the diagnostic details, including severity, code, and message
-		// Ensure that you remove @generated or mark it @generated NOT
-		if (false) {
-			if (diagnostics != null) {
-				diagnostics.add
-					(createDiagnostic
-						(Diagnostic.ERROR,
-						 DIAGNOSTIC_SOURCE,
-						 0,
-						 "_UI_GenericConstraint_diagnostic",
-						 new Object[] { "breakpoint", getObjectLabel(spacing, context) },
-						 new Object[] { spacing },
-						 context));
+		if (diagnostics != null) {			
+			DiagnosticHelper helper = new DiagnosticHelper(diagnostics, DIAGNOSTIC_SOURCE, 0, spacing);
+			if (!Util.isBlank(spacing.getBreakpoint())) {
+				try {
+					Breakpoint.fromLabel(spacing.getBreakpoint());				
+				} catch (Exception e) {
+					helper.error("Invalid breakpoint: "+spacing.getBreakpoint()+", shall be one of Breakpoint values: " + Arrays.stream(Breakpoint.values()).map(b -> b.label).collect(Collectors.toList()), BootstrapPackage.Literals.SPACING__BREAKPOINT);
+				}
 			}
-			return false;
+			return helper.isSuccess();
 		}
 		return true;
 	}
