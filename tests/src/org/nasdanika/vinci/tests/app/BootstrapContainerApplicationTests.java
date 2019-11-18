@@ -14,8 +14,16 @@ public class BootstrapContainerApplicationTests extends TestsBase {
 	 * @throws Exception
 	 */
 	@Test
-	public void testBootstrapPage() throws Exception {
+	public void testBootstrapContainerApplication() throws Exception {
 		execute("app/bootstrap-container-application").writeFile("index.html", new PrintStreamProgressMonitor()); 		
+	}
+	
+	/**
+	 * @throws Exception
+	 */
+	@Test
+	public void testBootstrapContainerActionApplication() throws Exception {
+		execute("app/bootstrap-container-action-application").writeFile("index.html", new PrintStreamProgressMonitor()); 		
 	}
 	
 }

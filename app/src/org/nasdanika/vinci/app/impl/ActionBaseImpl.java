@@ -3,19 +3,45 @@
 package org.nasdanika.vinci.app.impl;
 
 import java.lang.reflect.InvocationTargetException;
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
+import java.util.Map;
 
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.util.InternalEList;
+import org.nasdanika.common.CompoundExecutionParticipant;
 import org.nasdanika.common.Consumer;
 import org.nasdanika.common.Context;
+import org.nasdanika.common.ExecutionParticipant;
+import org.nasdanika.common.ListCompoundSupplierFactory;
+import org.nasdanika.common.MapCompoundSupplierFactory;
+import org.nasdanika.common.NullProgressMonitor;
+import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.common.Supplier;
 import org.nasdanika.common.SupplierFactory;
+import org.nasdanika.html.Fragment;
+import org.nasdanika.html.HTMLElement;
+import org.nasdanika.html.HTMLFactory;
+import org.nasdanika.html.app.Action;
+import org.nasdanika.html.app.Application;
+import org.nasdanika.html.app.ApplicationBuilder;
+import org.nasdanika.html.app.Decorator;
+import org.nasdanika.html.app.ViewGenerator;
+import org.nasdanika.html.app.impl.ActionApplicationBuilder;
+import org.nasdanika.html.app.impl.ActionImpl;
+import org.nasdanika.html.bootstrap.BootstrapElement;
+import org.nasdanika.html.bootstrap.BootstrapFactory;
 import org.nasdanika.vinci.app.AbstractAction;
 import org.nasdanika.vinci.app.ActionBase;
+import org.nasdanika.vinci.app.ActionCategory;
 import org.nasdanika.vinci.app.ActionElement;
 import org.nasdanika.vinci.app.ActionMapping;
 import org.nasdanika.vinci.app.ActionRole;
@@ -23,6 +49,7 @@ import org.nasdanika.vinci.app.ActivatorType;
 import org.nasdanika.vinci.app.AppPackage;
 import org.nasdanika.vinci.app.BootstrapContainerApplicationBuilder;
 import org.nasdanika.vinci.app.SectionStyle;
+import org.nasdanika.vinci.bootstrap.Appearance;
 
 /**
  * <!-- begin-user-doc -->
@@ -50,6 +77,10 @@ import org.nasdanika.vinci.app.SectionStyle;
  * @generated
  */
 public abstract class ActionBaseImpl extends LabelImpl implements ActionBase {
+	private static final String ELEMENTS_KEY = "Elements";
+
+	private static final String CONTENT_KEY = "Content";
+
 	/**
 	 * The default value of the '{@link #getRole() <em>Role</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -390,7 +421,39 @@ public abstract class ActionBaseImpl extends LabelImpl implements ActionBase {
 	 */
 	@Override
 	public Consumer<Object> createConsumer(Context context) throws Exception {
-		throw new UnsupportedOperationException();
+		Supplier<Object> actionSupplier = create(context);
+		class Generator extends CompoundExecutionParticipant<ExecutionParticipant> implements Consumer<Object> {
+
+			protected Generator(String name) {
+				super(name);
+			}
+			
+			@Override
+			public double size() {
+				return super.size() + 1;
+			}
+
+			@Override
+			public void execute(Object arg, ProgressMonitor progressMonitor) throws Exception {
+				Object action = actionSupplier.splitAndExecute(progressMonitor);
+				Action rootAction = (Action) action;
+				List<Action> navChildren = rootAction.getNavigationChildren();
+				Action principalAction = navChildren.isEmpty() ? null : navChildren.get(0); 
+				List<? extends Action> navigationPanelActions = principalAction == null ? Collections.emptyList() : principalAction.getNavigationChildren(); 
+				Action activeAction = rootAction;
+
+				ApplicationBuilder  applicationBuilder = new ActionApplicationBuilder(rootAction, principalAction, navigationPanelActions, activeAction); 				
+				applicationBuilder.build((Application) arg, progressMonitor.split("Building application", 1));				
+			}
+
+			@Override
+			protected List<ExecutionParticipant> getElements() {
+				return Collections.singletonList(actionSupplier);
+			}
+			
+		}		
+		
+		return new Generator(getTitle());
 	}
 
 	/**
@@ -712,7 +775,211 @@ public abstract class ActionBaseImpl extends LabelImpl implements ActionBase {
 
 	@Override
 	public Supplier<Object> create(Context context) throws Exception {
-		throw new UnsupportedOperationException();
+		ListCompoundSupplierFactory<Object> contentFactory = new ListCompoundSupplierFactory<Object>(CONTENT_KEY, getContent());
+		ListCompoundSupplierFactory<Object> elementsFactory = new ListCompoundSupplierFactory<Object>(ELEMENTS_KEY);
+
+		// Removing all elements which are linked from other objects.
+		List<ActionElement> elements = new ArrayList<>(getElements());
+		Resource resource = eResource();		
+		if (resource != null) {
+			ResourceSet resourceSet = resource.getResourceSet();
+			TreeIterator<?> cit;
+			if (resourceSet == null) {
+				cit = resource.getAllContents();
+			} else {
+				cit = resourceSet.getAllContents();
+			}
+			while (cit.hasNext()) {
+				Object next = cit.next();
+				if (next instanceof org.nasdanika.vinci.app.Container) {
+					elements.removeAll(((org.nasdanika.vinci.app.Container<?>) next).getLinkedElements());
+				}
+			}
+		}
+		
+		for (ActionElement e: elements) {
+			if (e instanceof AbstractAction) {
+				elementsFactory.add((AbstractAction) e); 
+			} else {
+				for (AbstractAction ce: ((ActionCategory) e).getElements()) {
+					elementsFactory.add(ce);
+				}
+				for (AbstractAction ce: ((ActionCategory) e).getLinkedElements()) {
+					elementsFactory.add(ce);
+				}
+			}
+		}
+		for (ActionElement e: getLinkedElements()) {
+			if (e instanceof AbstractAction) {
+				elementsFactory.add((AbstractAction) e);; 
+			} else {
+				ActionCategory actionCategory = (ActionCategory) e;
+				List<AbstractAction> actionCategoryElements = new ArrayList<>(actionCategory.getElements());
+				// Removing all elements which are linked from other objects.
+				if (resource != null) {
+					ResourceSet resourceSet = resource.getResourceSet();
+					TreeIterator<?> cit;
+					if (resourceSet == null) {
+						cit = resource.getAllContents();
+					} else {
+						cit = resourceSet.getAllContents();
+					}
+					while (cit.hasNext()) {
+						Object next = cit.next();
+						if (next instanceof org.nasdanika.vinci.app.Container) {
+							actionCategoryElements.removeAll(((org.nasdanika.vinci.app.Container<?>) next).getLinkedElements());
+						}
+					}
+				}
+				
+				for (AbstractAction ce: actionCategoryElements) {
+					elementsFactory.add(ce);
+				}
+				for (AbstractAction ce: actionCategory.getLinkedElements()) {
+					elementsFactory.add(ce);
+				}
+			}
+		}
+		MapCompoundSupplierFactory<String, List<Object>> mcs = new MapCompoundSupplierFactory<>("Action");
+		mcs.put(CONTENT_KEY, contentFactory);
+		mcs.put(ELEMENTS_KEY, elementsFactory);
+		
+		Appearance appearance = getAppearance();
+		@SuppressWarnings("resource")
+		Consumer<Object> decorator = appearance == null ? null : appearance.create(context);		
+						
+		class ActionFacade extends org.nasdanika.html.app.impl.ActionImpl implements Decorator {
+			
+			private List<Object> content;
+
+			public ActionFacade(Map<String,List<Object>> config) {
+				setText(context.interpolate(ActionBaseImpl.this.getText()));
+				setId(context.interpolate(ActionBaseImpl.this.getId()));
+				switch (ActionBaseImpl.this.getRole()) {
+				case CONTEXT:
+					getRoles().add(Action.Role.CONTEXT);
+					break;
+				case EDIT:
+					getRoles().add(Action.Role.EDIT);
+					break;
+				case NAVIGATION:
+					getRoles().add(Action.Role.NAVIGATION);
+					break;
+				case SECTION:
+					getRoles().add(Action.Role.SECTION);
+					break;
+				case VIEW:
+					getRoles().add(Action.Role.VIEW);
+					break;
+				default:
+					getRoles().add(ActionBaseImpl.this.getRole().name());
+					break;				
+				}
+				
+				content = config.get(CONTENT_KEY);
+				
+				for (Object child: config.get(ELEMENTS_KEY)) {
+					ActionImpl childAction = (org.nasdanika.html.app.impl.ActionImpl) child;
+					getChildren().add(childAction);
+					childAction.setParent(this);					
+				}
+				
+				
+				
+				// The rest of things...
+			}
+			
+			@Override
+			public Object generate(ViewGenerator viewGenerator, ProgressMonitor progressMonitor) {
+				Fragment ret = viewGenerator.get(HTMLFactory.class, HTMLFactory.INSTANCE).fragment();
+				content.forEach(ret);
+				return super.generate(viewGenerator, progressMonitor);
+			}
+
+			@Override
+			public void decorate(Object target, ViewGenerator viewGenerator) {
+				if (decorator != null) {
+					try {
+						if (target instanceof BootstrapElement) {
+								decorator.execute(target, new NullProgressMonitor());
+						} else if (target instanceof HTMLElement) {
+							decorator.execute(viewGenerator.get(BootstrapFactory.class, BootstrapFactory.INSTANCE).wrap((HTMLElement<?>) target), new NullProgressMonitor());
+						}
+					} catch (Exception e) {
+						e.printStackTrace(); // TODO - improve handling, but shall not happen.
+					}
+				}
+			}
+			
+		};
+		
+//			@Override
+//			public String getIcon() {
+//				// TODO Auto-generated method stub
+//				return null;
+//			}
+//
+//			@Override
+//			public String getTooltip() {
+//				// TODO Auto-generated method stub
+//				return null;
+//			}
+//
+//			@Override
+//			public Color getColor() {
+//				// TODO Auto-generated method stub
+//				return null;
+//			}
+//
+//			@Override
+//			public boolean isOutline() {
+//				// TODO Auto-generated method stub
+//				return false;
+//			}
+//
+//			@Override
+//			public String getDescription() {
+//				// TODO Auto-generated method stub
+//				return null;
+//			}
+//
+//			@Override
+//			public String getNotification() {
+//				// TODO Auto-generated method stub
+//				return null;
+//			}
+//
+//			@Override
+//			public Label getCategory() {
+//				// TODO Auto-generated method stub
+//				return null;
+//			}
+//
+//			@Override
+//			public boolean isDisabled() {
+//				// TODO Auto-generated method stub
+//				return false;
+//			}
+//
+//			@Override
+//			public String getConfirmation() {
+//				// TODO Auto-generated method stub
+//				return null;
+//			}
+//
+//			@Override
+//			public boolean isFloatRight() {
+//				// TODO Auto-generated method stub
+//				return false;
+//			}
+//
+//			@Override
+//			public ActionActivator getActivator() {
+//				// TODO Auto-generated method stub
+//				return null;
+//			}
+		
+		return mcs.create(context).then(ActionFacade::new);
 	}
 
 } //ActionBaseImpl

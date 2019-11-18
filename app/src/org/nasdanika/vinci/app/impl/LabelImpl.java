@@ -2,6 +2,8 @@
  */
 package org.nasdanika.vinci.app.impl;
 
+import java.util.UUID;
+
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -105,10 +107,11 @@ public abstract class LabelImpl extends ModelElementImpl implements Label {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected LabelImpl() {
 		super();
+		setId(UUID.randomUUID().toString());
 	}
 
 	/**
