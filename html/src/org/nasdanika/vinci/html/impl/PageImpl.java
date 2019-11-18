@@ -22,6 +22,7 @@ import org.nasdanika.common.SupplierFactory;
 import org.nasdanika.common.Util;
 import org.nasdanika.html.HTMLFactory;
 import org.nasdanika.html.HTMLPage;
+import org.nasdanika.html.fontawesome.FontAwesomeFactory;
 import org.nasdanika.ncore.impl.NamedElementImpl;
 import org.nasdanika.vinci.html.HtmlPackage;
 import org.nasdanika.vinci.html.Page;
@@ -40,6 +41,7 @@ import org.nasdanika.vinci.html.Page;
  *   <li>{@link org.nasdanika.vinci.html.impl.PageImpl#getLanguage <em>Language</em>}</li>
  *   <li>{@link org.nasdanika.vinci.html.impl.PageImpl#getStylesheets <em>Stylesheets</em>}</li>
  *   <li>{@link org.nasdanika.vinci.html.impl.PageImpl#getScripts <em>Scripts</em>}</li>
+ *   <li>{@link org.nasdanika.vinci.html.impl.PageImpl#isFontAwesome <em>Font Awesome</em>}</li>
  * </ul>
  *
  * @generated
@@ -54,6 +56,16 @@ public class PageImpl extends NamedElementImpl implements Page {
 	 * @ordered
 	 */
 	protected static final String LANGUAGE_EDEFAULT = null;
+
+	/**
+	 * The default value of the '{@link #isFontAwesome() <em>Font Awesome</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isFontAwesome()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean FONT_AWESOME_EDEFAULT = false;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -155,6 +167,26 @@ public class PageImpl extends NamedElementImpl implements Page {
 	 * @generated
 	 */
 	@Override
+	public boolean isFontAwesome() {
+		return (Boolean)eDynamicGet(HtmlPackage.PAGE__FONT_AWESOME, HtmlPackage.Literals.PAGE__FONT_AWESOME, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setFontAwesome(boolean newFontAwesome) {
+		eDynamicSet(HtmlPackage.PAGE__FONT_AWESOME, HtmlPackage.Literals.PAGE__FONT_AWESOME, newFontAwesome);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case HtmlPackage.PAGE__HEAD:
@@ -187,6 +219,8 @@ public class PageImpl extends NamedElementImpl implements Page {
 				return getStylesheets();
 			case HtmlPackage.PAGE__SCRIPTS:
 				return getScripts();
+			case HtmlPackage.PAGE__FONT_AWESOME:
+				return isFontAwesome();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -223,6 +257,9 @@ public class PageImpl extends NamedElementImpl implements Page {
 				getScripts().clear();
 				getScripts().addAll((Collection<? extends String>)newValue);
 				return;
+			case HtmlPackage.PAGE__FONT_AWESOME:
+				setFontAwesome((Boolean)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -253,6 +290,9 @@ public class PageImpl extends NamedElementImpl implements Page {
 			case HtmlPackage.PAGE__SCRIPTS:
 				getScripts().clear();
 				return;
+			case HtmlPackage.PAGE__FONT_AWESOME:
+				setFontAwesome(FONT_AWESOME_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -277,6 +317,8 @@ public class PageImpl extends NamedElementImpl implements Page {
 				return !getStylesheets().isEmpty();
 			case HtmlPackage.PAGE__SCRIPTS:
 				return !getScripts().isEmpty();
+			case HtmlPackage.PAGE__FONT_AWESOME:
+				return isFontAwesome() != FONT_AWESOME_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -310,6 +352,7 @@ public class PageImpl extends NamedElementImpl implements Page {
 	
 	@Override
 	public Supplier<Object> create(Context context) throws Exception {
+		@SuppressWarnings("resource")
 		StringMapCompoundSupplier<List<Object>> partsSupplier = new StringMapCompoundSupplier<>(getTitle());
 		partsSupplier.put(createHeadSupplier(context));
 		partsSupplier.put(createBodySupplier(context));
@@ -353,6 +396,10 @@ public class PageImpl extends NamedElementImpl implements Page {
 				String name = context.interpolate(PageImpl.this.getName());
 				if (!Util.isBlank(name)) {
 					page.title(name);
+				}
+				
+				if (isFontAwesome()) {
+					context.get(FontAwesomeFactory.class, FontAwesomeFactory.INSTANCE).cdn(page);
 				}
 				
 				return page;

@@ -29,6 +29,7 @@ import org.nasdanika.ncore.NamedElement;
  *   <li>{@link org.nasdanika.vinci.html.Page#getLanguage <em>Language</em>}</li>
  *   <li>{@link org.nasdanika.vinci.html.Page#getStylesheets <em>Stylesheets</em>}</li>
  *   <li>{@link org.nasdanika.vinci.html.Page#getScripts <em>Scripts</em>}</li>
+ *   <li>{@link org.nasdanika.vinci.html.Page#isFontAwesome <em>Font Awesome</em>}</li>
  * </ul>
  *
  * @see org.nasdanika.vinci.html.HtmlPackage#getPage()
@@ -135,5 +136,30 @@ public interface Page extends NamedElement, SupplierFactory<Object> {
 	 * @generated
 	 */
 	EList<String> getScripts();
+
+	/**
+	 * Returns the value of the '<em><b>Font Awesome</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * If this attribute is set to true [Font Awesome](https://fontawesome.com/) stylesheet reference is added to the head.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Font Awesome</em>' attribute.
+	 * @see #setFontAwesome(boolean)
+	 * @see org.nasdanika.vinci.html.HtmlPackage#getPage_FontAwesome()
+	 * @model
+	 * @generated
+	 */
+	boolean isFontAwesome();
+
+	/**
+	 * Sets the value of the '{@link org.nasdanika.vinci.html.Page#isFontAwesome <em>Font Awesome</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Font Awesome</em>' attribute.
+	 * @see #isFontAwesome()
+	 * @generated
+	 */
+	void setFontAwesome(boolean value);
 
 } // Page

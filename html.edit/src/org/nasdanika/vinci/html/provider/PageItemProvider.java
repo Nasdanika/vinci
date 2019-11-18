@@ -12,6 +12,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
@@ -70,6 +71,7 @@ public class PageItemProvider extends NamedElementItemProvider {
 			addLanguagePropertyDescriptor(object);
 			addStylesheetsPropertyDescriptor(object);
 			addScriptsPropertyDescriptor(object);
+			addFontAwesomePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -136,6 +138,28 @@ public class PageItemProvider extends NamedElementItemProvider {
 				 null,
 				 null));
 	}
+
+	/**
+	 * This adds a property descriptor for the Font Awesome feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	protected void addFontAwesomePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor(
+				 getResourceLocator(),
+				 getString("_UI_Page_fontAwesome_feature"),
+				 HtmlPackage.Literals.PAGE__FONT_AWESOME,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null,
+				 null));
+	}
+
 
 	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
@@ -221,6 +245,7 @@ public class PageItemProvider extends NamedElementItemProvider {
 			case HtmlPackage.PAGE__LANGUAGE:
 			case HtmlPackage.PAGE__STYLESHEETS:
 			case HtmlPackage.PAGE__SCRIPTS:
+			case HtmlPackage.PAGE__FONT_AWESOME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case HtmlPackage.PAGE__HEAD:

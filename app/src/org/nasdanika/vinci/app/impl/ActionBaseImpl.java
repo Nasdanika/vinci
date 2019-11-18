@@ -855,6 +855,19 @@ public abstract class ActionBaseImpl extends LabelImpl implements ActionBase {
 			public ActionFacade(Map<String,List<Object>> config) {
 				setText(context.interpolate(ActionBaseImpl.this.getText()));
 				setId(context.interpolate(ActionBaseImpl.this.getId()));
+				// icon
+				setIcon(context.interpolate(ActionBaseImpl.this.getIcon()));
+				// tooltip
+				// color
+				// outline
+				// description
+				// notification
+				// category
+				// disabled
+				// confirmation
+				// float right
+				// activator
+				
 				switch (ActionBaseImpl.this.getRole()) {
 				case CONTEXT:
 					getRoles().add(Action.Role.CONTEXT);
@@ -883,17 +896,13 @@ public abstract class ActionBaseImpl extends LabelImpl implements ActionBase {
 					getChildren().add(childAction);
 					childAction.setParent(this);					
 				}
-				
-				
-				
-				// The rest of things...
 			}
 			
 			@Override
 			public Object generate(ViewGenerator viewGenerator, ProgressMonitor progressMonitor) {
 				Fragment ret = viewGenerator.get(HTMLFactory.class, HTMLFactory.INSTANCE).fragment();
 				content.forEach(ret);
-				return super.generate(viewGenerator, progressMonitor);
+				return ret;
 			}
 
 			@Override
@@ -912,72 +921,6 @@ public abstract class ActionBaseImpl extends LabelImpl implements ActionBase {
 			}
 			
 		};
-		
-//			@Override
-//			public String getIcon() {
-//				// TODO Auto-generated method stub
-//				return null;
-//			}
-//
-//			@Override
-//			public String getTooltip() {
-//				// TODO Auto-generated method stub
-//				return null;
-//			}
-//
-//			@Override
-//			public Color getColor() {
-//				// TODO Auto-generated method stub
-//				return null;
-//			}
-//
-//			@Override
-//			public boolean isOutline() {
-//				// TODO Auto-generated method stub
-//				return false;
-//			}
-//
-//			@Override
-//			public String getDescription() {
-//				// TODO Auto-generated method stub
-//				return null;
-//			}
-//
-//			@Override
-//			public String getNotification() {
-//				// TODO Auto-generated method stub
-//				return null;
-//			}
-//
-//			@Override
-//			public Label getCategory() {
-//				// TODO Auto-generated method stub
-//				return null;
-//			}
-//
-//			@Override
-//			public boolean isDisabled() {
-//				// TODO Auto-generated method stub
-//				return false;
-//			}
-//
-//			@Override
-//			public String getConfirmation() {
-//				// TODO Auto-generated method stub
-//				return null;
-//			}
-//
-//			@Override
-//			public boolean isFloatRight() {
-//				// TODO Auto-generated method stub
-//				return false;
-//			}
-//
-//			@Override
-//			public ActionActivator getActivator() {
-//				// TODO Auto-generated method stub
-//				return null;
-//			}
 		
 		return mcs.create(context).then(ActionFacade::new);
 	}

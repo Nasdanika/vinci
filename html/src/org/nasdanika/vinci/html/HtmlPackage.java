@@ -384,13 +384,22 @@ public interface HtmlPackage extends EPackage {
 	int PAGE__SCRIPTS = NcorePackage.NAMED_ELEMENT_FEATURE_COUNT + 5;
 
 	/**
+	 * The feature id for the '<em><b>Font Awesome</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PAGE__FONT_AWESOME = NcorePackage.NAMED_ELEMENT_FEATURE_COUNT + 6;
+
+	/**
 	 * The number of structural features of the '<em>Page</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PAGE_FEATURE_COUNT = NcorePackage.NAMED_ELEMENT_FEATURE_COUNT + 6;
+	int PAGE_FEATURE_COUNT = NcorePackage.NAMED_ELEMENT_FEATURE_COUNT + 7;
 
 	/**
 	 * The number of operations of the '<em>Page</em>' class.
@@ -560,6 +569,17 @@ public interface HtmlPackage extends EPackage {
 	EAttribute getPage_Scripts();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.html.Page#isFontAwesome <em>Font Awesome</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Font Awesome</em>'.
+	 * @see org.nasdanika.vinci.html.Page#isFontAwesome()
+	 * @see #getPage()
+	 * @generated
+	 */
+	EAttribute getPage_FontAwesome();
+
+	/**
 	 * Returns the meta object for data type '{@link org.nasdanika.html.TagName <em>Tag Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -714,6 +734,14 @@ public interface HtmlPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute PAGE__SCRIPTS = eINSTANCE.getPage_Scripts();
+
+		/**
+		 * The meta object literal for the '<em><b>Font Awesome</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PAGE__FONT_AWESOME = eINSTANCE.getPage_FontAwesome();
 
 		/**
 		 * The meta object literal for the '<em>Tag Name</em>' data type.
