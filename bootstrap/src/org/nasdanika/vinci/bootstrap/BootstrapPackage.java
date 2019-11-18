@@ -207,7 +207,7 @@ public interface BootstrapPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int APPEARANCE__BACKGROUND = NcorePackage.CONSUMER_FACTORY_FEATURE_COUNT + 0;
+	int APPEARANCE__BACKGROUND = NcorePackage.ICONSUMER_FACTORY_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Attributes</b></em>' attribute.
@@ -216,7 +216,7 @@ public interface BootstrapPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int APPEARANCE__ATTRIBUTES = NcorePackage.CONSUMER_FACTORY_FEATURE_COUNT + 1;
+	int APPEARANCE__ATTRIBUTES = NcorePackage.ICONSUMER_FACTORY_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Border</b></em>' containment reference list.
@@ -225,7 +225,7 @@ public interface BootstrapPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int APPEARANCE__BORDER = NcorePackage.CONSUMER_FACTORY_FEATURE_COUNT + 2;
+	int APPEARANCE__BORDER = NcorePackage.ICONSUMER_FACTORY_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Margin</b></em>' containment reference list.
@@ -234,7 +234,7 @@ public interface BootstrapPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int APPEARANCE__MARGIN = NcorePackage.CONSUMER_FACTORY_FEATURE_COUNT + 3;
+	int APPEARANCE__MARGIN = NcorePackage.ICONSUMER_FACTORY_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Padding</b></em>' containment reference list.
@@ -243,7 +243,7 @@ public interface BootstrapPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int APPEARANCE__PADDING = NcorePackage.CONSUMER_FACTORY_FEATURE_COUNT + 4;
+	int APPEARANCE__PADDING = NcorePackage.ICONSUMER_FACTORY_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Text</b></em>' containment reference.
@@ -252,7 +252,7 @@ public interface BootstrapPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int APPEARANCE__TEXT = NcorePackage.CONSUMER_FACTORY_FEATURE_COUNT + 5;
+	int APPEARANCE__TEXT = NcorePackage.ICONSUMER_FACTORY_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Float</b></em>' containment reference list.
@@ -261,7 +261,7 @@ public interface BootstrapPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int APPEARANCE__FLOAT = NcorePackage.CONSUMER_FACTORY_FEATURE_COUNT + 6;
+	int APPEARANCE__FLOAT = NcorePackage.ICONSUMER_FACTORY_FEATURE_COUNT + 6;
 
 	/**
 	 * The number of structural features of the '<em>Appearance</em>' class.
@@ -270,7 +270,7 @@ public interface BootstrapPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int APPEARANCE_FEATURE_COUNT = NcorePackage.CONSUMER_FACTORY_FEATURE_COUNT + 7;
+	int APPEARANCE_FEATURE_COUNT = NcorePackage.ICONSUMER_FACTORY_FEATURE_COUNT + 7;
 
 	/**
 	 * The number of operations of the '<em>Appearance</em>' class.
@@ -279,7 +279,7 @@ public interface BootstrapPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int APPEARANCE_OPERATION_COUNT = NcorePackage.CONSUMER_FACTORY_OPERATION_COUNT + 0;
+	int APPEARANCE_OPERATION_COUNT = NcorePackage.ICONSUMER_FACTORY_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.vinci.bootstrap.impl.BorderImpl <em>Border</em>}' class.

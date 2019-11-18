@@ -1490,7 +1490,7 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 
 		// Add supertypes to classes
 		bootstrapPageEClass.getESuperTypes().add(theHtmlPackage.getPage());
-		EGenericType g1 = createEGenericType(theNcorePackage.getConsumerFactory());
+		EGenericType g1 = createEGenericType(theNcorePackage.getIConsumerFactory());
 		EGenericType g2 = createEGenericType(ecorePackage.getEJavaObject());
 		g1.getETypeArguments().add(g2);
 		appearanceEClass.getEGenericSuperTypes().add(g1);
@@ -1501,7 +1501,7 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 		itemEClass.getESuperTypes().add(theNcorePackage.getModelElement());
 		g1 = createEGenericType(this.getItem());
 		actionGroupItemEClass.getEGenericSuperTypes().add(g1);
-		g1 = createEGenericType(theNcorePackage.getConsumerFactory());
+		g1 = createEGenericType(theNcorePackage.getIConsumerFactory());
 		g2 = createEGenericType(ecorePackage.getEJavaObject());
 		g1.getETypeArguments().add(g2);
 		actionGroupItemEClass.getEGenericSuperTypes().add(g1);
@@ -1514,7 +1514,7 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 		buttonEClass.getESuperTypes().add(this.getDiv());
 		g1 = createEGenericType(this.getBootstrapElement());
 		containerEClass.getEGenericSuperTypes().add(g1);
-		g1 = createEGenericType(theNcorePackage.getSupplierFactory());
+		g1 = createEGenericType(theNcorePackage.getISupplierFactory());
 		g2 = createEGenericType(ecorePackage.getEJavaObject());
 		g1.getETypeArguments().add(g2);
 		containerEClass.getEGenericSuperTypes().add(g1);
@@ -1581,7 +1581,7 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 		initEAttribute(getItem_Color(), ecorePackage.getEString(), "color", null, 0, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(actionGroupItemEClass, ActionGroupItem.class, "ActionGroupItem", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		g1 = createEGenericType(theNcorePackage.getSupplierFactory());
+		g1 = createEGenericType(theNcorePackage.getISupplierFactory());
 		g2 = createEGenericType(ecorePackage.getEJavaObject());
 		g1.getETypeArguments().add(g2);
 		initEReference(getActionGroupItem_Name(), g1, null, "name", null, 0, -1, ActionGroupItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

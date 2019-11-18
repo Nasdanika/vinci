@@ -29,7 +29,7 @@ import org.nasdanika.common.ConsumerFactory;
  * </ul>
  *
  * @see org.nasdanika.vinci.bootstrap.BootstrapPackage#getAppearance()
- * @model superTypes="org.nasdanika.ncore.ConsumerFactory&lt;org.eclipse.emf.ecore.EJavaObject&gt;"
+ * @model superTypes="org.nasdanika.ncore.IConsumerFactory&lt;org.eclipse.emf.ecore.EJavaObject&gt;"
  *        annotation="http://www.eclipse.org/emf/2002/Ecore constraints='border_overlap background attributes'"
  * @generated
  */

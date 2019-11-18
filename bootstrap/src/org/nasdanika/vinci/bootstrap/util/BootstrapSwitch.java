@@ -113,7 +113,7 @@ public class BootstrapSwitch<T1> extends Switch<T1> {
 				T1 result = caseBootstrapPage(bootstrapPage);
 				if (result == null) result = casePage(bootstrapPage);
 				if (result == null) result = caseNamedElement(bootstrapPage);
-				if (result == null) result = caseSupplierFactory(bootstrapPage);
+				if (result == null) result = caseISupplierFactory(bootstrapPage);
 				if (result == null) result = caseModelElement(bootstrapPage);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -121,7 +121,7 @@ public class BootstrapSwitch<T1> extends Switch<T1> {
 			case BootstrapPackage.APPEARANCE: {
 				Appearance appearance = (Appearance)theEObject;
 				T1 result = caseAppearance(appearance);
-				if (result == null) result = caseConsumerFactory(appearance);
+				if (result == null) result = caseIConsumerFactory(appearance);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -163,7 +163,7 @@ public class BootstrapSwitch<T1> extends Switch<T1> {
 				if (result == null) result = caseHtml_Tag(tag);
 				if (result == null) result = caseBootstrapElement(tag);
 				if (result == null) result = caseHtmlElement(tag);
-				if (result == null) result = caseSupplierFactory(tag);
+				if (result == null) result = caseISupplierFactory(tag);
 				if (result == null) result = caseModelElement(tag);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -175,7 +175,7 @@ public class BootstrapSwitch<T1> extends Switch<T1> {
 				if (result == null) result = caseHtml_Tag(div);
 				if (result == null) result = caseBootstrapElement(div);
 				if (result == null) result = caseHtmlElement(div);
-				if (result == null) result = caseSupplierFactory(div);
+				if (result == null) result = caseISupplierFactory(div);
 				if (result == null) result = caseModelElement(div);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -191,7 +191,7 @@ public class BootstrapSwitch<T1> extends Switch<T1> {
 				ActionGroupItem actionGroupItem = (ActionGroupItem)theEObject;
 				T1 result = caseActionGroupItem(actionGroupItem);
 				if (result == null) result = caseItem(actionGroupItem);
-				if (result == null) result = caseConsumerFactory(actionGroupItem);
+				if (result == null) result = caseIConsumerFactory(actionGroupItem);
 				if (result == null) result = caseModelElement(actionGroupItem);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -201,7 +201,7 @@ public class BootstrapSwitch<T1> extends Switch<T1> {
 				T1 result = caseLinkActionGroupItem(linkActionGroupItem);
 				if (result == null) result = caseActionGroupItem(linkActionGroupItem);
 				if (result == null) result = caseItem(linkActionGroupItem);
-				if (result == null) result = caseConsumerFactory(linkActionGroupItem);
+				if (result == null) result = caseIConsumerFactory(linkActionGroupItem);
 				if (result == null) result = caseModelElement(linkActionGroupItem);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -212,7 +212,7 @@ public class BootstrapSwitch<T1> extends Switch<T1> {
 				if (result == null) result = caseActionGroupItem(contentActionGroupItem);
 				if (result == null) result = caseHtml_Container(contentActionGroupItem);
 				if (result == null) result = caseItem(contentActionGroupItem);
-				if (result == null) result = caseConsumerFactory(contentActionGroupItem);
+				if (result == null) result = caseIConsumerFactory(contentActionGroupItem);
 				if (result == null) result = caseModelElement(contentActionGroupItem);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -225,7 +225,7 @@ public class BootstrapSwitch<T1> extends Switch<T1> {
 				if (result == null) result = caseHtml_Tag(actionGroup);
 				if (result == null) result = caseBootstrapElement(actionGroup);
 				if (result == null) result = caseHtmlElement(actionGroup);
-				if (result == null) result = caseSupplierFactory(actionGroup);
+				if (result == null) result = caseISupplierFactory(actionGroup);
 				if (result == null) result = caseModelElement(actionGroup);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -238,7 +238,7 @@ public class BootstrapSwitch<T1> extends Switch<T1> {
 				if (result == null) result = caseHtml_Tag(alert);
 				if (result == null) result = caseBootstrapElement(alert);
 				if (result == null) result = caseHtmlElement(alert);
-				if (result == null) result = caseSupplierFactory(alert);
+				if (result == null) result = caseISupplierFactory(alert);
 				if (result == null) result = caseModelElement(alert);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -251,7 +251,7 @@ public class BootstrapSwitch<T1> extends Switch<T1> {
 				if (result == null) result = caseHtml_Tag(badge);
 				if (result == null) result = caseBootstrapElement(badge);
 				if (result == null) result = caseHtmlElement(badge);
-				if (result == null) result = caseSupplierFactory(badge);
+				if (result == null) result = caseISupplierFactory(badge);
 				if (result == null) result = caseModelElement(badge);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -270,7 +270,7 @@ public class BootstrapSwitch<T1> extends Switch<T1> {
 				if (result == null) result = caseHtml_Tag(button);
 				if (result == null) result = caseBootstrapElement(button);
 				if (result == null) result = caseHtmlElement(button);
-				if (result == null) result = caseSupplierFactory(button);
+				if (result == null) result = caseISupplierFactory(button);
 				if (result == null) result = caseModelElement(button);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -291,7 +291,7 @@ public class BootstrapSwitch<T1> extends Switch<T1> {
 				Container container = (Container)theEObject;
 				T1 result = caseContainer(container);
 				if (result == null) result = caseBootstrapElement(container);
-				if (result == null) result = caseSupplierFactory(container);
+				if (result == null) result = caseISupplierFactory(container);
 				if (result == null) result = caseHtmlElement(container);
 				if (result == null) result = caseModelElement(container);
 				if (result == null) result = defaultCase(theEObject);
@@ -324,7 +324,7 @@ public class BootstrapSwitch<T1> extends Switch<T1> {
 				if (result == null) result = caseHtml_Tag(card);
 				if (result == null) result = caseBootstrapElement(card);
 				if (result == null) result = caseHtmlElement(card);
-				if (result == null) result = caseSupplierFactory(card);
+				if (result == null) result = caseISupplierFactory(card);
 				if (result == null) result = caseModelElement(card);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -1018,17 +1018,17 @@ public class BootstrapSwitch<T1> extends Switch<T1> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Supplier Factory</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>ISupplier Factory</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Supplier Factory</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>ISupplier Factory</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public <T> T1 caseSupplierFactory(SupplierFactory<T> object) {
+	public <T> T1 caseISupplierFactory(SupplierFactory<T> object) {
 		return null;
 	}
 
@@ -1063,21 +1063,6 @@ public class BootstrapSwitch<T1> extends Switch<T1> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Consumer Factory</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Consumer Factory</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public <T> T1 caseConsumerFactory(ConsumerFactory<T> object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Element</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -1104,6 +1089,21 @@ public class BootstrapSwitch<T1> extends Switch<T1> {
 	 * @generated
 	 */
 	public T1 casePage(Page object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>IConsumer Factory</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>IConsumer Factory</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public <T> T1 caseIConsumerFactory(ConsumerFactory<T> object) {
 		return null;
 	}
 
