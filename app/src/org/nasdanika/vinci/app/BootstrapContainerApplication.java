@@ -221,7 +221,7 @@ public interface BootstrapContainerApplication extends BootstrapElement, Consume
 
 	/**
 	 * Returns the value of the '<em><b>Builders</b></em>' containment reference list.
-	 * The list contents are of type {@link org.nasdanika.common.ConsumerFactory}<code>&lt;java.lang.Object&gt;</code>.
+	 * The list contents are of type {@link org.nasdanika.vinci.app.BootstrapContainerApplicationBuilder}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
@@ -230,8 +230,8 @@ public interface BootstrapContainerApplication extends BootstrapElement, Consume
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Builders</em>' containment reference list.
 	 * @see org.nasdanika.vinci.app.AppPackage#getBootstrapContainerApplication_Builders()
-	 * @model type="org.nasdanika.ncore.IConsumerFactory&lt;org.eclipse.emf.ecore.EJavaObject&gt;" containment="true"
+	 * @model containment="true"
 	 * @generated
 	 */
-	EList<ConsumerFactory<Object>> getBuilders();
+	EList<BootstrapContainerApplicationBuilder> getBuilders();
 } // BootstrapContainerApplication

@@ -6,6 +6,7 @@ import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EEnum;
+import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.nasdanika.ncore.NcorePackage;
@@ -281,13 +282,22 @@ public interface AppPackage extends EPackage {
 	int LABEL__NOTIFICATION = NcorePackage.MODEL_ELEMENT_FEATURE_COUNT + 6;
 
 	/**
+	 * The feature id for the '<em><b>Appearance</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LABEL__APPEARANCE = NcorePackage.MODEL_ELEMENT_FEATURE_COUNT + 7;
+
+	/**
 	 * The number of structural features of the '<em>Label</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LABEL_FEATURE_COUNT = NcorePackage.MODEL_ELEMENT_FEATURE_COUNT + 7;
+	int LABEL_FEATURE_COUNT = NcorePackage.MODEL_ELEMENT_FEATURE_COUNT + 8;
 
 	/**
 	 * The number of operations of the '<em>Label</em>' class.
@@ -380,6 +390,15 @@ public interface AppPackage extends EPackage {
 	int CATEGORY__NOTIFICATION = LABEL__NOTIFICATION;
 
 	/**
+	 * The feature id for the '<em><b>Appearance</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORY__APPEARANCE = LABEL__APPEARANCE;
+
+	/**
 	 * The feature id for the '<em><b>Elements</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -434,13 +453,50 @@ public interface AppPackage extends EPackage {
 	int ACTION_ELEMENT_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link org.nasdanika.vinci.app.BootstrapContainerApplicationBuilder <em>Bootstrap Container Application Builder</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.vinci.app.BootstrapContainerApplicationBuilder
+	 * @see org.nasdanika.vinci.app.impl.AppPackageImpl#getBootstrapContainerApplicationBuilder()
+	 * @generated
+	 */
+	int BOOTSTRAP_CONTAINER_APPLICATION_BUILDER = 14;
+
+	/**
+	 * The number of structural features of the '<em>Bootstrap Container Application Builder</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOTSTRAP_CONTAINER_APPLICATION_BUILDER_FEATURE_COUNT = 0;
+
+	/**
+	 * The operation id for the '<em>Create Consumer</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOTSTRAP_CONTAINER_APPLICATION_BUILDER___CREATE_CONSUMER__CONTEXT = 0;
+
+	/**
+	 * The number of operations of the '<em>Bootstrap Container Application Builder</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOTSTRAP_CONTAINER_APPLICATION_BUILDER_OPERATION_COUNT = 1;
+
+	/**
 	 * The feature id for the '<em><b>Action Mappings</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ABSTRACT_ACTION__ACTION_MAPPINGS = ACTION_ELEMENT_FEATURE_COUNT + 0;
+	int ABSTRACT_ACTION__ACTION_MAPPINGS = BOOTSTRAP_CONTAINER_APPLICATION_BUILDER_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Abstract Action</em>' class.
@@ -449,7 +505,16 @@ public interface AppPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ABSTRACT_ACTION_FEATURE_COUNT = ACTION_ELEMENT_FEATURE_COUNT + 1;
+	int ABSTRACT_ACTION_FEATURE_COUNT = BOOTSTRAP_CONTAINER_APPLICATION_BUILDER_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Create Consumer</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_ACTION___CREATE_CONSUMER__CONTEXT = BOOTSTRAP_CONTAINER_APPLICATION_BUILDER___CREATE_CONSUMER__CONTEXT;
 
 	/**
 	 * The number of operations of the '<em>Abstract Action</em>' class.
@@ -458,7 +523,7 @@ public interface AppPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ABSTRACT_ACTION_OPERATION_COUNT = ACTION_ELEMENT_OPERATION_COUNT + 0;
+	int ABSTRACT_ACTION_OPERATION_COUNT = BOOTSTRAP_CONTAINER_APPLICATION_BUILDER_OPERATION_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Title</b></em>' attribute.
@@ -540,6 +605,15 @@ public interface AppPackage extends EPackage {
 	 * @ordered
 	 */
 	int ACTION_CATEGORY__NOTIFICATION = CATEGORY__NOTIFICATION;
+
+	/**
+	 * The feature id for the '<em><b>Appearance</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION_CATEGORY__APPEARANCE = CATEGORY__APPEARANCE;
 
 	/**
 	 * The feature id for the '<em><b>Elements</b></em>' containment reference list.
@@ -669,6 +743,15 @@ public interface AppPackage extends EPackage {
 	int ACTION_BASE__NOTIFICATION = LABEL__NOTIFICATION;
 
 	/**
+	 * The feature id for the '<em><b>Appearance</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION_BASE__APPEARANCE = LABEL__APPEARANCE;
+
+	/**
 	 * The feature id for the '<em><b>Action Mappings</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -795,13 +878,22 @@ public interface AppPackage extends EPackage {
 	int ACTION_BASE_FEATURE_COUNT = LABEL_FEATURE_COUNT + 13;
 
 	/**
+	 * The operation id for the '<em>Create Consumer</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION_BASE___CREATE_CONSUMER__CONTEXT = LABEL_OPERATION_COUNT + 0;
+
+	/**
 	 * The number of operations of the '<em>Action Base</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION_BASE_OPERATION_COUNT = LABEL_OPERATION_COUNT + 0;
+	int ACTION_BASE_OPERATION_COUNT = LABEL_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.vinci.app.impl.PartitionImpl <em>Partition</em>}' class.
@@ -904,6 +996,15 @@ public interface AppPackage extends EPackage {
 	int ACTION_LINK_FEATURE_COUNT = ABSTRACT_ACTION_FEATURE_COUNT + 3;
 
 	/**
+	 * The operation id for the '<em>Create Consumer</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION_LINK___CREATE_CONSUMER__CONTEXT = ABSTRACT_ACTION___CREATE_CONSUMER__CONTEXT;
+
+	/**
 	 * The number of operations of the '<em>Action Link</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -956,6 +1057,15 @@ public interface AppPackage extends EPackage {
 	 * @ordered
 	 */
 	int ACTION_REFERENCE_FEATURE_COUNT = ABSTRACT_ACTION_FEATURE_COUNT + 3;
+
+	/**
+	 * The operation id for the '<em>Create Consumer</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION_REFERENCE___CREATE_CONSUMER__CONTEXT = ABSTRACT_ACTION___CREATE_CONSUMER__CONTEXT;
 
 	/**
 	 * The number of operations of the '<em>Action Reference</em>' class.
@@ -1046,6 +1156,15 @@ public interface AppPackage extends EPackage {
 	 * @ordered
 	 */
 	int ACTION__NOTIFICATION = ACTION_BASE__NOTIFICATION;
+
+	/**
+	 * The feature id for the '<em><b>Appearance</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION__APPEARANCE = ACTION_BASE__APPEARANCE;
 
 	/**
 	 * The feature id for the '<em><b>Action Mappings</b></em>' containment reference list.
@@ -1174,6 +1293,15 @@ public interface AppPackage extends EPackage {
 	int ACTION_FEATURE_COUNT = ACTION_BASE_FEATURE_COUNT + 0;
 
 	/**
+	 * The operation id for the '<em>Create Consumer</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION___CREATE_CONSUMER__CONTEXT = ACTION_BASE___CREATE_CONSUMER__CONTEXT;
+
+	/**
 	 * The number of operations of the '<em>Action</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1262,6 +1390,15 @@ public interface AppPackage extends EPackage {
 	 * @ordered
 	 */
 	int PARTITION__NOTIFICATION = ACTION_BASE__NOTIFICATION;
+
+	/**
+	 * The feature id for the '<em><b>Appearance</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARTITION__APPEARANCE = ACTION_BASE__APPEARANCE;
 
 	/**
 	 * The feature id for the '<em><b>Action Mappings</b></em>' containment reference list.
@@ -1388,6 +1525,15 @@ public interface AppPackage extends EPackage {
 	 * @ordered
 	 */
 	int PARTITION_FEATURE_COUNT = ACTION_BASE_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Create Consumer</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARTITION___CREATE_CONSUMER__CONTEXT = ACTION_BASE___CREATE_CONSUMER__CONTEXT;
 
 	/**
 	 * The number of operations of the '<em>Partition</em>' class.
@@ -1615,7 +1761,7 @@ public interface AppPackage extends EPackage {
 	 * @see org.nasdanika.vinci.app.impl.AppPackageImpl#getActionRole()
 	 * @generated
 	 */
-	int ACTION_ROLE = 14;
+	int ACTION_ROLE = 15;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.vinci.app.SectionStyle <em>Section Style</em>}' enum.
@@ -1625,7 +1771,7 @@ public interface AppPackage extends EPackage {
 	 * @see org.nasdanika.vinci.app.impl.AppPackageImpl#getSectionStyle()
 	 * @generated
 	 */
-	int SECTION_STYLE = 15;
+	int SECTION_STYLE = 16;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.vinci.app.ActivatorType <em>Activator Type</em>}' enum.
@@ -1635,7 +1781,7 @@ public interface AppPackage extends EPackage {
 	 * @see org.nasdanika.vinci.app.impl.AppPackageImpl#getActivatorType()
 	 * @generated
 	 */
-	int ACTIVATOR_TYPE = 16;
+	int ACTIVATOR_TYPE = 17;
 
 	/**
 	 * The meta object id for the '<em>Color</em>' data type.
@@ -1645,7 +1791,7 @@ public interface AppPackage extends EPackage {
 	 * @see org.nasdanika.vinci.app.impl.AppPackageImpl#getColor()
 	 * @generated
 	 */
-	int COLOR = 17;
+	int COLOR = 18;
 
 
 	/**
@@ -1690,6 +1836,17 @@ public interface AppPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getLabel_Notification();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.nasdanika.vinci.app.Label#getAppearance <em>Appearance</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Appearance</em>'.
+	 * @see org.nasdanika.vinci.app.Label#getAppearance()
+	 * @see #getLabel()
+	 * @generated
+	 */
+	EReference getLabel_Appearance();
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.app.Label#getText <em>Text</em>}'.
@@ -1872,6 +2029,26 @@ public interface AppPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getBootstrapContainerApplicationSection();
+
+	/**
+	 * Returns the meta object for class '{@link org.nasdanika.vinci.app.BootstrapContainerApplicationBuilder <em>Bootstrap Container Application Builder</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Bootstrap Container Application Builder</em>'.
+	 * @see org.nasdanika.vinci.app.BootstrapContainerApplicationBuilder
+	 * @generated
+	 */
+	EClass getBootstrapContainerApplicationBuilder();
+
+	/**
+	 * Returns the meta object for the '{@link org.nasdanika.vinci.app.BootstrapContainerApplicationBuilder#createConsumer(org.nasdanika.common.Context) <em>Create Consumer</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Create Consumer</em>' operation.
+	 * @see org.nasdanika.vinci.app.BootstrapContainerApplicationBuilder#createConsumer(org.nasdanika.common.Context)
+	 * @generated
+	 */
+	EOperation getBootstrapContainerApplicationBuilder__CreateConsumer__Context();
 
 	/**
 	 * Returns the meta object for class '{@link org.nasdanika.vinci.app.ActionMapping <em>Action Mapping</em>}'.
@@ -2297,6 +2474,14 @@ public interface AppPackage extends EPackage {
 		EAttribute LABEL__NOTIFICATION = eINSTANCE.getLabel_Notification();
 
 		/**
+		 * The meta object literal for the '<em><b>Appearance</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference LABEL__APPEARANCE = eINSTANCE.getLabel_Appearance();
+
+		/**
 		 * The meta object literal for the '<em><b>Text</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2441,6 +2626,24 @@ public interface AppPackage extends EPackage {
 		 * @generated
 		 */
 		EClass BOOTSTRAP_CONTAINER_APPLICATION_SECTION = eINSTANCE.getBootstrapContainerApplicationSection();
+
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.vinci.app.BootstrapContainerApplicationBuilder <em>Bootstrap Container Application Builder</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.vinci.app.BootstrapContainerApplicationBuilder
+		 * @see org.nasdanika.vinci.app.impl.AppPackageImpl#getBootstrapContainerApplicationBuilder()
+		 * @generated
+		 */
+		EClass BOOTSTRAP_CONTAINER_APPLICATION_BUILDER = eINSTANCE.getBootstrapContainerApplicationBuilder();
+
+		/**
+		 * The meta object literal for the '<em><b>Create Consumer</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation BOOTSTRAP_CONTAINER_APPLICATION_BUILDER___CREATE_CONSUMER__CONTEXT = eINSTANCE.getBootstrapContainerApplicationBuilder__CreateConsumer__Context();
 
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.vinci.app.impl.ActionMappingImpl <em>Action Mapping</em>}' class.

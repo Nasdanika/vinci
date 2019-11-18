@@ -2,6 +2,7 @@
  */
 package org.nasdanika.vinci.app.impl;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -9,6 +10,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.InternalEList;
+import org.nasdanika.common.Consumer;
 import org.nasdanika.common.Context;
 import org.nasdanika.common.Supplier;
 import org.nasdanika.common.SupplierFactory;
@@ -19,6 +21,7 @@ import org.nasdanika.vinci.app.ActionMapping;
 import org.nasdanika.vinci.app.ActionRole;
 import org.nasdanika.vinci.app.ActivatorType;
 import org.nasdanika.vinci.app.AppPackage;
+import org.nasdanika.vinci.app.BootstrapContainerApplicationBuilder;
 import org.nasdanika.vinci.app.SectionStyle;
 
 /**
@@ -383,6 +386,16 @@ public abstract class ActionBaseImpl extends LabelImpl implements ActionBase {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public Consumer<Object> createConsumer(Context context) throws Exception {
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -588,6 +601,11 @@ public abstract class ActionBaseImpl extends LabelImpl implements ActionBase {
 	 */
 	@Override
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
+		if (baseClass == BootstrapContainerApplicationBuilder.class) {
+			switch (derivedFeatureID) {
+				default: return -1;
+			}
+		}
 		if (baseClass == ActionElement.class) {
 			switch (derivedFeatureID) {
 				default: return -1;
@@ -616,6 +634,11 @@ public abstract class ActionBaseImpl extends LabelImpl implements ActionBase {
 	 */
 	@Override
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
+		if (baseClass == BootstrapContainerApplicationBuilder.class) {
+			switch (baseFeatureID) {
+				default: return -1;
+			}
+		}
 		if (baseClass == ActionElement.class) {
 			switch (baseFeatureID) {
 				default: return -1;
@@ -637,6 +660,56 @@ public abstract class ActionBaseImpl extends LabelImpl implements ActionBase {
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedOperationID(int baseOperationID, Class<?> baseClass) {
+		if (baseClass == BootstrapContainerApplicationBuilder.class) {
+			switch (baseOperationID) {
+				case AppPackage.BOOTSTRAP_CONTAINER_APPLICATION_BUILDER___CREATE_CONSUMER__CONTEXT: return AppPackage.ACTION_BASE___CREATE_CONSUMER__CONTEXT;
+				default: return -1;
+			}
+		}
+		if (baseClass == ActionElement.class) {
+			switch (baseOperationID) {
+				default: return -1;
+			}
+		}
+		if (baseClass == AbstractAction.class) {
+			switch (baseOperationID) {
+				default: return -1;
+			}
+		}
+		if (baseClass == org.nasdanika.vinci.app.Container.class) {
+			switch (baseOperationID) {
+				default: return -1;
+			}
+		}
+		return super.eDerivedOperationID(baseOperationID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case AppPackage.ACTION_BASE___CREATE_CONSUMER__CONTEXT:
+				try {
+					return createConsumer((Context)arguments.get(0));
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+		}
+		return super.eInvoke(operationID, arguments);
+	}
+
 	@Override
 	public Supplier<Object> create(Context context) throws Exception {
 		throw new UnsupportedOperationException();

@@ -14,10 +14,9 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.nasdanika.common.Command;
-import org.nasdanika.common.CompoundConsumerFactory;
+import org.nasdanika.common.CompoundConsumer;
 import org.nasdanika.common.CompoundExecutionParticipant;
 import org.nasdanika.common.Consumer;
-import org.nasdanika.common.ConsumerFactory;
 import org.nasdanika.common.Context;
 import org.nasdanika.common.Function;
 import org.nasdanika.common.ProgressMonitor;
@@ -27,6 +26,7 @@ import org.nasdanika.html.HTMLPage;
 import org.nasdanika.html.bootstrap.BootstrapFactory;
 import org.nasdanika.vinci.app.AppPackage;
 import org.nasdanika.vinci.app.BootstrapContainerApplication;
+import org.nasdanika.vinci.app.BootstrapContainerApplicationBuilder;
 import org.nasdanika.vinci.app.BootstrapContainerApplicationSection;
 import org.nasdanika.vinci.bootstrap.Appearance;
 import org.nasdanika.vinci.bootstrap.impl.BootstrapElementImpl;
@@ -288,8 +288,8 @@ public class BootstrapContainerApplicationImpl extends BootstrapElementImpl impl
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public EList<ConsumerFactory<Object>> getBuilders() {
-		return (EList<ConsumerFactory<Object>>)eDynamicGet(AppPackage.BOOTSTRAP_CONTAINER_APPLICATION__BUILDERS, AppPackage.Literals.BOOTSTRAP_CONTAINER_APPLICATION__BUILDERS, true, true);
+	public EList<BootstrapContainerApplicationBuilder> getBuilders() {
+		return (EList<BootstrapContainerApplicationBuilder>)eDynamicGet(AppPackage.BOOTSTRAP_CONTAINER_APPLICATION__BUILDERS, AppPackage.Literals.BOOTSTRAP_CONTAINER_APPLICATION__BUILDERS, true, true);
 	}
 
 	/**
@@ -376,7 +376,7 @@ public class BootstrapContainerApplicationImpl extends BootstrapElementImpl impl
 				return;
 			case AppPackage.BOOTSTRAP_CONTAINER_APPLICATION__BUILDERS:
 				getBuilders().clear();
-				getBuilders().addAll((Collection<? extends ConsumerFactory<Object>>)newValue);
+				getBuilders().addAll((Collection<? extends BootstrapContainerApplicationBuilder>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -656,16 +656,20 @@ public class BootstrapContainerApplicationImpl extends BootstrapElementImpl impl
 		
 		Generator generator = new Generator(getTitle());
 		
-		EList<ConsumerFactory<Object>> builders = getBuilders();
+		EList<BootstrapContainerApplicationBuilder> builders = getBuilders();
 		if (builders.isEmpty()) {
 			return generator.then(Consumer.nop());
 		} 
 		
 		if (builders.size() == 1) {
-			return generator.then(builders.get(0).create(context));
+			return generator.then(builders.get(0).createConsumer(context));
 		}
 		
-		return generator.then(new CompoundConsumerFactory<Object>("Builders", builders).create(context));
+		List<Consumer<Object>> bc = new ArrayList<>(); 
+		for (BootstrapContainerApplicationBuilder b: builders) {
+			bc.add(b.createConsumer(context));
+		}
+		return generator.then(new CompoundConsumer<Object>("Builders", bc));
 	}
 	
 	@Override

@@ -2,11 +2,14 @@
  */
 package org.nasdanika.vinci.app.impl;
 
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 import org.nasdanika.html.bootstrap.Color;
 import org.nasdanika.ncore.impl.ModelElementImpl;
 import org.nasdanika.vinci.app.AppPackage;
 import org.nasdanika.vinci.app.Label;
+import org.nasdanika.vinci.bootstrap.Appearance;
 
 /**
  * <!-- begin-user-doc -->
@@ -23,6 +26,7 @@ import org.nasdanika.vinci.app.Label;
  *   <li>{@link org.nasdanika.vinci.app.impl.LabelImpl#getTooltip <em>Tooltip</em>}</li>
  *   <li>{@link org.nasdanika.vinci.app.impl.LabelImpl#isOutline <em>Outline</em>}</li>
  *   <li>{@link org.nasdanika.vinci.app.impl.LabelImpl#getNotification <em>Notification</em>}</li>
+ *   <li>{@link org.nasdanika.vinci.app.impl.LabelImpl#getAppearance <em>Appearance</em>}</li>
  * </ul>
  *
  * @generated
@@ -183,6 +187,50 @@ public abstract class LabelImpl extends ModelElementImpl implements Label {
 	 * @generated
 	 */
 	@Override
+	public Appearance getAppearance() {
+		return (Appearance)eDynamicGet(AppPackage.LABEL__APPEARANCE, AppPackage.Literals.LABEL__APPEARANCE, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetAppearance(Appearance newAppearance, NotificationChain msgs) {
+		msgs = eDynamicInverseAdd((InternalEObject)newAppearance, AppPackage.LABEL__APPEARANCE, msgs);
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setAppearance(Appearance newAppearance) {
+		eDynamicSet(AppPackage.LABEL__APPEARANCE, AppPackage.Literals.LABEL__APPEARANCE, newAppearance);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case AppPackage.LABEL__APPEARANCE:
+				return basicSetAppearance(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public String getText() {
 		return (String)eDynamicGet(AppPackage.LABEL__TEXT, AppPackage.Literals.LABEL__TEXT, true, true);
 	}
@@ -279,6 +327,8 @@ public abstract class LabelImpl extends ModelElementImpl implements Label {
 				return isOutline();
 			case AppPackage.LABEL__NOTIFICATION:
 				return getNotification();
+			case AppPackage.LABEL__APPEARANCE:
+				return getAppearance();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -311,6 +361,9 @@ public abstract class LabelImpl extends ModelElementImpl implements Label {
 				return;
 			case AppPackage.LABEL__NOTIFICATION:
 				setNotification((String)newValue);
+				return;
+			case AppPackage.LABEL__APPEARANCE:
+				setAppearance((Appearance)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -345,6 +398,9 @@ public abstract class LabelImpl extends ModelElementImpl implements Label {
 			case AppPackage.LABEL__NOTIFICATION:
 				setNotification(NOTIFICATION_EDEFAULT);
 				return;
+			case AppPackage.LABEL__APPEARANCE:
+				setAppearance((Appearance)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -371,6 +427,8 @@ public abstract class LabelImpl extends ModelElementImpl implements Label {
 				return isOutline() != OUTLINE_EDEFAULT;
 			case AppPackage.LABEL__NOTIFICATION:
 				return NOTIFICATION_EDEFAULT == null ? getNotification() != null : !NOTIFICATION_EDEFAULT.equals(getNotification());
+			case AppPackage.LABEL__APPEARANCE:
+				return getAppearance() != null;
 		}
 		return super.eIsSet(featureID);
 	}

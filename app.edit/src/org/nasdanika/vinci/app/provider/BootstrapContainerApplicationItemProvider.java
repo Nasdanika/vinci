@@ -16,7 +16,6 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.nasdanika.vinci.app.AppFactory;
 import org.nasdanika.vinci.app.AppPackage;
 import org.nasdanika.vinci.app.BootstrapContainerApplication;
-import org.nasdanika.vinci.bootstrap.BootstrapFactory;
 import org.nasdanika.vinci.bootstrap.provider.BootstrapElementItemProvider;
 
 /**
@@ -234,22 +233,22 @@ public class BootstrapContainerApplicationItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(AppPackage.Literals.BOOTSTRAP_CONTAINER_APPLICATION__BUILDERS,
-				 AppFactory.eINSTANCE.createBootstrapContainerApplication()));
+				 AppFactory.eINSTANCE.createActionLink()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(AppPackage.Literals.BOOTSTRAP_CONTAINER_APPLICATION__BUILDERS,
-				 BootstrapFactory.eINSTANCE.createAppearance()));
+				 AppFactory.eINSTANCE.createActionReference()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(AppPackage.Literals.BOOTSTRAP_CONTAINER_APPLICATION__BUILDERS,
-				 BootstrapFactory.eINSTANCE.createLinkActionGroupItem()));
+				 AppFactory.eINSTANCE.createAction()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(AppPackage.Literals.BOOTSTRAP_CONTAINER_APPLICATION__BUILDERS,
-				 BootstrapFactory.eINSTANCE.createContentActionGroupItem()));
+				 AppFactory.eINSTANCE.createPartition()));
 	}
 
 	/**

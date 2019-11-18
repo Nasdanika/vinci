@@ -102,7 +102,9 @@ public class AppSwitch<T1> extends Switch<T1> {
 			case AppPackage.ABSTRACT_ACTION: {
 				AbstractAction abstractAction = (AbstractAction)theEObject;
 				T1 result = caseAbstractAction(abstractAction);
+				if (result == null) result = caseBootstrapContainerApplicationBuilder(abstractAction);
 				if (result == null) result = caseActionElement(abstractAction);
+				if (result == null) result = caseISupplierFactory(abstractAction);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -126,6 +128,7 @@ public class AppSwitch<T1> extends Switch<T1> {
 				if (result == null) result = caseContainer(actionBase);
 				if (result == null) result = caseModelElement(actionBase);
 				if (result == null) result = caseISupplierFactory(actionBase);
+				if (result == null) result = caseBootstrapContainerApplicationBuilder(actionBase);
 				if (result == null) result = caseActionElement(actionBase);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -140,7 +143,9 @@ public class AppSwitch<T1> extends Switch<T1> {
 				ActionLink actionLink = (ActionLink)theEObject;
 				T1 result = caseActionLink(actionLink);
 				if (result == null) result = caseAbstractAction(actionLink);
+				if (result == null) result = caseBootstrapContainerApplicationBuilder(actionLink);
 				if (result == null) result = caseActionElement(actionLink);
+				if (result == null) result = caseISupplierFactory(actionLink);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -148,7 +153,9 @@ public class AppSwitch<T1> extends Switch<T1> {
 				ActionReference actionReference = (ActionReference)theEObject;
 				T1 result = caseActionReference(actionReference);
 				if (result == null) result = caseAbstractAction(actionReference);
+				if (result == null) result = caseBootstrapContainerApplicationBuilder(actionReference);
 				if (result == null) result = caseActionElement(actionReference);
+				if (result == null) result = caseISupplierFactory(actionReference);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -161,6 +168,7 @@ public class AppSwitch<T1> extends Switch<T1> {
 				if (result == null) result = caseContainer(action);
 				if (result == null) result = caseModelElement(action);
 				if (result == null) result = caseISupplierFactory(action);
+				if (result == null) result = caseBootstrapContainerApplicationBuilder(action);
 				if (result == null) result = caseActionElement(action);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -174,6 +182,7 @@ public class AppSwitch<T1> extends Switch<T1> {
 				if (result == null) result = caseContainer(partition);
 				if (result == null) result = caseModelElement(partition);
 				if (result == null) result = caseISupplierFactory(partition);
+				if (result == null) result = caseBootstrapContainerApplicationBuilder(partition);
 				if (result == null) result = caseActionElement(partition);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -195,6 +204,12 @@ public class AppSwitch<T1> extends Switch<T1> {
 				if (result == null) result = caseHtml_Container(bootstrapContainerApplicationSection);
 				if (result == null) result = caseHtmlElement(bootstrapContainerApplicationSection);
 				if (result == null) result = caseModelElement(bootstrapContainerApplicationSection);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case AppPackage.BOOTSTRAP_CONTAINER_APPLICATION_BUILDER: {
+				BootstrapContainerApplicationBuilder bootstrapContainerApplicationBuilder = (BootstrapContainerApplicationBuilder)theEObject;
+				T1 result = caseBootstrapContainerApplicationBuilder(bootstrapContainerApplicationBuilder);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -289,6 +304,21 @@ public class AppSwitch<T1> extends Switch<T1> {
 	 * @generated
 	 */
 	public T1 caseBootstrapContainerApplicationSection(BootstrapContainerApplicationSection object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Bootstrap Container Application Builder</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Bootstrap Container Application Builder</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseBootstrapContainerApplicationBuilder(BootstrapContainerApplicationBuilder object) {
 		return null;
 	}
 

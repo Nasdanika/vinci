@@ -5,6 +5,7 @@ package org.nasdanika.vinci.app;
 import org.nasdanika.common.SupplierFactory;
 import org.nasdanika.html.bootstrap.Color;
 import org.nasdanika.ncore.ModelElement;
+import org.nasdanika.vinci.bootstrap.Appearance;
 
 /**
  * <!-- begin-user-doc -->
@@ -26,6 +27,7 @@ import org.nasdanika.ncore.ModelElement;
  *   <li>{@link org.nasdanika.vinci.app.Label#getTooltip <em>Tooltip</em>}</li>
  *   <li>{@link org.nasdanika.vinci.app.Label#isOutline <em>Outline</em>}</li>
  *   <li>{@link org.nasdanika.vinci.app.Label#getNotification <em>Notification</em>}</li>
+ *   <li>{@link org.nasdanika.vinci.app.Label#getAppearance <em>Appearance</em>}</li>
  * </ul>
  *
  * @see org.nasdanika.vinci.app.AppPackage#getLabel()
@@ -107,6 +109,31 @@ public interface Label extends ModelElement, SupplierFactory<Object> {
 	 * @generated
 	 */
 	void setNotification(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Appearance</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Can be used for cusomization of label appearance in addition to label appearance attributes - color and outline.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Appearance</em>' containment reference.
+	 * @see #setAppearance(Appearance)
+	 * @see org.nasdanika.vinci.app.AppPackage#getLabel_Appearance()
+	 * @model containment="true"
+	 * @generated
+	 */
+	Appearance getAppearance();
+
+	/**
+	 * Sets the value of the '{@link org.nasdanika.vinci.app.Label#getAppearance <em>Appearance</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Appearance</em>' containment reference.
+	 * @see #getAppearance()
+	 * @generated
+	 */
+	void setAppearance(Appearance value);
 
 	/**
 	 * Returns the value of the '<em><b>Text</b></em>' attribute.

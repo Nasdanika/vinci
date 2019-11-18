@@ -9,6 +9,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EGenericType;
+import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.ETypeParameter;
@@ -28,6 +29,7 @@ import org.nasdanika.vinci.app.ActivatorType;
 import org.nasdanika.vinci.app.AppFactory;
 import org.nasdanika.vinci.app.AppPackage;
 import org.nasdanika.vinci.app.BootstrapContainerApplication;
+import org.nasdanika.vinci.app.BootstrapContainerApplicationBuilder;
 import org.nasdanika.vinci.app.BootstrapContainerApplicationSection;
 import org.nasdanika.vinci.app.Category;
 import org.nasdanika.vinci.app.Label;
@@ -84,6 +86,13 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 	 * @generated
 	 */
 	private EClass bootstrapContainerApplicationSectionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass bootstrapContainerApplicationBuilderEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -281,6 +290,16 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 	 * @generated
 	 */
 	@Override
+	public EReference getLabel_Appearance() {
+		return (EReference)labelEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EAttribute getLabel_Text() {
 		return (EAttribute)labelEClass.getEStructuralFeatures().get(2);
 	}
@@ -443,6 +462,26 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 	@Override
 	public EClass getBootstrapContainerApplicationSection() {
 		return bootstrapContainerApplicationSectionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getBootstrapContainerApplicationBuilder() {
+		return bootstrapContainerApplicationBuilderEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getBootstrapContainerApplicationBuilder__CreateConsumer__Context() {
+		return bootstrapContainerApplicationBuilderEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -826,6 +865,7 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 		createEAttribute(labelEClass, LABEL__TOOLTIP);
 		createEAttribute(labelEClass, LABEL__OUTLINE);
 		createEAttribute(labelEClass, LABEL__NOTIFICATION);
+		createEReference(labelEClass, LABEL__APPEARANCE);
 
 		categoryEClass = createEClass(CATEGORY);
 
@@ -878,6 +918,9 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 		createEReference(bootstrapContainerApplicationEClass, BOOTSTRAP_CONTAINER_APPLICATION__BUILDERS);
 
 		bootstrapContainerApplicationSectionEClass = createEClass(BOOTSTRAP_CONTAINER_APPLICATION_SECTION);
+
+		bootstrapContainerApplicationBuilderEClass = createEClass(BOOTSTRAP_CONTAINER_APPLICATION_BUILDER);
+		createEOperation(bootstrapContainerApplicationBuilderEClass, BOOTSTRAP_CONTAINER_APPLICATION_BUILDER___CREATE_CONSUMER__CONTEXT);
 
 		// Create enums
 		actionRoleEEnum = createEEnum(ACTION_ROLE);
@@ -935,7 +978,14 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 		g2 = createEGenericType(categoryEClass_E);
 		g1.getETypeArguments().add(g2);
 		categoryEClass.getEGenericSuperTypes().add(g1);
-		abstractActionEClass.getESuperTypes().add(this.getActionElement());
+		g1 = createEGenericType(this.getBootstrapContainerApplicationBuilder());
+		abstractActionEClass.getEGenericSuperTypes().add(g1);
+		g1 = createEGenericType(this.getActionElement());
+		abstractActionEClass.getEGenericSuperTypes().add(g1);
+		g1 = createEGenericType(theNcorePackage.getISupplierFactory());
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		abstractActionEClass.getEGenericSuperTypes().add(g1);
 		g1 = createEGenericType(this.getCategory());
 		g2 = createEGenericType(this.getAbstractAction());
 		g1.getETypeArguments().add(g2);
@@ -978,6 +1028,7 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 		initEAttribute(getLabel_Tooltip(), ecorePackage.getEString(), "tooltip", null, 0, 1, Label.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getLabel_Outline(), ecorePackage.getEBoolean(), "outline", null, 0, 1, Label.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getLabel_Notification(), ecorePackage.getEString(), "notification", null, 0, 1, Label.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getLabel_Appearance(), theBootstrapPackage.getAppearance(), null, "appearance", null, 0, 1, Label.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(categoryEClass, Category.class, "Category", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1030,12 +1081,19 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 		initEReference(getBootstrapContainerApplication_NavigationPanel(), this.getBootstrapContainerApplicationSection(), null, "navigationPanel", null, 0, 1, BootstrapContainerApplication.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getBootstrapContainerApplication_ContentPanel(), this.getBootstrapContainerApplicationSection(), null, "contentPanel", null, 0, 1, BootstrapContainerApplication.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getBootstrapContainerApplication_Footer(), this.getBootstrapContainerApplicationSection(), null, "footer", null, 0, 1, BootstrapContainerApplication.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		g1 = createEGenericType(theNcorePackage.getIConsumerFactory());
-		g2 = createEGenericType(ecorePackage.getEJavaObject());
-		g1.getETypeArguments().add(g2);
-		initEReference(getBootstrapContainerApplication_Builders(), g1, null, "builders", null, 0, -1, BootstrapContainerApplication.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBootstrapContainerApplication_Builders(), this.getBootstrapContainerApplicationBuilder(), null, "builders", null, 0, -1, BootstrapContainerApplication.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(bootstrapContainerApplicationSectionEClass, BootstrapContainerApplicationSection.class, "BootstrapContainerApplicationSection", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(bootstrapContainerApplicationBuilderEClass, BootstrapContainerApplicationBuilder.class, "BootstrapContainerApplicationBuilder", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		EOperation op = initEOperation(getBootstrapContainerApplicationBuilder__CreateConsumer__Context(), null, "createConsumer", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theNcorePackage.getIContext(), "context", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, theNcorePackage.getException());
+		g1 = createEGenericType(theNcorePackage.getIConsumer());
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		initEOperation(op, g1);
 
 		// Initialize enums and add enum literals
 		initEEnum(actionRoleEEnum, ActionRole.class, "ActionRole");
@@ -1154,6 +1212,12 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 		   source,
 		   new String[] {
 			   "documentation", ""
+		   });
+		addAnnotation
+		  (getLabel_Appearance(),
+		   source,
+		   new String[] {
+			   "documentation", "Can be used for cusomization of label appearance in addition to label appearance attributes - color and outline."
 		   });
 		addAnnotation
 		  (categoryEClass,
@@ -1376,6 +1440,18 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 		   source,
 		   new String[] {
 			   "documentation", "Bootstrap container application section - header, navigation bar, navigation panel, content panel, or footer."
+		   });
+		addAnnotation
+		  (bootstrapContainerApplicationBuilderEClass,
+		   source,
+		   new String[] {
+			   "documentation", "Contributes to building BootstrapContainerApplication"
+		   });
+		addAnnotation
+		  (getBootstrapContainerApplicationBuilder__CreateConsumer__Context(),
+		   source,
+		   new String[] {
+			   "documentation", "Wraps element into a Consumer to be used as an application builder."
 		   });
 	}
 

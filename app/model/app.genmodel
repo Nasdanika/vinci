@@ -44,6 +44,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute app.ecore#//Label/tooltip"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute app.ecore#//Label/outline"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute app.ecore#//Label/notification"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference app.ecore#//Label/appearance"/>
     </genClasses>
     <genClasses ecoreClass="app.ecore#//Category">
       <genTypeParameters ecoreTypeParameter="app.ecore#//Category/E"/>
@@ -93,5 +94,10 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference app.ecore#//BootstrapContainerApplication/builders"/>
     </genClasses>
     <genClasses ecoreClass="app.ecore#//BootstrapContainerApplicationSection"/>
+    <genClasses image="false" ecoreClass="app.ecore#//BootstrapContainerApplicationBuilder">
+      <genOperations ecoreOperation="app.ecore#//BootstrapContainerApplicationBuilder/createConsumer">
+        <genParameters ecoreParameter="app.ecore#//BootstrapContainerApplicationBuilder/createConsumer/context"/>
+      </genOperations>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>

@@ -3,6 +3,7 @@
 package org.nasdanika.vinci.app;
 
 import org.eclipse.emf.common.util.EList;
+import org.nasdanika.common.SupplierFactory;
 
 
 /**
@@ -22,10 +23,10 @@ import org.eclipse.emf.common.util.EList;
  * </ul>
  *
  * @see org.nasdanika.vinci.app.AppPackage#getAbstractAction()
- * @model interface="true" abstract="true"
+ * @model interface="true" abstract="true" superTypes="org.nasdanika.vinci.app.BootstrapContainerApplicationBuilder org.nasdanika.vinci.app.ActionElement org.nasdanika.ncore.ISupplierFactory&lt;org.eclipse.emf.ecore.EJavaObject&gt;"
  * @generated
  */
-public interface AbstractAction extends ActionElement {
+public interface AbstractAction extends BootstrapContainerApplicationBuilder, ActionElement, SupplierFactory<Object> {
 
 	/**
 	 * Returns the value of the '<em><b>Action Mappings</b></em>' containment reference list.

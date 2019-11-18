@@ -119,8 +119,9 @@ public class ActionItemProvider extends ActionBaseItemProvider {
 		Object childObject = child;
 
 		boolean qualify =
-			childFeature == AppPackage.Literals.ABSTRACT_ACTION__ACTION_MAPPINGS ||
+			childFeature == AppPackage.Literals.LABEL__APPEARANCE ||
 			childFeature == AppPackage.Literals.CONTAINER__ELEMENTS ||
+			childFeature == AppPackage.Literals.ABSTRACT_ACTION__ACTION_MAPPINGS ||
 			childFeature == AppPackage.Literals.ACTION_BASE__CONTENT;
 
 		if (qualify) {

@@ -2,6 +2,7 @@
  */
 package org.nasdanika.vinci.app.impl;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
@@ -9,6 +10,9 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.InternalEList;
+import org.nasdanika.common.Consumer;
+import org.nasdanika.common.Context;
+import org.nasdanika.common.Supplier;
 import org.nasdanika.vinci.app.AbstractAction;
 import org.nasdanika.vinci.app.ActionMapping;
 import org.nasdanika.vinci.app.ActionReference;
@@ -162,6 +166,16 @@ public class ActionReferenceImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public Consumer<Object> createConsumer(Context context) throws Exception {
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -264,4 +278,28 @@ public class ActionReferenceImpl extends MinimalEObjectImpl.Container implements
 		return super.eIsSet(featureID);
 	}
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case AppPackage.ACTION_REFERENCE___CREATE_CONSUMER__CONTEXT:
+				try {
+					return createConsumer((Context)arguments.get(0));
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+		}
+		return super.eInvoke(operationID, arguments);
+	}
+
+	@Override
+	public Supplier<Object> create(Context arg) throws Exception {
+		throw new UnsupportedOperationException();
+	}
+		
 } //ActionReferenceImpl
