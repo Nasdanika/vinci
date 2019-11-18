@@ -29,7 +29,7 @@ import org.nasdanika.ncore.ModelElement;
  * </ul>
  *
  * @see org.nasdanika.vinci.app.AppPackage#getLabel()
- * @model abstract="true" superTypes="org.nasdanika.ncore.ModelElement org.nasdanika.ncore.SupplierFactory&lt;org.eclipse.emf.ecore.EJavaObject&gt;"
+ * @model abstract="true" superTypes="org.nasdanika.ncore.ModelElement org.nasdanika.ncore.ISupplierFactory&lt;org.eclipse.emf.ecore.EJavaObject&gt;"
  * @generated
  */
 public interface Label extends ModelElement, SupplierFactory<Object> {

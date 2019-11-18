@@ -468,7 +468,7 @@ public class ActionBaseItemProvider extends LabelItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(AppPackage.Literals.CONTAINER__ELEMENTS,
-				 NcoreFactory.eINSTANCE.createProvider()));
+				 NcoreFactory.eINSTANCE.createSupplier()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -503,7 +503,7 @@ public class ActionBaseItemProvider extends LabelItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(AppPackage.Literals.CONTAINER__ELEMENTS,
-				 NcoreFactory.eINSTANCE.createProviderEntry()));
+				 NcoreFactory.eINSTANCE.createSupplierEntry()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -568,7 +568,7 @@ public class ActionBaseItemProvider extends LabelItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(AppPackage.Literals.ACTION_BASE__CONTENT,
-				 NcoreFactory.eINSTANCE.createProvider()));
+				 NcoreFactory.eINSTANCE.createSupplier()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -603,7 +603,7 @@ public class ActionBaseItemProvider extends LabelItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(AppPackage.Literals.ACTION_BASE__CONTENT,
-				 NcoreFactory.eINSTANCE.createProviderEntry()));
+				 NcoreFactory.eINSTANCE.createSupplierEntry()));
 
 		newChildDescriptors.add
 			(createChildParameter

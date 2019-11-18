@@ -39,7 +39,7 @@ import org.nasdanika.vinci.bootstrap.BootstrapElement;
  * </ul>
  *
  * @see org.nasdanika.vinci.app.AppPackage#getBootstrapContainerApplication()
- * @model superTypes="org.nasdanika.vinci.bootstrap.BootstrapElement org.nasdanika.ncore.ConsumerFactory&lt;org.eclipse.emf.ecore.EJavaObject&gt;"
+ * @model superTypes="org.nasdanika.vinci.bootstrap.BootstrapElement org.nasdanika.ncore.IConsumerFactory&lt;org.eclipse.emf.ecore.EJavaObject&gt;"
  * @generated
  */
 public interface BootstrapContainerApplication extends BootstrapElement, ConsumerFactory<Object> {

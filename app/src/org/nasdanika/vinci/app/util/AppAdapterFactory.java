@@ -130,8 +130,8 @@ public class AppAdapterFactory extends AdapterFactoryImpl {
 				return createModelElementAdapter();
 			}
 			@Override
-			public <T> Adapter caseSupplierFactory(SupplierFactory<T> object) {
-				return createSupplierFactoryAdapter();
+			public <T> Adapter caseISupplierFactory(SupplierFactory<T> object) {
+				return createISupplierFactoryAdapter();
 			}
 			@Override
 			public Adapter caseHtmlElement(HtmlElement object) {
@@ -142,8 +142,8 @@ public class AppAdapterFactory extends AdapterFactoryImpl {
 				return createBootstrapElementAdapter();
 			}
 			@Override
-			public <T> Adapter caseConsumerFactory(ConsumerFactory<T> object) {
-				return createConsumerFactoryAdapter();
+			public <T> Adapter caseIConsumerFactory(ConsumerFactory<T> object) {
+				return createIConsumerFactoryAdapter();
 			}
 			@Override
 			public Adapter caseHtml_Container(org.nasdanika.vinci.html.Container object) {
@@ -268,7 +268,7 @@ public class AppAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.nasdanika.common.SupplierFactory <em>Supplier Factory</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.common.SupplierFactory <em>ISupplier Factory</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
@@ -277,7 +277,7 @@ public class AppAdapterFactory extends AdapterFactoryImpl {
 	 * @see org.nasdanika.common.SupplierFactory
 	 * @generated
 	 */
-	public Adapter createSupplierFactoryAdapter() {
+	public Adapter createISupplierFactoryAdapter() {
 		return null;
 	}
 
@@ -310,6 +310,20 @@ public class AppAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.common.ConsumerFactory <em>IConsumer Factory</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.common.ConsumerFactory
+	 * @generated
+	 */
+	public Adapter createIConsumerFactoryAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link org.nasdanika.vinci.html.Container <em>Container</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -320,20 +334,6 @@ public class AppAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createHtml_ContainerAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.nasdanika.common.ConsumerFactory <em>Consumer Factory</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.nasdanika.common.ConsumerFactory
-	 * @generated
-	 */
-	public Adapter createConsumerFactoryAdapter() {
 		return null;
 	}
 
