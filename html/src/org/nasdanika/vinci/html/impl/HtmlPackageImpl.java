@@ -369,7 +369,7 @@ public class HtmlPackageImpl extends EPackageImpl implements HtmlPackage {
 		htmlElementEClass.getESuperTypes().add(theNcorePackage.getModelElement());
 		EGenericType g1 = createEGenericType(this.getHtmlElement());
 		tagEClass.getEGenericSuperTypes().add(g1);
-		g1 = createEGenericType(theNcorePackage.getSupplierFactory());
+		g1 = createEGenericType(theNcorePackage.getISupplierFactory());
 		EGenericType g2 = createEGenericType(ecorePackage.getEJavaObject());
 		g1.getETypeArguments().add(g2);
 		tagEClass.getEGenericSuperTypes().add(g1);
@@ -377,7 +377,7 @@ public class HtmlPackageImpl extends EPackageImpl implements HtmlPackage {
 		contentTagEClass.getESuperTypes().add(this.getContainer());
 		g1 = createEGenericType(theNcorePackage.getNamedElement());
 		pageEClass.getEGenericSuperTypes().add(g1);
-		g1 = createEGenericType(theNcorePackage.getSupplierFactory());
+		g1 = createEGenericType(theNcorePackage.getISupplierFactory());
 		g2 = createEGenericType(ecorePackage.getEJavaObject());
 		g1.getETypeArguments().add(g2);
 		pageEClass.getEGenericSuperTypes().add(g1);
@@ -388,13 +388,13 @@ public class HtmlPackageImpl extends EPackageImpl implements HtmlPackage {
 		EOperation op = initEOperation(getHtmlElement__AsConsumer__Context(), null, "asConsumer", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theNcorePackage.getIContext(), "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, theNcorePackage.getException());
-		g1 = createEGenericType(theNcorePackage.getConsumer());
+		g1 = createEGenericType(theNcorePackage.getIConsumer());
 		g2 = createEGenericType(ecorePackage.getEJavaObject());
 		g1.getETypeArguments().add(g2);
 		initEOperation(op, g1);
 
 		initEClass(containerEClass, org.nasdanika.vinci.html.Container.class, "Container", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		g1 = createEGenericType(theNcorePackage.getSupplierFactory());
+		g1 = createEGenericType(theNcorePackage.getISupplierFactory());
 		g2 = createEGenericType(ecorePackage.getEJavaObject());
 		g1.getETypeArguments().add(g2);
 		initEReference(getContainer_Content(), g1, null, "content", null, 0, -1, org.nasdanika.vinci.html.Container.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -405,15 +405,15 @@ public class HtmlPackageImpl extends EPackageImpl implements HtmlPackage {
 		initEClass(contentTagEClass, ContentTag.class, "ContentTag", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(pageEClass, Page.class, "Page", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		g1 = createEGenericType(theNcorePackage.getSupplierFactory());
+		g1 = createEGenericType(theNcorePackage.getISupplierFactory());
 		g2 = createEGenericType(ecorePackage.getEJavaObject());
 		g1.getETypeArguments().add(g2);
 		initEReference(getPage_Head(), g1, null, "head", null, 0, -1, Page.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		g1 = createEGenericType(theNcorePackage.getSupplierFactory());
+		g1 = createEGenericType(theNcorePackage.getISupplierFactory());
 		g2 = createEGenericType(ecorePackage.getEJavaObject());
 		g1.getETypeArguments().add(g2);
 		initEReference(getPage_Body(), g1, null, "body", null, 0, -1, Page.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		g1 = createEGenericType(theNcorePackage.getConsumerFactory());
+		g1 = createEGenericType(theNcorePackage.getIConsumerFactory());
 		g2 = createEGenericType(ecorePackage.getEJavaObject());
 		g1.getETypeArguments().add(g2);
 		initEReference(getPage_Builders(), g1, null, "builders", null, 0, -1, Page.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -32,7 +32,7 @@ import org.nasdanika.ncore.NamedElement;
  * </ul>
  *
  * @see org.nasdanika.vinci.html.HtmlPackage#getPage()
- * @model superTypes="org.nasdanika.ncore.NamedElement org.nasdanika.ncore.SupplierFactory&lt;org.eclipse.emf.ecore.EJavaObject&gt;"
+ * @model superTypes="org.nasdanika.ncore.NamedElement org.nasdanika.ncore.ISupplierFactory&lt;org.eclipse.emf.ecore.EJavaObject&gt;"
  * @generated
  */
 public interface Page extends NamedElement, SupplierFactory<Object> {
@@ -46,7 +46,7 @@ public interface Page extends NamedElement, SupplierFactory<Object> {
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Head</em>' containment reference list.
 	 * @see org.nasdanika.vinci.html.HtmlPackage#getPage_Head()
-	 * @model type="org.nasdanika.ncore.SupplierFactory&lt;org.eclipse.emf.ecore.EJavaObject&gt;" containment="true"
+	 * @model type="org.nasdanika.ncore.ISupplierFactory&lt;org.eclipse.emf.ecore.EJavaObject&gt;" containment="true"
 	 * @generated
 	 */
 	EList<SupplierFactory<Object>> getHead();
@@ -61,7 +61,7 @@ public interface Page extends NamedElement, SupplierFactory<Object> {
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Body</em>' containment reference list.
 	 * @see org.nasdanika.vinci.html.HtmlPackage#getPage_Body()
-	 * @model type="org.nasdanika.ncore.SupplierFactory&lt;org.eclipse.emf.ecore.EJavaObject&gt;" containment="true"
+	 * @model type="org.nasdanika.ncore.ISupplierFactory&lt;org.eclipse.emf.ecore.EJavaObject&gt;" containment="true"
 	 * @generated
 	 */
 	EList<SupplierFactory<Object>> getBody();
@@ -76,7 +76,7 @@ public interface Page extends NamedElement, SupplierFactory<Object> {
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Builders</em>' containment reference list.
 	 * @see org.nasdanika.vinci.html.HtmlPackage#getPage_Builders()
-	 * @model type="org.nasdanika.ncore.ConsumerFactory&lt;org.eclipse.emf.ecore.EJavaObject&gt;" containment="true"
+	 * @model type="org.nasdanika.ncore.IConsumerFactory&lt;org.eclipse.emf.ecore.EJavaObject&gt;" containment="true"
 	 * @generated
 	 */
 	EList<ConsumerFactory<Object>> getBuilders();

@@ -94,8 +94,8 @@ public class HtmlAdapterFactory extends AdapterFactoryImpl {
 				return createModelElementAdapter();
 			}
 			@Override
-			public <T> Adapter caseSupplierFactory(SupplierFactory<T> object) {
-				return createSupplierFactoryAdapter();
+			public <T> Adapter caseISupplierFactory(SupplierFactory<T> object) {
+				return createISupplierFactoryAdapter();
 			}
 			@Override
 			public Adapter caseNamedElement(NamedElement object) {
@@ -206,7 +206,7 @@ public class HtmlAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.nasdanika.common.SupplierFactory <em>Supplier Factory</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.common.SupplierFactory <em>ISupplier Factory</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
@@ -215,7 +215,7 @@ public class HtmlAdapterFactory extends AdapterFactoryImpl {
 	 * @see org.nasdanika.common.SupplierFactory
 	 * @generated
 	 */
-	public Adapter createSupplierFactoryAdapter() {
+	public Adapter createISupplierFactoryAdapter() {
 		return null;
 	}
 

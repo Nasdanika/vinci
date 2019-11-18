@@ -35,7 +35,7 @@ public interface Container extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Content</em>' containment reference list.
 	 * @see org.nasdanika.vinci.html.HtmlPackage#getContainer_Content()
-	 * @model type="org.nasdanika.ncore.SupplierFactory&lt;org.eclipse.emf.ecore.EJavaObject&gt;" containment="true"
+	 * @model type="org.nasdanika.ncore.ISupplierFactory&lt;org.eclipse.emf.ecore.EJavaObject&gt;" containment="true"
 	 * @generated
 	 */
 	EList<SupplierFactory<Object>> getContent();

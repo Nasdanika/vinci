@@ -174,7 +174,7 @@ public class ContentTagItemProvider extends TagItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(HtmlPackage.Literals.CONTAINER__CONTENT,
-				 NcoreFactory.eINSTANCE.createProvider()));
+				 NcoreFactory.eINSTANCE.createSupplier()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -209,7 +209,7 @@ public class ContentTagItemProvider extends TagItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(HtmlPackage.Literals.CONTAINER__CONTENT,
-				 NcoreFactory.eINSTANCE.createProviderEntry()));
+				 NcoreFactory.eINSTANCE.createSupplierEntry()));
 
 		newChildDescriptors.add
 			(createChildParameter
