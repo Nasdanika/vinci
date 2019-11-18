@@ -2,6 +2,7 @@
  */
 package org.nasdanika.vinci.app;
 
+import org.eclipse.emf.common.util.EList;
 import org.nasdanika.common.ConsumerFactory;
 import org.nasdanika.vinci.bootstrap.BootstrapElement;
 
@@ -19,9 +20,22 @@ import org.nasdanika.vinci.bootstrap.BootstrapElement;
  * * Content pane
  * * Footer
  * 
- * Page structuring is performed with Bootstrap container, rows and columns.
+ * Page structuring is performed with Bootstrap container, rows and columns. 
+ * 
+ * Appearance of the top-level container can be customized using Appearance child element. Appearance of the row containing navigation and content panels can be customized using ``children/content-row`` attributes section.
+ * 
+ * E.g. 
+ * 
+ * ```yaml
+ * children:
+ *     content-row:
+ *         style:
+ *             min-height: 15rem
+ * ```
  * 
  * [Overview video](https://www.youtube.com/watch?v=W-hGbnM9wNM) in Russian.
+ * 
+ * 
  * 
  * <!-- end-model-doc -->
  *
@@ -36,6 +50,7 @@ import org.nasdanika.vinci.bootstrap.BootstrapElement;
  *   <li>{@link org.nasdanika.vinci.app.BootstrapContainerApplication#getNavigationPanel <em>Navigation Panel</em>}</li>
  *   <li>{@link org.nasdanika.vinci.app.BootstrapContainerApplication#getContentPanel <em>Content Panel</em>}</li>
  *   <li>{@link org.nasdanika.vinci.app.BootstrapContainerApplication#getFooter <em>Footer</em>}</li>
+ *   <li>{@link org.nasdanika.vinci.app.BootstrapContainerApplication#getBuilders <em>Builders</em>}</li>
  * </ul>
  *
  * @see org.nasdanika.vinci.app.AppPackage#getBootstrapContainerApplication()
@@ -203,4 +218,19 @@ public interface BootstrapContainerApplication extends BootstrapElement, Consume
 	 * @generated
 	 */
 	void setFooter(BootstrapContainerApplicationSection value);
+
+	/**
+	 * Returns the value of the '<em><b>Builders</b></em>' containment reference list.
+	 * The list contents are of type {@link org.nasdanika.common.ConsumerFactory}<code>&lt;java.lang.Object&gt;</code>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Builders operate on an instance of ``
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Builders</em>' containment reference list.
+	 * @see org.nasdanika.vinci.app.AppPackage#getBootstrapContainerApplication_Builders()
+	 * @model type="org.nasdanika.ncore.IConsumerFactory&lt;org.eclipse.emf.ecore.EJavaObject&gt;" containment="true"
+	 * @generated
+	 */
+	EList<ConsumerFactory<Object>> getBuilders();
 } // BootstrapContainerApplication

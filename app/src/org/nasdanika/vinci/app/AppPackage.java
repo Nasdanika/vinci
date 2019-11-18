@@ -1499,13 +1499,22 @@ public interface AppPackage extends EPackage {
 	int BOOTSTRAP_CONTAINER_APPLICATION__FOOTER = BootstrapPackage.BOOTSTRAP_ELEMENT_FEATURE_COUNT + 6;
 
 	/**
+	 * The feature id for the '<em><b>Builders</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOTSTRAP_CONTAINER_APPLICATION__BUILDERS = BootstrapPackage.BOOTSTRAP_ELEMENT_FEATURE_COUNT + 7;
+
+	/**
 	 * The number of structural features of the '<em>Bootstrap Container Application</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BOOTSTRAP_CONTAINER_APPLICATION_FEATURE_COUNT = BootstrapPackage.BOOTSTRAP_ELEMENT_FEATURE_COUNT + 7;
+	int BOOTSTRAP_CONTAINER_APPLICATION_FEATURE_COUNT = BootstrapPackage.BOOTSTRAP_ELEMENT_FEATURE_COUNT + 8;
 
 	/**
 	 * The operation id for the '<em>As Consumer</em>' operation.
@@ -1842,6 +1851,17 @@ public interface AppPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getBootstrapContainerApplication_Footer();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.nasdanika.vinci.app.BootstrapContainerApplication#getBuilders <em>Builders</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Builders</em>'.
+	 * @see org.nasdanika.vinci.app.BootstrapContainerApplication#getBuilders()
+	 * @see #getBootstrapContainerApplication()
+	 * @generated
+	 */
+	EReference getBootstrapContainerApplication_Builders();
 
 	/**
 	 * Returns the meta object for class '{@link org.nasdanika.vinci.app.BootstrapContainerApplicationSection <em>Bootstrap Container Application Section</em>}'.
@@ -2403,6 +2423,14 @@ public interface AppPackage extends EPackage {
 		 * @generated
 		 */
 		EReference BOOTSTRAP_CONTAINER_APPLICATION__FOOTER = eINSTANCE.getBootstrapContainerApplication_Footer();
+
+		/**
+		 * The meta object literal for the '<em><b>Builders</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BOOTSTRAP_CONTAINER_APPLICATION__BUILDERS = eINSTANCE.getBootstrapContainerApplication_Builders();
 
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.vinci.app.impl.BootstrapContainerApplicationSectionImpl <em>Bootstrap Container Application Section</em>}' class.

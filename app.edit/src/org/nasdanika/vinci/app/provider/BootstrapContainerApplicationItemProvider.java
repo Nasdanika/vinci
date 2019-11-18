@@ -16,6 +16,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.nasdanika.vinci.app.AppFactory;
 import org.nasdanika.vinci.app.AppPackage;
 import org.nasdanika.vinci.app.BootstrapContainerApplication;
+import org.nasdanika.vinci.bootstrap.BootstrapFactory;
 import org.nasdanika.vinci.bootstrap.provider.BootstrapElementItemProvider;
 
 /**
@@ -112,6 +113,7 @@ public class BootstrapContainerApplicationItemProvider
 			childrenFeatures.add(AppPackage.Literals.BOOTSTRAP_CONTAINER_APPLICATION__NAVIGATION_PANEL);
 			childrenFeatures.add(AppPackage.Literals.BOOTSTRAP_CONTAINER_APPLICATION__CONTENT_PANEL);
 			childrenFeatures.add(AppPackage.Literals.BOOTSTRAP_CONTAINER_APPLICATION__FOOTER);
+			childrenFeatures.add(AppPackage.Literals.BOOTSTRAP_CONTAINER_APPLICATION__BUILDERS);
 		}
 		return childrenFeatures;
 	}
@@ -186,6 +188,7 @@ public class BootstrapContainerApplicationItemProvider
 			case AppPackage.BOOTSTRAP_CONTAINER_APPLICATION__NAVIGATION_PANEL:
 			case AppPackage.BOOTSTRAP_CONTAINER_APPLICATION__CONTENT_PANEL:
 			case AppPackage.BOOTSTRAP_CONTAINER_APPLICATION__FOOTER:
+			case AppPackage.BOOTSTRAP_CONTAINER_APPLICATION__BUILDERS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -227,6 +230,26 @@ public class BootstrapContainerApplicationItemProvider
 			(createChildParameter
 				(AppPackage.Literals.BOOTSTRAP_CONTAINER_APPLICATION__FOOTER,
 				 AppFactory.eINSTANCE.createBootstrapContainerApplicationSection()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(AppPackage.Literals.BOOTSTRAP_CONTAINER_APPLICATION__BUILDERS,
+				 AppFactory.eINSTANCE.createBootstrapContainerApplication()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(AppPackage.Literals.BOOTSTRAP_CONTAINER_APPLICATION__BUILDERS,
+				 BootstrapFactory.eINSTANCE.createAppearance()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(AppPackage.Literals.BOOTSTRAP_CONTAINER_APPLICATION__BUILDERS,
+				 BootstrapFactory.eINSTANCE.createLinkActionGroupItem()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(AppPackage.Literals.BOOTSTRAP_CONTAINER_APPLICATION__BUILDERS,
+				 BootstrapFactory.eINSTANCE.createContentActionGroupItem()));
 	}
 
 	/**

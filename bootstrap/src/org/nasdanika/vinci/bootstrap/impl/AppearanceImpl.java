@@ -3,9 +3,7 @@
 package org.nasdanika.vinci.bootstrap.impl;
 
 import java.util.Collection;
-import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
@@ -13,15 +11,11 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.InternalEList;
-import org.json.JSONArray;
-import org.json.JSONObject;
 import org.nasdanika.common.CompoundConsumer;
 import org.nasdanika.common.Consumer;
 import org.nasdanika.common.Context;
 import org.nasdanika.common.ProgressMonitor;
-import org.nasdanika.common.Status;
 import org.nasdanika.common.Util;
-import org.nasdanika.html.HTMLElement;
 import org.nasdanika.html.bootstrap.Breakpoint;
 import org.nasdanika.html.bootstrap.Color;
 import org.nasdanika.html.bootstrap.Placement;
@@ -614,7 +608,6 @@ public class AppearanceImpl extends MinimalEObjectImpl.Container implements Appe
 				return "Attributes";
 			}
 
-			@SuppressWarnings("unchecked")
 			@Override
 			public void execute(Object arg, ProgressMonitor progressMonitor) throws Exception {
 				String attributesStr = getAttributes();
@@ -622,108 +615,8 @@ public class AppearanceImpl extends MinimalEObjectImpl.Container implements Appe
 					Yaml yaml = new Yaml();
 					Map<String,Object> attributes = yaml.load(attributesStr);
 					org.nasdanika.html.bootstrap.BootstrapElement<?,?> bootstrapElement = (org.nasdanika.html.bootstrap.BootstrapElement<?,?>) arg;
-					HTMLElement<?> htmlElement = bootstrapElement.toHTMLElement();
-					for (Entry<String, Object> entry: attributes.entrySet()) {
-						Object value = entry.getValue();
-						switch (entry.getKey()) {
-						case "children":
-							// Pseudo attribute for hierarchical configurations - ignored.
-							break;
-						case "class":
-							addClass(htmlElement, null, value);
-							break;
-						case "style":
-							if (value instanceof Collection) {
-								StringBuilder styleBuilder = new StringBuilder();
-								for (Object e: (Collection<?>) value) {
-									if (styleBuilder.length() > 0) {
-										styleBuilder.append(" ");
-									}
-									styleBuilder.append(context.interpolate(String.valueOf(e)));
-								}
-								htmlElement.attribute(entry.getKey(), styleBuilder.toString());								
-							} else if (value instanceof Map) {
-								for (Entry<String, Object> se: ((Map<String,Object>) value).entrySet()) {
-									setStyle(htmlElement, se.getKey(), se.getValue());
-								}
-							} else {
-								htmlElement.attribute(entry.getKey(), context.interpolate(String.valueOf(value)));								
-							}
-							break;
-						case "data":
-							setDataAttribute(htmlElement, entry.getKey(), value);
-							break;
-						default:
-							if (!(entry.getKey().startsWith("data-")) && (value instanceof List || value instanceof Map)) {
-								progressMonitor.worked(Status.WARNING, 0, "Structured value for attribute "+entry.getKey()+": "+value, entry);
-							}
-							if (value instanceof Map) {
-								JSONObject jsonObject = new JSONObject((Map<?,?>) value);
-								htmlElement.attribute(entry.getKey(), context.interpolate(jsonObject.toString())); // TODO - interpolate only scalar values?								
-							} else if (value instanceof Collection) {
-								JSONArray jsonArray = new JSONArray((Collection<?>) value);
-								htmlElement.attribute(entry.getKey(), context.interpolate(jsonArray.toString())); // TODO - interpolate only scalar values?																
-							} else {
-								htmlElement.attribute(entry.getKey(), context.interpolate(String.valueOf(value)));
-							}
-						}
-					}
+					bootstrapElement.toHTMLElement().attributes(context.interpolate(attributes));
 				}
-			}
-			
-			@SuppressWarnings("unchecked")
-			private void setDataAttribute(HTMLElement<?> htmlElement, String key, Object value) {
-				if (value instanceof Map) {
-					for (Entry<String, Object> entry: ((Map<String,Object>) value).entrySet()) {
-						setDataAttribute(htmlElement, key+"-"+entry.getKey(), value);
-					}
-				} else if (value instanceof Collection) {
-					JSONArray jsonArray = new JSONArray((Collection<?>) value);
-					htmlElement.attribute(key, context.interpolate(jsonArray.toString())); // TODO - interpolate only scalar values?																
-				} else {
-					htmlElement.attribute(key, context.interpolate(String.valueOf(value)));
-				}				
-			}
-
-			@SuppressWarnings("unchecked")
-			private void setStyle(HTMLElement<?> htmlElement, String key, Object value) {
-				if (value instanceof Map) {
-					for (Entry<String, Object> entry: ((Map<String,Object>) value).entrySet()) {
-						setStyle(htmlElement, key + "-" + entry.getKey(), entry.getValue());
-					}
-				} else if (value instanceof Collection) {
-					StringBuilder styleBuilder = new StringBuilder();
-					for (Object e: (Collection<?>) value) {
-						if (styleBuilder.length() > 0) {
-							styleBuilder.append(" ");
-						}
-						styleBuilder.append(context.interpolate(String.valueOf(e)));
-					}
-					htmlElement.style(key, styleBuilder.toString());
-				} else {
-					htmlElement.style(key, context.interpolate(String.valueOf(value)));
-				}				
-			}
-
-			@SuppressWarnings("unchecked")
-			private void addClass(HTMLElement<?> htmlElement, String prefix, Object value) {
-				if (value instanceof Map) {
-					for (Entry<String, Object> entry: ((Map<String,Object>) value).entrySet()) {
-						addClass(htmlElement, prefix == null ? String.valueOf(entry.getKey()) : prefix + "-" + entry.getKey(), entry.getValue());
-					}
-				} else if (value instanceof Collection) {
-					for (Object e: (Collection<?>) value) {
-						addClass(htmlElement, prefix, e);
-					}
-				} else {
-					if (value instanceof Boolean) {
-						if (Boolean.TRUE.equals(value) && prefix != null) {
-							htmlElement.addClass(prefix);
-						}
-					} else {
-						htmlElement.addClass(prefix == null ? String.valueOf(value) : prefix + "-" + context.interpolate(String.valueOf(value)));
-					}
-				}				
 			}
 			
 		};

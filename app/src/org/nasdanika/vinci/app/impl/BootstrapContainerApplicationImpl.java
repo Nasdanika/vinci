@@ -3,25 +3,32 @@
 package org.nasdanika.vinci.app.impl;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
 import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+import org.eclipse.emf.ecore.util.InternalEList;
 import org.nasdanika.common.Command;
 import org.nasdanika.common.CompoundExecutionParticipant;
 import org.nasdanika.common.Consumer;
+import org.nasdanika.common.ConsumerFactory;
 import org.nasdanika.common.Context;
 import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.common.Supplier;
+import org.nasdanika.common.Util;
 import org.nasdanika.html.HTMLPage;
 import org.nasdanika.html.bootstrap.BootstrapFactory;
 import org.nasdanika.vinci.app.AppPackage;
 import org.nasdanika.vinci.app.BootstrapContainerApplication;
 import org.nasdanika.vinci.app.BootstrapContainerApplicationSection;
+import org.nasdanika.vinci.bootstrap.Appearance;
 import org.nasdanika.vinci.bootstrap.impl.BootstrapElementImpl;
+import org.yaml.snakeyaml.Yaml;
 
 /**
  * <!-- begin-user-doc -->
@@ -38,6 +45,7 @@ import org.nasdanika.vinci.bootstrap.impl.BootstrapElementImpl;
  *   <li>{@link org.nasdanika.vinci.app.impl.BootstrapContainerApplicationImpl#getNavigationPanel <em>Navigation Panel</em>}</li>
  *   <li>{@link org.nasdanika.vinci.app.impl.BootstrapContainerApplicationImpl#getContentPanel <em>Content Panel</em>}</li>
  *   <li>{@link org.nasdanika.vinci.app.impl.BootstrapContainerApplicationImpl#getFooter <em>Footer</em>}</li>
+ *   <li>{@link org.nasdanika.vinci.app.impl.BootstrapContainerApplicationImpl#getBuilders <em>Builders</em>}</li>
  * </ul>
  *
  * @generated
@@ -276,6 +284,17 @@ public class BootstrapContainerApplicationImpl extends BootstrapElementImpl impl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public EList<ConsumerFactory<Object>> getBuilders() {
+		return (EList<ConsumerFactory<Object>>)eDynamicGet(AppPackage.BOOTSTRAP_CONTAINER_APPLICATION__BUILDERS, AppPackage.Literals.BOOTSTRAP_CONTAINER_APPLICATION__BUILDERS, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -289,6 +308,8 @@ public class BootstrapContainerApplicationImpl extends BootstrapElementImpl impl
 				return basicSetContentPanel(null, msgs);
 			case AppPackage.BOOTSTRAP_CONTAINER_APPLICATION__FOOTER:
 				return basicSetFooter(null, msgs);
+			case AppPackage.BOOTSTRAP_CONTAINER_APPLICATION__BUILDERS:
+				return ((InternalEList<?>)getBuilders()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -315,6 +336,8 @@ public class BootstrapContainerApplicationImpl extends BootstrapElementImpl impl
 				return getContentPanel();
 			case AppPackage.BOOTSTRAP_CONTAINER_APPLICATION__FOOTER:
 				return getFooter();
+			case AppPackage.BOOTSTRAP_CONTAINER_APPLICATION__BUILDERS:
+				return getBuilders();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -324,6 +347,7 @@ public class BootstrapContainerApplicationImpl extends BootstrapElementImpl impl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -347,6 +371,10 @@ public class BootstrapContainerApplicationImpl extends BootstrapElementImpl impl
 				return;
 			case AppPackage.BOOTSTRAP_CONTAINER_APPLICATION__FOOTER:
 				setFooter((BootstrapContainerApplicationSection)newValue);
+				return;
+			case AppPackage.BOOTSTRAP_CONTAINER_APPLICATION__BUILDERS:
+				getBuilders().clear();
+				getBuilders().addAll((Collection<? extends ConsumerFactory<Object>>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -381,6 +409,9 @@ public class BootstrapContainerApplicationImpl extends BootstrapElementImpl impl
 			case AppPackage.BOOTSTRAP_CONTAINER_APPLICATION__FOOTER:
 				setFooter((BootstrapContainerApplicationSection)null);
 				return;
+			case AppPackage.BOOTSTRAP_CONTAINER_APPLICATION__BUILDERS:
+				getBuilders().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -407,6 +438,8 @@ public class BootstrapContainerApplicationImpl extends BootstrapElementImpl impl
 				return getContentPanel() != null;
 			case AppPackage.BOOTSTRAP_CONTAINER_APPLICATION__FOOTER:
 				return getFooter() != null;
+			case AppPackage.BOOTSTRAP_CONTAINER_APPLICATION__BUILDERS:
+				return !getBuilders().isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -491,8 +524,23 @@ public class BootstrapContainerApplicationImpl extends BootstrapElementImpl impl
 							}
 						};
 						
+						@SuppressWarnings("unchecked")
 						protected void configureContentRow(org.nasdanika.html.bootstrap.Container.Row contentRow) {
-							// TODO - min height
+							Appearance appearance = getAppearance();
+							if (appearance != null) {
+								String attributesStr = appearance.getAttributes();
+								if (!Util.isBlank(attributesStr)) {
+									Yaml yaml = new Yaml();
+									Map<String,Object> attributes = yaml.load(attributesStr);
+									Object children = attributes.get("children");
+									if (children instanceof Map) {
+										Object contentRowAttributes = ((Map<?,?>) children).get("content-row");
+										if (contentRowAttributes instanceof Map) {
+											contentRow.toHTMLElement().attributes(context.interpolate((Map<String,Object>) contentRowAttributes));
+										}
+									}
+								}
+							}
 						};
 						
 						protected void configureNavigationPanel(org.nasdanika.html.bootstrap.Container.Row.Col navigationPanel) {
@@ -545,8 +593,23 @@ public class BootstrapContainerApplicationImpl extends BootstrapElementImpl impl
 							}
 						};
 						
+						@SuppressWarnings("unchecked")
 						protected void configureContentRow(org.nasdanika.html.bootstrap.Container.Row contentRow) {
-							// TODO - min height
+							Appearance appearance = getAppearance();
+							if (appearance != null) {
+								String attributesStr = appearance.getAttributes();
+								if (!Util.isBlank(attributesStr)) {
+									Yaml yaml = new Yaml();
+									Map<String,Object> attributes = yaml.load(attributesStr);
+									Object children = attributes.get("children");
+									if (children instanceof Map) {
+										Object contentRowAttributes = ((Map<?,?>) children).get("content-row");
+										if (contentRowAttributes instanceof Map) {
+											contentRow.toHTMLElement().attributes(context.interpolate((Map<String,Object>) contentRowAttributes));
+										}
+									}
+								}
+							}
 						};
 						
 						protected void configureNavigationPanel(org.nasdanika.html.bootstrap.Container.Row.Col navigationPanel) {

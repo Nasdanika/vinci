@@ -431,6 +431,16 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 	 * @generated
 	 */
 	@Override
+	public EReference getBootstrapContainerApplication_Builders() {
+		return (EReference)bootstrapContainerApplicationEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getBootstrapContainerApplicationSection() {
 		return bootstrapContainerApplicationSectionEClass;
 	}
@@ -865,6 +875,7 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 		createEReference(bootstrapContainerApplicationEClass, BOOTSTRAP_CONTAINER_APPLICATION__NAVIGATION_PANEL);
 		createEReference(bootstrapContainerApplicationEClass, BOOTSTRAP_CONTAINER_APPLICATION__CONTENT_PANEL);
 		createEReference(bootstrapContainerApplicationEClass, BOOTSTRAP_CONTAINER_APPLICATION__FOOTER);
+		createEReference(bootstrapContainerApplicationEClass, BOOTSTRAP_CONTAINER_APPLICATION__BUILDERS);
 
 		bootstrapContainerApplicationSectionEClass = createEClass(BOOTSTRAP_CONTAINER_APPLICATION_SECTION);
 
@@ -1019,6 +1030,10 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 		initEReference(getBootstrapContainerApplication_NavigationPanel(), this.getBootstrapContainerApplicationSection(), null, "navigationPanel", null, 0, 1, BootstrapContainerApplication.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getBootstrapContainerApplication_ContentPanel(), this.getBootstrapContainerApplicationSection(), null, "contentPanel", null, 0, 1, BootstrapContainerApplication.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getBootstrapContainerApplication_Footer(), this.getBootstrapContainerApplicationSection(), null, "footer", null, 0, 1, BootstrapContainerApplication.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		g1 = createEGenericType(theNcorePackage.getIConsumerFactory());
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		initEReference(getBootstrapContainerApplication_Builders(), g1, null, "builders", null, 0, -1, BootstrapContainerApplication.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(bootstrapContainerApplicationSectionEClass, BootstrapContainerApplicationSection.class, "BootstrapContainerApplicationSection", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1336,7 +1351,7 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 		  (bootstrapContainerApplicationEClass,
 		   source,
 		   new String[] {
-			   "documentation", "Bootstrap container application is a page builder which structures a page into 5 areas:\n\n* Header\n* Navigation bar\n* Navigation pane\n* Content pane\n* Footer\n\nPage structuring is performed with Bootstrap container, rows and columns.\n\n[Overview video](https://www.youtube.com/watch?v=W-hGbnM9wNM) in Russian.\n"
+			   "documentation", "Bootstrap container application is a page builder which structures a page into 5 areas:\n\n* Header\n* Navigation bar\n* Navigation pane\n* Content pane\n* Footer\n\nPage structuring is performed with Bootstrap container, rows and columns. \n\nAppearance of the top-level container can be customized using Appearance child element. Appearance of the row containing navigation and content panels can be customized using ``children/content-row`` attributes section.\n\nE.g. \n\n```yaml\nchildren:\n    content-row:\n        style:\n            min-height: 15rem\n```\n\n[Overview video](https://www.youtube.com/watch?v=W-hGbnM9wNM) in Russian.\n\n\n"
 		   });
 		addAnnotation
 		  (getBootstrapContainerApplication_Fluid(),
@@ -1349,6 +1364,12 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 		   source,
 		   new String[] {
 			   "documentation", "If true, a Backbone router code is generated in the header, which allows to build single-page applications. Such applications typically deliver better user experience, but don\'t work over the file protocol, i.e. when files are opened from disk."
+		   });
+		addAnnotation
+		  (getBootstrapContainerApplication_Builders(),
+		   source,
+		   new String[] {
+			   "documentation", "Builders operate on an instance of ``"
 		   });
 		addAnnotation
 		  (bootstrapContainerApplicationSectionEClass,
