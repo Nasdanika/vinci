@@ -14,10 +14,12 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.nasdanika.common.Command;
+import org.nasdanika.common.CompoundConsumerFactory;
 import org.nasdanika.common.CompoundExecutionParticipant;
 import org.nasdanika.common.Consumer;
 import org.nasdanika.common.ConsumerFactory;
 import org.nasdanika.common.Context;
+import org.nasdanika.common.Function;
 import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.common.Supplier;
 import org.nasdanika.common.Util;
@@ -453,6 +455,7 @@ public class BootstrapContainerApplicationImpl extends BootstrapElementImpl impl
 		Footer
 	}
 			
+	@SuppressWarnings("resource")
 	@Override
 	public Consumer<Object> create(Context context) throws Exception {
 		
@@ -485,7 +488,7 @@ public class BootstrapContainerApplicationImpl extends BootstrapElementImpl impl
 			sections.put(Section.Footer, footer.asConsumer(context));
 		}
 				
-		class Generator extends CompoundExecutionParticipant<Consumer<Object>> implements Consumer<Object> {
+		class Generator extends CompoundExecutionParticipant<Consumer<Object>> implements Function<Object, Object> {
 
 			protected Generator(String name) {
 				super(name);
@@ -494,11 +497,12 @@ public class BootstrapContainerApplicationImpl extends BootstrapElementImpl impl
 			List<Command> sectionBuilders = new ArrayList<>();
 
 			@Override
-			public void execute(Object arg, ProgressMonitor progressMonitor) throws Exception {
+			public Object execute(Object arg, ProgressMonitor progressMonitor) throws Exception {
 				progressMonitor.setWorkRemaining(size());
 				
+				Object app;
 				if (isRouter()) {
-					new org.nasdanika.html.app.impl.BootstrapContainerRouterApplication(
+					app = new org.nasdanika.html.app.impl.BootstrapContainerRouterApplication(
 							context.get(BootstrapFactory.class, BootstrapFactory.INSTANCE),
 							(HTMLPage) arg,
 							isFluid()) {
@@ -566,7 +570,7 @@ public class BootstrapContainerApplicationImpl extends BootstrapElementImpl impl
 						
 					};							
 				} else {				
-					new org.nasdanika.html.app.impl.BootstrapContainerApplication(
+					app = new org.nasdanika.html.app.impl.BootstrapContainerApplication(
 							context.get(BootstrapFactory.class, BootstrapFactory.INSTANCE),
 							(HTMLPage) arg,
 							isFluid()) {
@@ -640,6 +644,7 @@ public class BootstrapContainerApplicationImpl extends BootstrapElementImpl impl
 					sectionBuilder.splitAndExecute(progressMonitor);
 				}
 				
+				return app;
 			}
 
 			@Override
@@ -649,7 +654,18 @@ public class BootstrapContainerApplicationImpl extends BootstrapElementImpl impl
 			
 		}
 		
-		return new Generator(getTitle());
+		Generator generator = new Generator(getTitle());
+		
+		EList<ConsumerFactory<Object>> builders = getBuilders();
+		if (builders.isEmpty()) {
+			return generator.then(Consumer.nop());
+		} 
+		
+		if (builders.size() == 1) {
+			return generator.then(builders.get(0).create(context));
+		}
+		
+		return generator.then(new CompoundConsumerFactory<Object>("Builders", builders).create(context));
 	}
 	
 	@Override

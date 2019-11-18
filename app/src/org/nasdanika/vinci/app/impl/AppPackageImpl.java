@@ -1369,7 +1369,7 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 		  (getBootstrapContainerApplication_Builders(),
 		   source,
 		   new String[] {
-			   "documentation", "Builders operate on an instance of ``"
+			   "documentation", "Builders operate on an instance of ``org.nasdanika.html.app.impl.BootstrapContainerRouterApplication``\npassed to them by this model element during generation."
 		   });
 		addAnnotation
 		  (bootstrapContainerApplicationSectionEClass,

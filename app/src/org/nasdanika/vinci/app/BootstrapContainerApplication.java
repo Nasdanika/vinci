@@ -225,7 +225,8 @@ public interface BootstrapContainerApplication extends BootstrapElement, Consume
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Builders operate on an instance of ``
+	 * Builders operate on an instance of ``org.nasdanika.html.app.impl.BootstrapContainerRouterApplication``
+	 * passed to them by this model element during generation.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Builders</em>' containment reference list.
 	 * @see org.nasdanika.vinci.app.AppPackage#getBootstrapContainerApplication_Builders()
