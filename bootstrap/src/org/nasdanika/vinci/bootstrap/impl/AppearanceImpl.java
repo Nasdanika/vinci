@@ -626,6 +626,9 @@ public class AppearanceImpl extends MinimalEObjectImpl.Container implements Appe
 					for (Entry<String, Object> entry: attributes.entrySet()) {
 						Object value = entry.getValue();
 						switch (entry.getKey()) {
+						case "children":
+							// Pseudo attribute for hierarchical configurations - ignored.
+							break;
 						case "class":
 							addClass(htmlElement, null, value);
 							break;

@@ -64,10 +64,11 @@ public interface Appearance extends EObject, ConsumerFactory<Object> {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * HTML attributes in [YAML](https://en.wikipedia.org/wiki/YAML) format. YAML is used because:
+	 * HTML attributes in [YAML](https://en.wikipedia.org/wiki/YAML) format. YAML is used because it:
 	 * 
 	 * * Provides a convenient way of definining structured/hierarchical attributes such as ``class``, ``style``, and ``data-*``. These attributes are treated in a special way as explained below.
 	 * * Comments improve maintainability.
+	 * * Allows to define a hierarchy of element configurations with ``children`` pesudo-attribute which is not output to HTML.
 	 * 
 	 * ## Interpolation
 	 * 
