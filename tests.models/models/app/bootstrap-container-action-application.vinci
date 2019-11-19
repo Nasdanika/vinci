@@ -10,17 +10,23 @@
         <border color="DARK"/>
       </appearance>
     </header>
-    <navigationPanel/>
+    <navigationPanel>
+      <width width="auto"/>
+    </navigationPanel>
     <footer>
       <appearance background="LIGHT">
         <text alignment="CENTER" italic="true"/>
       </appearance>
     </footer>
     <builders xsi:type="org.nasdanika.vinci.app:Action" title="Bank of Nasdanika" description="Root action of the Bank of Nasdanika web site." id="index" text="Bank of Nasdanika" icon="fas fa-university" linkedElements="//@builders.0/@builders.0/@elements.0 //@builders.0/@builders.0/@elements.4 //@builders.0/@builders.0/@elements.5" role="Context">
-      <appearance attributes="class:&#xA;    display: 4"/>
+      <appearance attributes="class:&#xA;    display: 4&#xA;style:&#xA;    text:&#xA;        decoration: none&#xA;">
+        <text color="DARK"/>
+      </appearance>
       <elements xsi:type="org.nasdanika.vinci.app:Action" title="Joe Doe" description="Principal action for a bank customer - Joe Doe" id="5efbff7d-842a-4093-bce6-7dc00880cb2a" text="Joe Doe" icon="fas fa-user" linkedElements="//@builders.0/@builders.0/@elements.1 //@builders.0/@builders.0/@elements.2 //@builders.0/@builders.0/@elements.3 //@builders.0/@builders.0/@elements.6 //@builders.0/@builders.0/@elements.7"/>
       <elements xsi:type="org.nasdanika.vinci.app:Action" title="Checking" id="2dcb1eb8-c6ca-4190-82e5-cb8db0bc9a1d" text="Checking-1234" icon="fas fa-money-check-alt"/>
-      <elements xsi:type="org.nasdanika.vinci.app:Action" title="Savings" id="24c99d24-3e80-4da9-815d-6d46b77e39ea" text="Savings-5678" icon="fas fa-piggy-bank"/>
+      <elements xsi:type="org.nasdanika.vinci.app:Action" title="Savings" id="24c99d24-3e80-4da9-815d-6d46b77e39ea" text="Savings-5678" icon="fas fa-piggy-bank">
+        <content xsi:type="org.nasdanika.ncore:Value" value="TODO - Account summary and current transactions."/>
+      </elements>
       <elements xsi:type="org.nasdanika.vinci.app:Action" title="Credit Card" id="b6b8ce55-9330-4070-b5c0-5d8b45cdf23c" text="Super Rewards-3456" icon="far fa-credit-card"/>
       <elements xsi:type="org.nasdanika.vinci.app:Action" title="Locations" description="Bank locations." id="39d84b55-2253-4846-9544-a87c765584dd" text="Locations" icon="far fa-building">
         <appearance>

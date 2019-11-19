@@ -11,15 +11,12 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
-
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.nasdanika.emf.edit.EReferenceItemProvider;
 import org.nasdanika.vinci.app.AppPackage;
 import org.nasdanika.vinci.app.BootstrapContainerApplicationPanel;
-
 import org.nasdanika.vinci.bootstrap.BootstrapFactory;
-import org.nasdanika.vinci.bootstrap.BootstrapPackage;
 import org.nasdanika.vinci.html.HtmlPackage;
 
 /**
@@ -64,7 +61,7 @@ public class BootstrapContainerApplicationPanelItemProvider extends BootstrapCon
 			children = new ArrayList<>();
 			eReferenceItemProviders.put(object, children);
 			children.add(new EReferenceItemProvider(this, (EObject) object, HtmlPackage.Literals.CONTAINER__CONTENT)); 
-			children.add(new EReferenceItemProvider(this, (EObject) object, BootstrapPackage.Literals.COLUMN__WIDTH));
+			children.add(new EReferenceItemProvider(this, (EObject) object, AppPackage.Literals.BOOTSTRAP_CONTAINER_APPLICATION_PANEL__WIDTH));
 		}
 		return children;
 	}	
@@ -124,14 +121,11 @@ public class BootstrapContainerApplicationPanelItemProvider extends BootstrapCon
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((BootstrapContainerApplicationPanel)object).getTitle();
-		return label == null || label.length() == 0 ?
-			getString("_UI_BootstrapContainerApplicationPanel_type") :
-			getString("_UI_BootstrapContainerApplicationPanel_type") + " " + label;
+		return super.getText(object);
 	}
 
 

@@ -24,6 +24,8 @@ import org.nasdanika.common.Supplier;
 import org.nasdanika.common.Util;
 import org.nasdanika.html.HTMLPage;
 import org.nasdanika.html.bootstrap.BootstrapFactory;
+import org.nasdanika.html.bootstrap.Breakpoint;
+import org.nasdanika.html.bootstrap.Size;
 import org.nasdanika.vinci.app.AppPackage;
 import org.nasdanika.vinci.app.BootstrapContainerApplication;
 import org.nasdanika.vinci.app.BootstrapContainerApplicationBuilder;
@@ -516,6 +518,7 @@ public class BootstrapContainerApplicationImpl extends BootstrapElementImpl impl
 						};								
 						
 						protected void configureHeader(org.nasdanika.html.bootstrap.Container.Row.Col header) {
+							header.width(Breakpoint.DEFAULT, Size.NONE);
 							Consumer<Object> headerConsumer = sections.get(Section.Header);
 							if (headerConsumer != null) {
 								sectionBuilders.add(Supplier.from(header, "Header").then(headerConsumer));
@@ -523,6 +526,7 @@ public class BootstrapContainerApplicationImpl extends BootstrapElementImpl impl
 						};
 						
 						protected void configureNavigationBar(org.nasdanika.html.bootstrap.Container.Row.Col navigationBar) {
+							navigationBar.width(Breakpoint.DEFAULT, Size.NONE);
 							Consumer<Object> navBarConsumer = sections.get(Section.NavigationBar);
 							if (navBarConsumer != null) {
 								sectionBuilders.add(Supplier.from(navigationBar, "Navigation Bar").then(navBarConsumer));
@@ -563,6 +567,7 @@ public class BootstrapContainerApplicationImpl extends BootstrapElementImpl impl
 						};
 						
 						protected void configureFooter(org.nasdanika.html.bootstrap.Container.Row.Col footer) {
+							footer.width(Breakpoint.DEFAULT, Size.NONE);
 							Consumer<Object> footerConsumer = sections.get(Section.Footer);
 							if (footerConsumer != null) {
 								sectionBuilders.add(Supplier.from(footer, "Footer").then(footerConsumer));
@@ -585,6 +590,7 @@ public class BootstrapContainerApplicationImpl extends BootstrapElementImpl impl
 						};								
 						
 						protected void configureHeader(org.nasdanika.html.bootstrap.Container.Row.Col header) {
+							header.width(Breakpoint.DEFAULT, Size.NONE);
 							Consumer<Object> headerConsumer = sections.get(Section.Header);
 							if (headerConsumer != null) {
 								sectionBuilders.add(Supplier.from(header, "Header").then(headerConsumer));
@@ -592,6 +598,7 @@ public class BootstrapContainerApplicationImpl extends BootstrapElementImpl impl
 						};
 						
 						protected void configureNavigationBar(org.nasdanika.html.bootstrap.Container.Row.Col navigationBar) {
+							navigationBar.width(Breakpoint.DEFAULT, Size.NONE);
 							Consumer<Object> navBarConsumer = sections.get(Section.NavigationBar);
 							if (navBarConsumer != null) {
 								sectionBuilders.add(Supplier.from(navigationBar, "Navigation Bar").then(navBarConsumer));
@@ -632,6 +639,7 @@ public class BootstrapContainerApplicationImpl extends BootstrapElementImpl impl
 						};
 						
 						protected void configureFooter(org.nasdanika.html.bootstrap.Container.Row.Col footer) {
+							footer.width(Breakpoint.DEFAULT, Size.NONE);
 							Consumer<Object> footerConsumer = sections.get(Section.Footer);
 							if (footerConsumer != null) {
 								sectionBuilders.add(Supplier.from(footer, "Footer").then(footerConsumer));
