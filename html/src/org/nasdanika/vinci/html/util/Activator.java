@@ -15,7 +15,7 @@ public class Activator implements BundleActivator {
 
 	@Override
 	public void start(BundleContext context) throws Exception {
-		HTML_CONTENT_PALETTE.add(HtmlPackage.Literals.TAG);	
+//		HTML_CONTENT_PALETTE.add(HtmlPackage.Literals.TAG);	
 
 		// TODO Input
 	}
