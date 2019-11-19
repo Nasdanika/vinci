@@ -97,7 +97,13 @@
     <genClasses ecoreClass="bootstrap.ecore#//Row">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference bootstrap.ecore#//Row/columns"/>
     </genClasses>
-    <genClasses ecoreClass="bootstrap.ecore#//Column"/>
+    <genClasses ecoreClass="bootstrap.ecore#//ColumnWidth">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bootstrap.ecore#//ColumnWidth/breakpoint"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bootstrap.ecore#//ColumnWidth/width"/>
+    </genClasses>
+    <genClasses ecoreClass="bootstrap.ecore#//Column">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference bootstrap.ecore#//Column/width"/>
+    </genClasses>
     <genClasses ecoreClass="bootstrap.ecore#//Card">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference bootstrap.ecore#//Card/header"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference bootstrap.ecore#//Card/body"/>

@@ -12,7 +12,7 @@ import org.nasdanika.vinci.html.Container;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * Bootstrap container application section - header, navigation bar, navigation panel, content panel, or footer.
+ * Bootstrap container application section - header, navigation bar, and footer.
  * <!-- end-model-doc -->
  *
  *

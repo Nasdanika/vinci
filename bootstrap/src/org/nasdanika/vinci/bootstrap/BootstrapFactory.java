@@ -94,6 +94,15 @@ public interface BootstrapFactory extends EFactory {
 	Row createRow();
 
 	/**
+	 * Returns a new object of class '<em>Column Width</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Column Width</em>'.
+	 * @generated
+	 */
+	ColumnWidth createColumnWidth();
+
+	/**
 	 * Returns a new object of class '<em>Column</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

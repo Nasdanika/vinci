@@ -28,6 +28,7 @@ import org.nasdanika.vinci.app.AppFactory;
 import org.nasdanika.vinci.app.AppPackage;
 import org.nasdanika.vinci.app.BootstrapContainerApplication;
 import org.nasdanika.vinci.app.BootstrapContainerApplicationBuilder;
+import org.nasdanika.vinci.app.BootstrapContainerApplicationPanel;
 import org.nasdanika.vinci.app.BootstrapContainerApplicationSection;
 import org.nasdanika.vinci.app.Category;
 import org.nasdanika.vinci.app.Label;
@@ -84,6 +85,13 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 	 * @generated
 	 */
 	private EClass bootstrapContainerApplicationSectionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass bootstrapContainerApplicationPanelEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -453,6 +461,26 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 	@Override
 	public EClass getBootstrapContainerApplicationSection() {
 		return bootstrapContainerApplicationSectionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getBootstrapContainerApplicationPanel() {
+		return bootstrapContainerApplicationPanelEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getBootstrapContainerApplicationPanel_Width() {
+		return (EReference)bootstrapContainerApplicationPanelEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -900,6 +928,9 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 
 		bootstrapContainerApplicationSectionEClass = createEClass(BOOTSTRAP_CONTAINER_APPLICATION_SECTION);
 
+		bootstrapContainerApplicationPanelEClass = createEClass(BOOTSTRAP_CONTAINER_APPLICATION_PANEL);
+		createEReference(bootstrapContainerApplicationPanelEClass, BOOTSTRAP_CONTAINER_APPLICATION_PANEL__WIDTH);
+
 		bootstrapContainerApplicationBuilderEClass = createEClass(BOOTSTRAP_CONTAINER_APPLICATION_BUILDER);
 		createEOperation(bootstrapContainerApplicationBuilderEClass, BOOTSTRAP_CONTAINER_APPLICATION_BUILDER___CREATE_CONSUMER__CONTEXT);
 
@@ -990,6 +1021,7 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 		bootstrapContainerApplicationEClass.getEGenericSuperTypes().add(g1);
 		bootstrapContainerApplicationSectionEClass.getESuperTypes().add(theBootstrapPackage.getBootstrapElement());
 		bootstrapContainerApplicationSectionEClass.getESuperTypes().add(theHtmlPackage.getContainer());
+		bootstrapContainerApplicationPanelEClass.getESuperTypes().add(this.getBootstrapContainerApplicationSection());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(containerEClass, org.nasdanika.vinci.app.Container.class, "Container", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1056,12 +1088,15 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 		initEAttribute(getBootstrapContainerApplication_Router(), ecorePackage.getEBoolean(), "router", null, 0, 1, BootstrapContainerApplication.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getBootstrapContainerApplication_Header(), this.getBootstrapContainerApplicationSection(), null, "header", null, 0, 1, BootstrapContainerApplication.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getBootstrapContainerApplication_NavigationBar(), this.getBootstrapContainerApplicationSection(), null, "navigationBar", null, 0, 1, BootstrapContainerApplication.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getBootstrapContainerApplication_NavigationPanel(), this.getBootstrapContainerApplicationSection(), null, "navigationPanel", null, 0, 1, BootstrapContainerApplication.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getBootstrapContainerApplication_ContentPanel(), this.getBootstrapContainerApplicationSection(), null, "contentPanel", null, 0, 1, BootstrapContainerApplication.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBootstrapContainerApplication_NavigationPanel(), this.getBootstrapContainerApplicationPanel(), null, "navigationPanel", null, 0, 1, BootstrapContainerApplication.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBootstrapContainerApplication_ContentPanel(), this.getBootstrapContainerApplicationPanel(), null, "contentPanel", null, 0, 1, BootstrapContainerApplication.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getBootstrapContainerApplication_Footer(), this.getBootstrapContainerApplicationSection(), null, "footer", null, 0, 1, BootstrapContainerApplication.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getBootstrapContainerApplication_Builders(), this.getBootstrapContainerApplicationBuilder(), null, "builders", null, 0, -1, BootstrapContainerApplication.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(bootstrapContainerApplicationSectionEClass, BootstrapContainerApplicationSection.class, "BootstrapContainerApplicationSection", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(bootstrapContainerApplicationPanelEClass, BootstrapContainerApplicationPanel.class, "BootstrapContainerApplicationPanel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getBootstrapContainerApplicationPanel_Width(), theBootstrapPackage.getColumnWidth(), null, "width", null, 0, -1, BootstrapContainerApplicationPanel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(bootstrapContainerApplicationBuilderEClass, BootstrapContainerApplicationBuilder.class, "BootstrapContainerApplicationBuilder", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1408,7 +1443,13 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 		  (bootstrapContainerApplicationSectionEClass,
 		   source,
 		   new String[] {
-			   "documentation", "Bootstrap container application section - header, navigation bar, navigation panel, content panel, or footer."
+			   "documentation", "Bootstrap container application section - header, navigation bar, and footer."
+		   });
+		addAnnotation
+		  (bootstrapContainerApplicationPanelEClass,
+		   source,
+		   new String[] {
+			   "documentation", "Bootstrap container application panel - a section with width spec - navigation panel and content panel."
 		   });
 		addAnnotation
 		  (bootstrapContainerApplicationBuilderEClass,

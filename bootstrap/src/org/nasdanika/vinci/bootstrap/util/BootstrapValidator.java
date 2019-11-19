@@ -9,6 +9,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 import java.util.stream.Collectors;
+import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EPackage;
@@ -36,6 +37,7 @@ import org.nasdanika.vinci.bootstrap.ButtonToolbar;
 import org.nasdanika.vinci.bootstrap.Card;
 import org.nasdanika.vinci.bootstrap.Collapse;
 import org.nasdanika.vinci.bootstrap.Column;
+import org.nasdanika.vinci.bootstrap.ColumnWidth;
 import org.nasdanika.vinci.bootstrap.Container;
 import org.nasdanika.vinci.bootstrap.ContentActionGroupItem;
 import org.nasdanika.vinci.bootstrap.Div;
@@ -175,6 +177,8 @@ public class BootstrapValidator extends EObjectValidator {
 				return validateContainer((Container)value, diagnostics, context);
 			case BootstrapPackage.ROW:
 				return validateRow((Row)value, diagnostics, context);
+			case BootstrapPackage.COLUMN_WIDTH:
+				return validateColumnWidth((ColumnWidth)value, diagnostics, context);
 			case BootstrapPackage.COLUMN:
 				return validateColumn((Column)value, diagnostics, context);
 			case BootstrapPackage.CARD:
@@ -832,6 +836,82 @@ public class BootstrapValidator extends EObjectValidator {
 	 */
 	public boolean validateRow(Row row, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(row, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateColumnWidth(ColumnWidth columnWidth, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (!validate_NoCircularContainment(columnWidth, diagnostics, context)) return false;
+		boolean result = validate_EveryMultiplicityConforms(columnWidth, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(columnWidth, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(columnWidth, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(columnWidth, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(columnWidth, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(columnWidth, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(columnWidth, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(columnWidth, diagnostics, context);
+		if (result || diagnostics != null) result &= validateColumnWidth_breakpoint(columnWidth, diagnostics, context);
+		if (result || diagnostics != null) result &= validateColumnWidth_width(columnWidth, diagnostics, context);
+		return result;
+	}
+
+	/**
+	 * Validates the breakpoint constraint of '<em>Column Width</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateColumnWidth_breakpoint(ColumnWidth columnWidth, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		// TODO implement the constraint
+		// -> specify the condition that violates the constraint
+		// -> verify the diagnostic details, including severity, code, and message
+		// Ensure that you remove @generated or mark it @generated NOT
+		if (false) {
+			if (diagnostics != null) {
+				diagnostics.add
+					(createDiagnostic
+						(Diagnostic.ERROR,
+						 DIAGNOSTIC_SOURCE,
+						 0,
+						 "_UI_GenericConstraint_diagnostic",
+						 new Object[] { "breakpoint", getObjectLabel(columnWidth, context) },
+						 new Object[] { columnWidth },
+						 context));
+			}
+			return false;
+		}
+		return true;
+	}
+
+	/**
+	 * Validates the width constraint of '<em>Column Width</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateColumnWidth_width(ColumnWidth columnWidth, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		// TODO implement the constraint
+		// -> specify the condition that violates the constraint
+		// -> verify the diagnostic details, including severity, code, and message
+		// Ensure that you remove @generated or mark it @generated NOT
+		if (false) {
+			if (diagnostics != null) {
+				diagnostics.add
+					(createDiagnostic
+						(Diagnostic.ERROR,
+						 DIAGNOSTIC_SOURCE,
+						 0,
+						 "_UI_GenericConstraint_diagnostic",
+						 new Object[] { "width", getObjectLabel(columnWidth, context) },
+						 new Object[] { columnWidth },
+						 context));
+			}
+			return false;
+		}
+		return true;
 	}
 
 	/**

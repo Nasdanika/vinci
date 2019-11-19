@@ -207,6 +207,17 @@ public class AppSwitch<T1> extends Switch<T1> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case AppPackage.BOOTSTRAP_CONTAINER_APPLICATION_PANEL: {
+				BootstrapContainerApplicationPanel bootstrapContainerApplicationPanel = (BootstrapContainerApplicationPanel)theEObject;
+				T1 result = caseBootstrapContainerApplicationPanel(bootstrapContainerApplicationPanel);
+				if (result == null) result = caseBootstrapContainerApplicationSection(bootstrapContainerApplicationPanel);
+				if (result == null) result = caseBootstrapElement(bootstrapContainerApplicationPanel);
+				if (result == null) result = caseHtml_Container(bootstrapContainerApplicationPanel);
+				if (result == null) result = caseHtmlElement(bootstrapContainerApplicationPanel);
+				if (result == null) result = caseModelElement(bootstrapContainerApplicationPanel);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case AppPackage.BOOTSTRAP_CONTAINER_APPLICATION_BUILDER: {
 				BootstrapContainerApplicationBuilder bootstrapContainerApplicationBuilder = (BootstrapContainerApplicationBuilder)theEObject;
 				T1 result = caseBootstrapContainerApplicationBuilder(bootstrapContainerApplicationBuilder);
@@ -304,6 +315,21 @@ public class AppSwitch<T1> extends Switch<T1> {
 	 * @generated
 	 */
 	public T1 caseBootstrapContainerApplicationSection(BootstrapContainerApplicationSection object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Bootstrap Container Application Panel</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Bootstrap Container Application Panel</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseBootstrapContainerApplicationPanel(BootstrapContainerApplicationPanel object) {
 		return null;
 	}
 

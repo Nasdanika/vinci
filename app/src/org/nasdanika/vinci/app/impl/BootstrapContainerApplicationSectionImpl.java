@@ -16,6 +16,7 @@ import org.nasdanika.common.Context;
 import org.nasdanika.common.ListCompoundSupplier;
 import org.nasdanika.common.Supplier;
 import org.nasdanika.common.SupplierFactory;
+import org.nasdanika.html.bootstrap.Container.Row.Col;
 import org.nasdanika.vinci.app.AppPackage;
 import org.nasdanika.vinci.app.BootstrapContainerApplicationSection;
 import org.nasdanika.vinci.bootstrap.impl.BootstrapElementImpl;
@@ -185,10 +186,19 @@ public class BootstrapContainerApplicationSectionImpl extends BootstrapElementIm
 	public Consumer<Object> asConsumer(Context context) throws Exception {
 		java.util.function.Function<BiSupplier<Object, List<Object>>, Object> builder = biSupplier -> {
 			org.nasdanika.html.bootstrap.Container.Row.Col col = (org.nasdanika.html.bootstrap.Container.Row.Col) biSupplier.getFirst();
+			configureCol(col);
 			biSupplier.getSecond().forEach(col);
 			return col;
 		};
 		return createContentSupplier(context).asFunction().then(builder).then(super.asConsumer(context));
+	}
+
+	/**
+	 * To be overridden by {@link BootstrapContainerApplicationPanelImpl} to configure widths.
+	 * @param col
+	 */
+	protected void configureCol(Col col) {
+		
 	}
 
 } //BootstrapContainerApplicationSectionImpl

@@ -27,6 +27,7 @@ import org.nasdanika.html.bootstrap.BootstrapFactory;
 import org.nasdanika.vinci.app.AppPackage;
 import org.nasdanika.vinci.app.BootstrapContainerApplication;
 import org.nasdanika.vinci.app.BootstrapContainerApplicationBuilder;
+import org.nasdanika.vinci.app.BootstrapContainerApplicationPanel;
 import org.nasdanika.vinci.app.BootstrapContainerApplicationSection;
 import org.nasdanika.vinci.bootstrap.Appearance;
 import org.nasdanika.vinci.bootstrap.impl.BootstrapElementImpl;
@@ -197,8 +198,8 @@ public class BootstrapContainerApplicationImpl extends BootstrapElementImpl impl
 	 * @generated
 	 */
 	@Override
-	public BootstrapContainerApplicationSection getNavigationPanel() {
-		return (BootstrapContainerApplicationSection)eDynamicGet(AppPackage.BOOTSTRAP_CONTAINER_APPLICATION__NAVIGATION_PANEL, AppPackage.Literals.BOOTSTRAP_CONTAINER_APPLICATION__NAVIGATION_PANEL, true, true);
+	public BootstrapContainerApplicationPanel getNavigationPanel() {
+		return (BootstrapContainerApplicationPanel)eDynamicGet(AppPackage.BOOTSTRAP_CONTAINER_APPLICATION__NAVIGATION_PANEL, AppPackage.Literals.BOOTSTRAP_CONTAINER_APPLICATION__NAVIGATION_PANEL, true, true);
 	}
 
 	/**
@@ -206,7 +207,7 @@ public class BootstrapContainerApplicationImpl extends BootstrapElementImpl impl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetNavigationPanel(BootstrapContainerApplicationSection newNavigationPanel, NotificationChain msgs) {
+	public NotificationChain basicSetNavigationPanel(BootstrapContainerApplicationPanel newNavigationPanel, NotificationChain msgs) {
 		msgs = eDynamicInverseAdd((InternalEObject)newNavigationPanel, AppPackage.BOOTSTRAP_CONTAINER_APPLICATION__NAVIGATION_PANEL, msgs);
 		return msgs;
 	}
@@ -217,7 +218,7 @@ public class BootstrapContainerApplicationImpl extends BootstrapElementImpl impl
 	 * @generated
 	 */
 	@Override
-	public void setNavigationPanel(BootstrapContainerApplicationSection newNavigationPanel) {
+	public void setNavigationPanel(BootstrapContainerApplicationPanel newNavigationPanel) {
 		eDynamicSet(AppPackage.BOOTSTRAP_CONTAINER_APPLICATION__NAVIGATION_PANEL, AppPackage.Literals.BOOTSTRAP_CONTAINER_APPLICATION__NAVIGATION_PANEL, newNavigationPanel);
 	}
 
@@ -227,8 +228,8 @@ public class BootstrapContainerApplicationImpl extends BootstrapElementImpl impl
 	 * @generated
 	 */
 	@Override
-	public BootstrapContainerApplicationSection getContentPanel() {
-		return (BootstrapContainerApplicationSection)eDynamicGet(AppPackage.BOOTSTRAP_CONTAINER_APPLICATION__CONTENT_PANEL, AppPackage.Literals.BOOTSTRAP_CONTAINER_APPLICATION__CONTENT_PANEL, true, true);
+	public BootstrapContainerApplicationPanel getContentPanel() {
+		return (BootstrapContainerApplicationPanel)eDynamicGet(AppPackage.BOOTSTRAP_CONTAINER_APPLICATION__CONTENT_PANEL, AppPackage.Literals.BOOTSTRAP_CONTAINER_APPLICATION__CONTENT_PANEL, true, true);
 	}
 
 	/**
@@ -236,7 +237,7 @@ public class BootstrapContainerApplicationImpl extends BootstrapElementImpl impl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetContentPanel(BootstrapContainerApplicationSection newContentPanel, NotificationChain msgs) {
+	public NotificationChain basicSetContentPanel(BootstrapContainerApplicationPanel newContentPanel, NotificationChain msgs) {
 		msgs = eDynamicInverseAdd((InternalEObject)newContentPanel, AppPackage.BOOTSTRAP_CONTAINER_APPLICATION__CONTENT_PANEL, msgs);
 		return msgs;
 	}
@@ -247,7 +248,7 @@ public class BootstrapContainerApplicationImpl extends BootstrapElementImpl impl
 	 * @generated
 	 */
 	@Override
-	public void setContentPanel(BootstrapContainerApplicationSection newContentPanel) {
+	public void setContentPanel(BootstrapContainerApplicationPanel newContentPanel) {
 		eDynamicSet(AppPackage.BOOTSTRAP_CONTAINER_APPLICATION__CONTENT_PANEL, AppPackage.Literals.BOOTSTRAP_CONTAINER_APPLICATION__CONTENT_PANEL, newContentPanel);
 	}
 
@@ -366,10 +367,10 @@ public class BootstrapContainerApplicationImpl extends BootstrapElementImpl impl
 				setNavigationBar((BootstrapContainerApplicationSection)newValue);
 				return;
 			case AppPackage.BOOTSTRAP_CONTAINER_APPLICATION__NAVIGATION_PANEL:
-				setNavigationPanel((BootstrapContainerApplicationSection)newValue);
+				setNavigationPanel((BootstrapContainerApplicationPanel)newValue);
 				return;
 			case AppPackage.BOOTSTRAP_CONTAINER_APPLICATION__CONTENT_PANEL:
-				setContentPanel((BootstrapContainerApplicationSection)newValue);
+				setContentPanel((BootstrapContainerApplicationPanel)newValue);
 				return;
 			case AppPackage.BOOTSTRAP_CONTAINER_APPLICATION__FOOTER:
 				setFooter((BootstrapContainerApplicationSection)newValue);
@@ -403,10 +404,10 @@ public class BootstrapContainerApplicationImpl extends BootstrapElementImpl impl
 				setNavigationBar((BootstrapContainerApplicationSection)null);
 				return;
 			case AppPackage.BOOTSTRAP_CONTAINER_APPLICATION__NAVIGATION_PANEL:
-				setNavigationPanel((BootstrapContainerApplicationSection)null);
+				setNavigationPanel((BootstrapContainerApplicationPanel)null);
 				return;
 			case AppPackage.BOOTSTRAP_CONTAINER_APPLICATION__CONTENT_PANEL:
-				setContentPanel((BootstrapContainerApplicationSection)null);
+				setContentPanel((BootstrapContainerApplicationPanel)null);
 				return;
 			case AppPackage.BOOTSTRAP_CONTAINER_APPLICATION__FOOTER:
 				setFooter((BootstrapContainerApplicationSection)null);

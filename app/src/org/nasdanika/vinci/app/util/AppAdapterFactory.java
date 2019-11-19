@@ -126,6 +126,10 @@ public class AppAdapterFactory extends AdapterFactoryImpl {
 				return createBootstrapContainerApplicationSectionAdapter();
 			}
 			@Override
+			public Adapter caseBootstrapContainerApplicationPanel(BootstrapContainerApplicationPanel object) {
+				return createBootstrapContainerApplicationPanelAdapter();
+			}
+			@Override
 			public Adapter caseBootstrapContainerApplicationBuilder(BootstrapContainerApplicationBuilder object) {
 				return createBootstrapContainerApplicationBuilderAdapter();
 			}
@@ -254,6 +258,20 @@ public class AppAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createBootstrapContainerApplicationSectionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.vinci.app.BootstrapContainerApplicationPanel <em>Bootstrap Container Application Panel</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.vinci.app.BootstrapContainerApplicationPanel
+	 * @generated
+	 */
+	public Adapter createBootstrapContainerApplicationPanelAdapter() {
 		return null;
 	}
 

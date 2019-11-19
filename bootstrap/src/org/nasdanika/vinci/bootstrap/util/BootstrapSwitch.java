@@ -27,6 +27,7 @@ import org.nasdanika.vinci.bootstrap.ButtonToolbar;
 import org.nasdanika.vinci.bootstrap.Card;
 import org.nasdanika.vinci.bootstrap.Collapse;
 import org.nasdanika.vinci.bootstrap.Column;
+import org.nasdanika.vinci.bootstrap.ColumnWidth;
 import org.nasdanika.vinci.bootstrap.Container;
 import org.nasdanika.vinci.bootstrap.ContentActionGroupItem;
 import org.nasdanika.vinci.bootstrap.Div;
@@ -306,6 +307,12 @@ public class BootstrapSwitch<T1> extends Switch<T1> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case BootstrapPackage.COLUMN_WIDTH: {
+				ColumnWidth columnWidth = (ColumnWidth)theEObject;
+				T1 result = caseColumnWidth(columnWidth);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case BootstrapPackage.COLUMN: {
 				Column column = (Column)theEObject;
 				T1 result = caseColumn(column);
@@ -549,6 +556,21 @@ public class BootstrapSwitch<T1> extends Switch<T1> {
 	 * @generated
 	 */
 	public T1 caseRow(Row object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Column Width</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Column Width</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseColumnWidth(ColumnWidth object) {
 		return null;
 	}
 

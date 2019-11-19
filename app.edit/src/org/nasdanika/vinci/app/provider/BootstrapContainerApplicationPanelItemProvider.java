@@ -1,34 +1,41 @@
 /**
  */
-package org.nasdanika.vinci.bootstrap.provider;
+package org.nasdanika.vinci.app.provider;
 
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
+
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+import org.nasdanika.emf.edit.EReferenceItemProvider;
+import org.nasdanika.vinci.app.AppPackage;
+import org.nasdanika.vinci.app.BootstrapContainerApplicationPanel;
+
 import org.nasdanika.vinci.bootstrap.BootstrapFactory;
 import org.nasdanika.vinci.bootstrap.BootstrapPackage;
-import org.nasdanika.vinci.bootstrap.Row;
+import org.nasdanika.vinci.html.HtmlPackage;
 
 /**
- * This is the item provider adapter for a {@link org.nasdanika.vinci.bootstrap.Row} object.
+ * This is the item provider adapter for a {@link org.nasdanika.vinci.app.BootstrapContainerApplicationPanel} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class RowItemProvider extends BootstrapElementItemProvider {
+public class BootstrapContainerApplicationPanelItemProvider extends BootstrapContainerApplicationSectionItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RowItemProvider(AdapterFactory adapterFactory) {
+	public BootstrapContainerApplicationPanelItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -46,7 +53,22 @@ public class RowItemProvider extends BootstrapElementItemProvider {
 		}
 		return itemPropertyDescriptors;
 	}
-
+		
+	/**
+	 * Creates {@link EReferenceItemProvider} children to group contained elements into "folders".
+	 */
+	@Override
+	public Collection<?> getChildren(Object object) {
+		List<EReferenceItemProvider> children = eReferenceItemProviders.get(object);
+		if (children == null) {
+			children = new ArrayList<>();
+			eReferenceItemProviders.put(object, children);
+			children.add(new EReferenceItemProvider(this, (EObject) object, HtmlPackage.Literals.CONTAINER__CONTENT)); 
+			children.add(new EReferenceItemProvider(this, (EObject) object, BootstrapPackage.Literals.COLUMN__WIDTH));
+		}
+		return children;
+	}	
+	
 	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
@@ -59,7 +81,7 @@ public class RowItemProvider extends BootstrapElementItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(BootstrapPackage.Literals.ROW__COLUMNS);
+			childrenFeatures.add(AppPackage.Literals.BOOTSTRAP_CONTAINER_APPLICATION_PANEL__WIDTH);
 		}
 		return childrenFeatures;
 	}
@@ -78,14 +100,14 @@ public class RowItemProvider extends BootstrapElementItemProvider {
 	}
 
 	/**
-	 * This returns Row.gif.
+	 * This returns BootstrapContainerApplicationPanel.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
+	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Row.png"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/BootstrapContainerApplicationPanel"));
 	}
 
 	/**
@@ -106,10 +128,10 @@ public class RowItemProvider extends BootstrapElementItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Row)object).getTitle();
+		String label = ((BootstrapContainerApplicationPanel)object).getTitle();
 		return label == null || label.length() == 0 ?
-			getString("_UI_Row_type") :
-			getString("_UI_Row_type") + " " + label;
+			getString("_UI_BootstrapContainerApplicationPanel_type") :
+			getString("_UI_BootstrapContainerApplicationPanel_type") + " " + label;
 	}
 
 
@@ -124,8 +146,8 @@ public class RowItemProvider extends BootstrapElementItemProvider {
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(Row.class)) {
-			case BootstrapPackage.ROW__COLUMNS:
+		switch (notification.getFeatureID(BootstrapContainerApplicationPanel.class)) {
+			case AppPackage.BOOTSTRAP_CONTAINER_APPLICATION_PANEL__WIDTH:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -145,8 +167,8 @@ public class RowItemProvider extends BootstrapElementItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
-				(BootstrapPackage.Literals.ROW__COLUMNS,
-				 BootstrapFactory.eINSTANCE.createColumn()));
+				(AppPackage.Literals.BOOTSTRAP_CONTAINER_APPLICATION_PANEL__WIDTH,
+				 BootstrapFactory.eINSTANCE.createColumnWidth()));
 	}
 
 }

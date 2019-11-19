@@ -135,7 +135,7 @@ public class TestsBase {
 			try (ProgressRecorder workDiagnostic = new ProgressRecorder()) {
 				org.nasdanika.common.Diagnostic diagnostic = work.diagnose(workDiagnostic);
 				if (diagnostic.getStatus() == Status.ERROR) {
-					dumpDiagnostic(diagnostic, 0);
+					diagnostic.dump(System.out, 0);
 					System.out.println(workDiagnostic.toJSON().toString(4));
 					throw new org.nasdanika.common.DiagnosticException("Cannot execute generator work", diagnostic);
 				}
@@ -211,35 +211,6 @@ public class TestsBase {
 		return result.toString();
 	}	
 		
-	static void dumpDiagnostic(org.nasdanika.common.Diagnostic d, int indent) {
-		for (int i=0; i < indent; ++i) {
-			System.out.print("    ");
-		}
-		System.out.println(toString(d));
-	    if (d.getChildren() != null) {
-	    	d.getChildren().forEach(c -> dumpDiagnostic(c, indent + 1));
-	    }
-		
-	}
-	
-	static String toString(org.nasdanika.common.Diagnostic d) {
-		StringBuilder result = new StringBuilder();
-		Status status = d.getStatus();
-		if (status != null) {
-			result.append(status.name());
-		}
-
-		result.append(' ');
-		result.append(d.getMessage());
-
-		if (d.getData() != null) {
-			result.append(" data=");
-			result.append(d.getData());
-		}
-
-		return result.toString();
-	}	
-	
 	/**
 	 * Writes content to a bootstrap/fontawesome/jstree/knockout page and to a file under repository site.
 	 * @param path

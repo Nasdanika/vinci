@@ -28,6 +28,7 @@ import org.nasdanika.vinci.bootstrap.ButtonToolbar;
 import org.nasdanika.vinci.bootstrap.Card;
 import org.nasdanika.vinci.bootstrap.Collapse;
 import org.nasdanika.vinci.bootstrap.Column;
+import org.nasdanika.vinci.bootstrap.ColumnWidth;
 import org.nasdanika.vinci.bootstrap.ContentActionGroupItem;
 import org.nasdanika.vinci.bootstrap.Div;
 import org.nasdanika.vinci.bootstrap.Dropdown;
@@ -111,6 +112,7 @@ public class BootstrapFactoryImpl extends EFactoryImpl implements BootstrapFacto
 			case BootstrapPackage.BUTTON_TOOLBAR: return createButtonToolbar();
 			case BootstrapPackage.CONTAINER: return createContainer();
 			case BootstrapPackage.ROW: return createRow();
+			case BootstrapPackage.COLUMN_WIDTH: return createColumnWidth();
 			case BootstrapPackage.COLUMN: return createColumn();
 			case BootstrapPackage.CARD: return createCard();
 			case BootstrapPackage.DROPDOWN: return createDropdown();
@@ -248,6 +250,17 @@ public class BootstrapFactoryImpl extends EFactoryImpl implements BootstrapFacto
 	public Row createRow() {
 		RowImpl row = new RowImpl();
 		return row;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ColumnWidth createColumnWidth() {
+		ColumnWidthImpl columnWidth = new ColumnWidthImpl();
+		return columnWidth;
 	}
 
 	/**

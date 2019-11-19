@@ -17,16 +17,19 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.util.InternalEList;
+import org.jsoup.Jsoup;
 import org.nasdanika.common.CompoundExecutionParticipant;
 import org.nasdanika.common.Consumer;
 import org.nasdanika.common.Context;
 import org.nasdanika.common.ExecutionParticipant;
 import org.nasdanika.common.ListCompoundSupplierFactory;
 import org.nasdanika.common.MapCompoundSupplierFactory;
+import org.nasdanika.common.MarkdownHelper;
 import org.nasdanika.common.NullProgressMonitor;
 import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.common.Supplier;
 import org.nasdanika.common.SupplierFactory;
+import org.nasdanika.common.Util;
 import org.nasdanika.html.Fragment;
 import org.nasdanika.html.HTMLElement;
 import org.nasdanika.html.HTMLFactory;
@@ -34,11 +37,14 @@ import org.nasdanika.html.app.Action;
 import org.nasdanika.html.app.Application;
 import org.nasdanika.html.app.ApplicationBuilder;
 import org.nasdanika.html.app.Decorator;
+import org.nasdanika.html.app.NavigationActionActivator;
+import org.nasdanika.html.app.ScriptActionActivator;
 import org.nasdanika.html.app.ViewGenerator;
 import org.nasdanika.html.app.impl.ActionApplicationBuilder;
 import org.nasdanika.html.app.impl.ActionImpl;
 import org.nasdanika.html.bootstrap.BootstrapElement;
 import org.nasdanika.html.bootstrap.BootstrapFactory;
+import org.nasdanika.html.bootstrap.Color;
 import org.nasdanika.vinci.app.AbstractAction;
 import org.nasdanika.vinci.app.ActionBase;
 import org.nasdanika.vinci.app.ActionCategory;
@@ -432,6 +438,19 @@ public abstract class ActionBaseImpl extends LabelImpl implements ActionBase {
 			public double size() {
 				return super.size() + 1;
 			}
+			
+			private Action findById(Action action, String id) {
+				if (action != null && id.equals(action.getId())) {
+					return action;
+				}
+				for (Action child: action.getChildren()) {
+					Action found = findById(child, id);
+					if (found != null) {
+						return found;
+					}
+				}
+				return null;
+			}
 
 			@Override
 			public void execute(Object arg, ProgressMonitor progressMonitor) throws Exception {
@@ -440,7 +459,15 @@ public abstract class ActionBaseImpl extends LabelImpl implements ActionBase {
 				List<Action> navChildren = rootAction.getNavigationChildren();
 				Action principalAction = navChildren.isEmpty() ? null : navChildren.get(0); 
 				List<? extends Action> navigationPanelActions = principalAction == null ? Collections.emptyList() : principalAction.getNavigationChildren(); 
+
 				Action activeAction = rootAction;
+				String activeActionId = context.getString("active-action");
+				if (!Util.isBlank(activeActionId)) {
+					Action found = findById(rootAction, activeActionId);
+					if (found != null) {
+						activeAction = found;
+					}
+				}
 
 				ApplicationBuilder  applicationBuilder = new ActionApplicationBuilder(rootAction, principalAction, navigationPanelActions, activeAction); 				
 				applicationBuilder.build((Application) arg, progressMonitor.split("Building application", 1));				
@@ -855,18 +882,72 @@ public abstract class ActionBaseImpl extends LabelImpl implements ActionBase {
 			public ActionFacade(Map<String,List<Object>> config) {
 				setText(context.interpolate(ActionBaseImpl.this.getText()));
 				setId(context.interpolate(ActionBaseImpl.this.getId()));
-				// icon
 				setIcon(context.interpolate(ActionBaseImpl.this.getIcon()));
-				// tooltip
-				// color
-				// outline
+				String color = ActionBaseImpl.this.getColor();
+				if (!Util.isBlank(color)) {
+					setColor(Color.valueOf(color));
+				}
+				setOutline(ActionBaseImpl.this.isOutline());
+				setNotification(context.interpolate(ActionBaseImpl.this.getNotification()));
+				setDisabled(ActionBaseImpl.this.isDisabled());
+				setConfirmation(context.interpolate(ActionBaseImpl.this.getConfirmation()));
+				setFloatRight(ActionBaseImpl.this.isFloatRight());
 				// description
-				// notification
-				// category
-				// disabled
-				// confirmation
-				// float right
+				String mDescription = ActionBaseImpl.this.getDescription();
+				String mTooltip = ActionBaseImpl.this.getTooltip();
+				if (!Util.isBlank(mDescription)) {
+					MarkdownHelper mHelper = new MarkdownHelper();
+					setDescription(mHelper.markdownToHtml(mDescription));
+					if (Util.isBlank(mTooltip)) {
+						String textDoc = Jsoup.parse(getDescription()).text();
+						setTooltip(mHelper.firstSentence(textDoc));					
+
+					}
+				}
+				// tooltip
+				if (!Util.isBlank(mTooltip)) {
+					setTooltip(mTooltip);
+				}
 				// activator
+				String activator = ActionBaseImpl.this.getActivator();
+				
+				switch (ActionBaseImpl.this.getActivatorType()) {
+				case BIND:
+					throw new UnsupportedOperationException("Not implemented yet");
+				case REFERENCE:
+					if (Util.isBlank(activator) && !Util.isBlank(ActionBaseImpl.this.getId())) {
+						activator = ActionBaseImpl.this.getId() + ".html";
+					}
+					String url = context.interpolate(activator);
+					if (!Util.isBlank(url)) {
+						setActivator(new NavigationActionActivator() {
+							
+							@Override
+							public String getUrl() {
+								return url;
+							}
+							
+						});
+					}
+					break;
+				case SCRIPT:
+					String code = context.interpolate(activator);
+					if (!Util.isBlank(code)) {
+						setActivator(new ScriptActionActivator() {
+							
+							@Override
+							public String getCode() {
+								return code;
+							}
+							
+						});
+					}					
+					break;
+				default:
+					throw new IllegalArgumentException();
+				}
+				
+				// category - TODO
 				
 				switch (ActionBaseImpl.this.getRole()) {
 				case CONTEXT:

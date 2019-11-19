@@ -29,6 +29,7 @@ import org.nasdanika.vinci.bootstrap.ButtonToolbar;
 import org.nasdanika.vinci.bootstrap.Card;
 import org.nasdanika.vinci.bootstrap.Collapse;
 import org.nasdanika.vinci.bootstrap.Column;
+import org.nasdanika.vinci.bootstrap.ColumnWidth;
 import org.nasdanika.vinci.bootstrap.Container;
 import org.nasdanika.vinci.bootstrap.ContentActionGroupItem;
 import org.nasdanika.vinci.bootstrap.Div;
@@ -196,6 +197,10 @@ public class BootstrapAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseRow(Row object) {
 				return createRowAdapter();
+			}
+			@Override
+			public Adapter caseColumnWidth(ColumnWidth object) {
+				return createColumnWidthAdapter();
 			}
 			@Override
 			public Adapter caseColumn(Column object) {
@@ -436,6 +441,20 @@ public class BootstrapAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createRowAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.vinci.bootstrap.ColumnWidth <em>Column Width</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.vinci.bootstrap.ColumnWidth
+	 * @generated
+	 */
+	public Adapter createColumnWidthAdapter() {
 		return null;
 	}
 

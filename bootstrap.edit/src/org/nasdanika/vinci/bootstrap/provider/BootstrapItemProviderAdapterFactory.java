@@ -254,6 +254,29 @@ public class BootstrapItemProviderAdapterFactory extends BootstrapAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.nasdanika.vinci.bootstrap.ColumnWidth} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ColumnWidthItemProvider columnWidthItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.nasdanika.vinci.bootstrap.ColumnWidth}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createColumnWidthAdapter() {
+		if (columnWidthItemProvider == null) {
+			columnWidthItemProvider = new ColumnWidthItemProvider(this);
+		}
+
+		return columnWidthItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link org.nasdanika.vinci.bootstrap.Column} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -998,6 +1021,7 @@ public class BootstrapItemProviderAdapterFactory extends BootstrapAdapterFactory
 		if (buttonToolbarItemProvider != null) buttonToolbarItemProvider.dispose();
 		if (containerItemProvider != null) containerItemProvider.dispose();
 		if (rowItemProvider != null) rowItemProvider.dispose();
+		if (columnWidthItemProvider != null) columnWidthItemProvider.dispose();
 		if (columnItemProvider != null) columnItemProvider.dispose();
 		if (cardItemProvider != null) cardItemProvider.dispose();
 		if (dropdownItemProvider != null) dropdownItemProvider.dispose();

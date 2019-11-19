@@ -155,6 +155,15 @@ public interface BootstrapPackage extends EPackage {
 	int BOOTSTRAP_PAGE__SCRIPTS = HtmlPackage.PAGE__SCRIPTS;
 
 	/**
+	 * The feature id for the '<em><b>Font Awesome</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOTSTRAP_PAGE__FONT_AWESOME = HtmlPackage.PAGE__FONT_AWESOME;
+
+	/**
 	 * The feature id for the '<em><b>Cdn</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -693,7 +702,7 @@ public interface BootstrapPackage extends EPackage {
 	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getColumn()
 	 * @generated
 	 */
-	int COLUMN = 22;
+	int COLUMN = 23;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.vinci.bootstrap.impl.CardImpl <em>Card</em>}' class.
@@ -703,7 +712,7 @@ public interface BootstrapPackage extends EPackage {
 	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getCard()
 	 * @generated
 	 */
-	int CARD = 23;
+	int CARD = 24;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.vinci.bootstrap.impl.TagImpl <em>Tag</em>}' class.
@@ -1246,7 +1255,7 @@ public interface BootstrapPackage extends EPackage {
 	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getDropdown()
 	 * @generated
 	 */
-	int DROPDOWN = 24;
+	int DROPDOWN = 25;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.vinci.bootstrap.impl.ActionGroupImpl <em>Action Group</em>}' class.
@@ -1764,6 +1773,52 @@ public interface BootstrapPackage extends EPackage {
 	int ROW_OPERATION_COUNT = BOOTSTRAP_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link org.nasdanika.vinci.bootstrap.impl.ColumnWidthImpl <em>Column Width</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.vinci.bootstrap.impl.ColumnWidthImpl
+	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getColumnWidth()
+	 * @generated
+	 */
+	int COLUMN_WIDTH = 22;
+
+	/**
+	 * The feature id for the '<em><b>Breakpoint</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLUMN_WIDTH__BREAKPOINT = 0;
+
+	/**
+	 * The feature id for the '<em><b>Width</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLUMN_WIDTH__WIDTH = 1;
+
+	/**
+	 * The number of structural features of the '<em>Column Width</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLUMN_WIDTH_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of operations of the '<em>Column Width</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLUMN_WIDTH_OPERATION_COUNT = 0;
+
+	/**
 	 * The feature id for the '<em><b>Title</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1800,13 +1855,22 @@ public interface BootstrapPackage extends EPackage {
 	int COLUMN__CONTENT = BOOTSTRAP_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Width</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLUMN__WIDTH = BOOTSTRAP_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Column</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COLUMN_FEATURE_COUNT = BOOTSTRAP_ELEMENT_FEATURE_COUNT + 1;
+	int COLUMN_FEATURE_COUNT = BOOTSTRAP_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>As Consumer</em>' operation.
@@ -1942,7 +2006,7 @@ public interface BootstrapPackage extends EPackage {
 	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getForm()
 	 * @generated
 	 */
-	int FORM = 25;
+	int FORM = 26;
 
 	/**
 	 * The number of structural features of the '<em>Form</em>' class.
@@ -1970,7 +2034,7 @@ public interface BootstrapPackage extends EPackage {
 	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getListGroup()
 	 * @generated
 	 */
-	int LIST_GROUP = 26;
+	int LIST_GROUP = 27;
 
 	/**
 	 * The number of structural features of the '<em>List Group</em>' class.
@@ -1998,7 +2062,7 @@ public interface BootstrapPackage extends EPackage {
 	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getNavs()
 	 * @generated
 	 */
-	int NAVS = 27;
+	int NAVS = 28;
 
 	/**
 	 * The number of structural features of the '<em>Navs</em>' class.
@@ -2026,7 +2090,7 @@ public interface BootstrapPackage extends EPackage {
 	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getNavbar()
 	 * @generated
 	 */
-	int NAVBAR = 28;
+	int NAVBAR = 29;
 
 	/**
 	 * The number of structural features of the '<em>Navbar</em>' class.
@@ -2054,7 +2118,7 @@ public interface BootstrapPackage extends EPackage {
 	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getTable()
 	 * @generated
 	 */
-	int TABLE = 29;
+	int TABLE = 30;
 
 	/**
 	 * The number of structural features of the '<em>Table</em>' class.
@@ -2082,7 +2146,7 @@ public interface BootstrapPackage extends EPackage {
 	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getTableRow()
 	 * @generated
 	 */
-	int TABLE_ROW = 30;
+	int TABLE_ROW = 31;
 
 	/**
 	 * The number of structural features of the '<em>Table Row</em>' class.
@@ -2110,7 +2174,7 @@ public interface BootstrapPackage extends EPackage {
 	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getTableColumn()
 	 * @generated
 	 */
-	int TABLE_COLUMN = 31;
+	int TABLE_COLUMN = 32;
 
 	/**
 	 * The number of structural features of the '<em>Table Column</em>' class.
@@ -2138,7 +2202,7 @@ public interface BootstrapPackage extends EPackage {
 	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getTooltip()
 	 * @generated
 	 */
-	int TOOLTIP = 32;
+	int TOOLTIP = 33;
 
 	/**
 	 * The number of structural features of the '<em>Tooltip</em>' class.
@@ -2166,7 +2230,7 @@ public interface BootstrapPackage extends EPackage {
 	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getInputGroup()
 	 * @generated
 	 */
-	int INPUT_GROUP = 33;
+	int INPUT_GROUP = 34;
 
 	/**
 	 * The number of structural features of the '<em>Input Group</em>' class.
@@ -2194,7 +2258,7 @@ public interface BootstrapPackage extends EPackage {
 	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getFormGroup()
 	 * @generated
 	 */
-	int FORM_GROUP = 34;
+	int FORM_GROUP = 35;
 
 	/**
 	 * The number of structural features of the '<em>Form Group</em>' class.
@@ -2222,7 +2286,7 @@ public interface BootstrapPackage extends EPackage {
 	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getCollapse()
 	 * @generated
 	 */
-	int COLLAPSE = 35;
+	int COLLAPSE = 36;
 
 	/**
 	 * The number of structural features of the '<em>Collapse</em>' class.
@@ -2250,7 +2314,7 @@ public interface BootstrapPackage extends EPackage {
 	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getModal()
 	 * @generated
 	 */
-	int MODAL = 36;
+	int MODAL = 37;
 
 	/**
 	 * The number of structural features of the '<em>Modal</em>' class.
@@ -2278,7 +2342,7 @@ public interface BootstrapPackage extends EPackage {
 	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getAccordion()
 	 * @generated
 	 */
-	int ACCORDION = 37;
+	int ACCORDION = 38;
 
 	/**
 	 * The number of structural features of the '<em>Accordion</em>' class.
@@ -2306,7 +2370,7 @@ public interface BootstrapPackage extends EPackage {
 	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getColor()
 	 * @generated
 	 */
-	int COLOR = 38;
+	int COLOR = 39;
 
 
 	/**
@@ -2796,6 +2860,38 @@ public interface BootstrapPackage extends EPackage {
 	EReference getRow_Columns();
 
 	/**
+	 * Returns the meta object for class '{@link org.nasdanika.vinci.bootstrap.ColumnWidth <em>Column Width</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Column Width</em>'.
+	 * @see org.nasdanika.vinci.bootstrap.ColumnWidth
+	 * @generated
+	 */
+	EClass getColumnWidth();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.bootstrap.ColumnWidth#getBreakpoint <em>Breakpoint</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Breakpoint</em>'.
+	 * @see org.nasdanika.vinci.bootstrap.ColumnWidth#getBreakpoint()
+	 * @see #getColumnWidth()
+	 * @generated
+	 */
+	EAttribute getColumnWidth_Breakpoint();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.bootstrap.ColumnWidth#getWidth <em>Width</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Width</em>'.
+	 * @see org.nasdanika.vinci.bootstrap.ColumnWidth#getWidth()
+	 * @see #getColumnWidth()
+	 * @generated
+	 */
+	EAttribute getColumnWidth_Width();
+
+	/**
 	 * Returns the meta object for class '{@link org.nasdanika.vinci.bootstrap.Column <em>Column</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2804,6 +2900,17 @@ public interface BootstrapPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getColumn();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.nasdanika.vinci.bootstrap.Column#getWidth <em>Width</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Width</em>'.
+	 * @see org.nasdanika.vinci.bootstrap.Column#getWidth()
+	 * @see #getColumn()
+	 * @generated
+	 */
+	EReference getColumn_Width();
 
 	/**
 	 * Returns the meta object for class '{@link org.nasdanika.vinci.bootstrap.Card <em>Card</em>}'.
@@ -3607,6 +3714,29 @@ public interface BootstrapPackage extends EPackage {
 		 */
 		EReference ROW__COLUMNS = eINSTANCE.getRow_Columns();
 		/**
+		 * The meta object literal for the '{@link org.nasdanika.vinci.bootstrap.impl.ColumnWidthImpl <em>Column Width</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.vinci.bootstrap.impl.ColumnWidthImpl
+		 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getColumnWidth()
+		 * @generated
+		 */
+		EClass COLUMN_WIDTH = eINSTANCE.getColumnWidth();
+		/**
+		 * The meta object literal for the '<em><b>Breakpoint</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COLUMN_WIDTH__BREAKPOINT = eINSTANCE.getColumnWidth_Breakpoint();
+		/**
+		 * The meta object literal for the '<em><b>Width</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COLUMN_WIDTH__WIDTH = eINSTANCE.getColumnWidth_Width();
+		/**
 		 * The meta object literal for the '{@link org.nasdanika.vinci.bootstrap.impl.ColumnImpl <em>Column</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3615,6 +3745,13 @@ public interface BootstrapPackage extends EPackage {
 		 * @generated
 		 */
 		EClass COLUMN = eINSTANCE.getColumn();
+		/**
+		 * The meta object literal for the '<em><b>Width</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COLUMN__WIDTH = eINSTANCE.getColumn_Width();
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.vinci.bootstrap.impl.CardImpl <em>Card</em>}' class.
 		 * <!-- begin-user-doc -->

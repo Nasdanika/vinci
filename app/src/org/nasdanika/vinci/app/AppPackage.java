@@ -459,7 +459,7 @@ public interface AppPackage extends EPackage {
 	 * @see org.nasdanika.vinci.app.impl.AppPackageImpl#getBootstrapContainerApplicationBuilder()
 	 * @generated
 	 */
-	int BOOTSTRAP_CONTAINER_APPLICATION_BUILDER = 14;
+	int BOOTSTRAP_CONTAINER_APPLICATION_BUILDER = 15;
 
 	/**
 	 * The number of structural features of the '<em>Bootstrap Container Application Builder</em>' class.
@@ -1753,6 +1753,88 @@ public interface AppPackage extends EPackage {
 	int BOOTSTRAP_CONTAINER_APPLICATION_SECTION_OPERATION_COUNT = BootstrapPackage.BOOTSTRAP_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link org.nasdanika.vinci.app.impl.BootstrapContainerApplicationPanelImpl <em>Bootstrap Container Application Panel</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.vinci.app.impl.BootstrapContainerApplicationPanelImpl
+	 * @see org.nasdanika.vinci.app.impl.AppPackageImpl#getBootstrapContainerApplicationPanel()
+	 * @generated
+	 */
+	int BOOTSTRAP_CONTAINER_APPLICATION_PANEL = 14;
+
+	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOTSTRAP_CONTAINER_APPLICATION_PANEL__TITLE = BOOTSTRAP_CONTAINER_APPLICATION_SECTION__TITLE;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOTSTRAP_CONTAINER_APPLICATION_PANEL__DESCRIPTION = BOOTSTRAP_CONTAINER_APPLICATION_SECTION__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Appearance</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOTSTRAP_CONTAINER_APPLICATION_PANEL__APPEARANCE = BOOTSTRAP_CONTAINER_APPLICATION_SECTION__APPEARANCE;
+
+	/**
+	 * The feature id for the '<em><b>Content</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOTSTRAP_CONTAINER_APPLICATION_PANEL__CONTENT = BOOTSTRAP_CONTAINER_APPLICATION_SECTION__CONTENT;
+
+	/**
+	 * The feature id for the '<em><b>Width</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOTSTRAP_CONTAINER_APPLICATION_PANEL__WIDTH = BOOTSTRAP_CONTAINER_APPLICATION_SECTION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Bootstrap Container Application Panel</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOTSTRAP_CONTAINER_APPLICATION_PANEL_FEATURE_COUNT = BOOTSTRAP_CONTAINER_APPLICATION_SECTION_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>As Consumer</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOTSTRAP_CONTAINER_APPLICATION_PANEL___AS_CONSUMER__CONTEXT = BOOTSTRAP_CONTAINER_APPLICATION_SECTION___AS_CONSUMER__CONTEXT;
+
+	/**
+	 * The number of operations of the '<em>Bootstrap Container Application Panel</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOTSTRAP_CONTAINER_APPLICATION_PANEL_OPERATION_COUNT = BOOTSTRAP_CONTAINER_APPLICATION_SECTION_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link org.nasdanika.vinci.app.ActionRole <em>Action Role</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1760,7 +1842,7 @@ public interface AppPackage extends EPackage {
 	 * @see org.nasdanika.vinci.app.impl.AppPackageImpl#getActionRole()
 	 * @generated
 	 */
-	int ACTION_ROLE = 15;
+	int ACTION_ROLE = 16;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.vinci.app.SectionStyle <em>Section Style</em>}' enum.
@@ -1770,7 +1852,7 @@ public interface AppPackage extends EPackage {
 	 * @see org.nasdanika.vinci.app.impl.AppPackageImpl#getSectionStyle()
 	 * @generated
 	 */
-	int SECTION_STYLE = 16;
+	int SECTION_STYLE = 17;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.vinci.app.ActivatorType <em>Activator Type</em>}' enum.
@@ -1780,7 +1862,7 @@ public interface AppPackage extends EPackage {
 	 * @see org.nasdanika.vinci.app.impl.AppPackageImpl#getActivatorType()
 	 * @generated
 	 */
-	int ACTIVATOR_TYPE = 17;
+	int ACTIVATOR_TYPE = 18;
 
 	/**
 	 * Returns the meta object for class '{@link org.nasdanika.vinci.app.Label <em>Label</em>}'.
@@ -2017,6 +2099,27 @@ public interface AppPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getBootstrapContainerApplicationSection();
+
+	/**
+	 * Returns the meta object for class '{@link org.nasdanika.vinci.app.BootstrapContainerApplicationPanel <em>Bootstrap Container Application Panel</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Bootstrap Container Application Panel</em>'.
+	 * @see org.nasdanika.vinci.app.BootstrapContainerApplicationPanel
+	 * @generated
+	 */
+	EClass getBootstrapContainerApplicationPanel();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.nasdanika.vinci.app.BootstrapContainerApplicationPanel#getWidth <em>Width</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Width</em>'.
+	 * @see org.nasdanika.vinci.app.BootstrapContainerApplicationPanel#getWidth()
+	 * @see #getBootstrapContainerApplicationPanel()
+	 * @generated
+	 */
+	EReference getBootstrapContainerApplicationPanel_Width();
 
 	/**
 	 * Returns the meta object for class '{@link org.nasdanika.vinci.app.BootstrapContainerApplicationBuilder <em>Bootstrap Container Application Builder</em>}'.
@@ -2600,6 +2703,24 @@ public interface AppPackage extends EPackage {
 		 * @generated
 		 */
 		EClass BOOTSTRAP_CONTAINER_APPLICATION_SECTION = eINSTANCE.getBootstrapContainerApplicationSection();
+
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.vinci.app.impl.BootstrapContainerApplicationPanelImpl <em>Bootstrap Container Application Panel</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.vinci.app.impl.BootstrapContainerApplicationPanelImpl
+		 * @see org.nasdanika.vinci.app.impl.AppPackageImpl#getBootstrapContainerApplicationPanel()
+		 * @generated
+		 */
+		EClass BOOTSTRAP_CONTAINER_APPLICATION_PANEL = eINSTANCE.getBootstrapContainerApplicationPanel();
+
+		/**
+		 * The meta object literal for the '<em><b>Width</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BOOTSTRAP_CONTAINER_APPLICATION_PANEL__WIDTH = eINSTANCE.getBootstrapContainerApplicationPanel_Width();
 
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.vinci.app.BootstrapContainerApplicationBuilder <em>Bootstrap Container Application Builder</em>}' class.

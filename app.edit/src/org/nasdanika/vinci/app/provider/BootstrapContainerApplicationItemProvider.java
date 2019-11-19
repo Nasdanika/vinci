@@ -212,23 +212,38 @@ public class BootstrapContainerApplicationItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
+				(AppPackage.Literals.BOOTSTRAP_CONTAINER_APPLICATION__HEADER,
+				 AppFactory.eINSTANCE.createBootstrapContainerApplicationPanel()));
+
+		newChildDescriptors.add
+			(createChildParameter
 				(AppPackage.Literals.BOOTSTRAP_CONTAINER_APPLICATION__NAVIGATION_BAR,
 				 AppFactory.eINSTANCE.createBootstrapContainerApplicationSection()));
 
 		newChildDescriptors.add
 			(createChildParameter
+				(AppPackage.Literals.BOOTSTRAP_CONTAINER_APPLICATION__NAVIGATION_BAR,
+				 AppFactory.eINSTANCE.createBootstrapContainerApplicationPanel()));
+
+		newChildDescriptors.add
+			(createChildParameter
 				(AppPackage.Literals.BOOTSTRAP_CONTAINER_APPLICATION__NAVIGATION_PANEL,
-				 AppFactory.eINSTANCE.createBootstrapContainerApplicationSection()));
+				 AppFactory.eINSTANCE.createBootstrapContainerApplicationPanel()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(AppPackage.Literals.BOOTSTRAP_CONTAINER_APPLICATION__CONTENT_PANEL,
-				 AppFactory.eINSTANCE.createBootstrapContainerApplicationSection()));
+				 AppFactory.eINSTANCE.createBootstrapContainerApplicationPanel()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(AppPackage.Literals.BOOTSTRAP_CONTAINER_APPLICATION__FOOTER,
 				 AppFactory.eINSTANCE.createBootstrapContainerApplicationSection()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(AppPackage.Literals.BOOTSTRAP_CONTAINER_APPLICATION__FOOTER,
+				 AppFactory.eINSTANCE.createBootstrapContainerApplicationPanel()));
 
 		newChildDescriptors.add
 			(createChildParameter

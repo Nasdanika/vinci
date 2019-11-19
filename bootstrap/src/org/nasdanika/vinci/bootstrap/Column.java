@@ -2,6 +2,7 @@
  */
 package org.nasdanika.vinci.bootstrap;
 
+import org.eclipse.emf.common.util.EList;
 import org.nasdanika.vinci.html.Container;
 
 
@@ -10,10 +11,28 @@ import org.nasdanika.vinci.html.Container;
  * A representation of the model object '<em><b>Column</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link org.nasdanika.vinci.bootstrap.Column#getWidth <em>Width</em>}</li>
+ * </ul>
  *
  * @see org.nasdanika.vinci.bootstrap.BootstrapPackage#getColumn()
  * @model
  * @generated
  */
 public interface Column extends BootstrapElement, Container {
+
+	/**
+	 * Returns the value of the '<em><b>Width</b></em>' containment reference list.
+	 * The list contents are of type {@link org.nasdanika.vinci.bootstrap.ColumnWidth}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Width</em>' containment reference list.
+	 * @see org.nasdanika.vinci.bootstrap.BootstrapPackage#getColumn_Width()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<ColumnWidth> getWidth();
 } // Column

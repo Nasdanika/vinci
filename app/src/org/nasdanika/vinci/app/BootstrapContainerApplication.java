@@ -158,12 +158,12 @@ public interface BootstrapContainerApplication extends BootstrapElement, Consume
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Navigation Panel</em>' containment reference.
-	 * @see #setNavigationPanel(BootstrapContainerApplicationSection)
+	 * @see #setNavigationPanel(BootstrapContainerApplicationPanel)
 	 * @see org.nasdanika.vinci.app.AppPackage#getBootstrapContainerApplication_NavigationPanel()
 	 * @model containment="true"
 	 * @generated
 	 */
-	BootstrapContainerApplicationSection getNavigationPanel();
+	BootstrapContainerApplicationPanel getNavigationPanel();
 
 	/**
 	 * Sets the value of the '{@link org.nasdanika.vinci.app.BootstrapContainerApplication#getNavigationPanel <em>Navigation Panel</em>}' containment reference.
@@ -173,19 +173,19 @@ public interface BootstrapContainerApplication extends BootstrapElement, Consume
 	 * @see #getNavigationPanel()
 	 * @generated
 	 */
-	void setNavigationPanel(BootstrapContainerApplicationSection value);
+	void setNavigationPanel(BootstrapContainerApplicationPanel value);
 
 	/**
 	 * Returns the value of the '<em><b>Content Panel</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Content Panel</em>' containment reference.
-	 * @see #setContentPanel(BootstrapContainerApplicationSection)
+	 * @see #setContentPanel(BootstrapContainerApplicationPanel)
 	 * @see org.nasdanika.vinci.app.AppPackage#getBootstrapContainerApplication_ContentPanel()
 	 * @model containment="true"
 	 * @generated
 	 */
-	BootstrapContainerApplicationSection getContentPanel();
+	BootstrapContainerApplicationPanel getContentPanel();
 
 	/**
 	 * Sets the value of the '{@link org.nasdanika.vinci.app.BootstrapContainerApplication#getContentPanel <em>Content Panel</em>}' containment reference.
@@ -195,7 +195,7 @@ public interface BootstrapContainerApplication extends BootstrapElement, Consume
 	 * @see #getContentPanel()
 	 * @generated
 	 */
-	void setContentPanel(BootstrapContainerApplicationSection value);
+	void setContentPanel(BootstrapContainerApplicationPanel value);
 
 	/**
 	 * Returns the value of the '<em><b>Footer</b></em>' containment reference.

@@ -292,9 +292,9 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="navigationBar" eType="#//BootstrapContainerApplicationSection"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="navigationPanel" eType="#//BootstrapContainerApplicationSection"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="navigationPanel" eType="#//BootstrapContainerApplicationPanel"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="contentPanel" eType="#//BootstrapContainerApplicationSection"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="contentPanel" eType="#//BootstrapContainerApplicationPanel"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="footer" eType="#//BootstrapContainerApplicationSection"
         containment="true"/>
@@ -312,8 +312,17 @@
   <eClassifiers xsi:type="ecore:EClass" name="BootstrapContainerApplicationSection"
       eSuperTypes="../../org.nasdanika.vinci.bootstrap/model/bootstrap.ecore#//BootstrapElement ../../org.nasdanika.vinci.html/model/html.ecore#//Container">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="Bootstrap container application section - header, navigation bar, navigation panel, content panel, or footer."/>
+      <details key="documentation" value="Bootstrap container application section - header, navigation bar, and footer."/>
     </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BootstrapContainerApplicationPanel"
+      eSuperTypes="#//BootstrapContainerApplicationSection">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Bootstrap container application panel - a section with width spec - navigation panel and content panel."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="width" upperBound="-1"
+        eType="ecore:EClass ../../org.nasdanika.vinci.bootstrap/model/bootstrap.ecore#//ColumnWidth"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BootstrapContainerApplicationBuilder"
       abstract="true" interface="true">

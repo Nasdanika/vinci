@@ -12,6 +12,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import org.nasdanika.common.SupplierFactory;
 import org.nasdanika.vinci.bootstrap.BootstrapPackage;
 import org.nasdanika.vinci.bootstrap.Column;
+import org.nasdanika.vinci.bootstrap.ColumnWidth;
 import org.nasdanika.vinci.html.HtmlPackage;
 
 /**
@@ -23,6 +24,7 @@ import org.nasdanika.vinci.html.HtmlPackage;
  * </p>
  * <ul>
  *   <li>{@link org.nasdanika.vinci.bootstrap.impl.ColumnImpl#getContent <em>Content</em>}</li>
+ *   <li>{@link org.nasdanika.vinci.bootstrap.impl.ColumnImpl#getWidth <em>Width</em>}</li>
  * </ul>
  *
  * @generated
@@ -63,11 +65,24 @@ public class ColumnImpl extends BootstrapElementImpl implements Column {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public EList<ColumnWidth> getWidth() {
+		return (EList<ColumnWidth>)eDynamicGet(BootstrapPackage.COLUMN__WIDTH, BootstrapPackage.Literals.COLUMN__WIDTH, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case BootstrapPackage.COLUMN__CONTENT:
 				return ((InternalEList<?>)getContent()).basicRemove(otherEnd, msgs);
+			case BootstrapPackage.COLUMN__WIDTH:
+				return ((InternalEList<?>)getWidth()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -82,6 +97,8 @@ public class ColumnImpl extends BootstrapElementImpl implements Column {
 		switch (featureID) {
 			case BootstrapPackage.COLUMN__CONTENT:
 				return getContent();
+			case BootstrapPackage.COLUMN__WIDTH:
+				return getWidth();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -99,6 +116,10 @@ public class ColumnImpl extends BootstrapElementImpl implements Column {
 				getContent().clear();
 				getContent().addAll((Collection<? extends SupplierFactory<Object>>)newValue);
 				return;
+			case BootstrapPackage.COLUMN__WIDTH:
+				getWidth().clear();
+				getWidth().addAll((Collection<? extends ColumnWidth>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -114,6 +135,9 @@ public class ColumnImpl extends BootstrapElementImpl implements Column {
 			case BootstrapPackage.COLUMN__CONTENT:
 				getContent().clear();
 				return;
+			case BootstrapPackage.COLUMN__WIDTH:
+				getWidth().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -128,6 +152,8 @@ public class ColumnImpl extends BootstrapElementImpl implements Column {
 		switch (featureID) {
 			case BootstrapPackage.COLUMN__CONTENT:
 				return !getContent().isEmpty();
+			case BootstrapPackage.COLUMN__WIDTH:
+				return !getWidth().isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

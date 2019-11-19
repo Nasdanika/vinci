@@ -33,6 +33,7 @@ import org.nasdanika.vinci.bootstrap.ButtonToolbar;
 import org.nasdanika.vinci.bootstrap.Card;
 import org.nasdanika.vinci.bootstrap.Collapse;
 import org.nasdanika.vinci.bootstrap.Column;
+import org.nasdanika.vinci.bootstrap.ColumnWidth;
 import org.nasdanika.vinci.bootstrap.ContentActionGroupItem;
 import org.nasdanika.vinci.bootstrap.Div;
 import org.nasdanika.vinci.bootstrap.Dropdown;
@@ -124,6 +125,13 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 	 * @generated
 	 */
 	private EClass rowEClass = null;
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass columnWidthEClass = null;
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -864,8 +872,48 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 	 * @generated
 	 */
 	@Override
+	public EClass getColumnWidth() {
+		return columnWidthEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getColumnWidth_Breakpoint() {
+		return (EAttribute)columnWidthEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getColumnWidth_Width() {
+		return (EAttribute)columnWidthEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getColumn() {
 		return columnEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getColumn_Width() {
+		return (EReference)columnEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1418,7 +1466,12 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 		rowEClass = createEClass(ROW);
 		createEReference(rowEClass, ROW__COLUMNS);
 
+		columnWidthEClass = createEClass(COLUMN_WIDTH);
+		createEAttribute(columnWidthEClass, COLUMN_WIDTH__BREAKPOINT);
+		createEAttribute(columnWidthEClass, COLUMN_WIDTH__WIDTH);
+
 		columnEClass = createEClass(COLUMN);
+		createEReference(columnEClass, COLUMN__WIDTH);
 
 		cardEClass = createEClass(CARD);
 		createEReference(cardEClass, CARD__HEADER);
@@ -1618,7 +1671,12 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 		initEClass(rowEClass, Row.class, "Row", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getRow_Columns(), this.getColumn(), null, "columns", null, 0, -1, Row.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEClass(columnWidthEClass, ColumnWidth.class, "ColumnWidth", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getColumnWidth_Breakpoint(), ecorePackage.getEString(), "breakpoint", null, 0, 1, ColumnWidth.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getColumnWidth_Width(), ecorePackage.getEString(), "width", null, 0, 1, ColumnWidth.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		initEClass(columnEClass, Column.class, "Column", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getColumn_Width(), this.getColumnWidth(), null, "width", null, 0, -1, Column.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(cardEClass, Card.class, "Card", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getCard_Header(), this.getDiv(), null, "header", null, 0, 1, Card.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1926,6 +1984,18 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 		   new String[] {
 			   "documentation", "Fluid container takes 100% width of the parent."
 		   });
+		addAnnotation
+		  (getColumnWidth_Breakpoint(),
+		   source,
+		   new String[] {
+			   "documentation", "Border bootstrap color."
+		   });
+		addAnnotation
+		  (getColumnWidth_Width(),
+		   source,
+		   new String[] {
+			   "documentation", "Border bootstrap color."
+		   });
 	}
 
 	/**
@@ -1982,6 +2052,12 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 		  (actionGroupEClass,
 		   source,
 		   new String[] {
+		   });
+		addAnnotation
+		  (columnWidthEClass,
+		   source,
+		   new String[] {
+			   "constraints", "breakpoint width"
 		   });
 	}
 
