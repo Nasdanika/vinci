@@ -7,7 +7,6 @@ import java.util.UUID;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-import org.nasdanika.html.bootstrap.Color;
 import org.nasdanika.ncore.impl.ModelElementImpl;
 import org.nasdanika.vinci.app.AppPackage;
 import org.nasdanika.vinci.app.Label;
@@ -42,7 +41,7 @@ public abstract class LabelImpl extends ModelElementImpl implements Label {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Color COLOR_EDEFAULT = null;
+	protected static final String COLOR_EDEFAULT = null;
 
 	/**
 	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
@@ -130,8 +129,8 @@ public abstract class LabelImpl extends ModelElementImpl implements Label {
 	 * @generated
 	 */
 	@Override
-	public Color getColor() {
-		return (Color)eDynamicGet(AppPackage.LABEL__COLOR, AppPackage.Literals.LABEL__COLOR, true, true);
+	public String getColor() {
+		return (String)eDynamicGet(AppPackage.LABEL__COLOR, AppPackage.Literals.LABEL__COLOR, true, true);
 	}
 
 	/**
@@ -140,7 +139,7 @@ public abstract class LabelImpl extends ModelElementImpl implements Label {
 	 * @generated
 	 */
 	@Override
-	public void setColor(Color newColor) {
+	public void setColor(String newColor) {
 		eDynamicSet(AppPackage.LABEL__COLOR, AppPackage.Literals.LABEL__COLOR, newColor);
 	}
 
@@ -345,7 +344,7 @@ public abstract class LabelImpl extends ModelElementImpl implements Label {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case AppPackage.LABEL__COLOR:
-				setColor((Color)newValue);
+				setColor((String)newValue);
 				return;
 			case AppPackage.LABEL__ID:
 				setId((String)newValue);

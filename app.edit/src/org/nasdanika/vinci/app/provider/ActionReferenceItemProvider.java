@@ -63,20 +63,19 @@ public class ActionReferenceItemProvider extends NasdanikaItemProviderAdapter im
 	 * This adds a property descriptor for the Title feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void addTitlePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+			(createItemPropertyDescriptor(
 				 getResourceLocator(),
 				 getString("_UI_ActionReference_title_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ActionReference_title_feature", "_UI_ActionReference_type"),
 				 AppPackage.Literals.ACTION_REFERENCE__TITLE,
 				 true,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
 				 null,
 				 null));
 	}
@@ -107,19 +106,18 @@ public class ActionReferenceItemProvider extends NasdanikaItemProviderAdapter im
 	 * This adds a property descriptor for the Action feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void addActionPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+			(createItemPropertyDescriptor(
 				 getResourceLocator(),
 				 getString("_UI_ActionReference_action_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ActionReference_action_feature", "_UI_ActionReference_type"),
 				 AppPackage.Literals.ACTION_REFERENCE__ACTION,
 				 true,
 				 false,
 				 true,
+				 null,
 				 null,
 				 null,
 				 null));

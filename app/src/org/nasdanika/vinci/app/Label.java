@@ -3,7 +3,6 @@
 package org.nasdanika.vinci.app;
 
 import org.nasdanika.common.SupplierFactory;
-import org.nasdanika.html.bootstrap.Color;
 import org.nasdanika.ncore.ModelElement;
 import org.nasdanika.vinci.bootstrap.Appearance;
 
@@ -43,12 +42,12 @@ public interface Label extends ModelElement, SupplierFactory<Object> {
 	 * 
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Color</em>' attribute.
-	 * @see #setColor(Color)
+	 * @see #setColor(String)
 	 * @see org.nasdanika.vinci.app.AppPackage#getLabel_Color()
-	 * @model dataType="org.nasdanika.vinci.app.Color"
+	 * @model
 	 * @generated
 	 */
-	Color getColor();
+	String getColor();
 
 	/**
 	 * Sets the value of the '{@link org.nasdanika.vinci.app.Label#getColor <em>Color</em>}' attribute.
@@ -58,7 +57,7 @@ public interface Label extends ModelElement, SupplierFactory<Object> {
 	 * @see #getColor()
 	 * @generated
 	 */
-	void setColor(Color value);
+	void setColor(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Id</b></em>' attribute.

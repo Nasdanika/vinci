@@ -8,7 +8,6 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
-import org.nasdanika.html.bootstrap.Color;
 import org.nasdanika.vinci.app.*;
 import org.nasdanika.vinci.app.Action;
 import org.nasdanika.vinci.app.ActionCategory;
@@ -93,8 +92,6 @@ public class AppFactoryImpl extends EFactoryImpl implements AppFactory {
 				return createSectionStyleFromString(eDataType, initialValue);
 			case AppPackage.ACTIVATOR_TYPE:
 				return createActivatorTypeFromString(eDataType, initialValue);
-			case AppPackage.COLOR:
-				return createColorFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -114,8 +111,6 @@ public class AppFactoryImpl extends EFactoryImpl implements AppFactory {
 				return convertSectionStyleToString(eDataType, instanceValue);
 			case AppPackage.ACTIVATOR_TYPE:
 				return convertActivatorTypeToString(eDataType, instanceValue);
-			case AppPackage.COLOR:
-				return convertColorToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -267,24 +262,6 @@ public class AppFactoryImpl extends EFactoryImpl implements AppFactory {
 	 */
 	public String convertActivatorTypeToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Color createColorFromString(EDataType eDataType, String initialValue) {
-		return (Color)super.createFromString(eDataType, initialValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertColorToString(EDataType eDataType, Object instanceValue) {
-		return super.convertToString(eDataType, instanceValue);
 	}
 
 	/**

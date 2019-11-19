@@ -6,9 +6,8 @@
       <margin size="2" breakpoint="" top="false" bottom="false" left="false" right="false" y="true"/>
     </appearance>
     <header>
-      <appearance background="PRIMARY" attributes="class:&#xA;    display: 4&#xA;        ">
+      <appearance background="PRIMARY" attributes="        ">
         <border color="DARK"/>
-        <text color="SUCCESS" weight="BOLD" monospace="true"/>
       </appearance>
     </header>
     <navigationPanel/>
@@ -17,11 +16,20 @@
         <text alignment="CENTER" italic="true"/>
       </appearance>
     </footer>
-    <builders xsi:type="org.nasdanika.vinci.app:Action" title="Bank of Nasdanika" description="Root action of the Bank of Nasdanika web site." id="index" text="Bank of Nasdanika" icon="fas fa-bank" linkedElements="//@builders.0/@builders.0/@elements.0">
-      <elements xsi:type="org.nasdanika.vinci.app:Action" title="Joe Doe" description="Principal action for a bank customer - Joe Doe" id="5efbff7d-842a-4093-bce6-7dc00880cb2a" text="Joe Doe" linkedElements="//@builders.0/@builders.0/@elements.1 //@builders.0/@builders.0/@elements.2 //@builders.0/@builders.0/@elements.3"/>
-      <elements xsi:type="org.nasdanika.vinci.app:Action" title="Checking" id="2dcb1eb8-c6ca-4190-82e5-cb8db0bc9a1d" text="Checking-1234"/>
-      <elements xsi:type="org.nasdanika.vinci.app:Action" title="Savings" id="24c99d24-3e80-4da9-815d-6d46b77e39ea" text="Savings-5678"/>
-      <elements xsi:type="org.nasdanika.vinci.app:Action" title="Credit Card" id="b6b8ce55-9330-4070-b5c0-5d8b45cdf23c" text="Super Rewards-3456"/>
+    <builders xsi:type="org.nasdanika.vinci.app:Action" title="Bank of Nasdanika" description="Root action of the Bank of Nasdanika web site." id="index" text="Bank of Nasdanika" icon="fas fa-university" linkedElements="//@builders.0/@builders.0/@elements.0 //@builders.0/@builders.0/@elements.4 //@builders.0/@builders.0/@elements.5" role="Context">
+      <appearance attributes="class:&#xA;    display: 4"/>
+      <elements xsi:type="org.nasdanika.vinci.app:Action" title="Joe Doe" description="Principal action for a bank customer - Joe Doe" id="5efbff7d-842a-4093-bce6-7dc00880cb2a" text="Joe Doe" icon="fas fa-user" linkedElements="//@builders.0/@builders.0/@elements.1 //@builders.0/@builders.0/@elements.2 //@builders.0/@builders.0/@elements.3 //@builders.0/@builders.0/@elements.6 //@builders.0/@builders.0/@elements.7"/>
+      <elements xsi:type="org.nasdanika.vinci.app:Action" title="Checking" id="2dcb1eb8-c6ca-4190-82e5-cb8db0bc9a1d" text="Checking-1234" icon="fas fa-money-check-alt"/>
+      <elements xsi:type="org.nasdanika.vinci.app:Action" title="Savings" id="24c99d24-3e80-4da9-815d-6d46b77e39ea" text="Savings-5678" icon="fas fa-piggy-bank"/>
+      <elements xsi:type="org.nasdanika.vinci.app:Action" title="Credit Card" id="b6b8ce55-9330-4070-b5c0-5d8b45cdf23c" text="Super Rewards-3456" icon="far fa-credit-card"/>
+      <elements xsi:type="org.nasdanika.vinci.app:Action" title="Locations" description="Bank locations." id="39d84b55-2253-4846-9544-a87c765584dd" text="Locations" icon="far fa-building">
+        <appearance>
+          <text color="WHITE"/>
+        </appearance>
+      </elements>
+      <elements xsi:type="org.nasdanika.vinci.app:Action" title="Contact Us" description="Opens a page with contact methods." id="564462c6-b83e-49a0-b355-dbf9f55b057e" text="Contact Us" icon="far fa-envelope" role="Context"/>
+      <elements xsi:type="org.nasdanika.vinci.app:Action" title="Pay Bills" id="a0cee3ae-b2a8-4801-b329-f399701def03" text="Pay bills" icon="fas fa-file-invoice-dollar" role="Context"/>
+      <elements xsi:type="org.nasdanika.vinci.app:Action" title="Transfer Funds" id="5cd02bc0-7a39-46b6-a52f-8301bddb3990" text="Transfer funds" icon="fas fa-exchange-alt" role="Context"/>
       <content xsi:type="org.nasdanika.ncore:Value" value="Lorem ipsum - Bank of Nasdanika langing page"/>
     </builders>
   </builders>

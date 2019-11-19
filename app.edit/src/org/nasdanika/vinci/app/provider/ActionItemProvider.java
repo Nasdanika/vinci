@@ -10,7 +10,6 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.nasdanika.vinci.app.ActionBase;
-import org.nasdanika.vinci.app.AppPackage;
 
 /**
  * This is the item provider adapter for a {@link org.nasdanika.vinci.app.Action} object.
@@ -111,24 +110,10 @@ public class ActionItemProvider extends ActionBaseItemProvider {
 	 * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getCreateChildText(Object owner, Object feature, Object child, Collection<?> selection) {
-		Object childFeature = feature;
-		Object childObject = child;
-
-		boolean qualify =
-			childFeature == AppPackage.Literals.LABEL__APPEARANCE ||
-			childFeature == AppPackage.Literals.CONTAINER__ELEMENTS ||
-			childFeature == AppPackage.Literals.ABSTRACT_ACTION__ACTION_MAPPINGS ||
-			childFeature == AppPackage.Literals.ACTION_BASE__CONTENT;
-
-		if (qualify) {
-			return getString
-				("_UI_CreateChild_text2",
-				 new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
-		}
 		return super.getCreateChildText(owner, feature, child, selection);
 	}
 

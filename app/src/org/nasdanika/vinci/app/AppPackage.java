@@ -4,7 +4,6 @@ package org.nasdanika.vinci.app;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
@@ -1784,17 +1783,6 @@ public interface AppPackage extends EPackage {
 	int ACTIVATOR_TYPE = 17;
 
 	/**
-	 * The meta object id for the '<em>Color</em>' data type.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.nasdanika.html.bootstrap.Color
-	 * @see org.nasdanika.vinci.app.impl.AppPackageImpl#getColor()
-	 * @generated
-	 */
-	int COLOR = 18;
-
-
-	/**
 	 * Returns the meta object for class '{@link org.nasdanika.vinci.app.Label <em>Label</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2403,20 +2391,6 @@ public interface AppPackage extends EPackage {
 	EReference getContainer_LinkedElements();
 
 	/**
-	 * Returns the meta object for data type '{@link org.nasdanika.html.bootstrap.Color <em>Color</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * <!-- begin-model-doc -->
-     * Bootstrap color.
-     * <!-- end-model-doc -->
-	 * @return the meta object for data type '<em>Color</em>'.
-	 * @see org.nasdanika.html.bootstrap.Color
-	 * @model instanceClass="org.nasdanika.html.bootstrap.Color"
-	 * @generated
-	 */
-	EDataType getColor();
-
-	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2930,16 +2904,6 @@ public interface AppPackage extends EPackage {
 		 * @generated
 		 */
 		EReference CONTAINER__LINKED_ELEMENTS = eINSTANCE.getContainer_LinkedElements();
-
-		/**
-		 * The meta object literal for the '<em>Color</em>' data type.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.nasdanika.html.bootstrap.Color
-		 * @see org.nasdanika.vinci.app.impl.AppPackageImpl#getColor()
-		 * @generated
-		 */
-		EDataType COLOR = eINSTANCE.getColor();
 
 	}
 
