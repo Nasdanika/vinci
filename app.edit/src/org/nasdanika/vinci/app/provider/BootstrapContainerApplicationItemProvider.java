@@ -199,7 +199,7 @@ public class BootstrapContainerApplicationItemProvider
 	 * that can be created under this object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
@@ -212,18 +212,8 @@ public class BootstrapContainerApplicationItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(AppPackage.Literals.BOOTSTRAP_CONTAINER_APPLICATION__HEADER,
-				 AppFactory.eINSTANCE.createBootstrapContainerApplicationPanel()));
-
-		newChildDescriptors.add
-			(createChildParameter
 				(AppPackage.Literals.BOOTSTRAP_CONTAINER_APPLICATION__NAVIGATION_BAR,
 				 AppFactory.eINSTANCE.createBootstrapContainerApplicationSection()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(AppPackage.Literals.BOOTSTRAP_CONTAINER_APPLICATION__NAVIGATION_BAR,
-				 AppFactory.eINSTANCE.createBootstrapContainerApplicationPanel()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -240,30 +230,25 @@ public class BootstrapContainerApplicationItemProvider
 				(AppPackage.Literals.BOOTSTRAP_CONTAINER_APPLICATION__FOOTER,
 				 AppFactory.eINSTANCE.createBootstrapContainerApplicationSection()));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(AppPackage.Literals.BOOTSTRAP_CONTAINER_APPLICATION__FOOTER,
-				 AppFactory.eINSTANCE.createBootstrapContainerApplicationPanel()));
+//		newChildDescriptors.add
+//			(createChildParameter
+//				(AppPackage.Literals.BOOTSTRAP_CONTAINER_APPLICATION__BUILDERS,
+//				 AppFactory.eINSTANCE.createActionLink()));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(AppPackage.Literals.BOOTSTRAP_CONTAINER_APPLICATION__BUILDERS,
-				 AppFactory.eINSTANCE.createActionLink()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(AppPackage.Literals.BOOTSTRAP_CONTAINER_APPLICATION__BUILDERS,
-				 AppFactory.eINSTANCE.createActionReference()));
+//		newChildDescriptors.add
+//			(createChildParameter
+//				(AppPackage.Literals.BOOTSTRAP_CONTAINER_APPLICATION__BUILDERS,
+//				 AppFactory.eINSTANCE.createActionReference()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(AppPackage.Literals.BOOTSTRAP_CONTAINER_APPLICATION__BUILDERS,
 				 AppFactory.eINSTANCE.createAction()));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(AppPackage.Literals.BOOTSTRAP_CONTAINER_APPLICATION__BUILDERS,
-				 AppFactory.eINSTANCE.createPartition()));
+//		newChildDescriptors.add
+//			(createChildParameter
+//				(AppPackage.Literals.BOOTSTRAP_CONTAINER_APPLICATION__BUILDERS,
+//				 AppFactory.eINSTANCE.createPartition()));
 	}
 
 	/**
