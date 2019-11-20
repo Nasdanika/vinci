@@ -361,6 +361,7 @@ public class BootstrapValidator extends EObjectValidator {
 					case "class":
 					case "data":
 					case "style":
+					case "children":
 						break;
 					default:
 						if (!(entry.getKey().startsWith("data-")) && (value instanceof List || value instanceof Map)) {

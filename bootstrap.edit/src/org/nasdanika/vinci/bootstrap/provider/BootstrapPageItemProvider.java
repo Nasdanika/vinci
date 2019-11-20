@@ -13,6 +13,7 @@ import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+import org.nasdanika.html.bootstrap.Theme;
 import org.nasdanika.vinci.bootstrap.BootstrapPackage;
 import org.nasdanika.vinci.bootstrap.BootstrapPage;
 import org.nasdanika.vinci.html.HtmlPackage;
@@ -77,22 +78,21 @@ public class BootstrapPageItemProvider extends PageItemProvider {
 	 * This adds a property descriptor for the Theme feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void addThemePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+			(createItemPropertyDescriptor(
 				 getResourceLocator(),
 				 getString("_UI_BootstrapPage_theme_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_BootstrapPage_theme_feature", "_UI_BootstrapPage_type"),
 				 BootstrapPackage.Literals.BOOTSTRAP_PAGE__THEME,
 				 true,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
-				 null));
+				 null,
+				 enumChoices(Theme.class, true, null)));
 	}
 
 	/**
