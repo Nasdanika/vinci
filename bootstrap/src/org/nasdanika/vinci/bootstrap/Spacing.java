@@ -63,7 +63,7 @@ public interface Spacing extends EObject {
 	 * @return the value of the '<em>Breakpoint</em>' attribute.
 	 * @see #setBreakpoint(String)
 	 * @see org.nasdanika.vinci.bootstrap.BootstrapPackage#getSpacing_Breakpoint()
-	 * @model required="true"
+	 * @model
 	 * @generated
 	 */
 	String getBreakpoint();

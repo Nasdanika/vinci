@@ -1599,7 +1599,7 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 
 		initEClass(spacingEClass, Spacing.class, "Spacing", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getSpacing_Size(), ecorePackage.getEString(), "size", null, 1, 1, Spacing.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getSpacing_Breakpoint(), ecorePackage.getEString(), "breakpoint", null, 1, 1, Spacing.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSpacing_Breakpoint(), ecorePackage.getEString(), "breakpoint", null, 0, 1, Spacing.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSpacing_Top(), ecorePackage.getEBoolean(), "top", "true", 0, 1, Spacing.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSpacing_Bottom(), ecorePackage.getEBoolean(), "bottom", "true", 0, 1, Spacing.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSpacing_Left(), ecorePackage.getEBoolean(), "left", "true", 0, 1, Spacing.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
