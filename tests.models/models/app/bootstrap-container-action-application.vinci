@@ -27,7 +27,7 @@
       <elements xsi:type="org.nasdanika.vinci.app:Action" title="Savings" id="24c99d24-3e80-4da9-815d-6d46b77e39ea" text="Savings-5678" icon="fas fa-piggy-bank">
         <content xsi:type="org.nasdanika.ncore:Value" value="TODO - Account summary and current transactions."/>
       </elements>
-      <elements xsi:type="org.nasdanika.vinci.app:Action" title="Credit Card" id="b6b8ce55-9330-4070-b5c0-5d8b45cdf23c" text="Super Rewards-3456" icon="far fa-credit-card"/>
+      <elements xsi:type="org.nasdanika.vinci.app:Action" title="Credit Card" id="b6b8ce55-9330-4070-b5c0-5d8b45cdf23c" text="Super Rewards-3456" icon="far fa-credit-card" linkedElements="//@builders.0/@builders.0/@elements.8"/>
       <elements xsi:type="org.nasdanika.vinci.app:Action" title="Locations" description="Bank locations." id="39d84b55-2253-4846-9544-a87c765584dd" text="Locations" icon="far fa-building">
         <appearance>
           <text color="WHITE"/>
@@ -36,6 +36,7 @@
       <elements xsi:type="org.nasdanika.vinci.app:Action" title="Contact Us" description="Opens a page with contact methods." id="564462c6-b83e-49a0-b355-dbf9f55b057e" text="Contact Us" icon="far fa-envelope" role="Context"/>
       <elements xsi:type="org.nasdanika.vinci.app:Action" title="Pay Bills" id="a0cee3ae-b2a8-4801-b329-f399701def03" text="Pay bills" icon="fas fa-file-invoice-dollar" role="Context"/>
       <elements xsi:type="org.nasdanika.vinci.app:Action" title="Transfer Funds" id="5cd02bc0-7a39-46b6-a52f-8301bddb3990" text="Transfer funds" icon="fas fa-exchange-alt" role="Context"/>
+      <elements xsi:type="org.nasdanika.vinci.app:Action" title="Dispute Charge" description="Submit a request to dispute a charge." id="b1b04874-8fd3-4e9a-b516-495bbedfa183" text="Disupte charge" icon="fas fa-gavel" role="Context"/>
       <content xsi:type="org.nasdanika.ncore:Value" value="Lorem ipsum - Bank of Nasdanika langing page"/>
     </builders>
   </builders>

@@ -100,11 +100,11 @@ public class BootstrapContainerApplicationPanelItemProvider extends BootstrapCon
 	 * This returns BootstrapContainerApplicationPanel.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/BootstrapContainerApplicationPanel"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/BootstrapContainerApplicationPanel.png"));
 	}
 
 	/**

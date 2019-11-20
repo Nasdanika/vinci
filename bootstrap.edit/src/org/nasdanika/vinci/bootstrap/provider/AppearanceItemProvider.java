@@ -149,11 +149,11 @@ public class AppearanceItemProvider
 	 * This returns Appearance.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Appearance"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Appearance.png"));
 	}
 
 	/**

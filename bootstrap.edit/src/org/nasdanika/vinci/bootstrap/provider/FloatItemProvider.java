@@ -117,11 +117,11 @@ public class FloatItemProvider
 	 * This returns Float.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Float"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Float.png"));
 	}
 
 	/**

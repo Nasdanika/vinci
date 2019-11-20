@@ -134,11 +134,11 @@ public class BootstrapContainerApplicationItemProvider
 	 * This returns BootstrapContainerApplication.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/BootstrapContainerApplication"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/BootstrapContainerApplication.png"));
 	}
 
 	/**

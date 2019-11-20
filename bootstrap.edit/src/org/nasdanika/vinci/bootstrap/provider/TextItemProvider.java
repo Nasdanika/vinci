@@ -241,11 +241,11 @@ public class TextItemProvider
 	 * This returns Text.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Text"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Text.png"));
 	}
 
 	/**

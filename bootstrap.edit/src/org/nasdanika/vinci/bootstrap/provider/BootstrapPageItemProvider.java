@@ -99,11 +99,11 @@ public class BootstrapPageItemProvider extends PageItemProvider {
 	 * This returns BootstrapPage.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/BootstrapPage"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/BootstrapPage.png"));
 	}
 
 	/**
