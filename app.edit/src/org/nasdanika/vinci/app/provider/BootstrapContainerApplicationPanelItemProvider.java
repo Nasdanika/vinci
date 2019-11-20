@@ -63,7 +63,9 @@ public class BootstrapContainerApplicationPanelItemProvider extends BootstrapCon
 			children.add(new EReferenceItemProvider(this, (EObject) object, HtmlPackage.Literals.CONTAINER__CONTENT)); 
 			children.add(new EReferenceItemProvider(this, (EObject) object, AppPackage.Literals.BOOTSTRAP_CONTAINER_APPLICATION_PANEL__WIDTH));
 		}
-		return children;
+		Collection<Object> allChildren = new ArrayList<>(children);
+		allChildren.addAll(super.getChildren(object));
+		return allChildren;
 	}	
 	
 	/**
@@ -72,15 +74,19 @@ public class BootstrapContainerApplicationPanelItemProvider extends BootstrapCon
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(AppPackage.Literals.BOOTSTRAP_CONTAINER_APPLICATION_PANEL__WIDTH);
 		}
-		return childrenFeatures;
+		Collection<EStructuralFeature> filteredChildrenFeatures = new ArrayList<>(childrenFeatures);
+		
+		// Removing container content as it is handled by ereference item provider.
+		filteredChildrenFeatures.remove(HtmlPackage.Literals.CONTAINER__CONTENT); 
+		
+		return filteredChildrenFeatures;
 	}
 
 	/**
