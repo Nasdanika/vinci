@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.nasdanika.vinci.bootstrap:BootstrapPage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.nasdanika.ncore="urn:org.nasdanika.ncore" xmlns:org.nasdanika.vinci.app="urn:org.nasdanika.vinci.app" xmlns:org.nasdanika.vinci.bootstrap="urn:org.nasdanika.vinci.bootstrap" description="Bank of Nasdanika" name="Bank of Nasdanika" fontAwesome="true" theme="Sandstone">
+  <builders xsi:type="org.nasdanika.vinci.app:BootstrapContainerApplication">
+    <appearance attributes="children:&#xA;    content-row:&#xA;        style:&#xA;            min-height: 25rem">
+      <border color="DARK"/>
+      <margin size="2" breakpoint="" bottom="false" left="false" right="false"/>
+    </appearance>
+    <header>
+      <appearance background="PRIMARY"/>
+    </header>
+    <navigationPanel>
+      <appearance>
+        <border color="LIGHT" top="false" bottom="false" left="false"/>
+      </appearance>
+      <width breakpoint="" width="auto"/>
+    </navigationPanel>
+    <contentPanel>
+      <appearance>
+        <padding size="1" breakpoint=""/>
+      </appearance>
+      <width/>
+    </contentPanel>
+    <footer>
+      <appearance background="LIGHT">
+        <text alignment="CENTER" italic="true"/>
+      </appearance>
+    </footer>
+    <builders xsi:type="org.nasdanika.vinci.app:Action" title="Bank of Nasdanika" id="index" text="Bank of Nasdanika" icon="fas fa-university" linkedElements="//@builders.0/@builders.0/@elements.2 //@builders.0/@builders.0/@elements.0 //@builders.0/@builders.0/@elements.1">
+      <appearance attributes="class:&#xA;    display: 4&#xA;style:&#xA;    text:&#xA;        decoration: none">
+        <text color="DARK"/>
+      </appearance>
+      <elements xsi:type="org.nasdanika.vinci.app:Action" title="Locations" id="c5c8ec03-0f9e-4b0b-bf46-350c9b6ba59a" text="Locations" icon="far fa-building">
+        <appearance background="NONE" attributes="">
+          <text color="WHITE"/>
+        </appearance>
+      </elements>
+      <elements xsi:type="org.nasdanika.vinci.app:Action" title="Contact Us" id="ab1778bc-f554-43a4-a785-bff3160764dc" text="Contact Us" icon="far fa-envelope" role="Context"/>
+      <elements xsi:type="org.nasdanika.vinci.app:Action" title="Joe Doe" id="524984d0-253e-4ac7-b100-3c489d4ccc3a" text="Joe Doe" icon="fas fa-user" linkedElements="//@builders.0/@builders.0/@elements.3 //@builders.0/@builders.0/@elements.4 //@builders.0/@builders.0/@elements.5 //@builders.0/@builders.0/@elements.6 //@builders.0/@builders.0/@elements.7"/>
+      <elements xsi:type="org.nasdanika.vinci.app:Action" title="Checking" id="b24142d2-b17a-4357-86ae-9717644db759" text="Checking-1234" icon="fas fa-money-check-alt" linkedElements="//@builders.0/@builders.0/@elements.8">
+        <content xsi:type="org.nasdanika.ncore:Value" value="Lorem ipsum..."/>
+      </elements>
+      <elements xsi:type="org.nasdanika.vinci.app:Action" title="Savings" id="2dd49b89-b498-461b-8bf8-01c2c1e81476" text="Saving-5678" icon="fas fa-piggy-bank">
+        <content xsi:type="org.nasdanika.ncore:Value" value="A lot of money"/>
+      </elements>
+      <elements xsi:type="org.nasdanika.vinci.app:Action" title="Credit Card" id="e871d844-e734-466b-acb0-8fc82bfd841f" text="Super Rewards-4567" icon="far fa-credit-card"/>
+      <elements xsi:type="org.nasdanika.vinci.app:Action" title="Pay Bills" id="c47c6c3e-e693-4607-89e0-596e02a14fe6" text="Pay Bills" icon="fas fa-file-invoice-dollar" role="Context"/>
+      <elements xsi:type="org.nasdanika.vinci.app:Action" title="Transfer Funds" id="598bdb6f-b5fd-4ea9-9d3c-d48a222c7610" text="Transfer Funds" icon="fas fa-exchange-alt" role="Context"/>
+      <elements xsi:type="org.nasdanika.vinci.app:Action" title="Order checks" id="f1077f39-2825-45b7-a813-5acc6ed95cd9" text="Order checks" icon="fas fa-clipboard-list" role="Context"/>
+      <content xsi:type="org.nasdanika.ncore:Value" value="Lorem ipsum - Bank of Nasdanika Home Page."/>
+    </builders>
+  </builders>
+</org.nasdanika.vinci.bootstrap:BootstrapPage>

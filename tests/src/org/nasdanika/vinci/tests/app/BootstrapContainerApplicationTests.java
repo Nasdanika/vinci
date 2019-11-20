@@ -34,4 +34,20 @@ public class BootstrapContainerApplicationTests extends TestsBase {
 		}
 	}
 	
+	/**
+	 * @throws Exception
+	 */
+	@Test
+	public void testBankOfNasdanika() throws Exception {
+		execute("app/bank-of-nasdanika").writeFile("index.html", new PrintStreamProgressMonitor()); 		
+		
+		String[] ids = {
+				"2dd49b89-b498-461b-8bf8-01c2c1e81476", // Savings
+				"b24142d2-b17a-4357-86ae-9717644db759"  // Credit card
+			};
+			for (String id: ids) {
+				execute("app/bank-of-nasdanika", Context.singleton("active-action", id)).writeFile(id+".html", new PrintStreamProgressMonitor());
+			}
+	}
+	
 }
