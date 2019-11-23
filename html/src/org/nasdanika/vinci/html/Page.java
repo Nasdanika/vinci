@@ -30,6 +30,7 @@ import org.nasdanika.ncore.NamedElement;
  *   <li>{@link org.nasdanika.vinci.html.Page#getStylesheets <em>Stylesheets</em>}</li>
  *   <li>{@link org.nasdanika.vinci.html.Page#getScripts <em>Scripts</em>}</li>
  *   <li>{@link org.nasdanika.vinci.html.Page#isFontAwesome <em>Font Awesome</em>}</li>
+ *   <li>{@link org.nasdanika.vinci.html.Page#isJsTree <em>Js Tree</em>}</li>
  * </ul>
  *
  * @see org.nasdanika.vinci.html.HtmlPackage#getPage()
@@ -142,7 +143,7 @@ public interface Page extends NamedElement, SupplierFactory<Object> {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * If this attribute is set to true [Font Awesome](https://fontawesome.com/) stylesheet reference is added to the head.
+	 * If this attribute is set to true [Font Awesome](https://fontawesome.com/) CDN stylesheet reference is added to the head.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Font Awesome</em>' attribute.
 	 * @see #setFontAwesome(boolean)
@@ -161,5 +162,30 @@ public interface Page extends NamedElement, SupplierFactory<Object> {
 	 * @generated
 	 */
 	void setFontAwesome(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Js Tree</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * If this attribute is set to true [jsTree](https://www.jstree.com/) CDN script and stylesheet references are added to the head.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Js Tree</em>' attribute.
+	 * @see #setJsTree(boolean)
+	 * @see org.nasdanika.vinci.html.HtmlPackage#getPage_JsTree()
+	 * @model
+	 * @generated
+	 */
+	boolean isJsTree();
+
+	/**
+	 * Sets the value of the '{@link org.nasdanika.vinci.html.Page#isJsTree <em>Js Tree</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Js Tree</em>' attribute.
+	 * @see #isJsTree()
+	 * @generated
+	 */
+	void setJsTree(boolean value);
 
 } // Page

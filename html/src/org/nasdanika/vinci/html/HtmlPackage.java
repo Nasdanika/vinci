@@ -393,13 +393,22 @@ public interface HtmlPackage extends EPackage {
 	int PAGE__FONT_AWESOME = NcorePackage.NAMED_ELEMENT_FEATURE_COUNT + 6;
 
 	/**
+	 * The feature id for the '<em><b>Js Tree</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PAGE__JS_TREE = NcorePackage.NAMED_ELEMENT_FEATURE_COUNT + 7;
+
+	/**
 	 * The number of structural features of the '<em>Page</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PAGE_FEATURE_COUNT = NcorePackage.NAMED_ELEMENT_FEATURE_COUNT + 7;
+	int PAGE_FEATURE_COUNT = NcorePackage.NAMED_ELEMENT_FEATURE_COUNT + 8;
 
 	/**
 	 * The number of operations of the '<em>Page</em>' class.
@@ -580,6 +589,17 @@ public interface HtmlPackage extends EPackage {
 	EAttribute getPage_FontAwesome();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.html.Page#isJsTree <em>Js Tree</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Js Tree</em>'.
+	 * @see org.nasdanika.vinci.html.Page#isJsTree()
+	 * @see #getPage()
+	 * @generated
+	 */
+	EAttribute getPage_JsTree();
+
+	/**
 	 * Returns the meta object for data type '{@link org.nasdanika.html.TagName <em>Tag Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -742,6 +762,14 @@ public interface HtmlPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute PAGE__FONT_AWESOME = eINSTANCE.getPage_FontAwesome();
+
+		/**
+		 * The meta object literal for the '<em><b>Js Tree</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PAGE__JS_TREE = eINSTANCE.getPage_JsTree();
 
 		/**
 		 * The meta object literal for the '<em>Tag Name</em>' data type.

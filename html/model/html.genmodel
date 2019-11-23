@@ -31,6 +31,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute html.ecore#//Page/stylesheets"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute html.ecore#//Page/scripts"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute html.ecore#//Page/fontAwesome"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute html.ecore#//Page/jsTree"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

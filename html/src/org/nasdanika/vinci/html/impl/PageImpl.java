@@ -23,6 +23,7 @@ import org.nasdanika.common.Util;
 import org.nasdanika.html.HTMLFactory;
 import org.nasdanika.html.HTMLPage;
 import org.nasdanika.html.fontawesome.FontAwesomeFactory;
+import org.nasdanika.html.jstree.JsTreeFactory;
 import org.nasdanika.ncore.impl.NamedElementImpl;
 import org.nasdanika.vinci.html.HtmlPackage;
 import org.nasdanika.vinci.html.Page;
@@ -42,6 +43,7 @@ import org.nasdanika.vinci.html.Page;
  *   <li>{@link org.nasdanika.vinci.html.impl.PageImpl#getStylesheets <em>Stylesheets</em>}</li>
  *   <li>{@link org.nasdanika.vinci.html.impl.PageImpl#getScripts <em>Scripts</em>}</li>
  *   <li>{@link org.nasdanika.vinci.html.impl.PageImpl#isFontAwesome <em>Font Awesome</em>}</li>
+ *   <li>{@link org.nasdanika.vinci.html.impl.PageImpl#isJsTree <em>Js Tree</em>}</li>
  * </ul>
  *
  * @generated
@@ -66,6 +68,16 @@ public class PageImpl extends NamedElementImpl implements Page {
 	 * @ordered
 	 */
 	protected static final boolean FONT_AWESOME_EDEFAULT = false;
+
+	/**
+	 * The default value of the '{@link #isJsTree() <em>Js Tree</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isJsTree()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean JS_TREE_EDEFAULT = false;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -187,6 +199,26 @@ public class PageImpl extends NamedElementImpl implements Page {
 	 * @generated
 	 */
 	@Override
+	public boolean isJsTree() {
+		return (Boolean)eDynamicGet(HtmlPackage.PAGE__JS_TREE, HtmlPackage.Literals.PAGE__JS_TREE, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setJsTree(boolean newJsTree) {
+		eDynamicSet(HtmlPackage.PAGE__JS_TREE, HtmlPackage.Literals.PAGE__JS_TREE, newJsTree);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case HtmlPackage.PAGE__HEAD:
@@ -221,6 +253,8 @@ public class PageImpl extends NamedElementImpl implements Page {
 				return getScripts();
 			case HtmlPackage.PAGE__FONT_AWESOME:
 				return isFontAwesome();
+			case HtmlPackage.PAGE__JS_TREE:
+				return isJsTree();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -260,6 +294,9 @@ public class PageImpl extends NamedElementImpl implements Page {
 			case HtmlPackage.PAGE__FONT_AWESOME:
 				setFontAwesome((Boolean)newValue);
 				return;
+			case HtmlPackage.PAGE__JS_TREE:
+				setJsTree((Boolean)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -293,6 +330,9 @@ public class PageImpl extends NamedElementImpl implements Page {
 			case HtmlPackage.PAGE__FONT_AWESOME:
 				setFontAwesome(FONT_AWESOME_EDEFAULT);
 				return;
+			case HtmlPackage.PAGE__JS_TREE:
+				setJsTree(JS_TREE_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -319,6 +359,8 @@ public class PageImpl extends NamedElementImpl implements Page {
 				return !getScripts().isEmpty();
 			case HtmlPackage.PAGE__FONT_AWESOME:
 				return isFontAwesome() != FONT_AWESOME_EDEFAULT;
+			case HtmlPackage.PAGE__JS_TREE:
+				return isJsTree() != JS_TREE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -400,6 +442,10 @@ public class PageImpl extends NamedElementImpl implements Page {
 				
 				if (isFontAwesome()) {
 					context.get(FontAwesomeFactory.class, FontAwesomeFactory.INSTANCE).cdn(page);
+				}
+				
+				if (isJsTree()) {
+					context.get(JsTreeFactory.class, JsTreeFactory.INSTANCE).cdn(page);
 				}
 				
 				return page;

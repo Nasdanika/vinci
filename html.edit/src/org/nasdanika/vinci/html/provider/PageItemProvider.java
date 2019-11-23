@@ -12,7 +12,6 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
@@ -72,6 +71,7 @@ public class PageItemProvider extends NamedElementItemProvider {
 			addStylesheetsPropertyDescriptor(object);
 			addScriptsPropertyDescriptor(object);
 			addFontAwesomePropertyDescriptor(object);
+			addJsTreePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -151,6 +151,28 @@ public class PageItemProvider extends NamedElementItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_Page_fontAwesome_feature"),
 				 HtmlPackage.Literals.PAGE__FONT_AWESOME,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null,
+				 null));
+	}
+
+
+	/**
+	 * This adds a property descriptor for the Js Tree feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	protected void addJsTreePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor(
+				 getResourceLocator(),
+				 getString("_UI_Page_jsTree_feature"),
+				 HtmlPackage.Literals.PAGE__JS_TREE,
 				 true,
 				 false,
 				 false,
@@ -246,6 +268,7 @@ public class PageItemProvider extends NamedElementItemProvider {
 			case HtmlPackage.PAGE__STYLESHEETS:
 			case HtmlPackage.PAGE__SCRIPTS:
 			case HtmlPackage.PAGE__FONT_AWESOME:
+			case HtmlPackage.PAGE__JS_TREE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case HtmlPackage.PAGE__HEAD:
