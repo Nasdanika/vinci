@@ -25,7 +25,7 @@
         <text alignment="CENTER" italic="true"/>
       </appearance>
     </footer>
-    <builders xsi:type="org.nasdanika.vinci.app:Action" title="Bank of Nasdanika" id="index" text="Bank of Nasdanika" icon="fas fa-university" linkedElements="//@builders.0/@builders.0/@elements.2 //@builders.0/@builders.0/@elements.0 //@builders.0/@builders.0/@elements.1">
+    <builders xsi:type="org.nasdanika.vinci.app:Action" title="Bank of Nasdanika" id="index" text="Bank of Nasdanika" icon="fas fa-university" linkedElements="//@builders.0/@builders.0/@elements.2 //@builders.0/@builders.0/@elements.0 //@builders.0/@builders.0/@elements.1 //@builders.0/@builders.0/@elements.10">
       <appearance attributes="class:&#xA;    display: 4&#xA;style:&#xA;    text:&#xA;        decoration: none">
         <text color="LIGHT"/>
       </appearance>
@@ -47,6 +47,18 @@
       <elements xsi:type="org.nasdanika.vinci.app:Action" title="Transfer Funds" id="598bdb6f-b5fd-4ea9-9d3c-d48a222c7610" text="Transfer Funds" icon="fas fa-exchange-alt" role="Context"/>
       <elements xsi:type="org.nasdanika.vinci.app:Action" title="Order checks" id="f1077f39-2825-45b7-a813-5acc6ed95cd9" text="Order checks" icon="fas fa-clipboard-list" role="Context"/>
       <elements xsi:type="org.nasdanika.vinci.app:ActionCategory" title="Accounts" description="Category to test grouping of actions in the navigation panel." id="fd0a12cd-fd3d-489c-8c86-8684c59b0e73" text="Accounts" icon="fas fa-file-invoice-dollar" linkedElements="//@builders.0/@builders.0/@elements.5 //@builders.0/@builders.0/@elements.3 //@builders.0/@builders.0/@elements.4"/>
+      <elements xsi:type="org.nasdanika.vinci.app:Action" title="Services" description="To demo a drop-down in the header with categories." id="b5aaeece-2e7c-4676-9cae-4899973bf52e" text="Services" linkedElements="//@builders.0/@builders.0/@elements.11 //@builders.0/@builders.0/@elements.12 //@builders.0/@builders.0/@elements.13 //@builders.0/@builders.0/@elements.20 //@builders.0/@builders.0/@elements.21" activatorType="None"/>
+      <elements xsi:type="org.nasdanika.vinci.app:ActionCategory" title="Named 1" description="To test a named category" id="f5c04d48-ada8-414f-bd37-862ded859c6b" text="Category 1" linkedElements="//@builders.0/@builders.0/@elements.19 //@builders.0/@builders.0/@elements.14"/>
+      <elements xsi:type="org.nasdanika.vinci.app:ActionCategory" title="Anonymous" description="To test an anonymous category." id="812d2e74-3c33-4fd2-a2c4-24be0c1ee48f" linkedElements="//@builders.0/@builders.0/@elements.18 //@builders.0/@builders.0/@elements.15"/>
+      <elements xsi:type="org.nasdanika.vinci.app:ActionCategory" title="Named 2" id="40f42c7f-0dd9-4305-8c36-bef9b2452369" text="Category 2" linkedElements="//@builders.0/@builders.0/@elements.16 //@builders.0/@builders.0/@elements.17"/>
+      <elements xsi:type="org.nasdanika.vinci.app:Action" title="Service 1.2" id="82dbdd21-1af9-4d2d-8f04-c76fc55cf5ad" text="Service 1.2"/>
+      <elements xsi:type="org.nasdanika.vinci.app:Action" title="Service a.2" id="bf08d933-8e6f-4ad4-828a-f2362b3aa817" text="Service a.2"/>
+      <elements xsi:type="org.nasdanika.vinci.app:Action" title="Service 2.1" id="4b193d12-ebce-49d4-b296-e43bd562954d" text="Service 2.1"/>
+      <elements xsi:type="org.nasdanika.vinci.app:Action" title="Service 2.2" id="468080f2-8d79-42d7-8646-773b5c20d701" text="Service 2.2"/>
+      <elements xsi:type="org.nasdanika.vinci.app:Action" title="Service a.1" id="32f2c454-770b-4627-aacd-8604c022613b" text="Service a.1"/>
+      <elements xsi:type="org.nasdanika.vinci.app:Action" title="Service 1.1" id="b8fd4fdb-3db3-470f-8837-f2c54c34ddff" text="Service 1.1"/>
+      <elements xsi:type="org.nasdanika.vinci.app:Action" title="Service 1" id="46e48afd-a74a-4121-b53b-7c7bb14fc025" text="Service 1"/>
+      <elements xsi:type="org.nasdanika.vinci.app:Action" title="Service 2" id="0e6d21aa-4d7e-47bc-8b82-d9eb5cfa5ea9" text="Service 2"/>
       <content xsi:type="org.nasdanika.ncore:Value" value="Lorem ipsum - Bank of Nasdanika Home Page."/>
     </builders>
   </builders>
