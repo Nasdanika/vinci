@@ -29,6 +29,7 @@
       <genEnumLiterals ecoreEnumLiteral="app.ecore#//ActivatorType/Reference"/>
       <genEnumLiterals ecoreEnumLiteral="app.ecore#//ActivatorType/Script"/>
       <genEnumLiterals ecoreEnumLiteral="app.ecore#//ActivatorType/Bind"/>
+      <genEnumLiterals ecoreEnumLiteral="app.ecore#//ActivatorType/None"/>
     </genEnums>
     <genClasses image="false" ecoreClass="app.ecore#//Container">
       <genTypeParameters ecoreTypeParameter="app.ecore#//Container/E"/>

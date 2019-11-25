@@ -58,7 +58,18 @@ public enum ActivatorType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	BIND(2, "Bind", "Bind");
+	BIND(2, "Bind", "Bind"), /**
+	 * The '<em><b>None</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * No activator, e.g. for a grouping action.
+	 * <!-- end-model-doc -->
+	 * @see #NONE_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	NONE(3, "None", "None");
 
 	/**
 	 * The '<em><b>Reference</b></em>' literal value.
@@ -103,6 +114,20 @@ public enum ActivatorType implements Enumerator {
 	public static final int BIND_VALUE = 2;
 
 	/**
+	 * The '<em><b>None</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * No activator, e.g. for a grouping action.
+	 * <!-- end-model-doc -->
+	 * @see #NONE
+	 * @model name="None"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int NONE_VALUE = 3;
+
+	/**
 	 * An array of all the '<em><b>Activator Type</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -113,6 +138,7 @@ public enum ActivatorType implements Enumerator {
 			REFERENCE,
 			SCRIPT,
 			BIND,
+			NONE,
 		};
 
 	/**
@@ -172,6 +198,7 @@ public enum ActivatorType implements Enumerator {
 			case REFERENCE_VALUE: return REFERENCE;
 			case SCRIPT_VALUE: return SCRIPT;
 			case BIND_VALUE: return BIND;
+			case NONE_VALUE: return NONE;
 		}
 		return null;
 	}

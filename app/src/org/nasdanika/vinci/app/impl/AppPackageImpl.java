@@ -1128,6 +1128,7 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 		addEEnumLiteral(activatorTypeEEnum, ActivatorType.REFERENCE);
 		addEEnumLiteral(activatorTypeEEnum, ActivatorType.SCRIPT);
 		addEEnumLiteral(activatorTypeEEnum, ActivatorType.BIND);
+		addEEnumLiteral(activatorTypeEEnum, ActivatorType.NONE);
 
 		// Create resource
 		createResource(eNS_URI);
@@ -1402,6 +1403,12 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 		   source,
 		   new String[] {
 			   "documentation", "Activator is a script executed to bind action to its activator, e.g. set knockoutjs data-bind attribute."
+		   });
+		addAnnotation
+		  (activatorTypeEEnum.getELiterals().get(3),
+		   source,
+		   new String[] {
+			   "documentation", "No activator, e.g. for a grouping action."
 		   });
 		addAnnotation
 		  (actionEClass,

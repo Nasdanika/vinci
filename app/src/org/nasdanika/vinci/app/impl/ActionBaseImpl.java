@@ -912,6 +912,9 @@ public abstract class ActionBaseImpl extends LabelImpl implements ActionBase {
 				String activator = ActionBaseImpl.this.getActivator();
 				
 				switch (ActionBaseImpl.this.getActivatorType()) {
+				case NONE:
+					// No activator
+					break;
 				case BIND:
 					throw new UnsupportedOperationException("Not implemented yet");
 				case REFERENCE:
@@ -919,30 +922,32 @@ public abstract class ActionBaseImpl extends LabelImpl implements ActionBase {
 						activator = ActionBaseImpl.this.getId() + ".html";
 					}
 					String url = context.interpolate(activator);
-					if (!Util.isBlank(url)) {
-						setActivator(new NavigationActionActivator() {
-							
-							@Override
-							public String getUrl() {
-								return url;
-							}
-							
-						});
+					if (Util.isBlank(url)) {
+						throw new IllegalArgumentException("Activator type is reference and activator URL is blank");
 					}
+					setActivator(new NavigationActionActivator() {
+						
+						@Override
+						public String getUrl() {
+							return url;
+						}
+						
+					});
 					break;
 				case SCRIPT:
 					String code = context.interpolate(activator);
-					if (!Util.isBlank(code)) {
-						setActivator(new ScriptActionActivator() {
-							
-							@Override
-							public String getCode() {
-								return code;
-							}
-							
-						});
-					}					
-					break;
+					if (Util.isBlank(code)) {
+						throw new IllegalArgumentException("Activator type is script and activator code is blank");
+					}
+					setActivator(new ScriptActionActivator() {
+						
+						@Override
+						public String getCode() {
+							return code;
+						}
+						
+					});
+					break;					
 				default:
 					throw new IllegalArgumentException();
 				}
