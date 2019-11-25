@@ -13,6 +13,7 @@ import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
@@ -27,6 +28,7 @@ import org.nasdanika.common.MapCompoundSupplierFactory;
 import org.nasdanika.common.MarkdownHelper;
 import org.nasdanika.common.NullProgressMonitor;
 import org.nasdanika.common.ProgressMonitor;
+import org.nasdanika.common.Reference;
 import org.nasdanika.common.Supplier;
 import org.nasdanika.common.SupplierFactory;
 import org.nasdanika.common.Util;
@@ -807,7 +809,8 @@ public abstract class ActionBaseImpl extends LabelImpl implements ActionBase {
 
 		// Removing all elements which are linked from other objects.
 		List<ActionElement> elements = new ArrayList<>(getElements());
-		Resource resource = eResource();		
+		Resource resource = eResource();	
+		Reference<EObject> parentReference = new Reference<>(eContainer());
 		if (resource != null) {
 			ResourceSet resourceSet = resource.getResourceSet();
 			TreeIterator<?> cit;
@@ -819,7 +822,11 @@ public abstract class ActionBaseImpl extends LabelImpl implements ActionBase {
 			while (cit.hasNext()) {
 				Object next = cit.next();
 				if (next instanceof org.nasdanika.vinci.app.Container) {
-					elements.removeAll(((org.nasdanika.vinci.app.Container<?>) next).getLinkedElements());
+					EList<?> nLinkedElements = ((org.nasdanika.vinci.app.Container<?>) next).getLinkedElements();
+					elements.removeAll(nLinkedElements);
+					if (nLinkedElements.contains(this)) {
+						parentReference.set((EObject) next);
+					}
 				}
 			}
 		}
@@ -952,7 +959,38 @@ public abstract class ActionBaseImpl extends LabelImpl implements ActionBase {
 					throw new IllegalArgumentException();
 				}
 				
-				// category - TODO
+				// category
+				if (parentReference.get() instanceof ActionCategory) {
+					ActionCategory actionCategory = (ActionCategory) parentReference.get();
+					org.nasdanika.html.app.impl.LabelImpl cat = new org.nasdanika.html.app.impl.LabelImpl();
+					String catColor = actionCategory.getColor();
+					if (!Util.isBlank(catColor)) {
+						cat.setColor(Color.valueOf(catColor));
+					}					
+					cat.setIcon(context.interpolate(actionCategory.getIcon()));
+					cat.setNotification(context.interpolate(actionCategory.getNotification()));
+					cat.setText(context.interpolate(actionCategory.getText()));
+					cat.setOutline(actionCategory.isOutline());
+					cat.setId(actionCategory.getId());
+					// description
+					String catDescription = actionCategory.getDescription();
+					String catTooltip = actionCategory.getTooltip();
+					if (!Util.isBlank(catDescription)) {
+						MarkdownHelper catHelper = new MarkdownHelper();
+						setDescription(catHelper.markdownToHtml(catDescription));
+						if (Util.isBlank(catTooltip)) {
+							String textDoc = Jsoup.parse(getDescription()).text();
+							setTooltip(catHelper.firstSentence(textDoc));					
+
+						}
+					}
+					// tooltip
+					if (!Util.isBlank(catTooltip)) {
+						setTooltip(catTooltip);
+					}
+									
+					setCategory(cat);
+				}
 				
 				switch (ActionBaseImpl.this.getRole()) {
 				case CONTEXT:
