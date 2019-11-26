@@ -31,6 +31,7 @@ import org.nasdanika.vinci.bootstrap.Appearance;
  *
  * @see org.nasdanika.vinci.app.AppPackage#getLabel()
  * @model abstract="true" superTypes="org.nasdanika.ncore.ModelElement org.nasdanika.ncore.ISupplierFactory&lt;org.eclipse.emf.ecore.EJavaObject&gt;"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore constraints='color'"
  * @generated
  */
 public interface Label extends ModelElement, SupplierFactory<Object> {

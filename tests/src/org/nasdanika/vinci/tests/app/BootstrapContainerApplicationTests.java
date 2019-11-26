@@ -66,6 +66,5 @@ public class BootstrapContainerApplicationTests extends TestsBase {
 				execute(path, Context.singleton("active-action", id)).writeFile(id+".html", new PrintStreamProgressMonitor());
 			}
 	}
-	
-	
+		
 }

@@ -30,7 +30,7 @@
             icon="icons/full/obj16/Vinci.png"
             extensions="vinci"
             class="org.nasdanika.vinci.presentation.VinciEditor"
-            contributorClass="org.nasdanika.emf.presentation.NasdanikaActionBarContributor">
+            contributorClass="org.nasdanika.vinci.presentation.VinciActionBarContributor">
       </editor>
       <editor
             id="org.nasdanika.vinci.app.presentation.VinciSiriusEditorID"
@@ -38,7 +38,7 @@
             icon="icons/full/obj16/Vinci.png"
             extensions="vinci"
             class="org.nasdanika.emf.presentation.NasdanikaSiriusEditor"
-            contributorClass="org.nasdanika.emf.presentation.NasdanikaActionBarContributor">
+            contributorClass="org.nasdanika.vinci.presentation.VinciActionBarContributor">
       </editor>
       
    </extension>

@@ -12,6 +12,7 @@ import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.ETypeParameter;
+import org.eclipse.emf.ecore.EValidator;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 import org.nasdanika.ncore.NcorePackage;
 import org.nasdanika.vinci.app.AbstractAction;
@@ -34,6 +35,7 @@ import org.nasdanika.vinci.app.Category;
 import org.nasdanika.vinci.app.Label;
 import org.nasdanika.vinci.app.Partition;
 import org.nasdanika.vinci.app.SectionStyle;
+import org.nasdanika.vinci.app.util.AppValidator;
 import org.nasdanika.vinci.bootstrap.BootstrapPackage;
 import org.nasdanika.vinci.html.HtmlPackage;
 
@@ -234,6 +236,16 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 
 		// Initialize created meta-data
 		theAppPackage.initializePackageContents();
+
+		// Register package validator
+		EValidator.Registry.INSTANCE.put
+			(theAppPackage,
+			 new EValidator.Descriptor() {
+				 @Override
+				 public EValidator getEValidator() {
+					 return AppValidator.INSTANCE;
+				 }
+			 });
 
 		// Mark meta-data to indicate it can't be changed
 		theAppPackage.freeze();
@@ -1136,6 +1148,8 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 		// Create annotations
 		// http://www.eclipse.org/emf/2002/GenModel
 		createGenModelAnnotations();
+		// http://www.eclipse.org/emf/2002/Ecore
+		createEcoreAnnotations();
 	}
 
 	/**
@@ -1469,6 +1483,22 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 		   source,
 		   new String[] {
 			   "documentation", "Wraps element into a Consumer to be used as an application builder."
+		   });
+	}
+
+	/**
+	 * Initializes the annotations for <b>http://www.eclipse.org/emf/2002/Ecore</b>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void createEcoreAnnotations() {
+		String source = "http://www.eclipse.org/emf/2002/Ecore";
+		addAnnotation
+		  (labelEClass,
+		   source,
+		   new String[] {
+			   "constraints", "color"
 		   });
 	}
 
