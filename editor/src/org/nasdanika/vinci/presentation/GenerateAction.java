@@ -2,22 +2,25 @@ package org.nasdanika.vinci.presentation;
 
 import java.io.InputStream;
 import java.lang.reflect.InvocationTargetException;
-import java.net.URL;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
 import java.util.function.BiFunction;
 
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
-import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.MultiStatus;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Status;
+import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
+import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.Diagnostician;
@@ -39,10 +42,11 @@ import org.nasdanika.common.Supplier;
 import org.nasdanika.common.SupplierFactory;
 import org.nasdanika.common.Util;
 import org.nasdanika.common.resources.BinaryEntityContainer;
-import org.nasdanika.common.resources.FileSystemContainer;
 import org.nasdanika.eclipse.ProgressMonitorAdapter;
 import org.nasdanika.eclipse.resources.EclipseContainer;
 import org.nasdanika.ncore.ModelElement;
+import org.nasdanika.vinci.app.ActionBase;
+import org.nasdanika.vinci.app.ActivatorType;
 
 /**
  * @author Pavel Vlasov
@@ -50,6 +54,8 @@ import org.nasdanika.ncore.ModelElement;
  */
 public class GenerateAction<T extends EObject & SupplierFactory<Object>> extends Action {
 		
+	private static final int TOTAL_WORK = 1000;
+
 	public static BiFunction<String, Object, InputStream> ENCODER = (path, contents) -> {
 		InputStream ret = DefaultConverter.INSTANCE.convert(contents, InputStream.class);
 		if (ret == null) {
@@ -158,12 +164,12 @@ public class GenerateAction<T extends EObject & SupplierFactory<Object>> extends
 		
 		try {							
 			URI resourceURI = modelElement.eResource().getURI();
-			URL baseURL = null;			
-			try {
-				baseURL = new URL(resourceURI.toString());
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
+//			URL baseURL = null;			
+//			try {
+//				baseURL = new URL(resourceURI.toString());
+//			} catch (Exception e) {
+//				e.printStackTrace();
+//			}
 			
 //			Map<String, Object> properties = new HashMap<>();
 //			properties.put(Configuration.BASE_URL_PROPERTY, baseURL);
@@ -191,34 +197,61 @@ public class GenerateAction<T extends EObject & SupplierFactory<Object>> extends
 						outputName = lastDotIdx == -1 ? outputName + "_site" : outputName.substring(0, lastDotIdx);
 						
 						EclipseContainer output = new EclipseContainer(modelFile.getParent().getFolder(new Path(outputName)));
-						MutableContext mc = Context.EMPTY_CONTEXT.fork();
-						mc.register(BinaryEntityContainer.class, output);
+						Context generationContext = Context.singleton(BinaryEntityContainer.class, output);
 						
-						org.nasdanika.common.resources.Container<Object> contentContainer = output.stateAdapter().adapt(null, ENCODER);						
-																		
-						try (Supplier<Object> work = modelElement.create(mc)) {
-							double size = work.size() * 2 + 1;
-							double scale = 1000.0 / (size == 0 ? 1.0 : size);
-							try (ProgressMonitor progressMonitor = new ProgressMonitorAdapter(monitor, scale)) {
-								try (ProgressMonitor diagnosticMonitor = progressMonitor.split("Diagnostic", size)) {
-									org.nasdanika.common.Diagnostic diagnostic = work.diagnose(diagnosticMonitor);
-									if (diagnostic.getStatus() == org.nasdanika.common.Status.ERROR) {
-//										diagnostic.dump(System.out, 0);
-							            MultiStatus status = createMultiStatus(diagnostic);
-							            ErrorDialog.openError(shell, "Diagnostic error", diagnostic.getMessage(), status);
-										VinciEditorPlugin.getPlugin().getLog().log(status);
-										return;
+						org.nasdanika.common.resources.Container<Object> contentContainer = output.stateAdapter().adapt(null, ENCODER);		
+						
+						TreeIterator<EObject> cit = modelElement.eAllContents();
+						
+						// ID's of actions to be generated.
+						Map<String,String> actionIds = new HashMap<>();
+						while (cit.hasNext()) {
+							EObject next = cit.next();
+							if (next instanceof ActionBase) {
+								ActionBase action = (ActionBase) next;
+								if (!Util.isBlank(action.getId()) && action.getActivatorType() == ActivatorType.REFERENCE) {
+									String url = action.getActivator();
+									if (Util.isBlank(url)) {
+										url = action.getId()+".html";
+									}
+									if (Util.isBlank(url) || isValidAndRelative(url)) {
+										actionIds.put(action.getId(), url);
 									}
 								}
-							
-								try (ProgressMonitor generationMonitor = progressMonitor.split("Generation", size)) {
-									Object result = work.execute(generationMonitor);
-									String path = "index.html";
-									try (ProgressMonitor contentMonitor = progressMonitor.split("Writing cotent "+path, 1)) {
-										contentContainer.put(path, result.toString(), contentMonitor);
-									}
-								}
+								
 							}
+						}
+
+						SubMonitor subMonitor = SubMonitor.convert(monitor, TOTAL_WORK);
+						int actionWorkSlice = 1000 / actionIds.size();
+						for (Entry<String, String> actionEntry: actionIds.entrySet()) {														
+							SubMonitor actionMonitor = subMonitor.split(actionWorkSlice);
+							MutableContext actionContext = generationContext.fork();
+							actionContext.put("active-action", actionEntry.getKey());
+							try (Supplier<Object> work = modelElement.create(actionContext)) {
+								double size = work.size() * 2 + 1;
+								double scale = actionWorkSlice / (size == 0 ? 1.0 : size);
+								try (ProgressMonitor progressMonitor = new ProgressMonitorAdapter(actionMonitor, scale)) {
+									try (ProgressMonitor diagnosticMonitor = progressMonitor.split("Diagnostic", size)) {
+										org.nasdanika.common.Diagnostic diagnostic = work.diagnose(diagnosticMonitor);
+										if (diagnostic.getStatus() == org.nasdanika.common.Status.ERROR) {
+//											diagnostic.dump(System.out, 0);
+								            MultiStatus status = createMultiStatus(diagnostic);
+								            ErrorDialog.openError(shell, "Diagnostic error", diagnostic.getMessage(), status);
+											VinciEditorPlugin.getPlugin().getLog().log(status);
+											return;
+										}
+									}
+								
+									try (ProgressMonitor generationMonitor = progressMonitor.split("Generation", size)) {
+										Object result = work.execute(generationMonitor);
+										String path = actionContext.interpolate(actionEntry.getValue());
+										try (ProgressMonitor contentMonitor = progressMonitor.split("Writing cotent "+path, 1)) {
+											contentContainer.put(path, result.toString(), contentMonitor);
+										}
+									}
+								}
+							}							
 						}
 					} catch (CoreException | InvocationTargetException | InterruptedException | RuntimeException e) {
 						throw e;
@@ -243,6 +276,16 @@ public class GenerateAction<T extends EObject & SupplierFactory<Object>> extends
 		}
 	}
 	
+	/**
+	 * Validates that URL is a valid relative file name/path - a very basic check.
+	 * @param url
+	 * @return
+	 */
+	protected boolean isValidAndRelative(String url) {
+		String interpolated = Context.wrap(k -> "something").interpolate(url); // interpolates tokens if any with valid file part name.
+		return !interpolated.contains("://") && !interpolated.startsWith("/");
+	}
+
 	private static MultiStatus createMultiStatus(String msg, Throwable t) {
 		List<Status> childStatuses = new ArrayList<>();
 

@@ -25,7 +25,7 @@
         <text alignment="CENTER" italic="true"/>
       </appearance>
     </footer>
-    <builders xsi:type="org.nasdanika.vinci.app:Action" title="Bank of Nasdanika" id="index" text="Bank of Nasdanika" icon="fas fa-university" linkedElements="//@builders.0/@builders.0/@elements.2 //@builders.0/@builders.0/@elements.0 //@builders.0/@builders.0/@elements.1 //@builders.0/@builders.0/@elements.10">
+    <builders xsi:type="org.nasdanika.vinci.app:Action" title="Bank of Nasdanika" color="" id="index" text="Bank of Nasdanika" icon="fas fa-university" linkedElements="//@builders.0/@builders.0/@elements.2 //@builders.0/@builders.0/@elements.0 //@builders.0/@builders.0/@elements.1 //@builders.0/@builders.0/@elements.10">
       <appearance attributes="class:&#xA;    display: 4&#xA;style:&#xA;    text:&#xA;        decoration: none">
         <text color="LIGHT"/>
       </appearance>
