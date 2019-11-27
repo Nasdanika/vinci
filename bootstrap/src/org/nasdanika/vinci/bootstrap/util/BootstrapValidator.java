@@ -863,7 +863,7 @@ public class BootstrapValidator extends EObjectValidator {
 	 * Validates the breakpoint constraint of '<em>Column Width</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public boolean validateColumnWidth_breakpoint(ColumnWidth columnWidth, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		// TODO implement the constraint
@@ -891,7 +891,7 @@ public class BootstrapValidator extends EObjectValidator {
 	 * Validates the width constraint of '<em>Column Width</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public boolean validateColumnWidth_width(ColumnWidth columnWidth, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		// TODO implement the constraint

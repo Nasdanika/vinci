@@ -1,79 +1,54 @@
 package org.nasdanika.vinci.presentation;
 
-import java.io.File;
 import java.io.InputStream;
 import java.lang.reflect.InvocationTargetException;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
-import java.util.Set;
 import java.util.function.BiFunction;
-import java.util.function.Predicate;
 
 import org.eclipse.core.resources.IFile;
-import org.eclipse.core.resources.IProject;
-import org.eclipse.core.resources.IProjectNature;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.MultiStatus;
-import org.eclipse.core.runtime.OperationCanceledException;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Status;
-import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
-import org.eclipse.emf.common.util.DiagnosticChain;
-import org.eclipse.emf.common.util.DiagnosticException;
 import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.EValidator;
-import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.util.Diagnostician;
-import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
 //import org.eclipse.jdt.core.IJavaProject;
 //import org.eclipse.jdt.core.JavaCore;
 import org.eclipse.jface.action.Action;
 import org.eclipse.jface.dialogs.ErrorDialog;
-import org.eclipse.jface.dialogs.IDialogConstants;
-import org.eclipse.jface.dialogs.InputDialog;
-import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.dialogs.ProgressMonitorDialog;
-import org.eclipse.jface.viewers.ISelectionChangedListener;
-import org.eclipse.jface.viewers.ISelectionProvider;
-import org.eclipse.jface.viewers.IStructuredSelection;
-import org.eclipse.jface.viewers.SelectionChangedEvent;
-import org.eclipse.jface.window.Window;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.actions.WorkspaceModifyOperation;
-import org.eclipse.ui.model.WorkbenchLabelProvider;
+import org.nasdanika.common.Context;
 //import org.nasdanika.codegen.util.JavaProjectClassLoader;
 import org.nasdanika.common.DefaultConverter;
 import org.nasdanika.common.MutableContext;
-import org.nasdanika.common.PrintStreamProgressMonitor;
-import org.nasdanika.common.ProgressEntry;
 import org.nasdanika.common.ProgressMonitor;
-import org.nasdanika.common.ProgressRecorder;
 import org.nasdanika.common.Supplier;
+import org.nasdanika.common.SupplierFactory;
 import org.nasdanika.common.Util;
 import org.nasdanika.common.resources.BinaryEntityContainer;
 import org.nasdanika.common.resources.FileSystemContainer;
+import org.nasdanika.eclipse.ProgressMonitorAdapter;
+import org.nasdanika.eclipse.resources.EclipseContainer;
 import org.nasdanika.ncore.ModelElement;
 
 /**
  * @author Pavel Vlasov
  *
  */
-public class GenerateAction extends Action {
+public class GenerateAction<T extends EObject & SupplierFactory<Object>> extends Action {
 		
 	public static BiFunction<String, Object, InputStream> ENCODER = (path, contents) -> {
 		InputStream ret = DefaultConverter.INSTANCE.convert(contents, InputStream.class);
@@ -84,7 +59,7 @@ public class GenerateAction extends Action {
 		return ret;
 	};
 	
-	protected EObject modelElement;					
+	protected T modelElement;					
 			
 //	/**
 //	 * @throws Exception
@@ -152,12 +127,11 @@ public class GenerateAction extends Action {
 //		}
 //	}
 	
-	public GenerateAction(String name, EObject modelElement) {
+	public GenerateAction(String name, T modelElement) {
 		super(name);
 		this.modelElement = modelElement;
 	}
 	
-	@SuppressWarnings("unchecked")
 	@Override
 	public void run() {
 		IWorkbench workbench = PlatformUI.getWorkbench();
@@ -210,19 +184,44 @@ public class GenerateAction extends Action {
 				@Override
 				protected void execute(IProgressMonitor monitor) throws CoreException, InvocationTargetException, InterruptedException {	
 					try {
-//						List<Work<List<Object>>> allWork = new ArrayList<>();
-//						int totalWork = 0;
-//						for (Generator<Object> g: rootGenerators) {
-//							Work<List<Object>> work = g.createWork();
-//							totalWork += work.size();
-//							allWork.add(work);
-//						}
-//						SubMonitor subMonitor = SubMonitor.convert(monitor, totalWork);
-//						for (Work<List<Object>> work: allWork) {
-//							work.execute(rootContext, subMonitor);
-//						}
-//					} catch (CoreException | InvocationTargetException | InterruptedException | RuntimeException e) {
-//						throw e;
+						IFile modelFile = ResourcesPlugin.getWorkspace().getRoot().getFile(new Path(resourceURI.toPlatformString(true)));
+						String outputName = modelFile.getName();
+						int lastDotIdx = outputName.lastIndexOf('.');
+						// TODO - from config
+						outputName = lastDotIdx == -1 ? outputName + "_site" : outputName.substring(0, lastDotIdx);
+						
+						EclipseContainer output = new EclipseContainer(modelFile.getParent().getFolder(new Path(outputName)));
+						MutableContext mc = Context.EMPTY_CONTEXT.fork();
+						mc.register(BinaryEntityContainer.class, output);
+						
+						org.nasdanika.common.resources.Container<Object> contentContainer = output.stateAdapter().adapt(null, ENCODER);						
+																		
+						try (Supplier<Object> work = modelElement.create(mc)) {
+							double size = work.size() * 2 + 1;
+							double scale = 1000.0 / (size == 0 ? 1.0 : size);
+							try (ProgressMonitor progressMonitor = new ProgressMonitorAdapter(monitor, scale)) {
+								try (ProgressMonitor diagnosticMonitor = progressMonitor.split("Diagnostic", size)) {
+									org.nasdanika.common.Diagnostic diagnostic = work.diagnose(diagnosticMonitor);
+									if (diagnostic.getStatus() == org.nasdanika.common.Status.ERROR) {
+//										diagnostic.dump(System.out, 0);
+							            MultiStatus status = createMultiStatus(diagnostic);
+							            ErrorDialog.openError(shell, "Diagnostic error", diagnostic.getMessage(), status);
+										VinciEditorPlugin.getPlugin().getLog().log(status);
+										return;
+									}
+								}
+							
+								try (ProgressMonitor generationMonitor = progressMonitor.split("Generation", size)) {
+									Object result = work.execute(generationMonitor);
+									String path = "index.html";
+									try (ProgressMonitor contentMonitor = progressMonitor.split("Writing cotent "+path, 1)) {
+										contentContainer.put(path, result.toString(), contentMonitor);
+									}
+								}
+							}
+						}
+					} catch (CoreException | InvocationTargetException | InterruptedException | RuntimeException e) {
+						throw e;
 					} catch (Exception e) {
 						throw new InvocationTargetException(e);
 					} finally {
@@ -234,6 +233,9 @@ public class GenerateAction extends Action {
 
 			new ProgressMonitorDialog(shell).run(true, true, operation);
 		} catch (Exception exception) {
+			while (exception.getCause() instanceof Exception && exception.getSuppressed().length == 0) {
+				exception = (Exception) exception.getCause();
+			}
             MultiStatus status = createMultiStatus(exception.toString(), exception);
             ErrorDialog.openError(shell, "Generation error", exception.toString(), status);
 			VinciEditorPlugin.getPlugin().getLog().log(status);
@@ -259,6 +261,37 @@ public class GenerateAction extends Action {
 		MultiStatus ms = new MultiStatus("org.nasdanika.codegen.editor", IStatus.ERROR,	childStatuses.toArray(new Status[childStatuses.size()]), msg, t);
 
 		return ms;
+	}	
+	
+	private static MultiStatus createMultiStatus(org.nasdanika.common.Diagnostic diagnostic) {
+		List<Status> childStatuses = new ArrayList<>();
+
+		for (org.nasdanika.common.Diagnostic child : diagnostic.getChildren()) {
+			childStatuses.add(createMultiStatus(child));
+		}
+		
+		int status;
+		switch (diagnostic.getStatus()) {
+		case CANCEL:
+			status = IStatus.CANCEL;
+			break;
+		case ERROR:
+			status = IStatus.ERROR;
+			break;
+		case INFO:
+			status = IStatus.INFO;
+			break;
+		case SUCCESS:
+			status = IStatus.OK;
+			break;
+		case WARNING:
+			status = IStatus.WARNING;
+			break;
+		default:
+			throw new IllegalArgumentException("Unsupported diagnostic status: " + diagnostic.getStatus());
+		}
+
+		return new MultiStatus("org.nasdanika.vinci.editor", status, childStatuses.toArray(new Status[childStatuses.size()]), diagnostic.getMessage(), null);
 	}	
 
 }
