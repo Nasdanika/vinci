@@ -31,6 +31,7 @@ import org.nasdanika.ncore.NamedElement;
  *   <li>{@link org.nasdanika.vinci.html.Page#getScripts <em>Scripts</em>}</li>
  *   <li>{@link org.nasdanika.vinci.html.Page#isFontAwesome <em>Font Awesome</em>}</li>
  *   <li>{@link org.nasdanika.vinci.html.Page#isJsTree <em>Js Tree</em>}</li>
+ *   <li>{@link org.nasdanika.vinci.html.Page#isGithubMarkdownCss <em>Github Markdown Css</em>}</li>
  * </ul>
  *
  * @see org.nasdanika.vinci.html.HtmlPackage#getPage()
@@ -187,5 +188,30 @@ public interface Page extends NamedElement, SupplierFactory<Object> {
 	 * @generated
 	 */
 	void setJsTree(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Github Markdown Css</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * If this attribute is set to true [GitHub Markdown CSS](https://github.com/sindresorhus/github-markdown-css) CDN stylesheet reference is added to the head.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Github Markdown Css</em>' attribute.
+	 * @see #setGithubMarkdownCss(boolean)
+	 * @see org.nasdanika.vinci.html.HtmlPackage#getPage_GithubMarkdownCss()
+	 * @model
+	 * @generated
+	 */
+	boolean isGithubMarkdownCss();
+
+	/**
+	 * Sets the value of the '{@link org.nasdanika.vinci.html.Page#isGithubMarkdownCss <em>Github Markdown Css</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Github Markdown Css</em>' attribute.
+	 * @see #isGithubMarkdownCss()
+	 * @generated
+	 */
+	void setGithubMarkdownCss(boolean value);
 
 } // Page

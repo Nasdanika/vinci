@@ -402,13 +402,22 @@ public interface HtmlPackage extends EPackage {
 	int PAGE__JS_TREE = NcorePackage.NAMED_ELEMENT_FEATURE_COUNT + 7;
 
 	/**
+	 * The feature id for the '<em><b>Github Markdown Css</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PAGE__GITHUB_MARKDOWN_CSS = NcorePackage.NAMED_ELEMENT_FEATURE_COUNT + 8;
+
+	/**
 	 * The number of structural features of the '<em>Page</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PAGE_FEATURE_COUNT = NcorePackage.NAMED_ELEMENT_FEATURE_COUNT + 8;
+	int PAGE_FEATURE_COUNT = NcorePackage.NAMED_ELEMENT_FEATURE_COUNT + 9;
 
 	/**
 	 * The number of operations of the '<em>Page</em>' class.
@@ -600,6 +609,17 @@ public interface HtmlPackage extends EPackage {
 	EAttribute getPage_JsTree();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.html.Page#isGithubMarkdownCss <em>Github Markdown Css</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Github Markdown Css</em>'.
+	 * @see org.nasdanika.vinci.html.Page#isGithubMarkdownCss()
+	 * @see #getPage()
+	 * @generated
+	 */
+	EAttribute getPage_GithubMarkdownCss();
+
+	/**
 	 * Returns the meta object for data type '{@link org.nasdanika.html.TagName <em>Tag Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -770,6 +790,14 @@ public interface HtmlPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute PAGE__JS_TREE = eINSTANCE.getPage_JsTree();
+
+		/**
+		 * The meta object literal for the '<em><b>Github Markdown Css</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PAGE__GITHUB_MARKDOWN_CSS = eINSTANCE.getPage_GithubMarkdownCss();
 
 		/**
 		 * The meta object literal for the '<em>Tag Name</em>' data type.

@@ -15,6 +15,7 @@ import org.nasdanika.common.ConsumerFactory;
 import org.nasdanika.common.Context;
 import org.nasdanika.common.Function;
 import org.nasdanika.common.ListCompoundSupplier;
+import org.nasdanika.common.MarkdownHelper;
 import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.common.StringMapCompoundSupplier;
 import org.nasdanika.common.Supplier;
@@ -44,6 +45,7 @@ import org.nasdanika.vinci.html.Page;
  *   <li>{@link org.nasdanika.vinci.html.impl.PageImpl#getScripts <em>Scripts</em>}</li>
  *   <li>{@link org.nasdanika.vinci.html.impl.PageImpl#isFontAwesome <em>Font Awesome</em>}</li>
  *   <li>{@link org.nasdanika.vinci.html.impl.PageImpl#isJsTree <em>Js Tree</em>}</li>
+ *   <li>{@link org.nasdanika.vinci.html.impl.PageImpl#isGithubMarkdownCss <em>Github Markdown Css</em>}</li>
  * </ul>
  *
  * @generated
@@ -78,6 +80,16 @@ public class PageImpl extends NamedElementImpl implements Page {
 	 * @ordered
 	 */
 	protected static final boolean JS_TREE_EDEFAULT = false;
+
+	/**
+	 * The default value of the '{@link #isGithubMarkdownCss() <em>Github Markdown Css</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isGithubMarkdownCss()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean GITHUB_MARKDOWN_CSS_EDEFAULT = false;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -219,6 +231,26 @@ public class PageImpl extends NamedElementImpl implements Page {
 	 * @generated
 	 */
 	@Override
+	public boolean isGithubMarkdownCss() {
+		return (Boolean)eDynamicGet(HtmlPackage.PAGE__GITHUB_MARKDOWN_CSS, HtmlPackage.Literals.PAGE__GITHUB_MARKDOWN_CSS, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setGithubMarkdownCss(boolean newGithubMarkdownCss) {
+		eDynamicSet(HtmlPackage.PAGE__GITHUB_MARKDOWN_CSS, HtmlPackage.Literals.PAGE__GITHUB_MARKDOWN_CSS, newGithubMarkdownCss);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case HtmlPackage.PAGE__HEAD:
@@ -255,6 +287,8 @@ public class PageImpl extends NamedElementImpl implements Page {
 				return isFontAwesome();
 			case HtmlPackage.PAGE__JS_TREE:
 				return isJsTree();
+			case HtmlPackage.PAGE__GITHUB_MARKDOWN_CSS:
+				return isGithubMarkdownCss();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -297,6 +331,9 @@ public class PageImpl extends NamedElementImpl implements Page {
 			case HtmlPackage.PAGE__JS_TREE:
 				setJsTree((Boolean)newValue);
 				return;
+			case HtmlPackage.PAGE__GITHUB_MARKDOWN_CSS:
+				setGithubMarkdownCss((Boolean)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -333,6 +370,9 @@ public class PageImpl extends NamedElementImpl implements Page {
 			case HtmlPackage.PAGE__JS_TREE:
 				setJsTree(JS_TREE_EDEFAULT);
 				return;
+			case HtmlPackage.PAGE__GITHUB_MARKDOWN_CSS:
+				setGithubMarkdownCss(GITHUB_MARKDOWN_CSS_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -361,6 +401,8 @@ public class PageImpl extends NamedElementImpl implements Page {
 				return isFontAwesome() != FONT_AWESOME_EDEFAULT;
 			case HtmlPackage.PAGE__JS_TREE:
 				return isJsTree() != JS_TREE_EDEFAULT;
+			case HtmlPackage.PAGE__GITHUB_MARKDOWN_CSS:
+				return isGithubMarkdownCss() != GITHUB_MARKDOWN_CSS_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -446,6 +488,10 @@ public class PageImpl extends NamedElementImpl implements Page {
 				
 				if (isJsTree()) {
 					context.get(JsTreeFactory.class, JsTreeFactory.INSTANCE).cdn(page);
+				}
+				
+				if (isGithubMarkdownCss()) {
+					page.stylesheet(MarkdownHelper.GITHUB_MARKDOWN_CSS_CDN);
 				}
 				
 				return page;

@@ -299,6 +299,16 @@ public class HtmlPackageImpl extends EPackageImpl implements HtmlPackage {
 	 * @generated
 	 */
 	@Override
+	public EAttribute getPage_GithubMarkdownCss() {
+		return (EAttribute)pageEClass.getEStructuralFeatures().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EDataType getTagName() {
 		return tagNameEDataType;
 	}
@@ -352,6 +362,7 @@ public class HtmlPackageImpl extends EPackageImpl implements HtmlPackage {
 		createEAttribute(pageEClass, PAGE__SCRIPTS);
 		createEAttribute(pageEClass, PAGE__FONT_AWESOME);
 		createEAttribute(pageEClass, PAGE__JS_TREE);
+		createEAttribute(pageEClass, PAGE__GITHUB_MARKDOWN_CSS);
 
 		// Create data types
 		tagNameEDataType = createEDataType(TAG_NAME);
@@ -444,6 +455,7 @@ public class HtmlPackageImpl extends EPackageImpl implements HtmlPackage {
 		initEAttribute(getPage_Scripts(), ecorePackage.getEString(), "scripts", null, 0, -1, Page.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPage_FontAwesome(), ecorePackage.getEBoolean(), "fontAwesome", null, 0, 1, Page.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPage_JsTree(), ecorePackage.getEBoolean(), "jsTree", null, 0, 1, Page.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPage_GithubMarkdownCss(), ecorePackage.getEBoolean(), "githubMarkdownCss", null, 0, 1, Page.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize data types
 		initEDataType(tagNameEDataType, TagName.class, "TagName", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
@@ -541,6 +553,12 @@ public class HtmlPackageImpl extends EPackageImpl implements HtmlPackage {
 		   source,
 		   new String[] {
 			   "documentation", "If this attribute is set to true [jsTree](https://www.jstree.com/) CDN script and stylesheet references are added to the head."
+		   });
+		addAnnotation
+		  (getPage_GithubMarkdownCss(),
+		   source,
+		   new String[] {
+			   "documentation", "If this attribute is set to true [GitHub Markdown CSS](https://github.com/sindresorhus/github-markdown-css) CDN stylesheet reference is added to the head."
 		   });
 	}
 
