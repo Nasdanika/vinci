@@ -892,7 +892,7 @@ public abstract class ActionBaseImpl extends LabelImpl implements ActionBase {
 				setIcon(context.interpolate(ActionBaseImpl.this.getIcon()));
 				String color = ActionBaseImpl.this.getColor();
 				if (!Util.isBlank(color)) {
-					setColor(Color.valueOf(color));
+					setColor(Color.fromLabel(color));
 				}
 				setOutline(ActionBaseImpl.this.isOutline());
 				setNotification(context.interpolate(ActionBaseImpl.this.getNotification()));

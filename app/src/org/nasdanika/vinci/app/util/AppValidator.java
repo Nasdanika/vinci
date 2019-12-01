@@ -4,6 +4,7 @@ package org.nasdanika.vinci.app.util;
 
 import java.util.Arrays;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.ResourceLocator;
@@ -186,9 +187,9 @@ public class AppValidator extends EObjectValidator {
 		if (diagnostics != null && !Util.isBlank(label.getColor())) {			
 			DiagnosticHelper helper = new DiagnosticHelper(diagnostics, DIAGNOSTIC_SOURCE, 0, label);
 			try {
-				Color.valueOf(label.getColor());				
-			} catch (Exception e) {
-				helper.error("Invalid color: "+label.getColor()+", shall be one of Color enum constants: " + Arrays.toString(Color.values()), AppPackage.Literals.LABEL__COLOR);
+				Color.fromLabel(label.getColor());				
+			} catch (Exception e) {				
+				helper.error("Invalid color: "+label.getColor()+", shall be one of Color enum constants: " + Arrays.stream(Color.values()).map(c -> c.label).collect(Collectors.toList()), AppPackage.Literals.LABEL__COLOR);
 			}
 			return helper.isSuccess();
 		}
