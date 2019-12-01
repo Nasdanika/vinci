@@ -75,7 +75,7 @@ public class LabelItemProvider
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null,
-				 enumChoices(org.nasdanika.html.bootstrap.Color.class, true, null)));
+				 enumChoices(org.nasdanika.html.bootstrap.Color.class, true, c -> c.label)));
 	}
 
 	/**

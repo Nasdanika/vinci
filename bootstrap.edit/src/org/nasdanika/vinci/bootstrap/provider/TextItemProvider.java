@@ -6,6 +6,7 @@ package org.nasdanika.vinci.bootstrap.provider;
 import java.util.Collection;
 import java.util.List;
 
+import org.apache.commons.lang3.StringUtils;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
@@ -87,7 +88,7 @@ public class TextItemProvider
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null,
-				 enumChoices(org.nasdanika.html.bootstrap.Text.Alignment.class, true, null)));
+				 enumChoices(org.nasdanika.html.bootstrap.Text.Alignment.class, true, a -> StringUtils.capitalize(a.name().toLowerCase()))));
 	}
 
 	/**
@@ -108,7 +109,7 @@ public class TextItemProvider
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null,
-				 enumChoices(org.nasdanika.html.bootstrap.Color.class, true, null)));
+				 enumChoices(org.nasdanika.html.bootstrap.Color.class, true, c -> c.label)));
 	}
 
 	/**
@@ -129,7 +130,7 @@ public class TextItemProvider
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null,
-				 enumChoices(org.nasdanika.html.bootstrap.Text.Transform.class, true, null)));
+				 enumChoices(org.nasdanika.html.bootstrap.Text.Transform.class, true, t -> StringUtils.capitalize(t.name().toLowerCase()))));
 	}
 
 	/**
@@ -150,7 +151,7 @@ public class TextItemProvider
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null,
-				 enumChoices(org.nasdanika.html.bootstrap.Text.Weight.class, true, null)));
+				 enumChoices(org.nasdanika.html.bootstrap.Text.Weight.class, true, w -> StringUtils.capitalize(w.name().toLowerCase()))));
 	}
 
 	/**

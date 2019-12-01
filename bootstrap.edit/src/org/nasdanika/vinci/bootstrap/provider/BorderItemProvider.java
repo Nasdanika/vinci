@@ -3,10 +3,8 @@
 package org.nasdanika.vinci.bootstrap.provider;
 
 
-import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
-import java.util.stream.Collectors;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
@@ -21,7 +19,6 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.nasdanika.common.Util;
 import org.nasdanika.emf.edit.NasdanikaItemProviderAdapter;
-import org.nasdanika.html.bootstrap.Color;
 import org.nasdanika.vinci.bootstrap.BootstrapPackage;
 import org.nasdanika.vinci.bootstrap.Border;
 
@@ -87,7 +84,7 @@ public class BorderItemProvider
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null,
-				 Arrays.stream(Color.values()).map(Color::name).collect(Collectors.toList())));
+				 enumChoices(org.nasdanika.html.bootstrap.Color.class, true, c -> c.label)));
 	}
 
 	/**

@@ -16,5 +16,6 @@ Require-Bundle: org.eclipse.core.runtime,
  org.nasdanika.vinci.html;visibility:=reexport,
  org.nasdanika.vinci.html.edit;visibility:=reexport,
  org.nasdanika.ncore;visibility:=reexport,
- org.nasdanika.ncore.edit;visibility:=reexport
+ org.nasdanika.ncore.edit;visibility:=reexport,
+ org.apache.commons.lang3;bundle-version="3.9.0"
 Bundle-ActivationPolicy: lazy
