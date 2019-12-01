@@ -209,7 +209,7 @@ public class ContentActionGroupItemImpl extends ActionGroupItemImpl implements C
 						nameFragment, 
 						isActive(), 
 						isDisabled(), 
-						Util.isBlank(getColor()) ? null : Color.valueOf(getColor()), 
+						Util.isBlank(getColor()) ? null : Color.fromLabel(getColor()), 
 						null, 
 						contentFragment);
 			}

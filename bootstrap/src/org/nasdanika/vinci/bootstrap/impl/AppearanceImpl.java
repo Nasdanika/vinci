@@ -375,7 +375,7 @@ public class AppearanceImpl extends MinimalEObjectImpl.Container implements Appe
 			public void execute(Object arg, ProgressMonitor progressMonitor) throws Exception {
 				String bgStr = getBackground();
 				if (!Util.isBlank(bgStr)) {
-					((org.nasdanika.html.bootstrap.BootstrapElement<?,?>) arg).background(org.nasdanika.html.bootstrap.Color.valueOf(bgStr));
+					((org.nasdanika.html.bootstrap.BootstrapElement<?,?>) arg).background(org.nasdanika.html.bootstrap.Color.fromLabel(bgStr));
 				}				
 			}
 			
@@ -397,7 +397,7 @@ public class AppearanceImpl extends MinimalEObjectImpl.Container implements Appe
 			public void execute(Object arg, ProgressMonitor progressMonitor) throws Exception {
 				org.nasdanika.html.bootstrap.BootstrapElement<?,?> bootstrapElement = (org.nasdanika.html.bootstrap.BootstrapElement<?,?>) arg;
 				for (Border border: getBorder()) {
-					Color color = org.nasdanika.html.bootstrap.Color.valueOf(border.getColor());
+					Color color = org.nasdanika.html.bootstrap.Color.fromLabel(border.getColor());
 					if (border.isBottom() && border.isLeft() && border.isRight() && border.isTop()) {
 						bootstrapElement.border(color);
 					} else {
@@ -418,7 +418,7 @@ public class AppearanceImpl extends MinimalEObjectImpl.Container implements Appe
 				}
 				String bgStr = getBackground();
 				if (!Util.isBlank(bgStr)) {
-					bootstrapElement.background(org.nasdanika.html.bootstrap.Color.valueOf(bgStr));
+					bootstrapElement.background(org.nasdanika.html.bootstrap.Color.fromLabel(bgStr));
 				}				
 			}
 			
@@ -532,22 +532,22 @@ public class AppearanceImpl extends MinimalEObjectImpl.Container implements Appe
 
 					String colorStr = text.getColor();
 					if (!Util.isBlank(colorStr)) {						
-						bsText.color(org.nasdanika.html.bootstrap.Color.valueOf(colorStr));
+						bsText.color(org.nasdanika.html.bootstrap.Color.fromLabel(colorStr));
 					}
 					
 					String alignmentStr = text.getAlignment();
 					if (!Util.isBlank(alignmentStr)) {						
-						bsText.alignment(org.nasdanika.html.bootstrap.Text.Alignment.valueOf(alignmentStr));
+						bsText.alignment(org.nasdanika.html.bootstrap.Text.Alignment.valueOf(alignmentStr.toUpperCase()));
 					}				
 
 					String transformStr = text.getTransform();
 					if (!Util.isBlank(transformStr)) {						
-						bsText.transform(org.nasdanika.html.bootstrap.Text.Transform.valueOf(transformStr));
+						bsText.transform(org.nasdanika.html.bootstrap.Text.Transform.valueOf(transformStr.toUpperCase()));
 					}				
 
 					String weightStr = text.getWeight();
 					if (!Util.isBlank(weightStr)) {						
-						bsText.weight(org.nasdanika.html.bootstrap.Text.Weight.valueOf(weightStr));
+						bsText.weight(org.nasdanika.html.bootstrap.Text.Weight.valueOf(weightStr.toUpperCase()));
 					}				
 					
 					bsText.monospace(text.isMonospace());

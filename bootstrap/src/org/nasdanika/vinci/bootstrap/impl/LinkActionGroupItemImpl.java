@@ -149,7 +149,7 @@ public class LinkActionGroupItemImpl extends ActionGroupItemImpl implements Link
 				((ActionGroup) supplier.getFirst()).action(
 						isActive(), 
 						isDisabled(), 
-						Util.isBlank(getColor()) ? null : Color.valueOf(getColor()),
+						Util.isBlank(getColor()) ? null : Color.fromLabel(getColor()),
 						getUrl(),		
 						nameFragment);
 			}

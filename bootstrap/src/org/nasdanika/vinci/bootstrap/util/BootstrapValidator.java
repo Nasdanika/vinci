@@ -9,6 +9,8 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 import java.util.stream.Collectors;
+
+import org.apache.commons.lang3.StringUtils;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.ResourceLocator;
@@ -332,9 +334,9 @@ public class BootstrapValidator extends EObjectValidator {
 		if (diagnostics != null && !Util.isBlank(appearance.getBackground())) {			
 			DiagnosticHelper helper = new DiagnosticHelper(diagnostics, DIAGNOSTIC_SOURCE, 0, appearance);
 			try {
-				Color.valueOf(appearance.getBackground());				
+				Color.fromLabel(appearance.getBackground());				
 			} catch (Exception e) {
-				helper.error("Invalid color: "+appearance.getBackground()+", shall be one of Color enum constants: " + Arrays.toString(Color.values()), BootstrapPackage.Literals.APPEARANCE__BACKGROUND);
+				helper.error("Invalid color: "+appearance.getBackground()+", shall be one of Color enum constants: " + Arrays.stream(Color.values()).map(c -> c.label).collect(Collectors.toList()), BootstrapPackage.Literals.APPEARANCE__BACKGROUND);
 			}
 			return helper.isSuccess();
 		}
@@ -424,9 +426,9 @@ public class BootstrapValidator extends EObjectValidator {
 //				 helper.error("Color is mandatory", BootstrapPackage.Literals.BORDER__COLOR);				
 			} else {
 				try {
-					Color.valueOf(border.getColor());				
+					Color.fromLabel(border.getColor());				
 				} catch (Exception e) {
-					helper.error("Invalid color: "+border.getColor()+", shall be one of Color enum constants: " + Arrays.toString(Color.values()), BootstrapPackage.Literals.BORDER__COLOR);
+					helper.error("Invalid color: "+border.getColor()+", shall be one of Color enum constants: " +Arrays.stream(Color.values()).map(c -> c.label).collect(Collectors.toList()), BootstrapPackage.Literals.BORDER__COLOR);
 				}
 			}
 			return helper.isSuccess();
@@ -526,37 +528,37 @@ public class BootstrapValidator extends EObjectValidator {
 			DiagnosticHelper helper = new DiagnosticHelper(diagnostics, DIAGNOSTIC_SOURCE, 0, text);
 			if (!Util.isBlank(text.getColor())) {
 				try {
-					Color.valueOf(text.getColor());				
+					Color.fromLabel(text.getColor());				
 				} catch (Exception e) {
 					helper.error(
-							"Invalid color: "+text.getColor()+", shall be one of Color enum constants: " + Arrays.toString(Color.values()), 
+							"Invalid color: "+text.getColor()+", shall be one of Color enum constants: " + Arrays.stream(Color.values()).map(c -> c.label).collect(Collectors.toList()), 
 							BootstrapPackage.Literals.TEXT__COLOR);
 				}
 			}
 			if (!Util.isBlank(text.getAlignment())) {
 				try {
-					org.nasdanika.html.bootstrap.Text.Alignment.valueOf(text.getAlignment());				
+					org.nasdanika.html.bootstrap.Text.Alignment.valueOf(text.getAlignment().toUpperCase());				
 				} catch (Exception e) {
 					helper.error(
-							"Invalid alignment: "+text.getAlignment()+", shall be one of Text.Alignment enum constants: " + Arrays.toString(org.nasdanika.html.bootstrap.Text.Alignment.values()), 
+							"Invalid alignment: "+text.getAlignment()+", shall be one of Text.Alignment enum constants: " + Arrays.stream(org.nasdanika.html.bootstrap.Text.Alignment.values()).map(a -> StringUtils.capitalize(a.name().toLowerCase())).collect(Collectors.toList()), 
 							BootstrapPackage.Literals.TEXT__ALIGNMENT);
 				}
 			}
 			if (!Util.isBlank(text.getTransform())) {
 				try {
-					org.nasdanika.html.bootstrap.Text.Transform.valueOf(text.getTransform());				
+					org.nasdanika.html.bootstrap.Text.Transform.valueOf(text.getTransform().toUpperCase());				
 				} catch (Exception e) {
 					helper.error(
-							"Invalid transform: "+text.getTransform()+", shall be one of Text.Transform enum constants: " + Arrays.toString(org.nasdanika.html.bootstrap.Text.Transform.values()), 
+							"Invalid transform: "+text.getTransform()+", shall be one of Text.Transform enum constants: " + Arrays.stream(org.nasdanika.html.bootstrap.Text.Transform.values()).map(t -> StringUtils.capitalize(t.name().toLowerCase())).collect(Collectors.toList()), 
 							BootstrapPackage.Literals.TEXT__TRANSFORM);
 				}
 			}
 			if (!Util.isBlank(text.getWeight())) {
 				try {
-					org.nasdanika.html.bootstrap.Text.Weight.valueOf(text.getWeight());				
+					org.nasdanika.html.bootstrap.Text.Weight.valueOf(text.getWeight().toUpperCase());				
 				} catch (Exception e) {
 					helper.error(
-							"Invalid weight: "+text.getWeight()+", shall be one of Text.Weight enum constants: " + Arrays.toString(org.nasdanika.html.bootstrap.Text.Weight.values()), 
+							"Invalid weight: "+text.getWeight()+", shall be one of Text.Weight enum constants: " + Arrays.stream(org.nasdanika.html.bootstrap.Text.Weight.values()).map(w -> StringUtils.capitalize(w.name().toLowerCase())).collect(Collectors.toList()), 
 							BootstrapPackage.Literals.TEXT__WEIGHT);
 				}
 			}
@@ -672,9 +674,9 @@ public class BootstrapValidator extends EObjectValidator {
 		if (diagnostics != null && !Util.isBlank(item.getColor())) {			
 			DiagnosticHelper helper = new DiagnosticHelper(diagnostics, DIAGNOSTIC_SOURCE, 0, item);
 			try {
-				Color.valueOf(item.getColor());				
+				Color.fromLabel(item.getColor());				
 			} catch (Exception e) {
-				helper.error("Invalid color: "+item.getColor()+", shall be one of Color enum constants: " + Arrays.toString(Color.values()), BootstrapPackage.Literals.ITEM__COLOR);
+				helper.error("Invalid color: "+item.getColor()+", shall be one of Color enum constants: " + Arrays.stream(Color.values()).map(c -> c.label).collect(Collectors.toList()), BootstrapPackage.Literals.ITEM__COLOR);
 			}
 			return helper.isSuccess();
 		}
