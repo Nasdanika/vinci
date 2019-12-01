@@ -72,15 +72,15 @@ public class ActionItemProvider extends ActionBaseItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((ActionBase)object).getTitle();
+		ActionBase actionBase = (ActionBase)object;
+		String label = actionBase.getTitle();
 		if (isBlank(label)) {
-			label = ((ActionBase)object).getText();
+			label = actionBase.getText();
 		}
 		return label == null || label.length() == 0 ?
 			getString("_UI_Action_type") :
 			getString("_UI_Action_type") + " " + label;
 	}
-
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached

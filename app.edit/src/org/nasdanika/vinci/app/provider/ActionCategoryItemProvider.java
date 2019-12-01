@@ -68,11 +68,18 @@ public class ActionCategoryItemProvider extends CategoryItemProvider {
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((ActionCategory)object).getId();
+		ActionCategory actionBase = (ActionCategory) object;
+		String label = actionBase.getTitle();
+		if (isBlank(label)) {
+			label = actionBase.getText();
+		}
+		if (isBlank(label)) {
+			label = ((ActionCategory)object).getId();
+		}
 		return label == null || label.length() == 0 ?
 			getString("_UI_ActionCategory_type") :
 			getString("_UI_ActionCategory_type") + " " + label;
