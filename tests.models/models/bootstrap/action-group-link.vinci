@@ -9,7 +9,7 @@
   <items xsi:type="org.nasdanika.vinci.bootstrap:LinkActionGroupItem" disabled="true" url="#">
     <name xsi:type="org.nasdanika.ncore:Value" value="Item Three - Disabled"/>
   </items>
-  <items xsi:type="org.nasdanika.vinci.bootstrap:LinkActionGroupItem" color="WARNING" url="#">
+  <items xsi:type="org.nasdanika.vinci.bootstrap:LinkActionGroupItem" color="Warning" url="#">
     <name xsi:type="org.nasdanika.ncore:Value" value="Item Four"/>
   </items>
 </org.nasdanika.vinci.bootstrap:ActionGroup>
