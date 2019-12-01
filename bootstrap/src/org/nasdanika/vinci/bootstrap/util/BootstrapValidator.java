@@ -211,8 +211,6 @@ public class BootstrapValidator extends EObjectValidator {
 				return validateModal((Modal)value, diagnostics, context);
 			case BootstrapPackage.ACCORDION:
 				return validateAccordion((Accordion)value, diagnostics, context);
-			case BootstrapPackage.COLOR:
-				return validateColor((Color)value, diagnostics, context);
 			default:
 				return true;
 		}
@@ -1057,15 +1055,6 @@ public class BootstrapValidator extends EObjectValidator {
 	 */
 	public boolean validateAccordion(Accordion accordion, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(accordion, diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateColor(Color color, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return true;
 	}
 
 	/**

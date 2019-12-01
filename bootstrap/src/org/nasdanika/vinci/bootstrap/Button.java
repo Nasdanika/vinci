@@ -2,8 +2,6 @@
  */
 package org.nasdanika.vinci.bootstrap;
 
-import org.nasdanika.html.bootstrap.Color;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Button</b></em>'.
@@ -31,12 +29,12 @@ public interface Button extends Div {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Color</em>' attribute.
-	 * @see #setColor(Color)
+	 * @see #setColor(String)
 	 * @see org.nasdanika.vinci.bootstrap.BootstrapPackage#getButton_Color()
-	 * @model dataType="org.nasdanika.vinci.bootstrap.Color"
+	 * @model
 	 * @generated
 	 */
-	Color getColor();
+	String getColor();
 
 	/**
 	 * Sets the value of the '{@link org.nasdanika.vinci.bootstrap.Button#getColor <em>Color</em>}' attribute.
@@ -46,7 +44,7 @@ public interface Button extends Div {
 	 * @see #getColor()
 	 * @generated
 	 */
-	void setColor(Color value);
+	void setColor(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Outline</b></em>' attribute.

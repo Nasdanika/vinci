@@ -4,7 +4,6 @@ package org.nasdanika.vinci.bootstrap;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EPackage;
 
 import org.eclipse.emf.ecore.EReference;
@@ -162,6 +161,24 @@ public interface BootstrapPackage extends EPackage {
 	 * @ordered
 	 */
 	int BOOTSTRAP_PAGE__FONT_AWESOME = HtmlPackage.PAGE__FONT_AWESOME;
+
+	/**
+	 * The feature id for the '<em><b>Js Tree</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOTSTRAP_PAGE__JS_TREE = HtmlPackage.PAGE__JS_TREE;
+
+	/**
+	 * The feature id for the '<em><b>Github Markdown Css</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOTSTRAP_PAGE__GITHUB_MARKDOWN_CSS = HtmlPackage.PAGE__GITHUB_MARKDOWN_CSS;
 
 	/**
 	 * The feature id for the '<em><b>Cdn</b></em>' attribute.
@@ -2363,17 +2380,6 @@ public interface BootstrapPackage extends EPackage {
 	int ACCORDION_OPERATION_COUNT = 0;
 
 	/**
-	 * The meta object id for the '<em>Color</em>' data type.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.nasdanika.html.bootstrap.Color
-	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getColor()
-	 * @generated
-	 */
-	int COLOR = 39;
-
-
-	/**
 	 * Returns the meta object for class '{@link org.nasdanika.vinci.bootstrap.BootstrapPage <em>Page</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3347,17 +3353,6 @@ public interface BootstrapPackage extends EPackage {
 	EClass getAccordion();
 
 	/**
-	 * Returns the meta object for data type '{@link org.nasdanika.html.bootstrap.Color <em>Color</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for data type '<em>Color</em>'.
-	 * @see org.nasdanika.html.bootstrap.Color
-	 * @model instanceClass="org.nasdanika.html.bootstrap.Color"
-	 * @generated
-	 */
-	EDataType getColor();
-
-	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4102,15 +4097,6 @@ public interface BootstrapPackage extends EPackage {
 		 * @generated
 		 */
 		EClass ACCORDION = eINSTANCE.getAccordion();
-		/**
-		 * The meta object literal for the '<em>Color</em>' data type.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.nasdanika.html.bootstrap.Color
-		 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getColor()
-		 * @generated
-		 */
-		EDataType COLOR = eINSTANCE.getColor();
 
 	}
 

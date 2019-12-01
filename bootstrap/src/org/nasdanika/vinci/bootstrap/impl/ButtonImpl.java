@@ -3,9 +3,6 @@
 package org.nasdanika.vinci.bootstrap.impl;
 
 import org.eclipse.emf.ecore.EClass;
-
-import org.nasdanika.html.bootstrap.Color;
-
 import org.nasdanika.vinci.bootstrap.BootstrapPackage;
 import org.nasdanika.vinci.bootstrap.Button;
 
@@ -32,7 +29,7 @@ public class ButtonImpl extends DivImpl implements Button {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Color COLOR_EDEFAULT = null;
+	protected static final String COLOR_EDEFAULT = null;
 
 	/**
 	 * The default value of the '{@link #isOutline() <em>Outline</em>}' attribute.
@@ -69,8 +66,8 @@ public class ButtonImpl extends DivImpl implements Button {
 	 * @generated
 	 */
 	@Override
-	public Color getColor() {
-		return (Color)eDynamicGet(BootstrapPackage.BUTTON__COLOR, BootstrapPackage.Literals.BUTTON__COLOR, true, true);
+	public String getColor() {
+		return (String)eDynamicGet(BootstrapPackage.BUTTON__COLOR, BootstrapPackage.Literals.BUTTON__COLOR, true, true);
 	}
 
 	/**
@@ -79,7 +76,7 @@ public class ButtonImpl extends DivImpl implements Button {
 	 * @generated
 	 */
 	@Override
-	public void setColor(Color newColor) {
+	public void setColor(String newColor) {
 		eDynamicSet(BootstrapPackage.BUTTON__COLOR, BootstrapPackage.Literals.BUTTON__COLOR, newColor);
 	}
 
@@ -128,7 +125,7 @@ public class ButtonImpl extends DivImpl implements Button {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case BootstrapPackage.BUTTON__COLOR:
-				setColor((Color)newValue);
+				setColor((String)newValue);
 				return;
 			case BootstrapPackage.BUTTON__OUTLINE:
 				setOutline((Boolean)newValue);
