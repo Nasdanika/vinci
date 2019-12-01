@@ -965,7 +965,7 @@ public abstract class ActionBaseImpl extends LabelImpl implements ActionBase {
 					org.nasdanika.html.app.impl.LabelImpl cat = new org.nasdanika.html.app.impl.LabelImpl();
 					String catColor = actionCategory.getColor();
 					if (!Util.isBlank(catColor)) {
-						cat.setColor(Color.valueOf(catColor));
+						cat.setColor(Color.fromLabel(catColor));
 					}					
 					cat.setIcon(context.interpolate(actionCategory.getIcon()));
 					cat.setNotification(context.interpolate(actionCategory.getNotification()));
