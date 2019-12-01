@@ -73,26 +73,26 @@ public class ComponentsItemProviderAdapterFactory extends ComponentsAdapterFacto
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.nasdanika.vinci.components.Markdown} instances.
+	 * This keeps track of the one adapter used for all {@link org.nasdanika.vinci.components.MarkdownText} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected MarkdownItemProvider markdownItemProvider;
+	protected MarkdownTextItemProvider markdownTextItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link org.nasdanika.vinci.components.Markdown}.
+	 * This creates an adapter for a {@link org.nasdanika.vinci.components.MarkdownText}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createMarkdownAdapter() {
-		if (markdownItemProvider == null) {
-			markdownItemProvider = new MarkdownItemProvider(this);
+	public Adapter createMarkdownTextAdapter() {
+		if (markdownTextItemProvider == null) {
+			markdownTextItemProvider = new MarkdownTextItemProvider(this);
 		}
 
-		return markdownItemProvider;
+		return markdownTextItemProvider;
 	}
 
 	/**
@@ -223,7 +223,7 @@ public class ComponentsItemProviderAdapterFactory extends ComponentsAdapterFacto
 	 */
 	@Override
 	public void dispose() {
-		if (markdownItemProvider != null) markdownItemProvider.dispose();
+		if (markdownTextItemProvider != null) markdownTextItemProvider.dispose();
 		if (markdownResourceItemProvider != null) markdownResourceItemProvider.dispose();
 	}
 

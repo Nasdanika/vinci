@@ -2,10 +2,6 @@
  */
 package org.nasdanika.vinci.components;
 
-import org.nasdanika.common.SupplierFactory;
-
-import org.nasdanika.ncore.ModelElement;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Markdown Resource</b></em>'.
@@ -20,14 +16,13 @@ import org.nasdanika.ncore.ModelElement;
  * </p>
  * <ul>
  *   <li>{@link org.nasdanika.vinci.components.MarkdownResource#getLocation <em>Location</em>}</li>
- *   <li>{@link org.nasdanika.vinci.components.MarkdownResource#isStyle <em>Style</em>}</li>
  * </ul>
  *
  * @see org.nasdanika.vinci.components.ComponentsPackage#getMarkdownResource()
- * @model superTypes="org.nasdanika.ncore.ModelElement org.nasdanika.ncore.ISupplierFactory&lt;org.eclipse.emf.ecore.EJavaObject&gt;"
+ * @model
  * @generated
  */
-public interface MarkdownResource extends ModelElement, SupplierFactory<Object> {
+public interface MarkdownResource extends Markdown {
 	/**
 	 * Returns the value of the '<em><b>Location</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -52,30 +47,5 @@ public interface MarkdownResource extends ModelElement, SupplierFactory<Object> 
 	 * @generated
 	 */
 	void setLocation(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Style</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * If this attribute is set to true the generated markdown is placed in a ``div`` with ``markdown-body`` class in order to be styled by the GitHub Markdown CSS. For this the page shall have "Github Markdown CSS" attribute set to true or add a stylesheet explicitly.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Style</em>' attribute.
-	 * @see #setStyle(boolean)
-	 * @see org.nasdanika.vinci.components.ComponentsPackage#getMarkdownResource_Style()
-	 * @model
-	 * @generated
-	 */
-	boolean isStyle();
-
-	/**
-	 * Sets the value of the '{@link org.nasdanika.vinci.components.MarkdownResource#isStyle <em>Style</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Style</em>' attribute.
-	 * @see #isStyle()
-	 * @generated
-	 */
-	void setStyle(boolean value);
 
 } // MarkdownResource

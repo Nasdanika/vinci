@@ -22,13 +22,13 @@ public interface ComponentsFactory extends EFactory {
 	ComponentsFactory eINSTANCE = org.nasdanika.vinci.components.impl.ComponentsFactoryImpl.init();
 
 	/**
-	 * Returns a new object of class '<em>Markdown</em>'.
+	 * Returns a new object of class '<em>Markdown Text</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Markdown</em>'.
+	 * @return a new object of class '<em>Markdown Text</em>'.
 	 * @generated
 	 */
-	Markdown createMarkdown();
+	MarkdownText createMarkdownText();
 
 	/**
 	 * Returns a new object of class '<em>Markdown Resource</em>'.

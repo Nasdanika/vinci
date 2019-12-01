@@ -12,47 +12,21 @@ import org.nasdanika.ncore.ModelElement;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * Generates HTML from [Markdown](https://en.wikipedia.org/wiki/Markdown).
+ * Base class for generation of HTML from [Markdown](https://en.wikipedia.org/wiki/Markdown).
  * <!-- end-model-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.nasdanika.vinci.components.Markdown#getMarkdown <em>Markdown</em>}</li>
  *   <li>{@link org.nasdanika.vinci.components.Markdown#isStyle <em>Style</em>}</li>
  * </ul>
  *
  * @see org.nasdanika.vinci.components.ComponentsPackage#getMarkdown()
- * @model superTypes="org.nasdanika.ncore.ModelElement org.nasdanika.ncore.ISupplierFactory&lt;org.eclipse.emf.ecore.EJavaObject&gt;"
+ * @model abstract="true" superTypes="org.nasdanika.ncore.ModelElement org.nasdanika.ncore.ISupplierFactory&lt;org.eclipse.emf.ecore.EJavaObject&gt;"
  * @generated
  */
 public interface Markdown extends ModelElement, SupplierFactory<Object> {
-
-	/**
-	 * Returns the value of the '<em><b>Markdown</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Markdown text.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Markdown</em>' attribute.
-	 * @see #setMarkdown(String)
-	 * @see org.nasdanika.vinci.components.ComponentsPackage#getMarkdown_Markdown()
-	 * @model
-	 * @generated
-	 */
-	String getMarkdown();
-
-	/**
-	 * Sets the value of the '{@link org.nasdanika.vinci.components.Markdown#getMarkdown <em>Markdown</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Markdown</em>' attribute.
-	 * @see #getMarkdown()
-	 * @generated
-	 */
-	void setMarkdown(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Style</b></em>' attribute.

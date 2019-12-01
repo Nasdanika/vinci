@@ -10,12 +10,13 @@
   <genPackages prefix="Components" basePackage="org.nasdanika.vinci" disposableProviderFactory="true"
       ecorePackage="components.ecore#/">
     <genClasses image="false" ecoreClass="components.ecore#//Markdown">
-      <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute components.ecore#//Markdown/markdown"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute components.ecore#//Markdown/style"/>
+    </genClasses>
+    <genClasses ecoreClass="components.ecore#//MarkdownText">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute components.ecore#//MarkdownText/markdown"/>
     </genClasses>
     <genClasses ecoreClass="components.ecore#//MarkdownResource">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute components.ecore#//MarkdownResource/location"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute components.ecore#//MarkdownResource/style"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

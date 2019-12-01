@@ -3,35 +3,35 @@
 package org.nasdanika.vinci.components.provider;
 
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.edit.provider.ComposedImage;
+
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-import org.nasdanika.common.Util;
-import org.nasdanika.ncore.provider.NcoreEditPlugin;
+
 import org.nasdanika.vinci.components.ComponentsPackage;
-import org.nasdanika.vinci.components.MarkdownResource;
+import org.nasdanika.vinci.components.Markdown;
+import org.nasdanika.vinci.components.MarkdownText;
 
 /**
- * This is the item provider adapter for a {@link org.nasdanika.vinci.components.MarkdownResource} object.
+ * This is the item provider adapter for a {@link org.nasdanika.vinci.components.MarkdownText} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class MarkdownResourceItemProvider extends MarkdownItemProvider {
+public class MarkdownTextItemProvider extends MarkdownItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public MarkdownResourceItemProvider(AdapterFactory adapterFactory) {
+	public MarkdownTextItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -46,23 +46,23 @@ public class MarkdownResourceItemProvider extends MarkdownItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addLocationPropertyDescriptor(object);
+			addMarkdownPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Location feature.
+	 * This adds a property descriptor for the Markdown feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	protected void addLocationPropertyDescriptor(Object object) {
+	protected void addMarkdownPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor(
 				 getResourceLocator(),
-				 getString("_UI_MarkdownResource_location_feature"),
-				 ComponentsPackage.Literals.MARKDOWN_RESOURCE__LOCATION,
+				 getString("_UI_MarkdownText_markdown_feature"),
+				 ComponentsPackage.Literals.MARKDOWN_TEXT__MARKDOWN,
 				 true,
 				 false,
 				 false,
@@ -73,18 +73,13 @@ public class MarkdownResourceItemProvider extends MarkdownItemProvider {
 	}
 
 	/**
-	 * This returns MarkdownResource.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	@Override
 	public Object getImage(Object object) {
-		Object image = overlayImage(object, getResourceLocator().getImage("full/obj16/Markdown.png"));
-		List<Object> images = new ArrayList<Object>(2);
-		images.add(image);
-		images.add(NcoreEditPlugin.INSTANCE.getImage("full/obj16/LinkDecorator.gif"));
-		return new ComposedImage(images);
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Markdown.png"));
 	}
 
 	/**
@@ -95,12 +90,8 @@ public class MarkdownResourceItemProvider extends MarkdownItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		MarkdownResource markdownResource = (MarkdownResource)object;
-		String label = markdownResource.getTitle();
-		if (Util.isBlank(label)) {
-			label = markdownResource.getLocation();
-		}
-		return label == null || label.length() == 0 ? getString("_UI_MarkdownResource_type") : label;
+		String label = ((Markdown)object).getTitle();
+		return label == null || label.length() == 0 ? getString("_UI_MarkdownText_type") : label;
 	}
 
 
@@ -115,8 +106,8 @@ public class MarkdownResourceItemProvider extends MarkdownItemProvider {
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(MarkdownResource.class)) {
-			case ComponentsPackage.MARKDOWN_RESOURCE__LOCATION:
+		switch (notification.getFeatureID(MarkdownText.class)) {
+			case ComponentsPackage.MARKDOWN_TEXT__MARKDOWN:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

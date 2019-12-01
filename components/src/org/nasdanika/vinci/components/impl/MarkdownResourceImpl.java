@@ -14,7 +14,6 @@ import org.nasdanika.common.MarkdownHelper;
 import org.nasdanika.common.Supplier;
 import org.nasdanika.emf.Util;
 import org.nasdanika.html.HTMLFactory;
-import org.nasdanika.ncore.impl.ModelElementImpl;
 import org.nasdanika.vinci.components.ComponentsPackage;
 import org.nasdanika.vinci.components.MarkdownResource;
 
@@ -27,12 +26,11 @@ import org.nasdanika.vinci.components.MarkdownResource;
  * </p>
  * <ul>
  *   <li>{@link org.nasdanika.vinci.components.impl.MarkdownResourceImpl#getLocation <em>Location</em>}</li>
- *   <li>{@link org.nasdanika.vinci.components.impl.MarkdownResourceImpl#isStyle <em>Style</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class MarkdownResourceImpl extends ModelElementImpl implements MarkdownResource {
+public class MarkdownResourceImpl extends MarkdownImpl implements MarkdownResource {
 	/**
 	 * The default value of the '{@link #getLocation() <em>Location</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -52,26 +50,6 @@ public class MarkdownResourceImpl extends ModelElementImpl implements MarkdownRe
 	 * @ordered
 	 */
 	protected String location = LOCATION_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #isStyle() <em>Style</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isStyle()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final boolean STYLE_EDEFAULT = false;
-
-	/**
-	 * The cached value of the '{@link #isStyle() <em>Style</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isStyle()
-	 * @generated
-	 * @ordered
-	 */
-	protected boolean style = STYLE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -121,35 +99,10 @@ public class MarkdownResourceImpl extends ModelElementImpl implements MarkdownRe
 	 * @generated
 	 */
 	@Override
-	public boolean isStyle() {
-		return style;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setStyle(boolean newStyle) {
-		boolean oldStyle = style;
-		style = newStyle;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ComponentsPackage.MARKDOWN_RESOURCE__STYLE, oldStyle, style));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case ComponentsPackage.MARKDOWN_RESOURCE__LOCATION:
 				return getLocation();
-			case ComponentsPackage.MARKDOWN_RESOURCE__STYLE:
-				return isStyle();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -164,9 +117,6 @@ public class MarkdownResourceImpl extends ModelElementImpl implements MarkdownRe
 		switch (featureID) {
 			case ComponentsPackage.MARKDOWN_RESOURCE__LOCATION:
 				setLocation((String)newValue);
-				return;
-			case ComponentsPackage.MARKDOWN_RESOURCE__STYLE:
-				setStyle((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -183,9 +133,6 @@ public class MarkdownResourceImpl extends ModelElementImpl implements MarkdownRe
 			case ComponentsPackage.MARKDOWN_RESOURCE__LOCATION:
 				setLocation(LOCATION_EDEFAULT);
 				return;
-			case ComponentsPackage.MARKDOWN_RESOURCE__STYLE:
-				setStyle(STYLE_EDEFAULT);
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -200,8 +147,6 @@ public class MarkdownResourceImpl extends ModelElementImpl implements MarkdownRe
 		switch (featureID) {
 			case ComponentsPackage.MARKDOWN_RESOURCE__LOCATION:
 				return LOCATION_EDEFAULT == null ? location != null : !LOCATION_EDEFAULT.equals(location);
-			case ComponentsPackage.MARKDOWN_RESOURCE__STYLE:
-				return style != STYLE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -218,8 +163,6 @@ public class MarkdownResourceImpl extends ModelElementImpl implements MarkdownRe
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (location: ");
 		result.append(location);
-		result.append(", style: ");
-		result.append(style);
 		result.append(')');
 		return result.toString();
 	}

@@ -89,22 +89,13 @@ public interface ComponentsPackage extends EPackage {
 	int MARKDOWN__DESCRIPTION = NcorePackage.MODEL_ELEMENT__DESCRIPTION;
 
 	/**
-	 * The feature id for the '<em><b>Markdown</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MARKDOWN__MARKDOWN = NcorePackage.MODEL_ELEMENT_FEATURE_COUNT + 0;
-
-	/**
 	 * The feature id for the '<em><b>Style</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MARKDOWN__STYLE = NcorePackage.MODEL_ELEMENT_FEATURE_COUNT + 1;
+	int MARKDOWN__STYLE = NcorePackage.MODEL_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Markdown</em>' class.
@@ -113,7 +104,7 @@ public interface ComponentsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MARKDOWN_FEATURE_COUNT = NcorePackage.MODEL_ELEMENT_FEATURE_COUNT + 2;
+	int MARKDOWN_FEATURE_COUNT = NcorePackage.MODEL_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Markdown</em>' class.
@@ -126,14 +117,14 @@ public interface ComponentsPackage extends EPackage {
 
 
 	/**
-	 * The meta object id for the '{@link org.nasdanika.vinci.components.impl.MarkdownResourceImpl <em>Markdown Resource</em>}' class.
+	 * The meta object id for the '{@link org.nasdanika.vinci.components.impl.MarkdownTextImpl <em>Markdown Text</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.nasdanika.vinci.components.impl.MarkdownResourceImpl
-	 * @see org.nasdanika.vinci.components.impl.ComponentsPackageImpl#getMarkdownResource()
+	 * @see org.nasdanika.vinci.components.impl.MarkdownTextImpl
+	 * @see org.nasdanika.vinci.components.impl.ComponentsPackageImpl#getMarkdownText()
 	 * @generated
 	 */
-	int MARKDOWN_RESOURCE = 1;
+	int MARKDOWN_TEXT = 1;
 
 	/**
 	 * The feature id for the '<em><b>Title</b></em>' attribute.
@@ -142,7 +133,7 @@ public interface ComponentsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MARKDOWN_RESOURCE__TITLE = NcorePackage.MODEL_ELEMENT__TITLE;
+	int MARKDOWN_TEXT__TITLE = MARKDOWN__TITLE;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -151,16 +142,7 @@ public interface ComponentsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MARKDOWN_RESOURCE__DESCRIPTION = NcorePackage.MODEL_ELEMENT__DESCRIPTION;
-
-	/**
-	 * The feature id for the '<em><b>Location</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MARKDOWN_RESOURCE__LOCATION = NcorePackage.MODEL_ELEMENT_FEATURE_COUNT + 0;
+	int MARKDOWN_TEXT__DESCRIPTION = MARKDOWN__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' attribute.
@@ -169,7 +151,80 @@ public interface ComponentsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MARKDOWN_RESOURCE__STYLE = NcorePackage.MODEL_ELEMENT_FEATURE_COUNT + 1;
+	int MARKDOWN_TEXT__STYLE = MARKDOWN__STYLE;
+
+	/**
+	 * The feature id for the '<em><b>Markdown</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MARKDOWN_TEXT__MARKDOWN = MARKDOWN_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Markdown Text</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MARKDOWN_TEXT_FEATURE_COUNT = MARKDOWN_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Markdown Text</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MARKDOWN_TEXT_OPERATION_COUNT = MARKDOWN_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.nasdanika.vinci.components.impl.MarkdownResourceImpl <em>Markdown Resource</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.vinci.components.impl.MarkdownResourceImpl
+	 * @see org.nasdanika.vinci.components.impl.ComponentsPackageImpl#getMarkdownResource()
+	 * @generated
+	 */
+	int MARKDOWN_RESOURCE = 2;
+
+	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MARKDOWN_RESOURCE__TITLE = MARKDOWN__TITLE;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MARKDOWN_RESOURCE__DESCRIPTION = MARKDOWN__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Style</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MARKDOWN_RESOURCE__STYLE = MARKDOWN__STYLE;
+
+	/**
+	 * The feature id for the '<em><b>Location</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MARKDOWN_RESOURCE__LOCATION = MARKDOWN_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Markdown Resource</em>' class.
@@ -178,7 +233,7 @@ public interface ComponentsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MARKDOWN_RESOURCE_FEATURE_COUNT = NcorePackage.MODEL_ELEMENT_FEATURE_COUNT + 2;
+	int MARKDOWN_RESOURCE_FEATURE_COUNT = MARKDOWN_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Markdown Resource</em>' class.
@@ -187,7 +242,7 @@ public interface ComponentsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MARKDOWN_RESOURCE_OPERATION_COUNT = NcorePackage.MODEL_ELEMENT_OPERATION_COUNT + 0;
+	int MARKDOWN_RESOURCE_OPERATION_COUNT = MARKDOWN_OPERATION_COUNT + 0;
 
 
 	/**
@@ -201,17 +256,6 @@ public interface ComponentsPackage extends EPackage {
 	EClass getMarkdown();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.components.Markdown#getMarkdown <em>Markdown</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Markdown</em>'.
-	 * @see org.nasdanika.vinci.components.Markdown#getMarkdown()
-	 * @see #getMarkdown()
-	 * @generated
-	 */
-	EAttribute getMarkdown_Markdown();
-
-	/**
 	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.components.Markdown#isStyle <em>Style</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -221,6 +265,27 @@ public interface ComponentsPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getMarkdown_Style();
+
+	/**
+	 * Returns the meta object for class '{@link org.nasdanika.vinci.components.MarkdownText <em>Markdown Text</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Markdown Text</em>'.
+	 * @see org.nasdanika.vinci.components.MarkdownText
+	 * @generated
+	 */
+	EClass getMarkdownText();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.components.MarkdownText#getMarkdown <em>Markdown</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Markdown</em>'.
+	 * @see org.nasdanika.vinci.components.MarkdownText#getMarkdown()
+	 * @see #getMarkdownText()
+	 * @generated
+	 */
+	EAttribute getMarkdownText_Markdown();
 
 	/**
 	 * Returns the meta object for class '{@link org.nasdanika.vinci.components.MarkdownResource <em>Markdown Resource</em>}'.
@@ -242,17 +307,6 @@ public interface ComponentsPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getMarkdownResource_Location();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.components.MarkdownResource#isStyle <em>Style</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Style</em>'.
-	 * @see org.nasdanika.vinci.components.MarkdownResource#isStyle()
-	 * @see #getMarkdownResource()
-	 * @generated
-	 */
-	EAttribute getMarkdownResource_Style();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -287,19 +341,28 @@ public interface ComponentsPackage extends EPackage {
 		 */
 		EClass MARKDOWN = eINSTANCE.getMarkdown();
 		/**
-		 * The meta object literal for the '<em><b>Markdown</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute MARKDOWN__MARKDOWN = eINSTANCE.getMarkdown_Markdown();
-		/**
 		 * The meta object literal for the '<em><b>Style</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EAttribute MARKDOWN__STYLE = eINSTANCE.getMarkdown_Style();
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.vinci.components.impl.MarkdownTextImpl <em>Markdown Text</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.vinci.components.impl.MarkdownTextImpl
+		 * @see org.nasdanika.vinci.components.impl.ComponentsPackageImpl#getMarkdownText()
+		 * @generated
+		 */
+		EClass MARKDOWN_TEXT = eINSTANCE.getMarkdownText();
+		/**
+		 * The meta object literal for the '<em><b>Markdown</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MARKDOWN_TEXT__MARKDOWN = eINSTANCE.getMarkdownText_Markdown();
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.vinci.components.impl.MarkdownResourceImpl <em>Markdown Resource</em>}' class.
 		 * <!-- begin-user-doc -->
@@ -316,13 +379,6 @@ public interface ComponentsPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute MARKDOWN_RESOURCE__LOCATION = eINSTANCE.getMarkdownResource_Location();
-		/**
-		 * The meta object literal for the '<em><b>Style</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute MARKDOWN_RESOURCE__STYLE = eINSTANCE.getMarkdownResource_Style();
 
 	}
 

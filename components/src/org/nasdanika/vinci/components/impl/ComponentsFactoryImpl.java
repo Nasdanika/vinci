@@ -56,7 +56,7 @@ public class ComponentsFactoryImpl extends EFactoryImpl implements ComponentsFac
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case ComponentsPackage.MARKDOWN: return createMarkdown();
+			case ComponentsPackage.MARKDOWN_TEXT: return createMarkdownText();
 			case ComponentsPackage.MARKDOWN_RESOURCE: return createMarkdownResource();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
@@ -69,9 +69,9 @@ public class ComponentsFactoryImpl extends EFactoryImpl implements ComponentsFac
 	 * @generated
 	 */
 	@Override
-	public Markdown createMarkdown() {
-		MarkdownImpl markdown = new MarkdownImpl();
-		return markdown;
+	public MarkdownText createMarkdownText() {
+		MarkdownTextImpl markdownText = new MarkdownTextImpl();
+		return markdownText;
 	}
 
 	/**

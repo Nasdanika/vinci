@@ -78,9 +78,19 @@ public class ComponentsSwitch<T1> extends Switch<T1> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case ComponentsPackage.MARKDOWN_TEXT: {
+				MarkdownText markdownText = (MarkdownText)theEObject;
+				T1 result = caseMarkdownText(markdownText);
+				if (result == null) result = caseMarkdown(markdownText);
+				if (result == null) result = caseModelElement(markdownText);
+				if (result == null) result = caseISupplierFactory(markdownText);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case ComponentsPackage.MARKDOWN_RESOURCE: {
 				MarkdownResource markdownResource = (MarkdownResource)theEObject;
 				T1 result = caseMarkdownResource(markdownResource);
+				if (result == null) result = caseMarkdown(markdownResource);
 				if (result == null) result = caseModelElement(markdownResource);
 				if (result == null) result = caseISupplierFactory(markdownResource);
 				if (result == null) result = defaultCase(theEObject);
@@ -102,6 +112,21 @@ public class ComponentsSwitch<T1> extends Switch<T1> {
 	 * @generated
 	 */
 	public T1 caseMarkdown(Markdown object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Markdown Text</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Markdown Text</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseMarkdownText(MarkdownText object) {
 		return null;
 	}
 

@@ -3,51 +3,57 @@
 package org.nasdanika.vinci.components.impl;
 
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.ecore.EClass;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.nasdanika.ncore.impl.ModelElementImpl;
+import org.nasdanika.common.Context;
+import org.nasdanika.common.MarkdownHelper;
+import org.nasdanika.common.Supplier;
+import org.nasdanika.html.HTMLFactory;
 import org.nasdanika.vinci.components.ComponentsPackage;
-import org.nasdanika.vinci.components.Markdown;
+import org.nasdanika.vinci.components.MarkdownText;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Markdown</b></em>'.
+ * An implementation of the model object '<em><b>Markdown Text</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.nasdanika.vinci.components.impl.MarkdownImpl#isStyle <em>Style</em>}</li>
+ *   <li>{@link org.nasdanika.vinci.components.impl.MarkdownTextImpl#getMarkdown <em>Markdown</em>}</li>
  * </ul>
  *
  * @generated
  */
-public abstract class MarkdownImpl extends ModelElementImpl implements Markdown {
+public class MarkdownTextImpl extends MarkdownImpl implements MarkdownText {
 	/**
-	 * The default value of the '{@link #isStyle() <em>Style</em>}' attribute.
+	 * The default value of the '{@link #getMarkdown() <em>Markdown</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isStyle()
+	 * @see #getMarkdown()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final boolean STYLE_EDEFAULT = false;
+	protected static final String MARKDOWN_EDEFAULT = null;
+
 	/**
-	 * The cached value of the '{@link #isStyle() <em>Style</em>}' attribute.
+	 * The cached value of the '{@link #getMarkdown() <em>Markdown</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isStyle()
+	 * @see #getMarkdown()
 	 * @generated
 	 * @ordered
 	 */
-	protected boolean style = STYLE_EDEFAULT;
+	protected String markdown = MARKDOWN_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected MarkdownImpl() {
+	protected MarkdownTextImpl() {
 		super();
 	}
 
@@ -58,7 +64,7 @@ public abstract class MarkdownImpl extends ModelElementImpl implements Markdown 
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return ComponentsPackage.Literals.MARKDOWN;
+		return ComponentsPackage.Literals.MARKDOWN_TEXT;
 	}
 
 	/**
@@ -67,8 +73,8 @@ public abstract class MarkdownImpl extends ModelElementImpl implements Markdown 
 	 * @generated
 	 */
 	@Override
-	public boolean isStyle() {
-		return style;
+	public String getMarkdown() {
+		return markdown;
 	}
 
 	/**
@@ -77,11 +83,11 @@ public abstract class MarkdownImpl extends ModelElementImpl implements Markdown 
 	 * @generated
 	 */
 	@Override
-	public void setStyle(boolean newStyle) {
-		boolean oldStyle = style;
-		style = newStyle;
+	public void setMarkdown(String newMarkdown) {
+		String oldMarkdown = markdown;
+		markdown = newMarkdown;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ComponentsPackage.MARKDOWN__STYLE, oldStyle, style));
+			eNotify(new ENotificationImpl(this, Notification.SET, ComponentsPackage.MARKDOWN_TEXT__MARKDOWN, oldMarkdown, markdown));
 	}
 
 	/**
@@ -92,8 +98,8 @@ public abstract class MarkdownImpl extends ModelElementImpl implements Markdown 
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ComponentsPackage.MARKDOWN__STYLE:
-				return isStyle();
+			case ComponentsPackage.MARKDOWN_TEXT__MARKDOWN:
+				return getMarkdown();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -106,8 +112,8 @@ public abstract class MarkdownImpl extends ModelElementImpl implements Markdown 
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ComponentsPackage.MARKDOWN__STYLE:
-				setStyle((Boolean)newValue);
+			case ComponentsPackage.MARKDOWN_TEXT__MARKDOWN:
+				setMarkdown((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -121,8 +127,8 @@ public abstract class MarkdownImpl extends ModelElementImpl implements Markdown 
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ComponentsPackage.MARKDOWN__STYLE:
-				setStyle(STYLE_EDEFAULT);
+			case ComponentsPackage.MARKDOWN_TEXT__MARKDOWN:
+				setMarkdown(MARKDOWN_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -136,8 +142,8 @@ public abstract class MarkdownImpl extends ModelElementImpl implements Markdown 
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ComponentsPackage.MARKDOWN__STYLE:
-				return style != STYLE_EDEFAULT;
+			case ComponentsPackage.MARKDOWN_TEXT__MARKDOWN:
+				return MARKDOWN_EDEFAULT == null ? markdown != null : !MARKDOWN_EDEFAULT.equals(markdown);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -152,10 +158,23 @@ public abstract class MarkdownImpl extends ModelElementImpl implements Markdown 
 		if (eIsProxy()) return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (style: ");
-		result.append(style);
+		result.append(" (markdown: ");
+		result.append(markdown);
 		result.append(')');
 		return result.toString();
 	}
+	
+	@Override
+	public Supplier<Object> create(Context context) throws Exception {
+		return Supplier.fromCallable(() -> {
+			MarkdownHelper markdownHelper = new MarkdownHelper();
+			String html = markdownHelper.markdownToHtml(context.interpolate(markdown));
+			if (!isStyle()) {
+				return html;
+			}
+			HTMLFactory htmlFactory = context.get(HTMLFactory.class, HTMLFactory.INSTANCE);
+			return htmlFactory.div(html).addClass("markdown-body");
+		}, getTitle(), 1);
+	}
 
-} //MarkdownImpl
+} //MarkdownTextImpl

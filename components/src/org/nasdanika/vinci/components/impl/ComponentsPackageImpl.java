@@ -15,6 +15,7 @@ import org.nasdanika.vinci.components.ComponentsFactory;
 import org.nasdanika.vinci.components.ComponentsPackage;
 import org.nasdanika.vinci.components.Markdown;
 import org.nasdanika.vinci.components.MarkdownResource;
+import org.nasdanika.vinci.components.MarkdownText;
 
 /**
  * <!-- begin-user-doc -->
@@ -29,6 +30,13 @@ public class ComponentsPackageImpl extends EPackageImpl implements ComponentsPac
 	 * @generated
 	 */
 	private EClass markdownEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass markdownTextEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -117,7 +125,7 @@ public class ComponentsPackageImpl extends EPackageImpl implements ComponentsPac
 	 * @generated
 	 */
 	@Override
-	public EAttribute getMarkdown_Markdown() {
+	public EAttribute getMarkdown_Style() {
 		return (EAttribute)markdownEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -127,8 +135,18 @@ public class ComponentsPackageImpl extends EPackageImpl implements ComponentsPac
 	 * @generated
 	 */
 	@Override
-	public EAttribute getMarkdown_Style() {
-		return (EAttribute)markdownEClass.getEStructuralFeatures().get(1);
+	public EClass getMarkdownText() {
+		return markdownTextEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getMarkdownText_Markdown() {
+		return (EAttribute)markdownTextEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -149,16 +167,6 @@ public class ComponentsPackageImpl extends EPackageImpl implements ComponentsPac
 	@Override
 	public EAttribute getMarkdownResource_Location() {
 		return (EAttribute)markdownResourceEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getMarkdownResource_Style() {
-		return (EAttribute)markdownResourceEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -191,12 +199,13 @@ public class ComponentsPackageImpl extends EPackageImpl implements ComponentsPac
 
 		// Create classes and their features
 		markdownEClass = createEClass(MARKDOWN);
-		createEAttribute(markdownEClass, MARKDOWN__MARKDOWN);
 		createEAttribute(markdownEClass, MARKDOWN__STYLE);
+
+		markdownTextEClass = createEClass(MARKDOWN_TEXT);
+		createEAttribute(markdownTextEClass, MARKDOWN_TEXT__MARKDOWN);
 
 		markdownResourceEClass = createEClass(MARKDOWN_RESOURCE);
 		createEAttribute(markdownResourceEClass, MARKDOWN_RESOURCE__LOCATION);
-		createEAttribute(markdownResourceEClass, MARKDOWN_RESOURCE__STYLE);
 	}
 
 	/**
@@ -236,21 +245,18 @@ public class ComponentsPackageImpl extends EPackageImpl implements ComponentsPac
 		EGenericType g2 = createEGenericType(ecorePackage.getEJavaObject());
 		g1.getETypeArguments().add(g2);
 		markdownEClass.getEGenericSuperTypes().add(g1);
-		g1 = createEGenericType(theNcorePackage.getModelElement());
-		markdownResourceEClass.getEGenericSuperTypes().add(g1);
-		g1 = createEGenericType(theNcorePackage.getISupplierFactory());
-		g2 = createEGenericType(ecorePackage.getEJavaObject());
-		g1.getETypeArguments().add(g2);
-		markdownResourceEClass.getEGenericSuperTypes().add(g1);
+		markdownTextEClass.getESuperTypes().add(this.getMarkdown());
+		markdownResourceEClass.getESuperTypes().add(this.getMarkdown());
 
 		// Initialize classes, features, and operations; add parameters
-		initEClass(markdownEClass, Markdown.class, "Markdown", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getMarkdown_Markdown(), ecorePackage.getEString(), "markdown", null, 0, 1, Markdown.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(markdownEClass, Markdown.class, "Markdown", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getMarkdown_Style(), ecorePackage.getEBoolean(), "style", null, 0, 1, Markdown.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(markdownTextEClass, MarkdownText.class, "MarkdownText", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getMarkdownText_Markdown(), ecorePackage.getEString(), "markdown", null, 0, 1, MarkdownText.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(markdownResourceEClass, MarkdownResource.class, "MarkdownResource", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getMarkdownResource_Location(), ecorePackage.getEString(), "location", null, 1, 1, MarkdownResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getMarkdownResource_Style(), ecorePackage.getEBoolean(), "style", null, 0, 1, MarkdownResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

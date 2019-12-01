@@ -44,31 +44,9 @@ public class MarkdownItemProvider extends ModelElementItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addMarkdownPropertyDescriptor(object);
 			addStylePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Markdown feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	protected void addMarkdownPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor(
-				 getResourceLocator(),
-				 getString("_UI_Markdown_markdown_feature"),
-				 ComponentsPackage.Literals.MARKDOWN__MARKDOWN,
-				 true,
-				 true,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null,
-				 null));
 	}
 
 	/**
@@ -127,7 +105,6 @@ public class MarkdownItemProvider extends ModelElementItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Markdown.class)) {
-			case ComponentsPackage.MARKDOWN__MARKDOWN:
 			case ComponentsPackage.MARKDOWN__STYLE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
