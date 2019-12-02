@@ -64,7 +64,7 @@ public class MarkdownTextItemProvider extends MarkdownItemProvider {
 				 getString("_UI_MarkdownText_markdown_feature"),
 				 ComponentsPackage.Literals.MARKDOWN_TEXT__MARKDOWN,
 				 true,
-				 false,
+				 true,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
