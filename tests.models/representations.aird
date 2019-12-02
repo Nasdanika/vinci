@@ -2340,7 +2340,7 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@nodeMappings[name='ActionNode']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNode" uid="_QE5LlRSfEeqsqcSOgmFtCQ" name="Vinci" outgoingEdges="_QFGm_xSfEeqsqcSOgmFtCQ" incomingEdges="_QFGm8BSfEeqsqcSOgmFtCQ" width="9" height="4" resizeKind="NSEW">
+    <ownedDiagramElements xmi:type="diagram:DNode" uid="_QE5LlRSfEeqsqcSOgmFtCQ" name="Винчи" outgoingEdges="_QFGm_xSfEeqsqcSOgmFtCQ" incomingEdges="_QFGm8BSfEeqsqcSOgmFtCQ" width="9" height="4" resizeKind="NSEW">
       <target xmi:type="org.nasdanika.vinci.app:Action" href="models/doc/винчи-документация.vinci#//@builders.0/@builders.0/@elements.1"/>
       <semanticElements xmi:type="org.nasdanika.vinci.app:Action" href="models/doc/винчи-документация.vinci#//@builders.0/@builders.0/@elements.1"/>
       <ownedStyle xmi:type="diagram:Square" uid="_QE5LlhSfEeqsqcSOgmFtCQ" showIcon="false" labelPosition="node" width="9" height="4" color="255,245,181">
@@ -2348,7 +2348,7 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@nodeMappings[name='ActionNode']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNode" uid="_QE5LmBSfEeqsqcSOgmFtCQ" name="Markdown" incomingEdges="_QFGm-hSfEeqsqcSOgmFtCQ" width="9" height="4" resizeKind="NSEW">
+    <ownedDiagramElements xmi:type="diagram:DNode" uid="_QE5LmBSfEeqsqcSOgmFtCQ" name="Маркдаун" incomingEdges="_QFGm-hSfEeqsqcSOgmFtCQ" width="9" height="4" resizeKind="NSEW">
       <target xmi:type="org.nasdanika.vinci.app:Action" href="models/doc/винчи-документация.vinci#//@builders.0/@builders.0/@elements.2"/>
       <semanticElements xmi:type="org.nasdanika.vinci.app:Action" href="models/doc/винчи-документация.vinci#//@builders.0/@builders.0/@elements.2"/>
       <ownedStyle xmi:type="diagram:Square" uid="_QE5LmRSfEeqsqcSOgmFtCQ" showIcon="false" labelPosition="node" width="9" height="4" color="255,245,181">
@@ -2356,7 +2356,7 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@nodeMappings[name='ActionNode']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNode" uid="_QE5LmxSfEeqsqcSOgmFtCQ" name="Components" outgoingEdges="_QFGm-hSfEeqsqcSOgmFtCQ" incomingEdges="_QFGm_xSfEeqsqcSOgmFtCQ" width="9" height="4" resizeKind="NSEW">
+    <ownedDiagramElements xmi:type="diagram:DNode" uid="_QE5LmxSfEeqsqcSOgmFtCQ" name="Комопненты" outgoingEdges="_QFGm-hSfEeqsqcSOgmFtCQ" incomingEdges="_QFGm_xSfEeqsqcSOgmFtCQ" width="9" height="4" resizeKind="NSEW">
       <target xmi:type="org.nasdanika.vinci.app:ActionCategory" href="models/doc/винчи-документация.vinci#//@builders.0/@builders.0/@elements.3"/>
       <semanticElements xmi:type="org.nasdanika.vinci.app:ActionCategory" href="models/doc/винчи-документация.vinci#//@builders.0/@builders.0/@elements.3"/>
       <ownedStyle xmi:type="diagram:Square" uid="_QE5LnBSfEeqsqcSOgmFtCQ" showIcon="false" labelPosition="node" width="9" height="4" color="194,239,255">
