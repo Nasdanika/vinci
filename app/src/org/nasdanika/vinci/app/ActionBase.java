@@ -119,6 +119,12 @@ public interface ActionBase extends Label, AbstractAction, Container<ActionEleme
 	 * Returns the value of the '<em><b>Activator</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Activator is either a URL if the activator type is Reference, or a script if the activator type is Script or Bind.
+	 * 
+	 * The application generator generates a page for an action only In the activator type is Reference and the URL does not contain ``://`` and does not start with ``/`` or ``./``. 
+	 * Using ``./`` is a way to reference externally generated content. For example, create a hierarch/federation of sites.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Activator</em>' attribute.
 	 * @see #setActivator(String)
 	 * @see org.nasdanika.vinci.app.AppPackage#getActionBase_Activator()

@@ -67,71 +67,6 @@ public class GenerateAction<T extends EObject & SupplierFactory<Object>> extends
 	
 	protected T modelElement;					
 			
-//	/**
-//	 * @throws Exception
-//	 */
-//	public void testBankOfNasdanikaAdvanced() throws Exception {
-//		String path = "app/bank-of-nasdanika-advanced";
-//		execute(path).writeFile("index.html", new PrintStreamProgressMonitor()); 		
-//		
-//		String[] ids = {
-//				"2dd49b89-b498-461b-8bf8-01c2c1e81476", // Savings
-//				"b24142d2-b17a-4357-86ae-9717644db759"  // Credit card
-//			};
-//			for (String id: ids) {
-//				execute(path, Context.singleton("active-action", id)).writeFile(id+".html", new PrintStreamProgressMonitor());
-//			}
-//	}
-//	
-//	/**
-//	 * Performs validation and work execution.
-//	 * @param path Path to the test to execute relative to the model base URI. The model is loaded from the path concatenated with .vinci extension and results are stored to
-//	 * the path relative to the test output base. 
-//	 * @throws Exception
-//	 */
-//	protected TestResult execute(String path, Context context) throws Exception {
-//		TestResult result = new TestResult();
-//		result.output = new FileSystemContainer(new File(TEST_OUTPUT_BASE+path));
-//		MutableContext mc = Context.EMPTY_CONTEXT.compose(context).fork();
-//		mc.register(BinaryEntityContainer.class, result.output);
-//		
-//		try (Supplier<Object> work = createModelWorkFactory(path).create(mc)) {
-//			
-//			try (ProgressRecorder workDiagnostic = new ProgressRecorder()) {
-//				org.nasdanika.common.Diagnostic diagnostic = work.diagnose(workDiagnostic);
-//				if (diagnostic.getStatus() == Status.ERROR) {
-//					diagnostic.dump(System.out, 0);
-//					System.out.println(workDiagnostic.toJSON().toString(4));
-//					throw new org.nasdanika.common.DiagnosticException("Cannot execute generator work", diagnostic);
-//				}
-//			}
-//		
-//			try (ProgressMonitor progressMonitor = new PrintStreamProgressMonitor()) {
-//				try (ProgressEntry pe = new ProgressEntry("Generating Generator Model Documentation", 0)) {
-//					 result.result = work.execute(progressMonitor.split("Generating "+path, work.size()).compose(pe.split("Doc", 1)));	
-//				
-//		//			// HTML report
-//		//			ProgressReportGenerator prg = new ProgressReportGenerator("Documentation generation", pe);
-//		//			Container<Object> container = fsc.stateAdapter().adapt(null, encoder);
-//		//			Container<Object> progressReportContainer = container.getContainer("progress-report", progressMonitor.split("Getting progress report container", 1));
-//		//			prg.generate(progressReportContainer, progressMonitor.split("Generating progress report", 1));
-//				}
-//			}
-//			
-//			return result;
-//		} catch (DiagnosticException e) {
-//			dumpDiagnostic(e.getDiagnostic(), 0);
-//			throw e;
-//		}
-//	}
-//
-//
-//	public static void writeFile(BinaryEntityContainer container, String path, ProgressMonitor monitor, Object content) {
-//		org.nasdanika.common.resources.Container<Object> contentContainer = container.stateAdapter().adapt(null, ENCODER);
-//		try (ProgressMonitor pageMonitor = monitor.split("Writing cotent "+path, 1)) {
-//			contentContainer.put(path, content.toString(), pageMonitor);
-//		}
-//	}
 	
 	public GenerateAction(String name, T modelElement) {
 		super(name);
@@ -283,7 +218,7 @@ public class GenerateAction<T extends EObject & SupplierFactory<Object>> extends
 	 */
 	protected boolean isValidAndRelative(String url) {
 		String interpolated = Context.wrap(k -> "something").interpolate(url); // interpolates tokens if any with valid file part name.
-		return !interpolated.contains("://") && !interpolated.startsWith("/");
+		return !interpolated.contains("://") && !interpolated.startsWith("/") && !interpolated.startsWith("./");
 	}
 
 	private static MultiStatus createMultiStatus(String msg, Throwable t) {

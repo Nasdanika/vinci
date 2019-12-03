@@ -5,7 +5,6 @@ package org.nasdanika.vinci.app.util;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.stream.Collectors;
-
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EPackage;

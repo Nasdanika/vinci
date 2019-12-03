@@ -1287,6 +1287,12 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 			   "documentation", "Applicable to section style \"Card\". Defines how many columns shall be in a row of section cards."
 		   });
 		addAnnotation
+		  (getActionBase_Activator(),
+		   source,
+		   new String[] {
+			   "documentation", "Activator is either a URL if the activator type is Reference, or a script if the activator type is Script or Bind.\n\nThe application generator generates a page for an action only In the activator type is Reference and the URL does not contain ``://`` and does not start with ``/`` or ``./``. \nUsing ``./`` is a way to reference externally generated content. For example, create a hierarch/federation of sites."
+		   });
+		addAnnotation
 		  (getActionBase_Confirmation(),
 		   source,
 		   new String[] {

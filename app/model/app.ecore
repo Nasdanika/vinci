@@ -132,7 +132,11 @@
         <details key="documentation" value="Applicable to section style &quot;Card&quot;. Defines how many columns shall be in a row of section cards."/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="activator" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="activator" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Activator is either a URL if the activator type is Reference, or a script if the activator type is Script or Bind.&#xA;&#xA;The application generator generates a page for an action only In the activator type is Reference and the URL does not contain ``://`` and does not start with ``/`` or ``./``. &#xA;Using ``./`` is a way to reference externally generated content. For example, create a hierarch/federation of sites."/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="activatorType" eType="#//ActivatorType"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="confirmation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
