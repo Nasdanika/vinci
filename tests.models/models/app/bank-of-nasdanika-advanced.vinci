@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<org.nasdanika.vinci.bootstrap:BootstrapPage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.nasdanika.ncore="urn:org.nasdanika.ncore" xmlns:org.nasdanika.vinci.app="urn:org.nasdanika.vinci.app" xmlns:org.nasdanika.vinci.bootstrap="urn:org.nasdanika.vinci.bootstrap" description="Bank of Nasdanika with categorized navigation children (accounts)&#xA;and drop-down in header navigation." name="Bank of Nasdanika" fontAwesome="true" theme="Sandstone">
+<org.nasdanika.vinci.bootstrap:BootstrapPage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.nasdanika.ncore="urn:org.nasdanika.ncore" xmlns:org.nasdanika.vinci.app="urn:org.nasdanika.vinci.app" xmlns:org.nasdanika.vinci.bootstrap="urn:org.nasdanika.vinci.bootstrap" description="Bank of Nasdanika with categorized navigation children (accounts)&#xA;and drop-down in header navigation." name="Bank of Nasdanika" fontAwesome="true" jsTree="true" theme="Sandstone">
   <builders xsi:type="org.nasdanika.vinci.app:BootstrapContainerApplication">
     <appearance attributes="children:&#xA;    content-row:&#xA;        style:&#xA;            min-height: 25rem">
       <border color="Dark"/>
@@ -35,7 +35,16 @@
         </appearance>
       </elements>
       <elements xsi:type="org.nasdanika.vinci.app:Action" title="Contact Us" id="ab1778bc-f554-43a4-a785-bff3160764dc" text="Contact Us" icon="far fa-envelope" role="Context"/>
-      <elements xsi:type="org.nasdanika.vinci.app:Action" title="Joe Doe" id="524984d0-253e-4ac7-b100-3c489d4ccc3a" text="Joe Doe" icon="fas fa-user" linkedElements="//@builders.0/@builders.0/@elements.6 //@builders.0/@builders.0/@elements.7 //@builders.0/@builders.0/@elements.9"/>
+      <elements xsi:type="org.nasdanika.vinci.app:Action" title="Joe Doe" id="524984d0-253e-4ac7-b100-3c489d4ccc3a" text="Joe Doe" icon="fas fa-user" linkedElements="//@builders.0/@builders.0/@elements.6 //@builders.0/@builders.0/@elements.7 //@builders.0/@builders.0/@elements.9">
+        <elements xsi:type="org.nasdanika.vinci.app:Partition" title="Partition-1" description="Context partition." id="c602c823-d0fd-41e7-a63a-496032fe63f1" text="Partition test" role="Context" activatorType="None">
+          <elements xsi:type="org.nasdanika.vinci.app:Action" title="Partitioned Action 1" id="ce5e38b4-2e38-4adc-9b0c-80f120b3d7f5" text="Partitioned Action 1" notification="1"/>
+          <elements xsi:type="org.nasdanika.vinci.app:Action" title="Partitioned Action 2" id="c5deb6f6-c1dc-432c-a1e9-e240a719b8a3" text="Partitioned Action 2"/>
+        </elements>
+        <elements xsi:type="org.nasdanika.vinci.app:Partition" title="Partition-2" description="Navigation partition" id="c602c823-d0fd-41e7-a63a-496032fe63f1" text="Partition test" activatorType="None">
+          <elements xsi:type="org.nasdanika.vinci.app:Action" title="Partitioned Action 1" id="ce5e38b4-2e38-4adc-9b0c-80f120b3d7f5" text="Partitioned Action 1" notification="1"/>
+          <elements xsi:type="org.nasdanika.vinci.app:Action" title="Partitioned Action 2" id="c5deb6f6-c1dc-432c-a1e9-e240a719b8a3" text="Partitioned Action 2"/>
+        </elements>
+      </elements>
       <elements xsi:type="org.nasdanika.vinci.app:Action" title="Checking" id="b24142d2-b17a-4357-86ae-9717644db759" text="Checking-1234" icon="fas fa-money-check-alt" linkedElements="//@builders.0/@builders.0/@elements.8">
         <content xsi:type="org.nasdanika.ncore:Value" value="Lorem ipsum..."/>
       </elements>
