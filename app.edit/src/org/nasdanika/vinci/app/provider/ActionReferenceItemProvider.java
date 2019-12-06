@@ -3,6 +3,7 @@
 package org.nasdanika.vinci.app.provider;
 
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
@@ -10,7 +11,7 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EStructuralFeature;
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
+import org.eclipse.emf.edit.provider.ComposedImage;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
@@ -20,6 +21,7 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.nasdanika.emf.edit.NasdanikaItemProviderAdapter;
+import org.nasdanika.ncore.provider.NcoreEditPlugin;
 import org.nasdanika.vinci.app.ActionReference;
 import org.nasdanika.vinci.app.AppFactory;
 import org.nasdanika.vinci.app.AppPackage;
@@ -84,20 +86,19 @@ public class ActionReferenceItemProvider extends NasdanikaItemProviderAdapter im
 	 * This adds a property descriptor for the Description feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void addDescriptionPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+			(createItemPropertyDescriptor(
 				 getResourceLocator(),
 				 getString("_UI_ActionReference_description_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ActionReference_description_feature", "_UI_ActionReference_type"),
 				 AppPackage.Literals.ACTION_REFERENCE__DESCRIPTION,
 				 true,
 				 true,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
 				 null,
 				 null));
 	}
@@ -157,11 +158,15 @@ public class ActionReferenceItemProvider extends NasdanikaItemProviderAdapter im
 	 * This returns ActionReference.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/ActionReference"));
+		Object image = overlayImage(object, getResourceLocator().getImage("full/obj16/Action.png"));
+		List<Object> images = new ArrayList<Object>(2);
+		images.add(image);
+		images.add(NcoreEditPlugin.INSTANCE.getImage("full/obj16/LinkDecorator.gif"));
+		return new ComposedImage(images);		
 	}
 
 	/**

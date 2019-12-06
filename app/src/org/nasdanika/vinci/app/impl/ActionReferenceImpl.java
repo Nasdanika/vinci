@@ -298,8 +298,9 @@ public class ActionReferenceImpl extends MinimalEObjectImpl.Container implements
 	}
 
 	@Override
-	public Supplier<Object> create(Context arg) throws Exception {
-		throw new UnsupportedOperationException();
+	public Supplier<Object> create(Context context) throws Exception {
+		// TODO - action mappings
+		return getAction().create(context);
 	}
 		
 } //ActionReferenceImpl

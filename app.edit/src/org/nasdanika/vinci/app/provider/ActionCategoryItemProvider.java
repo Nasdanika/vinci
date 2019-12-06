@@ -47,11 +47,11 @@ public class ActionCategoryItemProvider extends CategoryItemProvider {
 	 * This returns ActionCategory.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/ActionCategory"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ActionCategory.png"));
 	}
 
 	/**
@@ -80,9 +80,7 @@ public class ActionCategoryItemProvider extends CategoryItemProvider {
 		if (isBlank(label)) {
 			label = ((ActionCategory)object).getId();
 		}
-		return label == null || label.length() == 0 ?
-			getString("_UI_ActionCategory_type") :
-			getString("_UI_ActionCategory_type") + " " + label;
+		return label == null || label.length() == 0 ? getString("_UI_ActionCategory_type") : label;
 	}
 
 
@@ -91,11 +89,11 @@ public class ActionCategoryItemProvider extends CategoryItemProvider {
 	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public void notifyChanged(Notification notification) {
-		updateChildren(notification);
+		super.notifyChanged(notification);
 	}
 
 	/**

@@ -22,7 +22,7 @@ package org.nasdanika.vinci.app;
  * </ul>
  *
  * @see org.nasdanika.vinci.app.AppPackage#getActionReference()
- * @model
+ * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='action'"
  * @generated
  */
 public interface ActionReference extends AbstractAction {
@@ -80,7 +80,7 @@ public interface ActionReference extends AbstractAction {
 	 * @return the value of the '<em>Action</em>' reference.
 	 * @see #setAction(AbstractAction)
 	 * @see org.nasdanika.vinci.app.AppPackage#getActionReference_Action()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
 	AbstractAction getAction();

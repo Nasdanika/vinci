@@ -44,6 +44,9 @@
           <elements xsi:type="org.nasdanika.vinci.app:Action" title="Partitioned Action 1" id="ce5e38b4-2e38-4adc-9b0c-80f120b3d7f5" text="Partitioned Action 1" notification="1"/>
           <elements xsi:type="org.nasdanika.vinci.app:Action" title="Partitioned Action 2" id="c5deb6f6-c1dc-432c-a1e9-e240a719b8a3" text="Partitioned Action 2"/>
         </elements>
+        <content xsi:type="org.nasdanika.ncore:SupplierFactoryReference" title="something" description="alispdgioent s">
+          <target xsi:type="org.nasdanika.vinci.bootstrap:Container" href="joe-doe-content.vinci#/"/>
+        </content>
       </elements>
       <elements xsi:type="org.nasdanika.vinci.app:Action" title="Checking" id="b24142d2-b17a-4357-86ae-9717644db759" text="Checking-1234" icon="fas fa-money-check-alt" linkedElements="//@builders.0/@builders.0/@elements.8">
         <content xsi:type="org.nasdanika.ncore:Value" value="Lorem ipsum..."/>
@@ -51,7 +54,11 @@
       <elements xsi:type="org.nasdanika.vinci.app:Action" title="Savings" id="2dd49b89-b498-461b-8bf8-01c2c1e81476" text="Saving-5678" icon="fas fa-piggy-bank">
         <content xsi:type="org.nasdanika.ncore:Value" value="A lot of money"/>
       </elements>
-      <elements xsi:type="org.nasdanika.vinci.app:Action" title="Credit Card" id="e871d844-e734-466b-acb0-8fc82bfd841f" text="Super Rewards-4567" icon="far fa-credit-card"/>
+      <elements xsi:type="org.nasdanika.vinci.app:Action" title="Credit Card" id="e871d844-e734-466b-acb0-8fc82bfd841f" text="Super Rewards-4567" icon="far fa-credit-card">
+        <elements xsi:type="org.nasdanika.vinci.app:ActionReference" title="Card Services">
+          <action xsi:type="org.nasdanika.vinci.app:Action" href="credit-card-services.vinci#/"/>
+        </elements>
+      </elements>
       <elements xsi:type="org.nasdanika.vinci.app:Action" title="Pay Bills" id="c47c6c3e-e693-4607-89e0-596e02a14fe6" text="Pay Bills" icon="fas fa-file-invoice-dollar" role="Context"/>
       <elements xsi:type="org.nasdanika.vinci.app:Action" title="Transfer Funds" id="598bdb6f-b5fd-4ea9-9d3c-d48a222c7610" text="Transfer Funds" icon="fas fa-exchange-alt" role="Context"/>
       <elements xsi:type="org.nasdanika.vinci.app:Action" title="Order checks" id="f1077f39-2825-45b7-a813-5acc6ed95cd9" text="Order checks" icon="fas fa-clipboard-list" role="Context"/>

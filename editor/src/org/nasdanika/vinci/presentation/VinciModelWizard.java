@@ -56,9 +56,11 @@ import org.eclipse.ui.actions.WorkspaceModifyOperation;
 import org.eclipse.ui.dialogs.WizardNewFileCreationPage;
 import org.eclipse.ui.part.FileEditorInput;
 import org.eclipse.ui.part.ISetSelectionTarget;
+import org.nasdanika.ncore.NcorePackage;
 import org.nasdanika.vinci.app.AppPackage;
 import org.nasdanika.vinci.app.provider.AppEditPlugin;
 import org.nasdanika.vinci.bootstrap.BootstrapPackage;
+import org.nasdanika.vinci.components.ComponentsPackage;
 import org.nasdanika.vinci.html.HtmlPackage;
 
 
@@ -91,12 +93,14 @@ public class VinciModelWizard extends Wizard implements INewWizard {
 	 * This caches an instance of the model package.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected EPackage[] ePackages = {
 			AppPackage.eINSTANCE,
 			BootstrapPackage.eINSTANCE,
-			HtmlPackage.eINSTANCE
+			HtmlPackage.eINSTANCE,
+			NcorePackage.eINSTANCE,
+			ComponentsPackage.eINSTANCE
 	};
 
 	/**

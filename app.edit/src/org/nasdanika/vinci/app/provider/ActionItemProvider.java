@@ -47,11 +47,11 @@ public class ActionItemProvider extends ActionBaseItemProvider {
 	 * This returns Action.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Action"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Action.png"));
 	}
 
 	/**
@@ -77,9 +77,7 @@ public class ActionItemProvider extends ActionBaseItemProvider {
 		if (isBlank(label)) {
 			label = actionBase.getText();
 		}
-		return label == null || label.length() == 0 ?
-			getString("_UI_Action_type") :
-			getString("_UI_Action_type") + " " + label;
+		return label == null || label.length() == 0 ? getString("_UI_Action_type") : label;
 	}
 
 	/**

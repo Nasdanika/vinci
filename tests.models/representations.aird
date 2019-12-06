@@ -18,6 +18,9 @@
     <semanticResources>models/app/bank-of-nasdanika-advanced.vinci</semanticResources>
     <semanticResources>models/doc/vinci-doc.vinci</semanticResources>
     <semanticResources>models/doc/винчи-документация.vinci</semanticResources>
+    <semanticResources>models/app/joe-doe-content.vinci</semanticResources>
+    <semanticResources>models/app/из-лесу.vinci</semanticResources>
+    <semanticResources>models/app/credit-card-services.vinci</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_xD_Q0ApBEeq01PnEy7pPaA">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/resource/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']"/>
       <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_zfIdkApBEeq01PnEy7pPaA" name="Bank of Nasdanika Diagram" repPath="#_zeF7wApBEeq01PnEy7pPaA">
@@ -58,6 +61,10 @@
       <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_GsrjkRdTEeq1SrUHI-I6IQ" name="Joe Doe Action Diagram" repPath="#_GshykBdTEeq1SrUHI-I6IQ">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']"/>
         <target xmi:type="org.nasdanika.vinci.app:Action" href="models/app/bank-of-nasdanika.vinci#//@builders.0/@builders.0/@elements.2"/>
+      </ownedRepresentationDescriptors>
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_EznFRRhoEeqwxLi9qDedHw" name="Credit Card Action Diagram" repPath="#_EzdUQBhoEeqwxLi9qDedHw">
+        <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']"/>
+        <target xmi:type="org.nasdanika.vinci.app:Action" href="models/app/bank-of-nasdanika-advanced.vinci#//@builders.0/@builders.0/@elements.5"/>
       </ownedRepresentationDescriptors>
     </ownedViews>
   </viewpoint:DAnalysis>
@@ -3827,5 +3834,57 @@
     <filterVariableHistory xmi:type="diagram:FilterVariableHistory" uid="_GshykRdTEeq1SrUHI-I6IQ"/>
     <activatedLayers xmi:type="description_1:Layer" href="platform:/plugin/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer"/>
     <target xmi:type="org.nasdanika.vinci.app:Action" href="models/app/bank-of-nasdanika.vinci#//@builders.0/@builders.0/@elements.2"/>
+  </diagram:DSemanticDiagram>
+  <diagram:DSemanticDiagram uid="_EzdUQBhoEeqwxLi9qDedHw" name="Credit Card Action Diagram">
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_EznFQhhoEeqwxLi9qDedHw" source="DANNOTATION_CUSTOMIZATION_KEY">
+      <data xmi:type="diagram:ComputedStyleDescriptionRegistry" uid="_EznFQxhoEeqwxLi9qDedHw"/>
+    </ownedAnnotationEntries>
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_E09JEBhoEeqwxLi9qDedHw" source="GMF_DIAGRAMS">
+      <data xmi:type="notation:Diagram" xmi:id="_E1GTABhoEeqwxLi9qDedHw" type="Sirius" element="_EzdUQBhoEeqwxLi9qDedHw" measurementUnit="Pixel">
+        <children xmi:type="notation:Node" xmi:id="_E1G6EBhoEeqwxLi9qDedHw" type="2001" element="_EzdUQhhoEeqwxLi9qDedHw">
+          <children xmi:type="notation:Node" xmi:id="_E1G6ExhoEeqwxLi9qDedHw" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_E1G6FBhoEeqwxLi9qDedHw" y="5"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_E1G6FRhoEeqwxLi9qDedHw" type="3016" element="_EznFQBhoEeqwxLi9qDedHw">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_E1G6FhhoEeqwxLi9qDedHw" fontName="Segoe UI"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_E1G6FxhoEeqwxLi9qDedHw"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_E1G6ERhoEeqwxLi9qDedHw" fontName="Segoe UI" fontHeight="12"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_E1G6EhhoEeqwxLi9qDedHw" width="200" height="150"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_Fidv2hhoEeqwxLi9qDedHw" type="2001" element="_FiUlYBhoEeqwxLi9qDedHw">
+          <children xmi:type="notation:Node" xmi:id="_Fidv3RhoEeqwxLi9qDedHw" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_Fidv3hhoEeqwxLi9qDedHw" y="5"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_FingUBhoEeqwxLi9qDedHw" type="3003" element="_FiUlYRhoEeqwxLi9qDedHw">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_FingURhoEeqwxLi9qDedHw" fontName="Segoe UI"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_FingUhhoEeqwxLi9qDedHw"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_Fidv2xhoEeqwxLi9qDedHw" fontName="Segoe UI" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Fidv3BhoEeqwxLi9qDedHw" x="228" y="240" width="90" height="40"/>
+        </children>
+        <styles xmi:type="notation:DiagramStyle" xmi:id="_E1GTARhoEeqwxLi9qDedHw"/>
+      </data>
+    </ownedAnnotationEntries>
+    <ownedDiagramElements xmi:type="diagram:DNode" uid="_EzdUQhhoEeqwxLi9qDedHw" name="Credit Card" width="20" height="15" resizeKind="NSEW">
+      <target xmi:type="org.nasdanika.vinci.app:Action" href="models/app/bank-of-nasdanika-advanced.vinci#//@builders.0/@builders.0/@elements.5"/>
+      <semanticElements xmi:type="org.nasdanika.vinci.app:Action" href="models/app/bank-of-nasdanika-advanced.vinci#//@builders.0/@builders.0/@elements.5"/>
+      <ownedStyle xmi:type="diagram:Ellipse" uid="_EznFQBhoEeqwxLi9qDedHw" labelSize="12" showIcon="false" labelPosition="node" horizontalDiameter="20" verticalDiameter="15" color="209,209,209">
+        <description xmi:type="style:EllipseNodeDescription" href="platform:/plugin/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@nodeMappings[name='RootNode']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@nodeMappings[name='RootNode']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNode" uid="_FiUlYBhoEeqwxLi9qDedHw" name="Card Services" width="9" height="4" resizeKind="NSEW">
+      <target xmi:type="org.nasdanika.vinci.app:ActionReference" href="models/app/bank-of-nasdanika-advanced.vinci#//@builders.0/@builders.0/@elements.5/@elements.0"/>
+      <semanticElements xmi:type="org.nasdanika.vinci.app:ActionReference" href="models/app/bank-of-nasdanika-advanced.vinci#//@builders.0/@builders.0/@elements.5/@elements.0"/>
+      <ownedStyle xmi:type="diagram:Square" uid="_FiUlYRhoEeqwxLi9qDedHw" showIcon="false" borderColor="114,159,207" labelPosition="node" width="9" height="4" color="255,245,181">
+        <description xmi:type="style:SquareDescription" href="platform:/plugin/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@nodeMappings[name='ActionReferenceNode']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@nodeMappings[name='ActionReferenceNode']"/>
+    </ownedDiagramElements>
+    <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']"/>
+    <filterVariableHistory xmi:type="diagram:FilterVariableHistory" uid="_EzdUQRhoEeqwxLi9qDedHw"/>
+    <activatedLayers xmi:type="description_1:Layer" href="platform:/plugin/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer"/>
+    <target xmi:type="org.nasdanika.vinci.app:Action" href="models/app/bank-of-nasdanika-advanced.vinci#//@builders.0/@builders.0/@elements.5"/>
   </diagram:DSemanticDiagram>
 </xmi:XMI>

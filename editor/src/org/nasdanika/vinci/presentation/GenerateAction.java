@@ -45,7 +45,7 @@ import org.nasdanika.common.resources.BinaryEntityContainer;
 import org.nasdanika.eclipse.ProgressMonitorAdapter;
 import org.nasdanika.eclipse.resources.EclipseContainer;
 import org.nasdanika.ncore.ModelElement;
-import org.nasdanika.vinci.app.ActionBase;
+import org.nasdanika.vinci.app.ActionReference;
 import org.nasdanika.vinci.app.ActivatorType;
 
 /**
@@ -136,26 +136,8 @@ public class GenerateAction<T extends EObject & SupplierFactory<Object>> extends
 						
 						org.nasdanika.common.resources.Container<Object> contentContainer = output.stateAdapter().adapt(null, ENCODER);		
 						
-						TreeIterator<EObject> cit = modelElement.eAllContents();
-						
-						// ID's of actions to be generated.
 						Map<String,String> actionIds = new HashMap<>();
-						while (cit.hasNext()) {
-							EObject next = cit.next();
-							if (next instanceof ActionBase) {
-								ActionBase action = (ActionBase) next;
-								if (!Util.isBlank(action.getId()) && action.getActivatorType() == ActivatorType.REFERENCE) {
-									String url = action.getActivator();
-									if (Util.isBlank(url)) {
-										url = action.getId()+".html";
-									}
-									if (Util.isBlank(url) || isValidAndRelative(url)) {
-										actionIds.put(action.getId(), url);
-									}
-								}
-								
-							}
-						}
+						collectActionIds(modelElement, actionIds);
 
 						SubMonitor subMonitor = SubMonitor.convert(monitor, TOTAL_WORK);
 						int actionWorkSlice = 1000 / actionIds.size();
@@ -195,6 +177,38 @@ public class GenerateAction<T extends EObject & SupplierFactory<Object>> extends
 					} finally {
 						monitor.done();
 					}					
+				}
+
+				private void collectActionIds(EObject element, Map<String, String> actionIds) {
+					if (element instanceof org.nasdanika.vinci.app.Action) {
+						extractId((org.nasdanika.vinci.app.Action) element, actionIds);
+					} else if (element instanceof ActionReference) {
+						collectActionIds(((ActionReference) element).getAction(), actionIds);
+					}					
+					
+					TreeIterator<EObject> cit = element.eAllContents();
+					
+					// ID's of actions to be generated.
+					while (cit.hasNext()) {
+						EObject next = cit.next();
+						if (next instanceof org.nasdanika.vinci.app.Action) {
+							extractId((org.nasdanika.vinci.app.Action) next, actionIds);							
+						} else if (next instanceof ActionReference) {
+							collectActionIds(((ActionReference) next).getAction(), actionIds);
+						}
+					}
+				}
+
+				private void extractId(org.nasdanika.vinci.app.Action action, Map<String, String> actionIds) {
+					if (!Util.isBlank(action.getId()) && action.getActivatorType() == ActivatorType.REFERENCE) {
+						String url = action.getActivator();
+						if (Util.isBlank(url)) {
+							url = action.getId()+".html";
+						}
+						if (Util.isBlank(url) || isValidAndRelative(url)) {
+							actionIds.put(action.getId(), url);
+						}
+					}
 				}
 				
 			};

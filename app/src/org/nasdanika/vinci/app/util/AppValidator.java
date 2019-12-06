@@ -5,9 +5,12 @@ package org.nasdanika.vinci.app.util;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.stream.Collectors;
+
+import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.util.Diagnostician;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.nasdanika.common.Util;
 import org.nasdanika.emf.DiagnosticHelper;
@@ -294,7 +297,40 @@ public class AppValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateActionReference(ActionReference actionReference, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(actionReference, diagnostics, context);
+		if (!validate_NoCircularContainment(actionReference, diagnostics, context)) return false;
+		boolean result = validate_EveryMultiplicityConforms(actionReference, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(actionReference, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(actionReference, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(actionReference, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(actionReference, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(actionReference, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(actionReference, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(actionReference, diagnostics, context);
+		if (result || diagnostics != null) result &= validateActionReference_action(actionReference, diagnostics, context);
+		return result;
+	}
+
+	/**
+	 * Validates the action constraint of '<em>Action Reference</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public boolean validateActionReference_action(ActionReference actionReference, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (diagnostics != null && actionReference.getAction() != null) {
+			// Maybe unnecessary?
+			Diagnostician diagnostician = new Diagnostician() {
+				
+				public Map<Object,Object> createDefaultContext() {
+					return context;
+				};
+				
+			};				
+			Diagnostic validationResult = diagnostician.validate(actionReference.getAction());
+			diagnostics.add(validationResult);
+			return validationResult.getSeverity() != Diagnostic.ERROR;
+		}
+		return true;
 	}
 
 	/**
