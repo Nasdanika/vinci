@@ -1548,9 +1548,20 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 		g2 = createEGenericType(ecorePackage.getEJavaObject());
 		g1.getETypeArguments().add(g2);
 		containerEClass.getEGenericSuperTypes().add(g1);
-		rowEClass.getESuperTypes().add(this.getBootstrapElement());
-		columnEClass.getESuperTypes().add(this.getBootstrapElement());
-		columnEClass.getESuperTypes().add(theHtmlPackage.getContainer());
+		g1 = createEGenericType(this.getBootstrapElement());
+		rowEClass.getEGenericSuperTypes().add(g1);
+		g1 = createEGenericType(theNcorePackage.getIConsumerFactory());
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		rowEClass.getEGenericSuperTypes().add(g1);
+		g1 = createEGenericType(this.getBootstrapElement());
+		columnEClass.getEGenericSuperTypes().add(g1);
+		g1 = createEGenericType(theHtmlPackage.getContainer());
+		columnEClass.getEGenericSuperTypes().add(g1);
+		g1 = createEGenericType(theNcorePackage.getIConsumerFactory());
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		columnEClass.getEGenericSuperTypes().add(g1);
 		cardEClass.getESuperTypes().add(this.getDiv());
 
 		// Initialize classes, features, and operations; add parameters
@@ -1953,22 +1964,34 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 			   "documentation", "TODO - size - enum? Block, active, disabled."
 		   });
 		addAnnotation
+		  (containerEClass,
+		   source,
+		   new String[] {
+			   "documentation", "[Bootstrap layout(https://getbootstrap.com/docs/4.3/layout/overview/) container contains rows which in turn contain columns."
+		   });
+		addAnnotation
 		  (getContainer_Fluid(),
 		   source,
 		   new String[] {
-			   "documentation", "Fluid container takes 100% width of the parent."
+			   "documentation", "Fluid container spans the entire width of the viewport."
+		   });
+		addAnnotation
+		  (columnWidthEClass,
+		   source,
+		   new String[] {
+			   "documentation", "Column width"
 		   });
 		addAnnotation
 		  (getColumnWidth_Breakpoint(),
 		   source,
 		   new String[] {
-			   "documentation", "Border bootstrap color."
+			   "documentation", "Breakpoint."
 		   });
 		addAnnotation
 		  (getColumnWidth_Width(),
 		   source,
 		   new String[] {
-			   "documentation", "Border bootstrap color."
+			   "documentation", "Column width."
 		   });
 	}
 

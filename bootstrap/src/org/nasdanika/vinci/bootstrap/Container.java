@@ -10,6 +10,10 @@ import org.nasdanika.common.SupplierFactory;
  * A representation of the model object '<em><b>Container</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <!-- begin-model-doc -->
+ * [Bootstrap layout(https://getbootstrap.com/docs/4.3/layout/overview/) container contains rows which in turn contain columns.
+ * <!-- end-model-doc -->
+ *
  * <p>
  * The following features are supported:
  * </p>
@@ -40,7 +44,7 @@ public interface Container extends BootstrapElement, SupplierFactory<Object> {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Fluid container takes 100% width of the parent.
+	 * Fluid container spans the entire width of the viewport.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Fluid</em>' attribute.
 	 * @see #setFluid(boolean)

@@ -63,7 +63,9 @@ public class ColumnItemProvider extends BootstrapElementItemProvider {
 			children.add(new EReferenceItemProvider(this, (EObject) object, HtmlPackage.Literals.CONTAINER__CONTENT)); 
 			children.add(new EReferenceItemProvider(this, (EObject) object, BootstrapPackage.Literals.COLUMN__WIDTH));
 		}
-		return children;
+		Collection<Object> ret = new ArrayList<>(children);
+		ret.addAll(super.getChildren(object));
+		return ret;
 	}	
 
 	/**
@@ -72,14 +74,15 @@ public class ColumnItemProvider extends BootstrapElementItemProvider {
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(HtmlPackage.Literals.CONTAINER__CONTENT);
-			childrenFeatures.add(BootstrapPackage.Literals.COLUMN__WIDTH);
+			// These children are added as EReferenceItemProvider's
+//			childrenFeatures.add(HtmlPackage.Literals.CONTAINER__CONTENT);
+//			childrenFeatures.add(BootstrapPackage.Literals.COLUMN__WIDTH);
 		}
 		return childrenFeatures;
 	}
@@ -127,9 +130,7 @@ public class ColumnItemProvider extends BootstrapElementItemProvider {
 	@Override
 	public String getText(Object object) {
 		String label = ((Column)object).getTitle();
-		return label == null || label.length() == 0 ?
-			getString("_UI_Column_type") :
-			getString("_UI_Column_type") + " " + label;
+		return label == null || label.length() == 0 ? getString("_UI_Column_type") : label;
 	}
 
 

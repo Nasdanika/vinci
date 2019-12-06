@@ -3,6 +3,7 @@
 package org.nasdanika.vinci.bootstrap;
 
 import org.eclipse.emf.common.util.EList;
+import org.nasdanika.common.ConsumerFactory;
 
 /**
  * <!-- begin-user-doc -->
@@ -17,10 +18,10 @@ import org.eclipse.emf.common.util.EList;
  * </ul>
  *
  * @see org.nasdanika.vinci.bootstrap.BootstrapPackage#getRow()
- * @model
+ * @model superTypes="org.nasdanika.vinci.bootstrap.BootstrapElement org.nasdanika.ncore.IConsumerFactory&lt;org.eclipse.emf.ecore.EJavaObject&gt;"
  * @generated
  */
-public interface Row extends BootstrapElement {
+public interface Row extends BootstrapElement, ConsumerFactory<Object> {
 	/**
 	 * Returns the value of the '<em><b>Columns</b></em>' containment reference list.
 	 * The list contents are of type {@link org.nasdanika.vinci.bootstrap.Column}.

@@ -21,8 +21,11 @@ public class Activator implements BundleActivator {
 		 * Top level Bootstrap elements.
 		 */
 		htmlContentPalette.add(
+			BootstrapPackage.Literals.ACTION_GROUP,	
+			BootstrapPackage.Literals.CONTAINER);	
+
 //			BootstrapPackage.Literals.ACCORDION,	
-			BootstrapPackage.Literals.ACTION_GROUP);//,	
+				
 //			BootstrapPackage.Literals.ALERT,	
 //			BootstrapPackage.Literals.BADGE,	
 //			BootstrapPackage.Literals.BREADCRUMBS,	
@@ -31,7 +34,6 @@ public class Activator implements BundleActivator {
 //			BootstrapPackage.Literals.BUTTON_TOOLBAR,	
 //			BootstrapPackage.Literals.CARD,	
 //			BootstrapPackage.Literals.COLLAPSE,	
-//			BootstrapPackage.Literals.CONTAINER,	
 //			BootstrapPackage.Literals.DROPDOWN,	
 //			BootstrapPackage.Literals.FORM,	
 //			BootstrapPackage.Literals.FORM_GROUP,	

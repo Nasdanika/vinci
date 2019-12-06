@@ -11,7 +11,6 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 import org.apache.commons.lang3.StringUtils;
-import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EPackage;
@@ -866,23 +865,14 @@ public class BootstrapValidator extends EObjectValidator {
 	 * @generated NOT
 	 */
 	public boolean validateColumnWidth_breakpoint(ColumnWidth columnWidth, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		// TODO implement the constraint
-		// -> specify the condition that violates the constraint
-		// -> verify the diagnostic details, including severity, code, and message
-		// Ensure that you remove @generated or mark it @generated NOT
-		if (false) {
-			if (diagnostics != null) {
-				diagnostics.add
-					(createDiagnostic
-						(Diagnostic.ERROR,
-						 DIAGNOSTIC_SOURCE,
-						 0,
-						 "_UI_GenericConstraint_diagnostic",
-						 new Object[] { "breakpoint", getObjectLabel(columnWidth, context) },
-						 new Object[] { columnWidth },
-						 context));
+		if (diagnostics != null && !Util.isBlank(columnWidth.getBreakpoint())) {			
+			DiagnosticHelper helper = new DiagnosticHelper(diagnostics, DIAGNOSTIC_SOURCE, 0, columnWidth);
+			try {
+				Breakpoint.fromLabel(columnWidth.getBreakpoint());
+			} catch (Exception e) {
+				helper.error("Invalid breakpoint: "+columnWidth.getBreakpoint()+", shall be one of the following: " + Arrays.stream(Breakpoint.values()).map(b -> b.label).collect(Collectors.toList()), BootstrapPackage.Literals.COLUMN_WIDTH__BREAKPOINT);
 			}
-			return false;
+			return helper.isSuccess();
 		}
 		return true;
 	}
@@ -894,23 +884,14 @@ public class BootstrapValidator extends EObjectValidator {
 	 * @generated NOT
 	 */
 	public boolean validateColumnWidth_width(ColumnWidth columnWidth, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		// TODO implement the constraint
-		// -> specify the condition that violates the constraint
-		// -> verify the diagnostic details, including severity, code, and message
-		// Ensure that you remove @generated or mark it @generated NOT
-		if (false) {
-			if (diagnostics != null) {
-				diagnostics.add
-					(createDiagnostic
-						(Diagnostic.ERROR,
-						 DIAGNOSTIC_SOURCE,
-						 0,
-						 "_UI_GenericConstraint_diagnostic",
-						 new Object[] { "width", getObjectLabel(columnWidth, context) },
-						 new Object[] { columnWidth },
-						 context));
+		if (diagnostics != null && !Util.isBlank(columnWidth.getWidth())) {			
+			DiagnosticHelper helper = new DiagnosticHelper(diagnostics, DIAGNOSTIC_SOURCE, 0, columnWidth);
+			try {
+				Size.fromCode(columnWidth.getWidth());
+			} catch (Exception e) {
+				helper.error("Invalid width: "+columnWidth.getWidth()+", shall be one of the following: " + Arrays.stream(Size.values()).map(s -> s.code).collect(Collectors.toList()), BootstrapPackage.Literals.COLUMN_WIDTH__WIDTH);
 			}
-			return false;
+			return helper.isSuccess();
 		}
 		return true;
 	}

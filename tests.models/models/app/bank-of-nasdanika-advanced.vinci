@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<org.nasdanika.vinci.bootstrap:BootstrapPage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.nasdanika.ncore="urn:org.nasdanika.ncore" xmlns:org.nasdanika.vinci.app="urn:org.nasdanika.vinci.app" xmlns:org.nasdanika.vinci.bootstrap="urn:org.nasdanika.vinci.bootstrap" description="Bank of Nasdanika with categorized navigation children (accounts)&#xA;and drop-down in header navigation." name="Bank of Nasdanika" fontAwesome="true" jsTree="true" theme="Sandstone">
+<org.nasdanika.vinci.bootstrap:BootstrapPage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.nasdanika.ncore="urn:org.nasdanika.ncore" xmlns:org.nasdanika.vinci.app="urn:org.nasdanika.vinci.app" xmlns:org.nasdanika.vinci.bootstrap="urn:org.nasdanika.vinci.bootstrap" xmlns:org.nasdanika.vinci.components="urn:org.nasdanika.vinci.components" description="Bank of Nasdanika with categorized navigation children (accounts)&#xA;and drop-down in header navigation." name="Bank of Nasdanika" fontAwesome="true" jsTree="true" theme="Sandstone">
   <builders xsi:type="org.nasdanika.vinci.app:BootstrapContainerApplication">
     <appearance attributes="children:&#xA;    content-row:&#xA;        style:&#xA;            min-height: 25rem">
       <border color="Dark"/>
@@ -69,6 +69,33 @@
       <elements xsi:type="org.nasdanika.vinci.app:Action" title="Service 1" id="46e48afd-a74a-4121-b53b-7c7bb14fc025" text="Service 1"/>
       <elements xsi:type="org.nasdanika.vinci.app:Action" title="Service 2" id="0e6d21aa-4d7e-47bc-8b82-d9eb5cfa5ea9" text="Service 2"/>
       <content xsi:type="org.nasdanika.ncore:Value" value="Lorem ipsum - Bank of Nasdanika Home Page."/>
+      <content xsi:type="org.nasdanika.vinci.bootstrap:Container" fluid="true">
+        <appearance/>
+        <rows>
+          <appearance background="Light">
+            <margin size="3"/>
+          </appearance>
+          <columns>
+            <appearance>
+              <text color="Danger" weight="Bold"/>
+            </appearance>
+            <content xsi:type="org.nasdanika.vinci.components:MarkdownText" markdown="А я день рожденья..."/>
+            <width width="3"/>
+          </columns>
+          <columns>
+            <appearance>
+              <border color="Warning"/>
+            </appearance>
+            <content xsi:type="org.nasdanika.vinci.components:MarkdownText" markdown="Всё..."/>
+            <width width="9"/>
+          </columns>
+        </rows>
+        <rows>
+          <appearance/>
+        </rows>
+        <rows/>
+        <rows/>
+      </content>
     </builders>
   </builders>
 </org.nasdanika.vinci.bootstrap:BootstrapPage>

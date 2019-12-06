@@ -9,6 +9,10 @@ import org.eclipse.emf.ecore.EObject;
  * A representation of the model object '<em><b>Column Width</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <!-- begin-model-doc -->
+ * Column width
+ * <!-- end-model-doc -->
+ *
  * <p>
  * The following features are supported:
  * </p>
@@ -27,7 +31,7 @@ public interface ColumnWidth extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Border bootstrap color.
+	 * Breakpoint.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Breakpoint</em>' attribute.
 	 * @see #setBreakpoint(String)
@@ -52,7 +56,7 @@ public interface ColumnWidth extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Border bootstrap color.
+	 * Column width.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Width</em>' attribute.
 	 * @see #setWidth(String)

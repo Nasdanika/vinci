@@ -9,8 +9,12 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.InternalEList;
+import org.nasdanika.common.CompoundConsumer;
 import org.nasdanika.common.Context;
+import org.nasdanika.common.Function;
 import org.nasdanika.common.Supplier;
+import org.nasdanika.html.bootstrap.BootstrapFactory;
+import org.nasdanika.vinci.bootstrap.Appearance;
 import org.nasdanika.vinci.bootstrap.BootstrapPackage;
 import org.nasdanika.vinci.bootstrap.Row;
 
@@ -175,9 +179,20 @@ public class ContainerImpl extends BootstrapElementImpl implements org.nasdanika
 
 	@Override
 	public Supplier<Object> create(Context context) throws Exception {
-		
-		// TODO - take fluid into account.
-		throw new UnsupportedOperationException();
+		@SuppressWarnings("resource")
+		CompoundConsumer<Object> consumer = new CompoundConsumer<Object>("Consumers");
+		Appearance appearance = getAppearance();
+		if (appearance != null) {
+			consumer.add(appearance.create(context));
+		}
+		for (Row row: getRows()) {
+			Function<Object,Object> rowFunction = Function.fromBiFunction((container,progressMonitor) -> ((org.nasdanika.html.bootstrap.Container) container).row(), "Row", 1);
+			consumer.add(rowFunction.then(row.create(context)));
+		}
+		BootstrapFactory bootstrapFactory = context.get(BootstrapFactory.class, BootstrapFactory.INSTANCE);
+		java.util.function.Supplier<Object> supplier = () -> isFluid() ? bootstrapFactory.fluidContainer() : bootstrapFactory.container();
+		Supplier<Object> containerSupplier = Supplier.fromSupplier(supplier, getTitle(), 1);
+		return containerSupplier.then(consumer.asFunction());
 	}
 
 } //ContainerImpl

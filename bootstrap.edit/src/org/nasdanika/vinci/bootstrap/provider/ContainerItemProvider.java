@@ -54,7 +54,7 @@ public class ContainerItemProvider extends BootstrapElementItemProvider {
 	 * This adds a property descriptor for the Fluid feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void addFluidPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add

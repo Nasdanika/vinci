@@ -107,9 +107,7 @@ public class RowItemProvider extends BootstrapElementItemProvider {
 	@Override
 	public String getText(Object object) {
 		String label = ((Row)object).getTitle();
-		return label == null || label.length() == 0 ?
-			getString("_UI_Row_type") :
-			getString("_UI_Row_type") + " " + label;
+		return label == null || label.length() == 0 ? getString("_UI_Row_type") : label;
 	}
 
 

@@ -302,6 +302,7 @@ public class BootstrapSwitch<T1> extends Switch<T1> {
 				Row row = (Row)theEObject;
 				T1 result = caseRow(row);
 				if (result == null) result = caseBootstrapElement(row);
+				if (result == null) result = caseIConsumerFactory(row);
 				if (result == null) result = caseHtmlElement(row);
 				if (result == null) result = caseModelElement(row);
 				if (result == null) result = defaultCase(theEObject);
@@ -318,6 +319,7 @@ public class BootstrapSwitch<T1> extends Switch<T1> {
 				T1 result = caseColumn(column);
 				if (result == null) result = caseBootstrapElement(column);
 				if (result == null) result = caseHtml_Container(column);
+				if (result == null) result = caseIConsumerFactory(column);
 				if (result == null) result = caseHtmlElement(column);
 				if (result == null) result = caseModelElement(column);
 				if (result == null) result = defaultCase(theEObject);

@@ -285,11 +285,14 @@
   <eClassifiers xsi:type="ecore:EClass" name="ButtonGroup"/>
   <eClassifiers xsi:type="ecore:EClass" name="ButtonToolbar"/>
   <eClassifiers xsi:type="ecore:EClass" name="Container">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="[Bootstrap layout(https://getbootstrap.com/docs/4.3/layout/overview/) container contains rows which in turn contain columns."/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="rows" upperBound="-1" eType="#//Row"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="fluid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Fluid container takes 100% width of the parent."/>
+        <details key="documentation" value="Fluid container spans the entire width of the viewport."/>
       </eAnnotations>
     </eStructuralFeatures>
     <eGenericSuperTypes eClassifier="#//BootstrapElement"/>
@@ -297,28 +300,40 @@
       <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
     </eGenericSuperTypes>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Row" eSuperTypes="#//BootstrapElement">
+  <eClassifiers xsi:type="ecore:EClass" name="Row">
     <eStructuralFeatures xsi:type="ecore:EReference" name="columns" upperBound="-1"
         eType="#//Column" containment="true"/>
+    <eGenericSuperTypes eClassifier="#//BootstrapElement"/>
+    <eGenericSuperTypes eClassifier="ecore:EClass ../../org.nasdanika.ncore/model/ncore.ecore#//IConsumerFactory">
+      <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+    </eGenericSuperTypes>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ColumnWidth">
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
       <details key="constraints" value="breakpoint width"/>
     </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Column width"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="breakpoint" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Border bootstrap color."/>
+        <details key="documentation" value="Breakpoint."/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="width" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Border bootstrap color."/>
+        <details key="documentation" value="Column width."/>
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Column" eSuperTypes="#//BootstrapElement ../../org.nasdanika.vinci.html/model/html.ecore#//Container">
+  <eClassifiers xsi:type="ecore:EClass" name="Column">
     <eStructuralFeatures xsi:type="ecore:EReference" name="width" upperBound="-1"
         eType="#//ColumnWidth" containment="true"/>
+    <eGenericSuperTypes eClassifier="#//BootstrapElement"/>
+    <eGenericSuperTypes eClassifier="ecore:EClass ../../org.nasdanika.vinci.html/model/html.ecore#//Container"/>
+    <eGenericSuperTypes eClassifier="ecore:EClass ../../org.nasdanika.ncore/model/ncore.ecore#//IConsumerFactory">
+      <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+    </eGenericSuperTypes>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Card" eSuperTypes="#//Div">
     <eStructuralFeatures xsi:type="ecore:EReference" name="header" eType="#//Div"

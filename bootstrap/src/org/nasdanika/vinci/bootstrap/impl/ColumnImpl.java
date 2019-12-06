@@ -3,13 +3,27 @@
 package org.nasdanika.vinci.bootstrap.impl;
 
 import java.util.Collection;
+import java.util.List;
+import java.util.function.BiFunction;
+
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.InternalEList;
+import org.nasdanika.common.BiSupplier;
+import org.nasdanika.common.Consumer;
+import org.nasdanika.common.ConsumerFactory;
+import org.nasdanika.common.Context;
+import org.nasdanika.common.Function;
+import org.nasdanika.common.ListCompoundSupplier;
+import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.common.SupplierFactory;
+import org.nasdanika.common.Util;
+import org.nasdanika.html.bootstrap.Breakpoint;
+import org.nasdanika.html.bootstrap.Size;
+import org.nasdanika.html.bootstrap.Container.Row.Col;
+import org.nasdanika.vinci.bootstrap.Appearance;
 import org.nasdanika.vinci.bootstrap.BootstrapPackage;
 import org.nasdanika.vinci.bootstrap.Column;
 import org.nasdanika.vinci.bootstrap.ColumnWidth;
@@ -171,6 +185,11 @@ public class ColumnImpl extends BootstrapElementImpl implements Column {
 				default: return -1;
 			}
 		}
+		if (baseClass == ConsumerFactory.class) {
+			switch (derivedFeatureID) {
+				default: return -1;
+			}
+		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
 	}
 
@@ -187,7 +206,39 @@ public class ColumnImpl extends BootstrapElementImpl implements Column {
 				default: return -1;
 			}
 		}
+		if (baseClass == ConsumerFactory.class) {
+			switch (baseFeatureID) {
+				default: return -1;
+			}
+		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
+	}
+
+	@Override
+	public Consumer<Object> create(Context context) throws Exception {
+		@SuppressWarnings("resource")
+		ListCompoundSupplier<Object> contentSupplier = new ListCompoundSupplier<Object>("Content");
+		for (SupplierFactory<Object> content: getContent()) {
+			contentSupplier.add(content.create(context));
+		}
+		
+		BiFunction<BiSupplier<Object, List<Object>>, ProgressMonitor, Object> cbf = (biSupplier, progressMonitor) -> {
+			Col col = (Col) biSupplier.getFirst();
+			for (ColumnWidth cw: getWidth()) {
+				Breakpoint breakpoint = Util.isBlank(cw.getBreakpoint()) ? Breakpoint.DEFAULT : Breakpoint.fromLabel(cw.getBreakpoint());
+				Size width = Util.isBlank(cw.getWidth()) ? Size.NONE : Size.fromCode(cw.getWidth());
+				col.width(breakpoint, width);
+			}
+			for (Object c: biSupplier.getSecond()) {
+				col.accept(c);
+			}
+			return col;
+		}; 
+		Function<BiSupplier<Object, List<Object>>,Object> combiner = Function.fromBiFunction(cbf , getTitle(), 1);
+		
+		Function<Object, Object> contentFunction = contentSupplier.asFunction().then(combiner);
+		Appearance appearance = getAppearance();
+		return contentFunction.then(appearance == null ? Consumer.NOP : appearance.create(context));
 	}
 
 } //ColumnImpl

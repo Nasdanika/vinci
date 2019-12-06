@@ -3,6 +3,7 @@
 package org.nasdanika.vinci.bootstrap;
 
 import org.eclipse.emf.common.util.EList;
+import org.nasdanika.common.ConsumerFactory;
 import org.nasdanika.vinci.html.Container;
 
 
@@ -19,10 +20,10 @@ import org.nasdanika.vinci.html.Container;
  * </ul>
  *
  * @see org.nasdanika.vinci.bootstrap.BootstrapPackage#getColumn()
- * @model
+ * @model superTypes="org.nasdanika.vinci.bootstrap.BootstrapElement org.nasdanika.vinci.html.Container org.nasdanika.ncore.IConsumerFactory&lt;org.eclipse.emf.ecore.EJavaObject&gt;"
  * @generated
  */
-public interface Column extends BootstrapElement, Container {
+public interface Column extends BootstrapElement, Container, ConsumerFactory<Object> {
 
 	/**
 	 * Returns the value of the '<em><b>Width</b></em>' containment reference list.

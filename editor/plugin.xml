@@ -7,7 +7,6 @@
 <plugin>
 
    <extension point="org.eclipse.ui.newWizards">
-      <!-- @generated app -->
       <category
             id="org.nasdanika"
             name="%_UI_Wizard_category"/>
@@ -23,21 +22,22 @@
    </extension>
 
    <extension point="org.eclipse.ui.editors">
-      <!-- @generated app -->
-      <editor
-            id="org.nasdanika.vinci.app.presentation.VinciEditorID"
-            name="%_UI_VinciEditor_label"
-            icon="icons/full/obj16/Vinci.png"
-            extensions="vinci"
-            class="org.nasdanika.vinci.presentation.VinciEditor"
-            contributorClass="org.nasdanika.vinci.presentation.VinciActionBarContributor">
-      </editor>
       <editor
             id="org.nasdanika.vinci.app.presentation.VinciSiriusEditorID"
             name="%_UI_VinciSiriusEditor_label"
             icon="icons/full/obj16/Vinci.png"
             extensions="vinci"
+            default="true"
             class="org.nasdanika.emf.presentation.NasdanikaSiriusEditor"
+            contributorClass="org.nasdanika.vinci.presentation.VinciActionBarContributor">
+      </editor>
+      <editor
+            id="org.nasdanika.vinci.app.presentation.VinciEditorID"
+            name="%_UI_VinciEditor_label"
+            icon="icons/full/obj16/Vinci.png"
+            extensions="vinci"
+            default="false"
+            class="org.nasdanika.vinci.presentation.VinciEditor"
             contributorClass="org.nasdanika.vinci.presentation.VinciActionBarContributor">
       </editor>
       
