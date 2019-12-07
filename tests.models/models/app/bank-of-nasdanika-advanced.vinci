@@ -99,6 +99,13 @@
         </rows>
         <rows>
           <appearance/>
+          <columns>
+            <content xsi:type="org.nasdanika.ncore:Resource" title="" location="card.html"/>
+            <content xsi:type="org.nasdanika.vinci.bootstrap:ContentTag" name="pre">
+              <content xsi:type="org.nasdanika.vinci.components:MarkdownText" markdown="A quick brown fox..."/>
+              <appearance background="Success"/>
+            </content>
+          </columns>
         </rows>
         <rows/>
         <rows/>
