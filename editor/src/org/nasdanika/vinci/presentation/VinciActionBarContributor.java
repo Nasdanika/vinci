@@ -12,8 +12,8 @@ import org.eclipse.jface.action.MenuManager;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
+import org.nasdanika.common.SupplierFactory;
 import org.nasdanika.emf.presentation.NasdanikaActionBarContributor;
-import org.nasdanika.emf.presentation.NasdanikaEditorPlugin;
 import org.nasdanika.vinci.bootstrap.BootstrapPage;
 
 /**
@@ -58,10 +58,20 @@ public class VinciActionBarContributor extends NasdanikaActionBarContributor {
 		}
 	}
 
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	protected Collection<IAction> createGenerateActions(Object selection) {
 		Collection<IAction> actions = new ArrayList<IAction>();
-		if (selection instanceof BootstrapPage) {
-			actions.add(new GenerateAction("Application", (EObject) selection));
+		if (selection instanceof EObject && ((EObject) selection).eContainer() == null) {
+			if (selection instanceof BootstrapPage) {
+				BootstrapPage page = (BootstrapPage) selection;
+				if (!page.getBuilders().isEmpty()) {
+					actions.add(new GenerateApplicationAction<BootstrapPage>("Application", page));
+				}
+				actions.add(new GenerateContentAction("Content", (EObject) selection));			
+			} else if (selection instanceof SupplierFactory) {
+				actions.add(new GenerateContentAction("Content", (EObject) selection));			
+				actions.add(new GenerateBootstrapPageAction("Bootstrap page", (EObject) selection));			
+			}
 		}
 		return actions;
 	}	
