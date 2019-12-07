@@ -14,6 +14,8 @@ import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.nasdanika.common.SupplierFactory;
 import org.nasdanika.emf.presentation.NasdanikaActionBarContributor;
+import org.nasdanika.vinci.app.AbstractAction;
+import org.nasdanika.vinci.app.ActionBase;
 import org.nasdanika.vinci.bootstrap.BootstrapPage;
 
 /**
@@ -67,7 +69,9 @@ public class VinciActionBarContributor extends NasdanikaActionBarContributor {
 				if (!page.getBuilders().isEmpty()) {
 					actions.add(new GenerateApplicationAction<BootstrapPage>("Application", page));
 				}
-				actions.add(new GenerateContentAction("Content", (EObject) selection));			
+				actions.add(new GenerateContentAction("Content", (EObject) selection));		
+			} else if (selection instanceof AbstractAction) {
+				// TODO - default page template.
 			} else if (selection instanceof SupplierFactory) {
 				actions.add(new GenerateContentAction("Content", (EObject) selection));			
 				actions.add(new GenerateBootstrapPageAction("Bootstrap page", (EObject) selection));			
