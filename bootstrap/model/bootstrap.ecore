@@ -196,7 +196,12 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Tag" eSuperTypes="../../org.nasdanika.vinci.html/model/html.ecore#//Tag #//BootstrapElement">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="HTML tag with bootstrap styling"/>
+      <details key="documentation" value="HTML tag with Bootstrap appearance"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ContentTag" eSuperTypes="../../org.nasdanika.vinci.html/model/html.ecore#//ContentTag #//BootstrapElement">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="HTML tag with content and Bootstrap appearance"/>
     </eAnnotations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Div" eSuperTypes="#//Tag">

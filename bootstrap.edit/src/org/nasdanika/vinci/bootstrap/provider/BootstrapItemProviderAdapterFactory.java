@@ -346,6 +346,29 @@ public class BootstrapItemProviderAdapterFactory extends BootstrapAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.nasdanika.vinci.bootstrap.ContentTag} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ContentTagItemProvider contentTagItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.nasdanika.vinci.bootstrap.ContentTag}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createContentTagAdapter() {
+		if (contentTagItemProvider == null) {
+			contentTagItemProvider = new ContentTagItemProvider(this);
+		}
+
+		return contentTagItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link org.nasdanika.vinci.bootstrap.Div} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1009,6 +1032,7 @@ public class BootstrapItemProviderAdapterFactory extends BootstrapAdapterFactory
 		if (textItemProvider != null) textItemProvider.dispose();
 		if (floatItemProvider != null) floatItemProvider.dispose();
 		if (tagItemProvider != null) tagItemProvider.dispose();
+		if (contentTagItemProvider != null) contentTagItemProvider.dispose();
 		if (divItemProvider != null) divItemProvider.dispose();
 		if (linkActionGroupItemItemProvider != null) linkActionGroupItemItemProvider.dispose();
 		if (contentActionGroupItemItemProvider != null) contentActionGroupItemItemProvider.dispose();

@@ -8,7 +8,6 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
@@ -53,22 +52,21 @@ public class TagItemProvider extends HtmlElementItemProvider {
 	 * This adds a property descriptor for the Name feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void addNamePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+			(createItemPropertyDescriptor(
 				 getResourceLocator(),
 				 getString("_UI_Tag_name_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Tag_name_feature", "_UI_Tag_type"),
 				 HtmlPackage.Literals.TAG__NAME,
 				 true,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
-				 null));
+				 null,
+				 enumChoices(TagName.class, false, null)));
 	}
 
 	/**
@@ -100,8 +98,7 @@ public class TagItemProvider extends HtmlElementItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		TagName labelValue = ((Tag)object).getName();
-		String label = labelValue == null ? null : labelValue.toString();
+		String label = ((Tag)object).getName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_Tag_type") :
 			getString("_UI_Tag_type") + " " + label;

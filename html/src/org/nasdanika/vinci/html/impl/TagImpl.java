@@ -6,7 +6,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.nasdanika.common.Context;
 import org.nasdanika.common.Supplier;
 import org.nasdanika.html.HTMLFactory;
-import org.nasdanika.html.TagName;
 import org.nasdanika.vinci.html.HtmlPackage;
 import org.nasdanika.vinci.html.Tag;
 
@@ -32,7 +31,7 @@ public class TagImpl extends HtmlElementImpl implements Tag {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final TagName NAME_EDEFAULT = null;
+	protected static final String NAME_EDEFAULT = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -59,8 +58,8 @@ public class TagImpl extends HtmlElementImpl implements Tag {
 	 * @generated
 	 */
 	@Override
-	public TagName getName() {
-		return (TagName)eDynamicGet(HtmlPackage.TAG__NAME, HtmlPackage.Literals.TAG__NAME, true, true);
+	public String getName() {
+		return (String)eDynamicGet(HtmlPackage.TAG__NAME, HtmlPackage.Literals.TAG__NAME, true, true);
 	}
 
 	/**
@@ -69,7 +68,7 @@ public class TagImpl extends HtmlElementImpl implements Tag {
 	 * @generated
 	 */
 	@Override
-	public void setName(TagName newName) {
+	public void setName(String newName) {
 		eDynamicSet(HtmlPackage.TAG__NAME, HtmlPackage.Literals.TAG__NAME, newName);
 	}
 
@@ -97,7 +96,7 @@ public class TagImpl extends HtmlElementImpl implements Tag {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case HtmlPackage.TAG__NAME:
-				setName((TagName)newValue);
+				setName((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

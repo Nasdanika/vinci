@@ -35,8 +35,8 @@ public class DivImpl extends TagImpl implements Div {
 	}
 	
 	@Override
-	public TagName getName() {
-		return TagName.div;
+	public String getName() {
+		return TagName.div.name();
 	}
 
 } //DivImpl

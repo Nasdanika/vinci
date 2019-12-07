@@ -130,7 +130,9 @@ public class ColumnItemProvider extends BootstrapElementItemProvider {
 	@Override
 	public String getText(Object object) {
 		String label = ((Column)object).getTitle();
-		return label == null || label.length() == 0 ? getString("_UI_Column_type") : label;
+		return label == null || label.length() == 0 ?
+			getString("_UI_Column_type") :
+			getString("_UI_Column_type") + " " + label;
 	}
 
 

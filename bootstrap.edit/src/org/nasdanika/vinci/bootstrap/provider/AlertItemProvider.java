@@ -12,7 +12,6 @@ import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-import org.nasdanika.html.TagName;
 import org.nasdanika.vinci.bootstrap.Alert;
 import org.nasdanika.vinci.bootstrap.BootstrapPackage;
 
@@ -100,8 +99,7 @@ public class AlertItemProvider extends DivItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		TagName labelValue = ((Alert)object).getName();
-		String label = labelValue == null ? null : labelValue.toString();
+		String label = ((Alert)object).getName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_Alert_type") :
 			getString("_UI_Alert_type") + " " + label;

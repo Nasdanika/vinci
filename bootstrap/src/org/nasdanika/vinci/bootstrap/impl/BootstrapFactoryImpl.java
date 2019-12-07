@@ -29,6 +29,7 @@ import org.nasdanika.vinci.bootstrap.Collapse;
 import org.nasdanika.vinci.bootstrap.Column;
 import org.nasdanika.vinci.bootstrap.ColumnWidth;
 import org.nasdanika.vinci.bootstrap.ContentActionGroupItem;
+import org.nasdanika.vinci.bootstrap.ContentTag;
 import org.nasdanika.vinci.bootstrap.Div;
 import org.nasdanika.vinci.bootstrap.Dropdown;
 import org.nasdanika.vinci.bootstrap.Form;
@@ -99,6 +100,7 @@ public class BootstrapFactoryImpl extends EFactoryImpl implements BootstrapFacto
 			case BootstrapPackage.TEXT: return createText();
 			case BootstrapPackage.FLOAT: return createFloat();
 			case BootstrapPackage.TAG: return createTag();
+			case BootstrapPackage.CONTENT_TAG: return createContentTag();
 			case BootstrapPackage.DIV: return createDiv();
 			case BootstrapPackage.LINK_ACTION_GROUP_ITEM: return createLinkActionGroupItem();
 			case BootstrapPackage.CONTENT_ACTION_GROUP_ITEM: return createContentActionGroupItem();
@@ -263,6 +265,17 @@ public class BootstrapFactoryImpl extends EFactoryImpl implements BootstrapFacto
 	public Tag createTag() {
 		TagImpl tag = new TagImpl();
 		return tag;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ContentTag createContentTag() {
+		ContentTagImpl contentTag = new ContentTagImpl();
+		return contentTag;
 	}
 
 	/**

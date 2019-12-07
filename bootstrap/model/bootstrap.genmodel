@@ -58,6 +58,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference bootstrap.ecore#//BootstrapElement/appearance"/>
     </genClasses>
     <genClasses ecoreClass="bootstrap.ecore#//Tag"/>
+    <genClasses ecoreClass="bootstrap.ecore#//ContentTag"/>
     <genClasses ecoreClass="bootstrap.ecore#//Div"/>
     <genClasses image="false" ecoreClass="bootstrap.ecore#//Item">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bootstrap.ecore#//Item/active"/>

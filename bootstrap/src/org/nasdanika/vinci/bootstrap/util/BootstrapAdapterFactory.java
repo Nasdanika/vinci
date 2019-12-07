@@ -32,6 +32,7 @@ import org.nasdanika.vinci.bootstrap.Column;
 import org.nasdanika.vinci.bootstrap.ColumnWidth;
 import org.nasdanika.vinci.bootstrap.Container;
 import org.nasdanika.vinci.bootstrap.ContentActionGroupItem;
+import org.nasdanika.vinci.bootstrap.ContentTag;
 import org.nasdanika.vinci.bootstrap.Div;
 import org.nasdanika.vinci.bootstrap.Dropdown;
 import org.nasdanika.vinci.bootstrap.Form;
@@ -141,6 +142,10 @@ public class BootstrapAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseTag(Tag object) {
 				return createTagAdapter();
+			}
+			@Override
+			public Adapter caseContentTag(ContentTag object) {
+				return createContentTagAdapter();
 			}
 			@Override
 			public Adapter caseDiv(Div object) {
@@ -297,6 +302,10 @@ public class BootstrapAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseHtml_Container(org.nasdanika.vinci.html.Container object) {
 				return createHtml_ContainerAdapter();
+			}
+			@Override
+			public Adapter caseHtml_ContentTag(org.nasdanika.vinci.html.ContentTag object) {
+				return createHtml_ContentTagAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -497,6 +506,20 @@ public class BootstrapAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createTagAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.vinci.bootstrap.ContentTag <em>Content Tag</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.vinci.bootstrap.ContentTag
+	 * @generated
+	 */
+	public Adapter createContentTagAdapter() {
 		return null;
 	}
 
@@ -917,6 +940,20 @@ public class BootstrapAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createHtml_ContainerAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.vinci.html.ContentTag <em>Content Tag</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.vinci.html.ContentTag
+	 * @generated
+	 */
+	public Adapter createHtml_ContentTagAdapter() {
 		return null;
 	}
 

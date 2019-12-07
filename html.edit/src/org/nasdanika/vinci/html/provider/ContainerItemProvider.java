@@ -179,12 +179,22 @@ public class ContainerItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(HtmlPackage.Literals.CONTAINER__CONTENT,
+				 NcoreFactory.eINSTANCE.createSupplierFactoryReference()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(HtmlPackage.Literals.CONTAINER__CONTENT,
 				 NcoreFactory.eINSTANCE.createTypedElement()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(HtmlPackage.Literals.CONTAINER__CONTENT,
 				 NcoreFactory.eINSTANCE.createSupplier()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(HtmlPackage.Literals.CONTAINER__CONTENT,
+				 NcoreFactory.eINSTANCE.createResource()));
 
 		newChildDescriptors.add
 			(createChildParameter

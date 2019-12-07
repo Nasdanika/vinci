@@ -11,24 +11,25 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.nasdanika.vinci.bootstrap.BootstrapFactory;
 import org.nasdanika.vinci.bootstrap.BootstrapPackage;
-import org.nasdanika.vinci.bootstrap.Tag;
+import org.nasdanika.vinci.bootstrap.ContentTag;
 
 /**
- * This is the item provider adapter for a {@link org.nasdanika.vinci.bootstrap.Tag} object.
+ * This is the item provider adapter for a {@link org.nasdanika.vinci.bootstrap.ContentTag} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class TagItemProvider extends org.nasdanika.vinci.html.provider.TagItemProvider {
+public class ContentTagItemProvider extends org.nasdanika.vinci.html.provider.ContentTagItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public TagItemProvider(AdapterFactory adapterFactory) {
+	public ContentTagItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -78,14 +79,14 @@ public class TagItemProvider extends org.nasdanika.vinci.html.provider.TagItemPr
 	}
 
 	/**
-	 * This returns Tag.gif.
+	 * This returns ContentTag.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Tag"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ContentTag.png"));
 	}
 
 	/**
@@ -106,10 +107,8 @@ public class TagItemProvider extends org.nasdanika.vinci.html.provider.TagItemPr
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Tag)object).getName();
-		return label == null || label.length() == 0 ?
-			getString("_UI_Tag_type") :
-			getString("_UI_Tag_type") + " " + label;
+		String label = ((ContentTag)object).getName();
+		return label == null || label.length() == 0 ? getString("_UI_ContentTag_type") : label;
 	}
 
 
@@ -118,10 +117,17 @@ public class TagItemProvider extends org.nasdanika.vinci.html.provider.TagItemPr
 	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
+	 * @generated
 	 */
 	@Override
 	public void notifyChanged(Notification notification) {
+		updateChildren(notification);
+
+		switch (notification.getFeatureID(ContentTag.class)) {
+			case BootstrapPackage.CONTENT_TAG__APPEARANCE:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+				return;
+		}
 		super.notifyChanged(notification);
 	}
 
@@ -130,7 +136,7 @@ public class TagItemProvider extends org.nasdanika.vinci.html.provider.TagItemPr
 	 * that can be created under this object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {

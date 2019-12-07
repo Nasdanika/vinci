@@ -9,7 +9,7 @@ package org.nasdanika.vinci.bootstrap;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * HTML tag with bootstrap styling
+ * HTML tag with Bootstrap appearance
  * <!-- end-model-doc -->
  *
  *

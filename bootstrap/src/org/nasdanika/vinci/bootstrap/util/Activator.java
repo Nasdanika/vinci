@@ -22,6 +22,7 @@ public class Activator implements BundleActivator {
 		 */
 		htmlContentPalette.add(
 			BootstrapPackage.Literals.ACTION_GROUP,	
+			BootstrapPackage.Literals.CONTENT_TAG,	
 			BootstrapPackage.Literals.CONTAINER);	
 
 //			BootstrapPackage.Literals.ACCORDION,	

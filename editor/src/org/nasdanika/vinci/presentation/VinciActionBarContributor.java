@@ -15,7 +15,6 @@ import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.nasdanika.common.SupplierFactory;
 import org.nasdanika.emf.presentation.NasdanikaActionBarContributor;
 import org.nasdanika.vinci.app.AbstractAction;
-import org.nasdanika.vinci.app.ActionBase;
 import org.nasdanika.vinci.bootstrap.BootstrapPage;
 
 /**
@@ -41,7 +40,6 @@ public class VinciActionBarContributor extends NasdanikaActionBarContributor {
 	public void selectionChanged(SelectionChangedEvent event) {
 		super.selectionChanged(event);
 		// Remove any menu items for old selection.
-		//
 		if (generateMenuManager != null) {
 			depopulateManager(generateMenuManager, generateActions);
 		}

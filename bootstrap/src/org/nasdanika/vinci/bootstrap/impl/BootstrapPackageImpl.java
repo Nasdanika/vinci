@@ -32,6 +32,7 @@ import org.nasdanika.vinci.bootstrap.Collapse;
 import org.nasdanika.vinci.bootstrap.Column;
 import org.nasdanika.vinci.bootstrap.ColumnWidth;
 import org.nasdanika.vinci.bootstrap.ContentActionGroupItem;
+import org.nasdanika.vinci.bootstrap.ContentTag;
 import org.nasdanika.vinci.bootstrap.Div;
 import org.nasdanika.vinci.bootstrap.Dropdown;
 import org.nasdanika.vinci.bootstrap.Form;
@@ -148,6 +149,13 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 	 * @generated
 	 */
 	private EClass tagEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass contentTagEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -962,6 +970,16 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 	 * @generated
 	 */
 	@Override
+	public EClass getContentTag() {
+		return contentTagEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getDiv() {
 		return divEClass;
 	}
@@ -1404,6 +1422,8 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 
 		tagEClass = createEClass(TAG);
 
+		contentTagEClass = createEClass(CONTENT_TAG);
+
 		divEClass = createEClass(DIV);
 
 		itemEClass = createEClass(ITEM);
@@ -1527,6 +1547,8 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 		bootstrapElementEClass.getESuperTypes().add(theHtmlPackage.getHtmlElement());
 		tagEClass.getESuperTypes().add(theHtmlPackage.getTag());
 		tagEClass.getESuperTypes().add(this.getBootstrapElement());
+		contentTagEClass.getESuperTypes().add(theHtmlPackage.getContentTag());
+		contentTagEClass.getESuperTypes().add(this.getBootstrapElement());
 		divEClass.getESuperTypes().add(this.getTag());
 		itemEClass.getESuperTypes().add(theNcorePackage.getModelElement());
 		g1 = createEGenericType(this.getItem());
@@ -1613,6 +1635,8 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 		initEReference(getBootstrapElement_Appearance(), this.getAppearance(), null, "appearance", null, 0, 1, BootstrapElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(tagEClass, Tag.class, "Tag", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(contentTagEClass, ContentTag.class, "ContentTag", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(divEClass, Div.class, "Div", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1889,7 +1913,13 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 		  (tagEClass,
 		   source,
 		   new String[] {
-			   "documentation", "HTML tag with bootstrap styling"
+			   "documentation", "HTML tag with Bootstrap appearance"
+		   });
+		addAnnotation
+		  (contentTagEClass,
+		   source,
+		   new String[] {
+			   "documentation", "HTML tag with content and Bootstrap appearance"
 		   });
 		addAnnotation
 		  (divEClass,

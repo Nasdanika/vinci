@@ -30,6 +30,7 @@ import org.nasdanika.vinci.bootstrap.Column;
 import org.nasdanika.vinci.bootstrap.ColumnWidth;
 import org.nasdanika.vinci.bootstrap.Container;
 import org.nasdanika.vinci.bootstrap.ContentActionGroupItem;
+import org.nasdanika.vinci.bootstrap.ContentTag;
 import org.nasdanika.vinci.bootstrap.Div;
 import org.nasdanika.vinci.bootstrap.Dropdown;
 import org.nasdanika.vinci.bootstrap.Form;
@@ -166,6 +167,19 @@ public class BootstrapSwitch<T1> extends Switch<T1> {
 				if (result == null) result = caseHtmlElement(tag);
 				if (result == null) result = caseISupplierFactory(tag);
 				if (result == null) result = caseModelElement(tag);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case BootstrapPackage.CONTENT_TAG: {
+				ContentTag contentTag = (ContentTag)theEObject;
+				T1 result = caseContentTag(contentTag);
+				if (result == null) result = caseHtml_ContentTag(contentTag);
+				if (result == null) result = caseBootstrapElement(contentTag);
+				if (result == null) result = caseHtml_Tag(contentTag);
+				if (result == null) result = caseHtml_Container(contentTag);
+				if (result == null) result = caseHtmlElement(contentTag);
+				if (result == null) result = caseISupplierFactory(contentTag);
+				if (result == null) result = caseModelElement(contentTag);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -622,6 +636,21 @@ public class BootstrapSwitch<T1> extends Switch<T1> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Content Tag</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Content Tag</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseContentTag(ContentTag object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Div</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -1068,6 +1097,21 @@ public class BootstrapSwitch<T1> extends Switch<T1> {
 	 * @generated
 	 */
 	public T1 caseHtml_Container(org.nasdanika.vinci.html.Container object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Content Tag</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Content Tag</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseHtml_ContentTag(org.nasdanika.vinci.html.ContentTag object) {
 		return null;
 	}
 

@@ -41,6 +41,7 @@ import org.nasdanika.vinci.bootstrap.Column;
 import org.nasdanika.vinci.bootstrap.ColumnWidth;
 import org.nasdanika.vinci.bootstrap.Container;
 import org.nasdanika.vinci.bootstrap.ContentActionGroupItem;
+import org.nasdanika.vinci.bootstrap.ContentTag;
 import org.nasdanika.vinci.bootstrap.Div;
 import org.nasdanika.vinci.bootstrap.Dropdown;
 import org.nasdanika.vinci.bootstrap.Form;
@@ -150,6 +151,8 @@ public class BootstrapValidator extends EObjectValidator {
 				return validateBootstrapElement((BootstrapElement)value, diagnostics, context);
 			case BootstrapPackage.TAG:
 				return validateTag((Tag)value, diagnostics, context);
+			case BootstrapPackage.CONTENT_TAG:
+				return validateContentTag((ContentTag)value, diagnostics, context);
 			case BootstrapPackage.DIV:
 				return validateDiv((Div)value, diagnostics, context);
 			case BootstrapPackage.ITEM:
@@ -632,6 +635,15 @@ public class BootstrapValidator extends EObjectValidator {
 	 */
 	public boolean validateTag(Tag tag, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(tag, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateContentTag(ContentTag contentTag, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(contentTag, diagnostics, context);
 	}
 
 	/**

@@ -9,7 +9,6 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.nasdanika.html.TagName;
 import org.nasdanika.vinci.bootstrap.Div;
 
 /**
@@ -73,8 +72,7 @@ public class DivItemProvider extends TagItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		TagName labelValue = ((Div)object).getName();
-		String label = labelValue == null ? null : labelValue.toString();
+		String label = ((Div)object).getName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_Div_type") :
 			getString("_UI_Div_type") + " " + label;
