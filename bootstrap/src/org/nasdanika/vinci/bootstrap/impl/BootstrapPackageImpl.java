@@ -1997,7 +1997,7 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 		  (containerEClass,
 		   source,
 		   new String[] {
-			   "documentation", "[Bootstrap layout(https://getbootstrap.com/docs/4.3/layout/overview/) container contains rows which in turn contain columns."
+			   "documentation", "[Bootstrap layout](https://getbootstrap.com/docs/4.3/layout/overview/) container contains rows which in turn contain columns."
 		   });
 		addAnnotation
 		  (getContainer_Fluid(),

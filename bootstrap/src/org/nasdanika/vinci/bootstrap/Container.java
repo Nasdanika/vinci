@@ -11,7 +11,7 @@ import org.nasdanika.common.SupplierFactory;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * [Bootstrap layout(https://getbootstrap.com/docs/4.3/layout/overview/) container contains rows which in turn contain columns.
+ * [Bootstrap layout](https://getbootstrap.com/docs/4.3/layout/overview/) container contains rows which in turn contain columns.
  * <!-- end-model-doc -->
  *
  * <p>

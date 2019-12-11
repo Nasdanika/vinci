@@ -11,7 +11,10 @@ public class Activator implements BundleActivator {
 	/**
 	 * Bootstrap page builders palette - elements which can build {@link BootstrapPage}.
 	 */
-	public static final Palette BOOTSTRAP_PAGE_BUILDERS_PALETTE = Palette.Registry.INSTANCE.get("org.nasdanika.vinci.bootstrap:bootstrap-page-builders");	
+	public static final Palette BOOTSTRAP_PAGE_BUILDERS_PALETTE = Palette.Registry.INSTANCE.create(
+			"org.nasdanika.vinci.bootstrap:bootstrap-page-builders",
+			"Bootstrap Page builders",
+			"Builders of bootstrap page");	
 
 	@Override
 	public void start(BundleContext context) throws Exception {

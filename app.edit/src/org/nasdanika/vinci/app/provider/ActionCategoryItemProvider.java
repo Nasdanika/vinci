@@ -77,9 +77,9 @@ public class ActionCategoryItemProvider extends CategoryItemProvider {
 		if (isBlank(label)) {
 			label = actionBase.getText();
 		}
-		if (isBlank(label)) {
-			label = ((ActionCategory)object).getId();
-		}
+//		if (isBlank(label)) {
+//			label = ((ActionCategory)object).getId();
+//		}
 		return label == null || label.length() == 0 ? getString("_UI_ActionCategory_type") : label;
 	}
 

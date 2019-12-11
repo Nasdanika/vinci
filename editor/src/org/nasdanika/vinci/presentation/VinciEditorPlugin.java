@@ -5,7 +5,14 @@ package org.nasdanika.vinci.presentation;
 import org.eclipse.emf.common.EMFPlugin;
 import org.eclipse.emf.common.ui.EclipseUIPlugin;
 import org.eclipse.emf.common.util.ResourceLocator;
+import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
+import org.eclipse.emf.edit.provider.ReflectiveItemProviderAdapterFactory;
+import org.eclipse.emf.edit.provider.resource.ResourceItemProviderAdapterFactory;
 import org.nasdanika.ncore.provider.NcoreEditPlugin;
+import org.nasdanika.ncore.provider.NcoreItemProviderAdapterFactory;
+import org.nasdanika.vinci.app.provider.AppItemProviderAdapterFactory;
+import org.nasdanika.vinci.bootstrap.provider.BootstrapItemProviderAdapterFactory;
+import org.nasdanika.vinci.html.provider.HtmlItemProviderAdapterFactory;
 
 /**
  * This is the central singleton for the App editor plugin.
@@ -86,6 +93,19 @@ public final class VinciEditorPlugin extends EMFPlugin {
 			//
 			plugin = this;
 		}
+	}
+	
+	public static ComposedAdapterFactory createVinciAdapterFactory() {
+		ComposedAdapterFactory adapterFactory = new ComposedAdapterFactory(ComposedAdapterFactory.Descriptor.Registry.INSTANCE);
+
+		adapterFactory.addAdapterFactory(new ResourceItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new AppItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new BootstrapItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new HtmlItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new NcoreItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
+		
+		return adapterFactory;
 	}
 
 }
