@@ -2,9 +2,8 @@ package org.nasdanika.vinci.presentation;
 
 import java.io.InputStream;
 import java.lang.reflect.InvocationTargetException;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Map.Entry;
+import java.util.Collections;
+import java.util.List;
 import java.util.function.BiFunction;
 
 import org.eclipse.core.resources.IFile;
@@ -14,9 +13,7 @@ import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.MultiStatus;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.SubMonitor;
-import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
@@ -29,14 +26,17 @@ import org.nasdanika.common.DefaultConverter;
 import org.nasdanika.common.MutableContext;
 import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.common.Supplier;
-import org.nasdanika.common.Util;
 import org.nasdanika.common.resources.BinaryEntityContainer;
+import org.nasdanika.common.resources.Container;
 import org.nasdanika.eclipse.ProgressMonitorAdapter;
 import org.nasdanika.eclipse.resources.EclipseContainer;
+import org.nasdanika.html.app.Action;
+import org.nasdanika.html.app.ActionActivator;
+import org.nasdanika.html.app.ApplicationBuilder;
+import org.nasdanika.html.app.NavigationActionActivator;
+import org.nasdanika.html.app.impl.ActionApplicationBuilder;
 import org.nasdanika.ncore.NcorePackage;
 import org.nasdanika.vinci.app.AbstractAction;
-import org.nasdanika.vinci.app.ActionReference;
-import org.nasdanika.vinci.app.ActivatorType;
 import org.nasdanika.vinci.app.AppPackage;
 import org.nasdanika.vinci.bootstrap.BootstrapPackage;
 import org.nasdanika.vinci.bootstrap.BootstrapPage;
@@ -77,6 +77,7 @@ public class GenerateTemplatedApplicationAction extends VinciGenerateAction<Abst
 		}
 		Resource templateResource = resourceSet.getResource(templateUri, true);
 		page = (BootstrapPage) templateResource.getContents().get(0);		
+		// TODO - diagnose
 	}
 	
 	protected void execute(IProgressMonitor monitor) throws Exception {	
@@ -84,48 +85,40 @@ public class GenerateTemplatedApplicationAction extends VinciGenerateAction<Abst
 			IFile modelFile = ResourcesPlugin.getWorkspace().getRoot().getFile(new Path(modelElement.eResource().getURI().toPlatformString(true)));
 			String outputName = modelFile.getName();
 			int lastDotIdx = outputName.lastIndexOf('.');
-			// TODO - from config
+			// TODO - from config and also other context entries
 			outputName = lastDotIdx == -1 ? outputName + "-site" : outputName.substring(0, lastDotIdx);
 			
 			EclipseContainer output = new EclipseContainer(modelFile.getParent().getFolder(new Path(outputName)));
-			Context generationContext = Context.singleton(BinaryEntityContainer.class, output);
+			Context generationContext = Context.singleton(BinaryEntityContainer.class, output); 
 			
-			org.nasdanika.common.resources.Container<Object> contentContainer = output.stateAdapter().adapt(null, ENCODER);		
-			
-			Map<String,String> actionIds = new HashMap<>();
-			collectActionIds(modelElement, actionIds);
-
 			SubMonitor subMonitor = SubMonitor.convert(monitor, TOTAL_WORK);
-			int actionWorkSlice = 1000 / actionIds.size();
-			for (Entry<String, String> actionEntry: actionIds.entrySet()) {														
-				SubMonitor actionMonitor = subMonitor.split(actionWorkSlice);
-				MutableContext actionContext = generationContext.fork();
-				actionContext.put("active-action", actionEntry.getKey());
-				try (Supplier<Object> work = modelElement.create(actionContext)) {
-					double size = work.size() * 2 + 1;
-					double scale = actionWorkSlice / (size == 0 ? 1.0 : size);
-					try (ProgressMonitor progressMonitor = new ProgressMonitorAdapter(actionMonitor, scale)) {
-						try (ProgressMonitor diagnosticMonitor = progressMonitor.split("Diagnostic", size)) {
-							org.nasdanika.common.Diagnostic diagnostic = work.diagnose(diagnosticMonitor);
-							if (diagnostic.getStatus() == org.nasdanika.common.Status.ERROR) {
-//								diagnostic.dump(System.out, 0);
-					            MultiStatus status = createMultiStatus(diagnostic);
-					    		ErrorDialog.openError(PlatformUI.getWorkbench().getModalDialogShellProvider().getShell(), "Diagnostic error", diagnostic.getMessage(), status);
-								VinciEditorPlugin.getPlugin().getLog().log(status);
-								return;
-							}
-						}
-					
-						try (ProgressMonitor generationMonitor = progressMonitor.split("Generation", size)) {
-							Object result = work.execute(generationMonitor);
-							String path = actionContext.interpolate(actionEntry.getValue());
-							try (ProgressMonitor contentMonitor = progressMonitor.split("Writing cotent "+path, 1)) {
-								contentContainer.put(path, result.toString(), contentMonitor);
-							}
+			
+			// Generate action tree
+			try (Supplier<Object> work = modelElement.create(generationContext)) {
+				double size = work.size() * 2 + 1;
+				int halfWork = TOTAL_WORK/2;
+				SubMonitor actionMonitor = subMonitor.split(halfWork);
+				double scale = halfWork / (size == 0 ? 1.0 : size);
+				try (ProgressMonitor progressMonitor = new ProgressMonitorAdapter(actionMonitor, scale)) {
+					try (ProgressMonitor diagnosticMonitor = progressMonitor.split("Diagnostic", size)) {
+						org.nasdanika.common.Diagnostic diagnostic = work.diagnose(diagnosticMonitor);
+						if (diagnostic.getStatus() == org.nasdanika.common.Status.ERROR) {
+//							diagnostic.dump(System.out, 0);
+				            MultiStatus status = createMultiStatus(diagnostic);
+				    		ErrorDialog.openError(PlatformUI.getWorkbench().getModalDialogShellProvider().getShell(), "Diagnostic error", diagnostic.getMessage(), status);
+							VinciEditorPlugin.getPlugin().getLog().log(status);
+							return;
 						}
 					}
-				}							
-			}
+				
+					try (ProgressMonitor generationMonitor = progressMonitor.split("Generation", size)) {
+						Action action = (Action) work.execute(generationMonitor);
+						// Page for each action with relative navigation activator - recursive						
+						generatePages(generationContext, action, action, output.stateAdapter().adapt(null, ENCODER), subMonitor.split(halfWork));
+						
+					}
+				}
+			}							
 		} catch (CoreException | InvocationTargetException | InterruptedException | RuntimeException e) {
 			throw e;
 		} catch (Exception e) {
@@ -135,35 +128,58 @@ public class GenerateTemplatedApplicationAction extends VinciGenerateAction<Abst
 		}					
 	}
 
-	private void collectActionIds(EObject element, Map<String, String> actionIds) {
-		if (element instanceof org.nasdanika.vinci.app.Action) {
-			extractId((org.nasdanika.vinci.app.Action) element, actionIds);
-		} else if (element instanceof ActionReference) {
-			collectActionIds(((ActionReference) element).getAction(), actionIds);
-		}					
+	private void generatePages(
+			Context generationContext,
+			Action rootAction, 
+			Action activeAction, 
+			Container<Object> contentContainer, SubMonitor monitor) throws Exception {
 		
-		TreeIterator<EObject> cit = element.eAllContents();
+		monitor.setWorkRemaining(TOTAL_WORK);
+		int pageWork = TOTAL_WORK / (1 + activeAction.getChildren().size());
 		
-		// ID's of actions to be generated.
-		while (cit.hasNext()) {
-			EObject next = cit.next();
-			if (next instanceof org.nasdanika.vinci.app.Action) {
-				extractId((org.nasdanika.vinci.app.Action) next, actionIds);							
-			} else if (next instanceof ActionReference) {
-				collectActionIds(((ActionReference) next).getAction(), actionIds);
+		ActionActivator activator = activeAction.getActivator();
+		if (activator instanceof NavigationActionActivator) {		
+			
+			NavigationActionActivator naa = (NavigationActionActivator) activator;
+			String url = naa.getUrl();
+			if (isValidAndRelative(url)) {
+				List<Action> navChildren = rootAction.getNavigationChildren();
+				Action principalAction = navChildren.isEmpty() ? null : navChildren.get(0); 
+				List<? extends Action> navigationPanelActions = principalAction == null ? Collections.emptyList() : principalAction.getNavigationChildren(); 
+		
+		
+				MutableContext pageContext = generationContext.fork();
+				pageContext.register(ApplicationBuilder.class, new ActionApplicationBuilder(rootAction, principalAction, navigationPanelActions, activeAction));
+		
+				SubMonitor pageMonitor = monitor.split(pageWork);
+				try (Supplier<Object> work = page.create(pageContext)) {
+					double size = work.size() * 2 + 1;
+					double scale = pageWork / (size == 0 ? 1.0 : size);
+					try (ProgressMonitor progressMonitor = new ProgressMonitorAdapter(pageMonitor, scale)) {
+						try (ProgressMonitor diagnosticMonitor = progressMonitor.split("Diagnostic", size)) {
+							org.nasdanika.common.Diagnostic diagnostic = work.diagnose(diagnosticMonitor);
+							if (diagnostic.getStatus() == org.nasdanika.common.Status.ERROR) {
+					            MultiStatus status = createMultiStatus(diagnostic);
+					    		ErrorDialog.openError(PlatformUI.getWorkbench().getModalDialogShellProvider().getShell(), "Diagnostic error", diagnostic.getMessage(), status);
+								VinciEditorPlugin.getPlugin().getLog().log(status);
+								return;
+							}
+						}
+					
+						try (ProgressMonitor generationMonitor = progressMonitor.split("Generation", size)) {
+							Object result = work.execute(generationMonitor);
+							String path = pageContext.interpolate(url);
+							try (ProgressMonitor contentMonitor = progressMonitor.split("Writing cotent "+path, 1)) {
+								contentContainer.put(path, result.toString(), contentMonitor);
+							}
+						}
+					}
+				}
 			}
 		}
-	}
-
-	private void extractId(org.nasdanika.vinci.app.Action action, Map<String, String> actionIds) {
-		if (!Util.isBlank(action.getId()) && action.getActivatorType() == ActivatorType.REFERENCE) {
-			String url = action.getActivator();
-			if (Util.isBlank(url)) {
-				url = action.getId()+".html";
-			}
-			if (Util.isBlank(url) || isValidAndRelative(url)) {
-				actionIds.put(action.getId(), url);
-			}
+		
+		for (Action child: activeAction.getChildren()) {
+			generatePages(generationContext, rootAction, child, contentContainer, monitor.split(pageWork));
 		}
 	}
 
