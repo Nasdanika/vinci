@@ -5,6 +5,7 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.Map;
 
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.action.IMenuManager;
@@ -69,7 +70,8 @@ public class VinciActionBarContributor extends NasdanikaActionBarContributor {
 				}
 				actions.add(new GenerateContentAction("Content", (EObject) selection));		
 			} else if (selection instanceof AbstractAction) {
-				// TODO - default page template.
+				// TODO - multiple templates, categorize.
+				actions.add(new GenerateTemplatedApplicationAction("Application", (AbstractAction) selection, URI.createPlatformPluginURI("/org.nasdanika.vinci.templates/models/app/bank-of-nasdanika.vinci", true)));						
 			} else if (selection instanceof SupplierFactory) {
 				actions.add(new GenerateContentAction("Content", (EObject) selection));			
 				actions.add(new GenerateBootstrapPageAction("Bootstrap page", (EObject) selection));			

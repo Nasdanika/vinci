@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.nasdanika.vinci.bootstrap:BootstrapPage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.nasdanika.ncore="urn:org.nasdanika.ncore" xmlns:org.nasdanika.vinci.app="urn:org.nasdanika.vinci.app" xmlns:org.nasdanika.vinci.bootstrap="urn:org.nasdanika.vinci.bootstrap" xmlns:org.nasdanika.vinci.components="urn:org.nasdanika.vinci.components" description="Vinci documentation" name="Насданика Винчи" fontAwesome="true" githubMarkdownCss="true" theme="Sandstone">
+  <builders xsi:type="org.nasdanika.vinci.app:BootstrapContainerApplication">
+    <appearance attributes="children:&#xA;    content-row:&#xA;        style:&#xA;            min-height: 25rem">
+      <border color="Dark"/>
+      <margin size="2" breakpoint="" bottom="false" left="false" right="false"/>
+    </appearance>
+    <header>
+      <appearance background="Primary"/>
+    </header>
+    <navigationPanel>
+      <appearance>
+        <border color="Light" top="false" bottom="false" left="false"/>
+      </appearance>
+      <width breakpoint="" width="auto"/>
+    </navigationPanel>
+    <contentPanel>
+      <appearance>
+        <padding size="1" breakpoint=""/>
+      </appearance>
+      <width/>
+    </contentPanel>
+    <footer>
+      <appearance background="Light">
+        <text alignment="Center" italic="true"/>
+      </appearance>
+    </footer>
+    <builders xsi:type="org.nasdanika.vinci.app:Action" title="Насданика" color="" id="index" text="Насданика" icon="fas fa-university" linkedElements="//@builders.0/@builders.0/@elements.1 //@builders.0/@builders.0/@elements.0">
+      <appearance attributes="class:&#xA;    display: 4&#xA;style:&#xA;    text:&#xA;        decoration: none">
+        <text color="Light"/>
+      </appearance>
+      <elements xsi:type="org.nasdanika.vinci.app:Action" title="Sources" id="c5c8ec03-0f9e-4b0b-bf46-350c9b6ba59a" text="Sources" icon="fas fa-code-branch" activator="https://github.com/Nasdanika/vinci">
+        <appearance background="" attributes="">
+          <text color="White"/>
+        </appearance>
+      </elements>
+      <elements xsi:type="org.nasdanika.vinci.app:Action" title="Винчи" id="524984d0-253e-4ac7-b100-3c489d4ccc3a" text="Винчи" icon="fas fa-user" linkedElements="//@builders.0/@builders.0/@elements.3"/>
+      <elements xsi:type="org.nasdanika.vinci.app:Action" title="Маркдаун" id="c47c6c3e-e693-4607-89e0-596e02a14fe6" text="Маркдаун" icon="fab fa-markdown">
+        <content xsi:type="org.nasdanika.vinci.components:MarkdownText" markdown="У Винчи есть два маркданун компонента ...&#xA;"/>
+        <content xsi:type="org.nasdanika.vinci.components:MarkdownResource" style="true" location="markdown-resource-test-ru.md"/>
+      </elements>
+      <elements xsi:type="org.nasdanika.vinci.app:ActionCategory" title="Комопненты" color="Success" id="b8df5387-426e-4f9b-a819-4145c64ad134" text="Компоненты" linkedElements="//@builders.0/@builders.0/@elements.2"/>
+      <content xsi:type="org.nasdanika.ncore:Value" value="Vinci documentation."/>
+    </builders>
+  </builders>
+</org.nasdanika.vinci.bootstrap:BootstrapPage>

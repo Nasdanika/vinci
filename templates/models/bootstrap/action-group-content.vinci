@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.nasdanika.vinci.bootstrap:ActionGroup xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.nasdanika.ncore="urn:org.nasdanika.ncore" xmlns:org.nasdanika.vinci.bootstrap="urn:org.nasdanika.vinci.bootstrap" title="Content test" name="div">
+  <items xsi:type="org.nasdanika.vinci.bootstrap:ContentActionGroupItem" title="dfswtgwe" color="">
+    <name xsi:type="org.nasdanika.ncore:Value" value="Item One"/>
+    <content xsi:type="org.nasdanika.ncore:Value" value="Item one content"/>
+  </items>
+  <items xsi:type="org.nasdanika.vinci.bootstrap:ContentActionGroupItem" active="true" color="">
+    <name xsi:type="org.nasdanika.ncore:Value" value="Item Two - Active"/>
+    <content xsi:type="org.nasdanika.ncore:Value" value="Item two content"/>
+  </items>
+  <items xsi:type="org.nasdanika.vinci.bootstrap:ContentActionGroupItem" disabled="true" color="">
+    <name xsi:type="org.nasdanika.ncore:Value" value="Item Three - Disabled"/>
+    <content xsi:type="org.nasdanika.ncore:Value" value="Item three content"/>
+  </items>
+  <items xsi:type="org.nasdanika.vinci.bootstrap:ContentActionGroupItem" color="Warning">
+    <name xsi:type="org.nasdanika.ncore:Value" value="Item Four"/>
+    <content xsi:type="org.nasdanika.ncore:Value" value="Item four content"/>
+  </items>
+</org.nasdanika.vinci.bootstrap:ActionGroup>

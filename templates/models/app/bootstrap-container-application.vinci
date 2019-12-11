@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.nasdanika.vinci.bootstrap:BootstrapPage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.nasdanika.ncore="urn:org.nasdanika.ncore" xmlns:org.nasdanika.vinci.app="urn:org.nasdanika.vinci.app" xmlns:org.nasdanika.vinci.bootstrap="urn:org.nasdanika.vinci.bootstrap" name="Bootstrap Container Application">
+  <builders xsi:type="org.nasdanika.vinci.app:BootstrapContainerApplication">
+    <appearance attributes="children:&#xA;    content-row:&#xA;        style:&#xA;            min-height: 15rem&#xA;">
+      <border color="Dark"/>
+      <margin size="2" breakpoint=""/>
+    </appearance>
+    <header>
+      <appearance background="Primary" attributes="class:&#xA;    display: 4&#xA;        ">
+        <border color="Dark"/>
+        <text color="Success" weight="BOLD" monospace="true"/>
+      </appearance>
+      <content xsi:type="org.nasdanika.ncore:Value" value="Header"/>
+    </header>
+    <navigationBar>
+      <content xsi:type="org.nasdanika.ncore:Value" value="Navigation bar"/>
+    </navigationBar>
+    <navigationPanel>
+      <content xsi:type="org.nasdanika.ncore:Value" value="Navigation panel"/>
+    </navigationPanel>
+    <contentPanel>
+      <content xsi:type="org.nasdanika.ncore:Value" value="Content panel"/>
+    </contentPanel>
+    <footer>
+      <appearance>
+        <text alignment="Center" italic="true"/>
+      </appearance>
+      <content xsi:type="org.nasdanika.ncore:Value" value="Footer"/>
+    </footer>
+  </builders>
+</org.nasdanika.vinci.bootstrap:BootstrapPage>

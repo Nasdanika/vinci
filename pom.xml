@@ -184,6 +184,8 @@
 
 		<module>design</module>
 
+		<module>templates</module>
+
 		<module>help</module>
 
 		<module>tests</module>

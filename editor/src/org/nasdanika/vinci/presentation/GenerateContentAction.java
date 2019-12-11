@@ -42,7 +42,7 @@ public class GenerateContentAction<T extends EObject & SupplierFactory<Object>> 
 	};
 	
 	public GenerateContentAction(String name, T modelElement) {
-		super(name, modelElement);
+		super(name, modelElement);		
 	}
 	
 	protected void execute(IProgressMonitor monitor) throws Exception {	

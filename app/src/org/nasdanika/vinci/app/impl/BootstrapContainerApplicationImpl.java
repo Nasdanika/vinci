@@ -23,6 +23,8 @@ import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.common.Supplier;
 import org.nasdanika.common.Util;
 import org.nasdanika.html.HTMLPage;
+import org.nasdanika.html.app.Application;
+import org.nasdanika.html.app.ApplicationBuilder;
 import org.nasdanika.html.bootstrap.BootstrapFactory;
 import org.nasdanika.html.bootstrap.Breakpoint;
 import org.nasdanika.html.bootstrap.Size;
@@ -490,7 +492,7 @@ public class BootstrapContainerApplicationImpl extends BootstrapElementImpl impl
 		if (footer != null) {
 			sections.put(Section.Footer, footer.asConsumer(context));
 		}
-				
+		
 		class Generator extends CompoundExecutionParticipant<Consumer<Object>> implements Function<Object, Object> {
 
 			protected Generator(String name) {
@@ -503,7 +505,7 @@ public class BootstrapContainerApplicationImpl extends BootstrapElementImpl impl
 			public Object execute(Object arg, ProgressMonitor progressMonitor) throws Exception {
 				progressMonitor.setWorkRemaining(size());
 				
-				Object app;
+				org.nasdanika.html.app.Application app;
 				if (isRouter()) {
 					app = new org.nasdanika.html.app.impl.BootstrapContainerRouterApplication(
 							context.get(BootstrapFactory.class, BootstrapFactory.INSTANCE),
@@ -665,20 +667,18 @@ public class BootstrapContainerApplicationImpl extends BootstrapElementImpl impl
 		
 		Generator generator = new Generator(getTitle());
 		
-		EList<BootstrapContainerApplicationBuilder> builders = getBuilders();
-		if (builders.isEmpty()) {
-			return generator.then(Consumer.nop());
-		} 
+		CompoundConsumer<Object> builders = new CompoundConsumer<Object>("Builders");
 		
-		if (builders.size() == 1) {
-			return generator.then(builders.get(0).createConsumer(context));
+		for (BootstrapContainerApplicationBuilder b: getBuilders()) {
+			builders.add(b.createConsumer(context));
 		}
 		
-		List<Consumer<Object>> bc = new ArrayList<>(); 
-		for (BootstrapContainerApplicationBuilder b: builders) {
-			bc.add(b.createConsumer(context));
+		ApplicationBuilder contextApplicationBuilder = context.get(ApplicationBuilder.class);				
+		if (contextApplicationBuilder != null) {
+			builders.add(Consumer.fromBiConsumer((app, monitor) -> contextApplicationBuilder.build((Application) app, monitor), "Context builder", 1));
 		}
-		return generator.then(new CompoundConsumer<Object>("Builders", bc));
+		
+		return generator.then(builders);
 	}
 	
 	@Override

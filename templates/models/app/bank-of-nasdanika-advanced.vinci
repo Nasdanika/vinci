@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.nasdanika.vinci.bootstrap:BootstrapPage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.nasdanika.ncore="urn:org.nasdanika.ncore" xmlns:org.nasdanika.vinci.app="urn:org.nasdanika.vinci.app" xmlns:org.nasdanika.vinci.bootstrap="urn:org.nasdanika.vinci.bootstrap" xmlns:org.nasdanika.vinci.components="urn:org.nasdanika.vinci.components" description="Bank of Nasdanika with categorized navigation children (accounts)&#xA;and drop-down in header navigation." name="Bank of Nasdanika" fontAwesome="true" jsTree="true" theme="Sandstone">
+  <builders xsi:type="org.nasdanika.vinci.app:BootstrapContainerApplication">
+    <appearance attributes="children:&#xA;    content-row:&#xA;        style:&#xA;            min-height: 25rem">
+      <border color="Dark"/>
+      <margin size="2" breakpoint="" bottom="false" left="false" right="false"/>
+    </appearance>
+    <header>
+      <appearance background="Primary"/>
+    </header>
+    <navigationPanel>
+      <appearance>
+        <border color="Light" top="false" bottom="false" left="false"/>
+      </appearance>
+      <width breakpoint="" width="auto"/>
+    </navigationPanel>
+    <contentPanel>
+      <appearance>
+        <padding size="1" breakpoint=""/>
+      </appearance>
+      <width/>
+    </contentPanel>
+    <footer>
+      <appearance background="Light">
+        <text alignment="Center" italic="true"/>
+      </appearance>
+    </footer>
+    <builders xsi:type="org.nasdanika.vinci.app:Action" title="Bank of Nasdanika" color="" id="index" text="Bank of Nasdanika" icon="fas fa-university" linkedElements="//@builders.0/@builders.0/@elements.2 //@builders.0/@builders.0/@elements.0 //@builders.0/@builders.0/@elements.1 //@builders.0/@builders.0/@elements.10">
+      <appearance attributes="class:&#xA;    display: 4&#xA;style:&#xA;    text:&#xA;        decoration: none">
+        <text color="Light"/>
+      </appearance>
+      <elements xsi:type="org.nasdanika.vinci.app:Action" title="Locations" id="c5c8ec03-0f9e-4b0b-bf46-350c9b6ba59a" text="Locations" icon="far fa-building">
+        <appearance background="" attributes="">
+          <text color="White"/>
+        </appearance>
+      </elements>
+      <elements xsi:type="org.nasdanika.vinci.app:Action" title="Contact Us" id="ab1778bc-f554-43a4-a785-bff3160764dc" text="Contact Us" icon="far fa-envelope" role="Context"/>
+      <elements xsi:type="org.nasdanika.vinci.app:Action" title="Joe Doe" id="524984d0-253e-4ac7-b100-3c489d4ccc3a" text="Joe Doe" icon="fas fa-user" linkedElements="//@builders.0/@builders.0/@elements.6 //@builders.0/@builders.0/@elements.7 //@builders.0/@builders.0/@elements.9">
+        <elements xsi:type="org.nasdanika.vinci.app:Partition" title="Partition-1" description="Context partition." id="c602c823-d0fd-41e7-a63a-496032fe63f1" text="Partition test" role="Context" activatorType="None">
+          <elements xsi:type="org.nasdanika.vinci.app:Action" title="Partitioned Action 1" id="ce5e38b4-2e38-4adc-9b0c-80f120b3d7f5" text="Partitioned Action 1" notification="1"/>
+          <elements xsi:type="org.nasdanika.vinci.app:Action" title="Partitioned Action 2" id="c5deb6f6-c1dc-432c-a1e9-e240a719b8a3" text="Partitioned Action 2"/>
+        </elements>
+        <elements xsi:type="org.nasdanika.vinci.app:Partition" title="Partition-2" description="Navigation partition" id="c602c823-d0fd-41e7-a63a-496032fe63f1" text="Partition test" activatorType="None">
+          <elements xsi:type="org.nasdanika.vinci.app:Action" title="Partitioned Action 1" id="ce5e38b4-2e38-4adc-9b0c-80f120b3d7f5" text="Partitioned Action 1" notification="1"/>
+          <elements xsi:type="org.nasdanika.vinci.app:Action" title="Partitioned Action 2" id="c5deb6f6-c1dc-432c-a1e9-e240a719b8a3" text="Partitioned Action 2"/>
+        </elements>
+        <content xsi:type="org.nasdanika.ncore:SupplierFactoryReference" title="something" description="alispdgioent s">
+          <target xsi:type="org.nasdanika.vinci.bootstrap:Container" href="joe-doe-content.vinci#/"/>
+        </content>
+      </elements>
+      <elements xsi:type="org.nasdanika.vinci.app:Action" title="Checking" id="b24142d2-b17a-4357-86ae-9717644db759" text="Checking-1234" icon="fas fa-money-check-alt" linkedElements="//@builders.0/@builders.0/@elements.8">
+        <content xsi:type="org.nasdanika.ncore:Value" value="Lorem ipsum..."/>
+      </elements>
+      <elements xsi:type="org.nasdanika.vinci.app:Action" title="Savings" id="2dd49b89-b498-461b-8bf8-01c2c1e81476" text="Saving-5678" icon="fas fa-piggy-bank">
+        <content xsi:type="org.nasdanika.ncore:Value" value="A lot of money"/>
+      </elements>
+      <elements xsi:type="org.nasdanika.vinci.app:Action" title="Credit Card" id="e871d844-e734-466b-acb0-8fc82bfd841f" text="Super Rewards-4567" icon="far fa-credit-card">
+        <elements xsi:type="org.nasdanika.vinci.app:ActionReference" title="Card Services">
+          <action xsi:type="org.nasdanika.vinci.app:Action" href="credit-card-services.vinci#/"/>
+        </elements>
+      </elements>
+      <elements xsi:type="org.nasdanika.vinci.app:Action" title="Pay Bills" id="c47c6c3e-e693-4607-89e0-596e02a14fe6" text="Pay Bills" icon="fas fa-file-invoice-dollar" role="Context"/>
+      <elements xsi:type="org.nasdanika.vinci.app:Action" title="Transfer Funds" id="598bdb6f-b5fd-4ea9-9d3c-d48a222c7610" text="Transfer Funds" icon="fas fa-exchange-alt" role="Context"/>
+      <elements xsi:type="org.nasdanika.vinci.app:Action" title="Order checks" id="f1077f39-2825-45b7-a813-5acc6ed95cd9" text="Order checks" icon="fas fa-clipboard-list" role="Context"/>
+      <elements xsi:type="org.nasdanika.vinci.app:ActionCategory" title="Accounts" description="Category to test grouping of actions in the navigation panel." id="fd0a12cd-fd3d-489c-8c86-8684c59b0e73" text="Accounts" icon="fas fa-file-invoice-dollar" linkedElements="//@builders.0/@builders.0/@elements.5 //@builders.0/@builders.0/@elements.3 //@builders.0/@builders.0/@elements.4"/>
+      <elements xsi:type="org.nasdanika.vinci.app:Action" title="Services" description="To demo a drop-down in the header with categories." id="b5aaeece-2e7c-4676-9cae-4899973bf52e" text="Services" linkedElements="//@builders.0/@builders.0/@elements.11 //@builders.0/@builders.0/@elements.12 //@builders.0/@builders.0/@elements.13 //@builders.0/@builders.0/@elements.20 //@builders.0/@builders.0/@elements.21" activatorType="None"/>
+      <elements xsi:type="org.nasdanika.vinci.app:ActionCategory" title="Named 1" description="To test a named category" id="f5c04d48-ada8-414f-bd37-862ded859c6b" text="Category 1" linkedElements="//@builders.0/@builders.0/@elements.19 //@builders.0/@builders.0/@elements.14"/>
+      <elements xsi:type="org.nasdanika.vinci.app:ActionCategory" title="Anonymous" description="To test an anonymous category." id="812d2e74-3c33-4fd2-a2c4-24be0c1ee48f" linkedElements="//@builders.0/@builders.0/@elements.18 //@builders.0/@builders.0/@elements.15"/>
+      <elements xsi:type="org.nasdanika.vinci.app:ActionCategory" title="Named 2" id="40f42c7f-0dd9-4305-8c36-bef9b2452369" text="Category 2" linkedElements="//@builders.0/@builders.0/@elements.16 //@builders.0/@builders.0/@elements.17"/>
+      <elements xsi:type="org.nasdanika.vinci.app:Action" title="Service 1.2" id="82dbdd21-1af9-4d2d-8f04-c76fc55cf5ad" text="Service 1.2"/>
+      <elements xsi:type="org.nasdanika.vinci.app:Action" title="Service a.2" id="bf08d933-8e6f-4ad4-828a-f2362b3aa817" text="Service a.2"/>
+      <elements xsi:type="org.nasdanika.vinci.app:Action" title="Service 2.1" id="4b193d12-ebce-49d4-b296-e43bd562954d" text="Service 2.1"/>
+      <elements xsi:type="org.nasdanika.vinci.app:Action" title="Service 2.2" id="468080f2-8d79-42d7-8646-773b5c20d701" text="Service 2.2"/>
+      <elements xsi:type="org.nasdanika.vinci.app:Action" title="Service a.1" id="32f2c454-770b-4627-aacd-8604c022613b" text="Service a.1"/>
+      <elements xsi:type="org.nasdanika.vinci.app:Action" title="Service 1.1" id="b8fd4fdb-3db3-470f-8837-f2c54c34ddff" text="Service 1.1"/>
+      <elements xsi:type="org.nasdanika.vinci.app:Action" title="Service 1" id="46e48afd-a74a-4121-b53b-7c7bb14fc025" text="Service 1"/>
+      <elements xsi:type="org.nasdanika.vinci.app:Action" title="Service 2" id="0e6d21aa-4d7e-47bc-8b82-d9eb5cfa5ea9" text="Service 2"/>
+      <content xsi:type="org.nasdanika.ncore:Value" value="Lorem ipsum - Bank of Nasdanika Home Page."/>
+      <content xsi:type="org.nasdanika.vinci.bootstrap:Container" fluid="true">
+        <appearance/>
+        <rows>
+          <appearance background="Light">
+            <margin size="3"/>
+          </appearance>
+          <columns>
+            <appearance>
+              <text color="Danger" weight="Bold"/>
+            </appearance>
+            <content xsi:type="org.nasdanika.vinci.components:MarkdownText" markdown="А я день рожденья..."/>
+            <width width="3"/>
+          </columns>
+          <columns>
+            <appearance>
+              <border color="Warning"/>
+            </appearance>
+            <content xsi:type="org.nasdanika.vinci.components:MarkdownText" markdown="Всё..."/>
+            <width width="9"/>
+          </columns>
+        </rows>
+        <rows>
+          <appearance/>
+          <columns>
+            <content xsi:type="org.nasdanika.ncore:Resource" title="" location="card.html"/>
+            <content xsi:type="org.nasdanika.vinci.bootstrap:ContentTag" name="pre">
+              <content xsi:type="org.nasdanika.vinci.components:MarkdownText" markdown="A quick brown fox..."/>
+              <appearance background="Success"/>
+            </content>
+          </columns>
+        </rows>
+        <rows/>
+        <rows/>
+      </content>
+    </builders>
+  </builders>
+</org.nasdanika.vinci.bootstrap:BootstrapPage>

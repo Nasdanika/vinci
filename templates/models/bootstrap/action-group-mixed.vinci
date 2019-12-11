@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.nasdanika.vinci.bootstrap:ActionGroup xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.nasdanika.ncore="urn:org.nasdanika.ncore" xmlns:org.nasdanika.vinci.bootstrap="urn:org.nasdanika.vinci.bootstrap" title="Action group with mixed items" name="div" flush="true">
+  <items xsi:type="org.nasdanika.vinci.bootstrap:ContentActionGroupItem">
+    <name xsi:type="org.nasdanika.ncore:Value" value="Our test"/>
+    <content xsi:type="org.nasdanika.ncore:Value" value="Hello World!"/>
+  </items>
+  <items xsi:type="org.nasdanika.vinci.bootstrap:LinkActionGroupItem" url="https://www.nasdanika.org">
+    <name xsi:type="org.nasdanika.ncore:Value" value="External link"/>
+  </items>
+</org.nasdanika.vinci.bootstrap:ActionGroup>
