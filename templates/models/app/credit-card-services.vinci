@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<org.nasdanika.vinci.app:Action xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.nasdanika.vinci.app="urn:org.nasdanika.vinci.app" title="Card services" id="9112397e-35e7-49b9-92fa-70e52b4f49b7" text="Services" role="Context" activatorType="None">
-  <elements xsi:type="org.nasdanika.vinci.app:Action" title="Dispute charge" id="3e676066-a0e2-41ac-8682-b85ce20d4969" text="Dispute charge"/>
-  <elements xsi:type="org.nasdanika.vinci.app:Action" title="Request credit limit increase" id="0e9dffb0-cf7f-4991-86c5-bd3599416bc4" text="Increase limit"/>
-  <elements xsi:type="org.nasdanika.vinci.app:Action" title="Block card" id="c7214159-8144-405f-ae09-c6133f079f2a" text="Block card"/>
-</org.nasdanika.vinci.app:Action>

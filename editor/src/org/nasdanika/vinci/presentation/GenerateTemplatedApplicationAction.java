@@ -4,6 +4,7 @@ import java.io.InputStream;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collections;
 import java.util.List;
+import java.util.Map;
 import java.util.function.BiFunction;
 
 import org.eclipse.core.resources.IFile;
@@ -13,19 +14,25 @@ import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.MultiStatus;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.SubMonitor;
+import org.eclipse.emf.common.util.Diagnostic;
+import org.eclipse.emf.common.util.DiagnosticException;
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
+import org.eclipse.emf.ecore.util.Diagnostician;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 import org.eclipse.jface.dialogs.ErrorDialog;
 import org.eclipse.ui.PlatformUI;
+import org.jsoup.Jsoup;
 import org.nasdanika.common.Context;
 //import org.nasdanika.codegen.util.JavaProjectClassLoader;
 import org.nasdanika.common.DefaultConverter;
 import org.nasdanika.common.MutableContext;
 import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.common.Supplier;
+import org.nasdanika.common.Util;
 import org.nasdanika.common.resources.BinaryEntityContainer;
 import org.nasdanika.common.resources.Container;
 import org.nasdanika.eclipse.ProgressMonitorAdapter;
@@ -59,25 +66,9 @@ public class GenerateTemplatedApplicationAction extends VinciGenerateAction<Abst
 		}
 		return ret;
 	};
-
-	private BootstrapPage page;
 	
-	public GenerateTemplatedApplicationAction(String name, AbstractAction modelElement, URI templateUri) {
+	public GenerateTemplatedApplicationAction(String name, AbstractAction modelElement) {
 		super(name, modelElement);
-		ResourceSetImpl resourceSet = new ResourceSetImpl();
-		resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put(Resource.Factory.Registry.DEFAULT_EXTENSION, new XMIResourceFactoryImpl());
-		EPackage[] ePackages = {
-				NcorePackage.eINSTANCE,
-				HtmlPackage.eINSTANCE,
-				BootstrapPackage.eINSTANCE,
-				AppPackage.eINSTANCE
-		};
-		for (EPackage ePackage: ePackages) {
-			resourceSet.getPackageRegistry().put(ePackage.getNsURI(), ePackage);
-		}
-		Resource templateResource = resourceSet.getResource(templateUri, true);
-		page = (BootstrapPage) templateResource.getContents().get(0);		
-		// TODO - diagnose
 	}
 	
 	protected void execute(IProgressMonitor monitor) throws Exception {	
@@ -92,6 +83,38 @@ public class GenerateTemplatedApplicationAction extends VinciGenerateAction<Abst
 			Context generationContext = Context.singleton(BinaryEntityContainer.class, output); 
 			
 			SubMonitor subMonitor = SubMonitor.convert(monitor, TOTAL_WORK);
+			
+			ResourceSetImpl resourceSet = new ResourceSetImpl();
+			resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put(Resource.Factory.Registry.DEFAULT_EXTENSION, new XMIResourceFactoryImpl());
+			EPackage[] ePackages = {
+					NcorePackage.eINSTANCE,
+					HtmlPackage.eINSTANCE,
+					BootstrapPackage.eINSTANCE,
+					AppPackage.eINSTANCE
+			};
+			for (EPackage ePackage: ePackages) {
+				resourceSet.getPackageRegistry().put(ePackage.getNsURI(), ePackage);
+			}
+			
+			// Default template. TODO - read from config, interpolate, resolve relative to the model.
+			URI templateUri = URI.createPlatformPluginURI("/org.nasdanika.vinci.templates/pages/default/primary.vinci", true);			
+			
+			Resource templateResource = resourceSet.getResource(templateUri, true);
+			BootstrapPage page = (BootstrapPage) templateResource.getContents().get(0);	
+			
+			Diagnostician diagnostician = new Diagnostician() {
+				
+				public Map<Object,Object> createDefaultContext() {
+					Map<Object, Object> ctx = super.createDefaultContext();
+					ctx.put(Context.class, generationContext);
+					return ctx;
+				};
+				
+			};				
+			Diagnostic validationResult = diagnostician.validate(page);
+			if (validationResult.getSeverity() == Diagnostic.ERROR) {
+				throw new DiagnosticException(validationResult);
+			}
 			
 			// Generate action tree
 			try (Supplier<Object> work = modelElement.create(generationContext)) {
@@ -114,7 +137,7 @@ public class GenerateTemplatedApplicationAction extends VinciGenerateAction<Abst
 					try (ProgressMonitor generationMonitor = progressMonitor.split("Generation", size)) {
 						Action action = (Action) work.execute(generationMonitor);
 						// Page for each action with relative navigation activator - recursive						
-						generatePages(generationContext, action, action, output.stateAdapter().adapt(null, ENCODER), subMonitor.split(halfWork));
+						generatePages(generationContext, page, action, action, output.stateAdapter().adapt(null, ENCODER), subMonitor.split(halfWork));
 						
 					}
 				}
@@ -130,9 +153,11 @@ public class GenerateTemplatedApplicationAction extends VinciGenerateAction<Abst
 
 	private void generatePages(
 			Context generationContext,
+			BootstrapPage page, 
 			Action rootAction, 
 			Action activeAction, 
-			Container<Object> contentContainer, SubMonitor monitor) throws Exception {
+			Container<Object> contentContainer, 
+			SubMonitor monitor) throws Exception {
 		
 		monitor.setWorkRemaining(TOTAL_WORK);
 		int pageWork = TOTAL_WORK / (1 + activeAction.getChildren().size());
@@ -150,6 +175,13 @@ public class GenerateTemplatedApplicationAction extends VinciGenerateAction<Abst
 		
 				MutableContext pageContext = generationContext.fork();
 				pageContext.register(ApplicationBuilder.class, new ActionApplicationBuilder(rootAction, principalAction, navigationPanelActions, activeAction));
+				
+				if (activeAction != null) {
+					String text = activeAction.getText();
+					if (!Util.isBlank(text)) {
+						pageContext.put("actions/active/text", Jsoup.parse(text).text());
+					}
+				}
 		
 				SubMonitor pageMonitor = monitor.split(pageWork);
 				try (Supplier<Object> work = page.create(pageContext)) {
@@ -179,7 +211,7 @@ public class GenerateTemplatedApplicationAction extends VinciGenerateAction<Abst
 		}
 		
 		for (Action child: activeAction.getChildren()) {
-			generatePages(generationContext, rootAction, child, contentContainer, monitor.split(pageWork));
+			generatePages(generationContext, page, rootAction, child, contentContainer, monitor.split(pageWork));
 		}
 	}
 

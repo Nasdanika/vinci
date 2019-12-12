@@ -30,5 +30,6 @@ Require-Bundle: org.eclipse.core.runtime,
  org.nasdanika.vinci.components.edit;bundle-version="1.0.0",
  org.eclipse.jface.databinding;bundle-version="1.9.0",
  org.eclipse.core.databinding;bundle-version="1.7.400",
- org.eclipse.core.databinding.property;bundle-version="1.7.0"
+ org.eclipse.core.databinding.property;bundle-version="1.7.0",
+ org.jsoup;bundle-version="1.12.1"
 Bundle-ActivationPolicy: lazy

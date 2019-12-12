@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <org.nasdanika.vinci.app:Action xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.nasdanika.vinci.app="urn:org.nasdanika.vinci.app" title="Root action" id="9112397e-35e7-49b9-92fa-70e52b4f49b7" text="Root action" role="Context" activator="index.html">
-  <appearance attributes="class:&#xD;&#xA;    display: 4"/>
+  <appearance attributes="class:&#xD;&#xA;    display: 4&#xD;&#xA;style:&#xD;&#xA;    text:&#xD;&#xA;        decoration: none">
+    <text color="Light"/>
+  </appearance>
   <elements xsi:type="org.nasdanika.vinci.app:Action" title="Principal action" id="df6126cd-e2b0-4a40-91c8-70717169ff6d" text="Principal"/>
 </org.nasdanika.vinci.app:Action>

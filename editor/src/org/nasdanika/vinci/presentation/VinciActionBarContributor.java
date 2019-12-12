@@ -71,7 +71,7 @@ public class VinciActionBarContributor extends NasdanikaActionBarContributor {
 				actions.add(new GenerateContentAction("Content", (EObject) selection));		
 			} else if (selection instanceof AbstractAction) {
 				// TODO - multiple templates, categorize.
-				actions.add(new GenerateTemplatedApplicationAction("Application", (AbstractAction) selection, URI.createPlatformPluginURI("/org.nasdanika.vinci.templates/models/app/bank-of-nasdanika.vinci", true)));						
+				actions.add(new GenerateTemplatedApplicationAction("Application", (AbstractAction) selection));						
 			} else if (selection instanceof SupplierFactory) {
 				actions.add(new GenerateContentAction("Content", (EObject) selection));			
 				actions.add(new GenerateBootstrapPageAction("Bootstrap page", (EObject) selection));			
