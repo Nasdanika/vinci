@@ -70,7 +70,7 @@ public interface Label extends ModelElement, SupplierFactory<Object> {
 	 * @return the value of the '<em>Id</em>' attribute.
 	 * @see #setId(String)
 	 * @see org.nasdanika.vinci.app.AppPackage#getLabel_Id()
-	 * @model
+	 * @model id="true"
 	 * @generated
 	 */
 	String getId();
