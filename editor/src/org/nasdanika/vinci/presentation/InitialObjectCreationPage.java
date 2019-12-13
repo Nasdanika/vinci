@@ -8,6 +8,7 @@ import org.eclipse.core.databinding.observable.value.IValueChangeListener;
 import org.eclipse.core.databinding.observable.value.ValueChangeEvent;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
@@ -36,6 +37,7 @@ import org.nasdanika.common.Util;
 import org.nasdanika.emf.Palette;
 import org.nasdanika.emf.edit.NasdanikaItemProviderAdapter;
 import org.nasdanika.vinci.app.provider.AppEditPlugin;
+import org.nasdanika.vinci.bootstrap.BootstrapFactory;
 
 public class InitialObjectCreationPage extends WizardPage {
 	
@@ -45,8 +47,9 @@ public class InitialObjectCreationPage extends WizardPage {
 	private Object value;	
 	
 	private Object[] roots = {
+			BootstrapFactory.eINSTANCE.createBootstrapPage(),
 			org.nasdanika.vinci.app.util.Activator.ACTIONS_PALETTE,
-			org.nasdanika.vinci.bootstrap.util.Activator.BOOTSTRAP_PAGE_BUILDERS_PALETTE,
+//			org.nasdanika.vinci.bootstrap.util.Activator.BOOTSTRAP_PAGE_BUILDERS_PALETTE,
 			org.nasdanika.vinci.html.util.Activator.HTML_CONTENT_PALETTE,
 			org.nasdanika.ncore.util.Activator.EXPRESSIONS_PALETTE
 	};  
@@ -306,7 +309,7 @@ public class InitialObjectCreationPage extends WizardPage {
 
 	EObject createInitialModel() {
 		if (value instanceof EObject) {
-			return (EObject) value; //EcoreUtil.copy((EObject) value);
+			return EcoreUtil.copy((EObject) value);
 		}
 		return null;
 	}
