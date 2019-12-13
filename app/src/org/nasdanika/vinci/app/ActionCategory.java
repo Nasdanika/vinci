@@ -14,7 +14,7 @@ package org.nasdanika.vinci.app;
  *
  *
  * @see org.nasdanika.vinci.app.AppPackage#getActionCategory()
- * @model
+ * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='elements'"
  * @generated
  */
 public interface ActionCategory extends Category<AbstractAction>, ActionElement {

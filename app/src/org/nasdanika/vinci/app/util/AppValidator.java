@@ -2,16 +2,25 @@
  */
 package org.nasdanika.vinci.app.util;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.ResourceLocator;
+import org.eclipse.emf.common.util.TreeIterator;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.util.Diagnostician;
 import org.eclipse.emf.ecore.util.EObjectValidator;
+import org.nasdanika.common.Reference;
 import org.nasdanika.common.Util;
 import org.nasdanika.emf.DiagnosticHelper;
 import org.nasdanika.html.bootstrap.Color;
@@ -251,6 +260,46 @@ public class AppValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(actionCategory, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(actionCategory, diagnostics, context);
 		if (result || diagnostics != null) result &= validateLabel_color(actionCategory, diagnostics, context);
+		if (result || diagnostics != null) result &= validateActionCategory_elements(actionCategory, diagnostics, context);
+		return result;
+	}
+
+	/**
+	 * Validates the elements constraint of '<em>Action Category</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public boolean validateActionCategory_elements(ActionCategory actionCategory, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		boolean result = true;
+		if (diagnostics != null) {
+			// Removing all elements which are linked from other objects.
+			List<ActionElement> elements = new ArrayList<>(actionCategory.getElements());
+			Resource resource = actionCategory.eResource();	
+			if (resource != null) {
+				ResourceSet resourceSet = resource.getResourceSet();
+				TreeIterator<?> cit;
+				if (resourceSet == null) {
+					cit = resource.getAllContents();
+				} else {
+					cit = resourceSet.getAllContents();
+				}
+				while (cit.hasNext()) {
+					Object next = cit.next();
+					if (next instanceof org.nasdanika.vinci.app.Container) {
+						EList<?> nLinkedElements = ((org.nasdanika.vinci.app.Container<?>) next).getLinkedElements();
+						elements.removeAll(nLinkedElements);
+					}
+				}
+			}
+			
+			for (ActionElement e: elements) {
+				if (e instanceof ActionCategory) {
+					diagnostics.add(new BasicDiagnostic(Diagnostic.ERROR, DIAGNOSTIC_SOURCE, 0, "Action categories cannot be nested. Action categories contained in other action categories must be linked from actions", new Object[] { e }));
+					result = false;
+				}
+			}
+		}
 		return result;
 	}
 

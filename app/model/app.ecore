@@ -112,6 +112,9 @@
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value=""/>
     </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="elements"/>
+    </eAnnotations>
     <eGenericSuperTypes eClassifier="#//Category">
       <eTypeArguments eClassifier="#//AbstractAction"/>
     </eGenericSuperTypes>

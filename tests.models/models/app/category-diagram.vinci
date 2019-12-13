@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <org.nasdanika.vinci.app:Action xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.nasdanika.vinci.app="urn:org.nasdanika.vinci.app" title="Root" id="2583d92a-c14d-4139-a7e3-468d21d43f5b" text="Root">
   <elements xsi:type="org.nasdanika.vinci.app:ActionCategory" title="My category 2" id="013e9671-5ee1-4076-8de9-df6fdacbb958" text="My cat" linkedElements="40bcaf21-b60b-41a4-b4e2-4e8681719d11">
-    <elements xsi:type="org.nasdanika.vinci.app:Action" title="Action-1" id="40bcaf21-b60b-41a4-b4e2-4e8681719d11" text="My action"/>
+    <elements xsi:type="org.nasdanika.vinci.app:Action" title="Action-1" id="40bcaf21-b60b-41a4-b4e2-4e8681719d11" text="My action" linkedElements="4c0e5327-3979-4aa1-bd69-b16b1c0e9bc3"/>
+    <elements xsi:type="org.nasdanika.vinci.app:ActionCategory" title="Category-1" id="4c0e5327-3979-4aa1-bd69-b16b1c0e9bc3"/>
   </elements>
 </org.nasdanika.vinci.app:Action>

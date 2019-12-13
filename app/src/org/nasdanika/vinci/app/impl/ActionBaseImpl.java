@@ -834,9 +834,11 @@ public abstract class ActionBaseImpl extends LabelImpl implements ActionBase {
 		for (ActionElement e: elements) {
 			if (e instanceof AbstractAction) {
 				elementsFactory.add((AbstractAction) e); 
-			} else {
-				for (AbstractAction ce: ((ActionCategory) e).getElements()) {
-					elementsFactory.add(ce);
+			} else { // ActionCategory
+				for (ActionElement ce: ((ActionCategory) e).getElements()) {
+					if (ce instanceof AbstractAction) {
+						elementsFactory.add((AbstractAction) ce);
+					}
 				}
 				for (AbstractAction ce: ((ActionCategory) e).getLinkedElements()) {
 					elementsFactory.add(ce);

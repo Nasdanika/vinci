@@ -1507,6 +1507,12 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 			   "constraints", "color"
 		   });
 		addAnnotation
+		  (actionCategoryEClass,
+		   source,
+		   new String[] {
+			   "constraints", "elements"
+		   });
+		addAnnotation
 		  (actionReferenceEClass,
 		   source,
 		   new String[] {
