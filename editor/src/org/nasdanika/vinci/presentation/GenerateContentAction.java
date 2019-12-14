@@ -11,6 +11,7 @@ import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.MultiStatus;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.SubMonitor;
+import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jface.dialogs.ErrorDialog;
 import org.eclipse.ui.PlatformUI;
@@ -41,8 +42,8 @@ public class GenerateContentAction<T extends EObject & SupplierFactory<Object>> 
 		return ret;
 	};
 	
-	public GenerateContentAction(String name, T modelElement) {
-		super(name, modelElement);		
+	public GenerateContentAction(String name, T modelElement, AdapterFactory adapterFactory) {
+		super(name, modelElement, adapterFactory);		
 	}
 	
 	protected void execute(IProgressMonitor monitor) throws Exception {	

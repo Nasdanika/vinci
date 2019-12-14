@@ -5,7 +5,6 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.Map;
 
-import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.action.IMenuManager;
@@ -66,15 +65,15 @@ public class VinciActionBarContributor extends NasdanikaActionBarContributor {
 			if (selection instanceof BootstrapPage) {
 				BootstrapPage page = (BootstrapPage) selection;
 				if (!page.getBuilders().isEmpty()) {
-					actions.add(new GenerateApplicationAction<BootstrapPage>("Application", page));
+					actions.add(new GenerateApplicationAction<BootstrapPage>("Application", page, getAdapterFactory()));
 				}
-				actions.add(new GenerateContentAction("Content", (EObject) selection));		
+				actions.add(new GenerateContentAction("Content", (EObject) selection, getAdapterFactory()));		
 			} else if (selection instanceof AbstractAction) {
 				// TODO - multiple templates, categorize.
-				actions.add(new GenerateTemplatedApplicationAction("Application", (AbstractAction) selection));						
+				actions.add(new GenerateTemplatedApplicationAction("Application", (AbstractAction) selection, getAdapterFactory()));						
 			} else if (selection instanceof SupplierFactory) {
-				actions.add(new GenerateContentAction("Content", (EObject) selection));			
-				actions.add(new GenerateBootstrapPageAction("Bootstrap page", (EObject) selection));			
+				actions.add(new GenerateContentAction("Content", (EObject) selection, getAdapterFactory()));			
+				actions.add(new GenerateBootstrapPageAction("Bootstrap page", (EObject) selection, getAdapterFactory()));			
 			}
 		}
 		return actions;

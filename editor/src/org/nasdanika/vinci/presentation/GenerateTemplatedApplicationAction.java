@@ -14,10 +14,10 @@ import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.MultiStatus;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.SubMonitor;
+import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticException;
 import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
@@ -67,8 +67,8 @@ public class GenerateTemplatedApplicationAction extends VinciGenerateAction<Abst
 		return ret;
 	};
 	
-	public GenerateTemplatedApplicationAction(String name, AbstractAction modelElement) {
-		super(name, modelElement);
+	public GenerateTemplatedApplicationAction(String name, AbstractAction modelElement, AdapterFactory adapterFactory) {
+		super(name, modelElement, adapterFactory);
 	}
 	
 	protected void execute(IProgressMonitor monitor) throws Exception {	

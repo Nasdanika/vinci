@@ -1,6 +1,7 @@
 package org.nasdanika.vinci.presentation;
 
 import org.eclipse.core.resources.IFile;
+import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.ecore.EObject;
 import org.nasdanika.common.Context;
 import org.nasdanika.common.SupplierFactory;
@@ -17,8 +18,8 @@ import org.nasdanika.html.jstree.JsTreeFactory;
  */
 public class GenerateBootstrapPageAction<T extends EObject & SupplierFactory<Object>> extends GenerateContentAction<T> {
 
-	public GenerateBootstrapPageAction(String name, T modelElement) {
-		super(name, modelElement);
+	public GenerateBootstrapPageAction(String name, T modelElement, AdapterFactory adapterFactory) {
+		super(name, modelElement, adapterFactory);
 	}
 	
 	@Override

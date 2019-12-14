@@ -4,9 +4,11 @@ import java.io.InputStream;
 import java.util.function.BiFunction;
 
 import org.eclipse.core.runtime.ILog;
+import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.ecore.EObject;
 import org.nasdanika.common.DefaultConverter;
 import org.nasdanika.common.SupplierFactory;
+import org.nasdanika.common.Util;
 import org.nasdanika.emf.presentation.NasdanikaGenerateAction;
 import org.nasdanika.ncore.ModelElement;
 
@@ -26,13 +28,20 @@ public abstract class VinciGenerateAction<T extends EObject & SupplierFactory<Ob
 		return ret;
 	};
 		
-	public VinciGenerateAction(String name, T modelElement) {
-		super(name, modelElement);
+	public VinciGenerateAction(String name, T modelElement, AdapterFactory adapterFactory) {
+		super(name, modelElement, adapterFactory);
 	}
 	
 	@Override
 	protected String getLabel(EObject eObject) {
-		return eObject instanceof ModelElement ? ((ModelElement) eObject).getTitle() : null;
+		String label = super.getLabel(eObject);
+		if (!Util.isBlank(label)) {
+			return label;
+		}
+		if (eObject instanceof ModelElement) {
+			return "[" + eObject.eClass().getName() + "] " + ((ModelElement) eObject).getTitle();
+		}
+		return "[" + eObject.eClass().getName() + "] " +eObject.toString();
 	}
 	
 	@Override

@@ -124,10 +124,8 @@ public class BootstrapPageItemProvider extends PageItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((BootstrapPage)object).getName();
-		return label == null || label.length() == 0 ?
-			getString("_UI_BootstrapPage_type") :
-			getString("_UI_BootstrapPage_type") + " " + label;
+		String label = ((BootstrapPage)object).getTitle();
+		return label == null || label.length() == 0 ? getString("_UI_BootstrapPage_type") : label;
 	}
 
 

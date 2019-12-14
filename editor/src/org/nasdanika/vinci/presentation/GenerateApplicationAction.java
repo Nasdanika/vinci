@@ -14,6 +14,7 @@ import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.MultiStatus;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.SubMonitor;
+import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jface.dialogs.ErrorDialog;
@@ -49,8 +50,8 @@ public class GenerateApplicationAction<T extends EObject & SupplierFactory<Objec
 		return ret;
 	};
 	
-	public GenerateApplicationAction(String name, T modelElement) {
-		super(name, modelElement);
+	public GenerateApplicationAction(String name, T modelElement, AdapterFactory adapterFactory) {
+		super(name, modelElement, adapterFactory);
 	}
 	
 	protected void execute(IProgressMonitor monitor) throws Exception {	
