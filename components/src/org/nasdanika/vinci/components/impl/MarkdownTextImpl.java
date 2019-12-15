@@ -2,15 +2,8 @@
  */
 package org.nasdanika.vinci.components.impl;
 
-import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
-
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.nasdanika.common.Context;
-import org.nasdanika.common.MarkdownHelper;
-import org.nasdanika.common.Supplier;
-import org.nasdanika.html.HTMLFactory;
 import org.nasdanika.vinci.components.ComponentsPackage;
 import org.nasdanika.vinci.components.MarkdownText;
 
@@ -39,16 +32,6 @@ public class MarkdownTextImpl extends MarkdownImpl implements MarkdownText {
 	protected static final String MARKDOWN_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getMarkdown() <em>Markdown</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getMarkdown()
-	 * @generated
-	 * @ordered
-	 */
-	protected String markdown = MARKDOWN_EDEFAULT;
-
-	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -74,7 +57,7 @@ public class MarkdownTextImpl extends MarkdownImpl implements MarkdownText {
 	 */
 	@Override
 	public String getMarkdown() {
-		return markdown;
+		return (String)eDynamicGet(ComponentsPackage.MARKDOWN_TEXT__MARKDOWN, ComponentsPackage.Literals.MARKDOWN_TEXT__MARKDOWN, true, true);
 	}
 
 	/**
@@ -84,10 +67,7 @@ public class MarkdownTextImpl extends MarkdownImpl implements MarkdownText {
 	 */
 	@Override
 	public void setMarkdown(String newMarkdown) {
-		String oldMarkdown = markdown;
-		markdown = newMarkdown;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ComponentsPackage.MARKDOWN_TEXT__MARKDOWN, oldMarkdown, markdown));
+		eDynamicSet(ComponentsPackage.MARKDOWN_TEXT__MARKDOWN, ComponentsPackage.Literals.MARKDOWN_TEXT__MARKDOWN, newMarkdown);
 	}
 
 	/**
@@ -143,38 +123,14 @@ public class MarkdownTextImpl extends MarkdownImpl implements MarkdownText {
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case ComponentsPackage.MARKDOWN_TEXT__MARKDOWN:
-				return MARKDOWN_EDEFAULT == null ? markdown != null : !MARKDOWN_EDEFAULT.equals(markdown);
+				return MARKDOWN_EDEFAULT == null ? getMarkdown() != null : !MARKDOWN_EDEFAULT.equals(getMarkdown());
 		}
 		return super.eIsSet(featureID);
 	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (markdown: ");
-		result.append(markdown);
-		result.append(')');
-		return result.toString();
-	}
 	
 	@Override
-	public Supplier<Object> create(Context context) throws Exception {
-		return Supplier.fromCallable(() -> {
-			MarkdownHelper markdownHelper = new MarkdownHelper();
-			String html = markdownHelper.markdownToHtml(context.interpolate(markdown));
-			if (!isStyle()) {
-				return html;
-			}
-			HTMLFactory htmlFactory = context.get(HTMLFactory.class, HTMLFactory.INSTANCE);
-			return htmlFactory.div(html).addClass("markdown-body");
-		}, getTitle(), 1);
+	protected String doGetMarkdown(Context context) {
+		return getMarkdown();
 	}
 
 } //MarkdownTextImpl

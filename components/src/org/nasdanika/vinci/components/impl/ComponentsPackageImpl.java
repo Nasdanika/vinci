@@ -7,15 +7,18 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EGenericType;
 import org.eclipse.emf.ecore.EPackage;
 
+import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import org.nasdanika.ncore.NcorePackage;
 
+import org.nasdanika.vinci.bootstrap.BootstrapPackage;
 import org.nasdanika.vinci.components.ComponentsFactory;
 import org.nasdanika.vinci.components.ComponentsPackage;
 import org.nasdanika.vinci.components.Markdown;
 import org.nasdanika.vinci.components.MarkdownResource;
 import org.nasdanika.vinci.components.MarkdownText;
+import org.nasdanika.vinci.html.HtmlPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -93,6 +96,8 @@ public class ComponentsPackageImpl extends EPackageImpl implements ComponentsPac
 		isInited = true;
 
 		// Initialize simple dependencies
+		BootstrapPackage.eINSTANCE.eClass();
+		HtmlPackage.eINSTANCE.eClass();
 		NcorePackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
@@ -127,6 +132,26 @@ public class ComponentsPackageImpl extends EPackageImpl implements ComponentsPac
 	@Override
 	public EAttribute getMarkdown_Style() {
 		return (EAttribute)markdownEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getMarkdown_Interpolate() {
+		return (EAttribute)markdownEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getMarkdown_Appearance() {
+		return (EReference)markdownEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -200,6 +225,8 @@ public class ComponentsPackageImpl extends EPackageImpl implements ComponentsPac
 		// Create classes and their features
 		markdownEClass = createEClass(MARKDOWN);
 		createEAttribute(markdownEClass, MARKDOWN__STYLE);
+		createEAttribute(markdownEClass, MARKDOWN__INTERPOLATE);
+		createEReference(markdownEClass, MARKDOWN__APPEARANCE);
 
 		markdownTextEClass = createEClass(MARKDOWN_TEXT);
 		createEAttribute(markdownTextEClass, MARKDOWN_TEXT__MARKDOWN);
@@ -233,6 +260,7 @@ public class ComponentsPackageImpl extends EPackageImpl implements ComponentsPac
 
 		// Obtain other dependent packages
 		NcorePackage theNcorePackage = (NcorePackage)EPackage.Registry.INSTANCE.getEPackage(NcorePackage.eNS_URI);
+		BootstrapPackage theBootstrapPackage = (BootstrapPackage)EPackage.Registry.INSTANCE.getEPackage(BootstrapPackage.eNS_URI);
 
 		// Create type parameters
 
@@ -251,6 +279,8 @@ public class ComponentsPackageImpl extends EPackageImpl implements ComponentsPac
 		// Initialize classes, features, and operations; add parameters
 		initEClass(markdownEClass, Markdown.class, "Markdown", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getMarkdown_Style(), ecorePackage.getEBoolean(), "style", null, 0, 1, Markdown.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMarkdown_Interpolate(), ecorePackage.getEBoolean(), "interpolate", null, 0, 1, Markdown.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMarkdown_Appearance(), theBootstrapPackage.getAppearance(), null, "appearance", null, 0, 1, Markdown.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(markdownTextEClass, MarkdownText.class, "MarkdownText", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getMarkdownText_Markdown(), ecorePackage.getEString(), "markdown", null, 0, 1, MarkdownText.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

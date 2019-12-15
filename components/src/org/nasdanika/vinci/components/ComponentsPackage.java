@@ -6,6 +6,7 @@ import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 
+import org.eclipse.emf.ecore.EReference;
 import org.nasdanika.ncore.NcorePackage;
 
 /**
@@ -98,13 +99,31 @@ public interface ComponentsPackage extends EPackage {
 	int MARKDOWN__STYLE = NcorePackage.MODEL_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Interpolate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MARKDOWN__INTERPOLATE = NcorePackage.MODEL_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Appearance</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MARKDOWN__APPEARANCE = NcorePackage.MODEL_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Markdown</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MARKDOWN_FEATURE_COUNT = NcorePackage.MODEL_ELEMENT_FEATURE_COUNT + 1;
+	int MARKDOWN_FEATURE_COUNT = NcorePackage.MODEL_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>Markdown</em>' class.
@@ -152,6 +171,24 @@ public interface ComponentsPackage extends EPackage {
 	 * @ordered
 	 */
 	int MARKDOWN_TEXT__STYLE = MARKDOWN__STYLE;
+
+	/**
+	 * The feature id for the '<em><b>Interpolate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MARKDOWN_TEXT__INTERPOLATE = MARKDOWN__INTERPOLATE;
+
+	/**
+	 * The feature id for the '<em><b>Appearance</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MARKDOWN_TEXT__APPEARANCE = MARKDOWN__APPEARANCE;
 
 	/**
 	 * The feature id for the '<em><b>Markdown</b></em>' attribute.
@@ -218,6 +255,24 @@ public interface ComponentsPackage extends EPackage {
 	int MARKDOWN_RESOURCE__STYLE = MARKDOWN__STYLE;
 
 	/**
+	 * The feature id for the '<em><b>Interpolate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MARKDOWN_RESOURCE__INTERPOLATE = MARKDOWN__INTERPOLATE;
+
+	/**
+	 * The feature id for the '<em><b>Appearance</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MARKDOWN_RESOURCE__APPEARANCE = MARKDOWN__APPEARANCE;
+
+	/**
 	 * The feature id for the '<em><b>Location</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -265,6 +320,28 @@ public interface ComponentsPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getMarkdown_Style();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.components.Markdown#isInterpolate <em>Interpolate</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Interpolate</em>'.
+	 * @see org.nasdanika.vinci.components.Markdown#isInterpolate()
+	 * @see #getMarkdown()
+	 * @generated
+	 */
+	EAttribute getMarkdown_Interpolate();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.nasdanika.vinci.components.Markdown#getAppearance <em>Appearance</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Appearance</em>'.
+	 * @see org.nasdanika.vinci.components.Markdown#getAppearance()
+	 * @see #getMarkdown()
+	 * @generated
+	 */
+	EReference getMarkdown_Appearance();
 
 	/**
 	 * Returns the meta object for class '{@link org.nasdanika.vinci.components.MarkdownText <em>Markdown Text</em>}'.
@@ -347,6 +424,20 @@ public interface ComponentsPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute MARKDOWN__STYLE = eINSTANCE.getMarkdown_Style();
+		/**
+		 * The meta object literal for the '<em><b>Interpolate</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MARKDOWN__INTERPOLATE = eINSTANCE.getMarkdown_Interpolate();
+		/**
+		 * The meta object literal for the '<em><b>Appearance</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MARKDOWN__APPEARANCE = eINSTANCE.getMarkdown_Appearance();
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.vinci.components.impl.MarkdownTextImpl <em>Markdown Text</em>}' class.
 		 * <!-- begin-user-doc -->

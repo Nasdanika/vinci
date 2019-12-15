@@ -5,6 +5,7 @@ package org.nasdanika.vinci.components;
 import org.nasdanika.common.SupplierFactory;
 
 import org.nasdanika.ncore.ModelElement;
+import org.nasdanika.vinci.bootstrap.Appearance;
 
 /**
  * <!-- begin-user-doc -->
@@ -20,6 +21,8 @@ import org.nasdanika.ncore.ModelElement;
  * </p>
  * <ul>
  *   <li>{@link org.nasdanika.vinci.components.Markdown#isStyle <em>Style</em>}</li>
+ *   <li>{@link org.nasdanika.vinci.components.Markdown#isInterpolate <em>Interpolate</em>}</li>
+ *   <li>{@link org.nasdanika.vinci.components.Markdown#getAppearance <em>Appearance</em>}</li>
  * </ul>
  *
  * @see org.nasdanika.vinci.components.ComponentsPackage#getMarkdown()
@@ -52,4 +55,54 @@ public interface Markdown extends ModelElement, SupplierFactory<Object> {
 	 * @generated
 	 */
 	void setStyle(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Interpolate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * If true, HTML generated from the markdown is interpolated.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Interpolate</em>' attribute.
+	 * @see #setInterpolate(boolean)
+	 * @see org.nasdanika.vinci.components.ComponentsPackage#getMarkdown_Interpolate()
+	 * @model
+	 * @generated
+	 */
+	boolean isInterpolate();
+
+	/**
+	 * Sets the value of the '{@link org.nasdanika.vinci.components.Markdown#isInterpolate <em>Interpolate</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Interpolate</em>' attribute.
+	 * @see #isInterpolate()
+	 * @generated
+	 */
+	void setInterpolate(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Appearance</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Appearance to apply to the generated HTML.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Appearance</em>' containment reference.
+	 * @see #setAppearance(Appearance)
+	 * @see org.nasdanika.vinci.components.ComponentsPackage#getMarkdown_Appearance()
+	 * @model containment="true"
+	 * @generated
+	 */
+	Appearance getAppearance();
+
+	/**
+	 * Sets the value of the '{@link org.nasdanika.vinci.components.Markdown#getAppearance <em>Appearance</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Appearance</em>' containment reference.
+	 * @see #getAppearance()
+	 * @generated
+	 */
+	void setAppearance(Appearance value);
 } // Markdown

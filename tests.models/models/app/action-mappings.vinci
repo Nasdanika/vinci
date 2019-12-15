@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.nasdanika.vinci.app:Action xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.nasdanika.vinci.app="urn:org.nasdanika.vinci.app" xmlns:org.nasdanika.vinci.components="urn:org.nasdanika.vinci.components" title="Root" description="" id="index" text="Root">
+  <elements xsi:type="org.nasdanika.vinci.app:Action" title="Principal" id="aa8fee49-2916-4b90-8fd4-211f00ca527f" text="Principal">
+    <elements xsi:type="org.nasdanika.vinci.app:Action" title="Nav 1" id="db1dcd5b-8713-4d00-9d9c-a27fd7ea56f0" text="Nav 1">
+      <actionMappings alias="nav-2" target="2d5fc36f-0198-4cce-88d9-b34d9444a4dd"/>
+      <content xsi:type="org.nasdanika.vinci.components:MarkdownText" markdown="Nav 2 link: ${action-mappings/nav-2}">
+        <appearance background="Light">
+          <border color="Dark"/>
+          <margin size="2"/>
+        </appearance>
+      </content>
+    </elements>
+    <elements xsi:type="org.nasdanika.vinci.app:Action" title="Nav 2" id="2d5fc36f-0198-4cce-88d9-b34d9444a4dd" text="Nav 2"/>
+  </elements>
+</org.nasdanika.vinci.app:Action>

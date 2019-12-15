@@ -4,16 +4,11 @@ package org.nasdanika.vinci.components.impl;
 
 import java.net.URL;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.nasdanika.common.Context;
 import org.nasdanika.common.Converter;
 import org.nasdanika.common.DefaultConverter;
-import org.nasdanika.common.MarkdownHelper;
-import org.nasdanika.common.Supplier;
 import org.nasdanika.emf.Util;
-import org.nasdanika.html.HTMLFactory;
 import org.nasdanika.vinci.components.ComponentsPackage;
 import org.nasdanika.vinci.components.MarkdownResource;
 
@@ -42,16 +37,6 @@ public class MarkdownResourceImpl extends MarkdownImpl implements MarkdownResour
 	protected static final String LOCATION_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getLocation() <em>Location</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getLocation()
-	 * @generated
-	 * @ordered
-	 */
-	protected String location = LOCATION_EDEFAULT;
-
-	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -77,7 +62,7 @@ public class MarkdownResourceImpl extends MarkdownImpl implements MarkdownResour
 	 */
 	@Override
 	public String getLocation() {
-		return location;
+		return (String)eDynamicGet(ComponentsPackage.MARKDOWN_RESOURCE__LOCATION, ComponentsPackage.Literals.MARKDOWN_RESOURCE__LOCATION, true, true);
 	}
 
 	/**
@@ -87,10 +72,7 @@ public class MarkdownResourceImpl extends MarkdownImpl implements MarkdownResour
 	 */
 	@Override
 	public void setLocation(String newLocation) {
-		String oldLocation = location;
-		location = newLocation;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ComponentsPackage.MARKDOWN_RESOURCE__LOCATION, oldLocation, location));
+		eDynamicSet(ComponentsPackage.MARKDOWN_RESOURCE__LOCATION, ComponentsPackage.Literals.MARKDOWN_RESOURCE__LOCATION, newLocation);
 	}
 
 	/**
@@ -146,41 +128,16 @@ public class MarkdownResourceImpl extends MarkdownImpl implements MarkdownResour
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case ComponentsPackage.MARKDOWN_RESOURCE__LOCATION:
-				return LOCATION_EDEFAULT == null ? location != null : !LOCATION_EDEFAULT.equals(location);
+				return LOCATION_EDEFAULT == null ? getLocation() != null : !LOCATION_EDEFAULT.equals(getLocation());
 		}
 		return super.eIsSet(featureID);
 	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+	
 	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (location: ");
-		result.append(location);
-		result.append(')');
-		return result.toString();
-	}
-
-	@Override
-	public Supplier<Object> create(Context context) throws Exception {
-		return Supplier.fromCallable(() -> {
-			URL url = Util.resolveReference(eResource(), context.interpolate(getLocation()));
-			Converter converter = context.get(Converter.class, DefaultConverter.INSTANCE);
-			String markdown = converter.convert(url, String.class);
-			MarkdownHelper markdownHelper = new MarkdownHelper();
-			String html = markdownHelper.markdownToHtml(context.interpolate(markdown));
-			if (!isStyle()) {
-				return html;
-			}
-			HTMLFactory htmlFactory = context.get(HTMLFactory.class, HTMLFactory.INSTANCE);
-			return htmlFactory.div(html).addClass("markdown-body");
-		}, getTitle(), 1);
+	protected String doGetMarkdown(Context context) throws Exception {
+		URL url = Util.resolveReference(eResource(), context.interpolate(getLocation()));
+		Converter converter = context.get(Converter.class, DefaultConverter.INSTANCE);
+		return converter.convert(url, String.class);
 	}
 
 } //MarkdownResourceImpl

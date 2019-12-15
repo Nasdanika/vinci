@@ -13,6 +13,17 @@
         <details key="documentation" value="If this attribute is set to true the generated markdown is placed in a ``div`` with ``markdown-body`` class in order to be styled by the GitHub Markdown CSS. For this the page shall have &quot;Github Markdown CSS&quot; attribute set to true or add a stylesheet explicitly."/>
       </eAnnotations>
     </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="interpolate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="If true, HTML generated from the markdown is interpolated."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="appearance" eType="ecore:EClass ../../org.nasdanika.vinci.bootstrap/model/bootstrap.ecore#//Appearance"
+        containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Appearance to apply to the generated HTML."/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eGenericSuperTypes eClassifier="ecore:EClass ../../org.nasdanika.ncore/model/ncore.ecore#//ModelElement"/>
     <eGenericSuperTypes eClassifier="ecore:EClass ../../org.nasdanika.ncore/model/ncore.ecore#//ISupplierFactory">
       <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>

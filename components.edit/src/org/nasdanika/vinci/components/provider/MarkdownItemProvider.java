@@ -9,10 +9,12 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.nasdanika.ncore.provider.ModelElementItemProvider;
+import org.nasdanika.vinci.bootstrap.BootstrapFactory;
 import org.nasdanika.vinci.components.ComponentsPackage;
 import org.nasdanika.vinci.components.Markdown;
 
@@ -45,6 +47,7 @@ public class MarkdownItemProvider extends ModelElementItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addStylePropertyDescriptor(object);
+			addInterpolatePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -68,6 +71,57 @@ public class MarkdownItemProvider extends ModelElementItemProvider {
 				 null,
 				 null,
 				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Interpolate feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	protected void addInterpolatePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor(
+				 getResourceLocator(),
+				 getString("_UI_Markdown_interpolate_feature"),
+				 ComponentsPackage.Literals.MARKDOWN__INTERPOLATE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
+	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
+	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
+		if (childrenFeatures == null) {
+			super.getChildrenFeatures(object);
+			childrenFeatures.add(ComponentsPackage.Literals.MARKDOWN__APPEARANCE);
+		}
+		return childrenFeatures;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected EStructuralFeature getChildFeature(Object object, Object child) {
+		// Check the type of the specified child object and return the proper feature to use for
+		// adding (see {@link AddCommand}) it as a child.
+
+		return super.getChildFeature(object, child);
 	}
 
 	/**
@@ -106,7 +160,11 @@ public class MarkdownItemProvider extends ModelElementItemProvider {
 
 		switch (notification.getFeatureID(Markdown.class)) {
 			case ComponentsPackage.MARKDOWN__STYLE:
+			case ComponentsPackage.MARKDOWN__INTERPOLATE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+			case ComponentsPackage.MARKDOWN__APPEARANCE:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
 		super.notifyChanged(notification);
@@ -122,6 +180,11 @@ public class MarkdownItemProvider extends ModelElementItemProvider {
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ComponentsPackage.Literals.MARKDOWN__APPEARANCE,
+				 BootstrapFactory.eINSTANCE.createAppearance()));
 	}
 
 	/**

@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
-import java.util.Map;
 
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
@@ -18,40 +17,32 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.util.InternalEList;
-import org.jsoup.Jsoup;
 import org.nasdanika.common.CompoundExecutionParticipant;
 import org.nasdanika.common.Consumer;
 import org.nasdanika.common.Context;
 import org.nasdanika.common.ExecutionParticipant;
 import org.nasdanika.common.ListCompoundSupplierFactory;
 import org.nasdanika.common.MapCompoundSupplierFactory;
-import org.nasdanika.common.MarkdownHelper;
-import org.nasdanika.common.NullProgressMonitor;
+import org.nasdanika.common.MutableContext;
 import org.nasdanika.common.ProgressMonitor;
+import org.nasdanika.common.PropertyComputer;
 import org.nasdanika.common.Reference;
 import org.nasdanika.common.Supplier;
 import org.nasdanika.common.SupplierFactory;
 import org.nasdanika.common.Util;
-import org.nasdanika.html.Fragment;
-import org.nasdanika.html.HTMLElement;
-import org.nasdanika.html.HTMLFactory;
+import org.nasdanika.html.Tag;
 import org.nasdanika.html.app.Action;
 import org.nasdanika.html.app.Application;
 import org.nasdanika.html.app.ApplicationBuilder;
-import org.nasdanika.html.app.Decorator;
-import org.nasdanika.html.app.NavigationActionActivator;
-import org.nasdanika.html.app.ScriptActionActivator;
 import org.nasdanika.html.app.ViewGenerator;
 import org.nasdanika.html.app.impl.ActionApplicationBuilder;
-import org.nasdanika.html.app.impl.ActionImpl;
-import org.nasdanika.html.bootstrap.BootstrapElement;
-import org.nasdanika.html.bootstrap.BootstrapFactory;
-import org.nasdanika.html.bootstrap.Color;
+import org.nasdanika.html.app.impl.ViewGeneratorImpl;
 import org.nasdanika.vinci.app.AbstractAction;
 import org.nasdanika.vinci.app.ActionBase;
 import org.nasdanika.vinci.app.ActionCategory;
 import org.nasdanika.vinci.app.ActionElement;
 import org.nasdanika.vinci.app.ActionMapping;
+import org.nasdanika.vinci.app.ActionReference;
 import org.nasdanika.vinci.app.ActionRole;
 import org.nasdanika.vinci.app.ActivatorType;
 import org.nasdanika.vinci.app.AppPackage;
@@ -85,9 +76,6 @@ import org.nasdanika.vinci.bootstrap.Appearance;
  * @generated
  */
 public abstract class ActionBaseImpl extends LabelImpl implements ActionBase {
-	private static final String ELEMENTS_KEY = "Elements";
-
-	private static final String CONTENT_KEY = "Content";
 
 	/**
 	 * The default value of the '{@link #getRole() <em>Role</em>}' attribute.
@@ -804,13 +792,51 @@ public abstract class ActionBaseImpl extends LabelImpl implements ActionBase {
 
 	@Override
 	public Supplier<Object> create(Context context) throws Exception {
-		ListCompoundSupplierFactory<Object> contentFactory = new ListCompoundSupplierFactory<Object>(CONTENT_KEY, getContent());
-		ListCompoundSupplierFactory<Object> elementsFactory = new ListCompoundSupplierFactory<Object>(ELEMENTS_KEY);
+		
+		MutableContext actionContext = context.fork();
+		
+		for (ActionMapping actionMapping: getActionMappings()) {
+			actionContext.put("action-mappings/"+actionMapping.getAlias(), new PropertyComputer() {
+				
+				private ActionBase unwrap(AbstractAction target) {
+					if (target instanceof ActionBase) {
+						return (ActionBase) target;
+					}
+					
+					if (target instanceof ActionReference) {
+						return unwrap(((ActionReference) target).getAction());
+					}
+					
+					throw new UnsupportedOperationException("Unwrapping of " + target + " is not supported (yet)");
+				}
+				
+				@SuppressWarnings("unchecked")
+				@Override
+				public <T> T compute(Context context, String key, Class<T> type) {
+					if (type.isInstance(actionMapping.getTarget())) {
+						return (T) actionMapping.getTarget();
+					}
+					
+					if (type == String.class || type.isAssignableFrom(Tag.class)) {
+						ViewGenerator viewGenerator = context.get(ViewGenerator.class, new ViewGeneratorImpl(context, null, null));
+						ActionFacade actionFacade = new ActionFacade(actionContext, unwrap(actionMapping.getTarget()), null, null, null);
+						Tag link = viewGenerator.link(actionFacade);
+						return (T) (type == String.class ? link.toString() : link);
+					}
+					
+					throw new IllegalArgumentException("Cannot convert " + actionMapping.getTarget() + " to " + type);
+				}
+				
+			});
+		}
+		
+		ListCompoundSupplierFactory<Object> contentFactory = new ListCompoundSupplierFactory<Object>(ActionFacade.CONTENT_KEY, getContent());
+		ListCompoundSupplierFactory<Object> elementsFactory = new ListCompoundSupplierFactory<Object>(ActionFacade.ELEMENTS_KEY);
 
 		// Removing all elements which are linked from other objects.
 		List<ActionElement> elements = new ArrayList<>(getElements());
 		Resource resource = eResource();	
-		Reference<EObject> parentReference = new Reference<>(eContainer());
+		Reference<EObject> parentRef = new Reference<>(eContainer());
 		if (resource != null) {
 			ResourceSet resourceSet = resource.getResourceSet();
 			TreeIterator<?> cit;
@@ -825,7 +851,7 @@ public abstract class ActionBaseImpl extends LabelImpl implements ActionBase {
 					EList<?> nLinkedElements = ((org.nasdanika.vinci.app.Container<?>) next).getLinkedElements();
 					elements.removeAll(nLinkedElements);
 					if (nLinkedElements.contains(this)) {
-						parentReference.set((EObject) next);
+						parentRef.set((EObject) next);
 					}
 				}
 			}
@@ -877,178 +903,15 @@ public abstract class ActionBaseImpl extends LabelImpl implements ActionBase {
 			}
 		}
 		MapCompoundSupplierFactory<String, List<Object>> mcs = new MapCompoundSupplierFactory<>("Action");
-		mcs.put(CONTENT_KEY, contentFactory);
-		mcs.put(ELEMENTS_KEY, elementsFactory);
+		mcs.put(ActionFacade.CONTENT_KEY, contentFactory);
+		mcs.put(ActionFacade.ELEMENTS_KEY, elementsFactory);
 		
 		Appearance appearance = getAppearance();
 		@SuppressWarnings("resource")
-		Consumer<Object> decorator = appearance == null ? null : appearance.create(context);		
+		Consumer<Object> decorator = appearance == null ? null : appearance.create(actionContext);		
 						
-		class ActionFacade extends org.nasdanika.html.app.impl.ActionImpl implements Decorator {
-			
-			private List<Object> content;
-
-			public ActionFacade(Map<String,List<Object>> config) {
-				setText(context.interpolate(ActionBaseImpl.this.getText()));
-				setId(context.interpolate(ActionBaseImpl.this.getId()));
-				setIcon(context.interpolate(ActionBaseImpl.this.getIcon()));
-				String color = ActionBaseImpl.this.getColor();
-				if (!Util.isBlank(color)) {
-					setColor(Color.fromLabel(color));
-				}
-				setOutline(ActionBaseImpl.this.isOutline());
-				setNotification(context.interpolate(ActionBaseImpl.this.getNotification()));
-				setDisabled(ActionBaseImpl.this.isDisabled());
-				setConfirmation(context.interpolate(ActionBaseImpl.this.getConfirmation()));
-				setFloatRight(ActionBaseImpl.this.isFloatRight());
-				// description
-				String mDescription = ActionBaseImpl.this.getDescription();
-				String mTooltip = ActionBaseImpl.this.getTooltip();
-				if (!Util.isBlank(mDescription)) {
-					MarkdownHelper mHelper = new MarkdownHelper();
-					setDescription(mHelper.markdownToHtml(mDescription));
-					if (Util.isBlank(mTooltip)) {
-						String textDoc = Jsoup.parse(getDescription()).text();
-						setTooltip(mHelper.firstSentence(textDoc));					
-
-					}
-				}
-				// tooltip
-				if (!Util.isBlank(mTooltip)) {
-					setTooltip(mTooltip);
-				}
-				// activator
-				String activator = ActionBaseImpl.this.getActivator();
-				
-				switch (ActionBaseImpl.this.getActivatorType()) {
-				case NONE:
-					// No activator
-					break;
-				case BIND:
-					throw new UnsupportedOperationException("Not implemented yet");
-				case REFERENCE:
-					if (Util.isBlank(activator) && !Util.isBlank(ActionBaseImpl.this.getId())) {
-						activator = ActionBaseImpl.this.getId() + ".html";
-					}
-					String url = context.interpolate(activator);
-					if (Util.isBlank(url)) {
-						throw new IllegalArgumentException("Activator type is reference and activator URL is blank");
-					}
-					setActivator(new NavigationActionActivator() {
-						
-						@Override
-						public String getUrl() {
-							return url;
-						}
-						
-					});
-					break;
-				case SCRIPT:
-					String code = context.interpolate(activator);
-					if (Util.isBlank(code)) {
-						throw new IllegalArgumentException("Activator type is script and activator code is blank");
-					}
-					setActivator(new ScriptActionActivator() {
-						
-						@Override
-						public String getCode() {
-							return code;
-						}
-						
-					});
-					break;					
-				default:
-					throw new IllegalArgumentException();
-				}
-				
-				// category
-				if (parentReference.get() instanceof ActionCategory) {
-					ActionCategory actionCategory = (ActionCategory) parentReference.get();
-					org.nasdanika.html.app.impl.LabelImpl cat = new org.nasdanika.html.app.impl.LabelImpl();
-					String catColor = actionCategory.getColor();
-					if (!Util.isBlank(catColor)) {
-						cat.setColor(Color.fromLabel(catColor));
-					}					
-					cat.setIcon(context.interpolate(actionCategory.getIcon()));
-					cat.setNotification(context.interpolate(actionCategory.getNotification()));
-					cat.setText(context.interpolate(actionCategory.getText()));
-					cat.setOutline(actionCategory.isOutline());
-					cat.setId(actionCategory.getId());
-					// description
-					String catDescription = actionCategory.getDescription();
-					String catTooltip = actionCategory.getTooltip();
-					if (!Util.isBlank(catDescription)) {
-						MarkdownHelper catHelper = new MarkdownHelper();
-						setDescription(catHelper.markdownToHtml(catDescription));
-						if (Util.isBlank(catTooltip)) {
-							String textDoc = Jsoup.parse(getDescription()).text();
-							setTooltip(catHelper.firstSentence(textDoc));					
-
-						}
-					}
-					// tooltip
-					if (!Util.isBlank(catTooltip)) {
-						setTooltip(catTooltip);
-					}
-									
-					setCategory(cat);
-				}
-				
-				switch (ActionBaseImpl.this.getRole()) {
-				case CONTEXT:
-					getRoles().add(Action.Role.CONTEXT);
-					break;
-				case EDIT:
-					getRoles().add(Action.Role.EDIT);
-					break;
-				case NAVIGATION:
-					getRoles().add(Action.Role.NAVIGATION);
-					break;
-				case SECTION:
-					getRoles().add(Action.Role.SECTION);
-					break;
-				case VIEW:
-					getRoles().add(Action.Role.VIEW);
-					break;
-				default:
-					getRoles().add(ActionBaseImpl.this.getRole().name());
-					break;				
-				}
-				
-				content = config.get(CONTENT_KEY);
-				
-				for (Object child: config.get(ELEMENTS_KEY)) {
-					ActionImpl childAction = (org.nasdanika.html.app.impl.ActionImpl) child;
-					getChildren().add(childAction);
-					childAction.setParent(this);					
-				}
-			}
-			
-			@Override
-			public Object generate(ViewGenerator viewGenerator, ProgressMonitor progressMonitor) {
-				Fragment ret = viewGenerator.get(HTMLFactory.class, HTMLFactory.INSTANCE).fragment();
-				content.forEach(ret);
-				return ret;
-			}
-
-			@Override
-			public void decorate(Object target, ViewGenerator viewGenerator) {
-				if (decorator != null) {
-					try {
-						if (target instanceof BootstrapElement) {
-								decorator.execute(target, new NullProgressMonitor());
-						} else if (target instanceof HTMLElement) {
-							decorator.execute(viewGenerator.get(BootstrapFactory.class, BootstrapFactory.INSTANCE).wrap((HTMLElement<?>) target), new NullProgressMonitor());
-						}
-					} catch (Exception e) {
-						e.printStackTrace(); // TODO - improve handling, but shall not happen.
-					}
-				}
-			}
-			
-		};
 		
-		return mcs.create(context).then(ActionFacade::new);
+		return mcs.create(actionContext).then(config -> new ActionFacade(actionContext, ActionBaseImpl.this, parentRef.get(), decorator, config));
 	}
 
 } //ActionBaseImpl
