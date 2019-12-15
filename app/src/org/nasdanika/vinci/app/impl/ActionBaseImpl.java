@@ -819,7 +819,7 @@ public abstract class ActionBaseImpl extends LabelImpl implements ActionBase {
 					
 					if (type == String.class || type.isAssignableFrom(Tag.class)) {
 						ViewGenerator viewGenerator = context.get(ViewGenerator.class, new ViewGeneratorImpl(context, null, null));
-						ActionFacade actionFacade = new ActionFacade(actionContext, unwrap(actionMapping.getTarget()), null, null, null);
+						ActionFacade actionFacade = new ActionFacade(actionContext, unwrap(actionMapping.getTarget()));
 						Tag link = viewGenerator.link(actionFacade);
 						return (T) (type == String.class ? link.toString() : link);
 					}
@@ -829,9 +829,12 @@ public abstract class ActionBaseImpl extends LabelImpl implements ActionBase {
 				
 			});
 		}
+
+		String ELEMENTS_KEY = "Elements";		
+		String CONTENT_KEY = "Content";			
 		
-		ListCompoundSupplierFactory<Object> contentFactory = new ListCompoundSupplierFactory<Object>(ActionFacade.CONTENT_KEY, getContent());
-		ListCompoundSupplierFactory<Object> elementsFactory = new ListCompoundSupplierFactory<Object>(ActionFacade.ELEMENTS_KEY);
+		ListCompoundSupplierFactory<Object> contentFactory = new ListCompoundSupplierFactory<Object>(CONTENT_KEY, getContent());
+		ListCompoundSupplierFactory<Object> elementsFactory = new ListCompoundSupplierFactory<Object>(ELEMENTS_KEY);
 
 		// Removing all elements which are linked from other objects.
 		List<ActionElement> elements = new ArrayList<>(getElements());
@@ -903,15 +906,21 @@ public abstract class ActionBaseImpl extends LabelImpl implements ActionBase {
 			}
 		}
 		MapCompoundSupplierFactory<String, List<Object>> mcs = new MapCompoundSupplierFactory<>("Action");
-		mcs.put(ActionFacade.CONTENT_KEY, contentFactory);
-		mcs.put(ActionFacade.ELEMENTS_KEY, elementsFactory);
+		mcs.put(CONTENT_KEY, contentFactory);
+		mcs.put(ELEMENTS_KEY, elementsFactory);
 		
 		Appearance appearance = getAppearance();
 		@SuppressWarnings("resource")
 		Consumer<Object> decorator = appearance == null ? null : appearance.create(actionContext);		
 						
 		
-		return mcs.create(actionContext).then(config -> new ActionFacade(actionContext, ActionBaseImpl.this, parentRef.get(), decorator, config));
+		return mcs.create(actionContext).then(config -> new ActionFacade(
+				actionContext, 
+				ActionBaseImpl.this, 
+				parentRef.get(), 
+				decorator, 
+				config.get(CONTENT_KEY), 
+				config.get(ELEMENTS_KEY)));
 	}
 
 } //ActionBaseImpl

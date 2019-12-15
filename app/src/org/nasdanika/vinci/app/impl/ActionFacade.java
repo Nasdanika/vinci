@@ -1,7 +1,6 @@
 package org.nasdanika.vinci.app.impl;
 
 import java.util.List;
-import java.util.Map;
 
 import org.eclipse.emf.ecore.EObject;
 import org.jsoup.Jsoup;
@@ -27,21 +26,22 @@ import org.nasdanika.vinci.app.ActionBase;
 import org.nasdanika.vinci.app.ActionCategory;
 
 public class ActionFacade extends org.nasdanika.html.app.impl.ActionImpl implements Decorator {
-	
-	public static final String ELEMENTS_KEY = "Elements";
-
-	public static final String CONTENT_KEY = "Content";	
-	
+		
 	private List<Object> content;
 
 	private Consumer<Object> decorator;
+	
+	public ActionFacade(Context actionContext, ActionBase target) {
+		this(actionContext, target, null, null, null, null);
+	}		
 
 	public ActionFacade(
 			Context actionContext, 
 			ActionBase target, 
 			EObject parent,
 			Consumer<Object> decorator,
-			Map<String, List<Object>> config) {
+			List<Object> content,
+			List<Object> elements) {
 		
 		this.decorator = decorator;
 		setText(actionContext.interpolate(target.getText()));
@@ -170,14 +170,14 @@ public class ActionFacade extends org.nasdanika.html.app.impl.ActionImpl impleme
 			break;
 		}
 
-		if (config != null) {
-			content = config.get(CONTENT_KEY);
-	
-			for (Object child : config.get(ELEMENTS_KEY)) {
+		this.content = content;
+		
+		if (elements != null) {
+			for (Object child : elements) {
 				ActionImpl childAction = (org.nasdanika.html.app.impl.ActionImpl) child;
 				getChildren().add(childAction);
 				childAction.setParent(this);
-			}
+			}			
 		}
 	}
 
