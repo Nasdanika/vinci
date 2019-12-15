@@ -17,7 +17,6 @@ import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-import org.nasdanika.emf.edit.NasdanikaItemProviderAdapter;
 import org.nasdanika.vinci.app.ActionMapping;
 import org.nasdanika.vinci.app.AppPackage;
 
@@ -28,7 +27,7 @@ import org.nasdanika.vinci.app.AppPackage;
  * @generated
  */
 public class ActionMappingItemProvider 
-	extends NasdanikaItemProviderAdapter
+	extends AppItemProviderAdapter
 	implements
 		IEditingDomainItemProvider,
 		IStructuredItemContentProvider,

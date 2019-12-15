@@ -5,10 +5,17 @@ package org.nasdanika.vinci.app.provider;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.UUID;
+
+import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.edit.command.InitializeCopyCommand;
+import org.eclipse.emf.edit.command.CopyCommand.Helper;
+import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
@@ -325,5 +332,20 @@ public class LabelItemProvider
 	public ResourceLocator getResourceLocator() {
 		return AppEditPlugin.INSTANCE;
 	}
+		
+	@Override
+	protected Command createInitializeCopyCommand(EditingDomain domain, EObject owner, Helper helper) {
+	    return new InitializeCopyCommand(domain, owner, helper) {
+	    	
+	    	@Override
+	    	public void doExecute() {
+	    		super.doExecute();
+	    		if (getCopy() instanceof Label) {
+	    			((Label) getCopy()).setId(UUID.randomUUID().toString());
+	    		}
+	    	}	    	
+	    	
+	    };
+	}	
 
 }

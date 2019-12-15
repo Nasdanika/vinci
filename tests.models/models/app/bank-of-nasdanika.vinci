@@ -25,7 +25,7 @@
         <text alignment="Center" italic="true"/>
       </appearance>
     </footer>
-    <builders xsi:type="org.nasdanika.vinci.app:Action" title="Bank of Nasdanika" id="index" text="Bank of Nasdanika" icon="fas fa-university" linkedElements="//@builders.0/@builders.0/@elements.2 //@builders.0/@builders.0/@elements.0 //@builders.0/@builders.0/@elements.1">
+    <builders xsi:type="org.nasdanika.vinci.app:Action" title="Bank of Nasdanika" id="index" text="Bank of Nasdanika" icon="fas fa-university" linkedElements="524984d0-253e-4ac7-b100-3c489d4ccc3a c5c8ec03-0f9e-4b0b-bf46-350c9b6ba59a ab1778bc-f554-43a4-a785-bff3160764dc">
       <appearance attributes="class:&#xA;    display: 4&#xA;style:&#xA;    text:&#xA;        decoration: none">
         <text color="Light"/>
       </appearance>
@@ -35,12 +35,12 @@
         </appearance>
       </elements>
       <elements xsi:type="org.nasdanika.vinci.app:Action" title="Contact Us" id="ab1778bc-f554-43a4-a785-bff3160764dc" text="Contact Us" icon="far fa-envelope" role="Context"/>
-      <elements xsi:type="org.nasdanika.vinci.app:Action" title="Joe Doe" id="524984d0-253e-4ac7-b100-3c489d4ccc3a" text="Joe Doe" icon="fas fa-user" linkedElements="//@builders.0/@builders.0/@elements.3 //@builders.0/@builders.0/@elements.4 //@builders.0/@builders.0/@elements.5 //@builders.0/@builders.0/@elements.6 //@builders.0/@builders.0/@elements.7">
+      <elements xsi:type="org.nasdanika.vinci.app:Action" title="Joe Doe" id="524984d0-253e-4ac7-b100-3c489d4ccc3a" text="Joe Doe" icon="fas fa-user" linkedElements="b24142d2-b17a-4357-86ae-9717644db759 2dd49b89-b498-461b-8bf8-01c2c1e81476 e871d844-e734-466b-acb0-8fc82bfd841f c47c6c3e-e693-4607-89e0-596e02a14fe6 598bdb6f-b5fd-4ea9-9d3c-d48a222c7610">
         <elements xsi:type="org.nasdanika.vinci.app:Partition" title="Mortgages" id="9a979ea1-a6b9-421e-a28e-4276a0ff52aa" text="Mortgages" icon="fas fa-home">
           <elements xsi:type="org.nasdanika.vinci.app:Action" title="Primary" id="c98a7199-bef2-4cb0-b3c6-65cae99e7680" text="Primary"/>
         </elements>
       </elements>
-      <elements xsi:type="org.nasdanika.vinci.app:Action" title="Checking" id="b24142d2-b17a-4357-86ae-9717644db759" text="Checking-1234" icon="fas fa-money-check-alt" linkedElements="//@builders.0/@builders.0/@elements.8">
+      <elements xsi:type="org.nasdanika.vinci.app:Action" title="Checking" id="b24142d2-b17a-4357-86ae-9717644db759" text="Checking-1234" icon="fas fa-money-check-alt" linkedElements="f1077f39-2825-45b7-a813-5acc6ed95cd9">
         <content xsi:type="org.nasdanika.ncore:Value" value="Lorem ipsum..."/>
       </elements>
       <elements xsi:type="org.nasdanika.vinci.app:Action" title="Savings" id="2dd49b89-b498-461b-8bf8-01c2c1e81476" text="Saving-5678" icon="fas fa-piggy-bank">
