@@ -7,7 +7,7 @@ import java.util.UUID;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-import org.nasdanika.ncore.impl.ModelElementImpl;
+import org.nasdanika.ncore.impl.EntityImpl;
 import org.nasdanika.vinci.app.AppPackage;
 import org.nasdanika.vinci.app.Label;
 import org.nasdanika.vinci.bootstrap.Appearance;
@@ -21,7 +21,6 @@ import org.nasdanika.vinci.bootstrap.Appearance;
  * </p>
  * <ul>
  *   <li>{@link org.nasdanika.vinci.app.impl.LabelImpl#getColor <em>Color</em>}</li>
- *   <li>{@link org.nasdanika.vinci.app.impl.LabelImpl#getId <em>Id</em>}</li>
  *   <li>{@link org.nasdanika.vinci.app.impl.LabelImpl#getText <em>Text</em>}</li>
  *   <li>{@link org.nasdanika.vinci.app.impl.LabelImpl#getIcon <em>Icon</em>}</li>
  *   <li>{@link org.nasdanika.vinci.app.impl.LabelImpl#getTooltip <em>Tooltip</em>}</li>
@@ -32,7 +31,7 @@ import org.nasdanika.vinci.bootstrap.Appearance;
  *
  * @generated
  */
-public abstract class LabelImpl extends ModelElementImpl implements Label {
+public abstract class LabelImpl extends EntityImpl implements Label {
 	/**
 	 * The default value of the '{@link #getColor() <em>Color</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -42,16 +41,6 @@ public abstract class LabelImpl extends ModelElementImpl implements Label {
 	 * @ordered
 	 */
 	protected static final String COLOR_EDEFAULT = null;
-
-	/**
-	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getId()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String ID_EDEFAULT = null;
 
 	/**
 	 * The default value of the '{@link #getText() <em>Text</em>}' attribute.
@@ -106,11 +95,10 @@ public abstract class LabelImpl extends ModelElementImpl implements Label {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
+	 * @generated 
 	 */
 	protected LabelImpl() {
 		super();
-		setId(UUID.randomUUID().toString());
 	}
 
 	/**
@@ -141,26 +129,6 @@ public abstract class LabelImpl extends ModelElementImpl implements Label {
 	@Override
 	public void setColor(String newColor) {
 		eDynamicSet(AppPackage.LABEL__COLOR, AppPackage.Literals.LABEL__COLOR, newColor);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String getId() {
-		return (String)eDynamicGet(AppPackage.LABEL__ID, AppPackage.Literals.LABEL__ID, true, true);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setId(String newId) {
-		eDynamicSet(AppPackage.LABEL__ID, AppPackage.Literals.LABEL__ID, newId);
 	}
 
 	/**
@@ -317,8 +285,6 @@ public abstract class LabelImpl extends ModelElementImpl implements Label {
 		switch (featureID) {
 			case AppPackage.LABEL__COLOR:
 				return getColor();
-			case AppPackage.LABEL__ID:
-				return getId();
 			case AppPackage.LABEL__TEXT:
 				return getText();
 			case AppPackage.LABEL__ICON:
@@ -345,9 +311,6 @@ public abstract class LabelImpl extends ModelElementImpl implements Label {
 		switch (featureID) {
 			case AppPackage.LABEL__COLOR:
 				setColor((String)newValue);
-				return;
-			case AppPackage.LABEL__ID:
-				setId((String)newValue);
 				return;
 			case AppPackage.LABEL__TEXT:
 				setText((String)newValue);
@@ -382,9 +345,6 @@ public abstract class LabelImpl extends ModelElementImpl implements Label {
 			case AppPackage.LABEL__COLOR:
 				setColor(COLOR_EDEFAULT);
 				return;
-			case AppPackage.LABEL__ID:
-				setId(ID_EDEFAULT);
-				return;
 			case AppPackage.LABEL__TEXT:
 				setText(TEXT_EDEFAULT);
 				return;
@@ -417,8 +377,6 @@ public abstract class LabelImpl extends ModelElementImpl implements Label {
 		switch (featureID) {
 			case AppPackage.LABEL__COLOR:
 				return COLOR_EDEFAULT == null ? getColor() != null : !COLOR_EDEFAULT.equals(getColor());
-			case AppPackage.LABEL__ID:
-				return ID_EDEFAULT == null ? getId() != null : !ID_EDEFAULT.equals(getId());
 			case AppPackage.LABEL__TEXT:
 				return TEXT_EDEFAULT == null ? getText() != null : !TEXT_EDEFAULT.equals(getText());
 			case AppPackage.LABEL__ICON:

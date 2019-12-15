@@ -3,7 +3,7 @@
 package org.nasdanika.vinci.app;
 
 import org.nasdanika.common.SupplierFactory;
-import org.nasdanika.ncore.ModelElement;
+import org.nasdanika.ncore.Entity;
 import org.nasdanika.vinci.bootstrap.Appearance;
 
 /**
@@ -20,7 +20,6 @@ import org.nasdanika.vinci.bootstrap.Appearance;
  * </p>
  * <ul>
  *   <li>{@link org.nasdanika.vinci.app.Label#getColor <em>Color</em>}</li>
- *   <li>{@link org.nasdanika.vinci.app.Label#getId <em>Id</em>}</li>
  *   <li>{@link org.nasdanika.vinci.app.Label#getText <em>Text</em>}</li>
  *   <li>{@link org.nasdanika.vinci.app.Label#getIcon <em>Icon</em>}</li>
  *   <li>{@link org.nasdanika.vinci.app.Label#getTooltip <em>Tooltip</em>}</li>
@@ -30,11 +29,11 @@ import org.nasdanika.vinci.bootstrap.Appearance;
  * </ul>
  *
  * @see org.nasdanika.vinci.app.AppPackage#getLabel()
- * @model abstract="true" superTypes="org.nasdanika.ncore.ModelElement org.nasdanika.ncore.ISupplierFactory&lt;org.eclipse.emf.ecore.EJavaObject&gt;"
+ * @model abstract="true" superTypes="org.nasdanika.ncore.Entity org.nasdanika.ncore.ISupplierFactory&lt;org.eclipse.emf.ecore.EJavaObject&gt;"
  *        annotation="http://www.eclipse.org/emf/2002/Ecore constraints='color'"
  * @generated
  */
-public interface Label extends ModelElement, SupplierFactory<Object> {
+public interface Label extends Entity, SupplierFactory<Object> {
 	/**
 	 * Returns the value of the '<em><b>Color</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -59,31 +58,6 @@ public interface Label extends ModelElement, SupplierFactory<Object> {
 	 * @generated
 	 */
 	void setColor(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * 
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Id</em>' attribute.
-	 * @see #setId(String)
-	 * @see org.nasdanika.vinci.app.AppPackage#getLabel_Id()
-	 * @model id="true"
-	 * @generated
-	 */
-	String getId();
-
-	/**
-	 * Sets the value of the '{@link org.nasdanika.vinci.app.Label#getId <em>Id</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Id</em>' attribute.
-	 * @see #getId()
-	 * @generated
-	 */
-	void setId(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Notification</b></em>' attribute.

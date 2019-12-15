@@ -38,7 +38,6 @@
     </genClasses>
     <genClasses ecoreClass="app.ecore#//Label">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute app.ecore#//Label/color"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute app.ecore#//Label/id"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute app.ecore#//Label/text"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute app.ecore#//Label/icon"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute app.ecore#//Label/tooltip"/>

@@ -281,18 +281,8 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getLabel_Id() {
-		return (EAttribute)labelEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EAttribute getLabel_Notification() {
-		return (EAttribute)labelEClass.getEStructuralFeatures().get(6);
+		return (EAttribute)labelEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -302,7 +292,7 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 	 */
 	@Override
 	public EReference getLabel_Appearance() {
-		return (EReference)labelEClass.getEStructuralFeatures().get(7);
+		return (EReference)labelEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -312,7 +302,7 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 	 */
 	@Override
 	public EAttribute getLabel_Text() {
-		return (EAttribute)labelEClass.getEStructuralFeatures().get(2);
+		return (EAttribute)labelEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -322,7 +312,7 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 	 */
 	@Override
 	public EAttribute getLabel_Icon() {
-		return (EAttribute)labelEClass.getEStructuralFeatures().get(3);
+		return (EAttribute)labelEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -332,7 +322,7 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 	 */
 	@Override
 	public EAttribute getLabel_Tooltip() {
-		return (EAttribute)labelEClass.getEStructuralFeatures().get(4);
+		return (EAttribute)labelEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -342,7 +332,7 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 	 */
 	@Override
 	public EAttribute getLabel_Outline() {
-		return (EAttribute)labelEClass.getEStructuralFeatures().get(5);
+		return (EAttribute)labelEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -880,7 +870,6 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 
 		labelEClass = createEClass(LABEL);
 		createEAttribute(labelEClass, LABEL__COLOR);
-		createEAttribute(labelEClass, LABEL__ID);
 		createEAttribute(labelEClass, LABEL__TEXT);
 		createEAttribute(labelEClass, LABEL__ICON);
 		createEAttribute(labelEClass, LABEL__TOOLTIP);
@@ -987,7 +976,7 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		EGenericType g1 = createEGenericType(theNcorePackage.getModelElement());
+		EGenericType g1 = createEGenericType(theNcorePackage.getEntity());
 		labelEClass.getEGenericSuperTypes().add(g1);
 		g1 = createEGenericType(theNcorePackage.getISupplierFactory());
 		EGenericType g2 = createEGenericType(ecorePackage.getEJavaObject());
@@ -1044,7 +1033,6 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 
 		initEClass(labelEClass, Label.class, "Label", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getLabel_Color(), ecorePackage.getEString(), "color", null, 0, 1, Label.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getLabel_Id(), ecorePackage.getEString(), "id", null, 0, 1, Label.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getLabel_Text(), ecorePackage.getEString(), "text", null, 0, 1, Label.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getLabel_Icon(), ecorePackage.getEString(), "icon", null, 0, 1, Label.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getLabel_Tooltip(), ecorePackage.getEString(), "tooltip", null, 0, 1, Label.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1192,12 +1180,6 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 		   });
 		addAnnotation
 		  (getLabel_Color(),
-		   source,
-		   new String[] {
-			   "documentation", ""
-		   });
-		addAnnotation
-		  (getLabel_Id(),
 		   source,
 		   new String[] {
 			   "documentation", ""

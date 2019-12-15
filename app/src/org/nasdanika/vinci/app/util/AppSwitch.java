@@ -7,6 +7,7 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
 import org.nasdanika.common.ConsumerFactory;
 import org.nasdanika.common.SupplierFactory;
+import org.nasdanika.ncore.Entity;
 import org.nasdanika.ncore.ModelElement;
 import org.nasdanika.vinci.app.*;
 import org.nasdanika.vinci.bootstrap.BootstrapElement;
@@ -78,8 +79,9 @@ public class AppSwitch<T1> extends Switch<T1> {
 			case AppPackage.LABEL: {
 				Label label = (Label)theEObject;
 				T1 result = caseLabel(label);
-				if (result == null) result = caseModelElement(label);
+				if (result == null) result = caseEntity(label);
 				if (result == null) result = caseISupplierFactory(label);
+				if (result == null) result = caseModelElement(label);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -88,8 +90,9 @@ public class AppSwitch<T1> extends Switch<T1> {
 				T1 result = caseCategory(category);
 				if (result == null) result = caseLabel(category);
 				if (result == null) result = caseContainer(category);
-				if (result == null) result = caseModelElement(category);
+				if (result == null) result = caseEntity(category);
 				if (result == null) result = caseISupplierFactory(category);
+				if (result == null) result = caseModelElement(category);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -115,8 +118,9 @@ public class AppSwitch<T1> extends Switch<T1> {
 				if (result == null) result = caseActionElement(actionCategory);
 				if (result == null) result = caseLabel(actionCategory);
 				if (result == null) result = caseContainer(actionCategory);
-				if (result == null) result = caseModelElement(actionCategory);
+				if (result == null) result = caseEntity(actionCategory);
 				if (result == null) result = caseISupplierFactory(actionCategory);
+				if (result == null) result = caseModelElement(actionCategory);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -126,10 +130,11 @@ public class AppSwitch<T1> extends Switch<T1> {
 				if (result == null) result = caseLabel(actionBase);
 				if (result == null) result = caseAbstractAction(actionBase);
 				if (result == null) result = caseContainer(actionBase);
-				if (result == null) result = caseModelElement(actionBase);
+				if (result == null) result = caseEntity(actionBase);
 				if (result == null) result = caseISupplierFactory(actionBase);
 				if (result == null) result = caseBootstrapContainerApplicationBuilder(actionBase);
 				if (result == null) result = caseActionElement(actionBase);
+				if (result == null) result = caseModelElement(actionBase);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -166,10 +171,11 @@ public class AppSwitch<T1> extends Switch<T1> {
 				if (result == null) result = caseLabel(action);
 				if (result == null) result = caseAbstractAction(action);
 				if (result == null) result = caseContainer(action);
-				if (result == null) result = caseModelElement(action);
+				if (result == null) result = caseEntity(action);
 				if (result == null) result = caseISupplierFactory(action);
 				if (result == null) result = caseBootstrapContainerApplicationBuilder(action);
 				if (result == null) result = caseActionElement(action);
+				if (result == null) result = caseModelElement(action);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -180,10 +186,11 @@ public class AppSwitch<T1> extends Switch<T1> {
 				if (result == null) result = caseLabel(partition);
 				if (result == null) result = caseAbstractAction(partition);
 				if (result == null) result = caseContainer(partition);
-				if (result == null) result = caseModelElement(partition);
+				if (result == null) result = caseEntity(partition);
 				if (result == null) result = caseISupplierFactory(partition);
 				if (result == null) result = caseBootstrapContainerApplicationBuilder(partition);
 				if (result == null) result = caseActionElement(partition);
+				if (result == null) result = caseModelElement(partition);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -360,6 +367,21 @@ public class AppSwitch<T1> extends Switch<T1> {
 	 * @generated
 	 */
 	public T1 caseModelElement(ModelElement object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Entity</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Entity</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseEntity(Entity object) {
 		return null;
 	}
 

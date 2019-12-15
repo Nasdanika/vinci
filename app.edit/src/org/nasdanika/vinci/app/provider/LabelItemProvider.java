@@ -5,21 +5,15 @@ package org.nasdanika.vinci.app.provider;
 
 import java.util.Collection;
 import java.util.List;
-import java.util.UUID;
 
-import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
-import org.eclipse.emf.edit.command.InitializeCopyCommand;
-import org.eclipse.emf.edit.command.CopyCommand.Helper;
-import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-import org.nasdanika.ncore.provider.ModelElementItemProvider;
+import org.nasdanika.ncore.provider.EntityItemProvider;
 import org.nasdanika.vinci.app.AppPackage;
 import org.nasdanika.vinci.app.Label;
 import org.nasdanika.vinci.bootstrap.BootstrapFactory;
@@ -31,7 +25,7 @@ import org.nasdanika.vinci.bootstrap.BootstrapFactory;
  * @generated
  */
 public class LabelItemProvider 
-	extends ModelElementItemProvider {
+	extends EntityItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -54,7 +48,6 @@ public class LabelItemProvider
 			super.getPropertyDescriptors(object);
 
 			addColorPropertyDescriptor(object);
-			addIdPropertyDescriptor(object);
 			addTextPropertyDescriptor(object);
 			addIconPropertyDescriptor(object);
 			addTooltipPropertyDescriptor(object);
@@ -83,27 +76,6 @@ public class LabelItemProvider
 				 null,
 				 null,
 				 enumChoices(org.nasdanika.html.bootstrap.Color.class, true, c -> c.label)));
-	}
-
-	/**
-	 * This adds a property descriptor for the Id feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	protected void addIdPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor(
-				 getResourceLocator(),
-				 getString("_UI_Label_id_feature"),
-				 AppPackage.Literals.LABEL__ID,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null,
-				 null));
 	}
 
 	/**
@@ -290,7 +262,6 @@ public class LabelItemProvider
 
 		switch (notification.getFeatureID(Label.class)) {
 			case AppPackage.LABEL__COLOR:
-			case AppPackage.LABEL__ID:
 			case AppPackage.LABEL__TEXT:
 			case AppPackage.LABEL__ICON:
 			case AppPackage.LABEL__TOOLTIP:
@@ -332,20 +303,5 @@ public class LabelItemProvider
 	public ResourceLocator getResourceLocator() {
 		return AppEditPlugin.INSTANCE;
 	}
-		
-	@Override
-	protected Command createInitializeCopyCommand(EditingDomain domain, EObject owner, Helper helper) {
-	    return new InitializeCopyCommand(domain, owner, helper) {
-	    	
-	    	@Override
-	    	public void doExecute() {
-	    		super.doExecute();
-	    		if (getCopy() instanceof Label) {
-	    			((Label) getCopy()).setId(UUID.randomUUID().toString());
-	    		}
-	    	}	    	
-	    	
-	    };
-	}	
 
 }

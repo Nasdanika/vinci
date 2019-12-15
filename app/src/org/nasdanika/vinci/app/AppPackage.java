@@ -206,7 +206,7 @@ public interface AppPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LABEL__TITLE = NcorePackage.MODEL_ELEMENT__TITLE;
+	int LABEL__TITLE = NcorePackage.ENTITY__TITLE;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -215,16 +215,7 @@ public interface AppPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LABEL__DESCRIPTION = NcorePackage.MODEL_ELEMENT__DESCRIPTION;
-
-	/**
-	 * The feature id for the '<em><b>Color</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LABEL__COLOR = NcorePackage.MODEL_ELEMENT_FEATURE_COUNT + 0;
+	int LABEL__DESCRIPTION = NcorePackage.ENTITY__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -233,7 +224,16 @@ public interface AppPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LABEL__ID = NcorePackage.MODEL_ELEMENT_FEATURE_COUNT + 1;
+	int LABEL__ID = NcorePackage.ENTITY__ID;
+
+	/**
+	 * The feature id for the '<em><b>Color</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LABEL__COLOR = NcorePackage.ENTITY_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Text</b></em>' attribute.
@@ -242,7 +242,7 @@ public interface AppPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LABEL__TEXT = NcorePackage.MODEL_ELEMENT_FEATURE_COUNT + 2;
+	int LABEL__TEXT = NcorePackage.ENTITY_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Icon</b></em>' attribute.
@@ -251,7 +251,7 @@ public interface AppPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LABEL__ICON = NcorePackage.MODEL_ELEMENT_FEATURE_COUNT + 3;
+	int LABEL__ICON = NcorePackage.ENTITY_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Tooltip</b></em>' attribute.
@@ -260,7 +260,7 @@ public interface AppPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LABEL__TOOLTIP = NcorePackage.MODEL_ELEMENT_FEATURE_COUNT + 4;
+	int LABEL__TOOLTIP = NcorePackage.ENTITY_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Outline</b></em>' attribute.
@@ -269,7 +269,7 @@ public interface AppPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LABEL__OUTLINE = NcorePackage.MODEL_ELEMENT_FEATURE_COUNT + 5;
+	int LABEL__OUTLINE = NcorePackage.ENTITY_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Notification</b></em>' attribute.
@@ -278,7 +278,7 @@ public interface AppPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LABEL__NOTIFICATION = NcorePackage.MODEL_ELEMENT_FEATURE_COUNT + 6;
+	int LABEL__NOTIFICATION = NcorePackage.ENTITY_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Appearance</b></em>' containment reference.
@@ -287,7 +287,7 @@ public interface AppPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LABEL__APPEARANCE = NcorePackage.MODEL_ELEMENT_FEATURE_COUNT + 7;
+	int LABEL__APPEARANCE = NcorePackage.ENTITY_FEATURE_COUNT + 6;
 
 	/**
 	 * The number of structural features of the '<em>Label</em>' class.
@@ -296,7 +296,7 @@ public interface AppPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LABEL_FEATURE_COUNT = NcorePackage.MODEL_ELEMENT_FEATURE_COUNT + 8;
+	int LABEL_FEATURE_COUNT = NcorePackage.ENTITY_FEATURE_COUNT + 7;
 
 	/**
 	 * The number of operations of the '<em>Label</em>' class.
@@ -305,7 +305,7 @@ public interface AppPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LABEL_OPERATION_COUNT = NcorePackage.MODEL_ELEMENT_OPERATION_COUNT + 0;
+	int LABEL_OPERATION_COUNT = NcorePackage.ENTITY_OPERATION_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Title</b></em>' attribute.
@@ -326,15 +326,6 @@ public interface AppPackage extends EPackage {
 	int CATEGORY__DESCRIPTION = LABEL__DESCRIPTION;
 
 	/**
-	 * The feature id for the '<em><b>Color</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CATEGORY__COLOR = LABEL__COLOR;
-
-	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -342,6 +333,15 @@ public interface AppPackage extends EPackage {
 	 * @ordered
 	 */
 	int CATEGORY__ID = LABEL__ID;
+
+	/**
+	 * The feature id for the '<em><b>Color</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORY__COLOR = LABEL__COLOR;
 
 	/**
 	 * The feature id for the '<em><b>Text</b></em>' attribute.
@@ -543,15 +543,6 @@ public interface AppPackage extends EPackage {
 	int ACTION_CATEGORY__DESCRIPTION = CATEGORY__DESCRIPTION;
 
 	/**
-	 * The feature id for the '<em><b>Color</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTION_CATEGORY__COLOR = CATEGORY__COLOR;
-
-	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -559,6 +550,15 @@ public interface AppPackage extends EPackage {
 	 * @ordered
 	 */
 	int ACTION_CATEGORY__ID = CATEGORY__ID;
+
+	/**
+	 * The feature id for the '<em><b>Color</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION_CATEGORY__COLOR = CATEGORY__COLOR;
 
 	/**
 	 * The feature id for the '<em><b>Text</b></em>' attribute.
@@ -679,15 +679,6 @@ public interface AppPackage extends EPackage {
 	int ACTION_BASE__DESCRIPTION = LABEL__DESCRIPTION;
 
 	/**
-	 * The feature id for the '<em><b>Color</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTION_BASE__COLOR = LABEL__COLOR;
-
-	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -695,6 +686,15 @@ public interface AppPackage extends EPackage {
 	 * @ordered
 	 */
 	int ACTION_BASE__ID = LABEL__ID;
+
+	/**
+	 * The feature id for the '<em><b>Color</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION_BASE__COLOR = LABEL__COLOR;
 
 	/**
 	 * The feature id for the '<em><b>Text</b></em>' attribute.
@@ -1094,15 +1094,6 @@ public interface AppPackage extends EPackage {
 	int ACTION__DESCRIPTION = ACTION_BASE__DESCRIPTION;
 
 	/**
-	 * The feature id for the '<em><b>Color</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTION__COLOR = ACTION_BASE__COLOR;
-
-	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1110,6 +1101,15 @@ public interface AppPackage extends EPackage {
 	 * @ordered
 	 */
 	int ACTION__ID = ACTION_BASE__ID;
+
+	/**
+	 * The feature id for the '<em><b>Color</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION__COLOR = ACTION_BASE__COLOR;
 
 	/**
 	 * The feature id for the '<em><b>Text</b></em>' attribute.
@@ -1328,15 +1328,6 @@ public interface AppPackage extends EPackage {
 	int PARTITION__DESCRIPTION = ACTION_BASE__DESCRIPTION;
 
 	/**
-	 * The feature id for the '<em><b>Color</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PARTITION__COLOR = ACTION_BASE__COLOR;
-
-	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1344,6 +1335,15 @@ public interface AppPackage extends EPackage {
 	 * @ordered
 	 */
 	int PARTITION__ID = ACTION_BASE__ID;
+
+	/**
+	 * The feature id for the '<em><b>Color</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARTITION__COLOR = ACTION_BASE__COLOR;
 
 	/**
 	 * The feature id for the '<em><b>Text</b></em>' attribute.
@@ -1884,17 +1884,6 @@ public interface AppPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getLabel_Color();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.app.Label#getId <em>Id</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Id</em>'.
-	 * @see org.nasdanika.vinci.app.Label#getId()
-	 * @see #getLabel()
-	 * @generated
-	 */
-	EAttribute getLabel_Id();
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.app.Label#getNotification <em>Notification</em>}'.
@@ -2533,14 +2522,6 @@ public interface AppPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute LABEL__COLOR = eINSTANCE.getLabel_Color();
-
-		/**
-		 * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute LABEL__ID = eINSTANCE.getLabel_Id();
 
 		/**
 		 * The meta object literal for the '<em><b>Notification</b></em>' attribute feature.
