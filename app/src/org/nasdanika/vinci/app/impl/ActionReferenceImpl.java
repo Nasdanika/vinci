@@ -12,8 +12,14 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.nasdanika.common.Consumer;
 import org.nasdanika.common.Context;
+import org.nasdanika.common.MutableContext;
+import org.nasdanika.common.PropertyComputer;
 import org.nasdanika.common.Supplier;
+import org.nasdanika.html.Tag;
+import org.nasdanika.html.app.ViewGenerator;
+import org.nasdanika.html.app.impl.ViewGeneratorImpl;
 import org.nasdanika.vinci.app.AbstractAction;
+import org.nasdanika.vinci.app.ActionBase;
 import org.nasdanika.vinci.app.ActionMapping;
 import org.nasdanika.vinci.app.ActionReference;
 import org.nasdanika.vinci.app.AppPackage;
@@ -299,8 +305,44 @@ public class ActionReferenceImpl extends MinimalEObjectImpl.Container implements
 
 	@Override
 	public Supplier<Object> create(Context context) throws Exception {
-		// TODO - action mappings
-		return getAction().create(context);
+		MutableContext actionContext = context.fork();
+		
+		for (ActionMapping actionMapping: getActionMappings()) {
+			actionContext.put("action-mappings/"+actionMapping.getAlias(), new PropertyComputer() {
+				
+				private ActionBase unwrap(AbstractAction target) {
+					if (target instanceof ActionBase) {
+						return (ActionBase) target;
+					}
+					
+					if (target instanceof ActionReference) {
+						return unwrap(((ActionReference) target).getAction());
+					}
+					
+					throw new UnsupportedOperationException("Unwrapping of " + target + " is not supported (yet)");
+				}
+				
+				@SuppressWarnings("unchecked")
+				@Override
+				public <T> T compute(Context context, String key, Class<T> type) {
+					if (type.isInstance(actionMapping.getTarget())) {
+						return (T) actionMapping.getTarget();
+					}
+					
+					if (type == String.class || type.isAssignableFrom(Tag.class)) {
+						ViewGenerator viewGenerator = context.get(ViewGenerator.class, new ViewGeneratorImpl(context, null, null));
+						ActionFacade actionFacade = new ActionFacade(actionContext, unwrap(actionMapping.getTarget()));
+						Tag link = viewGenerator.link(actionFacade);
+						return (T) (type == String.class ? link.toString() : link);
+					}
+					
+					throw new IllegalArgumentException("Cannot convert " + actionMapping.getTarget() + " to " + type);
+				}
+				
+			});
+		}
+		
+		return getAction().create(actionContext);
 	}
 		
 } //ActionReferenceImpl

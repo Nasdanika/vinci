@@ -11,6 +11,11 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <!-- begin-model-doc -->
  * Action mapping provides a logical name (alias) for another (abstract) action for convenient linking/referencing from action's content.
+ * 
+ * Action mapping target is injected into the context under ``action-mappings/<mapping name>`` key. When retrieved as a String, e.g. during interpolation, the mapping is converted to a link. 
+ * I.e. in ``This is my mapping ${action-mappings/my-mapping}!`` ``${action-mappings/my-mapping}`` will be interpolated into a link to the mapped action.
+ * 
+ * Mappings are inherited by children. Lower level mappings hide higher level mappings. Action reference mappings are passed to the reference target. 
  * <!-- end-model-doc -->
  *
  * <p>

@@ -1308,7 +1308,7 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 		  (actionMappingEClass,
 		   source,
 		   new String[] {
-			   "documentation", "Action mapping provides a logical name (alias) for another (abstract) action for convenient linking/referencing from action\'s content."
+			   "documentation", "Action mapping provides a logical name (alias) for another (abstract) action for convenient linking/referencing from action\'s content.\n\nAction mapping target is injected into the context under ``action-mappings/<mapping name>`` key. When retrieved as a String, e.g. during interpolation, the mapping is converted to a link. \nI.e. in ``This is my mapping ${action-mappings/my-mapping}!`` ``${action-mappings/my-mapping}`` will be interpolated into a link to the mapped action.\n\nMappings are inherited by children. Lower level mappings hide higher level mappings. Action reference mappings are passed to the reference target. "
 		   });
 		addAnnotation
 		  (getActionMapping_Alias(),

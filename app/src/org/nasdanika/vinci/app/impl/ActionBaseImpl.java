@@ -910,9 +910,7 @@ public abstract class ActionBaseImpl extends LabelImpl implements ActionBase {
 		mcs.put(ELEMENTS_KEY, elementsFactory);
 		
 		Appearance appearance = getAppearance();
-		@SuppressWarnings("resource")
-		Consumer<Object> decorator = appearance == null ? null : appearance.create(actionContext);		
-						
+		Consumer<Object> decorator = appearance == null ? null : appearance.create(actionContext);								
 		
 		return mcs.create(actionContext).then(config -> new ActionFacade(
 				actionContext, 
