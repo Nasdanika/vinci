@@ -2,7 +2,7 @@
 <org.nasdanika.vinci.app:Action xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.nasdanika.vinci.app="urn:org.nasdanika.vinci.app" xmlns:org.nasdanika.vinci.components="urn:org.nasdanika.vinci.components" title="Root" id="index" text="Root">
   <elements xsi:type="org.nasdanika.vinci.app:Action" title="Principal" id="89905baf-526b-4f04-8bb2-50fab6e04eeb" text="Principal">
     <elements xsi:type="org.nasdanika.vinci.app:Action" title="Paragraphs" id="33e59c8e-67f3-4188-8062-9dea36bfdf56" text="Paragraphs">
-      <elements xsi:type="org.nasdanika.vinci.app:Action" title="Section 1" id="d4586dff-fbe0-44cf-b099-15121ac7b4dc" text="Section 1">
+      <elements xsi:type="org.nasdanika.vinci.app:Action" title="Section 1" id="d4586dff-fbe0-44cf-b099-15121ac7b4dc" text="Section 1" role="Section">
         <elements xsi:type="org.nasdanika.vinci.app:Action" title="Context 1.1" id="10950a14-5e28-4e64-87a9-85c2c014572d" text="Context 1.1" role="Context">
           <content xsi:type="org.nasdanika.vinci.components:MarkdownText" markdown="Context 1.1 content"/>
         </elements>
@@ -11,7 +11,7 @@
             <content xsi:type="org.nasdanika.vinci.components:MarkdownText" markdown="Context 1.2.1 content"/>
           </elements>
         </elements>
-        <elements xsi:type="org.nasdanika.vinci.app:Action" title="Section 1.1" id="889358e9-34c2-4c4e-aa35-3bbfe0787a20" text="Section 1.1">
+        <elements xsi:type="org.nasdanika.vinci.app:Action" title="Section 1.1" id="889358e9-34c2-4c4e-aa35-3bbfe0787a20" text="Section 1.1" role="Section">
           <elements xsi:type="org.nasdanika.vinci.app:Action" title="Context 1.1.1" id="f726cfa8-d80e-4938-9e9b-45e361f23cd5" text="Context 1.1.1" role="Context">
             <content xsi:type="org.nasdanika.vinci.components:MarkdownText" markdown="Context 1.1.1 content"/>
           </elements>
