@@ -278,6 +278,7 @@ public class ActionBaseItemProvider extends LabelItemProvider {
 			children = new ArrayList<>();
 			eReferenceItemProviders.put(object, children);
 			children.add(new EReferenceItemProvider(this, (EObject) object, AppPackage.Literals.CONTAINER__ELEMENTS));
+			children.add(new EReferenceItemProvider(this, (EObject) object, AppPackage.Literals.CONTAINER__LINKED_ELEMENTS));
 			children.add(new EReferenceItemProvider(this, (EObject) object, AppPackage.Literals.ABSTRACT_ACTION__ACTION_MAPPINGS)); 
 			children.add(new EReferenceItemProvider(this, (EObject) object, AppPackage.Literals.ACTION_BASE__CONTENT)); 
 		}
