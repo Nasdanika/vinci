@@ -17,14 +17,6 @@
       <genEnumLiterals ecoreEnumLiteral="app.ecore#//ActionRole/View"/>
       <genEnumLiterals ecoreEnumLiteral="app.ecore#//ActionRole/Edit"/>
     </genEnums>
-    <genEnums typeSafeEnumCompatible="false" ecoreEnum="app.ecore#//SectionStyle">
-      <genEnumLiterals ecoreEnumLiteral="app.ecore#//SectionStyle/Paragraph"/>
-      <genEnumLiterals ecoreEnumLiteral="app.ecore#//SectionStyle/Tab"/>
-      <genEnumLiterals ecoreEnumLiteral="app.ecore#//SectionStyle/Pill"/>
-      <genEnumLiterals ecoreEnumLiteral="app.ecore#//SectionStyle/VerticalPill"/>
-      <genEnumLiterals ecoreEnumLiteral="app.ecore#//SectionStyle/ActionGroup"/>
-      <genEnumLiterals ecoreEnumLiteral="app.ecore#//SectionStyle/Card"/>
-    </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="app.ecore#//ActivatorType">
       <genEnumLiterals ecoreEnumLiteral="app.ecore#//ActivatorType/Reference"/>
       <genEnumLiterals ecoreEnumLiteral="app.ecore#//ActivatorType/Script"/>

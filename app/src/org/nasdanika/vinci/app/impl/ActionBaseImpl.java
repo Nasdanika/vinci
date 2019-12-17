@@ -47,7 +47,6 @@ import org.nasdanika.vinci.app.ActionRole;
 import org.nasdanika.vinci.app.ActivatorType;
 import org.nasdanika.vinci.app.AppPackage;
 import org.nasdanika.vinci.app.BootstrapContainerApplicationBuilder;
-import org.nasdanika.vinci.app.SectionStyle;
 import org.nasdanika.vinci.bootstrap.Appearance;
 
 /**
@@ -95,7 +94,7 @@ public abstract class ActionBaseImpl extends LabelImpl implements ActionBase {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final SectionStyle SECTION_STYLE_EDEFAULT = SectionStyle.PARAGRAPH;
+	protected static final String SECTION_STYLE_EDEFAULT = null;
 
 	/**
 	 * The default value of the '{@link #getSectionColumns() <em>Section Columns</em>}' attribute.
@@ -245,8 +244,8 @@ public abstract class ActionBaseImpl extends LabelImpl implements ActionBase {
 	 * @generated
 	 */
 	@Override
-	public SectionStyle getSectionStyle() {
-		return (SectionStyle)eDynamicGet(AppPackage.ACTION_BASE__SECTION_STYLE, AppPackage.Literals.ACTION_BASE__SECTION_STYLE, true, true);
+	public String getSectionStyle() {
+		return (String)eDynamicGet(AppPackage.ACTION_BASE__SECTION_STYLE, AppPackage.Literals.ACTION_BASE__SECTION_STYLE, true, true);
 	}
 
 	/**
@@ -255,7 +254,7 @@ public abstract class ActionBaseImpl extends LabelImpl implements ActionBase {
 	 * @generated
 	 */
 	@Override
-	public void setSectionStyle(SectionStyle newSectionStyle) {
+	public void setSectionStyle(String newSectionStyle) {
 		eDynamicSet(AppPackage.ACTION_BASE__SECTION_STYLE, AppPackage.Literals.ACTION_BASE__SECTION_STYLE, newSectionStyle);
 	}
 
@@ -554,7 +553,7 @@ public abstract class ActionBaseImpl extends LabelImpl implements ActionBase {
 				setRole((ActionRole)newValue);
 				return;
 			case AppPackage.ACTION_BASE__SECTION_STYLE:
-				setSectionStyle((SectionStyle)newValue);
+				setSectionStyle((String)newValue);
 				return;
 			case AppPackage.ACTION_BASE__SECTION_COLUMNS:
 				setSectionColumns((Integer)newValue);
@@ -653,7 +652,7 @@ public abstract class ActionBaseImpl extends LabelImpl implements ActionBase {
 			case AppPackage.ACTION_BASE__ROLE:
 				return getRole() != ROLE_EDEFAULT;
 			case AppPackage.ACTION_BASE__SECTION_STYLE:
-				return getSectionStyle() != SECTION_STYLE_EDEFAULT;
+				return SECTION_STYLE_EDEFAULT == null ? getSectionStyle() != null : !SECTION_STYLE_EDEFAULT.equals(getSectionStyle());
 			case AppPackage.ACTION_BASE__SECTION_COLUMNS:
 				return getSectionColumns() != SECTION_COLUMNS_EDEFAULT;
 			case AppPackage.ACTION_BASE__ACTIVATOR:

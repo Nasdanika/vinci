@@ -33,6 +33,7 @@ import org.nasdanika.common.SupplierFactory;
  *
  * @see org.nasdanika.vinci.app.AppPackage#getActionBase()
  * @model abstract="true"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore constraints='sectionStyle'"
  * @generated
  */
 public interface ActionBase extends Label, AbstractAction, Container<ActionElement> {
@@ -66,28 +67,28 @@ public interface ActionBase extends Label, AbstractAction, Container<ActionEleme
 
 	/**
 	 * Returns the value of the '<em><b>Section Style</b></em>' attribute.
-	 * The literals are from the enumeration {@link org.nasdanika.vinci.app.SectionStyle}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Defines how to generate section children.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Section Style</em>' attribute.
-	 * @see org.nasdanika.vinci.app.SectionStyle
-	 * @see #setSectionStyle(SectionStyle)
+	 * @see #setSectionStyle(String)
 	 * @see org.nasdanika.vinci.app.AppPackage#getActionBase_SectionStyle()
 	 * @model
 	 * @generated
 	 */
-	SectionStyle getSectionStyle();
+	String getSectionStyle();
 
 	/**
 	 * Sets the value of the '{@link org.nasdanika.vinci.app.ActionBase#getSectionStyle <em>Section Style</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Section Style</em>' attribute.
-	 * @see org.nasdanika.vinci.app.SectionStyle
 	 * @see #getSectionStyle()
 	 * @generated
 	 */
-	void setSectionStyle(SectionStyle value);
+	void setSectionStyle(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Section Columns</b></em>' attribute.

@@ -17,6 +17,7 @@ import org.nasdanika.html.app.Action;
 import org.nasdanika.html.app.Decorator;
 import org.nasdanika.html.app.NavigationActionActivator;
 import org.nasdanika.html.app.ScriptActionActivator;
+import org.nasdanika.html.app.SectionStyle;
 import org.nasdanika.html.app.ViewGenerator;
 import org.nasdanika.html.app.impl.ActionImpl;
 import org.nasdanika.html.bootstrap.BootstrapElement;
@@ -24,6 +25,7 @@ import org.nasdanika.html.bootstrap.BootstrapFactory;
 import org.nasdanika.html.bootstrap.Color;
 import org.nasdanika.vinci.app.ActionBase;
 import org.nasdanika.vinci.app.ActionCategory;
+import org.nasdanika.vinci.app.ActionRole;
 
 public class ActionFacade extends org.nasdanika.html.app.impl.ActionImpl implements Decorator {
 		
@@ -50,7 +52,7 @@ public class ActionFacade extends org.nasdanika.html.app.impl.ActionImpl impleme
 		String color = target.getColor();
 		if (!Util.isBlank(color)) {
 			setColor(Color.fromLabel(color));
-		}
+		}		
 		setOutline(target.isOutline());
 		setNotification(actionContext.interpolate(target.getNotification()));
 		setDisabled(target.isDisabled());
@@ -75,45 +77,48 @@ public class ActionFacade extends org.nasdanika.html.app.impl.ActionImpl impleme
 		// activator
 		String activator = target.getActivator();
 
-		switch (target.getActivatorType()) {
-		case NONE:
-			// No activator
-			break;
-		case BIND:
-			throw new UnsupportedOperationException("Not implemented yet");
-		case REFERENCE:
-			if (Util.isBlank(activator) && !Util.isBlank(target.getId())) {
-				activator = target.getId() + ".html";
-			}
-			String url = actionContext.interpolate(activator);
-			if (Util.isBlank(url)) {
-				throw new IllegalArgumentException("Activator type is reference and activator URL is blank");
-			}
-			setActivator(new NavigationActionActivator() {
-
-				@Override
-				public String getUrl() {
-					return url;
+		// Activators for non-sections.
+		if (target.getRole() != ActionRole.SECTION) {
+			switch (target.getActivatorType()) {
+			case NONE:
+				// No activator
+				break;
+			case BIND:
+				throw new UnsupportedOperationException("Not implemented yet");
+			case REFERENCE:
+				if (Util.isBlank(activator) && !Util.isBlank(target.getId())) {
+					activator = target.getId() + ".html";
 				}
-
-			});
-			break;
-		case SCRIPT:
-			String code = actionContext.interpolate(activator);
-			if (Util.isBlank(code)) {
-				throw new IllegalArgumentException("Activator type is script and activator code is blank");
-			}
-			setActivator(new ScriptActionActivator() {
-
-				@Override
-				public String getCode() {
-					return code;
+				String url = actionContext.interpolate(activator);
+				if (Util.isBlank(url)) {
+					throw new IllegalArgumentException("Activator type is reference and activator URL is blank");
 				}
-
-			});
-			break;
-		default:
-			throw new IllegalArgumentException();
+				setActivator(new NavigationActionActivator() {
+	
+					@Override
+					public String getUrl() {
+						return url;
+					}
+	
+				});
+				break;
+			case SCRIPT:
+				String code = actionContext.interpolate(activator);
+				if (Util.isBlank(code)) {
+					throw new IllegalArgumentException("Activator type is script and activator code is blank");
+				}
+				setActivator(new ScriptActionActivator() {
+	
+					@Override
+					public String getCode() {
+						return code;
+					}
+	
+				});
+				break;
+			default:
+				throw new IllegalArgumentException();
+			}
 		}
 
 		// category
@@ -148,6 +153,8 @@ public class ActionFacade extends org.nasdanika.html.app.impl.ActionImpl impleme
 
 			setCategory(cat);
 		}
+		
+		setSectionStyle(Util.isBlank(target.getSectionStyle()) ? SectionStyle.Auto : SectionStyle.fromLabel(target.getSectionStyle()));
 
 		switch (target.getRole()) {
 		case CONTEXT:

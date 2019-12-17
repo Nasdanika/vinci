@@ -34,7 +34,6 @@ import org.nasdanika.vinci.app.BootstrapContainerApplicationSection;
 import org.nasdanika.vinci.app.Category;
 import org.nasdanika.vinci.app.Label;
 import org.nasdanika.vinci.app.Partition;
-import org.nasdanika.vinci.app.SectionStyle;
 import org.nasdanika.vinci.app.util.AppValidator;
 import org.nasdanika.vinci.bootstrap.BootstrapPackage;
 import org.nasdanika.vinci.html.HtmlPackage;
@@ -129,13 +128,6 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 	 * @generated
 	 */
 	private EEnum actionRoleEEnum = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EEnum sectionStyleEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -641,16 +633,6 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 	 * @generated
 	 */
 	@Override
-	public EEnum getSectionStyle() {
-		return sectionStyleEEnum;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EEnum getActivatorType() {
 		return activatorTypeEEnum;
 	}
@@ -937,7 +919,6 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 
 		// Create enums
 		actionRoleEEnum = createEEnum(ACTION_ROLE);
-		sectionStyleEEnum = createEEnum(SECTION_STYLE);
 		activatorTypeEEnum = createEEnum(ACTIVATOR_TYPE);
 	}
 
@@ -1051,7 +1032,7 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 
 		initEClass(actionBaseEClass, ActionBase.class, "ActionBase", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getActionBase_Role(), this.getActionRole(), "role", null, 0, 1, ActionBase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getActionBase_SectionStyle(), this.getSectionStyle(), "sectionStyle", null, 0, 1, ActionBase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getActionBase_SectionStyle(), ecorePackage.getEString(), "sectionStyle", null, 0, 1, ActionBase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getActionBase_SectionColumns(), ecorePackage.getEInt(), "sectionColumns", "1", 0, 1, ActionBase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getActionBase_Activator(), ecorePackage.getEString(), "activator", null, 0, 1, ActionBase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getActionBase_ActivatorType(), this.getActivatorType(), "activatorType", null, 0, 1, ActionBase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1115,14 +1096,6 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 		addEEnumLiteral(actionRoleEEnum, ActionRole.SECTION);
 		addEEnumLiteral(actionRoleEEnum, ActionRole.VIEW);
 		addEEnumLiteral(actionRoleEEnum, ActionRole.EDIT);
-
-		initEEnum(sectionStyleEEnum, SectionStyle.class, "SectionStyle");
-		addEEnumLiteral(sectionStyleEEnum, SectionStyle.PARAGRAPH);
-		addEEnumLiteral(sectionStyleEEnum, SectionStyle.TAB);
-		addEEnumLiteral(sectionStyleEEnum, SectionStyle.PILL);
-		addEEnumLiteral(sectionStyleEEnum, SectionStyle.VERTICAL_PILL);
-		addEEnumLiteral(sectionStyleEEnum, SectionStyle.ACTION_GROUP);
-		addEEnumLiteral(sectionStyleEEnum, SectionStyle.CARD);
 
 		initEEnum(activatorTypeEEnum, ActivatorType.class, "ActivatorType");
 		addEEnumLiteral(activatorTypeEEnum, ActivatorType.REFERENCE);
@@ -1263,6 +1236,12 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 			   "documentation", "Actions may play different roles in their container."
 		   });
 		addAnnotation
+		  (getActionBase_SectionStyle(),
+		   source,
+		   new String[] {
+			   "documentation", "Defines how to generate section children."
+		   });
+		addAnnotation
 		  (getActionBase_SectionColumns(),
 		   source,
 		   new String[] {
@@ -1377,12 +1356,6 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 			   "documentation", "Actions to display during editing. Applicable to property and property source actions. "
 		   });
 		addAnnotation
-		  (sectionStyleEEnum,
-		   source,
-		   new String[] {
-			   "documentation", "Defines how section child actions shall be displayed."
-		   });
-		addAnnotation
 		  (activatorTypeEEnum,
 		   source,
 		   new String[] {
@@ -1493,6 +1466,12 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 		   source,
 		   new String[] {
 			   "constraints", "elements"
+		   });
+		addAnnotation
+		  (actionBaseEClass,
+		   source,
+		   new String[] {
+			   "constraints", "sectionStyle"
 		   });
 		addAnnotation
 		  (actionReferenceEClass,

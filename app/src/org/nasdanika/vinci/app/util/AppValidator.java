@@ -21,6 +21,7 @@ import org.eclipse.emf.ecore.util.Diagnostician;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.nasdanika.common.Util;
 import org.nasdanika.emf.DiagnosticHelper;
+import org.nasdanika.html.app.SectionStyle;
 import org.nasdanika.html.bootstrap.Color;
 import org.nasdanika.vinci.app.AbstractAction;
 import org.nasdanika.vinci.app.Action;
@@ -41,7 +42,6 @@ import org.nasdanika.vinci.app.Category;
 import org.nasdanika.vinci.app.Container;
 import org.nasdanika.vinci.app.Label;
 import org.nasdanika.vinci.app.Partition;
-import org.nasdanika.vinci.app.SectionStyle;
 
 /**
  * <!-- begin-user-doc -->
@@ -149,8 +149,6 @@ public class AppValidator extends EObjectValidator {
 				return validateBootstrapContainerApplicationBuilder((BootstrapContainerApplicationBuilder)value, diagnostics, context);
 			case AppPackage.ACTION_ROLE:
 				return validateActionRole((ActionRole)value, diagnostics, context);
-			case AppPackage.SECTION_STYLE:
-				return validateSectionStyle((SectionStyle)value, diagnostics, context);
 			case AppPackage.ACTIVATOR_TYPE:
 				return validateActivatorType((ActivatorType)value, diagnostics, context);
 			default:
@@ -317,7 +315,27 @@ public class AppValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(actionBase, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(actionBase, diagnostics, context);
 		if (result || diagnostics != null) result &= validateLabel_color(actionBase, diagnostics, context);
+		if (result || diagnostics != null) result &= validateActionBase_sectionStyle(actionBase, diagnostics, context);
 		return result;
+	}
+
+	/**
+	 * Validates the sectionStyle constraint of '<em>Action Base</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public boolean validateActionBase_sectionStyle(ActionBase actionBase, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (diagnostics != null && !Util.isBlank(actionBase.getSectionStyle())) {			
+			DiagnosticHelper helper = new DiagnosticHelper(diagnostics, DIAGNOSTIC_SOURCE, 0, actionBase);
+			try {
+				SectionStyle.fromLabel(actionBase.getSectionStyle());
+			} catch (Exception e) {
+				helper.error("Invalid section style: "+actionBase.getSectionStyle()+", shall be one of the following: " + Arrays.stream(SectionStyle.values()).map(ss -> ss.label).collect(Collectors.toList()), AppPackage.Literals.ACTION_BASE__SECTION_STYLE);
+			}
+			return helper.isSuccess();
+		}
+		return true;
 	}
 
 	/**
@@ -396,6 +414,7 @@ public class AppValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(action, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(action, diagnostics, context);
 		if (result || diagnostics != null) result &= validateLabel_color(action, diagnostics, context);
+		if (result || diagnostics != null) result &= validateActionBase_sectionStyle(action, diagnostics, context);
 		return result;
 	}
 
@@ -415,6 +434,7 @@ public class AppValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(partition, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(partition, diagnostics, context);
 		if (result || diagnostics != null) result &= validateLabel_color(partition, diagnostics, context);
+		if (result || diagnostics != null) result &= validateActionBase_sectionStyle(partition, diagnostics, context);
 		return result;
 	}
 
@@ -460,15 +480,6 @@ public class AppValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateActionRole(ActionRole actionRole, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return true;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateSectionStyle(SectionStyle sectionStyle, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return true;
 	}
 

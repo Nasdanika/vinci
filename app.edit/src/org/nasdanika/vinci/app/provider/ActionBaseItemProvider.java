@@ -15,6 +15,7 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.nasdanika.emf.edit.EReferenceItemProvider;
+import org.nasdanika.html.app.SectionStyle;
 import org.nasdanika.vinci.app.ActionBase;
 import org.nasdanika.vinci.app.AppFactory;
 import org.nasdanika.vinci.app.AppPackage;
@@ -121,7 +122,7 @@ public class ActionBaseItemProvider extends LabelItemProvider {
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null,
-				 null));
+				 enumChoices(SectionStyle.class, false, ss -> ss.label)));
 	}
 
 	/**

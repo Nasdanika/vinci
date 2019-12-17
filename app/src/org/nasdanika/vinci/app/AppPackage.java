@@ -1845,16 +1845,6 @@ public interface AppPackage extends EPackage {
 	int ACTION_ROLE = 16;
 
 	/**
-	 * The meta object id for the '{@link org.nasdanika.vinci.app.SectionStyle <em>Section Style</em>}' enum.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.nasdanika.vinci.app.SectionStyle
-	 * @see org.nasdanika.vinci.app.impl.AppPackageImpl#getSectionStyle()
-	 * @generated
-	 */
-	int SECTION_STYLE = 17;
-
-	/**
 	 * The meta object id for the '{@link org.nasdanika.vinci.app.ActivatorType <em>Activator Type</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1862,7 +1852,7 @@ public interface AppPackage extends EPackage {
 	 * @see org.nasdanika.vinci.app.impl.AppPackageImpl#getActivatorType()
 	 * @generated
 	 */
-	int ACTIVATOR_TYPE = 18;
+	int ACTIVATOR_TYPE = 17;
 
 	/**
 	 * Returns the meta object for class '{@link org.nasdanika.vinci.app.Label <em>Label</em>}'.
@@ -2268,16 +2258,6 @@ public interface AppPackage extends EPackage {
 	 * @generated
 	 */
 	EEnum getActionRole();
-
-	/**
-	 * Returns the meta object for enum '{@link org.nasdanika.vinci.app.SectionStyle <em>Section Style</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for enum '<em>Section Style</em>'.
-	 * @see org.nasdanika.vinci.app.SectionStyle
-	 * @generated
-	 */
-	EEnum getSectionStyle();
 
 	/**
 	 * Returns the meta object for enum '{@link org.nasdanika.vinci.app.ActivatorType <em>Activator Type</em>}'.
@@ -2832,16 +2812,6 @@ public interface AppPackage extends EPackage {
 		 * @generated
 		 */
 		EEnum ACTION_ROLE = eINSTANCE.getActionRole();
-
-		/**
-		 * The meta object literal for the '{@link org.nasdanika.vinci.app.SectionStyle <em>Section Style</em>}' enum.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.nasdanika.vinci.app.SectionStyle
-		 * @see org.nasdanika.vinci.app.impl.AppPackageImpl#getSectionStyle()
-		 * @generated
-		 */
-		EEnum SECTION_STYLE = eINSTANCE.getSectionStyle();
 
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.vinci.app.ActivatorType <em>Activator Type</em>}' enum.

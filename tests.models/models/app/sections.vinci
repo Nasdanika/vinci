@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <org.nasdanika.vinci.app:Action xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.nasdanika.vinci.app="urn:org.nasdanika.vinci.app" xmlns:org.nasdanika.vinci.components="urn:org.nasdanika.vinci.components" title="Root" id="index" text="Root">
   <elements xsi:type="org.nasdanika.vinci.app:Action" title="Principal" id="89905baf-526b-4f04-8bb2-50fab6e04eeb" text="Principal">
-    <elements xsi:type="org.nasdanika.vinci.app:Action" title="Paragraphs" id="33e59c8e-67f3-4188-8062-9dea36bfdf56" text="Paragraphs">
+    <elements xsi:type="org.nasdanika.vinci.app:Action" title="Default" id="33e59c8e-67f3-4188-8062-9dea36bfdf56" text="Default">
       <elements xsi:type="org.nasdanika.vinci.app:Action" title="Section 1" id="d4586dff-fbe0-44cf-b099-15121ac7b4dc" text="Section 1" role="Section">
         <elements xsi:type="org.nasdanika.vinci.app:Action" title="Context 1.1" id="10950a14-5e28-4e64-87a9-85c2c014572d" text="Context 1.1" role="Context">
           <content xsi:type="org.nasdanika.vinci.components:MarkdownText" markdown="Context 1.1 content"/>
@@ -22,7 +22,7 @@
           </elements>
           <content xsi:type="org.nasdanika.vinci.components:MarkdownText" markdown="Section 1.1 content"/>
         </elements>
-        <elements xsi:type="org.nasdanika.vinci.app:Action" title="Section 1.2" id="31c6262f-0bbd-41cb-834e-72988b975ab3" text="Section 1.2">
+        <elements xsi:type="org.nasdanika.vinci.app:Action" title="Section 1.2" id="31c6262f-0bbd-41cb-834e-72988b975ab3" text="Section 1.2" role="Section">
           <elements xsi:type="org.nasdanika.vinci.app:Action" title="Context 1.2.1" id="2524da40-6c68-43db-bf4e-e57d7d8d79fa" text="Context 1.2.1" role="Context">
             <content xsi:type="org.nasdanika.vinci.components:MarkdownText" markdown="Context 1.2.1 content"/>
           </elements>
@@ -31,9 +31,39 @@
               <content xsi:type="org.nasdanika.vinci.components:MarkdownText" markdown="Context 1.2.2.1 content"/>
             </elements>
           </elements>
+          <elements xsi:type="org.nasdanika.vinci.app:Action" title="Section 1.2.1" id="a403365c-aad8-4b85-b04b-2b0f0d7feffa" text="Section 1.2.1" role="Section">
+            <elements xsi:type="org.nasdanika.vinci.app:Action" title="Context 1.2.1.1" id="7c87e30b-3aaf-45b8-9785-f86d0fbdb3be" text="Context 1.2.1.1" role="Context">
+              <content xsi:type="org.nasdanika.vinci.components:MarkdownText" markdown="Context 1.2.1.1 content"/>
+            </elements>
+            <elements xsi:type="org.nasdanika.vinci.app:Action" title="Context 1.2.1.2" id="21ffc591-8101-4b6a-bb94-61be0c624e94" text="Context 1.2.1.2" role="Context" activatorType="None">
+              <elements xsi:type="org.nasdanika.vinci.app:Action" title="Context 1.2.1.2.1" id="36e18185-9f89-4fb1-b76e-7c9c9d8e556f" text="Context 1.2.1.2.1">
+                <content xsi:type="org.nasdanika.vinci.components:MarkdownText" markdown="Context 1.2.1.2.1 content"/>
+              </elements>
+            </elements>
+            <elements xsi:type="org.nasdanika.vinci.app:Action" title="Section 1.2.1.1" id="f3dc7498-1c6c-4326-98f2-9e4c80778cd6" text="Section 1.2.1.1" role="Section">
+              <elements xsi:type="org.nasdanika.vinci.app:Action" title="Context 1.2.1.1" id="f1d461ff-d3cc-49f2-b1ef-b3d1d18187c3" text="Context 1.2.1.1" role="Context">
+                <content xsi:type="org.nasdanika.vinci.components:MarkdownText" markdown="Context 1.2.1.1 content"/>
+              </elements>
+              <elements xsi:type="org.nasdanika.vinci.app:Action" title="Context 1.2.1.2" id="e202f0af-ed61-4923-9e05-9ea7f280bda8" text="Context 1.2.1.2" role="Context" activatorType="None">
+                <elements xsi:type="org.nasdanika.vinci.app:Action" title="Context 1.2.1.2.1" id="7859a539-b3b3-412a-a451-b530dd48a281" text="Context 1.2.1.2.1">
+                  <content xsi:type="org.nasdanika.vinci.components:MarkdownText" markdown="Context 1.2.1.2.1 content"/>
+                </elements>
+              </elements>
+              <content xsi:type="org.nasdanika.vinci.components:MarkdownText" markdown="Section 1.2.1 Content"/>
+            </elements>
+            <content xsi:type="org.nasdanika.vinci.components:MarkdownText" markdown="Section 1.2.1 Content"/>
+          </elements>
           <content xsi:type="org.nasdanika.vinci.components:MarkdownText" markdown="Section 1.2 content"/>
         </elements>
         <content xsi:type="org.nasdanika.vinci.components:MarkdownText" markdown="Section 1 content"/>
+      </elements>
+      <elements xsi:type="org.nasdanika.vinci.app:Action" title="Context 0.1" id="6dcf431b-41eb-4118-aae8-fb215757259d" text="Context 0.1" role="Context">
+        <content xsi:type="org.nasdanika.vinci.components:MarkdownText" markdown="Context 0.1 content"/>
+      </elements>
+      <elements xsi:type="org.nasdanika.vinci.app:Action" title="Context 0.2" id="dbb8cf77-a0f6-4420-b874-d73d8484988c" text="Context 0.2" role="Context" activatorType="None">
+        <elements xsi:type="org.nasdanika.vinci.app:Action" title="Context 0.2.1" id="9a62ed2a-1c9f-4773-b568-33271cf91184" text="Context 0.2.1">
+          <content xsi:type="org.nasdanika.vinci.components:MarkdownText" markdown="Context 0.2.1 content"/>
+        </elements>
       </elements>
       <content xsi:type="org.nasdanika.vinci.components:MarkdownText" markdown="Paragraphs content"/>
     </elements>

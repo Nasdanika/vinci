@@ -118,12 +118,19 @@
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Base class for concrete action classes - Action and Partition. These sub-classes are semantically equivalent and differ only in diagram representation - Action is represented by a node, Partition by a container node.&#xA;Action can be a child of another action or of an action category. It may contain content and action elements - abstract actions and action categories. It may also contain action aliases - logical names of actions referenced by this action's content."/>
     </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="sectionStyle"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="role" eType="#//ActionRole">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Actions may play different roles in their container."/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sectionStyle" eType="#//SectionStyle"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sectionStyle" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Defines how to generate section children."/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="sectionColumns" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
         defaultValueLiteral="1">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -241,17 +248,6 @@
         <details key="documentation" value="Actions to display during editing. Applicable to property and property source actions. "/>
       </eAnnotations>
     </eLiterals>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EEnum" name="SectionStyle">
-    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="Defines how section child actions shall be displayed."/>
-    </eAnnotations>
-    <eLiterals name="Paragraph"/>
-    <eLiterals name="Tab" value="1"/>
-    <eLiterals name="Pill" value="2"/>
-    <eLiterals name="VerticalPill" value="3" literal="Vertical Pills"/>
-    <eLiterals name="ActionGroup" value="4" literal="Action Group"/>
-    <eLiterals name="Card" value="5"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="ActivatorType">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">

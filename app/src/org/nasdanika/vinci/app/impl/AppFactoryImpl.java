@@ -9,17 +9,6 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import org.nasdanika.vinci.app.*;
-import org.nasdanika.vinci.app.Action;
-import org.nasdanika.vinci.app.ActionCategory;
-import org.nasdanika.vinci.app.ActionLink;
-import org.nasdanika.vinci.app.ActionMapping;
-import org.nasdanika.vinci.app.ActionReference;
-import org.nasdanika.vinci.app.ActionRole;
-import org.nasdanika.vinci.app.ActivatorType;
-import org.nasdanika.vinci.app.AppFactory;
-import org.nasdanika.vinci.app.AppPackage;
-import org.nasdanika.vinci.app.Partition;
-import org.nasdanika.vinci.app.SectionStyle;
 
 /**
  * <!-- begin-user-doc -->
@@ -89,8 +78,6 @@ public class AppFactoryImpl extends EFactoryImpl implements AppFactory {
 		switch (eDataType.getClassifierID()) {
 			case AppPackage.ACTION_ROLE:
 				return createActionRoleFromString(eDataType, initialValue);
-			case AppPackage.SECTION_STYLE:
-				return createSectionStyleFromString(eDataType, initialValue);
 			case AppPackage.ACTIVATOR_TYPE:
 				return createActivatorTypeFromString(eDataType, initialValue);
 			default:
@@ -108,8 +95,6 @@ public class AppFactoryImpl extends EFactoryImpl implements AppFactory {
 		switch (eDataType.getClassifierID()) {
 			case AppPackage.ACTION_ROLE:
 				return convertActionRoleToString(eDataType, instanceValue);
-			case AppPackage.SECTION_STYLE:
-				return convertSectionStyleToString(eDataType, instanceValue);
 			case AppPackage.ACTIVATOR_TYPE:
 				return convertActivatorTypeToString(eDataType, instanceValue);
 			default:
@@ -233,26 +218,6 @@ public class AppFactoryImpl extends EFactoryImpl implements AppFactory {
 	 * @generated
 	 */
 	public String convertActionRoleToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public SectionStyle createSectionStyleFromString(EDataType eDataType, String initialValue) {
-		SectionStyle result = SectionStyle.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertSectionStyleToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

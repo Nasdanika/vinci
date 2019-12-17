@@ -191,7 +191,7 @@ public class ActionGroupImpl extends DivImpl implements ActionGroup {
 		
 		Supplier<Object> ret = actionGroupSupplier.then(itemsConsumer.asFunction());
 		if (hasContentItems) {
-			ret = ret.then(ag -> ((org.nasdanika.html.bootstrap.ActionGroup) ag).asContainer());
+			ret = ret.then(ag -> ((org.nasdanika.html.bootstrap.ActionGroup) ag).asContainer(true)); // TODO - configurable?
 		}
 		return ret;
 	}
