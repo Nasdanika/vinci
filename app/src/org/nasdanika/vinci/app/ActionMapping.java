@@ -15,6 +15,13 @@ import org.eclipse.emf.ecore.EObject;
  * Action mapping target is injected into the context under ``action-mappings/<mapping name>`` key. When retrieved as a String, e.g. during interpolation, the mapping is converted to a link. 
  * I.e. in ``This is my mapping ${action-mappings/my-mapping}!`` ``${action-mappings/my-mapping}`` will be interpolated into a link to the mapped action.
  * 
+ * Action mapping also supports ``text``, ``icon``, and ``url`` sub-keys computing to action text and action url for actions with reference activator. 
+ * For example:
+ * 
+ * * ``${action-mappings/my-mapping/text}`` will interpolate to the mapped action text.
+ * * ``${action-mappings/my-mapping/icon}`` will interpolate to the mapped action icon.
+ * * ``${action-mappings/my-mapping/url}`` will interpolate to the mapped action url.
+ * 
  * Mappings are inherited by children. Lower level mappings hide higher level mappings. Action reference mappings are passed to the reference target. 
  * <!-- end-model-doc -->
  *

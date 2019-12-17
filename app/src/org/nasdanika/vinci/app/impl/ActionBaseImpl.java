@@ -25,24 +25,19 @@ import org.nasdanika.common.ListCompoundSupplierFactory;
 import org.nasdanika.common.MapCompoundSupplierFactory;
 import org.nasdanika.common.MutableContext;
 import org.nasdanika.common.ProgressMonitor;
-import org.nasdanika.common.PropertyComputer;
 import org.nasdanika.common.Reference;
 import org.nasdanika.common.Supplier;
 import org.nasdanika.common.SupplierFactory;
 import org.nasdanika.common.Util;
-import org.nasdanika.html.Tag;
 import org.nasdanika.html.app.Action;
 import org.nasdanika.html.app.Application;
 import org.nasdanika.html.app.ApplicationBuilder;
-import org.nasdanika.html.app.ViewGenerator;
 import org.nasdanika.html.app.impl.ActionApplicationBuilder;
-import org.nasdanika.html.app.impl.ViewGeneratorImpl;
 import org.nasdanika.vinci.app.AbstractAction;
 import org.nasdanika.vinci.app.ActionBase;
 import org.nasdanika.vinci.app.ActionCategory;
 import org.nasdanika.vinci.app.ActionElement;
 import org.nasdanika.vinci.app.ActionMapping;
-import org.nasdanika.vinci.app.ActionReference;
 import org.nasdanika.vinci.app.ActionRole;
 import org.nasdanika.vinci.app.ActivatorType;
 import org.nasdanika.vinci.app.AppPackage;
@@ -793,41 +788,7 @@ public abstract class ActionBaseImpl extends LabelImpl implements ActionBase {
 	public Supplier<Object> create(Context context) throws Exception {
 		
 		MutableContext actionContext = context.fork();
-		
-		for (ActionMapping actionMapping: getActionMappings()) {
-			actionContext.put("action-mappings/"+actionMapping.getAlias(), new PropertyComputer() {
-				
-				private ActionBase unwrap(AbstractAction target) {
-					if (target instanceof ActionBase) {
-						return (ActionBase) target;
-					}
-					
-					if (target instanceof ActionReference) {
-						return unwrap(((ActionReference) target).getAction());
-					}
-					
-					throw new UnsupportedOperationException("Unwrapping of " + target + " is not supported (yet)");
-				}
-				
-				@SuppressWarnings("unchecked")
-				@Override
-				public <T> T compute(Context context, String key, Class<T> type) {
-					if (type.isInstance(actionMapping.getTarget())) {
-						return (T) actionMapping.getTarget();
-					}
-					
-					if (type == String.class || type.isAssignableFrom(Tag.class)) {
-						ViewGenerator viewGenerator = context.get(ViewGenerator.class, new ViewGeneratorImpl(context, null, null));
-						ActionFacade actionFacade = new ActionFacade(actionContext, unwrap(actionMapping.getTarget()));
-						Tag link = viewGenerator.link(actionFacade);
-						return (T) (type == String.class ? link.toString() : link);
-					}
-					
-					throw new IllegalArgumentException("Cannot convert " + actionMapping.getTarget() + " to " + type);
-				}
-				
-			});
-		}
+		new ActionMappingsPropertyComputer("action-mappings", getActionMappings()).put(actionContext);
 
 		String ELEMENTS_KEY = "Elements";		
 		String CONTENT_KEY = "Content";			
