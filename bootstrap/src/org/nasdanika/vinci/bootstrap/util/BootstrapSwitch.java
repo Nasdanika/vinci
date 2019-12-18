@@ -45,8 +45,11 @@ import org.nasdanika.vinci.bootstrap.Navs;
 import org.nasdanika.vinci.bootstrap.Row;
 import org.nasdanika.vinci.bootstrap.Spacing;
 import org.nasdanika.vinci.bootstrap.Table;
-import org.nasdanika.vinci.bootstrap.TableColumn;
+import org.nasdanika.vinci.bootstrap.TableCell;
+import org.nasdanika.vinci.bootstrap.TableHeader;
 import org.nasdanika.vinci.bootstrap.TableRow;
+import org.nasdanika.vinci.bootstrap.TableRowContainer;
+import org.nasdanika.vinci.bootstrap.TableSection;
 import org.nasdanika.vinci.bootstrap.Tag;
 import org.nasdanika.vinci.bootstrap.Text;
 import org.nasdanika.vinci.bootstrap.Tooltip;
@@ -382,21 +385,67 @@ public class BootstrapSwitch<T1> extends Switch<T1> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case BootstrapPackage.TABLE_ROW_CONTAINER: {
+				TableRowContainer tableRowContainer = (TableRowContainer)theEObject;
+				T1 result = caseTableRowContainer(tableRowContainer);
+				if (result == null) result = caseBootstrapElement(tableRowContainer);
+				if (result == null) result = caseHtmlElement(tableRowContainer);
+				if (result == null) result = caseModelElement(tableRowContainer);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case BootstrapPackage.TABLE_SECTION: {
+				TableSection tableSection = (TableSection)theEObject;
+				T1 result = caseTableSection(tableSection);
+				if (result == null) result = caseTableRowContainer(tableSection);
+				if (result == null) result = caseIConsumerFactory(tableSection);
+				if (result == null) result = caseBootstrapElement(tableSection);
+				if (result == null) result = caseHtmlElement(tableSection);
+				if (result == null) result = caseModelElement(tableSection);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case BootstrapPackage.TABLE_HEADER: {
+				TableHeader tableHeader = (TableHeader)theEObject;
+				T1 result = caseTableHeader(tableHeader);
+				if (result == null) result = caseTableSection(tableHeader);
+				if (result == null) result = caseTableRowContainer(tableHeader);
+				if (result == null) result = caseIConsumerFactory(tableHeader);
+				if (result == null) result = caseBootstrapElement(tableHeader);
+				if (result == null) result = caseHtmlElement(tableHeader);
+				if (result == null) result = caseModelElement(tableHeader);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case BootstrapPackage.TABLE: {
 				Table table = (Table)theEObject;
 				T1 result = caseTable(table);
+				if (result == null) result = caseTableRowContainer(table);
+				if (result == null) result = caseISupplierFactory(table);
+				if (result == null) result = caseBootstrapElement(table);
+				if (result == null) result = caseHtmlElement(table);
+				if (result == null) result = caseModelElement(table);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case BootstrapPackage.TABLE_ROW: {
 				TableRow tableRow = (TableRow)theEObject;
 				T1 result = caseTableRow(tableRow);
+				if (result == null) result = caseBootstrapElement(tableRow);
+				if (result == null) result = caseIConsumerFactory(tableRow);
+				if (result == null) result = caseHtmlElement(tableRow);
+				if (result == null) result = caseModelElement(tableRow);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case BootstrapPackage.TABLE_COLUMN: {
-				TableColumn tableColumn = (TableColumn)theEObject;
-				T1 result = caseTableColumn(tableColumn);
+			case BootstrapPackage.TABLE_CELL: {
+				TableCell tableCell = (TableCell)theEObject;
+				T1 result = caseTableCell(tableCell);
+				if (result == null) result = caseHtml_Container(tableCell);
+				if (result == null) result = caseBootstrapElement(tableCell);
+				if (result == null) result = caseIConsumerFactory(tableCell);
+				if (result == null) result = caseHtmlElement(tableCell);
+				if (result == null) result = caseModelElement(tableCell);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -906,6 +955,51 @@ public class BootstrapSwitch<T1> extends Switch<T1> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Table Row Container</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Table Row Container</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseTableRowContainer(TableRowContainer object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Table Section</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Table Section</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseTableSection(TableSection object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Table Header</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Table Header</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseTableHeader(TableHeader object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Table</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -936,17 +1030,17 @@ public class BootstrapSwitch<T1> extends Switch<T1> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Table Column</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Table Cell</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Table Column</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Table Cell</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseTableColumn(TableColumn object) {
+	public T1 caseTableCell(TableCell object) {
 		return null;
 	}
 

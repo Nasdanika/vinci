@@ -56,8 +56,11 @@ import org.nasdanika.vinci.bootstrap.Navs;
 import org.nasdanika.vinci.bootstrap.Row;
 import org.nasdanika.vinci.bootstrap.Spacing;
 import org.nasdanika.vinci.bootstrap.Table;
-import org.nasdanika.vinci.bootstrap.TableColumn;
+import org.nasdanika.vinci.bootstrap.TableCell;
+import org.nasdanika.vinci.bootstrap.TableHeader;
 import org.nasdanika.vinci.bootstrap.TableRow;
+import org.nasdanika.vinci.bootstrap.TableRowContainer;
+import org.nasdanika.vinci.bootstrap.TableSection;
 import org.nasdanika.vinci.bootstrap.Tag;
 import org.nasdanika.vinci.bootstrap.Text;
 import org.nasdanika.vinci.bootstrap.Tooltip;
@@ -197,12 +200,18 @@ public class BootstrapValidator extends EObjectValidator {
 				return validateNavs((Navs)value, diagnostics, context);
 			case BootstrapPackage.NAVBAR:
 				return validateNavbar((Navbar)value, diagnostics, context);
+			case BootstrapPackage.TABLE_ROW_CONTAINER:
+				return validateTableRowContainer((TableRowContainer)value, diagnostics, context);
+			case BootstrapPackage.TABLE_SECTION:
+				return validateTableSection((TableSection)value, diagnostics, context);
+			case BootstrapPackage.TABLE_HEADER:
+				return validateTableHeader((TableHeader)value, diagnostics, context);
 			case BootstrapPackage.TABLE:
 				return validateTable((Table)value, diagnostics, context);
 			case BootstrapPackage.TABLE_ROW:
 				return validateTableRow((TableRow)value, diagnostics, context);
-			case BootstrapPackage.TABLE_COLUMN:
-				return validateTableColumn((TableColumn)value, diagnostics, context);
+			case BootstrapPackage.TABLE_CELL:
+				return validateTableCell((TableCell)value, diagnostics, context);
 			case BootstrapPackage.TOOLTIP:
 				return validateTooltip((Tooltip)value, diagnostics, context);
 			case BootstrapPackage.INPUT_GROUP:
@@ -976,6 +985,33 @@ public class BootstrapValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean validateTableRowContainer(TableRowContainer tableRowContainer, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(tableRowContainer, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateTableSection(TableSection tableSection, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(tableSection, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateTableHeader(TableHeader tableHeader, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(tableHeader, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public boolean validateTable(Table table, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(table, diagnostics, context);
 	}
@@ -994,8 +1030,8 @@ public class BootstrapValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateTableColumn(TableColumn tableColumn, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(tableColumn, diagnostics, context);
+	public boolean validateTableCell(TableCell tableCell, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(tableCell, diagnostics, context);
 	}
 
 	/**

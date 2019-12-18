@@ -47,8 +47,11 @@ import org.nasdanika.vinci.bootstrap.Navs;
 import org.nasdanika.vinci.bootstrap.Row;
 import org.nasdanika.vinci.bootstrap.Spacing;
 import org.nasdanika.vinci.bootstrap.Table;
-import org.nasdanika.vinci.bootstrap.TableColumn;
+import org.nasdanika.vinci.bootstrap.TableCell;
+import org.nasdanika.vinci.bootstrap.TableHeader;
 import org.nasdanika.vinci.bootstrap.TableRow;
+import org.nasdanika.vinci.bootstrap.TableRowContainer;
+import org.nasdanika.vinci.bootstrap.TableSection;
 import org.nasdanika.vinci.bootstrap.Tag;
 import org.nasdanika.vinci.bootstrap.Text;
 import org.nasdanika.vinci.bootstrap.Tooltip;
@@ -281,6 +284,27 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass tableRowContainerEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass tableSectionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass tableHeaderEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass tableEClass = null;
 
 	/**
@@ -295,7 +319,7 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass tableColumnEClass = null;
+	private EClass tableCellEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1260,8 +1284,158 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 	 * @generated
 	 */
 	@Override
+	public EClass getTableRowContainer() {
+		return tableRowContainerEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getTableRowContainer_Rows() {
+		return (EReference)tableRowContainerEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getTableSection() {
+		return tableSectionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getTableHeader() {
+		return tableHeaderEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getTableHeader_Dark() {
+		return (EAttribute)tableHeaderEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getTableHeader_Light() {
+		return (EAttribute)tableHeaderEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getTable() {
 		return tableEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getTable_Header() {
+		return (EReference)tableEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getTable_Body() {
+		return (EReference)tableEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getTable_Footer() {
+		return (EReference)tableEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getTable_Dark() {
+		return (EAttribute)tableEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getTable_Striped() {
+		return (EAttribute)tableEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getTable_Bordered() {
+		return (EAttribute)tableEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getTable_Borderless() {
+		return (EAttribute)tableEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getTable_Hover() {
+		return (EAttribute)tableEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getTable_Small() {
+		return (EAttribute)tableEClass.getEStructuralFeatures().get(8);
 	}
 
 	/**
@@ -1280,8 +1454,48 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 	 * @generated
 	 */
 	@Override
-	public EClass getTableColumn() {
-		return tableColumnEClass;
+	public EReference getTableRow_Columns() {
+		return (EReference)tableRowEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getTableCell() {
+		return tableCellEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getTableCell_Header() {
+		return (EAttribute)tableCellEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getTableCell_ColSpan() {
+		return (EAttribute)tableCellEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getTableCell_RowSpan() {
+		return (EAttribute)tableCellEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -1488,11 +1702,33 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 
 		navbarEClass = createEClass(NAVBAR);
 
+		tableRowContainerEClass = createEClass(TABLE_ROW_CONTAINER);
+		createEReference(tableRowContainerEClass, TABLE_ROW_CONTAINER__ROWS);
+
+		tableSectionEClass = createEClass(TABLE_SECTION);
+
+		tableHeaderEClass = createEClass(TABLE_HEADER);
+		createEAttribute(tableHeaderEClass, TABLE_HEADER__DARK);
+		createEAttribute(tableHeaderEClass, TABLE_HEADER__LIGHT);
+
 		tableEClass = createEClass(TABLE);
+		createEReference(tableEClass, TABLE__HEADER);
+		createEReference(tableEClass, TABLE__BODY);
+		createEReference(tableEClass, TABLE__FOOTER);
+		createEAttribute(tableEClass, TABLE__DARK);
+		createEAttribute(tableEClass, TABLE__STRIPED);
+		createEAttribute(tableEClass, TABLE__BORDERED);
+		createEAttribute(tableEClass, TABLE__BORDERLESS);
+		createEAttribute(tableEClass, TABLE__HOVER);
+		createEAttribute(tableEClass, TABLE__SMALL);
 
 		tableRowEClass = createEClass(TABLE_ROW);
+		createEReference(tableRowEClass, TABLE_ROW__COLUMNS);
 
-		tableColumnEClass = createEClass(TABLE_COLUMN);
+		tableCellEClass = createEClass(TABLE_CELL);
+		createEAttribute(tableCellEClass, TABLE_CELL__HEADER);
+		createEAttribute(tableCellEClass, TABLE_CELL__COL_SPAN);
+		createEAttribute(tableCellEClass, TABLE_CELL__ROW_SPAN);
 
 		tooltipEClass = createEClass(TOOLTIP);
 
@@ -1585,6 +1821,34 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 		g1.getETypeArguments().add(g2);
 		columnEClass.getEGenericSuperTypes().add(g1);
 		cardEClass.getESuperTypes().add(this.getDiv());
+		tableRowContainerEClass.getESuperTypes().add(this.getBootstrapElement());
+		g1 = createEGenericType(this.getTableRowContainer());
+		tableSectionEClass.getEGenericSuperTypes().add(g1);
+		g1 = createEGenericType(theNcorePackage.getIConsumerFactory());
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		tableSectionEClass.getEGenericSuperTypes().add(g1);
+		tableHeaderEClass.getESuperTypes().add(this.getTableSection());
+		g1 = createEGenericType(this.getTableRowContainer());
+		tableEClass.getEGenericSuperTypes().add(g1);
+		g1 = createEGenericType(theNcorePackage.getISupplierFactory());
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		tableEClass.getEGenericSuperTypes().add(g1);
+		g1 = createEGenericType(this.getBootstrapElement());
+		tableRowEClass.getEGenericSuperTypes().add(g1);
+		g1 = createEGenericType(theNcorePackage.getIConsumerFactory());
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		tableRowEClass.getEGenericSuperTypes().add(g1);
+		g1 = createEGenericType(theHtmlPackage.getContainer());
+		tableCellEClass.getEGenericSuperTypes().add(g1);
+		g1 = createEGenericType(this.getBootstrapElement());
+		tableCellEClass.getEGenericSuperTypes().add(g1);
+		g1 = createEGenericType(theNcorePackage.getIConsumerFactory());
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		tableCellEClass.getEGenericSuperTypes().add(g1);
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(bootstrapPageEClass, BootstrapPage.class, "BootstrapPage", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1705,11 +1969,33 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 
 		initEClass(navbarEClass, Navbar.class, "Navbar", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
+		initEClass(tableRowContainerEClass, TableRowContainer.class, "TableRowContainer", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getTableRowContainer_Rows(), this.getTableRow(), null, "rows", null, 0, -1, TableRowContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(tableSectionEClass, TableSection.class, "TableSection", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(tableHeaderEClass, TableHeader.class, "TableHeader", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getTableHeader_Dark(), ecorePackage.getEBoolean(), "dark", null, 0, 1, TableHeader.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTableHeader_Light(), ecorePackage.getEBoolean(), "light", null, 0, 1, TableHeader.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		initEClass(tableEClass, Table.class, "Table", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getTable_Header(), this.getTableHeader(), null, "header", null, 0, 1, Table.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTable_Body(), this.getTableSection(), null, "body", null, 0, 1, Table.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTable_Footer(), this.getTableSection(), null, "footer", null, 0, 1, Table.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTable_Dark(), ecorePackage.getEBoolean(), "dark", null, 0, 1, Table.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTable_Striped(), ecorePackage.getEBoolean(), "striped", null, 0, 1, Table.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTable_Bordered(), ecorePackage.getEBoolean(), "bordered", null, 0, 1, Table.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTable_Borderless(), ecorePackage.getEBoolean(), "borderless", null, 0, 1, Table.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTable_Hover(), ecorePackage.getEBoolean(), "hover", null, 0, 1, Table.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTable_Small(), ecorePackage.getEBoolean(), "small", null, 0, 1, Table.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(tableRowEClass, TableRow.class, "TableRow", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getTableRow_Columns(), this.getTableCell(), null, "columns", null, 0, -1, TableRow.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(tableColumnEClass, TableColumn.class, "TableColumn", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(tableCellEClass, TableCell.class, "TableCell", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getTableCell_Header(), ecorePackage.getEBoolean(), "header", null, 0, 1, TableCell.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTableCell_ColSpan(), ecorePackage.getEInt(), "colSpan", null, 0, 1, TableCell.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTableCell_RowSpan(), ecorePackage.getEInt(), "rowSpan", null, 0, 1, TableCell.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(tooltipEClass, Tooltip.class, "Tooltip", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -2022,6 +2308,18 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 		   source,
 		   new String[] {
 			   "documentation", "Column width."
+		   });
+		addAnnotation
+		  (tableEClass,
+		   source,
+		   new String[] {
+			   "documentation", "[Bootstrap table](https://getbootstrap.com/docs/4.0/content/tables/)"
+		   });
+		addAnnotation
+		  (getTableCell_Header(),
+		   source,
+		   new String[] {
+			   "documentation", "If true, table cell is generated as ``<th>`` instead of the default ``<td>``."
 		   });
 	}
 

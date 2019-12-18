@@ -714,6 +714,52 @@ public class BootstrapItemProviderAdapterFactory extends BootstrapAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.nasdanika.vinci.bootstrap.TableSection} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected TableSectionItemProvider tableSectionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.nasdanika.vinci.bootstrap.TableSection}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createTableSectionAdapter() {
+		if (tableSectionItemProvider == null) {
+			tableSectionItemProvider = new TableSectionItemProvider(this);
+		}
+
+		return tableSectionItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.nasdanika.vinci.bootstrap.TableHeader} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected TableHeaderItemProvider tableHeaderItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.nasdanika.vinci.bootstrap.TableHeader}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createTableHeaderAdapter() {
+		if (tableHeaderItemProvider == null) {
+			tableHeaderItemProvider = new TableHeaderItemProvider(this);
+		}
+
+		return tableHeaderItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link org.nasdanika.vinci.bootstrap.Table} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -760,26 +806,26 @@ public class BootstrapItemProviderAdapterFactory extends BootstrapAdapterFactory
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.nasdanika.vinci.bootstrap.TableColumn} instances.
+	 * This keeps track of the one adapter used for all {@link org.nasdanika.vinci.bootstrap.TableCell} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected TableColumnItemProvider tableColumnItemProvider;
+	protected TableCellItemProvider tableCellItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link org.nasdanika.vinci.bootstrap.TableColumn}.
+	 * This creates an adapter for a {@link org.nasdanika.vinci.bootstrap.TableCell}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createTableColumnAdapter() {
-		if (tableColumnItemProvider == null) {
-			tableColumnItemProvider = new TableColumnItemProvider(this);
+	public Adapter createTableCellAdapter() {
+		if (tableCellItemProvider == null) {
+			tableCellItemProvider = new TableCellItemProvider(this);
 		}
 
-		return tableColumnItemProvider;
+		return tableCellItemProvider;
 	}
 
 	/**
@@ -1053,9 +1099,11 @@ public class BootstrapItemProviderAdapterFactory extends BootstrapAdapterFactory
 		if (listGroupItemProvider != null) listGroupItemProvider.dispose();
 		if (navsItemProvider != null) navsItemProvider.dispose();
 		if (navbarItemProvider != null) navbarItemProvider.dispose();
+		if (tableSectionItemProvider != null) tableSectionItemProvider.dispose();
+		if (tableHeaderItemProvider != null) tableHeaderItemProvider.dispose();
 		if (tableItemProvider != null) tableItemProvider.dispose();
 		if (tableRowItemProvider != null) tableRowItemProvider.dispose();
-		if (tableColumnItemProvider != null) tableColumnItemProvider.dispose();
+		if (tableCellItemProvider != null) tableCellItemProvider.dispose();
 		if (tooltipItemProvider != null) tooltipItemProvider.dispose();
 		if (inputGroupItemProvider != null) inputGroupItemProvider.dispose();
 		if (formGroupItemProvider != null) formGroupItemProvider.dispose();

@@ -8,28 +8,29 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.ecore.EStructuralFeature;
+
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-import org.nasdanika.vinci.bootstrap.BootstrapFactory;
+
 import org.nasdanika.vinci.bootstrap.BootstrapPackage;
-import org.nasdanika.vinci.bootstrap.TableRow;
+import org.nasdanika.vinci.bootstrap.TableHeader;
 
 /**
- * This is the item provider adapter for a {@link org.nasdanika.vinci.bootstrap.TableRow} object.
+ * This is the item provider adapter for a {@link org.nasdanika.vinci.bootstrap.TableHeader} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class TableRowItemProvider 
-	extends BootstrapElementItemProvider {
+public class TableHeaderItemProvider extends TableSectionItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public TableRowItemProvider(AdapterFactory adapterFactory) {
+	public TableHeaderItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -44,49 +45,65 @@ public class TableRowItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addDarkPropertyDescriptor(object);
+			addLightPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
-	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
-	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
+	 * This adds a property descriptor for the Dark feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-		if (childrenFeatures == null) {
-			super.getChildrenFeatures(object);
-			childrenFeatures.add(BootstrapPackage.Literals.TABLE_ROW__COLUMNS);
-		}
-		return childrenFeatures;
+	protected void addDarkPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_TableHeader_dark_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_TableHeader_dark_feature", "_UI_TableHeader_type"),
+				 BootstrapPackage.Literals.TABLE_HEADER__DARK,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
+	 * This adds a property descriptor for the Light feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	protected EStructuralFeature getChildFeature(Object object, Object child) {
-		// Check the type of the specified child object and return the proper feature to use for
-		// adding (see {@link AddCommand}) it as a child.
-
-		return super.getChildFeature(object, child);
+	protected void addLightPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_TableHeader_light_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_TableHeader_light_feature", "_UI_TableHeader_type"),
+				 BootstrapPackage.Literals.TABLE_HEADER__LIGHT,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
-	 * This returns TableRow.gif.
+	 * This returns TableHeader.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/TableRow"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/TableHeader"));
 	}
 
 	/**
@@ -107,10 +124,10 @@ public class TableRowItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((TableRow)object).getTitle();
+		String label = ((TableHeader)object).getTitle();
 		return label == null || label.length() == 0 ?
-			getString("_UI_TableRow_type") :
-			getString("_UI_TableRow_type") + " " + label;
+			getString("_UI_TableHeader_type") :
+			getString("_UI_TableHeader_type") + " " + label;
 	}
 
 
@@ -125,9 +142,10 @@ public class TableRowItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(TableRow.class)) {
-			case BootstrapPackage.TABLE_ROW__COLUMNS:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+		switch (notification.getFeatureID(TableHeader.class)) {
+			case BootstrapPackage.TABLE_HEADER__DARK:
+			case BootstrapPackage.TABLE_HEADER__LIGHT:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}
 		super.notifyChanged(notification);
@@ -143,11 +161,6 @@ public class TableRowItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add
-			(createChildParameter
-				(BootstrapPackage.Literals.TABLE_ROW__COLUMNS,
-				 BootstrapFactory.eINSTANCE.createTableCell()));
 	}
 
 }

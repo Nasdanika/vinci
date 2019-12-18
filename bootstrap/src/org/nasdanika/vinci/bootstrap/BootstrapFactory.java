@@ -274,6 +274,24 @@ public interface BootstrapFactory extends EFactory {
 	Navbar createNavbar();
 
 	/**
+	 * Returns a new object of class '<em>Table Section</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Table Section</em>'.
+	 * @generated
+	 */
+	TableSection createTableSection();
+
+	/**
+	 * Returns a new object of class '<em>Table Header</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Table Header</em>'.
+	 * @generated
+	 */
+	TableHeader createTableHeader();
+
+	/**
 	 * Returns a new object of class '<em>Table</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -292,13 +310,13 @@ public interface BootstrapFactory extends EFactory {
 	TableRow createTableRow();
 
 	/**
-	 * Returns a new object of class '<em>Table Column</em>'.
+	 * Returns a new object of class '<em>Table Cell</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Table Column</em>'.
+	 * @return a new object of class '<em>Table Cell</em>'.
 	 * @generated
 	 */
-	TableColumn createTableColumn();
+	TableCell createTableCell();
 
 	/**
 	 * Returns a new object of class '<em>Tooltip</em>'.

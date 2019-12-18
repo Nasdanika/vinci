@@ -114,9 +114,33 @@
     <genClasses ecoreClass="bootstrap.ecore#//ListGroup"/>
     <genClasses ecoreClass="bootstrap.ecore#//Navs"/>
     <genClasses ecoreClass="bootstrap.ecore#//Navbar"/>
-    <genClasses ecoreClass="bootstrap.ecore#//Table"/>
-    <genClasses ecoreClass="bootstrap.ecore#//TableRow"/>
-    <genClasses ecoreClass="bootstrap.ecore#//TableColumn"/>
+    <genClasses ecoreClass="bootstrap.ecore#//TableRowContainer">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference bootstrap.ecore#//TableRowContainer/rows"/>
+    </genClasses>
+    <genClasses ecoreClass="bootstrap.ecore#//TableSection"/>
+    <genClasses ecoreClass="bootstrap.ecore#//TableHeader">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bootstrap.ecore#//TableHeader/dark"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bootstrap.ecore#//TableHeader/light"/>
+    </genClasses>
+    <genClasses ecoreClass="bootstrap.ecore#//Table">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference bootstrap.ecore#//Table/header"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference bootstrap.ecore#//Table/body"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference bootstrap.ecore#//Table/footer"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bootstrap.ecore#//Table/dark"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bootstrap.ecore#//Table/striped"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bootstrap.ecore#//Table/bordered"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bootstrap.ecore#//Table/borderless"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bootstrap.ecore#//Table/hover"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bootstrap.ecore#//Table/small"/>
+    </genClasses>
+    <genClasses ecoreClass="bootstrap.ecore#//TableRow">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference bootstrap.ecore#//TableRow/columns"/>
+    </genClasses>
+    <genClasses ecoreClass="bootstrap.ecore#//TableCell">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bootstrap.ecore#//TableCell/header"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bootstrap.ecore#//TableCell/colSpan"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bootstrap.ecore#//TableCell/rowSpan"/>
+    </genClasses>
     <genClasses ecoreClass="bootstrap.ecore#//Tooltip"/>
     <genClasses ecoreClass="bootstrap.ecore#//InputGroup"/>
     <genClasses ecoreClass="bootstrap.ecore#//FormGroup"/>

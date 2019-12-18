@@ -47,8 +47,11 @@ import org.nasdanika.vinci.bootstrap.Navs;
 import org.nasdanika.vinci.bootstrap.Row;
 import org.nasdanika.vinci.bootstrap.Spacing;
 import org.nasdanika.vinci.bootstrap.Table;
-import org.nasdanika.vinci.bootstrap.TableColumn;
+import org.nasdanika.vinci.bootstrap.TableCell;
+import org.nasdanika.vinci.bootstrap.TableHeader;
 import org.nasdanika.vinci.bootstrap.TableRow;
+import org.nasdanika.vinci.bootstrap.TableRowContainer;
+import org.nasdanika.vinci.bootstrap.TableSection;
 import org.nasdanika.vinci.bootstrap.Tag;
 import org.nasdanika.vinci.bootstrap.Text;
 import org.nasdanika.vinci.bootstrap.Tooltip;
@@ -236,6 +239,18 @@ public class BootstrapAdapterFactory extends AdapterFactoryImpl {
 				return createNavbarAdapter();
 			}
 			@Override
+			public Adapter caseTableRowContainer(TableRowContainer object) {
+				return createTableRowContainerAdapter();
+			}
+			@Override
+			public Adapter caseTableSection(TableSection object) {
+				return createTableSectionAdapter();
+			}
+			@Override
+			public Adapter caseTableHeader(TableHeader object) {
+				return createTableHeaderAdapter();
+			}
+			@Override
 			public Adapter caseTable(Table object) {
 				return createTableAdapter();
 			}
@@ -244,8 +259,8 @@ public class BootstrapAdapterFactory extends AdapterFactoryImpl {
 				return createTableRowAdapter();
 			}
 			@Override
-			public Adapter caseTableColumn(TableColumn object) {
-				return createTableColumnAdapter();
+			public Adapter caseTableCell(TableCell object) {
+				return createTableCellAdapter();
 			}
 			@Override
 			public Adapter caseTooltip(Tooltip object) {
@@ -762,6 +777,48 @@ public class BootstrapAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.vinci.bootstrap.TableRowContainer <em>Table Row Container</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.vinci.bootstrap.TableRowContainer
+	 * @generated
+	 */
+	public Adapter createTableRowContainerAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.vinci.bootstrap.TableSection <em>Table Section</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.vinci.bootstrap.TableSection
+	 * @generated
+	 */
+	public Adapter createTableSectionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.vinci.bootstrap.TableHeader <em>Table Header</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.vinci.bootstrap.TableHeader
+	 * @generated
+	 */
+	public Adapter createTableHeaderAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link org.nasdanika.vinci.bootstrap.Table <em>Table</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -790,16 +847,16 @@ public class BootstrapAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.nasdanika.vinci.bootstrap.TableColumn <em>Table Column</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.vinci.bootstrap.TableCell <em>Table Cell</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.nasdanika.vinci.bootstrap.TableColumn
+	 * @see org.nasdanika.vinci.bootstrap.TableCell
 	 * @generated
 	 */
-	public Adapter createTableColumnAdapter() {
+	public Adapter createTableCellAdapter() {
 		return null;
 	}
 

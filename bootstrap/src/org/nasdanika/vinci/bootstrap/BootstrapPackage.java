@@ -2210,6 +2210,243 @@ public interface BootstrapPackage extends EPackage {
 	int NAVBAR_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link org.nasdanika.vinci.bootstrap.impl.TableRowContainerImpl <em>Table Row Container</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.vinci.bootstrap.impl.TableRowContainerImpl
+	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getTableRowContainer()
+	 * @generated
+	 */
+	int TABLE_ROW_CONTAINER = 31;
+
+	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_ROW_CONTAINER__TITLE = BOOTSTRAP_ELEMENT__TITLE;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_ROW_CONTAINER__DESCRIPTION = BOOTSTRAP_ELEMENT__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Appearance</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_ROW_CONTAINER__APPEARANCE = BOOTSTRAP_ELEMENT__APPEARANCE;
+
+	/**
+	 * The feature id for the '<em><b>Rows</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_ROW_CONTAINER__ROWS = BOOTSTRAP_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Table Row Container</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_ROW_CONTAINER_FEATURE_COUNT = BOOTSTRAP_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>As Consumer</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_ROW_CONTAINER___AS_CONSUMER__CONTEXT = BOOTSTRAP_ELEMENT___AS_CONSUMER__CONTEXT;
+
+	/**
+	 * The number of operations of the '<em>Table Row Container</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_ROW_CONTAINER_OPERATION_COUNT = BOOTSTRAP_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.nasdanika.vinci.bootstrap.impl.TableSectionImpl <em>Table Section</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.vinci.bootstrap.impl.TableSectionImpl
+	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getTableSection()
+	 * @generated
+	 */
+	int TABLE_SECTION = 32;
+
+	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_SECTION__TITLE = TABLE_ROW_CONTAINER__TITLE;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_SECTION__DESCRIPTION = TABLE_ROW_CONTAINER__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Appearance</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_SECTION__APPEARANCE = TABLE_ROW_CONTAINER__APPEARANCE;
+
+	/**
+	 * The feature id for the '<em><b>Rows</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_SECTION__ROWS = TABLE_ROW_CONTAINER__ROWS;
+
+	/**
+	 * The number of structural features of the '<em>Table Section</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_SECTION_FEATURE_COUNT = TABLE_ROW_CONTAINER_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>As Consumer</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_SECTION___AS_CONSUMER__CONTEXT = TABLE_ROW_CONTAINER___AS_CONSUMER__CONTEXT;
+
+	/**
+	 * The number of operations of the '<em>Table Section</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_SECTION_OPERATION_COUNT = TABLE_ROW_CONTAINER_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.nasdanika.vinci.bootstrap.impl.TableHeaderImpl <em>Table Header</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.vinci.bootstrap.impl.TableHeaderImpl
+	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getTableHeader()
+	 * @generated
+	 */
+	int TABLE_HEADER = 33;
+
+	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_HEADER__TITLE = TABLE_SECTION__TITLE;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_HEADER__DESCRIPTION = TABLE_SECTION__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Appearance</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_HEADER__APPEARANCE = TABLE_SECTION__APPEARANCE;
+
+	/**
+	 * The feature id for the '<em><b>Rows</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_HEADER__ROWS = TABLE_SECTION__ROWS;
+
+	/**
+	 * The feature id for the '<em><b>Dark</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_HEADER__DARK = TABLE_SECTION_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Light</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_HEADER__LIGHT = TABLE_SECTION_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Table Header</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_HEADER_FEATURE_COUNT = TABLE_SECTION_FEATURE_COUNT + 2;
+
+	/**
+	 * The operation id for the '<em>As Consumer</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_HEADER___AS_CONSUMER__CONTEXT = TABLE_SECTION___AS_CONSUMER__CONTEXT;
+
+	/**
+	 * The number of operations of the '<em>Table Header</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_HEADER_OPERATION_COUNT = TABLE_SECTION_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link org.nasdanika.vinci.bootstrap.impl.TableImpl <em>Table</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2217,7 +2454,124 @@ public interface BootstrapPackage extends EPackage {
 	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getTable()
 	 * @generated
 	 */
-	int TABLE = 31;
+	int TABLE = 34;
+
+	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE__TITLE = TABLE_ROW_CONTAINER__TITLE;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE__DESCRIPTION = TABLE_ROW_CONTAINER__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Appearance</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE__APPEARANCE = TABLE_ROW_CONTAINER__APPEARANCE;
+
+	/**
+	 * The feature id for the '<em><b>Rows</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE__ROWS = TABLE_ROW_CONTAINER__ROWS;
+
+	/**
+	 * The feature id for the '<em><b>Header</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE__HEADER = TABLE_ROW_CONTAINER_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Body</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE__BODY = TABLE_ROW_CONTAINER_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Footer</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE__FOOTER = TABLE_ROW_CONTAINER_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Dark</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE__DARK = TABLE_ROW_CONTAINER_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Striped</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE__STRIPED = TABLE_ROW_CONTAINER_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Bordered</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE__BORDERED = TABLE_ROW_CONTAINER_FEATURE_COUNT + 5;
+
+	/**
+	 * The feature id for the '<em><b>Borderless</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE__BORDERLESS = TABLE_ROW_CONTAINER_FEATURE_COUNT + 6;
+
+	/**
+	 * The feature id for the '<em><b>Hover</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE__HOVER = TABLE_ROW_CONTAINER_FEATURE_COUNT + 7;
+
+	/**
+	 * The feature id for the '<em><b>Small</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE__SMALL = TABLE_ROW_CONTAINER_FEATURE_COUNT + 8;
 
 	/**
 	 * The number of structural features of the '<em>Table</em>' class.
@@ -2226,7 +2580,16 @@ public interface BootstrapPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE_FEATURE_COUNT = 0;
+	int TABLE_FEATURE_COUNT = TABLE_ROW_CONTAINER_FEATURE_COUNT + 9;
+
+	/**
+	 * The operation id for the '<em>As Consumer</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE___AS_CONSUMER__CONTEXT = TABLE_ROW_CONTAINER___AS_CONSUMER__CONTEXT;
 
 	/**
 	 * The number of operations of the '<em>Table</em>' class.
@@ -2235,7 +2598,7 @@ public interface BootstrapPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE_OPERATION_COUNT = 0;
+	int TABLE_OPERATION_COUNT = TABLE_ROW_CONTAINER_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.vinci.bootstrap.impl.TableRowImpl <em>Table Row</em>}' class.
@@ -2245,7 +2608,43 @@ public interface BootstrapPackage extends EPackage {
 	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getTableRow()
 	 * @generated
 	 */
-	int TABLE_ROW = 32;
+	int TABLE_ROW = 35;
+
+	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_ROW__TITLE = BOOTSTRAP_ELEMENT__TITLE;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_ROW__DESCRIPTION = BOOTSTRAP_ELEMENT__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Appearance</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_ROW__APPEARANCE = BOOTSTRAP_ELEMENT__APPEARANCE;
+
+	/**
+	 * The feature id for the '<em><b>Columns</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_ROW__COLUMNS = BOOTSTRAP_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Table Row</em>' class.
@@ -2254,7 +2653,16 @@ public interface BootstrapPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE_ROW_FEATURE_COUNT = 0;
+	int TABLE_ROW_FEATURE_COUNT = BOOTSTRAP_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>As Consumer</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_ROW___AS_CONSUMER__CONTEXT = BOOTSTRAP_ELEMENT___AS_CONSUMER__CONTEXT;
 
 	/**
 	 * The number of operations of the '<em>Table Row</em>' class.
@@ -2263,35 +2671,107 @@ public interface BootstrapPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE_ROW_OPERATION_COUNT = 0;
+	int TABLE_ROW_OPERATION_COUNT = BOOTSTRAP_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link org.nasdanika.vinci.bootstrap.impl.TableColumnImpl <em>Table Column</em>}' class.
+	 * The meta object id for the '{@link org.nasdanika.vinci.bootstrap.impl.TableCellImpl <em>Table Cell</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.nasdanika.vinci.bootstrap.impl.TableColumnImpl
-	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getTableColumn()
+	 * @see org.nasdanika.vinci.bootstrap.impl.TableCellImpl
+	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getTableCell()
 	 * @generated
 	 */
-	int TABLE_COLUMN = 33;
+	int TABLE_CELL = 36;
 
 	/**
-	 * The number of structural features of the '<em>Table Column</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TABLE_COLUMN_FEATURE_COUNT = 0;
-
-	/**
-	 * The number of operations of the '<em>Table Column</em>' class.
+	 * The feature id for the '<em><b>Content</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE_COLUMN_OPERATION_COUNT = 0;
+	int TABLE_CELL__CONTENT = HtmlPackage.CONTAINER__CONTENT;
+
+	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_CELL__TITLE = HtmlPackage.CONTAINER_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_CELL__DESCRIPTION = HtmlPackage.CONTAINER_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Appearance</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_CELL__APPEARANCE = HtmlPackage.CONTAINER_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Header</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_CELL__HEADER = HtmlPackage.CONTAINER_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Col Span</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_CELL__COL_SPAN = HtmlPackage.CONTAINER_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Row Span</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_CELL__ROW_SPAN = HtmlPackage.CONTAINER_FEATURE_COUNT + 5;
+
+	/**
+	 * The number of structural features of the '<em>Table Cell</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_CELL_FEATURE_COUNT = HtmlPackage.CONTAINER_FEATURE_COUNT + 6;
+
+	/**
+	 * The operation id for the '<em>As Consumer</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_CELL___AS_CONSUMER__CONTEXT = HtmlPackage.CONTAINER_OPERATION_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Table Cell</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_CELL_OPERATION_COUNT = HtmlPackage.CONTAINER_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.vinci.bootstrap.impl.TooltipImpl <em>Tooltip</em>}' class.
@@ -2301,7 +2781,7 @@ public interface BootstrapPackage extends EPackage {
 	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getTooltip()
 	 * @generated
 	 */
-	int TOOLTIP = 34;
+	int TOOLTIP = 37;
 
 	/**
 	 * The number of structural features of the '<em>Tooltip</em>' class.
@@ -2329,7 +2809,7 @@ public interface BootstrapPackage extends EPackage {
 	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getInputGroup()
 	 * @generated
 	 */
-	int INPUT_GROUP = 35;
+	int INPUT_GROUP = 38;
 
 	/**
 	 * The number of structural features of the '<em>Input Group</em>' class.
@@ -2357,7 +2837,7 @@ public interface BootstrapPackage extends EPackage {
 	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getFormGroup()
 	 * @generated
 	 */
-	int FORM_GROUP = 36;
+	int FORM_GROUP = 39;
 
 	/**
 	 * The number of structural features of the '<em>Form Group</em>' class.
@@ -2385,7 +2865,7 @@ public interface BootstrapPackage extends EPackage {
 	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getCollapse()
 	 * @generated
 	 */
-	int COLLAPSE = 37;
+	int COLLAPSE = 40;
 
 	/**
 	 * The number of structural features of the '<em>Collapse</em>' class.
@@ -2413,7 +2893,7 @@ public interface BootstrapPackage extends EPackage {
 	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getModal()
 	 * @generated
 	 */
-	int MODAL = 38;
+	int MODAL = 41;
 
 	/**
 	 * The number of structural features of the '<em>Modal</em>' class.
@@ -2441,7 +2921,7 @@ public interface BootstrapPackage extends EPackage {
 	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getAccordion()
 	 * @generated
 	 */
-	int ACCORDION = 39;
+	int ACCORDION = 42;
 
 	/**
 	 * The number of structural features of the '<em>Accordion</em>' class.
@@ -3355,6 +3835,69 @@ public interface BootstrapPackage extends EPackage {
 	EClass getNavbar();
 
 	/**
+	 * Returns the meta object for class '{@link org.nasdanika.vinci.bootstrap.TableRowContainer <em>Table Row Container</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Table Row Container</em>'.
+	 * @see org.nasdanika.vinci.bootstrap.TableRowContainer
+	 * @generated
+	 */
+	EClass getTableRowContainer();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.nasdanika.vinci.bootstrap.TableRowContainer#getRows <em>Rows</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Rows</em>'.
+	 * @see org.nasdanika.vinci.bootstrap.TableRowContainer#getRows()
+	 * @see #getTableRowContainer()
+	 * @generated
+	 */
+	EReference getTableRowContainer_Rows();
+
+	/**
+	 * Returns the meta object for class '{@link org.nasdanika.vinci.bootstrap.TableSection <em>Table Section</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Table Section</em>'.
+	 * @see org.nasdanika.vinci.bootstrap.TableSection
+	 * @generated
+	 */
+	EClass getTableSection();
+
+	/**
+	 * Returns the meta object for class '{@link org.nasdanika.vinci.bootstrap.TableHeader <em>Table Header</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Table Header</em>'.
+	 * @see org.nasdanika.vinci.bootstrap.TableHeader
+	 * @generated
+	 */
+	EClass getTableHeader();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.bootstrap.TableHeader#isDark <em>Dark</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Dark</em>'.
+	 * @see org.nasdanika.vinci.bootstrap.TableHeader#isDark()
+	 * @see #getTableHeader()
+	 * @generated
+	 */
+	EAttribute getTableHeader_Dark();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.bootstrap.TableHeader#isLight <em>Light</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Light</em>'.
+	 * @see org.nasdanika.vinci.bootstrap.TableHeader#isLight()
+	 * @see #getTableHeader()
+	 * @generated
+	 */
+	EAttribute getTableHeader_Light();
+
+	/**
 	 * Returns the meta object for class '{@link org.nasdanika.vinci.bootstrap.Table <em>Table</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3363,6 +3906,105 @@ public interface BootstrapPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getTable();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.nasdanika.vinci.bootstrap.Table#getHeader <em>Header</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Header</em>'.
+	 * @see org.nasdanika.vinci.bootstrap.Table#getHeader()
+	 * @see #getTable()
+	 * @generated
+	 */
+	EReference getTable_Header();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.nasdanika.vinci.bootstrap.Table#getBody <em>Body</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Body</em>'.
+	 * @see org.nasdanika.vinci.bootstrap.Table#getBody()
+	 * @see #getTable()
+	 * @generated
+	 */
+	EReference getTable_Body();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.nasdanika.vinci.bootstrap.Table#getFooter <em>Footer</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Footer</em>'.
+	 * @see org.nasdanika.vinci.bootstrap.Table#getFooter()
+	 * @see #getTable()
+	 * @generated
+	 */
+	EReference getTable_Footer();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.bootstrap.Table#isDark <em>Dark</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Dark</em>'.
+	 * @see org.nasdanika.vinci.bootstrap.Table#isDark()
+	 * @see #getTable()
+	 * @generated
+	 */
+	EAttribute getTable_Dark();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.bootstrap.Table#isStriped <em>Striped</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Striped</em>'.
+	 * @see org.nasdanika.vinci.bootstrap.Table#isStriped()
+	 * @see #getTable()
+	 * @generated
+	 */
+	EAttribute getTable_Striped();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.bootstrap.Table#isBordered <em>Bordered</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Bordered</em>'.
+	 * @see org.nasdanika.vinci.bootstrap.Table#isBordered()
+	 * @see #getTable()
+	 * @generated
+	 */
+	EAttribute getTable_Bordered();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.bootstrap.Table#isBorderless <em>Borderless</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Borderless</em>'.
+	 * @see org.nasdanika.vinci.bootstrap.Table#isBorderless()
+	 * @see #getTable()
+	 * @generated
+	 */
+	EAttribute getTable_Borderless();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.bootstrap.Table#isHover <em>Hover</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Hover</em>'.
+	 * @see org.nasdanika.vinci.bootstrap.Table#isHover()
+	 * @see #getTable()
+	 * @generated
+	 */
+	EAttribute getTable_Hover();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.bootstrap.Table#isSmall <em>Small</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Small</em>'.
+	 * @see org.nasdanika.vinci.bootstrap.Table#isSmall()
+	 * @see #getTable()
+	 * @generated
+	 */
+	EAttribute getTable_Small();
 
 	/**
 	 * Returns the meta object for class '{@link org.nasdanika.vinci.bootstrap.TableRow <em>Table Row</em>}'.
@@ -3375,14 +4017,58 @@ public interface BootstrapPackage extends EPackage {
 	EClass getTableRow();
 
 	/**
-	 * Returns the meta object for class '{@link org.nasdanika.vinci.bootstrap.TableColumn <em>Table Column</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.nasdanika.vinci.bootstrap.TableRow#getColumns <em>Columns</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Table Column</em>'.
-	 * @see org.nasdanika.vinci.bootstrap.TableColumn
+	 * @return the meta object for the containment reference list '<em>Columns</em>'.
+	 * @see org.nasdanika.vinci.bootstrap.TableRow#getColumns()
+	 * @see #getTableRow()
 	 * @generated
 	 */
-	EClass getTableColumn();
+	EReference getTableRow_Columns();
+
+	/**
+	 * Returns the meta object for class '{@link org.nasdanika.vinci.bootstrap.TableCell <em>Table Cell</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Table Cell</em>'.
+	 * @see org.nasdanika.vinci.bootstrap.TableCell
+	 * @generated
+	 */
+	EClass getTableCell();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.bootstrap.TableCell#isHeader <em>Header</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Header</em>'.
+	 * @see org.nasdanika.vinci.bootstrap.TableCell#isHeader()
+	 * @see #getTableCell()
+	 * @generated
+	 */
+	EAttribute getTableCell_Header();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.bootstrap.TableCell#getColSpan <em>Col Span</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Col Span</em>'.
+	 * @see org.nasdanika.vinci.bootstrap.TableCell#getColSpan()
+	 * @see #getTableCell()
+	 * @generated
+	 */
+	EAttribute getTableCell_ColSpan();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.bootstrap.TableCell#getRowSpan <em>Row Span</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Row Span</em>'.
+	 * @see org.nasdanika.vinci.bootstrap.TableCell#getRowSpan()
+	 * @see #getTableCell()
+	 * @generated
+	 */
+	EAttribute getTableCell_RowSpan();
 
 	/**
 	 * Returns the meta object for class '{@link org.nasdanika.vinci.bootstrap.Tooltip <em>Tooltip</em>}'.
@@ -4118,6 +4804,54 @@ public interface BootstrapPackage extends EPackage {
 		 */
 		EClass NAVBAR = eINSTANCE.getNavbar();
 		/**
+		 * The meta object literal for the '{@link org.nasdanika.vinci.bootstrap.impl.TableRowContainerImpl <em>Table Row Container</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.vinci.bootstrap.impl.TableRowContainerImpl
+		 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getTableRowContainer()
+		 * @generated
+		 */
+		EClass TABLE_ROW_CONTAINER = eINSTANCE.getTableRowContainer();
+		/**
+		 * The meta object literal for the '<em><b>Rows</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TABLE_ROW_CONTAINER__ROWS = eINSTANCE.getTableRowContainer_Rows();
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.vinci.bootstrap.impl.TableSectionImpl <em>Table Section</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.vinci.bootstrap.impl.TableSectionImpl
+		 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getTableSection()
+		 * @generated
+		 */
+		EClass TABLE_SECTION = eINSTANCE.getTableSection();
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.vinci.bootstrap.impl.TableHeaderImpl <em>Table Header</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.vinci.bootstrap.impl.TableHeaderImpl
+		 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getTableHeader()
+		 * @generated
+		 */
+		EClass TABLE_HEADER = eINSTANCE.getTableHeader();
+		/**
+		 * The meta object literal for the '<em><b>Dark</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TABLE_HEADER__DARK = eINSTANCE.getTableHeader_Dark();
+		/**
+		 * The meta object literal for the '<em><b>Light</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TABLE_HEADER__LIGHT = eINSTANCE.getTableHeader_Light();
+		/**
 		 * The meta object literal for the '{@link org.nasdanika.vinci.bootstrap.impl.TableImpl <em>Table</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -4126,6 +4860,69 @@ public interface BootstrapPackage extends EPackage {
 		 * @generated
 		 */
 		EClass TABLE = eINSTANCE.getTable();
+		/**
+		 * The meta object literal for the '<em><b>Header</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TABLE__HEADER = eINSTANCE.getTable_Header();
+		/**
+		 * The meta object literal for the '<em><b>Body</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TABLE__BODY = eINSTANCE.getTable_Body();
+		/**
+		 * The meta object literal for the '<em><b>Footer</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TABLE__FOOTER = eINSTANCE.getTable_Footer();
+		/**
+		 * The meta object literal for the '<em><b>Dark</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TABLE__DARK = eINSTANCE.getTable_Dark();
+		/**
+		 * The meta object literal for the '<em><b>Striped</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TABLE__STRIPED = eINSTANCE.getTable_Striped();
+		/**
+		 * The meta object literal for the '<em><b>Bordered</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TABLE__BORDERED = eINSTANCE.getTable_Bordered();
+		/**
+		 * The meta object literal for the '<em><b>Borderless</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TABLE__BORDERLESS = eINSTANCE.getTable_Borderless();
+		/**
+		 * The meta object literal for the '<em><b>Hover</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TABLE__HOVER = eINSTANCE.getTable_Hover();
+		/**
+		 * The meta object literal for the '<em><b>Small</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TABLE__SMALL = eINSTANCE.getTable_Small();
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.vinci.bootstrap.impl.TableRowImpl <em>Table Row</em>}' class.
 		 * <!-- begin-user-doc -->
@@ -4136,14 +4933,42 @@ public interface BootstrapPackage extends EPackage {
 		 */
 		EClass TABLE_ROW = eINSTANCE.getTableRow();
 		/**
-		 * The meta object literal for the '{@link org.nasdanika.vinci.bootstrap.impl.TableColumnImpl <em>Table Column</em>}' class.
+		 * The meta object literal for the '<em><b>Columns</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.nasdanika.vinci.bootstrap.impl.TableColumnImpl
-		 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getTableColumn()
 		 * @generated
 		 */
-		EClass TABLE_COLUMN = eINSTANCE.getTableColumn();
+		EReference TABLE_ROW__COLUMNS = eINSTANCE.getTableRow_Columns();
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.vinci.bootstrap.impl.TableCellImpl <em>Table Cell</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.vinci.bootstrap.impl.TableCellImpl
+		 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getTableCell()
+		 * @generated
+		 */
+		EClass TABLE_CELL = eINSTANCE.getTableCell();
+		/**
+		 * The meta object literal for the '<em><b>Header</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TABLE_CELL__HEADER = eINSTANCE.getTableCell_Header();
+		/**
+		 * The meta object literal for the '<em><b>Col Span</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TABLE_CELL__COL_SPAN = eINSTANCE.getTableCell_ColSpan();
+		/**
+		 * The meta object literal for the '<em><b>Row Span</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TABLE_CELL__ROW_SPAN = eINSTANCE.getTableCell_RowSpan();
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.vinci.bootstrap.impl.TooltipImpl <em>Tooltip</em>}' class.
 		 * <!-- begin-user-doc -->

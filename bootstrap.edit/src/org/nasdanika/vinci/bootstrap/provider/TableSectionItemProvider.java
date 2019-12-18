@@ -8,36 +8,25 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.util.ResourceLocator;
-import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
-import org.eclipse.emf.edit.provider.IItemLabelProvider;
+
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.IItemPropertySource;
-import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
-import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.nasdanika.emf.edit.NasdanikaItemProviderAdapter;
+
+import org.nasdanika.vinci.bootstrap.TableSection;
 
 /**
- * This is the item provider adapter for a {@link org.nasdanika.vinci.bootstrap.TableColumn} object.
+ * This is the item provider adapter for a {@link org.nasdanika.vinci.bootstrap.TableSection} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class TableColumnItemProvider 
-	extends NasdanikaItemProviderAdapter
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+public class TableSectionItemProvider extends TableRowContainerItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public TableColumnItemProvider(AdapterFactory adapterFactory) {
+	public TableSectionItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -57,14 +46,14 @@ public class TableColumnItemProvider
 	}
 
 	/**
-	 * This returns TableColumn.gif.
+	 * This returns TableSection.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/TableColumn"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/TableSection"));
 	}
 
 	/**
@@ -85,7 +74,10 @@ public class TableColumnItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_TableColumn_type");
+		String label = ((TableSection)object).getTitle();
+		return label == null || label.length() == 0 ?
+			getString("_UI_TableSection_type") :
+			getString("_UI_TableSection_type") + " " + label;
 	}
 
 
@@ -111,17 +103,6 @@ public class TableColumnItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-	}
-
-	/**
-	 * Return the resource locator for this item provider's resources.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public ResourceLocator getResourceLocator() {
-		return BootstrapEditPlugin.INSTANCE;
 	}
 
 }

@@ -43,8 +43,10 @@ import org.nasdanika.vinci.bootstrap.Navs;
 import org.nasdanika.vinci.bootstrap.Row;
 import org.nasdanika.vinci.bootstrap.Spacing;
 import org.nasdanika.vinci.bootstrap.Table;
-import org.nasdanika.vinci.bootstrap.TableColumn;
+import org.nasdanika.vinci.bootstrap.TableCell;
+import org.nasdanika.vinci.bootstrap.TableHeader;
 import org.nasdanika.vinci.bootstrap.TableRow;
+import org.nasdanika.vinci.bootstrap.TableSection;
 import org.nasdanika.vinci.bootstrap.Tag;
 import org.nasdanika.vinci.bootstrap.Text;
 import org.nasdanika.vinci.bootstrap.Tooltip;
@@ -121,9 +123,11 @@ public class BootstrapFactoryImpl extends EFactoryImpl implements BootstrapFacto
 			case BootstrapPackage.LIST_GROUP: return createListGroup();
 			case BootstrapPackage.NAVS: return createNavs();
 			case BootstrapPackage.NAVBAR: return createNavbar();
+			case BootstrapPackage.TABLE_SECTION: return createTableSection();
+			case BootstrapPackage.TABLE_HEADER: return createTableHeader();
 			case BootstrapPackage.TABLE: return createTable();
 			case BootstrapPackage.TABLE_ROW: return createTableRow();
-			case BootstrapPackage.TABLE_COLUMN: return createTableColumn();
+			case BootstrapPackage.TABLE_CELL: return createTableCell();
 			case BootstrapPackage.TOOLTIP: return createTooltip();
 			case BootstrapPackage.INPUT_GROUP: return createInputGroup();
 			case BootstrapPackage.FORM_GROUP: return createFormGroup();
@@ -449,6 +453,28 @@ public class BootstrapFactoryImpl extends EFactoryImpl implements BootstrapFacto
 	 * @generated
 	 */
 	@Override
+	public TableSection createTableSection() {
+		TableSectionImpl tableSection = new TableSectionImpl();
+		return tableSection;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public TableHeader createTableHeader() {
+		TableHeaderImpl tableHeader = new TableHeaderImpl();
+		return tableHeader;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Table createTable() {
 		TableImpl table = new TableImpl();
 		return table;
@@ -471,9 +497,9 @@ public class BootstrapFactoryImpl extends EFactoryImpl implements BootstrapFacto
 	 * @generated
 	 */
 	@Override
-	public TableColumn createTableColumn() {
-		TableColumnImpl tableColumn = new TableColumnImpl();
-		return tableColumn;
+	public TableCell createTableCell() {
+		TableCellImpl tableCell = new TableCellImpl();
+		return tableCell;
 	}
 
 	/**
