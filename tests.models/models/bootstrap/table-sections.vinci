@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.nasdanika.vinci.bootstrap:Table xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.nasdanika.vinci.bootstrap="urn:org.nasdanika.vinci.bootstrap" xmlns:org.nasdanika.vinci.components="urn:org.nasdanika.vinci.components" striped="true" bordered="true" hover="true">
+  <header dark="true">
+    <rows>
+      <cells header="true">
+        <content xsi:type="org.nasdanika.vinci.components:MarkdownText" markdown="Hello World!"/>
+      </cells>
+      <cells header="true">
+        <content xsi:type="org.nasdanika.vinci.components:MarkdownText" markdown="And good-bye"/>
+      </cells>
+    </rows>
+  </header>
+  <body>
+    <rows>
+      <cells>
+        <content xsi:type="org.nasdanika.vinci.components:MarkdownText" markdown="Hello World!"/>
+      </cells>
+      <cells>
+        <content xsi:type="org.nasdanika.vinci.components:MarkdownText" markdown="And good-bye"/>
+      </cells>
+    </rows>
+    <rows>
+      <cells color="Danger" background="">
+        <content xsi:type="org.nasdanika.vinci.components:MarkdownText" markdown="Hello World!"/>
+      </cells>
+      <cells>
+        <content xsi:type="org.nasdanika.vinci.components:MarkdownText" markdown="And good-bye"/>
+      </cells>
+    </rows>
+    <rows color="Success">
+      <cells>
+        <content xsi:type="org.nasdanika.vinci.components:MarkdownText" markdown="Hello World!"/>
+      </cells>
+      <cells>
+        <content xsi:type="org.nasdanika.vinci.components:MarkdownText" markdown="And good-bye"/>
+      </cells>
+    </rows>
+    <rows>
+      <cells rowSpan="2">
+        <content xsi:type="org.nasdanika.vinci.components:MarkdownText" markdown="Hello World!"/>
+      </cells>
+      <cells>
+        <content xsi:type="org.nasdanika.vinci.components:MarkdownText" markdown="And good-bye"/>
+      </cells>
+    </rows>
+    <rows>
+      <cells>
+        <content xsi:type="org.nasdanika.vinci.components:MarkdownText" markdown="And good-bye"/>
+      </cells>
+    </rows>
+    <rows>
+      <cells colSpan="2">
+        <content xsi:type="org.nasdanika.vinci.components:MarkdownText" markdown="And good-bye"/>
+      </cells>
+    </rows>
+  </body>
+</org.nasdanika.vinci.bootstrap:Table>

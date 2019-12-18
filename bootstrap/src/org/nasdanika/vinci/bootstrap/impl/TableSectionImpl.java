@@ -3,9 +3,13 @@
 package org.nasdanika.vinci.bootstrap.impl;
 
 import org.eclipse.emf.ecore.EClass;
+import org.nasdanika.common.CompoundConsumer;
 import org.nasdanika.common.Consumer;
 import org.nasdanika.common.Context;
+import org.nasdanika.common.Function;
+import org.nasdanika.vinci.bootstrap.Appearance;
 import org.nasdanika.vinci.bootstrap.BootstrapPackage;
+import org.nasdanika.vinci.bootstrap.TableRow;
 import org.nasdanika.vinci.bootstrap.TableSection;
 
 /**
@@ -36,8 +40,21 @@ public class TableSectionImpl extends TableRowContainerImpl implements TableSect
 	}
 
 	@Override
-	public Consumer<Object> create(Context arg) throws Exception {
-		throw new UnsupportedOperationException();
+	public Consumer<Object> create(Context context) throws Exception {
+		CompoundConsumer<Object> consumer = new CompoundConsumer<Object>(getTitle());
+		Appearance appearance = getAppearance();
+		if (appearance != null) {
+			consumer.add(appearance.create(context));
+		}
+		
+		for (TableRow row: getRows()) {
+			Function<Object,Object> rowFunction = Function.fromBiFunction(
+					(obj,progressMonitor) -> ((org.nasdanika.html.bootstrap.RowContainer<?,?>) obj).row(),
+					"Column", 
+					1);
+			consumer.add(rowFunction.then(row.create(context)));
+		}
+		return consumer;
 	}
 
 } //TableSectionImpl

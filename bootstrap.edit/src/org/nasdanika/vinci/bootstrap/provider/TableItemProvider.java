@@ -325,5 +325,19 @@ public class TableItemProvider
 		return super.getCreateChildText(owner, feature, child, selection);
 	}
 	
+	@Override
+	public Object getCreateChildImage(Object owner, Object feature, Object child, Collection<?> selection) {
+		if (feature == BootstrapPackage.Literals.TABLE__HEADER) {
+			return overlayImage(child, getResourceLocator().getImage("full/obj16/TableHeader.png"));
+		}
+		if (feature == BootstrapPackage.Literals.TABLE__BODY) {
+			return overlayImage(child, getResourceLocator().getImage("full/obj16/TableBody.png"));
+		}
+		if (feature == BootstrapPackage.Literals.TABLE__FOOTER) {
+			return overlayImage(child, getResourceLocator().getImage("full/obj16/TableFooter.png"));
+		}
+		return super.getCreateChildImage(owner, feature, child, selection);
+	}
+	
 
 }

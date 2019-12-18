@@ -171,8 +171,12 @@ public class TableHeaderImpl extends TableSectionImpl implements TableHeader {
 	}
 	
 	@Override
-	public Consumer<Object> create(Context arg) throws Exception {
-		throw new UnsupportedOperationException();
+	public Consumer<Object> create(Context context) throws Exception {
+		return super.create(context).asFunction().then(Consumer.fromConsumer(obj -> {
+			org.nasdanika.html.bootstrap.Table.TableHeader header = (org.nasdanika.html.bootstrap.Table.TableHeader) obj;
+			header.dark(isDark());
+			header.light(isLight());
+		}, "Header style", 1));
 	}
 
 } //TableHeaderImpl

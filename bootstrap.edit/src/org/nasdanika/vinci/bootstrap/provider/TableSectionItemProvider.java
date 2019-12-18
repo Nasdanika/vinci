@@ -8,9 +8,11 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.nasdanika.common.Util;
+import org.nasdanika.vinci.bootstrap.BootstrapPackage;
 import org.nasdanika.vinci.bootstrap.TableSection;
 
 /**
@@ -49,10 +51,21 @@ public class TableSectionItemProvider extends TableRowContainerItemProvider {
 	 * This returns TableSection.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public Object getImage(Object object) {
+		EReference feature = ((EObject) object).eContainmentFeature();
+		if (feature == BootstrapPackage.Literals.TABLE__HEADER) {
+			return overlayImage(object, getResourceLocator().getImage("full/obj16/TableHeader.png"));
+		}
+		if (feature == BootstrapPackage.Literals.TABLE__BODY) {
+			return overlayImage(object, getResourceLocator().getImage("full/obj16/TableBody.png"));
+		}
+		if (feature == BootstrapPackage.Literals.TABLE__FOOTER) {
+			return overlayImage(object, getResourceLocator().getImage("full/obj16/TableFooter.png"));
+		}
+		
 		return overlayImage(object, getResourceLocator().getImage("full/obj16/TableSection"));
 	}
 
@@ -85,11 +98,11 @@ public class TableSectionItemProvider extends TableRowContainerItemProvider {
 	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public void notifyChanged(Notification notification) {
-		updateChildren(notification);
+		super.notifyChanged(notification);
 	}
 
 	/**

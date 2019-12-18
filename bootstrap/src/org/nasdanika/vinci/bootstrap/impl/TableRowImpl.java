@@ -3,10 +3,10 @@
 package org.nasdanika.vinci.bootstrap.impl;
 
 import java.util.Collection;
+
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.nasdanika.common.CompoundConsumer;
@@ -17,7 +17,6 @@ import org.nasdanika.common.Util;
 import org.nasdanika.html.bootstrap.Color;
 import org.nasdanika.vinci.bootstrap.Appearance;
 import org.nasdanika.vinci.bootstrap.BootstrapPackage;
-import org.nasdanika.vinci.bootstrap.Column;
 import org.nasdanika.vinci.bootstrap.TableCell;
 import org.nasdanika.vinci.bootstrap.TableRow;
 

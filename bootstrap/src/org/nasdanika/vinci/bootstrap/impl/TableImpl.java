@@ -487,11 +487,23 @@ public class TableImpl extends TableRowContainerImpl implements Table {
 		if (appearance != null) {
 			consumer.add(appearance.create(context));
 		}
+		if (getHeader() != null) {
+			Function<Object,Object> headerFunction = Function.fromBiFunction((table,progressMonitor) -> ((org.nasdanika.html.bootstrap.Table) table).header(), "Header", 1);			
+			consumer.add(headerFunction.then(getHeader().create(context)));
+		}
+		if (getBody() != null) {
+			Function<Object,Object> bodyFunction = Function.fromBiFunction((table,progressMonitor) -> ((org.nasdanika.html.bootstrap.Table) table).body(), "Body", 1);			
+			consumer.add(bodyFunction.then(getBody().create(context)));
+		}
+		if (getFooter() != null) {
+			Function<Object,Object> footerFunction = Function.fromBiFunction((table,progressMonitor) -> ((org.nasdanika.html.bootstrap.Table) table).footer(), "Footer", 1);			
+			consumer.add(footerFunction.then(getFooter().create(context)));
+		}
 		for (TableRow row: getRows()) {
 			Function<Object,Object> rowFunction = Function.fromBiFunction((table,progressMonitor) -> ((org.nasdanika.html.bootstrap.Table) table).row(), "Row", 1);
 			consumer.add(rowFunction.then(row.create(context)));
 		}
-		// TODO - header, body, footer
+		
 		BootstrapFactory bootstrapFactory = context.get(BootstrapFactory.class, BootstrapFactory.INSTANCE);
 		java.util.function.Supplier<Object> supplier = () -> {
 			org.nasdanika.html.bootstrap.Table table = bootstrapFactory.table();
@@ -503,8 +515,8 @@ public class TableImpl extends TableRowContainerImpl implements Table {
 			table.striped(isStriped());
 			return table;
 		};
-		Supplier<Object> containerSupplier = Supplier.fromSupplier(supplier, getTitle(), 1);
-		return containerSupplier.then(consumer.asFunction());
+		Supplier<Object> tableSupplier = Supplier.fromSupplier(supplier, getTitle(), 1);
+		return tableSupplier.then(consumer.asFunction());
 	}
 
 } //TableImpl
