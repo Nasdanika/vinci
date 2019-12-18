@@ -132,13 +132,17 @@ public class GenerateApplicationAction<T extends EObject & SupplierFactory<Objec
 	}
 
 	private void extractId(org.nasdanika.vinci.app.Action action, Map<String, String> actionIds) {
-		if (!Util.isBlank(action.getId()) && action.getActivatorType() == ActivatorType.REFERENCE && action.getRole() != ActionRole.SECTION) {
+		if (!Util.isBlank(action.getId()) && action.getActivatorType() == ActivatorType.REFERENCE) {
 			String url = action.getActivator();
 			if (Util.isBlank(url)) {
 				url = action.getId()+".html";
+				if (action.getRole() == ActionRole.SECTION) {
+					url += "#" + action.getId();
+				}
 			}
 			if (Util.isBlank(url) || isValidAndRelative(url)) {
-				actionIds.put(action.getId(), url);
+				int hashIdx = url.indexOf("#");				
+				actionIds.put(action.getId(), hashIdx == -1 ? url : url.substring(0, hashIdx));
 			}
 		}
 	}

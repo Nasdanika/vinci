@@ -12,6 +12,7 @@
           </elements>
         </elements>
         <elements xsi:type="org.nasdanika.vinci.app:Action" title="Section 1.1" id="889358e9-34c2-4c4e-aa35-3bbfe0787a20" text="Section 1.1" role="Section">
+          <actionMappings alias="section-1.2.1.1" target="a403365c-aad8-4b85-b04b-2b0f0d7feffa"/>
           <elements xsi:type="org.nasdanika.vinci.app:Action" title="Context 1.1.1" id="f726cfa8-d80e-4938-9e9b-45e361f23cd5" text="Context 1.1.1" role="Context">
             <content xsi:type="org.nasdanika.vinci.components:MarkdownText" markdown="Context 1.1.1 content"/>
           </elements>
@@ -20,7 +21,7 @@
               <content xsi:type="org.nasdanika.vinci.components:MarkdownText" markdown="Context 1.1.2.1 content"/>
             </elements>
           </elements>
-          <content xsi:type="org.nasdanika.vinci.components:MarkdownText" markdown="Section 1.1 content"/>
+          <content xsi:type="org.nasdanika.vinci.components:MarkdownText" style="true" interpolate="true" markdown="Section 1.1 content&#xD;&#xA;&#xD;&#xA;Next: ${action-mappings/section-1.2.1.1}&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;Embedded HTML test: &lt;a href=&quot;something&quot;>Something&lt;/a>"/>
         </elements>
         <elements xsi:type="org.nasdanika.vinci.app:Action" title="Section 1.2" id="31c6262f-0bbd-41cb-834e-72988b975ab3" text="Section 1.2" role="Section">
           <elements xsi:type="org.nasdanika.vinci.app:Action" title="Context 1.2.1" id="2524da40-6c68-43db-bf4e-e57d7d8d79fa" text="Context 1.2.1" role="Context">
@@ -40,7 +41,7 @@
                 <content xsi:type="org.nasdanika.vinci.components:MarkdownText" markdown="Context 1.2.1.2.1 content"/>
               </elements>
             </elements>
-            <elements xsi:type="org.nasdanika.vinci.app:Action" title="Section 1.2.1.1" id="f3dc7498-1c6c-4326-98f2-9e4c80778cd6" text="Section 1.2.1.1" role="Section">
+            <elements xsi:type="org.nasdanika.vinci.app:Action" title="Section 1.2.1.1" id="f3dc7498-1c6c-4326-98f2-9e4c80778cd6" text="Section 1.2.1.1" icon="fas fa-user" role="Section">
               <elements xsi:type="org.nasdanika.vinci.app:Action" title="Context 1.2.1.1" id="f1d461ff-d3cc-49f2-b1ef-b3d1d18187c3" text="Context 1.2.1.1" role="Context">
                 <content xsi:type="org.nasdanika.vinci.components:MarkdownText" markdown="Context 1.2.1.1 content"/>
               </elements>
@@ -49,11 +50,11 @@
                   <content xsi:type="org.nasdanika.vinci.components:MarkdownText" markdown="Context 1.2.1.2.1 content"/>
                 </elements>
               </elements>
-              <content xsi:type="org.nasdanika.vinci.components:MarkdownText" markdown="Section 1.2.1 Content"/>
+              <content xsi:type="org.nasdanika.vinci.components:MarkdownText" markdown="Section 1.2.1 Content&#xD;&#xA;&#xD;&#xA;Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"/>
             </elements>
-            <content xsi:type="org.nasdanika.vinci.components:MarkdownText" markdown="Section 1.2.1 Content"/>
+            <content xsi:type="org.nasdanika.vinci.components:MarkdownText" markdown="Section 1.2.1 Content&#xD;&#xA;&#xD;&#xA;Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"/>
           </elements>
-          <content xsi:type="org.nasdanika.vinci.components:MarkdownText" markdown="Section 1.2 content"/>
+          <content xsi:type="org.nasdanika.vinci.components:MarkdownText" markdown="Section 1.2 content&#xD;&#xA;&#xD;&#xA;Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"/>
         </elements>
         <content xsi:type="org.nasdanika.vinci.components:MarkdownText" markdown="Section 1 content"/>
       </elements>

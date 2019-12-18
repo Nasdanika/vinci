@@ -77,48 +77,48 @@ public class ActionFacade extends org.nasdanika.html.app.impl.ActionImpl impleme
 		// activator
 		String activator = target.getActivator();
 
-		// Activators for non-sections.
-		if (target.getRole() != ActionRole.SECTION) {
-			switch (target.getActivatorType()) {
-			case NONE:
-				// No activator
-				break;
-			case BIND:
-				throw new UnsupportedOperationException("Not implemented yet");
-			case REFERENCE:
-				if (Util.isBlank(activator) && !Util.isBlank(target.getId())) {
-					activator = target.getId() + ".html";
+		switch (target.getActivatorType()) {
+		case NONE:
+			// No activator
+			break;
+		case BIND:
+			throw new UnsupportedOperationException("Not implemented yet");
+		case REFERENCE:
+			if (Util.isBlank(activator) && !Util.isBlank(target.getId())) {
+				activator = target.getId() + ".html";
+				if (target.getRole() == ActionRole.SECTION) {
+					activator += "#" + target.getId();
 				}
-				String url = actionContext.interpolate(activator);
-				if (Util.isBlank(url)) {
-					throw new IllegalArgumentException("Activator type is reference and activator URL is blank");
-				}
-				setActivator(new NavigationActionActivator() {
-	
-					@Override
-					public String getUrl() {
-						return url;
-					}
-	
-				});
-				break;
-			case SCRIPT:
-				String code = actionContext.interpolate(activator);
-				if (Util.isBlank(code)) {
-					throw new IllegalArgumentException("Activator type is script and activator code is blank");
-				}
-				setActivator(new ScriptActionActivator() {
-	
-					@Override
-					public String getCode() {
-						return code;
-					}
-	
-				});
-				break;
-			default:
-				throw new IllegalArgumentException();
 			}
+			String url = actionContext.interpolate(activator);
+			if (Util.isBlank(url)) {
+				throw new IllegalArgumentException("Activator type is reference and activator URL is blank");
+			}
+			setActivator(new NavigationActionActivator() {
+
+				@Override
+				public String getUrl() {
+					return url;
+				}
+
+			});
+			break;
+		case SCRIPT:
+			String code = actionContext.interpolate(activator);
+			if (Util.isBlank(code)) {
+				throw new IllegalArgumentException("Activator type is script and activator code is blank");
+			}
+			setActivator(new ScriptActionActivator() {
+
+				@Override
+				public String getCode() {
+					return code;
+				}
+
+			});
+			break;
+		default:
+			throw new IllegalArgumentException();
 		}
 
 		// category
