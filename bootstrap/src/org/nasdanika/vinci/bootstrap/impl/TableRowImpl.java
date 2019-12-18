@@ -9,7 +9,15 @@ import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.InternalEList;
+import org.nasdanika.common.CompoundConsumer;
+import org.nasdanika.common.Consumer;
+import org.nasdanika.common.Context;
+import org.nasdanika.common.Function;
+import org.nasdanika.common.Util;
+import org.nasdanika.html.bootstrap.Color;
+import org.nasdanika.vinci.bootstrap.Appearance;
 import org.nasdanika.vinci.bootstrap.BootstrapPackage;
+import org.nasdanika.vinci.bootstrap.Column;
 import org.nasdanika.vinci.bootstrap.TableCell;
 import org.nasdanika.vinci.bootstrap.TableRow;
 
@@ -21,12 +29,33 @@ import org.nasdanika.vinci.bootstrap.TableRow;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.nasdanika.vinci.bootstrap.impl.TableRowImpl#getColumns <em>Columns</em>}</li>
+ *   <li>{@link org.nasdanika.vinci.bootstrap.impl.TableRowImpl#getCells <em>Cells</em>}</li>
+ *   <li>{@link org.nasdanika.vinci.bootstrap.impl.TableRowImpl#getColor <em>Color</em>}</li>
+ *   <li>{@link org.nasdanika.vinci.bootstrap.impl.TableRowImpl#getBackground <em>Background</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class TableRowImpl extends BootstrapElementImpl implements TableRow {
+	/**
+	 * The default value of the '{@link #getColor() <em>Color</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getColor()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String COLOR_EDEFAULT = null;
+	/**
+	 * The default value of the '{@link #getBackground() <em>Background</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getBackground()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String BACKGROUND_EDEFAULT = null;
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -53,8 +82,48 @@ public class TableRowImpl extends BootstrapElementImpl implements TableRow {
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public EList<TableCell> getColumns() {
-		return (EList<TableCell>)eDynamicGet(BootstrapPackage.TABLE_ROW__COLUMNS, BootstrapPackage.Literals.TABLE_ROW__COLUMNS, true, true);
+	public EList<TableCell> getCells() {
+		return (EList<TableCell>)eDynamicGet(BootstrapPackage.TABLE_ROW__CELLS, BootstrapPackage.Literals.TABLE_ROW__CELLS, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getColor() {
+		return (String)eDynamicGet(BootstrapPackage.TABLE_ROW__COLOR, BootstrapPackage.Literals.TABLE_ROW__COLOR, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setColor(String newColor) {
+		eDynamicSet(BootstrapPackage.TABLE_ROW__COLOR, BootstrapPackage.Literals.TABLE_ROW__COLOR, newColor);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getBackground() {
+		return (String)eDynamicGet(BootstrapPackage.TABLE_ROW__BACKGROUND, BootstrapPackage.Literals.TABLE_ROW__BACKGROUND, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setBackground(String newBackground) {
+		eDynamicSet(BootstrapPackage.TABLE_ROW__BACKGROUND, BootstrapPackage.Literals.TABLE_ROW__BACKGROUND, newBackground);
 	}
 
 	/**
@@ -65,8 +134,8 @@ public class TableRowImpl extends BootstrapElementImpl implements TableRow {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case BootstrapPackage.TABLE_ROW__COLUMNS:
-				return ((InternalEList<?>)getColumns()).basicRemove(otherEnd, msgs);
+			case BootstrapPackage.TABLE_ROW__CELLS:
+				return ((InternalEList<?>)getCells()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -79,8 +148,12 @@ public class TableRowImpl extends BootstrapElementImpl implements TableRow {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case BootstrapPackage.TABLE_ROW__COLUMNS:
-				return getColumns();
+			case BootstrapPackage.TABLE_ROW__CELLS:
+				return getCells();
+			case BootstrapPackage.TABLE_ROW__COLOR:
+				return getColor();
+			case BootstrapPackage.TABLE_ROW__BACKGROUND:
+				return getBackground();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -94,9 +167,15 @@ public class TableRowImpl extends BootstrapElementImpl implements TableRow {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case BootstrapPackage.TABLE_ROW__COLUMNS:
-				getColumns().clear();
-				getColumns().addAll((Collection<? extends TableCell>)newValue);
+			case BootstrapPackage.TABLE_ROW__CELLS:
+				getCells().clear();
+				getCells().addAll((Collection<? extends TableCell>)newValue);
+				return;
+			case BootstrapPackage.TABLE_ROW__COLOR:
+				setColor((String)newValue);
+				return;
+			case BootstrapPackage.TABLE_ROW__BACKGROUND:
+				setBackground((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -110,8 +189,14 @@ public class TableRowImpl extends BootstrapElementImpl implements TableRow {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case BootstrapPackage.TABLE_ROW__COLUMNS:
-				getColumns().clear();
+			case BootstrapPackage.TABLE_ROW__CELLS:
+				getCells().clear();
+				return;
+			case BootstrapPackage.TABLE_ROW__COLOR:
+				setColor(COLOR_EDEFAULT);
+				return;
+			case BootstrapPackage.TABLE_ROW__BACKGROUND:
+				setBackground(BACKGROUND_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -125,10 +210,41 @@ public class TableRowImpl extends BootstrapElementImpl implements TableRow {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case BootstrapPackage.TABLE_ROW__COLUMNS:
-				return !getColumns().isEmpty();
+			case BootstrapPackage.TABLE_ROW__CELLS:
+				return !getCells().isEmpty();
+			case BootstrapPackage.TABLE_ROW__COLOR:
+				return COLOR_EDEFAULT == null ? getColor() != null : !COLOR_EDEFAULT.equals(getColor());
+			case BootstrapPackage.TABLE_ROW__BACKGROUND:
+				return BACKGROUND_EDEFAULT == null ? getBackground() != null : !BACKGROUND_EDEFAULT.equals(getBackground());
 		}
 		return super.eIsSet(featureID);
+	}
+
+	@Override
+	public Consumer<Object> create(Context context) throws Exception {
+		CompoundConsumer<Object> consumer = new CompoundConsumer<Object>(getTitle());
+		Appearance appearance = getAppearance();
+		if (appearance != null) {
+			consumer.add(appearance.create(context));
+		}
+		consumer.add(Consumer.fromConsumer(obj -> {
+			org.nasdanika.html.bootstrap.RowContainer.Row row = (org.nasdanika.html.bootstrap.RowContainer.Row) obj;
+			if (!Util.isBlank(getBackground())) {
+				row.background(Color.fromLabel(getBackground()));
+			}
+			if (!Util.isBlank(getColor())) {
+				row.color(Color.fromLabel(getColor()));
+			}
+		}, "Colors", 1));
+		
+		for (TableCell cell: getCells()) {
+			Function<Object,Object> colFunction = Function.fromBiFunction((obj,progressMonitor) -> {
+				org.nasdanika.html.bootstrap.RowContainer.Row row = (org.nasdanika.html.bootstrap.RowContainer.Row) obj;
+				return cell.isHeader() ? row.header() : row.cell();
+			}, "Column", 1);
+			consumer.add(colFunction.then(cell.create(context)));
+		}
+		return consumer;
 	}
 
 } //TableRowImpl

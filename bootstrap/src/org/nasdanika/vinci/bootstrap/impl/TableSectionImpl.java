@@ -3,7 +3,8 @@
 package org.nasdanika.vinci.bootstrap.impl;
 
 import org.eclipse.emf.ecore.EClass;
-
+import org.nasdanika.common.Consumer;
+import org.nasdanika.common.Context;
 import org.nasdanika.vinci.bootstrap.BootstrapPackage;
 import org.nasdanika.vinci.bootstrap.TableSection;
 
@@ -32,6 +33,11 @@ public class TableSectionImpl extends TableRowContainerImpl implements TableSect
 	@Override
 	protected EClass eStaticClass() {
 		return BootstrapPackage.Literals.TABLE_SECTION;
+	}
+
+	@Override
+	public Consumer<Object> create(Context arg) throws Exception {
+		throw new UnsupportedOperationException();
 	}
 
 } //TableSectionImpl

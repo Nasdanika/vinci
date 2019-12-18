@@ -4,11 +4,17 @@ package org.nasdanika.vinci.bootstrap.impl;
 
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.InternalEObject;
+import org.nasdanika.common.CompoundConsumer;
+import org.nasdanika.common.Context;
+import org.nasdanika.common.Function;
+import org.nasdanika.common.Supplier;
+import org.nasdanika.html.bootstrap.BootstrapFactory;
+import org.nasdanika.vinci.bootstrap.Appearance;
 import org.nasdanika.vinci.bootstrap.BootstrapPackage;
 import org.nasdanika.vinci.bootstrap.Table;
 import org.nasdanika.vinci.bootstrap.TableHeader;
+import org.nasdanika.vinci.bootstrap.TableRow;
 import org.nasdanika.vinci.bootstrap.TableSection;
 
 /**
@@ -471,6 +477,34 @@ public class TableImpl extends TableRowContainerImpl implements Table {
 				return isSmall() != SMALL_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	@Override
+	public Supplier<Object> create(Context context) throws Exception {
+		@SuppressWarnings("resource")
+		CompoundConsumer<Object> consumer = new CompoundConsumer<Object>("Consumers");
+		Appearance appearance = getAppearance();
+		if (appearance != null) {
+			consumer.add(appearance.create(context));
+		}
+		for (TableRow row: getRows()) {
+			Function<Object,Object> rowFunction = Function.fromBiFunction((table,progressMonitor) -> ((org.nasdanika.html.bootstrap.Table) table).row(), "Row", 1);
+			consumer.add(rowFunction.then(row.create(context)));
+		}
+		// TODO - header, body, footer
+		BootstrapFactory bootstrapFactory = context.get(BootstrapFactory.class, BootstrapFactory.INSTANCE);
+		java.util.function.Supplier<Object> supplier = () -> {
+			org.nasdanika.html.bootstrap.Table table = bootstrapFactory.table();
+			table.bordered(isBordered());
+			table.borderless(isBorderless());
+			table.dark(isDark());
+			table.hover(isHover());
+			table.small(isSmall());
+			table.striped(isStriped());
+			return table;
+		};
+		Supplier<Object> containerSupplier = Supplier.fromSupplier(supplier, getTitle(), 1);
+		return containerSupplier.then(consumer.asFunction());
 	}
 
 } //TableImpl

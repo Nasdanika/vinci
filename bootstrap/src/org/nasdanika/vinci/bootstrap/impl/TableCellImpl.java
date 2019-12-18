@@ -3,29 +3,31 @@
 package org.nasdanika.vinci.bootstrap.impl;
 
 import java.lang.reflect.InvocationTargetException;
+import java.util.List;
+import java.util.function.BiFunction;
 
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
+import org.nasdanika.common.BiSupplier;
 import org.nasdanika.common.Consumer;
 import org.nasdanika.common.ConsumerFactory;
 import org.nasdanika.common.Context;
-
+import org.nasdanika.common.Function;
+import org.nasdanika.common.ListCompoundSupplier;
+import org.nasdanika.common.ProgressMonitor;
+import org.nasdanika.common.SupplierFactory;
+import org.nasdanika.common.Util;
+import org.nasdanika.html.bootstrap.Color;
 import org.nasdanika.ncore.ModelElement;
 import org.nasdanika.ncore.NcorePackage;
-
 import org.nasdanika.vinci.bootstrap.Appearance;
 import org.nasdanika.vinci.bootstrap.BootstrapElement;
 import org.nasdanika.vinci.bootstrap.BootstrapPackage;
 import org.nasdanika.vinci.bootstrap.TableCell;
-
 import org.nasdanika.vinci.html.HtmlElement;
 import org.nasdanika.vinci.html.HtmlPackage;
-
 import org.nasdanika.vinci.html.impl.ContainerImpl;
 
 /**
@@ -42,6 +44,8 @@ import org.nasdanika.vinci.html.impl.ContainerImpl;
  *   <li>{@link org.nasdanika.vinci.bootstrap.impl.TableCellImpl#isHeader <em>Header</em>}</li>
  *   <li>{@link org.nasdanika.vinci.bootstrap.impl.TableCellImpl#getColSpan <em>Col Span</em>}</li>
  *   <li>{@link org.nasdanika.vinci.bootstrap.impl.TableCellImpl#getRowSpan <em>Row Span</em>}</li>
+ *   <li>{@link org.nasdanika.vinci.bootstrap.impl.TableCellImpl#getColor <em>Color</em>}</li>
+ *   <li>{@link org.nasdanika.vinci.bootstrap.impl.TableCellImpl#getBackground <em>Background</em>}</li>
  * </ul>
  *
  * @generated
@@ -96,6 +100,26 @@ public class TableCellImpl extends ContainerImpl implements TableCell {
 	 * @ordered
 	 */
 	protected static final int ROW_SPAN_EDEFAULT = 0;
+
+	/**
+	 * The default value of the '{@link #getColor() <em>Color</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getColor()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String COLOR_EDEFAULT = null;
+
+	/**
+	 * The default value of the '{@link #getBackground() <em>Background</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getBackground()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String BACKGROUND_EDEFAULT = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -252,6 +276,46 @@ public class TableCellImpl extends ContainerImpl implements TableCell {
 	 * @generated
 	 */
 	@Override
+	public String getColor() {
+		return (String)eDynamicGet(BootstrapPackage.TABLE_CELL__COLOR, BootstrapPackage.Literals.TABLE_CELL__COLOR, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setColor(String newColor) {
+		eDynamicSet(BootstrapPackage.TABLE_CELL__COLOR, BootstrapPackage.Literals.TABLE_CELL__COLOR, newColor);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getBackground() {
+		return (String)eDynamicGet(BootstrapPackage.TABLE_CELL__BACKGROUND, BootstrapPackage.Literals.TABLE_CELL__BACKGROUND, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setBackground(String newBackground) {
+		eDynamicSet(BootstrapPackage.TABLE_CELL__BACKGROUND, BootstrapPackage.Literals.TABLE_CELL__BACKGROUND, newBackground);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Consumer<Object> asConsumer(Context context) throws Exception {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
@@ -292,6 +356,10 @@ public class TableCellImpl extends ContainerImpl implements TableCell {
 				return getColSpan();
 			case BootstrapPackage.TABLE_CELL__ROW_SPAN:
 				return getRowSpan();
+			case BootstrapPackage.TABLE_CELL__COLOR:
+				return getColor();
+			case BootstrapPackage.TABLE_CELL__BACKGROUND:
+				return getBackground();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -321,6 +389,12 @@ public class TableCellImpl extends ContainerImpl implements TableCell {
 				return;
 			case BootstrapPackage.TABLE_CELL__ROW_SPAN:
 				setRowSpan((Integer)newValue);
+				return;
+			case BootstrapPackage.TABLE_CELL__COLOR:
+				setColor((String)newValue);
+				return;
+			case BootstrapPackage.TABLE_CELL__BACKGROUND:
+				setBackground((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -352,6 +426,12 @@ public class TableCellImpl extends ContainerImpl implements TableCell {
 			case BootstrapPackage.TABLE_CELL__ROW_SPAN:
 				setRowSpan(ROW_SPAN_EDEFAULT);
 				return;
+			case BootstrapPackage.TABLE_CELL__COLOR:
+				setColor(COLOR_EDEFAULT);
+				return;
+			case BootstrapPackage.TABLE_CELL__BACKGROUND:
+				setBackground(BACKGROUND_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -376,6 +456,10 @@ public class TableCellImpl extends ContainerImpl implements TableCell {
 				return getColSpan() != COL_SPAN_EDEFAULT;
 			case BootstrapPackage.TABLE_CELL__ROW_SPAN:
 				return getRowSpan() != ROW_SPAN_EDEFAULT;
+			case BootstrapPackage.TABLE_CELL__COLOR:
+				return COLOR_EDEFAULT == null ? getColor() != null : !COLOR_EDEFAULT.equals(getColor());
+			case BootstrapPackage.TABLE_CELL__BACKGROUND:
+				return BACKGROUND_EDEFAULT == null ? getBackground() != null : !BACKGROUND_EDEFAULT.equals(getBackground());
 		}
 		return super.eIsSet(featureID);
 	}
@@ -494,6 +578,41 @@ public class TableCellImpl extends ContainerImpl implements TableCell {
 				}
 		}
 		return super.eInvoke(operationID, arguments);
+	}
+
+	@Override
+	public Consumer<Object> create(Context context) throws Exception {
+		@SuppressWarnings("resource")
+		ListCompoundSupplier<Object> contentSupplier = new ListCompoundSupplier<Object>("Content");
+		for (SupplierFactory<Object> content: getContent()) {
+			contentSupplier.add(content.create(context));
+		}
+		
+		BiFunction<BiSupplier<Object, List<Object>>, ProgressMonitor, Object> cbf = (biSupplier, progressMonitor) -> {
+			org.nasdanika.html.bootstrap.RowContainer.Row.Cell cell = (org.nasdanika.html.bootstrap.RowContainer.Row.Cell) biSupplier.getFirst();
+			if (!Util.isBlank(getBackground())) {
+				cell.background(Color.fromLabel(getBackground()));
+			}
+			if (!Util.isBlank(getColor())) {
+				cell.color(Color.fromLabel(getColor()));
+			}
+			for (Object c: biSupplier.getSecond()) {
+				cell.toHTMLElement().accept(c);
+			}
+			if (getColSpan() > 1) {
+				cell.toHTMLElement().colspan(getColSpan());
+			}
+			if (getRowSpan() > 1) {
+				cell.toHTMLElement().rowspan(getRowSpan());
+			}
+			return cell;
+		}; 
+		Function<BiSupplier<Object, List<Object>>,Object> combiner = Function.fromBiFunction(cbf , getTitle(), 1);
+		
+		Function<Object, Object> contentFunction = contentSupplier.asFunction().then(combiner);
+		Appearance appearance = getAppearance();
+		
+		return contentFunction.then(appearance == null ? Consumer.NOP : appearance.create(context));
 	}
 
 } //TableCellImpl

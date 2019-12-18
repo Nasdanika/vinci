@@ -10,6 +10,7 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.nasdanika.vinci.bootstrap.BootstrapFactory;
 import org.nasdanika.vinci.bootstrap.BootstrapPackage;
@@ -44,8 +45,52 @@ public class TableRowItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addColorPropertyDescriptor(object);
+			addBackgroundPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Color feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	protected void addColorPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor(
+				 getResourceLocator(),
+				 getString("_UI_TableRow_color_feature"),
+				 BootstrapPackage.Literals.TABLE_ROW__COLOR,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null,
+				 enumChoices(org.nasdanika.html.bootstrap.Color.class, true, c -> c.label)));
+	}
+
+	/**
+	 * This adds a property descriptor for the Background feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	protected void addBackgroundPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor(
+				 getResourceLocator(),
+				 getString("_UI_TableRow_background_feature"),
+				 BootstrapPackage.Literals.TABLE_ROW__BACKGROUND,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null,
+				 enumChoices(org.nasdanika.html.bootstrap.Color.class, true, c -> c.label)));
 	}
 
 	/**
@@ -60,7 +105,7 @@ public class TableRowItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(BootstrapPackage.Literals.TABLE_ROW__COLUMNS);
+			childrenFeatures.add(BootstrapPackage.Literals.TABLE_ROW__CELLS);
 		}
 		return childrenFeatures;
 	}
@@ -124,7 +169,11 @@ public class TableRowItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(TableRow.class)) {
-			case BootstrapPackage.TABLE_ROW__COLUMNS:
+			case BootstrapPackage.TABLE_ROW__COLOR:
+			case BootstrapPackage.TABLE_ROW__BACKGROUND:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+			case BootstrapPackage.TABLE_ROW__CELLS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -144,7 +193,7 @@ public class TableRowItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(BootstrapPackage.Literals.TABLE_ROW__COLUMNS,
+				(BootstrapPackage.Literals.TABLE_ROW__CELLS,
 				 BootstrapFactory.eINSTANCE.createTableCell()));
 	}
 

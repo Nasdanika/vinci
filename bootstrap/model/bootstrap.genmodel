@@ -134,12 +134,16 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bootstrap.ecore#//Table/small"/>
     </genClasses>
     <genClasses ecoreClass="bootstrap.ecore#//TableRow">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference bootstrap.ecore#//TableRow/columns"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference bootstrap.ecore#//TableRow/cells"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bootstrap.ecore#//TableRow/color"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bootstrap.ecore#//TableRow/background"/>
     </genClasses>
     <genClasses ecoreClass="bootstrap.ecore#//TableCell">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bootstrap.ecore#//TableCell/header"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bootstrap.ecore#//TableCell/colSpan"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bootstrap.ecore#//TableCell/rowSpan"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bootstrap.ecore#//TableCell/color"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bootstrap.ecore#//TableCell/background"/>
     </genClasses>
     <genClasses ecoreClass="bootstrap.ecore#//Tooltip"/>
     <genClasses ecoreClass="bootstrap.ecore#//InputGroup"/>

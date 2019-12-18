@@ -1454,8 +1454,28 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 	 * @generated
 	 */
 	@Override
-	public EReference getTableRow_Columns() {
+	public EReference getTableRow_Cells() {
 		return (EReference)tableRowEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getTableRow_Color() {
+		return (EAttribute)tableRowEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getTableRow_Background() {
+		return (EAttribute)tableRowEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -1496,6 +1516,26 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 	@Override
 	public EAttribute getTableCell_RowSpan() {
 		return (EAttribute)tableCellEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getTableCell_Color() {
+		return (EAttribute)tableCellEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getTableCell_Background() {
+		return (EAttribute)tableCellEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -1723,12 +1763,16 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 		createEAttribute(tableEClass, TABLE__SMALL);
 
 		tableRowEClass = createEClass(TABLE_ROW);
-		createEReference(tableRowEClass, TABLE_ROW__COLUMNS);
+		createEReference(tableRowEClass, TABLE_ROW__CELLS);
+		createEAttribute(tableRowEClass, TABLE_ROW__COLOR);
+		createEAttribute(tableRowEClass, TABLE_ROW__BACKGROUND);
 
 		tableCellEClass = createEClass(TABLE_CELL);
 		createEAttribute(tableCellEClass, TABLE_CELL__HEADER);
 		createEAttribute(tableCellEClass, TABLE_CELL__COL_SPAN);
 		createEAttribute(tableCellEClass, TABLE_CELL__ROW_SPAN);
+		createEAttribute(tableCellEClass, TABLE_CELL__COLOR);
+		createEAttribute(tableCellEClass, TABLE_CELL__BACKGROUND);
 
 		tooltipEClass = createEClass(TOOLTIP);
 
@@ -1990,12 +2034,16 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 		initEAttribute(getTable_Small(), ecorePackage.getEBoolean(), "small", null, 0, 1, Table.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(tableRowEClass, TableRow.class, "TableRow", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getTableRow_Columns(), this.getTableCell(), null, "columns", null, 0, -1, TableRow.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTableRow_Cells(), this.getTableCell(), null, "cells", null, 0, -1, TableRow.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTableRow_Color(), ecorePackage.getEString(), "color", null, 0, 1, TableRow.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTableRow_Background(), ecorePackage.getEString(), "background", null, 0, 1, TableRow.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(tableCellEClass, TableCell.class, "TableCell", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTableCell_Header(), ecorePackage.getEBoolean(), "header", null, 0, 1, TableCell.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTableCell_ColSpan(), ecorePackage.getEInt(), "colSpan", null, 0, 1, TableCell.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTableCell_RowSpan(), ecorePackage.getEInt(), "rowSpan", null, 0, 1, TableCell.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTableCell_Color(), ecorePackage.getEString(), "color", null, 0, 1, TableCell.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTableCell_Background(), ecorePackage.getEString(), "background", null, 0, 1, TableCell.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(tooltipEClass, Tooltip.class, "Tooltip", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

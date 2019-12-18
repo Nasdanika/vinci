@@ -2638,13 +2638,31 @@ public interface BootstrapPackage extends EPackage {
 	int TABLE_ROW__APPEARANCE = BOOTSTRAP_ELEMENT__APPEARANCE;
 
 	/**
-	 * The feature id for the '<em><b>Columns</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Cells</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE_ROW__COLUMNS = BOOTSTRAP_ELEMENT_FEATURE_COUNT + 0;
+	int TABLE_ROW__CELLS = BOOTSTRAP_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Color</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_ROW__COLOR = BOOTSTRAP_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Background</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_ROW__BACKGROUND = BOOTSTRAP_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Table Row</em>' class.
@@ -2653,7 +2671,7 @@ public interface BootstrapPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE_ROW_FEATURE_COUNT = BOOTSTRAP_ELEMENT_FEATURE_COUNT + 1;
+	int TABLE_ROW_FEATURE_COUNT = BOOTSTRAP_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>As Consumer</em>' operation.
@@ -2747,13 +2765,31 @@ public interface BootstrapPackage extends EPackage {
 	int TABLE_CELL__ROW_SPAN = HtmlPackage.CONTAINER_FEATURE_COUNT + 5;
 
 	/**
+	 * The feature id for the '<em><b>Color</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_CELL__COLOR = HtmlPackage.CONTAINER_FEATURE_COUNT + 6;
+
+	/**
+	 * The feature id for the '<em><b>Background</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_CELL__BACKGROUND = HtmlPackage.CONTAINER_FEATURE_COUNT + 7;
+
+	/**
 	 * The number of structural features of the '<em>Table Cell</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE_CELL_FEATURE_COUNT = HtmlPackage.CONTAINER_FEATURE_COUNT + 6;
+	int TABLE_CELL_FEATURE_COUNT = HtmlPackage.CONTAINER_FEATURE_COUNT + 8;
 
 	/**
 	 * The operation id for the '<em>As Consumer</em>' operation.
@@ -4017,15 +4053,37 @@ public interface BootstrapPackage extends EPackage {
 	EClass getTableRow();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link org.nasdanika.vinci.bootstrap.TableRow#getColumns <em>Columns</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.nasdanika.vinci.bootstrap.TableRow#getCells <em>Cells</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Columns</em>'.
-	 * @see org.nasdanika.vinci.bootstrap.TableRow#getColumns()
+	 * @return the meta object for the containment reference list '<em>Cells</em>'.
+	 * @see org.nasdanika.vinci.bootstrap.TableRow#getCells()
 	 * @see #getTableRow()
 	 * @generated
 	 */
-	EReference getTableRow_Columns();
+	EReference getTableRow_Cells();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.bootstrap.TableRow#getColor <em>Color</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Color</em>'.
+	 * @see org.nasdanika.vinci.bootstrap.TableRow#getColor()
+	 * @see #getTableRow()
+	 * @generated
+	 */
+	EAttribute getTableRow_Color();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.bootstrap.TableRow#getBackground <em>Background</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Background</em>'.
+	 * @see org.nasdanika.vinci.bootstrap.TableRow#getBackground()
+	 * @see #getTableRow()
+	 * @generated
+	 */
+	EAttribute getTableRow_Background();
 
 	/**
 	 * Returns the meta object for class '{@link org.nasdanika.vinci.bootstrap.TableCell <em>Table Cell</em>}'.
@@ -4069,6 +4127,28 @@ public interface BootstrapPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getTableCell_RowSpan();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.bootstrap.TableCell#getColor <em>Color</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Color</em>'.
+	 * @see org.nasdanika.vinci.bootstrap.TableCell#getColor()
+	 * @see #getTableCell()
+	 * @generated
+	 */
+	EAttribute getTableCell_Color();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.bootstrap.TableCell#getBackground <em>Background</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Background</em>'.
+	 * @see org.nasdanika.vinci.bootstrap.TableCell#getBackground()
+	 * @see #getTableCell()
+	 * @generated
+	 */
+	EAttribute getTableCell_Background();
 
 	/**
 	 * Returns the meta object for class '{@link org.nasdanika.vinci.bootstrap.Tooltip <em>Tooltip</em>}'.
@@ -4933,12 +5013,26 @@ public interface BootstrapPackage extends EPackage {
 		 */
 		EClass TABLE_ROW = eINSTANCE.getTableRow();
 		/**
-		 * The meta object literal for the '<em><b>Columns</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Cells</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference TABLE_ROW__COLUMNS = eINSTANCE.getTableRow_Columns();
+		EReference TABLE_ROW__CELLS = eINSTANCE.getTableRow_Cells();
+		/**
+		 * The meta object literal for the '<em><b>Color</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TABLE_ROW__COLOR = eINSTANCE.getTableRow_Color();
+		/**
+		 * The meta object literal for the '<em><b>Background</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TABLE_ROW__BACKGROUND = eINSTANCE.getTableRow_Background();
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.vinci.bootstrap.impl.TableCellImpl <em>Table Cell</em>}' class.
 		 * <!-- begin-user-doc -->
@@ -4969,6 +5063,20 @@ public interface BootstrapPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute TABLE_CELL__ROW_SPAN = eINSTANCE.getTableCell_RowSpan();
+		/**
+		 * The meta object literal for the '<em><b>Color</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TABLE_CELL__COLOR = eINSTANCE.getTableCell_Color();
+		/**
+		 * The meta object literal for the '<em><b>Background</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TABLE_CELL__BACKGROUND = eINSTANCE.getTableCell_Background();
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.vinci.bootstrap.impl.TooltipImpl <em>Tooltip</em>}' class.
 		 * <!-- begin-user-doc -->

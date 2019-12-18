@@ -3,7 +3,8 @@
 package org.nasdanika.vinci.bootstrap.impl;
 
 import org.eclipse.emf.ecore.EClass;
-
+import org.nasdanika.common.Consumer;
+import org.nasdanika.common.Context;
 import org.nasdanika.vinci.bootstrap.BootstrapPackage;
 import org.nasdanika.vinci.bootstrap.TableHeader;
 
@@ -167,6 +168,11 @@ public class TableHeaderImpl extends TableSectionImpl implements TableHeader {
 				return isLight() != LIGHT_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
+	}
+	
+	@Override
+	public Consumer<Object> create(Context arg) throws Exception {
+		throw new UnsupportedOperationException();
 	}
 
 } //TableHeaderImpl

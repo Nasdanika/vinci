@@ -18,6 +18,8 @@ import org.nasdanika.vinci.html.Container;
  *   <li>{@link org.nasdanika.vinci.bootstrap.TableCell#isHeader <em>Header</em>}</li>
  *   <li>{@link org.nasdanika.vinci.bootstrap.TableCell#getColSpan <em>Col Span</em>}</li>
  *   <li>{@link org.nasdanika.vinci.bootstrap.TableCell#getRowSpan <em>Row Span</em>}</li>
+ *   <li>{@link org.nasdanika.vinci.bootstrap.TableCell#getColor <em>Color</em>}</li>
+ *   <li>{@link org.nasdanika.vinci.bootstrap.TableCell#getBackground <em>Background</em>}</li>
  * </ul>
  *
  * @see org.nasdanika.vinci.bootstrap.BootstrapPackage#getTableCell()
@@ -93,5 +95,49 @@ public interface TableCell extends Container, BootstrapElement, ConsumerFactory<
 	 * @generated
 	 */
 	void setRowSpan(int value);
+
+	/**
+	 * Returns the value of the '<em><b>Color</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Color</em>' attribute.
+	 * @see #setColor(String)
+	 * @see org.nasdanika.vinci.bootstrap.BootstrapPackage#getTableCell_Color()
+	 * @model
+	 * @generated
+	 */
+	String getColor();
+
+	/**
+	 * Sets the value of the '{@link org.nasdanika.vinci.bootstrap.TableCell#getColor <em>Color</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Color</em>' attribute.
+	 * @see #getColor()
+	 * @generated
+	 */
+	void setColor(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Background</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Background</em>' attribute.
+	 * @see #setBackground(String)
+	 * @see org.nasdanika.vinci.bootstrap.BootstrapPackage#getTableCell_Background()
+	 * @model
+	 * @generated
+	 */
+	String getBackground();
+
+	/**
+	 * Sets the value of the '{@link org.nasdanika.vinci.bootstrap.TableCell#getBackground <em>Background</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Background</em>' attribute.
+	 * @see #getBackground()
+	 * @generated
+	 */
+	void setBackground(String value);
 
 } // TableCell
