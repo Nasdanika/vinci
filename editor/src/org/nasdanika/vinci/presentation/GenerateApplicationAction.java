@@ -112,8 +112,8 @@ public class GenerateApplicationAction<T extends EObject & SupplierFactory<Objec
 	}
 
 	private void collectActionIds(EObject element, Map<String, String> actionIds) {
-		if (element instanceof org.nasdanika.vinci.app.Action) {
-			extractId((org.nasdanika.vinci.app.Action) element, actionIds);
+		if (element instanceof org.nasdanika.vinci.app.ActionBase) {
+			extractId((org.nasdanika.vinci.app.ActionBase) element, actionIds);
 		} else if (element instanceof ActionReference) {
 			collectActionIds(((ActionReference) element).getAction(), actionIds);
 		}					
@@ -123,15 +123,15 @@ public class GenerateApplicationAction<T extends EObject & SupplierFactory<Objec
 		// ID's of actions to be generated.
 		while (cit.hasNext()) {
 			EObject next = cit.next();
-			if (next instanceof org.nasdanika.vinci.app.Action) {
-				extractId((org.nasdanika.vinci.app.Action) next, actionIds);							
+			if (next instanceof org.nasdanika.vinci.app.ActionBase) {
+				extractId((org.nasdanika.vinci.app.ActionBase) next, actionIds);							
 			} else if (next instanceof ActionReference) {
 				collectActionIds(((ActionReference) next).getAction(), actionIds);
 			}
 		}
 	}
 
-	private void extractId(org.nasdanika.vinci.app.Action action, Map<String, String> actionIds) {
+	private void extractId(org.nasdanika.vinci.app.ActionBase action, Map<String, String> actionIds) {
 		if (!Util.isBlank(action.getId()) && action.getActivatorType() == ActivatorType.REFERENCE) {
 			String url = action.getActivator();
 			if (Util.isBlank(url)) {
