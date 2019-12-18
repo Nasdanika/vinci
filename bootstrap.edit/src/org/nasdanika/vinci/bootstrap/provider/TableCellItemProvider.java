@@ -209,11 +209,11 @@ public class TableCellItemProvider extends ContainerItemProvider {
 	 * This returns TableCell.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/TableCell"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/TableCell.png"));
 	}
 
 	/**
@@ -230,14 +230,12 @@ public class TableCellItemProvider extends ContainerItemProvider {
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getText(Object object) {
 		String label = ((TableCell)object).getTitle();
-		return label == null || label.length() == 0 ?
-			getString("_UI_TableCell_type") :
-			getString("_UI_TableCell_type") + " " + label;
+		return label == null || label.length() == 0 ? getString("_UI_TableCell_type") : label;
 	}
 
 

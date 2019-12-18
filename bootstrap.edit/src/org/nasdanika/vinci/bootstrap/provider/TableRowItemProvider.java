@@ -82,11 +82,11 @@ public class TableRowItemProvider
 	 * This returns TableRow.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/TableRow"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/TableRow.png"));
 	}
 
 	/**
@@ -103,14 +103,12 @@ public class TableRowItemProvider
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getText(Object object) {
 		String label = ((TableRow)object).getTitle();
-		return label == null || label.length() == 0 ?
-			getString("_UI_TableRow_type") :
-			getString("_UI_TableRow_type") + " " + label;
+		return label == null || label.length() == 0 ? getString("_UI_TableRow_type") : label;
 	}
 
 

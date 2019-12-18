@@ -26,6 +26,7 @@ public class Activator implements BundleActivator {
 		htmlContentPalette.add(
 			BootstrapPackage.Literals.ACTION_GROUP,	
 			BootstrapPackage.Literals.CONTENT_TAG,	
+			BootstrapPackage.Literals.TABLE,	
 			BootstrapPackage.Literals.CONTAINER);	
 
 //			BootstrapPackage.Literals.ACCORDION,	
@@ -46,7 +47,6 @@ public class Activator implements BundleActivator {
 //			BootstrapPackage.Literals.MODAL,	
 //			BootstrapPackage.Literals.NAVBAR,	
 //			BootstrapPackage.Literals.NAVS,	
-//			BootstrapPackage.Literals.TABLE,	
 //			BootstrapPackage.Literals.TAG,	
 //			BootstrapPackage.Literals.TOOLTIP);							
 
