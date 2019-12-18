@@ -859,13 +859,22 @@ public interface AppPackage extends EPackage {
 	int ACTION_BASE__EMBEDDED = LABEL_FEATURE_COUNT + 11;
 
 	/**
+	 * The feature id for the '<em><b>Markdown Content</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION_BASE__MARKDOWN_CONTENT = LABEL_FEATURE_COUNT + 12;
+
+	/**
 	 * The feature id for the '<em><b>Content</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION_BASE__CONTENT = LABEL_FEATURE_COUNT + 12;
+	int ACTION_BASE__CONTENT = LABEL_FEATURE_COUNT + 13;
 
 	/**
 	 * The number of structural features of the '<em>Action Base</em>' class.
@@ -874,7 +883,7 @@ public interface AppPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION_BASE_FEATURE_COUNT = LABEL_FEATURE_COUNT + 13;
+	int ACTION_BASE_FEATURE_COUNT = LABEL_FEATURE_COUNT + 14;
 
 	/**
 	 * The operation id for the '<em>Create Consumer</em>' operation.
@@ -1274,6 +1283,15 @@ public interface AppPackage extends EPackage {
 	int ACTION__EMBEDDED = ACTION_BASE__EMBEDDED;
 
 	/**
+	 * The feature id for the '<em><b>Markdown Content</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION__MARKDOWN_CONTENT = ACTION_BASE__MARKDOWN_CONTENT;
+
+	/**
 	 * The feature id for the '<em><b>Content</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1506,6 +1524,15 @@ public interface AppPackage extends EPackage {
 	 * @ordered
 	 */
 	int PARTITION__EMBEDDED = ACTION_BASE__EMBEDDED;
+
+	/**
+	 * The feature id for the '<em><b>Markdown Content</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARTITION__MARKDOWN_CONTENT = ACTION_BASE__MARKDOWN_CONTENT;
 
 	/**
 	 * The feature id for the '<em><b>Content</b></em>' containment reference list.
@@ -2420,6 +2447,17 @@ public interface AppPackage extends EPackage {
 	EAttribute getActionBase_Embedded();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.app.ActionBase#getMarkdownContent <em>Markdown Content</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Markdown Content</em>'.
+	 * @see org.nasdanika.vinci.app.ActionBase#getMarkdownContent()
+	 * @see #getActionBase()
+	 * @generated
+	 */
+	EAttribute getActionBase_MarkdownContent();
+
+	/**
 	 * Returns the meta object for the containment reference list '{@link org.nasdanika.vinci.app.ActionBase#getContent <em>Content</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2942,6 +2980,14 @@ public interface AppPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute ACTION_BASE__EMBEDDED = eINSTANCE.getActionBase_Embedded();
+
+		/**
+		 * The meta object literal for the '<em><b>Markdown Content</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ACTION_BASE__MARKDOWN_CONTENT = eINSTANCE.getActionBase_MarkdownContent();
 
 		/**
 		 * The meta object literal for the '<em><b>Content</b></em>' containment reference list feature.

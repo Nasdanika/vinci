@@ -55,6 +55,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute app.ecore#//ActionBase/disabled"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute app.ecore#//ActionBase/floatRight"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute app.ecore#//ActionBase/embedded"/>
+      <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute app.ecore#//ActionBase/markdownContent"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference app.ecore#//ActionBase/content"/>
     </genClasses>
     <genClasses ecoreClass="app.ecore#//ActionMapping">

@@ -783,8 +783,18 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 	 * @generated
 	 */
 	@Override
+	public EAttribute getActionBase_MarkdownContent() {
+		return (EAttribute)actionBaseEClass.getEStructuralFeatures().get(9);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EReference getActionBase_Content() {
-		return (EReference)actionBaseEClass.getEStructuralFeatures().get(9);
+		return (EReference)actionBaseEClass.getEStructuralFeatures().get(10);
 	}
 
 	/**
@@ -878,6 +888,7 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 		createEAttribute(actionBaseEClass, ACTION_BASE__DISABLED);
 		createEAttribute(actionBaseEClass, ACTION_BASE__FLOAT_RIGHT);
 		createEAttribute(actionBaseEClass, ACTION_BASE__EMBEDDED);
+		createEAttribute(actionBaseEClass, ACTION_BASE__MARKDOWN_CONTENT);
 		createEReference(actionBaseEClass, ACTION_BASE__CONTENT);
 
 		actionMappingEClass = createEClass(ACTION_MAPPING);
@@ -1040,6 +1051,7 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 		initEAttribute(getActionBase_Disabled(), ecorePackage.getEBoolean(), "disabled", null, 0, 1, ActionBase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getActionBase_FloatRight(), ecorePackage.getEBoolean(), "floatRight", null, 0, 1, ActionBase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getActionBase_Embedded(), ecorePackage.getEBoolean(), "embedded", null, 0, 1, ActionBase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getActionBase_MarkdownContent(), ecorePackage.getEString(), "markdownContent", null, 0, 1, ActionBase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		g1 = createEGenericType(theNcorePackage.getISupplierFactory());
 		g2 = createEGenericType(ecorePackage.getEJavaObject());
 		g1.getETypeArguments().add(g2);
@@ -1276,6 +1288,12 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 		   source,
 		   new String[] {
 			   "documentation", "If true, then action content is displayed instead of action label. For example, a login form action or a search action can be embedded into a navbar."
+		   });
+		addAnnotation
+		  (getActionBase_MarkdownContent(),
+		   source,
+		   new String[] {
+			   "documentation", "If this attribute is not blank it is used as the first content element. The primary purpose of this attribute is rapid development/prototyping of web applications/sites. Markdown content is styled and interpolated."
 		   });
 		addAnnotation
 		  (getActionBase_Content(),

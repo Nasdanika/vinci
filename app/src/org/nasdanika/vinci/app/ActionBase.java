@@ -28,6 +28,7 @@ import org.nasdanika.common.SupplierFactory;
  *   <li>{@link org.nasdanika.vinci.app.ActionBase#isDisabled <em>Disabled</em>}</li>
  *   <li>{@link org.nasdanika.vinci.app.ActionBase#isFloatRight <em>Float Right</em>}</li>
  *   <li>{@link org.nasdanika.vinci.app.ActionBase#isEmbedded <em>Embedded</em>}</li>
+ *   <li>{@link org.nasdanika.vinci.app.ActionBase#getMarkdownContent <em>Markdown Content</em>}</li>
  *   <li>{@link org.nasdanika.vinci.app.ActionBase#getContent <em>Content</em>}</li>
  * </ul>
  *
@@ -268,6 +269,31 @@ public interface ActionBase extends Label, AbstractAction, Container<ActionEleme
 	 * @generated
 	 */
 	void setEmbedded(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Markdown Content</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * If this attribute is not blank it is used as the first content element. The primary purpose of this attribute is rapid development/prototyping of web applications/sites. Markdown content is styled and interpolated.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Markdown Content</em>' attribute.
+	 * @see #setMarkdownContent(String)
+	 * @see org.nasdanika.vinci.app.AppPackage#getActionBase_MarkdownContent()
+	 * @model
+	 * @generated
+	 */
+	String getMarkdownContent();
+
+	/**
+	 * Sets the value of the '{@link org.nasdanika.vinci.app.ActionBase#getMarkdownContent <em>Markdown Content</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Markdown Content</em>' attribute.
+	 * @see #getMarkdownContent()
+	 * @generated
+	 */
+	void setMarkdownContent(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Content</b></em>' containment reference list.

@@ -163,6 +163,11 @@
         <details key="documentation" value="If true, then action content is displayed instead of action label. For example, a login form action or a search action can be embedded into a navbar."/>
       </eAnnotations>
     </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="markdownContent" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="If this attribute is not blank it is used as the first content element. The primary purpose of this attribute is rapid development/prototyping of web applications/sites. Markdown content is styled and interpolated."/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="content" upperBound="-1"
         containment="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
