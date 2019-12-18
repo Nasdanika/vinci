@@ -9,7 +9,6 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EStructuralFeature;
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
@@ -60,20 +59,19 @@ public class TableItemProvider
 	 * This adds a property descriptor for the Dark feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated nOT
 	 */
 	protected void addDarkPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+			(createItemPropertyDescriptor(
 				 getResourceLocator(),
 				 getString("_UI_Table_dark_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Table_dark_feature", "_UI_Table_type"),
 				 BootstrapPackage.Literals.TABLE__DARK,
 				 true,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
 				 null,
 				 null));
 	}
@@ -82,20 +80,19 @@ public class TableItemProvider
 	 * This adds a property descriptor for the Striped feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void addStripedPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+			(createItemPropertyDescriptor(
 				 getResourceLocator(),
 				 getString("_UI_Table_striped_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Table_striped_feature", "_UI_Table_type"),
 				 BootstrapPackage.Literals.TABLE__STRIPED,
 				 true,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
 				 null,
 				 null));
 	}
@@ -104,20 +101,19 @@ public class TableItemProvider
 	 * This adds a property descriptor for the Bordered feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void addBorderedPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+			(createItemPropertyDescriptor(
 				 getResourceLocator(),
 				 getString("_UI_Table_bordered_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Table_bordered_feature", "_UI_Table_type"),
 				 BootstrapPackage.Literals.TABLE__BORDERED,
 				 true,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
 				 null,
 				 null));
 	}
@@ -126,20 +122,19 @@ public class TableItemProvider
 	 * This adds a property descriptor for the Borderless feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void addBorderlessPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+			(createItemPropertyDescriptor(
 				 getResourceLocator(),
 				 getString("_UI_Table_borderless_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Table_borderless_feature", "_UI_Table_type"),
 				 BootstrapPackage.Literals.TABLE__BORDERLESS,
 				 true,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
 				 null,
 				 null));
 	}
@@ -148,20 +143,19 @@ public class TableItemProvider
 	 * This adds a property descriptor for the Hover feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void addHoverPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+			(createItemPropertyDescriptor(
 				 getResourceLocator(),
 				 getString("_UI_Table_hover_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Table_hover_feature", "_UI_Table_type"),
 				 BootstrapPackage.Literals.TABLE__HOVER,
 				 true,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
 				 null,
 				 null));
 	}
@@ -170,20 +164,19 @@ public class TableItemProvider
 	 * This adds a property descriptor for the Small feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void addSmallPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+			(createItemPropertyDescriptor(
 				 getResourceLocator(),
 				 getString("_UI_Table_small_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Table_small_feature", "_UI_Table_type"),
 				 BootstrapPackage.Literals.TABLE__SMALL,
 				 true,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
 				 null,
 				 null));
 	}
@@ -288,7 +281,7 @@ public class TableItemProvider
 	 * that can be created under this object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
@@ -306,42 +299,31 @@ public class TableItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(BootstrapPackage.Literals.TABLE__BODY,
-				 BootstrapFactory.eINSTANCE.createTableHeader()));
-
-		newChildDescriptors.add
-			(createChildParameter
 				(BootstrapPackage.Literals.TABLE__FOOTER,
 				 BootstrapFactory.eINSTANCE.createTableSection()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(BootstrapPackage.Literals.TABLE__FOOTER,
-				 BootstrapFactory.eINSTANCE.createTableHeader()));
+		
 	}
+	
 
 	/**
 	 * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getCreateChildText(Object owner, Object feature, Object child, Collection<?> selection) {
-		Object childFeature = feature;
-		Object childObject = child;
-
-		boolean qualify =
-			childFeature == BootstrapPackage.Literals.TABLE__HEADER ||
-			childFeature == BootstrapPackage.Literals.TABLE__BODY ||
-			childFeature == BootstrapPackage.Literals.TABLE__FOOTER;
-
-		if (qualify) {
-			return getString
-				("_UI_CreateChild_text2",
-				 new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
+		if (feature == BootstrapPackage.Literals.TABLE__HEADER) {
+			return getString("_UI_Table_header_feature");
+		}
+		if (feature == BootstrapPackage.Literals.TABLE__BODY) {
+			return getString("_UI_Table_body_feature");
+		}
+		if (feature == BootstrapPackage.Literals.TABLE__FOOTER) {
+			return getString("_UI_Table_footer_feature");
 		}
 		return super.getCreateChildText(owner, feature, child, selection);
 	}
+	
 
 }

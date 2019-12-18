@@ -8,12 +8,9 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-
 import org.nasdanika.vinci.bootstrap.BootstrapPackage;
 import org.nasdanika.vinci.bootstrap.TableHeader;
 
@@ -55,20 +52,19 @@ public class TableHeaderItemProvider extends TableSectionItemProvider {
 	 * This adds a property descriptor for the Dark feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void addDarkPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+			(createItemPropertyDescriptor(
 				 getResourceLocator(),
 				 getString("_UI_TableHeader_dark_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_TableHeader_dark_feature", "_UI_TableHeader_type"),
 				 BootstrapPackage.Literals.TABLE_HEADER__DARK,
 				 true,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
 				 null,
 				 null));
 	}
@@ -77,20 +73,19 @@ public class TableHeaderItemProvider extends TableSectionItemProvider {
 	 * This adds a property descriptor for the Light feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void addLightPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+			(createItemPropertyDescriptor(
 				 getResourceLocator(),
 				 getString("_UI_TableHeader_light_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_TableHeader_light_feature", "_UI_TableHeader_type"),
 				 BootstrapPackage.Literals.TABLE_HEADER__LIGHT,
 				 true,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
 				 null,
 				 null));
 	}
@@ -120,14 +115,11 @@ public class TableHeaderItemProvider extends TableSectionItemProvider {
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((TableHeader)object).getTitle();
-		return label == null || label.length() == 0 ?
-			getString("_UI_TableHeader_type") :
-			getString("_UI_TableHeader_type") + " " + label;
+		return super.getText(object);
 	}
 
 
