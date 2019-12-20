@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <org.nasdanika.vinci.app:Action xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.nasdanika.vinci.app="urn:org.nasdanika.vinci.app" xmlns:org.nasdanika.vinci.components="urn:org.nasdanika.vinci.components" title="Root" id="index" text="Root">
   <elements xsi:type="org.nasdanika.vinci.app:Action" title="Principal" id="89905baf-526b-4f04-8bb2-50fab6e04eeb" text="Principal">
-    <elements xsi:type="org.nasdanika.vinci.app:Action" title="Default" id="33e59c8e-67f3-4188-8062-9dea36bfdf56" text="Default" sectionStyle="Auto">
+    <elements xsi:type="org.nasdanika.vinci.app:Action" title="Default" id="33e59c8e-67f3-4188-8062-9dea36bfdf56" text="Default">
       <elements xsi:type="org.nasdanika.vinci.app:Action" title="Section 1" id="d4586dff-fbe0-44cf-b099-15121ac7b4dc" text="Section 1" role="Section">
         <elements xsi:type="org.nasdanika.vinci.app:Action" title="Context 1.1" id="10950a14-5e28-4e64-87a9-85c2c014572d" text="Context 1.1" role="Context">
           <content xsi:type="org.nasdanika.vinci.components:MarkdownText" markdown="Context 1.1 content"/>
@@ -112,10 +112,6 @@
           <content xsi:type="org.nasdanika.vinci.components:MarkdownText" markdown="Context 0.2.1 content"/>
         </elements>
       </elements>
-      <elements xsi:type="org.nasdanika.vinci.app:ActionCategory" title="Category A" id="1fd8a773-8dbf-4334-a00f-fd1be361cc36" text="Category A">
-        <elements xsi:type="org.nasdanika.vinci.app:Action" title="Section A.1" id="72b1a317-8199-46f8-8073-8ffcbad1597d" text="Section A.1" role="Section" markdownContent="Section A.1 content&#xD;&#xA;"/>
-        <elements xsi:type="org.nasdanika.vinci.app:Action" title="Section A.2" id="4d4aa5f4-f90a-4ad1-bda2-027d0f750664" text="Section A.2" role="Section" markdownContent="Section A.2 content"/>
-      </elements>
       <elements xsi:type="org.nasdanika.vinci.app:Action" title="Section 2" id="00c98eb6-2ae5-4860-b2c8-7571d06b617c" text="Section 2" role="Section" markdownContent="Section 2 content">
         <elements xsi:type="org.nasdanika.vinci.app:Action" title="Section 2.1" id="427ee28a-631b-4bf2-9fe8-89a58c054004" text="Section 2.1" markdownContent="Section 2.1. content&#xD;&#xA;"/>
         <elements xsi:type="org.nasdanika.vinci.app:ActionCategory" title="Category 2.A" id="2b7943d3-46df-4953-b168-192880163e3e" color="Success" text="Category 2.A">
@@ -124,6 +120,12 @@
         </elements>
       </elements>
       <content xsi:type="org.nasdanika.vinci.components:MarkdownText" markdown="Paragraphs content"/>
+    </elements>
+    <elements xsi:type="org.nasdanika.vinci.app:ActionCategory" title="Category A" id="1fd8a773-8dbf-4334-a00f-fd1be361cc36" color="Success" text="Category A">
+      <elements xsi:type="org.nasdanika.vinci.app:Action" title="Section A.1" id="72b1a317-8199-46f8-8073-8ffcbad1597d" text="Section A.1" markdownContent="Section A.1 content&#xD;&#xA;">
+        <elements xsi:type="org.nasdanika.vinci.app:Action" id="2966bbe0-8682-41c1-9f26-e2538e8dfaf2" text="xcxx"/>
+      </elements>
+      <elements xsi:type="org.nasdanika.vinci.app:Action" title="Section A.2" id="4d4aa5f4-f90a-4ad1-bda2-027d0f750664" text="Section A.2" markdownContent="Section A.2 content"/>
     </elements>
   </elements>
 </org.nasdanika.vinci.app:Action>

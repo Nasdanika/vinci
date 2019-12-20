@@ -170,7 +170,7 @@ public class GenerateTemplatedApplicationAction extends VinciGenerateAction<Abst
 			if (isValidAndRelative(url)) {
 				List<Action> navChildren = rootAction.getNavigationChildren();
 				Action principalAction = navChildren.isEmpty() ? null : navChildren.get(0); 
-				List<? extends Action> navigationPanelActions = principalAction == null ? Collections.emptyList() : principalAction.getNavigationChildren(); 
+				List<Action> navigationPanelActions = principalAction == null ? Collections.emptyList() : principalAction.getNavigationChildren(); 
 		
 		
 				MutableContext pageContext = generationContext.fork();
