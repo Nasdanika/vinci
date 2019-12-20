@@ -90,7 +90,7 @@
                 <elements xsi:type="org.nasdanika.vinci.app:Action" title="Context 1.3.1.A.1.1" id="6bc2b97f-2b28-421d-b69a-77db52cafbca" text="Context 1.3.1.A.1.1" role="Context">
                   <content xsi:type="org.nasdanika.vinci.components:MarkdownText" markdown="Context 1.3.1.A.1.1 content"/>
                 </elements>
-                <elements xsi:type="org.nasdanika.vinci.app:Action" title="Context 1.3.2.1.A.1.2" id="caa8ef76-bdd3-4760-9fb0-738d744dd818" text="Context 1.3.1.A.1..2" role="Context" activatorType="None">
+                <elements xsi:type="org.nasdanika.vinci.app:Action" title="Context 1.3.2.1.A.1.2" id="caa8ef76-bdd3-4760-9fb0-738d744dd818" text="Context 1.3.1.A.1.2" role="Context" activatorType="None">
                   <elements xsi:type="org.nasdanika.vinci.app:Action" title="Context 1.3.1.A..2.1" id="b7a405d2-2759-45a8-8e57-3f5bfadc7d85" text="Context 1.3.1.A..2.1">
                     <content xsi:type="org.nasdanika.vinci.components:MarkdownText" markdown="Context 1.3.1.A..2.1 content"/>
                   </elements>
