@@ -26,7 +26,6 @@ import org.nasdanika.common.SupplierFactory;
  *   <li>{@link org.nasdanika.vinci.app.ActionBase#getActivatorType <em>Activator Type</em>}</li>
  *   <li>{@link org.nasdanika.vinci.app.ActionBase#getConfirmation <em>Confirmation</em>}</li>
  *   <li>{@link org.nasdanika.vinci.app.ActionBase#isDisabled <em>Disabled</em>}</li>
- *   <li>{@link org.nasdanika.vinci.app.ActionBase#isFloatRight <em>Float Right</em>}</li>
  *   <li>{@link org.nasdanika.vinci.app.ActionBase#isEmbedded <em>Embedded</em>}</li>
  *   <li>{@link org.nasdanika.vinci.app.ActionBase#getMarkdownContent <em>Markdown Content</em>}</li>
  *   <li>{@link org.nasdanika.vinci.app.ActionBase#getContent <em>Content</em>}</li>
@@ -219,31 +218,6 @@ public interface ActionBase extends Label, AbstractAction, Container<ActionEleme
 	 * @generated
 	 */
 	void setDisabled(boolean value);
-
-	/**
-	 * Returns the value of the '<em><b>Float Right</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * This attribute is applicable for actions displayed in a navbar. If true, then action is displayed on the right.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Float Right</em>' attribute.
-	 * @see #setFloatRight(boolean)
-	 * @see org.nasdanika.vinci.app.AppPackage#getActionBase_FloatRight()
-	 * @model
-	 * @generated
-	 */
-	boolean isFloatRight();
-
-	/**
-	 * Sets the value of the '{@link org.nasdanika.vinci.app.ActionBase#isFloatRight <em>Float Right</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Float Right</em>' attribute.
-	 * @see #isFloatRight()
-	 * @generated
-	 */
-	void setFloatRight(boolean value);
 
 	/**
 	 * Returns the value of the '<em><b>Embedded</b></em>' attribute.

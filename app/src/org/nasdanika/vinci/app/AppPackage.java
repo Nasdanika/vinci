@@ -841,22 +841,13 @@ public interface AppPackage extends EPackage {
 	int ACTION_BASE__DISABLED = LABEL_FEATURE_COUNT + 9;
 
 	/**
-	 * The feature id for the '<em><b>Float Right</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTION_BASE__FLOAT_RIGHT = LABEL_FEATURE_COUNT + 10;
-
-	/**
 	 * The feature id for the '<em><b>Embedded</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION_BASE__EMBEDDED = LABEL_FEATURE_COUNT + 11;
+	int ACTION_BASE__EMBEDDED = LABEL_FEATURE_COUNT + 10;
 
 	/**
 	 * The feature id for the '<em><b>Markdown Content</b></em>' attribute.
@@ -865,7 +856,7 @@ public interface AppPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION_BASE__MARKDOWN_CONTENT = LABEL_FEATURE_COUNT + 12;
+	int ACTION_BASE__MARKDOWN_CONTENT = LABEL_FEATURE_COUNT + 11;
 
 	/**
 	 * The feature id for the '<em><b>Content</b></em>' containment reference list.
@@ -874,7 +865,7 @@ public interface AppPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION_BASE__CONTENT = LABEL_FEATURE_COUNT + 13;
+	int ACTION_BASE__CONTENT = LABEL_FEATURE_COUNT + 12;
 
 	/**
 	 * The number of structural features of the '<em>Action Base</em>' class.
@@ -883,7 +874,7 @@ public interface AppPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION_BASE_FEATURE_COUNT = LABEL_FEATURE_COUNT + 14;
+	int ACTION_BASE_FEATURE_COUNT = LABEL_FEATURE_COUNT + 13;
 
 	/**
 	 * The operation id for the '<em>Create Consumer</em>' operation.
@@ -1265,15 +1256,6 @@ public interface AppPackage extends EPackage {
 	int ACTION__DISABLED = ACTION_BASE__DISABLED;
 
 	/**
-	 * The feature id for the '<em><b>Float Right</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTION__FLOAT_RIGHT = ACTION_BASE__FLOAT_RIGHT;
-
-	/**
 	 * The feature id for the '<em><b>Embedded</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1506,15 +1488,6 @@ public interface AppPackage extends EPackage {
 	 * @ordered
 	 */
 	int PARTITION__DISABLED = ACTION_BASE__DISABLED;
-
-	/**
-	 * The feature id for the '<em><b>Float Right</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PARTITION__FLOAT_RIGHT = ACTION_BASE__FLOAT_RIGHT;
 
 	/**
 	 * The feature id for the '<em><b>Embedded</b></em>' attribute.
@@ -2425,17 +2398,6 @@ public interface AppPackage extends EPackage {
 	EAttribute getActionBase_Disabled();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.app.ActionBase#isFloatRight <em>Float Right</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Float Right</em>'.
-	 * @see org.nasdanika.vinci.app.ActionBase#isFloatRight()
-	 * @see #getActionBase()
-	 * @generated
-	 */
-	EAttribute getActionBase_FloatRight();
-
-	/**
 	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.app.ActionBase#isEmbedded <em>Embedded</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2964,14 +2926,6 @@ public interface AppPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute ACTION_BASE__DISABLED = eINSTANCE.getActionBase_Disabled();
-
-		/**
-		 * The meta object literal for the '<em><b>Float Right</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute ACTION_BASE__FLOAT_RIGHT = eINSTANCE.getActionBase_FloatRight();
 
 		/**
 		 * The meta object literal for the '<em><b>Embedded</b></em>' attribute feature.

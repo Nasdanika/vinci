@@ -57,7 +57,7 @@ public class ActionFacade extends org.nasdanika.html.app.impl.ActionImpl impleme
 		setNotification(actionContext.interpolate(target.getNotification()));
 		setDisabled(target.isDisabled());
 		setConfirmation(actionContext.interpolate(target.getConfirmation()));
-		setFloatRight(target.isFloatRight());
+//		setFloatRight(target.isFloatRight());
 		// description
 		String mDescription = target.getDescription();
 		String mTooltip = target.getTooltip();

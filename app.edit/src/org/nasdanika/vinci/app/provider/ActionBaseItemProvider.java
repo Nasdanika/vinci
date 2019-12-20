@@ -56,7 +56,6 @@ public class ActionBaseItemProvider extends LabelItemProvider {
 			addActivatorTypePropertyDescriptor(object);
 			addConfirmationPropertyDescriptor(object);
 			addDisabledPropertyDescriptor(object);
-			addFloatRightPropertyDescriptor(object);
 			addEmbeddedPropertyDescriptor(object);
 			addMarkdownContentPropertyDescriptor(object);
 		}
@@ -232,27 +231,6 @@ public class ActionBaseItemProvider extends LabelItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Float Right feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	protected void addFloatRightPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor(
-				 getResourceLocator(),
-				 getString("_UI_ActionBase_floatRight_feature"),
-				 AppPackage.Literals.ACTION_BASE__FLOAT_RIGHT,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
 	 * This adds a property descriptor for the Embedded feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -388,7 +366,6 @@ public class ActionBaseItemProvider extends LabelItemProvider {
 			case AppPackage.ACTION_BASE__ACTIVATOR_TYPE:
 			case AppPackage.ACTION_BASE__CONFIRMATION:
 			case AppPackage.ACTION_BASE__DISABLED:
-			case AppPackage.ACTION_BASE__FLOAT_RIGHT:
 			case AppPackage.ACTION_BASE__EMBEDDED:
 			case AppPackage.ACTION_BASE__MARKDOWN_CONTENT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));

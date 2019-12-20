@@ -763,7 +763,7 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getActionBase_FloatRight() {
+	public EAttribute getActionBase_Embedded() {
 		return (EAttribute)actionBaseEClass.getEStructuralFeatures().get(7);
 	}
 
@@ -773,7 +773,7 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getActionBase_Embedded() {
+	public EAttribute getActionBase_MarkdownContent() {
 		return (EAttribute)actionBaseEClass.getEStructuralFeatures().get(8);
 	}
 
@@ -783,18 +783,8 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getActionBase_MarkdownContent() {
-		return (EAttribute)actionBaseEClass.getEStructuralFeatures().get(9);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EReference getActionBase_Content() {
-		return (EReference)actionBaseEClass.getEStructuralFeatures().get(10);
+		return (EReference)actionBaseEClass.getEStructuralFeatures().get(9);
 	}
 
 	/**
@@ -886,7 +876,6 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 		createEAttribute(actionBaseEClass, ACTION_BASE__ACTIVATOR_TYPE);
 		createEAttribute(actionBaseEClass, ACTION_BASE__CONFIRMATION);
 		createEAttribute(actionBaseEClass, ACTION_BASE__DISABLED);
-		createEAttribute(actionBaseEClass, ACTION_BASE__FLOAT_RIGHT);
 		createEAttribute(actionBaseEClass, ACTION_BASE__EMBEDDED);
 		createEAttribute(actionBaseEClass, ACTION_BASE__MARKDOWN_CONTENT);
 		createEReference(actionBaseEClass, ACTION_BASE__CONTENT);
@@ -1049,7 +1038,6 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 		initEAttribute(getActionBase_ActivatorType(), this.getActivatorType(), "activatorType", null, 0, 1, ActionBase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getActionBase_Confirmation(), ecorePackage.getEString(), "confirmation", null, 0, 1, ActionBase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getActionBase_Disabled(), ecorePackage.getEBoolean(), "disabled", null, 0, 1, ActionBase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getActionBase_FloatRight(), ecorePackage.getEBoolean(), "floatRight", null, 0, 1, ActionBase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getActionBase_Embedded(), ecorePackage.getEBoolean(), "embedded", null, 0, 1, ActionBase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getActionBase_MarkdownContent(), ecorePackage.getEString(), "markdownContent", null, 0, 1, ActionBase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		g1 = createEGenericType(theNcorePackage.getISupplierFactory());
@@ -1276,12 +1264,6 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 		   source,
 		   new String[] {
 			   "documentation", "If true, then action is displayed as disabled. "
-		   });
-		addAnnotation
-		  (getActionBase_FloatRight(),
-		   source,
-		   new String[] {
-			   "documentation", "This attribute is applicable for actions displayed in a navbar. If true, then action is displayed on the right."
 		   });
 		addAnnotation
 		  (getActionBase_Embedded(),
