@@ -359,6 +359,7 @@ public class ActionBaseItemProvider extends LabelItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(ActionBase.class)) {
+			case AppPackage.ACTION_BASE__LINKED_ELEMENTS:
 			case AppPackage.ACTION_BASE__ROLE:
 			case AppPackage.ACTION_BASE__SECTION_STYLE:
 			case AppPackage.ACTION_BASE__SECTION_COLUMNS:

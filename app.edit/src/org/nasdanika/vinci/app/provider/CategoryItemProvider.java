@@ -147,6 +147,9 @@ public class CategoryItemProvider extends LabelItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Category.class)) {
+			case AppPackage.CATEGORY__LINKED_ELEMENTS:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
 			case AppPackage.CATEGORY__ELEMENTS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
