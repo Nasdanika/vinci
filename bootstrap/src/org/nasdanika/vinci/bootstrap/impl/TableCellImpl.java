@@ -16,7 +16,9 @@ import org.nasdanika.common.ConsumerFactory;
 import org.nasdanika.common.Context;
 import org.nasdanika.common.Function;
 import org.nasdanika.common.ListCompoundSupplier;
+import org.nasdanika.common.MarkdownHelper;
 import org.nasdanika.common.ProgressMonitor;
+import org.nasdanika.common.Supplier;
 import org.nasdanika.common.SupplierFactory;
 import org.nasdanika.common.Util;
 import org.nasdanika.html.bootstrap.Color;
@@ -46,6 +48,7 @@ import org.nasdanika.vinci.html.impl.ContainerImpl;
  *   <li>{@link org.nasdanika.vinci.bootstrap.impl.TableCellImpl#getRowSpan <em>Row Span</em>}</li>
  *   <li>{@link org.nasdanika.vinci.bootstrap.impl.TableCellImpl#getColor <em>Color</em>}</li>
  *   <li>{@link org.nasdanika.vinci.bootstrap.impl.TableCellImpl#getBackground <em>Background</em>}</li>
+ *   <li>{@link org.nasdanika.vinci.bootstrap.impl.TableCellImpl#getMarkdownContent <em>Markdown Content</em>}</li>
  * </ul>
  *
  * @generated
@@ -120,6 +123,16 @@ public class TableCellImpl extends ContainerImpl implements TableCell {
 	 * @ordered
 	 */
 	protected static final String BACKGROUND_EDEFAULT = null;
+
+	/**
+	 * The default value of the '{@link #getMarkdownContent() <em>Markdown Content</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMarkdownContent()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String MARKDOWN_CONTENT_EDEFAULT = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -316,6 +329,26 @@ public class TableCellImpl extends ContainerImpl implements TableCell {
 	 * @generated
 	 */
 	@Override
+	public String getMarkdownContent() {
+		return (String)eDynamicGet(BootstrapPackage.TABLE_CELL__MARKDOWN_CONTENT, BootstrapPackage.Literals.TABLE_CELL__MARKDOWN_CONTENT, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setMarkdownContent(String newMarkdownContent) {
+		eDynamicSet(BootstrapPackage.TABLE_CELL__MARKDOWN_CONTENT, BootstrapPackage.Literals.TABLE_CELL__MARKDOWN_CONTENT, newMarkdownContent);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Consumer<Object> asConsumer(Context context) throws Exception {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
@@ -360,6 +393,8 @@ public class TableCellImpl extends ContainerImpl implements TableCell {
 				return getColor();
 			case BootstrapPackage.TABLE_CELL__BACKGROUND:
 				return getBackground();
+			case BootstrapPackage.TABLE_CELL__MARKDOWN_CONTENT:
+				return getMarkdownContent();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -395,6 +430,9 @@ public class TableCellImpl extends ContainerImpl implements TableCell {
 				return;
 			case BootstrapPackage.TABLE_CELL__BACKGROUND:
 				setBackground((String)newValue);
+				return;
+			case BootstrapPackage.TABLE_CELL__MARKDOWN_CONTENT:
+				setMarkdownContent((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -432,6 +470,9 @@ public class TableCellImpl extends ContainerImpl implements TableCell {
 			case BootstrapPackage.TABLE_CELL__BACKGROUND:
 				setBackground(BACKGROUND_EDEFAULT);
 				return;
+			case BootstrapPackage.TABLE_CELL__MARKDOWN_CONTENT:
+				setMarkdownContent(MARKDOWN_CONTENT_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -460,6 +501,8 @@ public class TableCellImpl extends ContainerImpl implements TableCell {
 				return COLOR_EDEFAULT == null ? getColor() != null : !COLOR_EDEFAULT.equals(getColor());
 			case BootstrapPackage.TABLE_CELL__BACKGROUND:
 				return BACKGROUND_EDEFAULT == null ? getBackground() != null : !BACKGROUND_EDEFAULT.equals(getBackground());
+			case BootstrapPackage.TABLE_CELL__MARKDOWN_CONTENT:
+				return MARKDOWN_CONTENT_EDEFAULT == null ? getMarkdownContent() != null : !MARKDOWN_CONTENT_EDEFAULT.equals(getMarkdownContent());
 		}
 		return super.eIsSet(featureID);
 	}
@@ -584,6 +627,26 @@ public class TableCellImpl extends ContainerImpl implements TableCell {
 	public Consumer<Object> create(Context context) throws Exception {
 		@SuppressWarnings("resource")
 		ListCompoundSupplier<Object> contentSupplier = new ListCompoundSupplier<Object>("Content");
+		
+		String markdown = getMarkdownContent();
+		if (!Util.isBlank(markdown)) {
+			Supplier<Object> markdownSupplier = Supplier.fromCallable(() -> {
+				MarkdownHelper markdownHelper = new MarkdownHelper();
+				String html = context.interpolate(markdownHelper.markdownToHtml(markdown).trim());
+
+				// Peeling of <p></p>
+				String pOpen = "<p>";
+				String pClose = "</p>";
+				if (html.startsWith(pOpen) && html.endsWith(pClose)) {
+					html = html.substring(pOpen.length(), html.length() - pClose.length());
+				}
+				
+				return html;
+			}, getTitle(), 1);
+			
+			contentSupplier.add(markdownSupplier);
+		}
+				
 		for (SupplierFactory<Object> content: getContent()) {
 			contentSupplier.add(content.create(context));
 		}

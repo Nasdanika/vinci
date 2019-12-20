@@ -144,6 +144,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bootstrap.ecore#//TableCell/rowSpan"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bootstrap.ecore#//TableCell/color"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bootstrap.ecore#//TableCell/background"/>
+      <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute bootstrap.ecore#//TableCell/markdownContent"/>
     </genClasses>
     <genClasses ecoreClass="bootstrap.ecore#//Tooltip"/>
     <genClasses ecoreClass="bootstrap.ecore#//InputGroup"/>

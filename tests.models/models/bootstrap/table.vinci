@@ -25,11 +25,7 @@
     </cells>
   </rows>
   <rows>
-    <cells color="Danger" background="">
-      <content xsi:type="org.nasdanika.vinci.components:MarkdownText" markdown="Hello World!"/>
-    </cells>
-    <cells>
-      <content xsi:type="org.nasdanika.vinci.components:MarkdownText" markdown="And good-bye"/>
-    </cells>
+    <cells color="Danger" background="" markdownContent="The __Greeting__"/>
+    <cells markdownContent="* Hello, &#xD;&#xA;* world!"/>
   </rows>
 </org.nasdanika.vinci.bootstrap:Table>

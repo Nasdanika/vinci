@@ -20,6 +20,7 @@ import org.nasdanika.vinci.html.Container;
  *   <li>{@link org.nasdanika.vinci.bootstrap.TableCell#getRowSpan <em>Row Span</em>}</li>
  *   <li>{@link org.nasdanika.vinci.bootstrap.TableCell#getColor <em>Color</em>}</li>
  *   <li>{@link org.nasdanika.vinci.bootstrap.TableCell#getBackground <em>Background</em>}</li>
+ *   <li>{@link org.nasdanika.vinci.bootstrap.TableCell#getMarkdownContent <em>Markdown Content</em>}</li>
  * </ul>
  *
  * @see org.nasdanika.vinci.bootstrap.BootstrapPackage#getTableCell()
@@ -139,5 +140,30 @@ public interface TableCell extends Container, BootstrapElement, ConsumerFactory<
 	 * @generated
 	 */
 	void setBackground(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Markdown Content</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * If this attribute is not blank it is used as the first content element.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Markdown Content</em>' attribute.
+	 * @see #setMarkdownContent(String)
+	 * @see org.nasdanika.vinci.bootstrap.BootstrapPackage#getTableCell_MarkdownContent()
+	 * @model
+	 * @generated
+	 */
+	String getMarkdownContent();
+
+	/**
+	 * Sets the value of the '{@link org.nasdanika.vinci.bootstrap.TableCell#getMarkdownContent <em>Markdown Content</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Markdown Content</em>' attribute.
+	 * @see #getMarkdownContent()
+	 * @generated
+	 */
+	void setMarkdownContent(String value);
 
 } // TableCell

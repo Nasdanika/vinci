@@ -54,6 +54,7 @@ public class TableCellItemProvider extends ContainerItemProvider {
 			addRowSpanPropertyDescriptor(object);
 			addColorPropertyDescriptor(object);
 			addBackgroundPropertyDescriptor(object);
+			addMarkdownContentPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -206,6 +207,27 @@ public class TableCellItemProvider extends ContainerItemProvider {
 	}
 
 	/**
+	 * This adds a property descriptor for the Markdown Content feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	protected void addMarkdownContentPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor(
+				 getResourceLocator(),
+				 getString("_UI_TableCell_markdownContent_feature"),
+				 BootstrapPackage.Literals.TABLE_CELL__MARKDOWN_CONTENT,
+				 true,
+				 true,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -288,6 +310,7 @@ public class TableCellItemProvider extends ContainerItemProvider {
 			case BootstrapPackage.TABLE_CELL__ROW_SPAN:
 			case BootstrapPackage.TABLE_CELL__COLOR:
 			case BootstrapPackage.TABLE_CELL__BACKGROUND:
+			case BootstrapPackage.TABLE_CELL__MARKDOWN_CONTENT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case BootstrapPackage.TABLE_CELL__APPEARANCE:

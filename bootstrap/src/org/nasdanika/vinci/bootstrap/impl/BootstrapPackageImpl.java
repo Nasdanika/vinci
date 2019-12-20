@@ -1544,6 +1544,16 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 	 * @generated
 	 */
 	@Override
+	public EAttribute getTableCell_MarkdownContent() {
+		return (EAttribute)tableCellEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getTooltip() {
 		return tooltipEClass;
 	}
@@ -1773,6 +1783,7 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 		createEAttribute(tableCellEClass, TABLE_CELL__ROW_SPAN);
 		createEAttribute(tableCellEClass, TABLE_CELL__COLOR);
 		createEAttribute(tableCellEClass, TABLE_CELL__BACKGROUND);
+		createEAttribute(tableCellEClass, TABLE_CELL__MARKDOWN_CONTENT);
 
 		tooltipEClass = createEClass(TOOLTIP);
 
@@ -2044,6 +2055,7 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 		initEAttribute(getTableCell_RowSpan(), ecorePackage.getEInt(), "rowSpan", null, 0, 1, TableCell.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTableCell_Color(), ecorePackage.getEString(), "color", null, 0, 1, TableCell.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTableCell_Background(), ecorePackage.getEString(), "background", null, 0, 1, TableCell.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTableCell_MarkdownContent(), ecorePackage.getEString(), "markdownContent", null, 0, 1, TableCell.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(tooltipEClass, Tooltip.class, "Tooltip", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -2368,6 +2380,12 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 		   source,
 		   new String[] {
 			   "documentation", "If true, table cell is generated as ``<th>`` instead of the default ``<td>``."
+		   });
+		addAnnotation
+		  (getTableCell_MarkdownContent(),
+		   source,
+		   new String[] {
+			   "documentation", "If this attribute is not blank it is used as the first content element."
 		   });
 	}
 
