@@ -132,7 +132,7 @@
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="sectionColumns" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
-        defaultValueLiteral="1">
+        defaultValueLiteral="3">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Applicable to section style &quot;Card&quot;. Defines how many columns shall be in a row of section cards."/>
       </eAnnotations>

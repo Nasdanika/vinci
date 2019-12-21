@@ -76,6 +76,10 @@ public class ActionFacade extends org.nasdanika.html.app.impl.ActionImpl impleme
 		}
 		// activator
 		String activator = target.getActivator();
+		
+		if (target.getSectionColumns() > 0) {
+			setSectionColumns(target.getSectionColumns());
+		}
 
 		switch (target.getActivatorType()) {
 		case NONE:

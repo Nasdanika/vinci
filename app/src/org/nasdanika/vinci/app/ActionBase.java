@@ -92,7 +92,7 @@ public interface ActionBase extends Label, AbstractAction, Container<ActionEleme
 
 	/**
 	 * Returns the value of the '<em><b>Section Columns</b></em>' attribute.
-	 * The default value is <code>"1"</code>.
+	 * The default value is <code>"3"</code>.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
@@ -101,7 +101,7 @@ public interface ActionBase extends Label, AbstractAction, Container<ActionEleme
 	 * @return the value of the '<em>Section Columns</em>' attribute.
 	 * @see #setSectionColumns(int)
 	 * @see org.nasdanika.vinci.app.AppPackage#getActionBase_SectionColumns()
-	 * @model default="1"
+	 * @model default="3"
 	 * @generated
 	 */
 	int getSectionColumns();

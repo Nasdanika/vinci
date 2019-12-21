@@ -101,7 +101,7 @@ public abstract class ActionBaseImpl extends LabelImpl implements ActionBase {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final int SECTION_COLUMNS_EDEFAULT = 1;
+	protected static final int SECTION_COLUMNS_EDEFAULT = 3;
 
 	/**
 	 * The default value of the '{@link #getActivator() <em>Activator</em>}' attribute.
