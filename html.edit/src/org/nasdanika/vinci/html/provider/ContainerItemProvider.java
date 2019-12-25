@@ -8,25 +8,19 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
-
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-
 import org.nasdanika.emf.edit.NasdanikaItemProviderAdapter;
-
-import org.nasdanika.ncore.NcoreFactory;
-
 import org.nasdanika.vinci.html.Container;
-import org.nasdanika.vinci.html.HtmlFactory;
 import org.nasdanika.vinci.html.HtmlPackage;
 
 /**
@@ -64,8 +58,30 @@ public class ContainerItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addMarkdownContentPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Markdown Content feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	protected void addMarkdownContentPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor(
+				 getResourceLocator(),
+				 getString("_UI_Container_markdownContent_feature"),
+				 HtmlPackage.Literals.CONTAINER__MARKDOWN_CONTENT,
+				 true,
+				 true,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**
@@ -127,7 +143,10 @@ public class ContainerItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_Container_type");
+		String label = ((Container)object).getMarkdownContent();
+		return label == null || label.length() == 0 ?
+			getString("_UI_Container_type") :
+			getString("_UI_Container_type") + " " + label;
 	}
 
 
@@ -143,6 +162,9 @@ public class ContainerItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Container.class)) {
+			case HtmlPackage.CONTAINER__MARKDOWN_CONTENT:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
 			case HtmlPackage.CONTAINER__CONTENT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;

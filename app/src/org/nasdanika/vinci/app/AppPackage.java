@@ -1726,13 +1726,22 @@ public interface AppPackage extends EPackage {
 	int BOOTSTRAP_CONTAINER_APPLICATION_SECTION__CONTENT = BootstrapPackage.BOOTSTRAP_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Markdown Content</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOTSTRAP_CONTAINER_APPLICATION_SECTION__MARKDOWN_CONTENT = BootstrapPackage.BOOTSTRAP_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Bootstrap Container Application Section</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BOOTSTRAP_CONTAINER_APPLICATION_SECTION_FEATURE_COUNT = BootstrapPackage.BOOTSTRAP_ELEMENT_FEATURE_COUNT + 1;
+	int BOOTSTRAP_CONTAINER_APPLICATION_SECTION_FEATURE_COUNT = BootstrapPackage.BOOTSTRAP_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>As Consumer</em>' operation.
@@ -1797,6 +1806,15 @@ public interface AppPackage extends EPackage {
 	 * @ordered
 	 */
 	int BOOTSTRAP_CONTAINER_APPLICATION_PANEL__CONTENT = BOOTSTRAP_CONTAINER_APPLICATION_SECTION__CONTENT;
+
+	/**
+	 * The feature id for the '<em><b>Markdown Content</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOTSTRAP_CONTAINER_APPLICATION_PANEL__MARKDOWN_CONTENT = BOOTSTRAP_CONTAINER_APPLICATION_SECTION__MARKDOWN_CONTENT;
 
 	/**
 	 * The feature id for the '<em><b>Width</b></em>' containment reference list.

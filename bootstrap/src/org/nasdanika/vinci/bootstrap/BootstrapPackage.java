@@ -851,6 +851,15 @@ public interface BootstrapPackage extends EPackage {
 	int CONTENT_TAG__CONTENT = HtmlPackage.CONTENT_TAG__CONTENT;
 
 	/**
+	 * The feature id for the '<em><b>Markdown Content</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTENT_TAG__MARKDOWN_CONTENT = HtmlPackage.CONTENT_TAG__MARKDOWN_CONTENT;
+
+	/**
 	 * The feature id for the '<em><b>Appearance</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1279,13 +1288,22 @@ public interface BootstrapPackage extends EPackage {
 	int CONTENT_ACTION_GROUP_ITEM__CONTENT = ACTION_GROUP_ITEM_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Markdown Content</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTENT_ACTION_GROUP_ITEM__MARKDOWN_CONTENT = ACTION_GROUP_ITEM_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Content Action Group Item</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONTENT_ACTION_GROUP_ITEM_FEATURE_COUNT = ACTION_GROUP_ITEM_FEATURE_COUNT + 1;
+	int CONTENT_ACTION_GROUP_ITEM_FEATURE_COUNT = ACTION_GROUP_ITEM_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Content Action Group Item</em>' class.
@@ -1954,13 +1972,22 @@ public interface BootstrapPackage extends EPackage {
 	int COLUMN__CONTENT = BOOTSTRAP_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Markdown Content</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLUMN__MARKDOWN_CONTENT = BOOTSTRAP_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
 	 * The feature id for the '<em><b>Width</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COLUMN__WIDTH = BOOTSTRAP_ELEMENT_FEATURE_COUNT + 1;
+	int COLUMN__WIDTH = BOOTSTRAP_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Column</em>' class.
@@ -1969,7 +1996,7 @@ public interface BootstrapPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COLUMN_FEATURE_COUNT = BOOTSTRAP_ELEMENT_FEATURE_COUNT + 2;
+	int COLUMN_FEATURE_COUNT = BOOTSTRAP_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>As Consumer</em>' operation.
@@ -2711,6 +2738,15 @@ public interface BootstrapPackage extends EPackage {
 	int TABLE_CELL__CONTENT = HtmlPackage.CONTAINER__CONTENT;
 
 	/**
+	 * The feature id for the '<em><b>Markdown Content</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_CELL__MARKDOWN_CONTENT = HtmlPackage.CONTAINER__MARKDOWN_CONTENT;
+
+	/**
 	 * The feature id for the '<em><b>Title</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2783,22 +2819,13 @@ public interface BootstrapPackage extends EPackage {
 	int TABLE_CELL__BACKGROUND = HtmlPackage.CONTAINER_FEATURE_COUNT + 7;
 
 	/**
-	 * The feature id for the '<em><b>Markdown Content</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TABLE_CELL__MARKDOWN_CONTENT = HtmlPackage.CONTAINER_FEATURE_COUNT + 8;
-
-	/**
 	 * The number of structural features of the '<em>Table Cell</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE_CELL_FEATURE_COUNT = HtmlPackage.CONTAINER_FEATURE_COUNT + 9;
+	int TABLE_CELL_FEATURE_COUNT = HtmlPackage.CONTAINER_FEATURE_COUNT + 8;
 
 	/**
 	 * The operation id for the '<em>As Consumer</em>' operation.
@@ -4160,17 +4187,6 @@ public interface BootstrapPackage extends EPackage {
 	EAttribute getTableCell_Background();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.bootstrap.TableCell#getMarkdownContent <em>Markdown Content</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Markdown Content</em>'.
-	 * @see org.nasdanika.vinci.bootstrap.TableCell#getMarkdownContent()
-	 * @see #getTableCell()
-	 * @generated
-	 */
-	EAttribute getTableCell_MarkdownContent();
-
-	/**
 	 * Returns the meta object for class '{@link org.nasdanika.vinci.bootstrap.Tooltip <em>Tooltip</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5097,13 +5113,6 @@ public interface BootstrapPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute TABLE_CELL__BACKGROUND = eINSTANCE.getTableCell_Background();
-		/**
-		 * The meta object literal for the '<em><b>Markdown Content</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute TABLE_CELL__MARKDOWN_CONTENT = eINSTANCE.getTableCell_MarkdownContent();
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.vinci.bootstrap.impl.TooltipImpl <em>Tooltip</em>}' class.
 		 * <!-- begin-user-doc -->

@@ -13,10 +13,12 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.nasdanika.common.Util;
 import org.nasdanika.vinci.app.AppPackage;
 import org.nasdanika.vinci.app.BootstrapContainerApplicationSection;
+import org.nasdanika.vinci.app.Category;
 import org.nasdanika.vinci.bootstrap.provider.BootstrapElementItemProvider;
 import org.nasdanika.vinci.html.HtmlPackage;
 
@@ -48,8 +50,30 @@ public class BootstrapContainerApplicationSectionItemProvider extends BootstrapE
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addMarkdownContentPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Markdown Content feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	protected void addMarkdownContentPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor(
+				 getResourceLocator(),
+				 getString("_UI_Container_markdownContent_feature"),
+				 HtmlPackage.Literals.CONTAINER__MARKDOWN_CONTENT,
+				 true,
+				 true,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**
@@ -111,9 +135,10 @@ public class BootstrapContainerApplicationSectionItemProvider extends BootstrapE
 	public String getText(Object object) {		
 		BootstrapContainerApplicationSection section = (BootstrapContainerApplicationSection)object;
 		EReference cf = section.eContainmentFeature();
-		return cf == null ? "" : Util.nameToLabel(cf.getName());
+		String role = cf == null ? "" : Util.nameToLabel(cf.getName());
+		String title = section.getTitle();
+		return title == null || title.length() == 0 ? role : role + " - " + title;		
 	}
-
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached
@@ -127,19 +152,14 @@ public class BootstrapContainerApplicationSectionItemProvider extends BootstrapE
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(BootstrapContainerApplicationSection.class)) {
+			case AppPackage.BOOTSTRAP_CONTAINER_APPLICATION_SECTION__MARKDOWN_CONTENT:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
 			case AppPackage.BOOTSTRAP_CONTAINER_APPLICATION_SECTION__CONTENT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
 		super.notifyChanged(notification);
-	}
-	
-	/**
-	 * Suppressing title as it doesn't appear in the model view.
-	 */
-	@Override
-	protected void addTitlePropertyDescriptor(Object object) {
-		// NOP
 	}
 
 	/**

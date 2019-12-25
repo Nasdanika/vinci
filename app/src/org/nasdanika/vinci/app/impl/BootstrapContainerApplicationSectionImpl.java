@@ -13,8 +13,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import org.nasdanika.common.BiSupplier;
 import org.nasdanika.common.Consumer;
 import org.nasdanika.common.Context;
-import org.nasdanika.common.ListCompoundSupplier;
-import org.nasdanika.common.Supplier;
 import org.nasdanika.common.SupplierFactory;
 import org.nasdanika.html.bootstrap.Container.Row.Col;
 import org.nasdanika.vinci.app.AppPackage;
@@ -31,11 +29,22 @@ import org.nasdanika.vinci.html.HtmlPackage;
  * </p>
  * <ul>
  *   <li>{@link org.nasdanika.vinci.app.impl.BootstrapContainerApplicationSectionImpl#getContent <em>Content</em>}</li>
+ *   <li>{@link org.nasdanika.vinci.app.impl.BootstrapContainerApplicationSectionImpl#getMarkdownContent <em>Markdown Content</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class BootstrapContainerApplicationSectionImpl extends BootstrapElementImpl implements BootstrapContainerApplicationSection {
+	/**
+	 * The default value of the '{@link #getMarkdownContent() <em>Markdown Content</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMarkdownContent()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String MARKDOWN_CONTENT_EDEFAULT = null;
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -72,6 +81,26 @@ public class BootstrapContainerApplicationSectionImpl extends BootstrapElementIm
 	 * @generated
 	 */
 	@Override
+	public String getMarkdownContent() {
+		return (String)eDynamicGet(AppPackage.BOOTSTRAP_CONTAINER_APPLICATION_SECTION__MARKDOWN_CONTENT, HtmlPackage.Literals.CONTAINER__MARKDOWN_CONTENT, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setMarkdownContent(String newMarkdownContent) {
+		eDynamicSet(AppPackage.BOOTSTRAP_CONTAINER_APPLICATION_SECTION__MARKDOWN_CONTENT, HtmlPackage.Literals.CONTAINER__MARKDOWN_CONTENT, newMarkdownContent);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case AppPackage.BOOTSTRAP_CONTAINER_APPLICATION_SECTION__CONTENT:
@@ -90,6 +119,8 @@ public class BootstrapContainerApplicationSectionImpl extends BootstrapElementIm
 		switch (featureID) {
 			case AppPackage.BOOTSTRAP_CONTAINER_APPLICATION_SECTION__CONTENT:
 				return getContent();
+			case AppPackage.BOOTSTRAP_CONTAINER_APPLICATION_SECTION__MARKDOWN_CONTENT:
+				return getMarkdownContent();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -107,6 +138,9 @@ public class BootstrapContainerApplicationSectionImpl extends BootstrapElementIm
 				getContent().clear();
 				getContent().addAll((Collection<? extends SupplierFactory<Object>>)newValue);
 				return;
+			case AppPackage.BOOTSTRAP_CONTAINER_APPLICATION_SECTION__MARKDOWN_CONTENT:
+				setMarkdownContent((String)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -122,6 +156,9 @@ public class BootstrapContainerApplicationSectionImpl extends BootstrapElementIm
 			case AppPackage.BOOTSTRAP_CONTAINER_APPLICATION_SECTION__CONTENT:
 				getContent().clear();
 				return;
+			case AppPackage.BOOTSTRAP_CONTAINER_APPLICATION_SECTION__MARKDOWN_CONTENT:
+				setMarkdownContent(MARKDOWN_CONTENT_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -136,6 +173,8 @@ public class BootstrapContainerApplicationSectionImpl extends BootstrapElementIm
 		switch (featureID) {
 			case AppPackage.BOOTSTRAP_CONTAINER_APPLICATION_SECTION__CONTENT:
 				return !getContent().isEmpty();
+			case AppPackage.BOOTSTRAP_CONTAINER_APPLICATION_SECTION__MARKDOWN_CONTENT:
+				return MARKDOWN_CONTENT_EDEFAULT == null ? getMarkdownContent() != null : !MARKDOWN_CONTENT_EDEFAULT.equals(getMarkdownContent());
 		}
 		return super.eIsSet(featureID);
 	}
@@ -150,6 +189,7 @@ public class BootstrapContainerApplicationSectionImpl extends BootstrapElementIm
 		if (baseClass == org.nasdanika.vinci.html.Container.class) {
 			switch (derivedFeatureID) {
 				case AppPackage.BOOTSTRAP_CONTAINER_APPLICATION_SECTION__CONTENT: return HtmlPackage.CONTAINER__CONTENT;
+				case AppPackage.BOOTSTRAP_CONTAINER_APPLICATION_SECTION__MARKDOWN_CONTENT: return HtmlPackage.CONTAINER__MARKDOWN_CONTENT;
 				default: return -1;
 			}
 		}
@@ -166,21 +206,12 @@ public class BootstrapContainerApplicationSectionImpl extends BootstrapElementIm
 		if (baseClass == org.nasdanika.vinci.html.Container.class) {
 			switch (baseFeatureID) {
 				case HtmlPackage.CONTAINER__CONTENT: return AppPackage.BOOTSTRAP_CONTAINER_APPLICATION_SECTION__CONTENT;
+				case HtmlPackage.CONTAINER__MARKDOWN_CONTENT: return AppPackage.BOOTSTRAP_CONTAINER_APPLICATION_SECTION__MARKDOWN_CONTENT;
 				default: return -1;
 			}
 		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
-		
-	protected Supplier<List<Object>> createContentSupplier(Context context) throws Exception {
-		ListCompoundSupplier<Object> ret = new ListCompoundSupplier<Object>("Content");
-		
-		for (SupplierFactory<Object> ce: getContent()) {
-			ret.add(ce.create(context));
-		}
-		
-		return ret;
-	}	
 	
 	@Override
 	public Consumer<Object> asConsumer(Context context) throws Exception {
@@ -190,7 +221,7 @@ public class BootstrapContainerApplicationSectionImpl extends BootstrapElementIm
 			biSupplier.getSecond().forEach(col);
 			return col;
 		};
-		return createContentSupplier(context).asFunction().then(builder).then(super.asConsumer(context));
+		return createContentSupplierFactory().create(context).asFunction().then(builder).then(super.asConsumer(context));
 	}
 
 	/**

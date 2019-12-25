@@ -10,7 +10,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.nasdanika.common.Context;
-import org.nasdanika.common.ListCompoundSupplier;
 import org.nasdanika.common.StringMapCompoundSupplier;
 import org.nasdanika.common.Supplier;
 import org.nasdanika.common.SupplierFactory;
@@ -26,11 +25,22 @@ import org.nasdanika.vinci.html.HtmlPackage;
  * </p>
  * <ul>
  *   <li>{@link org.nasdanika.vinci.html.impl.ContentTagImpl#getContent <em>Content</em>}</li>
+ *   <li>{@link org.nasdanika.vinci.html.impl.ContentTagImpl#getMarkdownContent <em>Markdown Content</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class ContentTagImpl extends TagImpl implements ContentTag {
+	/**
+	 * The default value of the '{@link #getMarkdownContent() <em>Markdown Content</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMarkdownContent()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String MARKDOWN_CONTENT_EDEFAULT = null;
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -67,6 +77,26 @@ public class ContentTagImpl extends TagImpl implements ContentTag {
 	 * @generated
 	 */
 	@Override
+	public String getMarkdownContent() {
+		return (String)eDynamicGet(HtmlPackage.CONTENT_TAG__MARKDOWN_CONTENT, HtmlPackage.Literals.CONTAINER__MARKDOWN_CONTENT, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setMarkdownContent(String newMarkdownContent) {
+		eDynamicSet(HtmlPackage.CONTENT_TAG__MARKDOWN_CONTENT, HtmlPackage.Literals.CONTAINER__MARKDOWN_CONTENT, newMarkdownContent);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case HtmlPackage.CONTENT_TAG__CONTENT:
@@ -85,6 +115,8 @@ public class ContentTagImpl extends TagImpl implements ContentTag {
 		switch (featureID) {
 			case HtmlPackage.CONTENT_TAG__CONTENT:
 				return getContent();
+			case HtmlPackage.CONTENT_TAG__MARKDOWN_CONTENT:
+				return getMarkdownContent();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -102,6 +134,9 @@ public class ContentTagImpl extends TagImpl implements ContentTag {
 				getContent().clear();
 				getContent().addAll((Collection<? extends SupplierFactory<Object>>)newValue);
 				return;
+			case HtmlPackage.CONTENT_TAG__MARKDOWN_CONTENT:
+				setMarkdownContent((String)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -117,6 +152,9 @@ public class ContentTagImpl extends TagImpl implements ContentTag {
 			case HtmlPackage.CONTENT_TAG__CONTENT:
 				getContent().clear();
 				return;
+			case HtmlPackage.CONTENT_TAG__MARKDOWN_CONTENT:
+				setMarkdownContent(MARKDOWN_CONTENT_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -131,6 +169,8 @@ public class ContentTagImpl extends TagImpl implements ContentTag {
 		switch (featureID) {
 			case HtmlPackage.CONTENT_TAG__CONTENT:
 				return !getContent().isEmpty();
+			case HtmlPackage.CONTENT_TAG__MARKDOWN_CONTENT:
+				return MARKDOWN_CONTENT_EDEFAULT == null ? getMarkdownContent() != null : !MARKDOWN_CONTENT_EDEFAULT.equals(getMarkdownContent());
 		}
 		return super.eIsSet(featureID);
 	}
@@ -145,6 +185,7 @@ public class ContentTagImpl extends TagImpl implements ContentTag {
 		if (baseClass == org.nasdanika.vinci.html.Container.class) {
 			switch (derivedFeatureID) {
 				case HtmlPackage.CONTENT_TAG__CONTENT: return HtmlPackage.CONTAINER__CONTENT;
+				case HtmlPackage.CONTENT_TAG__MARKDOWN_CONTENT: return HtmlPackage.CONTAINER__MARKDOWN_CONTENT;
 				default: return -1;
 			}
 		}
@@ -161,6 +202,7 @@ public class ContentTagImpl extends TagImpl implements ContentTag {
 		if (baseClass == org.nasdanika.vinci.html.Container.class) {
 			switch (baseFeatureID) {
 				case HtmlPackage.CONTAINER__CONTENT: return HtmlPackage.CONTENT_TAG__CONTENT;
+				case HtmlPackage.CONTAINER__MARKDOWN_CONTENT: return HtmlPackage.CONTENT_TAG__MARKDOWN_CONTENT;
 				default: return -1;
 			}
 		}
@@ -171,14 +213,10 @@ public class ContentTagImpl extends TagImpl implements ContentTag {
 	@Override
 	public Supplier<Object> create(Context context) throws Exception {
 		Supplier<Object> tagSupplier = super.create(context);
-		ListCompoundSupplier<Object> contentSupplier = new ListCompoundSupplier<Object>("Content");
-		for (SupplierFactory<Object> content: getContent()) {
-			contentSupplier.add(content.create(context));
-		}
 		@SuppressWarnings("resource")
 		StringMapCompoundSupplier<Object> mapSupplier = new StringMapCompoundSupplier<>("Parts");
 		mapSupplier.put("Tag", tagSupplier);
-		mapSupplier.put((Supplier) contentSupplier);
+		mapSupplier.put((Supplier) createContentSupplierFactory().create(context));
 		return mapSupplier.then(map -> {
 			org.nasdanika.html.Tag tag = (org.nasdanika.html.Tag) map.get("Tag");
 			for (Object c: ((Collection<Object>) map.get("Content"))) {

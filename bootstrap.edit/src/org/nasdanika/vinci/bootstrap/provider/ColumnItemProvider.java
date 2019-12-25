@@ -12,6 +12,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.nasdanika.emf.edit.EReferenceItemProvider;
 import org.nasdanika.vinci.bootstrap.BootstrapFactory;
@@ -47,10 +48,32 @@ public class ColumnItemProvider extends BootstrapElementItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addMarkdownContentPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 		
+	/**
+	 * This adds a property descriptor for the Markdown Content feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	protected void addMarkdownContentPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor(
+				 getResourceLocator(),
+				 getString("_UI_Container_markdownContent_feature"),
+				 HtmlPackage.Literals.CONTAINER__MARKDOWN_CONTENT,
+				 true,
+				 true,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null,
+				 null));
+	}
+
 	/**
 	 * Creates {@link EReferenceItemProvider} children to group contained elements into "folders".
 	 */
@@ -148,6 +171,9 @@ public class ColumnItemProvider extends BootstrapElementItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Column.class)) {
+			case BootstrapPackage.COLUMN__MARKDOWN_CONTENT:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
 			case BootstrapPackage.COLUMN__CONTENT:
 			case BootstrapPackage.COLUMN__WIDTH:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));

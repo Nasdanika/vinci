@@ -28,6 +28,8 @@
     <semanticResources>models/app/sections.vinci</semanticResources>
     <semanticResources>models/bootstrap/table.vinci</semanticResources>
     <semanticResources>models/bootstrap/table-sections.vinci</semanticResources>
+    <semanticResources>models/app/role-and-order.vinci</semanticResources>
+    <semanticResources>models/app/markdown-content.vinci</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_xD_Q0ApBEeq01PnEy7pPaA">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/resource/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']"/>
       <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_zfIdkApBEeq01PnEy7pPaA" name="Bank of Nasdanika Diagram" repPath="#_zeF7wApBEeq01PnEy7pPaA">

@@ -26,11 +26,22 @@ import org.nasdanika.vinci.html.HtmlPackage;
  * </p>
  * <ul>
  *   <li>{@link org.nasdanika.vinci.html.impl.ContainerImpl#getContent <em>Content</em>}</li>
+ *   <li>{@link org.nasdanika.vinci.html.impl.ContainerImpl#getMarkdownContent <em>Markdown Content</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class ContainerImpl extends MinimalEObjectImpl.Container implements org.nasdanika.vinci.html.Container {
+	/**
+	 * The default value of the '{@link #getMarkdownContent() <em>Markdown Content</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMarkdownContent()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String MARKDOWN_CONTENT_EDEFAULT = null;
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -77,6 +88,26 @@ public class ContainerImpl extends MinimalEObjectImpl.Container implements org.n
 	 * @generated
 	 */
 	@Override
+	public String getMarkdownContent() {
+		return (String)eDynamicGet(HtmlPackage.CONTAINER__MARKDOWN_CONTENT, HtmlPackage.Literals.CONTAINER__MARKDOWN_CONTENT, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setMarkdownContent(String newMarkdownContent) {
+		eDynamicSet(HtmlPackage.CONTAINER__MARKDOWN_CONTENT, HtmlPackage.Literals.CONTAINER__MARKDOWN_CONTENT, newMarkdownContent);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case HtmlPackage.CONTAINER__CONTENT:
@@ -95,6 +126,8 @@ public class ContainerImpl extends MinimalEObjectImpl.Container implements org.n
 		switch (featureID) {
 			case HtmlPackage.CONTAINER__CONTENT:
 				return getContent();
+			case HtmlPackage.CONTAINER__MARKDOWN_CONTENT:
+				return getMarkdownContent();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -112,6 +145,9 @@ public class ContainerImpl extends MinimalEObjectImpl.Container implements org.n
 				getContent().clear();
 				getContent().addAll((Collection<? extends SupplierFactory<Object>>)newValue);
 				return;
+			case HtmlPackage.CONTAINER__MARKDOWN_CONTENT:
+				setMarkdownContent((String)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -127,6 +163,9 @@ public class ContainerImpl extends MinimalEObjectImpl.Container implements org.n
 			case HtmlPackage.CONTAINER__CONTENT:
 				getContent().clear();
 				return;
+			case HtmlPackage.CONTAINER__MARKDOWN_CONTENT:
+				setMarkdownContent(MARKDOWN_CONTENT_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -141,6 +180,8 @@ public class ContainerImpl extends MinimalEObjectImpl.Container implements org.n
 		switch (featureID) {
 			case HtmlPackage.CONTAINER__CONTENT:
 				return !getContent().isEmpty();
+			case HtmlPackage.CONTAINER__MARKDOWN_CONTENT:
+				return MARKDOWN_CONTENT_EDEFAULT == null ? getMarkdownContent() != null : !MARKDOWN_CONTENT_EDEFAULT.equals(getMarkdownContent());
 		}
 		return super.eIsSet(featureID);
 	}

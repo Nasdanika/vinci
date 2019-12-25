@@ -249,7 +249,8 @@ public interface ActionBase extends Label, AbstractAction, Container<ActionEleme
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * If this attribute is not blank it is used as the first content element. The primary purpose of this attribute is rapid development/prototyping of web applications/sites. Markdown content is styled and interpolated.
+	 * Value	[Markdown](https://en.wikipedia.org/wiki/Markdown) text. If this attribute contains text, the text is converted to HTML, interpolated and used as the first content element.
+	 * The primary purpose of this attribute is rapid development/prototyping of web applications/sites. 
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Markdown Content</em>' attribute.
 	 * @see #setMarkdownContent(String)

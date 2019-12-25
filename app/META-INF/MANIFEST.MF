@@ -21,8 +21,7 @@ Require-Bundle: org.eclipse.core.runtime,
  org.nasdanika.ncore;bundle-version="0.1.0";visibility:=reexport,
  org.nasdanika.vinci.bootstrap;bundle-version="0.1.0";visibility:=reexport,
  org.nasdanika.vinci.html;visibility:=reexport,
- org.jsoup;bundle-version="1.12.1",
- org.nasdanika.vinci.components;bundle-version="0.1.0"
+ org.jsoup;bundle-version="1.12.1"
 Bundle-ActivationPolicy: lazy
 Automatic-Module-Name: org.nasdanika.vinci.app
 Bundle-Activator: org.nasdanika.vinci.app.util.Activator

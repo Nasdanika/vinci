@@ -16,13 +16,12 @@ import org.nasdanika.common.Consumer;
 import org.nasdanika.common.ConsumerFactory;
 import org.nasdanika.common.Context;
 import org.nasdanika.common.Function;
-import org.nasdanika.common.ListCompoundSupplier;
 import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.common.SupplierFactory;
 import org.nasdanika.common.Util;
 import org.nasdanika.html.bootstrap.Breakpoint;
-import org.nasdanika.html.bootstrap.Size;
 import org.nasdanika.html.bootstrap.Container.Row.Col;
+import org.nasdanika.html.bootstrap.Size;
 import org.nasdanika.vinci.bootstrap.Appearance;
 import org.nasdanika.vinci.bootstrap.BootstrapPackage;
 import org.nasdanika.vinci.bootstrap.Column;
@@ -38,12 +37,23 @@ import org.nasdanika.vinci.html.HtmlPackage;
  * </p>
  * <ul>
  *   <li>{@link org.nasdanika.vinci.bootstrap.impl.ColumnImpl#getContent <em>Content</em>}</li>
+ *   <li>{@link org.nasdanika.vinci.bootstrap.impl.ColumnImpl#getMarkdownContent <em>Markdown Content</em>}</li>
  *   <li>{@link org.nasdanika.vinci.bootstrap.impl.ColumnImpl#getWidth <em>Width</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class ColumnImpl extends BootstrapElementImpl implements Column {
+	/**
+	 * The default value of the '{@link #getMarkdownContent() <em>Markdown Content</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMarkdownContent()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String MARKDOWN_CONTENT_EDEFAULT = null;
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -72,6 +82,26 @@ public class ColumnImpl extends BootstrapElementImpl implements Column {
 	@Override
 	public EList<SupplierFactory<Object>> getContent() {
 		return (EList<SupplierFactory<Object>>)eDynamicGet(BootstrapPackage.COLUMN__CONTENT, HtmlPackage.Literals.CONTAINER__CONTENT, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getMarkdownContent() {
+		return (String)eDynamicGet(BootstrapPackage.COLUMN__MARKDOWN_CONTENT, HtmlPackage.Literals.CONTAINER__MARKDOWN_CONTENT, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setMarkdownContent(String newMarkdownContent) {
+		eDynamicSet(BootstrapPackage.COLUMN__MARKDOWN_CONTENT, HtmlPackage.Literals.CONTAINER__MARKDOWN_CONTENT, newMarkdownContent);
 	}
 
 	/**
@@ -111,6 +141,8 @@ public class ColumnImpl extends BootstrapElementImpl implements Column {
 		switch (featureID) {
 			case BootstrapPackage.COLUMN__CONTENT:
 				return getContent();
+			case BootstrapPackage.COLUMN__MARKDOWN_CONTENT:
+				return getMarkdownContent();
 			case BootstrapPackage.COLUMN__WIDTH:
 				return getWidth();
 		}
@@ -129,6 +161,9 @@ public class ColumnImpl extends BootstrapElementImpl implements Column {
 			case BootstrapPackage.COLUMN__CONTENT:
 				getContent().clear();
 				getContent().addAll((Collection<? extends SupplierFactory<Object>>)newValue);
+				return;
+			case BootstrapPackage.COLUMN__MARKDOWN_CONTENT:
+				setMarkdownContent((String)newValue);
 				return;
 			case BootstrapPackage.COLUMN__WIDTH:
 				getWidth().clear();
@@ -149,6 +184,9 @@ public class ColumnImpl extends BootstrapElementImpl implements Column {
 			case BootstrapPackage.COLUMN__CONTENT:
 				getContent().clear();
 				return;
+			case BootstrapPackage.COLUMN__MARKDOWN_CONTENT:
+				setMarkdownContent(MARKDOWN_CONTENT_EDEFAULT);
+				return;
 			case BootstrapPackage.COLUMN__WIDTH:
 				getWidth().clear();
 				return;
@@ -166,6 +204,8 @@ public class ColumnImpl extends BootstrapElementImpl implements Column {
 		switch (featureID) {
 			case BootstrapPackage.COLUMN__CONTENT:
 				return !getContent().isEmpty();
+			case BootstrapPackage.COLUMN__MARKDOWN_CONTENT:
+				return MARKDOWN_CONTENT_EDEFAULT == null ? getMarkdownContent() != null : !MARKDOWN_CONTENT_EDEFAULT.equals(getMarkdownContent());
 			case BootstrapPackage.COLUMN__WIDTH:
 				return !getWidth().isEmpty();
 		}
@@ -182,6 +222,7 @@ public class ColumnImpl extends BootstrapElementImpl implements Column {
 		if (baseClass == org.nasdanika.vinci.html.Container.class) {
 			switch (derivedFeatureID) {
 				case BootstrapPackage.COLUMN__CONTENT: return HtmlPackage.CONTAINER__CONTENT;
+				case BootstrapPackage.COLUMN__MARKDOWN_CONTENT: return HtmlPackage.CONTAINER__MARKDOWN_CONTENT;
 				default: return -1;
 			}
 		}
@@ -203,6 +244,7 @@ public class ColumnImpl extends BootstrapElementImpl implements Column {
 		if (baseClass == org.nasdanika.vinci.html.Container.class) {
 			switch (baseFeatureID) {
 				case HtmlPackage.CONTAINER__CONTENT: return BootstrapPackage.COLUMN__CONTENT;
+				case HtmlPackage.CONTAINER__MARKDOWN_CONTENT: return BootstrapPackage.COLUMN__MARKDOWN_CONTENT;
 				default: return -1;
 			}
 		}
@@ -216,11 +258,6 @@ public class ColumnImpl extends BootstrapElementImpl implements Column {
 
 	@Override
 	public Consumer<Object> create(Context context) throws Exception {
-		@SuppressWarnings("resource")
-		ListCompoundSupplier<Object> contentSupplier = new ListCompoundSupplier<Object>("Content");
-		for (SupplierFactory<Object> content: getContent()) {
-			contentSupplier.add(content.create(context));
-		}
 		
 		BiFunction<BiSupplier<Object, List<Object>>, ProgressMonitor, Object> cbf = (biSupplier, progressMonitor) -> {
 			Col col = (Col) biSupplier.getFirst();
@@ -236,7 +273,7 @@ public class ColumnImpl extends BootstrapElementImpl implements Column {
 		}; 
 		Function<BiSupplier<Object, List<Object>>,Object> combiner = Function.fromBiFunction(cbf , getTitle(), 1);
 		
-		Function<Object, Object> contentFunction = contentSupplier.asFunction().then(combiner);
+		Function<Object, Object> contentFunction = createContentSupplierFactory().create(context).asFunction().then(combiner);
 		Appearance appearance = getAppearance();
 		return contentFunction.then(appearance == null ? Consumer.NOP : appearance.create(context));
 	}

@@ -1275,7 +1275,7 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 		  (getActionBase_MarkdownContent(),
 		   source,
 		   new String[] {
-			   "documentation", "If this attribute is not blank it is used as the first content element. The primary purpose of this attribute is rapid development/prototyping of web applications/sites. Markdown content is styled and interpolated."
+			   "documentation", "Value\t[Markdown](https://en.wikipedia.org/wiki/Markdown) text. If this attribute contains text, the text is converted to HTML, interpolated and used as the first content element.\nThe primary purpose of this attribute is rapid development/prototyping of web applications/sites. "
 		   });
 		addAnnotation
 		  (getActionBase_Content(),

@@ -18,6 +18,7 @@
     </genClasses>
     <genClasses ecoreClass="html.ecore#//Container">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference html.ecore#//Container/content"/>
+      <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute html.ecore#//Container/markdownContent"/>
     </genClasses>
     <genClasses ecoreClass="html.ecore#//Tag">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute html.ecore#//Tag/name"/>

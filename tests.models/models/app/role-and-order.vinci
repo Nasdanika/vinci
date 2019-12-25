@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.nasdanika.vinci.bootstrap:BootstrapPage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.nasdanika.vinci.app="urn:org.nasdanika.vinci.app" xmlns:org.nasdanika.vinci.bootstrap="urn:org.nasdanika.vinci.bootstrap" title="Роли и порядок Action Nasdanika Vinci" name="Роли и порядок" fontAwesome="true" jsTree="true" githubMarkdownCss="true" theme="Journal">
+  <builders xsi:type="org.nasdanika.vinci.app:BootstrapContainerApplication" title="Роли и порядок" fluid="true">
+    <appearance attributes="children:&#xD;&#xA;    content-row:&#xD;&#xA;         style:&#xD;&#xA;           min-height: 35rem"/>
+    <header>
+      <appearance background="Dark">
+        <padding size="2" left="false" right="false"/>
+      </appearance>
+    </header>
+    <navigationPanel>
+      <appearance>
+        <margin size="2" top="false" bottom="false" right="false"/>
+        <margin size="3" top="false" bottom="false" left="false"/>
+      </appearance>
+      <width width="auto"/>
+    </navigationPanel>
+    <contentPanel>
+      <appearance>
+        <padding size="2" bottom="false" left="false" right="false"/>
+      </appearance>
+      <width width=""/>
+    </contentPanel>
+    <footer>
+      <appearance background="Dark">
+        <text alignment="Center"/>
+      </appearance>
+    </footer>
+    <builders xsi:type="org.nasdanika.vinci.app:Action" title="Root Action " id="index" text="Корневая Action (Root Action) " linkedElements="da7a2879-8335-448c-be06-b7b71dd30751 e0d1369f-7a9d-4722-aafe-443d6a6f8969 f0b02cc5-63d5-4015-b8fa-c6a6abf148e3 ea03cac7-9586-4717-915e-4d9d5ac31006 6fc03ed4-6e91-458b-a23a-4f502cb66492 af7f1ad5-73ad-42ef-8a1c-58040c711923 c1de63a7-9ef2-460f-af70-58321ceb3a11 09955c3e-39cf-4de7-bff2-12fdc73080d5 e88791e0-f227-43e8-a5d8-2324371db028 c5fc94c2-f59c-42af-907c-e4403489c4b4" sectionStyle="Tab" markdownContent="## Это корневая Action (Root Action) &#xD;&#xA;&#xD;&#xA;У нее всегда роль  - Navigation. &#xD;&#xA;&#xD;&#xA;Первый ребенок этой Action c навигационной ролью становится Principal Action и отражается первым в горизонтальной навигационной панели.&#xD;&#xA;&#xD;&#xA;Следующие навигационные дети и категории с навигационными детьми отражаются в правом верхнем углу экрана в области Header.&#xD;&#xA;&#xD;&#xA;Контекстные дети корневой  Action располагаются в футере.&#xD;&#xA;&#xD;&#xA;----&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;">
+      <appearance background="" attributes="class:&#xD;&#xA;    display: 4">
+        <text color="Light"/>
+      </appearance>
+      <elements xsi:type="org.nasdanika.vinci.app:Action" title="Root Navigation # 1 -> Principal Action" id="da7a2879-8335-448c-be06-b7b71dd30751" text="Root Navigation # 1 -> Principal Action" linkedElements="00c64056-c6ab-4763-a1e3-738d44e8203d c2936a78-1b81-4cee-b478-4df81deb0ccd 87c55606-0567-4ac3-b20f-87f95642fb18 102021c4-96d0-43cd-b8cb-c0196d50f014 182100f4-88cf-4b34-a118-50a80e2cef6c a13f3d25-2581-4bb3-be1f-a65aa1861c9b be19fb6c-e4d0-46b9-81ef-4e20961e5edd 0fa33158-8d8e-43f2-a153-fd3b618de5a9 ec9e68b1-ac6b-4328-b8ae-c444529e090b aba3382f-7f4b-416d-98bf-a61e4fb6135f 4ba3b671-08b3-4791-a7fc-d45535579b85 44adf327-7b35-467f-9404-4f15d9f84634" sectionStyle="Card" markdownContent="Это первый навигационный ребенок корневой Action.&#xD;&#xA;&#xD;&#xA;Он  имеет собственное название - Principal Action (Стволовая Action).&#xD;&#xA;&#xD;&#xA;В поле Linked Elements стволовая Action должна располагаться самой первой.&#xD;&#xA;  ">
+        <appearance background="">
+          <text color="Dark"/>
+        </appearance>
+      </elements>
+      <elements xsi:type="org.nasdanika.vinci.app:Action" title="Root Navigation # 2" id="e0d1369f-7a9d-4722-aafe-443d6a6f8969" text="Вернуться к инструкции" sectionStyle="Paragraph" activator="./../../../index.html">
+        <appearance>
+          <text color="Light"/>
+        </appearance>
+      </elements>
+      <elements xsi:type="org.nasdanika.vinci.app:Action" title="Root Navigation # 3" id="ea03cac7-9586-4717-915e-4d9d5ac31006" text="Root Navigation # 3" linkedElements="52dbc56d-19a4-403a-baae-fb3a98b912f2 3ca9563b-ba5b-4f1a-8447-91c998cbf5a0" sectionStyle="Table" markdownContent="А почему у root navigation # 3 нету заголовка?">
+        <appearance>
+          <text color="Light"/>
+        </appearance>
+      </elements>
+      <elements xsi:type="org.nasdanika.vinci.app:Action" title="Root Navigation # 4" id="f0b02cc5-63d5-4015-b8fa-c6a6abf148e3" text="Root Navigation # 4" linkedElements="52dbc56d-19a4-403a-baae-fb3a98b912f2" sectionStyle="Card">
+        <appearance>
+          <text color="Light"/>
+        </appearance>
+      </elements>
+      <elements xsi:type="org.nasdanika.vinci.app:ActionCategory" title="Root Category #1" id="6fc03ed4-6e91-458b-a23a-4f502cb66492" color="" text="Root Category #1" linkedElements="4dc21a98-8486-4fa7-9924-a83f17951a6b 523c796e-6662-4e34-b41f-c1a5af39c306">
+        <appearance>
+          <text color="Light"/>
+        </appearance>
+      </elements>
+      <elements xsi:type="org.nasdanika.vinci.app:ActionCategory" title="Root Category #2" id="af7f1ad5-73ad-42ef-8a1c-58040c711923" color="" text="Root Category #2" linkedElements="a673c6df-d203-4924-9f5d-cdf65faeb082 5affb43d-a98b-4422-be64-d35ffc1f924d">
+        <appearance>
+          <text color="Light"/>
+        </appearance>
+      </elements>
+      <elements xsi:type="org.nasdanika.vinci.app:Action" title="Action-5" id="4dc21a98-8486-4fa7-9924-a83f17951a6b" text="Action-5"/>
+      <elements xsi:type="org.nasdanika.vinci.app:Action" title="Action-6" id="523c796e-6662-4e34-b41f-c1a5af39c306" text="Action-6"/>
+      <elements xsi:type="org.nasdanika.vinci.app:Action" title="Action-7" id="a673c6df-d203-4924-9f5d-cdf65faeb082" text="Action-7"/>
+      <elements xsi:type="org.nasdanika.vinci.app:Action" title="Action-8" id="5affb43d-a98b-4422-be64-d35ffc1f924d" text="Action-8"/>
+      <elements xsi:type="org.nasdanika.vinci.app:Action" title=" Root Context # 1" id="c1de63a7-9ef2-460f-af70-58321ceb3a11" text=" Root Context # 1" linkedElements="52dbc56d-19a4-403a-baae-fb3a98b912f2" role="Context" sectionStyle="Card tab">
+        <appearance attributes="class:&#xD;&#xA;    h: 5">
+          <text color="Light" weight="Bold"/>
+        </appearance>
+      </elements>
+      <elements xsi:type="org.nasdanika.vinci.app:Action" title="Root Context # 2" id="09955c3e-39cf-4de7-bff2-12fdc73080d5" text=" Root Context # 2" linkedElements="52dbc56d-19a4-403a-baae-fb3a98b912f2" role="Context" sectionStyle="Tab">
+        <appearance attributes="class:&#xD;&#xA;    h: 5">
+          <text color="Light" weight="Bold"/>
+        </appearance>
+      </elements>
+      <elements xsi:type="org.nasdanika.vinci.app:Action" title="Principal Navigation #1" id="00c64056-c6ab-4763-a1e3-738d44e8203d" text="Principal Navigation #1" linkedElements="e3f12f2a-a13a-47ab-981a-5552225e593f 19355c59-b6ab-45bd-a9b4-13f2f0ac7471 edd104b2-bd31-4491-89a8-b69771ff819b bae496ed-9369-4f4a-aa06-b1b89fa966ad 9170f090-0ed7-46c3-bc27-cff962d72dbb" sectionStyle="Table" markdownContent="Это первый навигационный ребенок стволовой Action (Principal Action).&#xD;&#xA;Поэтому мы назвали его Principal Navigation #1.&#xD;&#xA;&#xD;&#xA;Навигационные дети стволовой Action всегда располагаются в боковой навигационной панели.&#xD;&#xA;">
+        <appearance/>
+      </elements>
+      <elements xsi:type="org.nasdanika.vinci.app:Action" title="Principal Navigation #2" id="c2936a78-1b81-4cee-b478-4df81deb0ccd" text="Principal Navigation #2" linkedElements="52dbc56d-19a4-403a-baae-fb3a98b912f2" sectionStyle="Card"/>
+      <elements xsi:type="org.nasdanika.vinci.app:Action" title="Principal Navigation #3" id="87c55606-0567-4ac3-b20f-87f95642fb18" text="Principal Navigation #3" linkedElements="52dbc56d-19a4-403a-baae-fb3a98b912f2" sectionStyle="Card pill"/>
+      <elements xsi:type="org.nasdanika.vinci.app:Action" title="Principal Context #1" id="102021c4-96d0-43cd-b8cb-c0196d50f014" text="Principal Context #1" role="Context"/>
+      <elements xsi:type="org.nasdanika.vinci.app:Action" title="Principal Context #2" id="182100f4-88cf-4b34-a118-50a80e2cef6c" text="Principal Context #2" role="Context"/>
+      <elements xsi:type="org.nasdanika.vinci.app:Action" title="Principal Context #3" id="a13f3d25-2581-4bb3-be1f-a65aa1861c9b" text="Principal Context #3" linkedElements="3ca9563b-ba5b-4f1a-8447-91c998cbf5a0" role="Context"/>
+      <elements xsi:type="org.nasdanika.vinci.app:ActionCategory" title="Principal Navigation Category #1" id="be19fb6c-e4d0-46b9-81ef-4e20961e5edd" text="Principal Navigation Category #1" linkedElements="90ca35b5-e78f-4822-ac72-6f348c0950ee 554cd781-ba2e-47f6-9cdb-ff6f0cd4c54c"/>
+      <elements xsi:type="org.nasdanika.vinci.app:ActionCategory" title="Principal Navigation Category #2" id="0fa33158-8d8e-43f2-a153-fd3b618de5a9" text="Principal Navigation Category #2" linkedElements="647d13b8-dd38-420c-8c60-0d6d7814fba5 d6af7a7a-0208-40a3-a03d-2ce716852710"/>
+      <elements xsi:type="org.nasdanika.vinci.app:Action" title="Action-17" id="90ca35b5-e78f-4822-ac72-6f348c0950ee" text="Первый навигационный ребенок категории # 1" linkedElements="52dbc56d-19a4-403a-baae-fb3a98b912f2" sectionStyle="Action group"/>
+      <elements xsi:type="org.nasdanika.vinci.app:Action" title="Action-18" id="554cd781-ba2e-47f6-9cdb-ff6f0cd4c54c" text="Второй навигационный ребенок категории # 1" linkedElements="52dbc56d-19a4-403a-baae-fb3a98b912f2" sectionStyle="Tab"/>
+      <elements xsi:type="org.nasdanika.vinci.app:Action" title="Action-19" id="647d13b8-dd38-420c-8c60-0d6d7814fba5" text="Первый навигационный ребенок категории # 2"/>
+      <elements xsi:type="org.nasdanika.vinci.app:Action" title="Action-20" id="d6af7a7a-0208-40a3-a03d-2ce716852710" text="Второй навигационный ребенок категории # 2"/>
+      <elements xsi:type="org.nasdanika.vinci.app:ActionCategory" title="Principal Context Category #1" id="aba3382f-7f4b-416d-98bf-a61e4fb6135f" text="Principal Context Category #1" linkedElements="eebbce13-490c-4543-836e-f48fb5ca2354 34a4fb02-8a52-4057-b465-40183d30ce22"/>
+      <elements xsi:type="org.nasdanika.vinci.app:ActionCategory" title="Principal Context Category #2" id="ec9e68b1-ac6b-4328-b8ae-c444529e090b" text="Principal Context Category #2" linkedElements="4592d14b-72f7-4f90-b785-b747cd708004 2df0f383-5fe8-49bd-acba-98316bd2629c"/>
+      <elements xsi:type="org.nasdanika.vinci.app:Action" title="Context #1" id="eebbce13-490c-4543-836e-f48fb5ca2354" text="Context #1" role="Context"/>
+      <elements xsi:type="org.nasdanika.vinci.app:Action" title="Context #2" id="34a4fb02-8a52-4057-b465-40183d30ce22" text="Context #2" role="Context"/>
+      <elements xsi:type="org.nasdanika.vinci.app:Action" title="Context #3" id="4592d14b-72f7-4f90-b785-b747cd708004" text="Context #3" role="Context"/>
+      <elements xsi:type="org.nasdanika.vinci.app:Action" title="Context #4" id="2df0f383-5fe8-49bd-acba-98316bd2629c" text="Context #4" role="Context"/>
+      <elements xsi:type="org.nasdanika.vinci.app:Action" title="Principal Section # 1" id="4ba3b671-08b3-4791-a7fc-d45535579b85" color="Danger" text="Principal Section # 1" role="Section" markdownContent="Это Action с ролью Section.  &#xD;&#xA;&#xD;&#xA;Она отображается как карточка потому что у родительской Action  установлен параметр Section Style = Card"/>
+      <elements xsi:type="org.nasdanika.vinci.app:Action" title="Root Section # 1" id="e88791e0-f227-43e8-a5d8-2324371db028" text="Root Section # 1" linkedElements="cc0d9caa-dbeb-4e64-94c6-b0611a17ce08 c0a83d9c-347f-4661-bee3-d7c0b006a352" role="Section" markdownContent="&#xD;&#xA;---&#xD;&#xA;&#xD;&#xA;## Это первый ребенок корневой Action с ролью Section  &#xD;&#xA;&#xD;&#xA;Содержание страницы может быть собираться из Action с ролью Section. &#xD;&#xA;&#xD;&#xA;Эти секции могут быть представлены прараграфами, вкладками, карточками, таблицами и др.  &#xD;&#xA;&#xD;&#xA;Как будет выглядеть секция зависит от родительского элемента: необходимо чтобы у родителя был выбран соответствующий стиль секции (параметр Section style) .&#xD;&#xA;"/>
+      <elements xsi:type="org.nasdanika.vinci.app:Action" title="Root Section # 2" id="c5fc94c2-f59c-42af-907c-e4403489c4b4" text="Root Section # 2" role="Section" markdownContent="&#xD;&#xA;---&#xD;&#xA;&#xD;&#xA;## Это второй ребенок корневой Action с ролью Section  &#xD;&#xA;&#xD;&#xA;Содержание страницы может быть собираться из Action с ролью Section. &#xD;&#xA;&#xD;&#xA;Эти секции могут быть представлены прараграфами, вкладками, карточками, таблицами и др.  &#xD;&#xA;&#xD;&#xA;Как будет выглядеть секция зависит от родительского элемента: необходимо чтобы у родителя был выбран соответствующий стиль секции (параметр Section style) .&#xD;&#xA;"/>
+      <elements xsi:type="org.nasdanika.vinci.app:Action" title="Principal Section # 2" id="44adf327-7b35-467f-9404-4f15d9f84634" color="Success" text="Principal Section # 2" role="Section" markdownContent="Это Action с ролью Section.  &#xD;&#xA;&#xD;&#xA;Она отображается как карточка потому что у родительской Action  установлен параметр Section Style = Card"/>
+      <elements xsi:type="org.nasdanika.vinci.app:Action" title="Context 1.1" id="c0a83d9c-347f-4661-bee3-d7c0b006a352" text="Контекстный ребенок 1" role="Context"/>
+      <elements xsi:type="org.nasdanika.vinci.app:Action" title="Context 1.2" id="cc0d9caa-dbeb-4e64-94c6-b0611a17ce08" text="Контекстный ребенок 2" role="Context" markdownContent="&#xD;&#xA;---&#xD;&#xA;&#xD;&#xA;Это контекстный ребенок Root Section # 1&#xD;&#xA;&#xD;&#xA;"/>
+      <elements xsi:type="org.nasdanika.vinci.app:Action" title="Context 1.3" id="e3f12f2a-a13a-47ab-981a-5552225e593f" text="Контекстный ребенок Principal Navigation #1" role="Context" markdownContent="&#xD;&#xA;----&#xD;&#xA;## Это контекстный ребенок  Principal Navigation #1&#xD;&#xA;&#xD;&#xA;"/>
+      <elements xsi:type="org.nasdanika.vinci.app:Action" title="Context 1.4" id="19355c59-b6ab-45bd-a9b4-13f2f0ac7471" text="Второй контекстный ребенок Principal Navigation #1" role="Context" markdownContent="&#xD;&#xA;----&#xD;&#xA;## Это второй контекстный ребенок  Principal Navigation #1&#xD;&#xA;"/>
+      <elements xsi:type="org.nasdanika.vinci.app:Action" title="Section Table 1" description="" id="edd104b2-bd31-4491-89a8-b69771ff819b" color="Secondary" text="Section Table 1" role="Section" sectionStyle="Table" markdownContent="Это секция со стилем __Table__&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;"/>
+      <elements xsi:type="org.nasdanika.vinci.app:Action" title="Section Table 2" id="bae496ed-9369-4f4a-aa06-b1b89fa966ad" text="Section Table 2" role="Section" sectionStyle="Table" markdownContent="Для того чтобы создать такую секцию необходимо в родительском элементе установить Section style = Table. А у дочернего элемента - роль Section.&#xD;&#xA;"/>
+      <elements xsi:type="org.nasdanika.vinci.app:Action" title="Section Table 3" id="9170f090-0ed7-46c3-bc27-cff962d72dbb" color="Secondary" text="Section Table 3" role="Section" sectionStyle="Table" markdownContent="&#xD;&#xA;Поле __Text__ превращается в первую колонку, а контент располагается во второй колонке.&#xD;&#xA;"/>
+      <elements xsi:type="org.nasdanika.vinci.app:Action" title="Один ребёнок для всех Root Navigation из Heder" id="52dbc56d-19a4-403a-baae-fb3a98b912f2" text="Один ребёнок для всех Root Navigation из Heder" role="Section" markdownContent="Это один и тот же элемент модели. Просто он выглядит по-разному, потому что у каждого родительского элемента параметр Section Style настроен по-своему.&#xD;&#xA;&#xD;&#xA;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed cursus erat quis dictum tempus. Mauris varius felis sit amet nulla porta vehicula. Nam accumsan et erat eu rutrum. Quisque accumsan quam purus, sit amet iaculis purus tempor quis. Vestibulum fermentum dolor vel aliquet pretium. Sed magna purus, lacinia in fringilla sollicitudin, placerat eget massa. Mauris pretium, libero et luctus suscipit, arcu odio tincidunt odio, ac semper turpis leo eget magna. Sed quam lectus, mollis sed luctus non, tincidunt imperdiet enim.&#xD;&#xA;&#xD;&#xA;Quisque hendrerit lacinia massa. In laoreet imperdiet magna sit amet efficitur. Aliquam diam tellus, auctor sit amet suscipit vel, bibendum quis metus. Duis nec tempus ex. Proin congue nibh elit, vitae dapibus sapien convallis sed. Aenean rhoncus at velit scelerisque venenatis. Aenean eu aliquam ante, non posuere lectus. Pellentesque ut eros at elit dictum imperdiet. Cras eget justo a diam dignissim fermentum quis ac enim. Nullam justo enim, vehicula at vehicula et, egestas quis magna. Phasellus interdum a leo at semper. Suspendisse potenti. Nam maximus lobortis nibh, a porta eros laoreet id."/>
+      <elements xsi:type="org.nasdanika.vinci.app:Action" title="Контекстный ребенок не генерируется" id="3ca9563b-ba5b-4f1a-8447-91c998cbf5a0" text="Контекстный ребенок не генерируется" role="Context"/>
+    </builders>
+  </builders>
+</org.nasdanika.vinci.bootstrap:BootstrapPage>

@@ -23,6 +23,7 @@ import org.nasdanika.common.Context;
 import org.nasdanika.common.ExecutionParticipant;
 import org.nasdanika.common.ListCompoundSupplierFactory;
 import org.nasdanika.common.MapCompoundSupplierFactory;
+import org.nasdanika.common.MarkdownHelper;
 import org.nasdanika.common.MutableContext;
 import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.common.Reference;
@@ -43,8 +44,6 @@ import org.nasdanika.vinci.app.ActivatorType;
 import org.nasdanika.vinci.app.AppPackage;
 import org.nasdanika.vinci.app.BootstrapContainerApplicationBuilder;
 import org.nasdanika.vinci.bootstrap.Appearance;
-import org.nasdanika.vinci.components.ComponentsFactory;
-import org.nasdanika.vinci.components.MarkdownText;
 
 /**
  * <!-- begin-user-doc -->
@@ -797,12 +796,13 @@ public abstract class ActionBaseImpl extends LabelImpl implements ActionBase {
 		
 		List<SupplierFactory<Object>> content = new ArrayList<>();		
 		
-		if (!Util.isBlank(getMarkdownContent())) {
-			MarkdownText markdownText = ComponentsFactory.eINSTANCE.createMarkdownText();
-			markdownText.setStyle(true);
-			markdownText.setInterpolate(true);
-			markdownText.setMarkdown(getMarkdownContent());
-			content.add(markdownText);
+		String markdown = getMarkdownContent();
+		if (!Util.isBlank(markdown)) {
+			SupplierFactory<Object> markdownSupplierFactory = SupplierFactory.from((ctx, progressMonidor) -> {
+				MarkdownHelper markdownHelper = new MarkdownHelper();
+				return ctx.interpolate(markdownHelper.markdownToHtml(markdown).trim());				
+			},  "Markdown content", 1);
+			content.add(markdownSupplierFactory);
 		}
 		
 		content.addAll(getContent());
