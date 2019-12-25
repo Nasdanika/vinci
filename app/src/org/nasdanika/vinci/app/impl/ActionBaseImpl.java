@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
+import java.util.Map;
+import java.util.function.Function;
 
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
@@ -25,6 +27,7 @@ import org.nasdanika.common.ListCompoundSupplierFactory;
 import org.nasdanika.common.MapCompoundSupplierFactory;
 import org.nasdanika.common.MarkdownHelper;
 import org.nasdanika.common.MutableContext;
+import org.nasdanika.common.NasdanikaException;
 import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.common.Reference;
 import org.nasdanika.common.Supplier;
@@ -43,7 +46,6 @@ import org.nasdanika.vinci.app.ActionRole;
 import org.nasdanika.vinci.app.ActivatorType;
 import org.nasdanika.vinci.app.AppPackage;
 import org.nasdanika.vinci.app.BootstrapContainerApplicationBuilder;
-import org.nasdanika.vinci.bootstrap.Appearance;
 
 /**
  * <!-- begin-user-doc -->
@@ -884,16 +886,19 @@ public abstract class ActionBaseImpl extends LabelImpl implements ActionBase {
 		mcs.put(CONTENT_KEY, contentFactory);
 		mcs.put(ELEMENTS_KEY, elementsFactory);
 		
-		Appearance appearance = getAppearance();
-		Consumer<Object> decorator = appearance == null ? null : appearance.create(actionContext);								
-		
-		return mcs.create(actionContext).then(config -> new ActionFacade(
-				actionContext, 
-				ActionBaseImpl.this, 
-				parentRef.get(), 
-				decorator, 
-				config.get(CONTENT_KEY), 
-				config.get(ELEMENTS_KEY)));
+		Function<? super Map<String, List<Object>>, Object> actionFacadeFactory = config -> {
+			try { 
+				return new ActionFacade(
+					actionContext, 
+					ActionBaseImpl.this, 
+					parentRef.get(), 
+					config.get(CONTENT_KEY), 
+					config.get(ELEMENTS_KEY));
+			} catch (Exception e) {
+				throw new NasdanikaException(e);
+			}
+		};
+		return mcs.create(actionContext).then(actionFacadeFactory);
 	}
 
 } //ActionBaseImpl

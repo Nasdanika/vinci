@@ -26,6 +26,7 @@ import org.nasdanika.html.bootstrap.Color;
 import org.nasdanika.vinci.app.ActionBase;
 import org.nasdanika.vinci.app.ActionCategory;
 import org.nasdanika.vinci.app.ActionRole;
+import org.nasdanika.vinci.bootstrap.Appearance;
 
 public class ActionFacade extends org.nasdanika.html.app.impl.ActionImpl implements Decorator {
 		
@@ -33,19 +34,21 @@ public class ActionFacade extends org.nasdanika.html.app.impl.ActionImpl impleme
 
 	private Consumer<Object> decorator;
 	
-	public ActionFacade(Context actionContext, ActionBase target) {
-		this(actionContext, target, null, null, null, null);
+	public ActionFacade(Context actionContext, ActionBase target) throws Exception {
+		this(actionContext, target, null, null, null);
 	}		
 
 	public ActionFacade(
 			Context actionContext, 
 			ActionBase target, 
 			EObject parent,
-			Consumer<Object> decorator,
 			List<Object> content,
-			List<Object> elements) {
+			List<Object> elements) throws Exception {
+
 		
-		this.decorator = decorator;
+		Appearance appearance = target.getAppearance();
+		decorator = appearance == null ? null : appearance.create(actionContext);				
+		
 		setText(actionContext.interpolate(target.getText()));
 		setId(actionContext.interpolate(target.getId()));
 		setIcon(actionContext.interpolate(target.getIcon()));
@@ -128,7 +131,29 @@ public class ActionFacade extends org.nasdanika.html.app.impl.ActionImpl impleme
 		// category
 		if (parent instanceof ActionCategory) {
 			ActionCategory actionCategory = (ActionCategory) parent;
-			org.nasdanika.html.app.impl.LabelImpl cat = new org.nasdanika.html.app.impl.LabelImpl();
+			
+			class CategoryFacade extends org.nasdanika.html.app.impl.LabelImpl implements Decorator {
+
+				@Override
+				public void decorate(Object target, ViewGenerator viewGenerator) {
+					Appearance appearance = actionCategory.getAppearance();
+					if (appearance != null) {
+						try (Consumer<Object> categoryDecorator = appearance == null ? null : appearance.create(actionContext)) {																		
+							NullProgressMonitor progressMonitor = new NullProgressMonitor(); // A better way - from the viewGenerator?
+							if (target instanceof BootstrapElement) {
+								categoryDecorator.execute(target, progressMonitor);
+							} else if (target instanceof HTMLElement) {
+								categoryDecorator.execute(viewGenerator.get(BootstrapFactory.class, BootstrapFactory.INSTANCE).wrap((HTMLElement<?>) target), progressMonitor);
+							}
+						} catch (Exception e) {
+							e.printStackTrace(); // TODO - improve handling, but shall not happen.
+						}
+					}
+				}
+				
+			}
+			
+			CategoryFacade cat = new CategoryFacade();
 			String catColor = actionCategory.getColor();
 			if (!Util.isBlank(catColor)) {
 				cat.setColor(Color.fromLabel(catColor));
@@ -216,6 +241,11 @@ public class ActionFacade extends org.nasdanika.html.app.impl.ActionImpl impleme
 				e.printStackTrace(); // TODO - improve handling, but shall not happen.
 			}
 		}
+	}
+	
+	@Override
+	public String toString() {
+		return "Action facade "+getText();
 	}
 
 };
