@@ -6,7 +6,7 @@
       <margin size="2" breakpoint="" bottom="false" left="false" right="false"/>
     </appearance>
     <header>
-      <appearance background="Primary"/>
+      <appearance background="Primary" attributes="children:&#xD;&#xA;    title:&#xD;&#xA;        class:&#xD;&#xA;            display: 4&#xD;&#xA;            text: light&#xD;&#xA;        style:&#xD;&#xA;            text-decoration: none&#xD;&#xA;    navs:&#xD;&#xA;        class:&#xD;&#xA;            text: light&#xD;&#xA;"/>
     </header>
     <navigationPanel>
       <appearance>

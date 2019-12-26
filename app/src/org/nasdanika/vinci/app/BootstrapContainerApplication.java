@@ -113,6 +113,30 @@ public interface BootstrapContainerApplication extends BootstrapElement, Consume
 	 * Returns the value of the '<em><b>Header</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Application header.
+	 * 
+	 * The header may contribute to appearance of its content provided by application builders by specifiying ``title`` and ``navs`` keys under the ``children`` pseudo-attribute of its appearance.
+	 * 
+	 * The ``title`` key defines appearance of the header title - the link of the root action. The ``navs`` key defines appearance of the navigation bar build from the root's navigation 
+	 * children after the first one (the principal action).
+	 * 
+	 * Example:
+	 * 
+	 * ```yaml
+	 * children:
+	 *     title:
+	 *         class:
+	 *             display: 4
+	 *             text: light
+	 *         style:
+	 *             text-decoration: none
+	 *     title:
+	 *         class:
+	 *             text: light
+	 * ```
+	 * 
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Header</em>' containment reference.
 	 * @see #setHeader(BootstrapContainerApplicationSection)
 	 * @see org.nasdanika.vinci.app.AppPackage#getBootstrapContainerApplication_Header()
@@ -201,6 +225,22 @@ public interface BootstrapContainerApplication extends BootstrapElement, Consume
 	 * Returns the value of the '<em><b>Footer</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Application footer.
+	 * 
+	 * The footer may contribute to appearance of its content provided by application builders by specifiying ``action`` key under the ``children`` pseudo-attribute of its appearance.
+	 * 
+	 * The ``action`` key defines appearance of the context children of the root action.
+	 * 
+	 * Example:
+	 * 
+	 * ```yaml
+	 * children:
+	 *     action:
+	 *         class:
+	 * ```
+	 * 
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Footer</em>' containment reference.
 	 * @see #setFooter(BootstrapContainerApplicationSection)
 	 * @see org.nasdanika.vinci.app.AppPackage#getBootstrapContainerApplication_Footer()

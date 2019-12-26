@@ -6,6 +6,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.function.BiFunction;
+import java.util.function.Consumer;
 
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.ResourcesPlugin;
@@ -39,9 +40,13 @@ import org.nasdanika.eclipse.ProgressMonitorAdapter;
 import org.nasdanika.eclipse.resources.EclipseContainer;
 import org.nasdanika.html.app.Action;
 import org.nasdanika.html.app.ActionActivator;
+import org.nasdanika.html.app.Application;
 import org.nasdanika.html.app.ApplicationBuilder;
+import org.nasdanika.html.app.DecoratorProvider;
 import org.nasdanika.html.app.NavigationActionActivator;
+import org.nasdanika.html.app.ViewGenerator;
 import org.nasdanika.html.app.impl.ActionApplicationBuilder;
+import org.nasdanika.html.app.impl.ViewGeneratorImpl;
 import org.nasdanika.ncore.NcorePackage;
 import org.nasdanika.vinci.app.AbstractAction;
 import org.nasdanika.vinci.app.AppPackage;
@@ -174,7 +179,18 @@ public class GenerateTemplatedApplicationAction extends VinciGenerateAction<Abst
 		
 		
 				MutableContext pageContext = generationContext.fork();
-				pageContext.register(ApplicationBuilder.class, new ActionApplicationBuilder(rootAction, principalAction, navigationPanelActions, activeAction));
+				pageContext.register(ApplicationBuilder.class, new ActionApplicationBuilder(rootAction, principalAction, navigationPanelActions, activeAction) {
+					
+					@Override
+					protected ViewGenerator createViewGenerator(Application application, Consumer<?> headContentConsumer, Consumer<?> bodyContentConsumer) {
+						Context appBuilderContext = generationContext;
+						if (application instanceof DecoratorProvider) {
+							appBuilderContext = generationContext.compose(Context.singleton(DecoratorProvider.class, (DecoratorProvider) application));
+						}
+						return new ViewGeneratorImpl(appBuilderContext, headContentConsumer, bodyContentConsumer);
+					}
+					
+				});
 				
 				if (activeAction != null) {
 					String text = activeAction.getText();

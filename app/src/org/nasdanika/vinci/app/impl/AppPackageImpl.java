@@ -1416,6 +1416,18 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 			   "documentation", "If true, a Backbone router code is generated in the header, which allows to build single-page applications. Such applications typically deliver better user experience, but don\'t work over the file protocol, i.e. when files are opened from disk."
 		   });
 		addAnnotation
+		  (getBootstrapContainerApplication_Header(),
+		   source,
+		   new String[] {
+			   "documentation", "Application header.\n\nThe header may contribute to appearance of its content provided by application builders by specifiying ``title`` and ``navs`` keys under the ``children`` pseudo-attribute of its appearance.\n\nThe ``title`` key defines appearance of the header title - the link of the root action. The ``navs`` key defines appearance of the navigation bar build from the root\'s navigation \nchildren after the first one (the principal action).\n\nExample:\n\n```yaml\nchildren:\n    title:\n        class:\n            display: 4\n            text: light\n        style:\n            text-decoration: none\n    title:\n        class:\n            text: light\n```\n"
+		   });
+		addAnnotation
+		  (getBootstrapContainerApplication_Footer(),
+		   source,
+		   new String[] {
+			   "documentation", "Application footer.\n\nThe footer may contribute to appearance of its content provided by application builders by specifiying ``action`` key under the ``children`` pseudo-attribute of its appearance.\n\nThe ``action`` key defines appearance of the context children of the root action.\n\nExample:\n\n```yaml\nchildren:\n    action:\n        class:\n```\n"
+		   });
+		addAnnotation
 		  (getBootstrapContainerApplication_Builders(),
 		   source,
 		   new String[] {

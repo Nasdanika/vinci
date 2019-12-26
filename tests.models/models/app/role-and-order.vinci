@@ -3,7 +3,7 @@
   <builders xsi:type="org.nasdanika.vinci.app:BootstrapContainerApplication" title="Роли и порядок" fluid="true">
     <appearance attributes="children:&#xD;&#xA;    content-row:&#xD;&#xA;         style:&#xD;&#xA;           min-height: 35rem"/>
     <header>
-      <appearance background="Dark">
+      <appearance background="Dark" attributes="children:&#xD;&#xA;    title:&#xD;&#xA;        style:&#xD;&#xA;            text-decoration: none&#xD;&#xA;">
         <padding size="2" left="false" right="false"/>
       </appearance>
     </header>

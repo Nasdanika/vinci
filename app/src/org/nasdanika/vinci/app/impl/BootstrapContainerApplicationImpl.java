@@ -4,6 +4,7 @@ package org.nasdanika.vinci.app.impl;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -22,9 +23,14 @@ import org.nasdanika.common.Function;
 import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.common.Supplier;
 import org.nasdanika.common.Util;
+import org.nasdanika.html.HTMLElement;
 import org.nasdanika.html.HTMLPage;
 import org.nasdanika.html.app.Application;
 import org.nasdanika.html.app.ApplicationBuilder;
+import org.nasdanika.html.app.Decorator;
+import org.nasdanika.html.app.DecoratorProvider;
+import org.nasdanika.html.app.ViewGenerator;
+import org.nasdanika.html.bootstrap.BootstrapElement;
 import org.nasdanika.html.bootstrap.BootstrapFactory;
 import org.nasdanika.html.bootstrap.Breakpoint;
 import org.nasdanika.html.bootstrap.Size;
@@ -459,10 +465,46 @@ public class BootstrapContainerApplicationImpl extends BootstrapElementImpl impl
 		ContentPanel,
 		Footer
 	}
+	
+	static Decorator getChildDecorator(org.nasdanika.vinci.bootstrap.BootstrapElement bootstrapElement, Context context, String name) {
+		Appearance headerAppearance = bootstrapElement.getAppearance();
+		if (headerAppearance == null) {
+			return null;
+		}
+		String attributesStr = headerAppearance.getAttributes();
+		if (Util.isBlank(attributesStr)) {
+			return null;
+		}
+		Yaml yaml = new Yaml();
+		Map<String,Object> attributes = yaml.load(attributesStr);
+		Object children = attributes.get("children");
+		if (children instanceof Map) {
+			Object childAttrs = ((Map<?,?>) children).get(name);
+			if (childAttrs instanceof Map) {
+				return new Decorator() {
+
+					@SuppressWarnings("unchecked")
+					@Override
+					public void decorate(Object target, ViewGenerator viewGenerator) {
+						if (target instanceof BootstrapElement) {
+							target = ((BootstrapElement<?,?>) target).toHTMLElement();
+						}
+						if (target instanceof HTMLElement) {
+							((HTMLElement<?>) target).attributes(context.interpolate((Map<String, Object>) childAttrs));
+						}
+					}
+					
+				};
+			}
+		}
+		return null;
+	}
 			
 	@SuppressWarnings("resource")
 	@Override
-	public Consumer<Object> create(Context context) throws Exception {
+	public Consumer<Object> create(Context context) throws Exception {		
+		
+		Map<String,Decorator> decorators = new HashMap<>();		
 		
 		Map<Section, Consumer<Object>> sections = new LinkedHashMap<>();
 
@@ -471,6 +513,14 @@ public class BootstrapContainerApplicationImpl extends BootstrapElementImpl impl
 		BootstrapContainerApplicationSection header = getHeader();
 		if (header != null) {
 			sections.put(Section.Header, header.asConsumer(context));
+			Decorator titleDecorator = getChildDecorator(header, context, "title");
+			if (titleDecorator != null) {
+				decorators.put("application/header/title", titleDecorator);
+			}
+			Decorator navsDecorator = getChildDecorator(header, context, "navs");
+			if (navsDecorator != null) {
+				decorators.put("application/header/navs", navsDecorator);
+			}
 		}
 		
 		BootstrapContainerApplicationSection navBar = getNavigationBar();
@@ -507,10 +557,14 @@ public class BootstrapContainerApplicationImpl extends BootstrapElementImpl impl
 				
 				org.nasdanika.html.app.Application app;
 				if (isRouter()) {
-					app = new org.nasdanika.html.app.impl.BootstrapContainerRouterApplication(
-							context.get(BootstrapFactory.class, BootstrapFactory.INSTANCE),
-							(HTMLPage) arg,
-							isFluid()) {
+					
+					class DecoratingRoutingApplication extends org.nasdanika.html.app.impl.BootstrapContainerRouterApplication implements DecoratorProvider {
+						
+						DecoratingRoutingApplication() {
+							super(context.get(BootstrapFactory.class, BootstrapFactory.INSTANCE),
+									(HTMLPage) arg,
+									isFluid());
+						}
 						
 						protected void configureContainer(org.nasdanika.html.bootstrap.Container container) {
 							Consumer<Object> containerConsumer = sections.get(Section.Container);
@@ -574,15 +628,30 @@ public class BootstrapContainerApplicationImpl extends BootstrapElementImpl impl
 							if (footerConsumer != null) {
 								sectionBuilders.add(Supplier.from(footer, "Footer").then(footerConsumer));
 							}
+						}
+
+						@Override
+						public Decorator getDecorator(String name) {
+							return decorators.get(name);
 						};								
 						
-					};							
-				} else {				
-					app = new org.nasdanika.html.app.impl.BootstrapContainerApplication(
-							context.get(BootstrapFactory.class, BootstrapFactory.INSTANCE),
-							(HTMLPage) arg,
-							isFluid()) {
+					};	
+					
+					app = new DecoratingRoutingApplication();
+				} else {
+										
+					class DecoratingApplication extends org.nasdanika.html.app.impl.BootstrapContainerApplication implements DecoratorProvider {
 						
+						public DecoratingApplication() {
+							super(context.get(BootstrapFactory.class, BootstrapFactory.INSTANCE),
+							(HTMLPage) arg,
+							isFluid());							
+						}
+
+						@Override
+						public Decorator getDecorator(String name) {
+							return decorators.get(name);
+						}						
 						
 						protected void configureContainer(org.nasdanika.html.bootstrap.Container container) {
 							Consumer<Object> containerConsumer = sections.get(Section.Container);
@@ -649,6 +718,7 @@ public class BootstrapContainerApplicationImpl extends BootstrapElementImpl impl
 						};								
 						
 					};
+					app = new DecoratingApplication();
 				}
 				
 				for (Command sectionBuilder: sectionBuilders) {
@@ -685,4 +755,5 @@ public class BootstrapContainerApplicationImpl extends BootstrapElementImpl impl
 	public Consumer<Object> asConsumer(Context context) throws Exception {
 		return create(context);
 	}
+	
 } //BootstrapContainerApplicationImpl

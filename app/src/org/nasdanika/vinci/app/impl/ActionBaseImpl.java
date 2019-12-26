@@ -36,7 +36,10 @@ import org.nasdanika.common.Util;
 import org.nasdanika.html.app.Action;
 import org.nasdanika.html.app.Application;
 import org.nasdanika.html.app.ApplicationBuilder;
+import org.nasdanika.html.app.DecoratorProvider;
+import org.nasdanika.html.app.ViewGenerator;
 import org.nasdanika.html.app.impl.ActionApplicationBuilder;
+import org.nasdanika.html.app.impl.ViewGeneratorImpl;
 import org.nasdanika.vinci.app.AbstractAction;
 import org.nasdanika.vinci.app.ActionBase;
 import org.nasdanika.vinci.app.ActionCategory;
@@ -456,7 +459,20 @@ public abstract class ActionBaseImpl extends LabelImpl implements ActionBase {
 					}
 				}
 
-				ApplicationBuilder  applicationBuilder = new ActionApplicationBuilder(rootAction, principalAction, navigationPanelActions, activeAction); 				
+				ApplicationBuilder  applicationBuilder = new ActionApplicationBuilder(rootAction, principalAction, navigationPanelActions, activeAction) {
+					@Override
+					protected ViewGenerator createViewGenerator(
+							Application application,
+							java.util.function.Consumer<?> headContentConsumer,
+							java.util.function.Consumer<?> bodyContentConsumer) {
+
+						Context appBuilderContext = context;
+						if (application instanceof DecoratorProvider) {
+							appBuilderContext = context.compose(Context.singleton(DecoratorProvider.class, (DecoratorProvider) application));
+						}
+						return new ViewGeneratorImpl(appBuilderContext, headContentConsumer, bodyContentConsumer);
+					}
+				}; 				
 				applicationBuilder.build((Application) arg, progressMonitor.split("Building application", 1));				
 			}
 

@@ -18,7 +18,6 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.nasdanika.common.Util;
 import org.nasdanika.vinci.app.AppPackage;
 import org.nasdanika.vinci.app.BootstrapContainerApplicationSection;
-import org.nasdanika.vinci.app.Category;
 import org.nasdanika.vinci.bootstrap.provider.BootstrapElementItemProvider;
 import org.nasdanika.vinci.html.HtmlPackage;
 

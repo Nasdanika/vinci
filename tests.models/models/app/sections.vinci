@@ -126,7 +126,7 @@
       <content xsi:type="org.nasdanika.vinci.components:MarkdownText" markdown="Paragraphs content"/>
     </elements>
     <elements xsi:type="org.nasdanika.vinci.app:Action" title="Cards" id="de29c063-bda0-4406-a5b5-c7913c00d0f0" text="Cards" sectionStyle="Card">
-      <elements xsi:type="org.nasdanika.vinci.app:Action" title="Section 1" id="9d4fce59-aed6-4aaf-abca-644135916ee2" text="Section 1" sectionStyle=sectionStyle="Card" sectionColumns="1">
+      <elements xsi:type="org.nasdanika.vinci.app:Action" title="Section 1" id="9d4fce59-aed6-4aaf-abca-644135916ee2" text="Section 1" sectionStyle="Card" sectionColumns="1">
         <elements xsi:type="org.nasdanika.vinci.app:Action" title="Context 1.1" id="416ab384-1a80-44b6-8bd1-63de5ec2fdbd" text="Context 1.1" role="Context" sectionColumns="1">
           <content xsi:type="org.nasdanika.vinci.components:MarkdownText" markdown="Context 1.1 content"/>
         </elements>
@@ -295,4 +295,5 @@
       <content xsi:type="org.nasdanika.vinci.components:MarkdownText" markdown="Paragraphs content"/>
     </elements>
   </elements>
+  <elements xsi:type="org.nasdanika.vinci.app:Action" title="Nav 2" id="f51b3813-9656-46a2-a2e2-5a3958cd8fa6" text="Nav 2"/>
 </org.nasdanika.vinci.app:Action>
