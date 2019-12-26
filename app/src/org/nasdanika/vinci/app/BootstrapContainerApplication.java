@@ -238,6 +238,7 @@ public interface BootstrapContainerApplication extends BootstrapElement, Consume
 	 * children:
 	 *     action:
 	 *         class:
+	 *             text: light
 	 * ```
 	 * 
 	 * <!-- end-model-doc -->

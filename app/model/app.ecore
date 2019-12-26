@@ -313,7 +313,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="footer" eType="#//BootstrapContainerApplicationSection"
         containment="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Application footer.&#xA;&#xA;The footer may contribute to appearance of its content provided by application builders by specifiying ``action`` key under the ``children`` pseudo-attribute of its appearance.&#xA;&#xA;The ``action`` key defines appearance of the context children of the root action.&#xA;&#xA;Example:&#xA;&#xA;```yaml&#xA;children:&#xA;    action:&#xA;        class:&#xA;```&#xA;"/>
+        <details key="documentation" value="Application footer.&#xA;&#xA;The footer may contribute to appearance of its content provided by application builders by specifiying ``action`` key under the ``children`` pseudo-attribute of its appearance.&#xA;&#xA;The ``action`` key defines appearance of the context children of the root action.&#xA;&#xA;Example:&#xA;&#xA;```yaml&#xA;children:&#xA;    action:&#xA;        class:&#xA;            text: light&#xA;```&#xA;"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="builders" upperBound="-1"

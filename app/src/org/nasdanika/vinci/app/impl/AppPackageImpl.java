@@ -1425,7 +1425,7 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 		  (getBootstrapContainerApplication_Footer(),
 		   source,
 		   new String[] {
-			   "documentation", "Application footer.\n\nThe footer may contribute to appearance of its content provided by application builders by specifiying ``action`` key under the ``children`` pseudo-attribute of its appearance.\n\nThe ``action`` key defines appearance of the context children of the root action.\n\nExample:\n\n```yaml\nchildren:\n    action:\n        class:\n```\n"
+			   "documentation", "Application footer.\n\nThe footer may contribute to appearance of its content provided by application builders by specifiying ``action`` key under the ``children`` pseudo-attribute of its appearance.\n\nThe ``action`` key defines appearance of the context children of the root action.\n\nExample:\n\n```yaml\nchildren:\n    action:\n        class:\n            text: light\n```\n"
 		   });
 		addAnnotation
 		  (getBootstrapContainerApplication_Builders(),
