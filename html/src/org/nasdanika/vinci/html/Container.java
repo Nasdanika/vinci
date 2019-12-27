@@ -109,9 +109,17 @@ public interface Container extends EObject {
 				MarkdownHelper markdownHelper = new MarkdownHelper();
 				return context.interpolate(markdownHelper.markdownToHtml(markdown).trim());				
 			},  "Markdown content", 1);
-			
+						
 			contentSupplierFactory.add(markdownSupplierFactory);
 		}
+				
+		String html = getHtmlContent();
+		if (!Util.isBlank(html)) {
+			SupplierFactory<Object> htmlSupplierFactory = SupplierFactory.from((ctx, progressMonidor) -> {
+				return ctx.interpolate(html);				
+			},  "HTML content", 1);
+			contentSupplierFactory.add(htmlSupplierFactory);
+		}		
 				
 		for (SupplierFactory<Object> content: getContent()) {
 			contentSupplierFactory.add(content);

@@ -864,6 +864,14 @@ public abstract class ActionBaseImpl extends LabelImpl implements ActionBase {
 			content.add(markdownSupplierFactory);
 		}
 		
+		String html = getHtmlContent();
+		if (!Util.isBlank(html)) {
+			SupplierFactory<Object> htmlSupplierFactory = SupplierFactory.from((ctx, progressMonidor) -> {
+				return ctx.interpolate(html);				
+			},  "HTML content", 1);
+			content.add(htmlSupplierFactory);
+		}
+				
 		content.addAll(getContent());
 		
 		ListCompoundSupplierFactory<Object> contentFactory = new ListCompoundSupplierFactory<Object>(CONTENT_KEY, content);
