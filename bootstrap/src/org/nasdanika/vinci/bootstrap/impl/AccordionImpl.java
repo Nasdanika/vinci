@@ -3,9 +3,7 @@
 package org.nasdanika.vinci.bootstrap.impl;
 
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import org.nasdanika.vinci.bootstrap.Accordion;
 import org.nasdanika.vinci.bootstrap.BootstrapPackage;
 

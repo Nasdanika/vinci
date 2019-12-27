@@ -5,12 +5,12 @@ package org.nasdanika.vinci.components.impl;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
-
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
-
-import org.nasdanika.vinci.components.*;
+import org.nasdanika.vinci.components.ComponentsFactory;
+import org.nasdanika.vinci.components.ComponentsPackage;
+import org.nasdanika.vinci.components.MarkdownResource;
+import org.nasdanika.vinci.components.MarkdownText;
 
 /**
  * <!-- begin-user-doc -->

@@ -2,13 +2,14 @@
  */
 package org.nasdanika.vinci.html.impl;
 
+import static org.nasdanika.vinci.html.HtmlPackage.CONTAINER;
+
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EGenericType;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 import org.nasdanika.html.TagName;
@@ -189,6 +190,16 @@ public class HtmlPackageImpl extends EPackageImpl implements HtmlPackage {
 	 * @generated
 	 */
 	@Override
+	public EAttribute getContainer_HtmlContent() {
+		return (EAttribute)containerEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getTag() {
 		return tagEClass;
 	}
@@ -358,6 +369,7 @@ public class HtmlPackageImpl extends EPackageImpl implements HtmlPackage {
 		containerEClass = createEClass(CONTAINER);
 		createEReference(containerEClass, CONTAINER__CONTENT);
 		createEAttribute(containerEClass, CONTAINER__MARKDOWN_CONTENT);
+		createEAttribute(containerEClass, CONTAINER__HTML_CONTENT);
 
 		tagEClass = createEClass(TAG);
 		createEAttribute(tagEClass, TAG__NAME);
@@ -443,6 +455,7 @@ public class HtmlPackageImpl extends EPackageImpl implements HtmlPackage {
 		g1.getETypeArguments().add(g2);
 		initEReference(getContainer_Content(), g1, null, "content", null, 0, -1, org.nasdanika.vinci.html.Container.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getContainer_MarkdownContent(), ecorePackage.getEString(), "markdownContent", null, 0, 1, org.nasdanika.vinci.html.Container.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getContainer_HtmlContent(), ecorePackage.getEString(), "htmlContent", null, 0, 1, org.nasdanika.vinci.html.Container.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(tagEClass, Tag.class, "Tag", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTag_Name(), ecorePackage.getEString(), "name", null, 0, 1, Tag.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -478,6 +491,8 @@ public class HtmlPackageImpl extends EPackageImpl implements HtmlPackage {
 		// Create annotations
 		// http://www.eclipse.org/emf/2002/GenModel
 		createGenModelAnnotations();
+		// urn:org.nasdanika
+		createUrnorgAnnotations();
 	}
 
 	/**
@@ -517,6 +532,12 @@ public class HtmlPackageImpl extends EPackageImpl implements HtmlPackage {
 		   source,
 		   new String[] {
 			   "documentation", "[Markdown](https://en.wikipedia.org/wiki/Markdown) text. If this attribute contains text, the text is converted to HTML, interpolated and used as the first content element."
+		   });
+		addAnnotation
+		  (getContainer_HtmlContent(),
+		   source,
+		   new String[] {
+			   "documentation", "HTML text, interpolated and used as the first content element."
 		   });
 		addAnnotation
 		  (tagEClass,
@@ -589,6 +610,22 @@ public class HtmlPackageImpl extends EPackageImpl implements HtmlPackage {
 		   source,
 		   new String[] {
 			   "documentation", "If this attribute is set to true [GitHub Markdown CSS](https://github.com/sindresorhus/github-markdown-css) CDN stylesheet reference is added to the head."
+		   });
+	}
+
+	/**
+	 * Initializes the annotations for <b>urn:org.nasdanika</b>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void createUrnorgAnnotations() {
+		String source = "urn:org.nasdanika";
+		addAnnotation
+		  (getContainer_HtmlContent(),
+		   source,
+		   new String[] {
+			   "content-type", "text/html"
 		   });
 	}
 

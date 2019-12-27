@@ -50,6 +50,7 @@ public class BootstrapContainerApplicationSectionItemProvider extends BootstrapE
 			super.getPropertyDescriptors(object);
 
 			addMarkdownContentPropertyDescriptor(object);
+			addHtmlContentPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -68,6 +69,27 @@ public class BootstrapContainerApplicationSectionItemProvider extends BootstrapE
 				 HtmlPackage.Literals.CONTAINER__MARKDOWN_CONTENT,
 				 true,
 				 true,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Html Content feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	protected void addHtmlContentPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor(
+				 getResourceLocator(),
+				 getString("_UI_Container_htmlContent_feature"),
+				 HtmlPackage.Literals.CONTAINER__HTML_CONTENT,
+				 true,
+				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
@@ -152,6 +174,7 @@ public class BootstrapContainerApplicationSectionItemProvider extends BootstrapE
 
 		switch (notification.getFeatureID(BootstrapContainerApplicationSection.class)) {
 			case AppPackage.BOOTSTRAP_CONTAINER_APPLICATION_SECTION__MARKDOWN_CONTENT:
+			case AppPackage.BOOTSTRAP_CONTAINER_APPLICATION_SECTION__HTML_CONTENT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case AppPackage.BOOTSTRAP_CONTAINER_APPLICATION_SECTION__CONTENT:

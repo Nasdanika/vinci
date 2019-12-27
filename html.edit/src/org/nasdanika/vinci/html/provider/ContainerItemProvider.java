@@ -59,6 +59,7 @@ public class ContainerItemProvider
 			super.getPropertyDescriptors(object);
 
 			addMarkdownContentPropertyDescriptor(object);
+			addHtmlContentPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -77,6 +78,27 @@ public class ContainerItemProvider
 				 HtmlPackage.Literals.CONTAINER__MARKDOWN_CONTENT,
 				 true,
 				 true,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Html Content feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	protected void addHtmlContentPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor(
+				 getResourceLocator(),
+				 getString("_UI_Container_htmlContent_feature"),
+				 HtmlPackage.Literals.CONTAINER__HTML_CONTENT,
+				 true,
+				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
@@ -143,7 +165,7 @@ public class ContainerItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Container)object).getMarkdownContent();
+		String label = crop(((Container)object).getMarkdownContent());
 		return label == null || label.length() == 0 ?
 			getString("_UI_Container_type") :
 			getString("_UI_Container_type") + " " + label;
@@ -163,6 +185,7 @@ public class ContainerItemProvider
 
 		switch (notification.getFeatureID(Container.class)) {
 			case HtmlPackage.CONTAINER__MARKDOWN_CONTENT:
+			case HtmlPackage.CONTAINER__HTML_CONTENT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case HtmlPackage.CONTAINER__CONTENT:

@@ -3,7 +3,6 @@
 package org.nasdanika.vinci.bootstrap;
 
 import org.eclipse.emf.common.util.EList;
-
 import org.nasdanika.common.ConsumerFactory;
 import org.nasdanika.common.SupplierFactory;
 

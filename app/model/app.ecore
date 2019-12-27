@@ -172,6 +172,14 @@
         <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
       </eGenericType>
     </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="htmlContent" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="HTML text, interpolated and used as the first content element."/>
+      </eAnnotations>
+      <eAnnotations source="urn:org.nasdanika">
+        <details key="content-type" value="text/html"/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eGenericSuperTypes eClassifier="#//Label"/>
     <eGenericSuperTypes eClassifier="#//AbstractAction"/>
     <eGenericSuperTypes eClassifier="#//Container">

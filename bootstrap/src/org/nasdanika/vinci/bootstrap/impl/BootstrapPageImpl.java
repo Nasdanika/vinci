@@ -9,7 +9,6 @@ import org.nasdanika.html.HTMLPage;
 import org.nasdanika.html.bootstrap.Theme;
 import org.nasdanika.vinci.bootstrap.BootstrapPackage;
 import org.nasdanika.vinci.bootstrap.BootstrapPage;
-
 import org.nasdanika.vinci.html.impl.PageImpl;
 
 /**

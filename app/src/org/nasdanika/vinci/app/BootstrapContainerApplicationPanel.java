@@ -3,7 +3,6 @@
 package org.nasdanika.vinci.app;
 
 import org.eclipse.emf.common.util.EList;
-
 import org.nasdanika.vinci.bootstrap.ColumnWidth;
 
 /**

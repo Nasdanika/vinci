@@ -5,14 +5,10 @@ package org.nasdanika.vinci.html.impl;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.nasdanika.common.SupplierFactory;
 import org.nasdanika.vinci.html.HtmlPackage;
@@ -27,6 +23,7 @@ import org.nasdanika.vinci.html.HtmlPackage;
  * <ul>
  *   <li>{@link org.nasdanika.vinci.html.impl.ContainerImpl#getContent <em>Content</em>}</li>
  *   <li>{@link org.nasdanika.vinci.html.impl.ContainerImpl#getMarkdownContent <em>Markdown Content</em>}</li>
+ *   <li>{@link org.nasdanika.vinci.html.impl.ContainerImpl#getHtmlContent <em>Html Content</em>}</li>
  * </ul>
  *
  * @generated
@@ -41,6 +38,16 @@ public class ContainerImpl extends MinimalEObjectImpl.Container implements org.n
 	 * @ordered
 	 */
 	protected static final String MARKDOWN_CONTENT_EDEFAULT = null;
+
+	/**
+	 * The default value of the '{@link #getHtmlContent() <em>Html Content</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getHtmlContent()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String HTML_CONTENT_EDEFAULT = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -108,6 +115,26 @@ public class ContainerImpl extends MinimalEObjectImpl.Container implements org.n
 	 * @generated
 	 */
 	@Override
+	public String getHtmlContent() {
+		return (String)eDynamicGet(HtmlPackage.CONTAINER__HTML_CONTENT, HtmlPackage.Literals.CONTAINER__HTML_CONTENT, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setHtmlContent(String newHtmlContent) {
+		eDynamicSet(HtmlPackage.CONTAINER__HTML_CONTENT, HtmlPackage.Literals.CONTAINER__HTML_CONTENT, newHtmlContent);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case HtmlPackage.CONTAINER__CONTENT:
@@ -128,6 +155,8 @@ public class ContainerImpl extends MinimalEObjectImpl.Container implements org.n
 				return getContent();
 			case HtmlPackage.CONTAINER__MARKDOWN_CONTENT:
 				return getMarkdownContent();
+			case HtmlPackage.CONTAINER__HTML_CONTENT:
+				return getHtmlContent();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -148,6 +177,9 @@ public class ContainerImpl extends MinimalEObjectImpl.Container implements org.n
 			case HtmlPackage.CONTAINER__MARKDOWN_CONTENT:
 				setMarkdownContent((String)newValue);
 				return;
+			case HtmlPackage.CONTAINER__HTML_CONTENT:
+				setHtmlContent((String)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -166,6 +198,9 @@ public class ContainerImpl extends MinimalEObjectImpl.Container implements org.n
 			case HtmlPackage.CONTAINER__MARKDOWN_CONTENT:
 				setMarkdownContent(MARKDOWN_CONTENT_EDEFAULT);
 				return;
+			case HtmlPackage.CONTAINER__HTML_CONTENT:
+				setHtmlContent(HTML_CONTENT_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -182,6 +217,8 @@ public class ContainerImpl extends MinimalEObjectImpl.Container implements org.n
 				return !getContent().isEmpty();
 			case HtmlPackage.CONTAINER__MARKDOWN_CONTENT:
 				return MARKDOWN_CONTENT_EDEFAULT == null ? getMarkdownContent() != null : !MARKDOWN_CONTENT_EDEFAULT.equals(getMarkdownContent());
+			case HtmlPackage.CONTAINER__HTML_CONTENT:
+				return HTML_CONTENT_EDEFAULT == null ? getHtmlContent() != null : !HTML_CONTENT_EDEFAULT.equals(getHtmlContent());
 		}
 		return super.eIsSet(featureID);
 	}

@@ -2,11 +2,12 @@
  */
 package org.nasdanika.vinci.bootstrap.impl;
 
+import static org.nasdanika.vinci.bootstrap.BootstrapPackage.CONTAINER;
+
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EGenericType;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EValidator;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
@@ -20,7 +21,6 @@ import org.nasdanika.vinci.bootstrap.Badge;
 import org.nasdanika.vinci.bootstrap.BootstrapElement;
 import org.nasdanika.vinci.bootstrap.BootstrapFactory;
 import org.nasdanika.vinci.bootstrap.BootstrapPackage;
-
 import org.nasdanika.vinci.bootstrap.BootstrapPage;
 import org.nasdanika.vinci.bootstrap.Border;
 import org.nasdanika.vinci.bootstrap.Breadcrumbs;

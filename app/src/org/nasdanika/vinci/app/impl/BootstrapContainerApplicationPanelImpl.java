@@ -5,20 +5,16 @@ package org.nasdanika.vinci.app.impl;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.nasdanika.common.Util;
 import org.nasdanika.html.bootstrap.Breakpoint;
-import org.nasdanika.html.bootstrap.Size;
 import org.nasdanika.html.bootstrap.Container.Row.Col;
+import org.nasdanika.html.bootstrap.Size;
 import org.nasdanika.vinci.app.AppPackage;
 import org.nasdanika.vinci.app.BootstrapContainerApplicationPanel;
-
 import org.nasdanika.vinci.bootstrap.ColumnWidth;
 
 /**

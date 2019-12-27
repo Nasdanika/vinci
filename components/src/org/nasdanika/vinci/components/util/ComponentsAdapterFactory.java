@@ -4,16 +4,14 @@ package org.nasdanika.vinci.components.util;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
-
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
-
 import org.eclipse.emf.ecore.EObject;
-
 import org.nasdanika.common.SupplierFactory;
-
 import org.nasdanika.ncore.ModelElement;
-
-import org.nasdanika.vinci.components.*;
+import org.nasdanika.vinci.components.ComponentsPackage;
+import org.nasdanika.vinci.components.Markdown;
+import org.nasdanika.vinci.components.MarkdownResource;
+import org.nasdanika.vinci.components.MarkdownText;
 
 /**
  * <!-- begin-user-doc -->

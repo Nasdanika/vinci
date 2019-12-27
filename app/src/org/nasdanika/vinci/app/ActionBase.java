@@ -29,6 +29,7 @@ import org.nasdanika.common.SupplierFactory;
  *   <li>{@link org.nasdanika.vinci.app.ActionBase#isEmbedded <em>Embedded</em>}</li>
  *   <li>{@link org.nasdanika.vinci.app.ActionBase#getMarkdownContent <em>Markdown Content</em>}</li>
  *   <li>{@link org.nasdanika.vinci.app.ActionBase#getContent <em>Content</em>}</li>
+ *   <li>{@link org.nasdanika.vinci.app.ActionBase#getHtmlContent <em>Html Content</em>}</li>
  * </ul>
  *
  * @see org.nasdanika.vinci.app.AppPackage#getActionBase()
@@ -284,5 +285,30 @@ public interface ActionBase extends Label, AbstractAction, Container<ActionEleme
 	 * @generated
 	 */
 	EList<SupplierFactory<Object>> getContent();
+
+	/**
+	 * Returns the value of the '<em><b>Html Content</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * HTML text, interpolated and used as the first content element.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Html Content</em>' attribute.
+	 * @see #setHtmlContent(String)
+	 * @see org.nasdanika.vinci.app.AppPackage#getActionBase_HtmlContent()
+	 * @model annotation="urn:org.nasdanika content-type='text/html'"
+	 * @generated
+	 */
+	String getHtmlContent();
+
+	/**
+	 * Sets the value of the '{@link org.nasdanika.vinci.app.ActionBase#getHtmlContent <em>Html Content</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Html Content</em>' attribute.
+	 * @see #getHtmlContent()
+	 * @generated
+	 */
+	void setHtmlContent(String value);
 
 } // ActionBase

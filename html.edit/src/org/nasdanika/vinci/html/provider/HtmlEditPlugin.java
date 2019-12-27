@@ -3,7 +3,6 @@
 package org.nasdanika.vinci.html.provider;
 
 import org.eclipse.emf.common.EMFPlugin;
-
 import org.eclipse.emf.common.util.ResourceLocator;
 import org.nasdanika.ncore.provider.NcoreEditPlugin;
 

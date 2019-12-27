@@ -5,7 +5,6 @@ package org.nasdanika.vinci.bootstrap;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.EReference;
 import org.nasdanika.ncore.NcorePackage;
 import org.nasdanika.vinci.html.HtmlPackage;
@@ -860,6 +859,15 @@ public interface BootstrapPackage extends EPackage {
 	int CONTENT_TAG__MARKDOWN_CONTENT = HtmlPackage.CONTENT_TAG__MARKDOWN_CONTENT;
 
 	/**
+	 * The feature id for the '<em><b>Html Content</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTENT_TAG__HTML_CONTENT = HtmlPackage.CONTENT_TAG__HTML_CONTENT;
+
+	/**
 	 * The feature id for the '<em><b>Appearance</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1297,13 +1305,22 @@ public interface BootstrapPackage extends EPackage {
 	int CONTENT_ACTION_GROUP_ITEM__MARKDOWN_CONTENT = ACTION_GROUP_ITEM_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Html Content</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTENT_ACTION_GROUP_ITEM__HTML_CONTENT = ACTION_GROUP_ITEM_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Content Action Group Item</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONTENT_ACTION_GROUP_ITEM_FEATURE_COUNT = ACTION_GROUP_ITEM_FEATURE_COUNT + 2;
+	int CONTENT_ACTION_GROUP_ITEM_FEATURE_COUNT = ACTION_GROUP_ITEM_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>Content Action Group Item</em>' class.
@@ -1981,13 +1998,22 @@ public interface BootstrapPackage extends EPackage {
 	int COLUMN__MARKDOWN_CONTENT = BOOTSTRAP_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Html Content</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLUMN__HTML_CONTENT = BOOTSTRAP_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
 	 * The feature id for the '<em><b>Width</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COLUMN__WIDTH = BOOTSTRAP_ELEMENT_FEATURE_COUNT + 2;
+	int COLUMN__WIDTH = BOOTSTRAP_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Column</em>' class.
@@ -1996,7 +2022,7 @@ public interface BootstrapPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COLUMN_FEATURE_COUNT = BOOTSTRAP_ELEMENT_FEATURE_COUNT + 3;
+	int COLUMN_FEATURE_COUNT = BOOTSTRAP_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The operation id for the '<em>As Consumer</em>' operation.
@@ -2745,6 +2771,15 @@ public interface BootstrapPackage extends EPackage {
 	 * @ordered
 	 */
 	int TABLE_CELL__MARKDOWN_CONTENT = HtmlPackage.CONTAINER__MARKDOWN_CONTENT;
+
+	/**
+	 * The feature id for the '<em><b>Html Content</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_CELL__HTML_CONTENT = HtmlPackage.CONTAINER__HTML_CONTENT;
 
 	/**
 	 * The feature id for the '<em><b>Title</b></em>' attribute.

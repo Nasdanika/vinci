@@ -4,14 +4,17 @@ package org.nasdanika.vinci.html.util;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
-
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
-
 import org.eclipse.emf.ecore.EObject;
 import org.nasdanika.common.SupplierFactory;
 import org.nasdanika.ncore.ModelElement;
 import org.nasdanika.ncore.NamedElement;
-import org.nasdanika.vinci.html.*;
+import org.nasdanika.vinci.html.Container;
+import org.nasdanika.vinci.html.ContentTag;
+import org.nasdanika.vinci.html.HtmlElement;
+import org.nasdanika.vinci.html.HtmlPackage;
+import org.nasdanika.vinci.html.Page;
+import org.nasdanika.vinci.html.Tag;
 
 /**
  * <!-- begin-user-doc -->

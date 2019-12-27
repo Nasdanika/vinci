@@ -4,7 +4,6 @@ package org.nasdanika.vinci.bootstrap.util;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.util.Switch;
 import org.nasdanika.common.ConsumerFactory;
 import org.nasdanika.common.SupplierFactory;

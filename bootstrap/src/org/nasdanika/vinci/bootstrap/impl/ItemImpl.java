@@ -4,7 +4,6 @@ package org.nasdanika.vinci.bootstrap.impl;
 
 import org.eclipse.emf.ecore.EClass;
 import org.nasdanika.ncore.impl.ModelElementImpl;
-
 import org.nasdanika.vinci.bootstrap.BootstrapPackage;
 import org.nasdanika.vinci.bootstrap.Item;
 

@@ -58,6 +58,7 @@ public class ActionBaseItemProvider extends LabelItemProvider {
 			addDisabledPropertyDescriptor(object);
 			addEmbeddedPropertyDescriptor(object);
 			addMarkdownContentPropertyDescriptor(object);
+			addHtmlContentPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -272,6 +273,27 @@ public class ActionBaseItemProvider extends LabelItemProvider {
 				 null));
 	}
 
+	/**
+	 * This adds a property descriptor for the Html Content feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	protected void addHtmlContentPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor(
+				 getResourceLocator(),
+				 getString("_UI_ActionBase_htmlContent_feature"),
+				 AppPackage.Literals.ACTION_BASE__HTML_CONTENT,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null,
+				 null));
+	}
+
 	@Override
 	public Collection<?> getChildren(Object object) {
 		List<EReferenceItemProvider> children = eReferenceItemProviders.get(object);
@@ -369,6 +391,7 @@ public class ActionBaseItemProvider extends LabelItemProvider {
 			case AppPackage.ACTION_BASE__DISABLED:
 			case AppPackage.ACTION_BASE__EMBEDDED:
 			case AppPackage.ACTION_BASE__MARKDOWN_CONTENT:
+			case AppPackage.ACTION_BASE__HTML_CONTENT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case AppPackage.ACTION_BASE__ACTION_MAPPINGS:

@@ -35,6 +35,7 @@ import org.nasdanika.vinci.html.HtmlPackage;
  * <ul>
  *   <li>{@link org.nasdanika.vinci.bootstrap.impl.ContentActionGroupItemImpl#getContent <em>Content</em>}</li>
  *   <li>{@link org.nasdanika.vinci.bootstrap.impl.ContentActionGroupItemImpl#getMarkdownContent <em>Markdown Content</em>}</li>
+ *   <li>{@link org.nasdanika.vinci.bootstrap.impl.ContentActionGroupItemImpl#getHtmlContent <em>Html Content</em>}</li>
  * </ul>
  *
  * @generated
@@ -49,6 +50,16 @@ public class ContentActionGroupItemImpl extends ActionGroupItemImpl implements C
 	 * @ordered
 	 */
 	protected static final String MARKDOWN_CONTENT_EDEFAULT = null;
+
+	/**
+	 * The default value of the '{@link #getHtmlContent() <em>Html Content</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getHtmlContent()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String HTML_CONTENT_EDEFAULT = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -106,6 +117,26 @@ public class ContentActionGroupItemImpl extends ActionGroupItemImpl implements C
 	 * @generated
 	 */
 	@Override
+	public String getHtmlContent() {
+		return (String)eDynamicGet(BootstrapPackage.CONTENT_ACTION_GROUP_ITEM__HTML_CONTENT, HtmlPackage.Literals.CONTAINER__HTML_CONTENT, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setHtmlContent(String newHtmlContent) {
+		eDynamicSet(BootstrapPackage.CONTENT_ACTION_GROUP_ITEM__HTML_CONTENT, HtmlPackage.Literals.CONTAINER__HTML_CONTENT, newHtmlContent);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case BootstrapPackage.CONTENT_ACTION_GROUP_ITEM__CONTENT:
@@ -126,6 +157,8 @@ public class ContentActionGroupItemImpl extends ActionGroupItemImpl implements C
 				return getContent();
 			case BootstrapPackage.CONTENT_ACTION_GROUP_ITEM__MARKDOWN_CONTENT:
 				return getMarkdownContent();
+			case BootstrapPackage.CONTENT_ACTION_GROUP_ITEM__HTML_CONTENT:
+				return getHtmlContent();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -146,6 +179,9 @@ public class ContentActionGroupItemImpl extends ActionGroupItemImpl implements C
 			case BootstrapPackage.CONTENT_ACTION_GROUP_ITEM__MARKDOWN_CONTENT:
 				setMarkdownContent((String)newValue);
 				return;
+			case BootstrapPackage.CONTENT_ACTION_GROUP_ITEM__HTML_CONTENT:
+				setHtmlContent((String)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -164,6 +200,9 @@ public class ContentActionGroupItemImpl extends ActionGroupItemImpl implements C
 			case BootstrapPackage.CONTENT_ACTION_GROUP_ITEM__MARKDOWN_CONTENT:
 				setMarkdownContent(MARKDOWN_CONTENT_EDEFAULT);
 				return;
+			case BootstrapPackage.CONTENT_ACTION_GROUP_ITEM__HTML_CONTENT:
+				setHtmlContent(HTML_CONTENT_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -180,6 +219,8 @@ public class ContentActionGroupItemImpl extends ActionGroupItemImpl implements C
 				return !getContent().isEmpty();
 			case BootstrapPackage.CONTENT_ACTION_GROUP_ITEM__MARKDOWN_CONTENT:
 				return MARKDOWN_CONTENT_EDEFAULT == null ? getMarkdownContent() != null : !MARKDOWN_CONTENT_EDEFAULT.equals(getMarkdownContent());
+			case BootstrapPackage.CONTENT_ACTION_GROUP_ITEM__HTML_CONTENT:
+				return HTML_CONTENT_EDEFAULT == null ? getHtmlContent() != null : !HTML_CONTENT_EDEFAULT.equals(getHtmlContent());
 		}
 		return super.eIsSet(featureID);
 	}
@@ -195,6 +236,7 @@ public class ContentActionGroupItemImpl extends ActionGroupItemImpl implements C
 			switch (derivedFeatureID) {
 				case BootstrapPackage.CONTENT_ACTION_GROUP_ITEM__CONTENT: return HtmlPackage.CONTAINER__CONTENT;
 				case BootstrapPackage.CONTENT_ACTION_GROUP_ITEM__MARKDOWN_CONTENT: return HtmlPackage.CONTAINER__MARKDOWN_CONTENT;
+				case BootstrapPackage.CONTENT_ACTION_GROUP_ITEM__HTML_CONTENT: return HtmlPackage.CONTAINER__HTML_CONTENT;
 				default: return -1;
 			}
 		}
@@ -212,6 +254,7 @@ public class ContentActionGroupItemImpl extends ActionGroupItemImpl implements C
 			switch (baseFeatureID) {
 				case HtmlPackage.CONTAINER__CONTENT: return BootstrapPackage.CONTENT_ACTION_GROUP_ITEM__CONTENT;
 				case HtmlPackage.CONTAINER__MARKDOWN_CONTENT: return BootstrapPackage.CONTENT_ACTION_GROUP_ITEM__MARKDOWN_CONTENT;
+				case HtmlPackage.CONTAINER__HTML_CONTENT: return BootstrapPackage.CONTENT_ACTION_GROUP_ITEM__HTML_CONTENT;
 				default: return -1;
 			}
 		}

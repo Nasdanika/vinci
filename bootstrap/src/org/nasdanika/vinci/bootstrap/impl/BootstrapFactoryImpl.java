@@ -5,11 +5,8 @@ package org.nasdanika.vinci.bootstrap.impl;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
-
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
-
 import org.nasdanika.html.bootstrap.Color;
 import org.nasdanika.vinci.bootstrap.Accordion;
 import org.nasdanika.vinci.bootstrap.ActionGroup;

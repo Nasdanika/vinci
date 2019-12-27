@@ -6,12 +6,14 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
-
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import org.nasdanika.html.TagName;
-import org.nasdanika.vinci.html.*;
+import org.nasdanika.vinci.html.ContentTag;
+import org.nasdanika.vinci.html.HtmlFactory;
+import org.nasdanika.vinci.html.HtmlPackage;
+import org.nasdanika.vinci.html.Page;
+import org.nasdanika.vinci.html.Tag;
 
 /**
  * <!-- begin-user-doc -->

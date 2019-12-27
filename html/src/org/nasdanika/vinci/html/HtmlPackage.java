@@ -146,13 +146,22 @@ public interface HtmlPackage extends EPackage {
 	int CONTAINER__MARKDOWN_CONTENT = 1;
 
 	/**
+	 * The feature id for the '<em><b>Html Content</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTAINER__HTML_CONTENT = 2;
+
+	/**
 	 * The number of structural features of the '<em>Container</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONTAINER_FEATURE_COUNT = 2;
+	int CONTAINER_FEATURE_COUNT = 3;
 
 	/**
 	 * The number of operations of the '<em>Container</em>' class.
@@ -284,13 +293,22 @@ public interface HtmlPackage extends EPackage {
 	int CONTENT_TAG__MARKDOWN_CONTENT = TAG_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Html Content</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTENT_TAG__HTML_CONTENT = TAG_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Content Tag</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONTENT_TAG_FEATURE_COUNT = TAG_FEATURE_COUNT + 2;
+	int CONTENT_TAG_FEATURE_COUNT = TAG_FEATURE_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>As Consumer</em>' operation.
@@ -509,6 +527,17 @@ public interface HtmlPackage extends EPackage {
 	EAttribute getContainer_MarkdownContent();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.html.Container#getHtmlContent <em>Html Content</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Html Content</em>'.
+	 * @see org.nasdanika.vinci.html.Container#getHtmlContent()
+	 * @see #getContainer()
+	 * @generated
+	 */
+	EAttribute getContainer_HtmlContent();
+
+	/**
 	 * Returns the meta object for class '{@link org.nasdanika.vinci.html.Tag <em>Tag</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -725,6 +754,14 @@ public interface HtmlPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute CONTAINER__MARKDOWN_CONTENT = eINSTANCE.getContainer_MarkdownContent();
+
+		/**
+		 * The meta object literal for the '<em><b>Html Content</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CONTAINER__HTML_CONTENT = eINSTANCE.getContainer_HtmlContent();
 
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.vinci.html.impl.TagImpl <em>Tag</em>}' class.

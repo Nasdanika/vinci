@@ -3,7 +3,6 @@
 package org.nasdanika.vinci.app;
 
 import org.nasdanika.vinci.bootstrap.BootstrapElement;
-
 import org.nasdanika.vinci.html.Container;
 
 /**

@@ -3,7 +3,6 @@
 package org.nasdanika.vinci.components;
 
 import org.nasdanika.common.SupplierFactory;
-
 import org.nasdanika.ncore.ModelElement;
 import org.nasdanika.vinci.bootstrap.Appearance;
 

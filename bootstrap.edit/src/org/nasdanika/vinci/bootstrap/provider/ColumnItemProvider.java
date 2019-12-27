@@ -49,6 +49,7 @@ public class ColumnItemProvider extends BootstrapElementItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addMarkdownContentPropertyDescriptor(object);
+			addHtmlContentPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -67,6 +68,27 @@ public class ColumnItemProvider extends BootstrapElementItemProvider {
 				 HtmlPackage.Literals.CONTAINER__MARKDOWN_CONTENT,
 				 true,
 				 true,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Html Content feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	protected void addHtmlContentPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor(
+				 getResourceLocator(),
+				 getString("_UI_Container_htmlContent_feature"),
+				 HtmlPackage.Literals.CONTAINER__HTML_CONTENT,
+				 true,
+				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
@@ -172,6 +194,7 @@ public class ColumnItemProvider extends BootstrapElementItemProvider {
 
 		switch (notification.getFeatureID(Column.class)) {
 			case BootstrapPackage.COLUMN__MARKDOWN_CONTENT:
+			case BootstrapPackage.COLUMN__HTML_CONTENT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case BootstrapPackage.COLUMN__CONTENT:

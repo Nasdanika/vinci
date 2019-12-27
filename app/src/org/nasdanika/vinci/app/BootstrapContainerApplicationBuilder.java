@@ -3,7 +3,6 @@
 package org.nasdanika.vinci.app;
 
 import org.eclipse.emf.ecore.EObject;
-
 import org.nasdanika.common.Consumer;
 import org.nasdanika.common.Context;
 

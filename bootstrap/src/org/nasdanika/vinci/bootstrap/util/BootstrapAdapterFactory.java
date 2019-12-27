@@ -4,9 +4,7 @@ package org.nasdanika.vinci.bootstrap.util;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
-
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
-
 import org.eclipse.emf.ecore.EObject;
 import org.nasdanika.common.ConsumerFactory;
 import org.nasdanika.common.SupplierFactory;

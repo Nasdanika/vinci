@@ -3,7 +3,6 @@
 package org.nasdanika.vinci.bootstrap;
 
 import org.nasdanika.common.ConsumerFactory;
-
 import org.nasdanika.vinci.html.Container;
 
 /**

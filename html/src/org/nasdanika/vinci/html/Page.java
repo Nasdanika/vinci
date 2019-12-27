@@ -5,7 +5,6 @@ package org.nasdanika.vinci.html;
 import org.eclipse.emf.common.util.EList;
 import org.nasdanika.common.ConsumerFactory;
 import org.nasdanika.common.SupplierFactory;
-
 import org.nasdanika.ncore.NamedElement;
 
 /**

@@ -868,13 +868,22 @@ public interface AppPackage extends EPackage {
 	int ACTION_BASE__CONTENT = LABEL_FEATURE_COUNT + 12;
 
 	/**
+	 * The feature id for the '<em><b>Html Content</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION_BASE__HTML_CONTENT = LABEL_FEATURE_COUNT + 13;
+
+	/**
 	 * The number of structural features of the '<em>Action Base</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION_BASE_FEATURE_COUNT = LABEL_FEATURE_COUNT + 13;
+	int ACTION_BASE_FEATURE_COUNT = LABEL_FEATURE_COUNT + 14;
 
 	/**
 	 * The operation id for the '<em>Create Consumer</em>' operation.
@@ -1283,6 +1292,15 @@ public interface AppPackage extends EPackage {
 	int ACTION__CONTENT = ACTION_BASE__CONTENT;
 
 	/**
+	 * The feature id for the '<em><b>Html Content</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION__HTML_CONTENT = ACTION_BASE__HTML_CONTENT;
+
+	/**
 	 * The number of structural features of the '<em>Action</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1517,6 +1535,15 @@ public interface AppPackage extends EPackage {
 	int PARTITION__CONTENT = ACTION_BASE__CONTENT;
 
 	/**
+	 * The feature id for the '<em><b>Html Content</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARTITION__HTML_CONTENT = ACTION_BASE__HTML_CONTENT;
+
+	/**
 	 * The number of structural features of the '<em>Partition</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1735,13 +1762,22 @@ public interface AppPackage extends EPackage {
 	int BOOTSTRAP_CONTAINER_APPLICATION_SECTION__MARKDOWN_CONTENT = BootstrapPackage.BOOTSTRAP_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Html Content</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOTSTRAP_CONTAINER_APPLICATION_SECTION__HTML_CONTENT = BootstrapPackage.BOOTSTRAP_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Bootstrap Container Application Section</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BOOTSTRAP_CONTAINER_APPLICATION_SECTION_FEATURE_COUNT = BootstrapPackage.BOOTSTRAP_ELEMENT_FEATURE_COUNT + 2;
+	int BOOTSTRAP_CONTAINER_APPLICATION_SECTION_FEATURE_COUNT = BootstrapPackage.BOOTSTRAP_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>As Consumer</em>' operation.
@@ -1815,6 +1851,15 @@ public interface AppPackage extends EPackage {
 	 * @ordered
 	 */
 	int BOOTSTRAP_CONTAINER_APPLICATION_PANEL__MARKDOWN_CONTENT = BOOTSTRAP_CONTAINER_APPLICATION_SECTION__MARKDOWN_CONTENT;
+
+	/**
+	 * The feature id for the '<em><b>Html Content</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOTSTRAP_CONTAINER_APPLICATION_PANEL__HTML_CONTENT = BOOTSTRAP_CONTAINER_APPLICATION_SECTION__HTML_CONTENT;
 
 	/**
 	 * The feature id for the '<em><b>Width</b></em>' containment reference list.
@@ -2449,6 +2494,17 @@ public interface AppPackage extends EPackage {
 	EReference getActionBase_Content();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.app.ActionBase#getHtmlContent <em>Html Content</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Html Content</em>'.
+	 * @see org.nasdanika.vinci.app.ActionBase#getHtmlContent()
+	 * @see #getActionBase()
+	 * @generated
+	 */
+	EAttribute getActionBase_HtmlContent();
+
+	/**
 	 * Returns the meta object for class '{@link org.nasdanika.vinci.app.Container <em>Container</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2968,6 +3024,14 @@ public interface AppPackage extends EPackage {
 		 * @generated
 		 */
 		EReference ACTION_BASE__CONTENT = eINSTANCE.getActionBase_Content();
+
+		/**
+		 * The meta object literal for the '<em><b>Html Content</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ACTION_BASE__HTML_CONTENT = eINSTANCE.getActionBase_HtmlContent();
 
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.vinci.app.Container <em>Container</em>}' class.
