@@ -101,7 +101,7 @@ public class GenerateTemplatedApplicationAction extends VinciGenerateAction<Abst
 				resourceSet.getPackageRegistry().put(ePackage.getNsURI(), ePackage);
 			}
 			
-			// Default template. TODO - read from config, interpolate, resolve relative to the model.
+			// DEFAULT template. TODO - read from config, interpolate, resolve relative to the model.
 			URI templateUri = URI.createPlatformPluginURI("/org.nasdanika.vinci.templates/pages/default/primary.vinci", true);			
 			
 			Resource templateResource = resourceSet.getResource(templateUri, true);

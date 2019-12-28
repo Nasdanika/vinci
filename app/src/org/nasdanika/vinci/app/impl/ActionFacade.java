@@ -183,7 +183,7 @@ public class ActionFacade extends org.nasdanika.html.app.impl.ActionImpl impleme
 			setCategory(cat);
 		}
 		
-		setSectionStyle(Util.isBlank(target.getSectionStyle()) ? SectionStyle.Auto : SectionStyle.fromLabel(target.getSectionStyle()));
+		setSectionStyle(Util.isBlank(target.getSectionStyle()) ? SectionStyle.AUTO : SectionStyle.fromLabel(target.getSectionStyle()));
 
 		switch (target.getRole()) {
 		case CONTEXT:

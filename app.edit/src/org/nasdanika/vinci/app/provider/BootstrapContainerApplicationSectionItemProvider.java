@@ -67,7 +67,7 @@ public class BootstrapContainerApplicationSectionItemProvider extends BootstrapE
 				 getResourceLocator(),
 				 getString("_UI_Container_markdownContent_feature"),
 				 HtmlPackage.Literals.CONTAINER__MARKDOWN_CONTENT,
-				 true,
+				 false,
 				 true,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,

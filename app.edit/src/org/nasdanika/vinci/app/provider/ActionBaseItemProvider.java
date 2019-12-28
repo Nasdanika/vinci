@@ -11,6 +11,7 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
@@ -264,7 +265,7 @@ public class ActionBaseItemProvider extends LabelItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_ActionBase_markdownContent_feature"),
 				 AppPackage.Literals.ACTION_BASE__MARKDOWN_CONTENT,
-				 true,
+				 false,
 				 true,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,

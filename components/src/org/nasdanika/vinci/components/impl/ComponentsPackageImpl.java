@@ -280,7 +280,7 @@ public class ComponentsPackageImpl extends EPackageImpl implements ComponentsPac
 		initEReference(getMarkdown_Appearance(), theBootstrapPackage.getAppearance(), null, "appearance", null, 0, 1, Markdown.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(markdownTextEClass, MarkdownText.class, "MarkdownText", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getMarkdownText_Markdown(), ecorePackage.getEString(), "markdown", null, 0, 1, MarkdownText.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMarkdownText_Markdown(), ecorePackage.getEString(), "markdown", null, 1, 1, MarkdownText.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(markdownResourceEClass, MarkdownResource.class, "MarkdownResource", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getMarkdownResource_Location(), ecorePackage.getEString(), "location", null, 1, 1, MarkdownResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

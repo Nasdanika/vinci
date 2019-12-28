@@ -34,7 +34,7 @@ public interface MarkdownText extends Markdown {
 	 * @return the value of the '<em>Markdown</em>' attribute.
 	 * @see #setMarkdown(String)
 	 * @see org.nasdanika.vinci.components.ComponentsPackage#getMarkdownText_Markdown()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
 	String getMarkdown();

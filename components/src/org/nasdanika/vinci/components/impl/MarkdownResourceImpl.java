@@ -136,6 +136,9 @@ public class MarkdownResourceImpl extends MarkdownImpl implements MarkdownResour
 	@Override
 	protected String doGetMarkdown(Context context) throws Exception {
 		URL url = Util.resolveReference(eResource(), context.interpolate(getLocation()));
+		if (url == null) {
+			throw new IllegalArgumentException("Resource does not exist");
+		}
 		Converter converter = context.get(Converter.class, DefaultConverter.INSTANCE);
 		return converter.convert(url, String.class);
 	}

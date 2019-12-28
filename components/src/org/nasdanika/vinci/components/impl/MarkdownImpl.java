@@ -8,6 +8,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.nasdanika.common.Context;
 import org.nasdanika.common.MarkdownHelper;
 import org.nasdanika.common.Supplier;
+import org.nasdanika.common.Util;
 import org.nasdanika.html.HTMLElement;
 import org.nasdanika.html.bootstrap.BootstrapFactory;
 import org.nasdanika.ncore.impl.ModelElementImpl;
@@ -236,9 +237,13 @@ public abstract class MarkdownImpl extends ModelElementImpl implements Markdown 
 	public Supplier<Object> create(Context context) throws Exception {
 		BootstrapFactory bootstrapFactory = context.get(BootstrapFactory.class, BootstrapFactory.INSTANCE);		
 		
+		String markdown = doGetMarkdown(context);
+		if (Util.isBlank(markdown)) {
+			return Supplier.EMPTY;
+		}
 		Supplier<Object> markdownSupplier = Supplier.fromCallable(() -> {
 			MarkdownHelper markdownHelper = new MarkdownHelper();
-			String html = markdownHelper.markdownToHtml(doGetMarkdown(context)).trim();
+			String html = markdownHelper.markdownToHtml(markdown).trim();
 			if (isInterpolate()) {
 				html = context.interpolate(html);
 			}
@@ -260,11 +265,11 @@ public abstract class MarkdownImpl extends ModelElementImpl implements Markdown 
 			return markdownSupplier;
 		}
 				
-		java.util.function.Function<Object, Object> wrapper = markdown -> {
-			if (markdown instanceof String) {
-				markdown = bootstrapFactory.getHTMLFactory().div(markdown);
+		java.util.function.Function<Object, Object> wrapper = mrkdwn -> {
+			if (mrkdwn instanceof String) {
+				mrkdwn = bootstrapFactory.getHTMLFactory().div(mrkdwn);
 			}
-			return markdown instanceof HTMLElement ? bootstrapFactory.wrap((HTMLElement<?>) markdown) : markdown;
+			return mrkdwn instanceof HTMLElement ? bootstrapFactory.wrap((HTMLElement<?>) mrkdwn) : mrkdwn;
 		};
 		
 		return markdownSupplier.then(wrapper).then(appearance.create(context).asFunction());
