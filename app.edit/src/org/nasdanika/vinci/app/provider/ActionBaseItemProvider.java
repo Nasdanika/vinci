@@ -118,7 +118,7 @@ public class ActionBaseItemProvider extends LabelItemProvider {
 				 AppPackage.Literals.ACTION_BASE__SECTION_STYLE,
 				 true,
 				 false,
-				 false,
+				 true,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null,

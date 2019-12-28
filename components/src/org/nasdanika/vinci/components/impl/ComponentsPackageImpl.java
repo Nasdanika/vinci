@@ -287,6 +287,26 @@ public class ComponentsPackageImpl extends EPackageImpl implements ComponentsPac
 
 		// Create resource
 		createResource(eNS_URI);
+
+		// Create annotations
+		// urn:org.nasdanika
+		createUrnorgAnnotations();
+	}
+
+	/**
+	 * Initializes the annotations for <b>urn:org.nasdanika</b>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void createUrnorgAnnotations() {
+		String source = "urn:org.nasdanika";
+		addAnnotation
+		  (getMarkdownText_Markdown(),
+		   source,
+		   new String[] {
+			   "content-type", "text/markdown"
+		   });
 	}
 
 } //ComponentsPackageImpl

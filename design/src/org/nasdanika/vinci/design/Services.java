@@ -21,7 +21,7 @@ public class Services {
     	}
     }
     
-    public boolean isHtml(EObject self, EditSupport editSupport, EStructuralFeature feature) {
+    public boolean isHtml(EObject self, EStructuralFeature feature) {
     	EAnnotation nann = feature.getEAnnotation("urn:org.nasdanika");
     	if (nann == null) {
     		return false;    	
@@ -30,7 +30,7 @@ public class Services {
     	return !Util.isBlank(contentType) && "text/html".equalsIgnoreCase(contentType.trim());
     }
         
-    public boolean isMarkdown(EObject self, EditSupport editSupport, EStructuralFeature feature) {
+    public boolean isMarkdown(EObject self, EStructuralFeature feature) {
     	EAnnotation nann = feature.getEAnnotation("urn:org.nasdanika");
     	if (nann == null) {
     		return false;    	
@@ -39,8 +39,36 @@ public class Services {
     	return !Util.isBlank(contentType) && "text/markdown".equalsIgnoreCase(contentType.trim());
     }    
     
-    public boolean isDescription(EObject self, EditSupport editSupport, EStructuralFeature feature) {
+    public boolean isDescription(EObject self, EStructuralFeature feature) {
     	return feature == NcorePackage.Literals.MODEL_ELEMENT__DESCRIPTION;
     }
+        
+    public boolean hasHtml(EObject self) {
+    	for (EStructuralFeature f: self.eClass().getEAllStructuralFeatures()) {
+    		if (isHtml(self,f)) {
+    			return true;
+    		}
+    	}
+    	return false;
+    }
+        
+    public boolean hasMarkdown(EObject self) {
+    	for (EStructuralFeature f: self.eClass().getEAllStructuralFeatures()) {
+    		if (isMarkdown(self,f)) {
+    			return true;
+    		}
+    	}
+    	return false;
+    }    
+    
+    public boolean hasDescription(EObject self) {
+    	for (EStructuralFeature f: self.eClass().getEAllStructuralFeatures()) {
+    		if (isDescription(self,f)) {
+    			return true;
+    		}
+    	}
+    	return false;
+    }
+    
 
 }
