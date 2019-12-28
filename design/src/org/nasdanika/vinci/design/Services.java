@@ -5,6 +5,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.sirius.properties.EditSupport;
 import org.nasdanika.common.Util;
+import org.nasdanika.ncore.NcorePackage;
 
 /**
  * The services class used by VSM.
@@ -27,6 +28,10 @@ public class Services {
     	}
     	String contentType = nann.getDetails().get("content-type");
     	return !Util.isBlank(contentType) && "text/html".equalsIgnoreCase(contentType.trim());
+    }
+    
+    public boolean isHtmlDescription(EObject self, EditSupport editSupport, EStructuralFeature feature) {
+    	return feature == NcorePackage.Literals.MODEL_ELEMENT__DESCRIPTION;
     }
 
 }
