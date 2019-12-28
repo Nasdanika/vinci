@@ -88,7 +88,7 @@ public class ColumnItemProvider extends BootstrapElementItemProvider {
 				 getString("_UI_Container_htmlContent_feature"),
 				 HtmlPackage.Literals.CONTAINER__HTML_CONTENT,
 				 true,
-				 false,
+				 true,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,

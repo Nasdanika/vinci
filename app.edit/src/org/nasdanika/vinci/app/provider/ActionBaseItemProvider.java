@@ -286,7 +286,7 @@ public class ActionBaseItemProvider extends LabelItemProvider {
 				 getString("_UI_ActionBase_htmlContent_feature"),
 				 AppPackage.Literals.ACTION_BASE__HTML_CONTENT,
 				 true,
-				 false,
+				 true,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
