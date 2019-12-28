@@ -71,7 +71,6 @@ import org.nasdanika.vinci.app.BootstrapContainerApplicationBuilder;
  *   <li>{@link org.nasdanika.vinci.app.impl.ActionBaseImpl#isEmbedded <em>Embedded</em>}</li>
  *   <li>{@link org.nasdanika.vinci.app.impl.ActionBaseImpl#getMarkdownContent <em>Markdown Content</em>}</li>
  *   <li>{@link org.nasdanika.vinci.app.impl.ActionBaseImpl#getContent <em>Content</em>}</li>
- *   <li>{@link org.nasdanika.vinci.app.impl.ActionBaseImpl#getHtmlContent <em>Html Content</em>}</li>
  * </ul>
  *
  * @generated
@@ -167,16 +166,6 @@ public abstract class ActionBaseImpl extends LabelImpl implements ActionBase {
 	 * @ordered
 	 */
 	protected static final String MARKDOWN_CONTENT_EDEFAULT = null;
-
-	/**
-	 * The default value of the '{@link #getHtmlContent() <em>Html Content</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getHtmlContent()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String HTML_CONTENT_EDEFAULT = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -424,26 +413,6 @@ public abstract class ActionBaseImpl extends LabelImpl implements ActionBase {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String getHtmlContent() {
-		return (String)eDynamicGet(AppPackage.ACTION_BASE__HTML_CONTENT, AppPackage.Literals.ACTION_BASE__HTML_CONTENT, true, true);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setHtmlContent(String newHtmlContent) {
-		eDynamicSet(AppPackage.ACTION_BASE__HTML_CONTENT, AppPackage.Literals.ACTION_BASE__HTML_CONTENT, newHtmlContent);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	@Override
@@ -569,8 +538,6 @@ public abstract class ActionBaseImpl extends LabelImpl implements ActionBase {
 				return getMarkdownContent();
 			case AppPackage.ACTION_BASE__CONTENT:
 				return getContent();
-			case AppPackage.ACTION_BASE__HTML_CONTENT:
-				return getHtmlContent();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -627,9 +594,6 @@ public abstract class ActionBaseImpl extends LabelImpl implements ActionBase {
 				getContent().clear();
 				getContent().addAll((Collection<? extends SupplierFactory<Object>>)newValue);
 				return;
-			case AppPackage.ACTION_BASE__HTML_CONTENT:
-				setHtmlContent((String)newValue);
-				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -681,9 +645,6 @@ public abstract class ActionBaseImpl extends LabelImpl implements ActionBase {
 			case AppPackage.ACTION_BASE__CONTENT:
 				getContent().clear();
 				return;
-			case AppPackage.ACTION_BASE__HTML_CONTENT:
-				setHtmlContent(HTML_CONTENT_EDEFAULT);
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -722,8 +683,6 @@ public abstract class ActionBaseImpl extends LabelImpl implements ActionBase {
 				return MARKDOWN_CONTENT_EDEFAULT == null ? getMarkdownContent() != null : !MARKDOWN_CONTENT_EDEFAULT.equals(getMarkdownContent());
 			case AppPackage.ACTION_BASE__CONTENT:
 				return !getContent().isEmpty();
-			case AppPackage.ACTION_BASE__HTML_CONTENT:
-				return HTML_CONTENT_EDEFAULT == null ? getHtmlContent() != null : !HTML_CONTENT_EDEFAULT.equals(getHtmlContent());
 		}
 		return super.eIsSet(featureID);
 	}
@@ -862,14 +821,6 @@ public abstract class ActionBaseImpl extends LabelImpl implements ActionBase {
 				return ctx.interpolate(markdownHelper.markdownToHtml(markdown).trim());				
 			},  "Markdown content", 1);
 			content.add(markdownSupplierFactory);
-		}
-		
-		String html = getHtmlContent();
-		if (!Util.isBlank(html)) {
-			SupplierFactory<Object> htmlSupplierFactory = SupplierFactory.from((ctx, progressMonidor) -> {
-				return ctx.interpolate(html);				
-			},  "HTML content", 1);
-			content.add(htmlSupplierFactory);
 		}
 				
 		content.addAll(getContent());

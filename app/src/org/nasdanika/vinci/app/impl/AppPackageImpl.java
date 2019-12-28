@@ -793,16 +793,6 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getActionBase_HtmlContent() {
-		return (EAttribute)actionBaseEClass.getEStructuralFeatures().get(10);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EClass getContainer() {
 		return containerEClass;
 	}
@@ -889,7 +879,6 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 		createEAttribute(actionBaseEClass, ACTION_BASE__EMBEDDED);
 		createEAttribute(actionBaseEClass, ACTION_BASE__MARKDOWN_CONTENT);
 		createEReference(actionBaseEClass, ACTION_BASE__CONTENT);
-		createEAttribute(actionBaseEClass, ACTION_BASE__HTML_CONTENT);
 
 		actionMappingEClass = createEClass(ACTION_MAPPING);
 		createEAttribute(actionMappingEClass, ACTION_MAPPING__ALIAS);
@@ -1055,7 +1044,6 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 		g2 = createEGenericType(ecorePackage.getEJavaObject());
 		g1.getETypeArguments().add(g2);
 		initEReference(getActionBase_Content(), g1, null, "content", null, 0, -1, ActionBase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getActionBase_HtmlContent(), ecorePackage.getEString(), "htmlContent", null, 0, 1, ActionBase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(actionMappingEClass, ActionMapping.class, "ActionMapping", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getActionMapping_Alias(), ecorePackage.getEString(), "alias", null, 1, 1, ActionMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1298,12 +1286,6 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 			   "documentation", "Action content generator(s)."
 		   });
 		addAnnotation
-		  (getActionBase_HtmlContent(),
-		   source,
-		   new String[] {
-			   "documentation", "HTML text, interpolated and used as the first content element."
-		   });
-		addAnnotation
 		  (actionMappingEClass,
 		   source,
 		   new String[] {
@@ -1522,10 +1504,10 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 	protected void createUrnorgAnnotations() {
 		String source = "urn:org.nasdanika";
 		addAnnotation
-		  (getActionBase_HtmlContent(),
+		  (getActionBase_MarkdownContent(),
 		   source,
 		   new String[] {
-			   "content-type", "text/html"
+			   "content-type", "text/markdown"
 		   });
 	}
 

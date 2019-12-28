@@ -26,7 +26,6 @@ import org.nasdanika.vinci.html.HtmlPackage;
  * <ul>
  *   <li>{@link org.nasdanika.vinci.html.impl.ContentTagImpl#getContent <em>Content</em>}</li>
  *   <li>{@link org.nasdanika.vinci.html.impl.ContentTagImpl#getMarkdownContent <em>Markdown Content</em>}</li>
- *   <li>{@link org.nasdanika.vinci.html.impl.ContentTagImpl#getHtmlContent <em>Html Content</em>}</li>
  * </ul>
  *
  * @generated
@@ -41,16 +40,6 @@ public class ContentTagImpl extends TagImpl implements ContentTag {
 	 * @ordered
 	 */
 	protected static final String MARKDOWN_CONTENT_EDEFAULT = null;
-
-	/**
-	 * The default value of the '{@link #getHtmlContent() <em>Html Content</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getHtmlContent()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String HTML_CONTENT_EDEFAULT = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -108,26 +97,6 @@ public class ContentTagImpl extends TagImpl implements ContentTag {
 	 * @generated
 	 */
 	@Override
-	public String getHtmlContent() {
-		return (String)eDynamicGet(HtmlPackage.CONTENT_TAG__HTML_CONTENT, HtmlPackage.Literals.CONTAINER__HTML_CONTENT, true, true);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setHtmlContent(String newHtmlContent) {
-		eDynamicSet(HtmlPackage.CONTENT_TAG__HTML_CONTENT, HtmlPackage.Literals.CONTAINER__HTML_CONTENT, newHtmlContent);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case HtmlPackage.CONTENT_TAG__CONTENT:
@@ -148,8 +117,6 @@ public class ContentTagImpl extends TagImpl implements ContentTag {
 				return getContent();
 			case HtmlPackage.CONTENT_TAG__MARKDOWN_CONTENT:
 				return getMarkdownContent();
-			case HtmlPackage.CONTENT_TAG__HTML_CONTENT:
-				return getHtmlContent();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -170,9 +137,6 @@ public class ContentTagImpl extends TagImpl implements ContentTag {
 			case HtmlPackage.CONTENT_TAG__MARKDOWN_CONTENT:
 				setMarkdownContent((String)newValue);
 				return;
-			case HtmlPackage.CONTENT_TAG__HTML_CONTENT:
-				setHtmlContent((String)newValue);
-				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -191,9 +155,6 @@ public class ContentTagImpl extends TagImpl implements ContentTag {
 			case HtmlPackage.CONTENT_TAG__MARKDOWN_CONTENT:
 				setMarkdownContent(MARKDOWN_CONTENT_EDEFAULT);
 				return;
-			case HtmlPackage.CONTENT_TAG__HTML_CONTENT:
-				setHtmlContent(HTML_CONTENT_EDEFAULT);
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -210,8 +171,6 @@ public class ContentTagImpl extends TagImpl implements ContentTag {
 				return !getContent().isEmpty();
 			case HtmlPackage.CONTENT_TAG__MARKDOWN_CONTENT:
 				return MARKDOWN_CONTENT_EDEFAULT == null ? getMarkdownContent() != null : !MARKDOWN_CONTENT_EDEFAULT.equals(getMarkdownContent());
-			case HtmlPackage.CONTENT_TAG__HTML_CONTENT:
-				return HTML_CONTENT_EDEFAULT == null ? getHtmlContent() != null : !HTML_CONTENT_EDEFAULT.equals(getHtmlContent());
 		}
 		return super.eIsSet(featureID);
 	}
@@ -227,7 +186,6 @@ public class ContentTagImpl extends TagImpl implements ContentTag {
 			switch (derivedFeatureID) {
 				case HtmlPackage.CONTENT_TAG__CONTENT: return HtmlPackage.CONTAINER__CONTENT;
 				case HtmlPackage.CONTENT_TAG__MARKDOWN_CONTENT: return HtmlPackage.CONTAINER__MARKDOWN_CONTENT;
-				case HtmlPackage.CONTENT_TAG__HTML_CONTENT: return HtmlPackage.CONTAINER__HTML_CONTENT;
 				default: return -1;
 			}
 		}
@@ -245,7 +203,6 @@ public class ContentTagImpl extends TagImpl implements ContentTag {
 			switch (baseFeatureID) {
 				case HtmlPackage.CONTAINER__CONTENT: return HtmlPackage.CONTENT_TAG__CONTENT;
 				case HtmlPackage.CONTAINER__MARKDOWN_CONTENT: return HtmlPackage.CONTENT_TAG__MARKDOWN_CONTENT;
-				case HtmlPackage.CONTAINER__HTML_CONTENT: return HtmlPackage.CONTENT_TAG__HTML_CONTENT;
 				default: return -1;
 			}
 		}

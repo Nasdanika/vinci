@@ -38,7 +38,6 @@ import org.nasdanika.vinci.html.HtmlPackage;
  * <ul>
  *   <li>{@link org.nasdanika.vinci.bootstrap.impl.ColumnImpl#getContent <em>Content</em>}</li>
  *   <li>{@link org.nasdanika.vinci.bootstrap.impl.ColumnImpl#getMarkdownContent <em>Markdown Content</em>}</li>
- *   <li>{@link org.nasdanika.vinci.bootstrap.impl.ColumnImpl#getHtmlContent <em>Html Content</em>}</li>
  *   <li>{@link org.nasdanika.vinci.bootstrap.impl.ColumnImpl#getWidth <em>Width</em>}</li>
  * </ul>
  *
@@ -54,16 +53,6 @@ public class ColumnImpl extends BootstrapElementImpl implements Column {
 	 * @ordered
 	 */
 	protected static final String MARKDOWN_CONTENT_EDEFAULT = null;
-
-	/**
-	 * The default value of the '{@link #getHtmlContent() <em>Html Content</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getHtmlContent()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String HTML_CONTENT_EDEFAULT = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -120,26 +109,6 @@ public class ColumnImpl extends BootstrapElementImpl implements Column {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public String getHtmlContent() {
-		return (String)eDynamicGet(BootstrapPackage.COLUMN__HTML_CONTENT, HtmlPackage.Literals.CONTAINER__HTML_CONTENT, true, true);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setHtmlContent(String newHtmlContent) {
-		eDynamicSet(BootstrapPackage.COLUMN__HTML_CONTENT, HtmlPackage.Literals.CONTAINER__HTML_CONTENT, newHtmlContent);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public EList<ColumnWidth> getWidth() {
@@ -174,8 +143,6 @@ public class ColumnImpl extends BootstrapElementImpl implements Column {
 				return getContent();
 			case BootstrapPackage.COLUMN__MARKDOWN_CONTENT:
 				return getMarkdownContent();
-			case BootstrapPackage.COLUMN__HTML_CONTENT:
-				return getHtmlContent();
 			case BootstrapPackage.COLUMN__WIDTH:
 				return getWidth();
 		}
@@ -197,9 +164,6 @@ public class ColumnImpl extends BootstrapElementImpl implements Column {
 				return;
 			case BootstrapPackage.COLUMN__MARKDOWN_CONTENT:
 				setMarkdownContent((String)newValue);
-				return;
-			case BootstrapPackage.COLUMN__HTML_CONTENT:
-				setHtmlContent((String)newValue);
 				return;
 			case BootstrapPackage.COLUMN__WIDTH:
 				getWidth().clear();
@@ -223,9 +187,6 @@ public class ColumnImpl extends BootstrapElementImpl implements Column {
 			case BootstrapPackage.COLUMN__MARKDOWN_CONTENT:
 				setMarkdownContent(MARKDOWN_CONTENT_EDEFAULT);
 				return;
-			case BootstrapPackage.COLUMN__HTML_CONTENT:
-				setHtmlContent(HTML_CONTENT_EDEFAULT);
-				return;
 			case BootstrapPackage.COLUMN__WIDTH:
 				getWidth().clear();
 				return;
@@ -245,8 +206,6 @@ public class ColumnImpl extends BootstrapElementImpl implements Column {
 				return !getContent().isEmpty();
 			case BootstrapPackage.COLUMN__MARKDOWN_CONTENT:
 				return MARKDOWN_CONTENT_EDEFAULT == null ? getMarkdownContent() != null : !MARKDOWN_CONTENT_EDEFAULT.equals(getMarkdownContent());
-			case BootstrapPackage.COLUMN__HTML_CONTENT:
-				return HTML_CONTENT_EDEFAULT == null ? getHtmlContent() != null : !HTML_CONTENT_EDEFAULT.equals(getHtmlContent());
 			case BootstrapPackage.COLUMN__WIDTH:
 				return !getWidth().isEmpty();
 		}
@@ -264,7 +223,6 @@ public class ColumnImpl extends BootstrapElementImpl implements Column {
 			switch (derivedFeatureID) {
 				case BootstrapPackage.COLUMN__CONTENT: return HtmlPackage.CONTAINER__CONTENT;
 				case BootstrapPackage.COLUMN__MARKDOWN_CONTENT: return HtmlPackage.CONTAINER__MARKDOWN_CONTENT;
-				case BootstrapPackage.COLUMN__HTML_CONTENT: return HtmlPackage.CONTAINER__HTML_CONTENT;
 				default: return -1;
 			}
 		}
@@ -287,7 +245,6 @@ public class ColumnImpl extends BootstrapElementImpl implements Column {
 			switch (baseFeatureID) {
 				case HtmlPackage.CONTAINER__CONTENT: return BootstrapPackage.COLUMN__CONTENT;
 				case HtmlPackage.CONTAINER__MARKDOWN_CONTENT: return BootstrapPackage.COLUMN__MARKDOWN_CONTENT;
-				case HtmlPackage.CONTAINER__HTML_CONTENT: return BootstrapPackage.COLUMN__HTML_CONTENT;
 				default: return -1;
 			}
 		}

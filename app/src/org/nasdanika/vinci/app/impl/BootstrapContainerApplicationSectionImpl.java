@@ -30,7 +30,6 @@ import org.nasdanika.vinci.html.HtmlPackage;
  * <ul>
  *   <li>{@link org.nasdanika.vinci.app.impl.BootstrapContainerApplicationSectionImpl#getContent <em>Content</em>}</li>
  *   <li>{@link org.nasdanika.vinci.app.impl.BootstrapContainerApplicationSectionImpl#getMarkdownContent <em>Markdown Content</em>}</li>
- *   <li>{@link org.nasdanika.vinci.app.impl.BootstrapContainerApplicationSectionImpl#getHtmlContent <em>Html Content</em>}</li>
  * </ul>
  *
  * @generated
@@ -45,16 +44,6 @@ public class BootstrapContainerApplicationSectionImpl extends BootstrapElementIm
 	 * @ordered
 	 */
 	protected static final String MARKDOWN_CONTENT_EDEFAULT = null;
-
-	/**
-	 * The default value of the '{@link #getHtmlContent() <em>Html Content</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getHtmlContent()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String HTML_CONTENT_EDEFAULT = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -112,26 +101,6 @@ public class BootstrapContainerApplicationSectionImpl extends BootstrapElementIm
 	 * @generated
 	 */
 	@Override
-	public String getHtmlContent() {
-		return (String)eDynamicGet(AppPackage.BOOTSTRAP_CONTAINER_APPLICATION_SECTION__HTML_CONTENT, HtmlPackage.Literals.CONTAINER__HTML_CONTENT, true, true);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setHtmlContent(String newHtmlContent) {
-		eDynamicSet(AppPackage.BOOTSTRAP_CONTAINER_APPLICATION_SECTION__HTML_CONTENT, HtmlPackage.Literals.CONTAINER__HTML_CONTENT, newHtmlContent);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case AppPackage.BOOTSTRAP_CONTAINER_APPLICATION_SECTION__CONTENT:
@@ -152,8 +121,6 @@ public class BootstrapContainerApplicationSectionImpl extends BootstrapElementIm
 				return getContent();
 			case AppPackage.BOOTSTRAP_CONTAINER_APPLICATION_SECTION__MARKDOWN_CONTENT:
 				return getMarkdownContent();
-			case AppPackage.BOOTSTRAP_CONTAINER_APPLICATION_SECTION__HTML_CONTENT:
-				return getHtmlContent();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -174,9 +141,6 @@ public class BootstrapContainerApplicationSectionImpl extends BootstrapElementIm
 			case AppPackage.BOOTSTRAP_CONTAINER_APPLICATION_SECTION__MARKDOWN_CONTENT:
 				setMarkdownContent((String)newValue);
 				return;
-			case AppPackage.BOOTSTRAP_CONTAINER_APPLICATION_SECTION__HTML_CONTENT:
-				setHtmlContent((String)newValue);
-				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -195,9 +159,6 @@ public class BootstrapContainerApplicationSectionImpl extends BootstrapElementIm
 			case AppPackage.BOOTSTRAP_CONTAINER_APPLICATION_SECTION__MARKDOWN_CONTENT:
 				setMarkdownContent(MARKDOWN_CONTENT_EDEFAULT);
 				return;
-			case AppPackage.BOOTSTRAP_CONTAINER_APPLICATION_SECTION__HTML_CONTENT:
-				setHtmlContent(HTML_CONTENT_EDEFAULT);
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -214,8 +175,6 @@ public class BootstrapContainerApplicationSectionImpl extends BootstrapElementIm
 				return !getContent().isEmpty();
 			case AppPackage.BOOTSTRAP_CONTAINER_APPLICATION_SECTION__MARKDOWN_CONTENT:
 				return MARKDOWN_CONTENT_EDEFAULT == null ? getMarkdownContent() != null : !MARKDOWN_CONTENT_EDEFAULT.equals(getMarkdownContent());
-			case AppPackage.BOOTSTRAP_CONTAINER_APPLICATION_SECTION__HTML_CONTENT:
-				return HTML_CONTENT_EDEFAULT == null ? getHtmlContent() != null : !HTML_CONTENT_EDEFAULT.equals(getHtmlContent());
 		}
 		return super.eIsSet(featureID);
 	}
@@ -231,7 +190,6 @@ public class BootstrapContainerApplicationSectionImpl extends BootstrapElementIm
 			switch (derivedFeatureID) {
 				case AppPackage.BOOTSTRAP_CONTAINER_APPLICATION_SECTION__CONTENT: return HtmlPackage.CONTAINER__CONTENT;
 				case AppPackage.BOOTSTRAP_CONTAINER_APPLICATION_SECTION__MARKDOWN_CONTENT: return HtmlPackage.CONTAINER__MARKDOWN_CONTENT;
-				case AppPackage.BOOTSTRAP_CONTAINER_APPLICATION_SECTION__HTML_CONTENT: return HtmlPackage.CONTAINER__HTML_CONTENT;
 				default: return -1;
 			}
 		}
@@ -249,7 +207,6 @@ public class BootstrapContainerApplicationSectionImpl extends BootstrapElementIm
 			switch (baseFeatureID) {
 				case HtmlPackage.CONTAINER__CONTENT: return AppPackage.BOOTSTRAP_CONTAINER_APPLICATION_SECTION__CONTENT;
 				case HtmlPackage.CONTAINER__MARKDOWN_CONTENT: return AppPackage.BOOTSTRAP_CONTAINER_APPLICATION_SECTION__MARKDOWN_CONTENT;
-				case HtmlPackage.CONTAINER__HTML_CONTENT: return AppPackage.BOOTSTRAP_CONTAINER_APPLICATION_SECTION__HTML_CONTENT;
 				default: return -1;
 			}
 		}

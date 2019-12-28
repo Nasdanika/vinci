@@ -26,7 +26,6 @@ import org.nasdanika.common.Util;
  * <ul>
  *   <li>{@link org.nasdanika.vinci.html.Container#getContent <em>Content</em>}</li>
  *   <li>{@link org.nasdanika.vinci.html.Container#getMarkdownContent <em>Markdown Content</em>}</li>
- *   <li>{@link org.nasdanika.vinci.html.Container#getHtmlContent <em>Html Content</em>}</li>
  * </ul>
  *
  * @see org.nasdanika.vinci.html.HtmlPackage#getContainer()
@@ -56,7 +55,7 @@ public interface Container extends EObject {
 	 * @return the value of the '<em>Markdown Content</em>' attribute.
 	 * @see #setMarkdownContent(String)
 	 * @see org.nasdanika.vinci.html.HtmlPackage#getContainer_MarkdownContent()
-	 * @model
+	 * @model annotation="urn:org.nasdanika content-type='text/markdown'"
 	 * @generated
 	 */
 	String getMarkdownContent();
@@ -71,31 +70,6 @@ public interface Container extends EObject {
 	 */
 	void setMarkdownContent(String value);
 	
-	/**
-	 * Returns the value of the '<em><b>Html Content</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * HTML text, interpolated and used as the first content element.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Html Content</em>' attribute.
-	 * @see #setHtmlContent(String)
-	 * @see org.nasdanika.vinci.html.HtmlPackage#getContainer_HtmlContent()
-	 * @model annotation="urn:org.nasdanika content-type='text/html'"
-	 * @generated
-	 */
-	String getHtmlContent();
-
-	/**
-	 * Sets the value of the '{@link org.nasdanika.vinci.html.Container#getHtmlContent <em>Html Content</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Html Content</em>' attribute.
-	 * @see #getHtmlContent()
-	 * @generated
-	 */
-	void setHtmlContent(String value);
-
 	/**
 	 * Creates a compound supplier factory with markdown content supplier factory first, if markdown content is not blank, and the rest of the content following.
 	 * @return
@@ -112,14 +86,6 @@ public interface Container extends EObject {
 						
 			contentSupplierFactory.add(markdownSupplierFactory);
 		}
-				
-		String html = getHtmlContent();
-		if (!Util.isBlank(html)) {
-			SupplierFactory<Object> htmlSupplierFactory = SupplierFactory.from((ctx, progressMonidor) -> {
-				return ctx.interpolate(html);				
-			},  "HTML content", 1);
-			contentSupplierFactory.add(htmlSupplierFactory);
-		}		
 				
 		for (SupplierFactory<Object> content: getContent()) {
 			contentSupplierFactory.add(content);
