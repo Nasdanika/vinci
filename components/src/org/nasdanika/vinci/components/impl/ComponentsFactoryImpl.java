@@ -7,6 +7,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+import org.nasdanika.vinci.components.*;
 import org.nasdanika.vinci.components.ComponentsFactory;
 import org.nasdanika.vinci.components.ComponentsPackage;
 import org.nasdanika.vinci.components.MarkdownResource;
@@ -58,6 +59,7 @@ public class ComponentsFactoryImpl extends EFactoryImpl implements ComponentsFac
 		switch (eClass.getClassifierID()) {
 			case ComponentsPackage.MARKDOWN_TEXT: return createMarkdownText();
 			case ComponentsPackage.MARKDOWN_RESOURCE: return createMarkdownResource();
+			case ComponentsPackage.ACTION_LINK: return createActionLink();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -83,6 +85,17 @@ public class ComponentsFactoryImpl extends EFactoryImpl implements ComponentsFac
 	public MarkdownResource createMarkdownResource() {
 		MarkdownResourceImpl markdownResource = new MarkdownResourceImpl();
 		return markdownResource;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ActionLink createActionLink() {
+		ActionLinkImpl actionLink = new ActionLinkImpl();
+		return actionLink;
 	}
 
 	/**

@@ -6,7 +6,6 @@ import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
-import org.nasdanika.common.ConsumerFactory;
 import org.nasdanika.common.SupplierFactory;
 import org.nasdanika.ncore.ModelElement;
 import org.nasdanika.ncore.NamedElement;
@@ -113,6 +112,10 @@ public class BootstrapAdapterFactory extends AdapterFactoryImpl {
 	protected BootstrapSwitch<Adapter> modelSwitch =
 		new BootstrapSwitch<Adapter>() {
 			@Override
+			public Adapter caseBootstrapElement(BootstrapElement object) {
+				return createBootstrapElementAdapter();
+			}
+			@Override
 			public Adapter caseBootstrapPage(BootstrapPage object) {
 				return createBootstrapPageAdapter();
 			}
@@ -135,10 +138,6 @@ public class BootstrapAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseFloat(org.nasdanika.vinci.bootstrap.Float object) {
 				return createFloatAdapter();
-			}
-			@Override
-			public Adapter caseBootstrapElement(BootstrapElement object) {
-				return createBootstrapElementAdapter();
 			}
 			@Override
 			public Adapter caseTag(Tag object) {
@@ -289,6 +288,10 @@ public class BootstrapAdapterFactory extends AdapterFactoryImpl {
 				return createModelElementAdapter();
 			}
 			@Override
+			public Adapter caseHtmlElement(HtmlElement object) {
+				return createHtmlElementAdapter();
+			}
+			@Override
 			public Adapter caseNamedElement(NamedElement object) {
 				return createNamedElementAdapter();
 			}
@@ -299,14 +302,6 @@ public class BootstrapAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter casePage(Page object) {
 				return createPageAdapter();
-			}
-			@Override
-			public <T> Adapter caseIConsumerFactory(ConsumerFactory<T> object) {
-				return createIConsumerFactoryAdapter();
-			}
-			@Override
-			public Adapter caseHtmlElement(HtmlElement object) {
-				return createHtmlElementAdapter();
 			}
 			@Override
 			public Adapter caseHtml_Tag(org.nasdanika.vinci.html.Tag object) {
@@ -1051,20 +1046,6 @@ public class BootstrapAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createPageAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.nasdanika.common.ConsumerFactory <em>IConsumer Factory</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.nasdanika.common.ConsumerFactory
-	 * @generated
-	 */
-	public Adapter createIConsumerFactoryAdapter() {
 		return null;
 	}
 

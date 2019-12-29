@@ -11,11 +11,12 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.InternalEList;
-import org.nasdanika.common.CompoundConsumer;
-import org.nasdanika.common.Consumer;
 import org.nasdanika.common.Context;
 import org.nasdanika.common.ProgressMonitor;
+import org.nasdanika.common.Supplier;
 import org.nasdanika.common.Util;
+import org.nasdanika.html.app.ViewBuilder;
+import org.nasdanika.html.app.ViewGenerator;
 import org.nasdanika.html.bootstrap.Breakpoint;
 import org.nasdanika.html.bootstrap.Color;
 import org.nasdanika.html.bootstrap.Placement;
@@ -358,44 +359,24 @@ public class AppearanceImpl extends MinimalEObjectImpl.Container implements Appe
 	}
 
 	@Override
-	public Consumer<Object> create(Context context) throws Exception {
-		Consumer<Object> backGroundConsumer = new Consumer<Object>() {
-
+	public Supplier<ViewBuilder> create(Context context) throws Exception {
+		ViewBuilder backgroundBuilder = new ViewBuilder() {
+			
 			@Override
-			public double size() {
-				return 1;
-			}
-
-			@Override
-			public String name() {
-				return "Background";
-			}
-
-			@Override
-			public void execute(Object arg, ProgressMonitor progressMonitor) throws Exception {
+			public void build(Object target, ViewGenerator viewGenerator, ProgressMonitor monitor) {
 				String bgStr = getBackground();
 				if (!Util.isBlank(bgStr)) {
-					((org.nasdanika.html.bootstrap.BootstrapElement<?,?>) arg).background(org.nasdanika.html.bootstrap.Color.fromLabel(bgStr));
+					((org.nasdanika.html.bootstrap.BootstrapElement<?,?>) target).background(org.nasdanika.html.bootstrap.Color.fromLabel(bgStr));
 				}				
 			}
 			
 		};
 		
-		Consumer<Object> borderConsumer = new Consumer<Object>() {
-
+		ViewBuilder borderBuilder = new ViewBuilder() {
+			
 			@Override
-			public double size() {
-				return 1;
-			}
-
-			@Override
-			public String name() {
-				return "Border";
-			}
-
-			@Override
-			public void execute(Object arg, ProgressMonitor progressMonitor) throws Exception {
-				org.nasdanika.html.bootstrap.BootstrapElement<?,?> bootstrapElement = (org.nasdanika.html.bootstrap.BootstrapElement<?,?>) arg;
+			public void build(Object target, ViewGenerator viewGenerator, ProgressMonitor monitor) {
+				org.nasdanika.html.bootstrap.BootstrapElement<?,?> bootstrapElement = (org.nasdanika.html.bootstrap.BootstrapElement<?,?>) target;
 				for (Border border: getBorder()) {
 					Color color = org.nasdanika.html.bootstrap.Color.fromLabel(border.getColor());
 					if (border.isBottom() && border.isLeft() && border.isRight() && border.isTop()) {
@@ -424,21 +405,11 @@ public class AppearanceImpl extends MinimalEObjectImpl.Container implements Appe
 			
 		};
 
-		Consumer<Object> spacingConsumer = new Consumer<Object>() {
-
+		ViewBuilder spacingBuilder = new ViewBuilder() {
+			
 			@Override
-			public double size() {
-				return 1;
-			}
-
-			@Override
-			public String name() {
-				return "Spacing";
-			}
-
-			@Override
-			public void execute(Object arg, ProgressMonitor progressMonitor) throws Exception {
-				org.nasdanika.html.bootstrap.BootstrapElement<?,?> bootstrapElement = (org.nasdanika.html.bootstrap.BootstrapElement<?,?>) arg;
+			public void build(Object target, ViewGenerator viewGenerator, ProgressMonitor monitor) {
+				org.nasdanika.html.bootstrap.BootstrapElement<?,?> bootstrapElement = (org.nasdanika.html.bootstrap.BootstrapElement<?,?>) target;
 				for (Spacing margin : getMargin()) {
 					Size size = org.nasdanika.html.bootstrap.Size.fromCode(margin.getSize());
 					String bpStr = margin.getBreakpoint();
@@ -511,21 +482,11 @@ public class AppearanceImpl extends MinimalEObjectImpl.Container implements Appe
 			
 		};
 		
-		Consumer<Object> textConsumer = new Consumer<Object>() {
-
+		ViewBuilder textBuilder = new ViewBuilder() {
+			
 			@Override
-			public double size() {
-				return 1;
-			}
-
-			@Override
-			public String name() {
-				return "Text";
-			}
-
-			@Override
-			public void execute(Object arg, ProgressMonitor progressMonitor) throws Exception {
-				org.nasdanika.html.bootstrap.BootstrapElement<?,?> bootstrapElement = (org.nasdanika.html.bootstrap.BootstrapElement<?,?>) arg;
+			public void build(Object target, ViewGenerator viewGenerator, ProgressMonitor monitor) {
+				org.nasdanika.html.bootstrap.BootstrapElement<?,?> bootstrapElement = (org.nasdanika.html.bootstrap.BootstrapElement<?,?>) target;
 				Text text = getText();
 				if (text != null) {
 					org.nasdanika.html.bootstrap.Text<?> bsText = bootstrapElement.text();
@@ -560,21 +521,11 @@ public class AppearanceImpl extends MinimalEObjectImpl.Container implements Appe
 			
 		};
 				
-		Consumer<Object> floatConsumer = new Consumer<Object>() {
-
+		ViewBuilder floatBuilder = new ViewBuilder() {
+			
 			@Override
-			public double size() {
-				return 1;
-			}
-
-			@Override
-			public String name() {
-				return "Float";
-			}
-
-			@Override
-			public void execute(Object arg, ProgressMonitor progressMonitor) throws Exception {
-				org.nasdanika.html.bootstrap.BootstrapElement<?,?> bootstrapElement = (org.nasdanika.html.bootstrap.BootstrapElement<?,?>) arg;
+			public void build(Object target, ViewGenerator viewGenerator, ProgressMonitor monitor) {
+				org.nasdanika.html.bootstrap.BootstrapElement<?,?> bootstrapElement = (org.nasdanika.html.bootstrap.BootstrapElement<?,?>) target;
 				for (Float _float: getFloat()) {
 					org.nasdanika.html.bootstrap.Float<?> bsFloat = bootstrapElement._float();
 					Breakpoint breakpoint = Breakpoint.fromLabel(_float.getBreakpoint());
@@ -596,39 +547,29 @@ public class AppearanceImpl extends MinimalEObjectImpl.Container implements Appe
 			
 		};
 				
-		Consumer<Object> attributesConsumer = new Consumer<Object>() {
-
+		ViewBuilder attributesBuilder = new ViewBuilder() {
+			
 			@Override
-			public double size() {
-				return 1;
-			}
-
-			@Override
-			public String name() {
-				return "Attributes";
-			}
-
-			@Override
-			public void execute(Object arg, ProgressMonitor progressMonitor) throws Exception {
+			public void build(Object target, ViewGenerator viewGenerator, ProgressMonitor monitor) {
 				String attributesStr = getAttributes();
 				if (!Util.isBlank(attributesStr)) {
 					Yaml yaml = new Yaml();
 					Map<String,Object> attributes = yaml.load(attributesStr);
-					org.nasdanika.html.bootstrap.BootstrapElement<?,?> bootstrapElement = (org.nasdanika.html.bootstrap.BootstrapElement<?,?>) arg;
+					org.nasdanika.html.bootstrap.BootstrapElement<?,?> bootstrapElement = (org.nasdanika.html.bootstrap.BootstrapElement<?,?>) target;
 					bootstrapElement.toHTMLElement().attributes(context.interpolate(attributes));
 				}
 			}
 			
 		};
 		
-		return new CompoundConsumer<Object>(
-				"Appearance", 
-				backGroundConsumer, 
-				borderConsumer,
-				spacingConsumer,
-				textConsumer,
-				floatConsumer,
-				attributesConsumer);
+		ViewBuilder composedBuilder = backgroundBuilder
+				.compose(borderBuilder)
+				.compose(spacingBuilder)
+				.compose(textBuilder)
+				.compose(floatBuilder)
+				.compose(attributesBuilder);
+
+		return Supplier.from(composedBuilder, "Appearance");
 	}		
 
 } //AppearanceImpl

@@ -3,6 +3,7 @@
 package org.nasdanika.vinci.html;
 
 import org.nasdanika.common.SupplierFactory;
+import org.nasdanika.html.app.ViewPart;
 
 
 /**
@@ -22,10 +23,10 @@ import org.nasdanika.common.SupplierFactory;
  * </ul>
  *
  * @see org.nasdanika.vinci.html.HtmlPackage#getTag()
- * @model superTypes="org.nasdanika.vinci.html.HtmlElement org.nasdanika.ncore.ISupplierFactory&lt;org.eclipse.emf.ecore.EJavaObject&gt;"
+ * @model superTypes="org.nasdanika.vinci.html.HtmlElement org.nasdanika.ncore.ISupplierFactory&lt;org.nasdanika.vinci.html.ViewPart&gt;"
  * @generated
  */
-public interface Tag extends HtmlElement, SupplierFactory<Object> {
+public interface Tag extends HtmlElement, SupplierFactory<ViewPart> {
 
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.

@@ -12,11 +12,13 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.nasdanika.common.BiSupplier;
 import org.nasdanika.common.Consumer;
-import org.nasdanika.common.ConsumerFactory;
 import org.nasdanika.common.Context;
 import org.nasdanika.common.Function;
 import org.nasdanika.common.ProgressMonitor;
+import org.nasdanika.common.Supplier;
+import org.nasdanika.common.SupplierFactory;
 import org.nasdanika.common.Util;
+import org.nasdanika.html.app.ViewBuilder;
 import org.nasdanika.html.bootstrap.Color;
 import org.nasdanika.ncore.ModelElement;
 import org.nasdanika.ncore.NcorePackage;
@@ -314,7 +316,7 @@ public class TableCellImpl extends ContainerImpl implements TableCell {
 	 * @generated
 	 */
 	@Override
-	public Consumer<Object> asConsumer(Context context) throws Exception {
+	public Supplier<ViewBuilder> asViewBuilderSupplier(Context context) throws Exception {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -487,7 +489,7 @@ public class TableCellImpl extends ContainerImpl implements TableCell {
 				default: return -1;
 			}
 		}
-		if (baseClass == ConsumerFactory.class) {
+		if (baseClass == SupplierFactory.class) {
 			switch (derivedFeatureID) {
 				default: return -1;
 			}
@@ -520,7 +522,7 @@ public class TableCellImpl extends ContainerImpl implements TableCell {
 				default: return -1;
 			}
 		}
-		if (baseClass == ConsumerFactory.class) {
+		if (baseClass == SupplierFactory.class) {
 			switch (baseFeatureID) {
 				default: return -1;
 			}
@@ -542,7 +544,7 @@ public class TableCellImpl extends ContainerImpl implements TableCell {
 		}
 		if (baseClass == HtmlElement.class) {
 			switch (baseOperationID) {
-				case HtmlPackage.HTML_ELEMENT___AS_CONSUMER__CONTEXT: return BootstrapPackage.TABLE_CELL___AS_CONSUMER__CONTEXT;
+				case HtmlPackage.HTML_ELEMENT___AS_VIEW_BUILDER_SUPPLIER__CONTEXT: return BootstrapPackage.TABLE_CELL___AS_VIEW_BUILDER_SUPPLIER__CONTEXT;
 				default: return -1;
 			}
 		}
@@ -551,7 +553,7 @@ public class TableCellImpl extends ContainerImpl implements TableCell {
 				default: return -1;
 			}
 		}
-		if (baseClass == ConsumerFactory.class) {
+		if (baseClass == SupplierFactory.class) {
 			switch (baseOperationID) {
 				default: return -1;
 			}
@@ -567,9 +569,9 @@ public class TableCellImpl extends ContainerImpl implements TableCell {
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case BootstrapPackage.TABLE_CELL___AS_CONSUMER__CONTEXT:
+			case BootstrapPackage.TABLE_CELL___AS_VIEW_BUILDER_SUPPLIER__CONTEXT:
 				try {
-					return asConsumer((Context)arguments.get(0));
+					return asViewBuilderSupplier((Context)arguments.get(0));
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);

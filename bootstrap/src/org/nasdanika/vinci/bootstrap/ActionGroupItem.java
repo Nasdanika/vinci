@@ -3,8 +3,8 @@
 package org.nasdanika.vinci.bootstrap;
 
 import org.eclipse.emf.common.util.EList;
-import org.nasdanika.common.ConsumerFactory;
 import org.nasdanika.common.SupplierFactory;
+import org.nasdanika.html.app.ViewBuilder;
 
 /**
  * <!-- begin-user-doc -->
@@ -23,10 +23,10 @@ import org.nasdanika.common.SupplierFactory;
  * </ul>
  *
  * @see org.nasdanika.vinci.bootstrap.BootstrapPackage#getActionGroupItem()
- * @model abstract="true" superTypes="org.nasdanika.vinci.bootstrap.Item org.nasdanika.ncore.IConsumerFactory&lt;org.eclipse.emf.ecore.EJavaObject&gt;"
+ * @model abstract="true" superTypes="org.nasdanika.vinci.bootstrap.Item org.nasdanika.ncore.ISupplierFactory&lt;org.nasdanika.vinci.html.ViewBuilder&gt;"
  * @generated
  */
-public interface ActionGroupItem extends Item, ConsumerFactory<Object> {
+public interface ActionGroupItem extends Item, SupplierFactory<ViewBuilder> {
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' containment reference list.
 	 * The list contents are of type {@link org.nasdanika.common.SupplierFactory}<code>&lt;java.lang.Object&gt;</code>.

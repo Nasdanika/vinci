@@ -4,21 +4,21 @@ package org.nasdanika.vinci.bootstrap.impl;
 
 import java.util.Collection;
 import java.util.List;
-import java.util.function.BiFunction;
 
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.InternalEList;
-import org.nasdanika.common.BiSupplier;
-import org.nasdanika.common.Consumer;
-import org.nasdanika.common.ConsumerFactory;
 import org.nasdanika.common.Context;
-import org.nasdanika.common.Function;
+import org.nasdanika.common.MapCompoundSupplierFactory;
 import org.nasdanika.common.ProgressMonitor;
+import org.nasdanika.common.Supplier;
 import org.nasdanika.common.SupplierFactory;
 import org.nasdanika.common.Util;
+import org.nasdanika.html.app.ViewBuilder;
+import org.nasdanika.html.app.ViewGenerator;
+import org.nasdanika.html.app.ViewPart;
 import org.nasdanika.html.bootstrap.Breakpoint;
 import org.nasdanika.html.bootstrap.Container.Row.Col;
 import org.nasdanika.html.bootstrap.Size;
@@ -80,8 +80,8 @@ public class ColumnImpl extends BootstrapElementImpl implements Column {
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public EList<SupplierFactory<Object>> getContent() {
-		return (EList<SupplierFactory<Object>>)eDynamicGet(BootstrapPackage.COLUMN__CONTENT, HtmlPackage.Literals.CONTAINER__CONTENT, true, true);
+	public EList<SupplierFactory<ViewPart>> getContent() {
+		return (EList<SupplierFactory<ViewPart>>)eDynamicGet(BootstrapPackage.COLUMN__CONTENT, HtmlPackage.Literals.CONTAINER__CONTENT, true, true);
 	}
 
 	/**
@@ -160,7 +160,7 @@ public class ColumnImpl extends BootstrapElementImpl implements Column {
 		switch (featureID) {
 			case BootstrapPackage.COLUMN__CONTENT:
 				getContent().clear();
-				getContent().addAll((Collection<? extends SupplierFactory<Object>>)newValue);
+				getContent().addAll((Collection<? extends SupplierFactory<ViewPart>>)newValue);
 				return;
 			case BootstrapPackage.COLUMN__MARKDOWN_CONTENT:
 				setMarkdownContent((String)newValue);
@@ -226,7 +226,7 @@ public class ColumnImpl extends BootstrapElementImpl implements Column {
 				default: return -1;
 			}
 		}
-		if (baseClass == ConsumerFactory.class) {
+		if (baseClass == SupplierFactory.class) {
 			switch (derivedFeatureID) {
 				default: return -1;
 			}
@@ -248,7 +248,7 @@ public class ColumnImpl extends BootstrapElementImpl implements Column {
 				default: return -1;
 			}
 		}
-		if (baseClass == ConsumerFactory.class) {
+		if (baseClass == SupplierFactory.class) {
 			switch (baseFeatureID) {
 				default: return -1;
 			}
@@ -256,26 +256,39 @@ public class ColumnImpl extends BootstrapElementImpl implements Column {
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
-	public Consumer<Object> create(Context context) throws Exception {
-		
-		BiFunction<BiSupplier<Object, List<Object>>, ProgressMonitor, Object> cbf = (biSupplier, progressMonitor) -> {
-			Col col = (Col) biSupplier.getFirst();
-			for (ColumnWidth cw: getWidth()) {
-				Breakpoint breakpoint = Util.isBlank(cw.getBreakpoint()) ? Breakpoint.DEFAULT : Breakpoint.fromLabel(cw.getBreakpoint());
-				Size width = Util.isBlank(cw.getWidth()) ? Size.NONE : Size.fromCode(cw.getWidth());
-				col.width(breakpoint, width);
-			}
-			for (Object c: biSupplier.getSecond()) {
-				col.accept(c);
-			}
-			return col;
-		}; 
-		Function<BiSupplier<Object, List<Object>>,Object> combiner = Function.fromBiFunction(cbf , getTitle(), 1);
-		
-		Function<Object, Object> contentFunction = createContentSupplierFactory().create(context).asFunction().then(combiner);
+	public Supplier<ViewBuilder> create(Context context) throws Exception {
+		MapCompoundSupplierFactory<String, Object> mapSupplierFactory = new MapCompoundSupplierFactory<String, Object>(getTitle());
 		Appearance appearance = getAppearance();
-		return contentFunction.then(appearance == null ? Consumer.NOP : appearance.create(context));
+		if (appearance != null) {
+			mapSupplierFactory.put("Apperance", (SupplierFactory) appearance);
+		}
+				
+		mapSupplierFactory.put("Content", (SupplierFactory) createContentSupplierFactory());
+		
+		return mapSupplierFactory.create(context).then(map -> new ViewBuilder( ) {
+
+			@Override
+			public void build(Object target, ViewGenerator viewGenerator, ProgressMonitor progressMonitor) {
+				Col col = (Col) target;
+				for (ColumnWidth cw: getWidth()) {
+					Breakpoint breakpoint = Util.isBlank(cw.getBreakpoint()) ? Breakpoint.DEFAULT : Breakpoint.fromLabel(cw.getBreakpoint());
+					Size width = Util.isBlank(cw.getWidth()) ? Size.NONE : Size.fromCode(cw.getWidth());
+					col.width(breakpoint, width);
+				}
+				
+				ViewBuilder apperanceBuilder = (ViewBuilder) map.get("Appearance");
+				if (apperanceBuilder != null) {
+					apperanceBuilder.build(target, viewGenerator, progressMonitor);
+				}
+				
+				for (ViewPart contentViewPart: (List<ViewPart>) map.get("Content")) {
+					col.content(viewGenerator.processViewPart(contentViewPart, progressMonitor));
+				}
+			}
+			
+		});		
 	}
 
 } //ColumnImpl

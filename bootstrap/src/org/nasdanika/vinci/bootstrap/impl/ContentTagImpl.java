@@ -6,9 +6,12 @@ import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.nasdanika.common.Context;
-import org.nasdanika.common.Function;
+import org.nasdanika.common.ProgressMonitor;
+import org.nasdanika.common.StringMapCompoundSupplier;
 import org.nasdanika.common.Supplier;
-import org.nasdanika.html.bootstrap.BootstrapFactory;
+import org.nasdanika.html.app.ViewBuilder;
+import org.nasdanika.html.app.ViewGenerator;
+import org.nasdanika.html.app.ViewPart;
 import org.nasdanika.vinci.bootstrap.Appearance;
 import org.nasdanika.vinci.bootstrap.BootstrapElement;
 import org.nasdanika.vinci.bootstrap.BootstrapPackage;
@@ -181,19 +184,30 @@ public class ContentTagImpl extends org.nasdanika.vinci.html.impl.ContentTagImpl
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 	
+	@SuppressWarnings({ "unchecked", "rawtypes", "resource" })
 	@Override
-	public Supplier<Object> create(Context context) throws Exception {
+	public Supplier<ViewPart> create(Context context) throws Exception {
 		Appearance appearance = getAppearance();
 		if (appearance == null) {
 			return super.create(context);
 		}
 		
-		Function<Object,Object> wrapper = Function.fromBiFunction(
-				(tag,  progressMonitor) -> context.get(BootstrapFactory.class, BootstrapFactory.INSTANCE).wrap((org.nasdanika.html.HTMLElement<?>) tag), 
-				"Wrap", 
-				1);
+		Supplier<ViewBuilder> appearanceSupplier = appearance.create(context);
 		
-		return super.create(context).then(wrapper.then(appearance.create(context)).asFunction());
+		StringMapCompoundSupplier<Object> partsSupplier = new StringMapCompoundSupplier<Object>(getTitle());
+		partsSupplier.put("Apperance", (Supplier) appearanceSupplier);
+		partsSupplier.put("Tag", (Supplier) super.create(context));
+		
+		return partsSupplier.then(map -> new ViewPart() {
+
+			@Override
+			public Object generate(ViewGenerator viewGenerator, ProgressMonitor progressMonitor) {
+				Object ret = ((ViewPart) map.get("Tag")).generate(viewGenerator, progressMonitor);
+				((ViewBuilder) map.get("Appearance")).build(ret, viewGenerator, progressMonitor);
+				return ret;
+			}
+			
+		});
 	}
 
 } //ContentTagImpl

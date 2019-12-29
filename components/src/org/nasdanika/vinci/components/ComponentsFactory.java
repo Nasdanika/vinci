@@ -40,6 +40,15 @@ public interface ComponentsFactory extends EFactory {
 	MarkdownResource createMarkdownResource();
 
 	/**
+	 * Returns a new object of class '<em>Action Link</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Action Link</em>'.
+	 * @generated
+	 */
+	ActionLink createActionLink();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

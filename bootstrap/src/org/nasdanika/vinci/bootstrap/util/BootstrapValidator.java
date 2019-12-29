@@ -138,6 +138,8 @@ public class BootstrapValidator extends EObjectValidator {
 	@Override
 	protected boolean validate(int classifierID, Object value, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		switch (classifierID) {
+			case BootstrapPackage.BOOTSTRAP_ELEMENT:
+				return validateBootstrapElement((BootstrapElement)value, diagnostics, context);
 			case BootstrapPackage.BOOTSTRAP_PAGE:
 				return validateBootstrapPage((BootstrapPage)value, diagnostics, context);
 			case BootstrapPackage.APPEARANCE:
@@ -150,8 +152,6 @@ public class BootstrapValidator extends EObjectValidator {
 				return validateText((Text)value, diagnostics, context);
 			case BootstrapPackage.FLOAT:
 				return validateFloat((org.nasdanika.vinci.bootstrap.Float)value, diagnostics, context);
-			case BootstrapPackage.BOOTSTRAP_ELEMENT:
-				return validateBootstrapElement((BootstrapElement)value, diagnostics, context);
 			case BootstrapPackage.TAG:
 				return validateTag((Tag)value, diagnostics, context);
 			case BootstrapPackage.CONTENT_TAG:

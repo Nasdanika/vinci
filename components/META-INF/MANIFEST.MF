@@ -12,6 +12,7 @@ Export-Package: org.nasdanika.vinci.components,
  org.nasdanika.vinci.components.util
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
+ org.nasdanika.vinci.app;visibility:=reexport,
  org.nasdanika.ncore;visibility:=reexport,
  org.nasdanika.vinci.html;bundle-version="0.1.0";visibility:=reexport,
  org.nasdanika.vinci.bootstrap;bundle-version="0.1.0";visibility:=reexport

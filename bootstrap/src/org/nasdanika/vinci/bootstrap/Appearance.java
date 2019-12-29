@@ -4,7 +4,8 @@ package org.nasdanika.vinci.bootstrap;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
-import org.nasdanika.common.ConsumerFactory;
+import org.nasdanika.common.SupplierFactory;
+import org.nasdanika.html.app.ViewBuilder;
 
 /**
  * <!-- begin-user-doc -->
@@ -29,11 +30,11 @@ import org.nasdanika.common.ConsumerFactory;
  * </ul>
  *
  * @see org.nasdanika.vinci.bootstrap.BootstrapPackage#getAppearance()
- * @model superTypes="org.nasdanika.ncore.IConsumerFactory&lt;org.eclipse.emf.ecore.EJavaObject&gt;"
+ * @model superTypes="org.nasdanika.ncore.ISupplierFactory&lt;org.nasdanika.vinci.html.ViewBuilder&gt;"
  *        annotation="http://www.eclipse.org/emf/2002/Ecore constraints='border_overlap background attributes'"
  * @generated
  */
-public interface Appearance extends EObject, ConsumerFactory<Object> {
+public interface Appearance extends EObject, SupplierFactory<ViewBuilder> {
 	/**
 	 * Returns the value of the '<em><b>Background</b></em>' attribute.
 	 * <!-- begin-user-doc -->

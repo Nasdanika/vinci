@@ -118,6 +118,29 @@ public class ComponentsItemProviderAdapterFactory extends ComponentsAdapterFacto
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.nasdanika.vinci.components.ActionLink} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ActionLinkItemProvider actionLinkItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.nasdanika.vinci.components.ActionLink}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createActionLinkAdapter() {
+		if (actionLinkItemProvider == null) {
+			actionLinkItemProvider = new ActionLinkItemProvider(this);
+		}
+
+		return actionLinkItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -224,6 +247,7 @@ public class ComponentsItemProviderAdapterFactory extends ComponentsAdapterFacto
 	public void dispose() {
 		if (markdownTextItemProvider != null) markdownTextItemProvider.dispose();
 		if (markdownResourceItemProvider != null) markdownResourceItemProvider.dispose();
+		if (actionLinkItemProvider != null) actionLinkItemProvider.dispose();
 	}
 
 }

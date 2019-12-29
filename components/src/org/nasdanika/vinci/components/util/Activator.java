@@ -12,6 +12,7 @@ public class Activator implements BundleActivator {
 		Palette htmlContentPalette = org.nasdanika.vinci.html.util.Activator.HTML_CONTENT_PALETTE;
 
 		htmlContentPalette.add(
+				ComponentsPackage.Literals.ACTION_LINK,
 				ComponentsPackage.Literals.MARKDOWN_TEXT,
 				ComponentsPackage.Literals.MARKDOWN_RESOURCE);	
 	}

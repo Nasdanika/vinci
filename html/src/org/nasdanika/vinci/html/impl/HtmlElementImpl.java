@@ -6,8 +6,9 @@ import java.lang.reflect.InvocationTargetException;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-import org.nasdanika.common.Consumer;
 import org.nasdanika.common.Context;
+import org.nasdanika.common.Supplier;
+import org.nasdanika.html.app.ViewBuilder;
 import org.nasdanika.ncore.impl.ModelElementImpl;
 import org.nasdanika.vinci.html.HtmlElement;
 import org.nasdanika.vinci.html.HtmlPackage;
@@ -38,15 +39,15 @@ public abstract class HtmlElementImpl extends ModelElementImpl implements HtmlEl
 	protected EClass eStaticClass() {
 		return HtmlPackage.Literals.HTML_ELEMENT;
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	@Override
-	public Consumer<Object> asConsumer(Context context) throws Exception {
-		return Consumer.nop();
+	public Supplier<ViewBuilder> asViewBuilderSupplier(Context context) throws Exception {
+		return Supplier.empty();
 	}
 
 	/**
@@ -57,9 +58,9 @@ public abstract class HtmlElementImpl extends ModelElementImpl implements HtmlEl
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case HtmlPackage.HTML_ELEMENT___AS_CONSUMER__CONTEXT:
+			case HtmlPackage.HTML_ELEMENT___AS_VIEW_BUILDER_SUPPLIER__CONTEXT:
 				try {
-					return asConsumer((Context)arguments.get(0));
+					return asViewBuilderSupplier((Context)arguments.get(0));
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);

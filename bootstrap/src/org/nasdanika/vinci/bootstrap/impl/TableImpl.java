@@ -2,19 +2,25 @@
  */
 package org.nasdanika.vinci.bootstrap.impl;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-import org.nasdanika.common.CompoundConsumer;
 import org.nasdanika.common.Context;
-import org.nasdanika.common.Function;
+import org.nasdanika.common.ListCompoundSupplierFactory;
+import org.nasdanika.common.ProgressMonitor;
+import org.nasdanika.common.StringMapCompoundSupplier;
 import org.nasdanika.common.Supplier;
+import org.nasdanika.html.app.ViewBuilder;
+import org.nasdanika.html.app.ViewGenerator;
+import org.nasdanika.html.app.ViewPart;
 import org.nasdanika.html.bootstrap.BootstrapFactory;
 import org.nasdanika.vinci.bootstrap.Appearance;
 import org.nasdanika.vinci.bootstrap.BootstrapPackage;
 import org.nasdanika.vinci.bootstrap.Table;
 import org.nasdanika.vinci.bootstrap.TableHeader;
-import org.nasdanika.vinci.bootstrap.TableRow;
 import org.nasdanika.vinci.bootstrap.TableSection;
 
 /**
@@ -479,44 +485,86 @@ public class TableImpl extends TableRowContainerImpl implements Table {
 		return super.eIsSet(featureID);
 	}
 
+	@SuppressWarnings("resource")
 	@Override
-	public Supplier<Object> create(Context context) throws Exception {
-		@SuppressWarnings("resource")
-		CompoundConsumer<Object> consumer = new CompoundConsumer<Object>("Consumers");
+	public Supplier<ViewPart> create(Context context) throws Exception {		
+		StringMapCompoundSupplier<ViewBuilder> parts = new StringMapCompoundSupplier<>(getTitle());
+		
 		Appearance appearance = getAppearance();
 		if (appearance != null) {
-			consumer.add(appearance.create(context));
-		}
-		if (getHeader() != null) {
-			Function<Object,Object> headerFunction = Function.fromBiFunction((table,progressMonitor) -> ((org.nasdanika.html.bootstrap.Table) table).header(), "Header", 1);			
-			consumer.add(headerFunction.then(getHeader().create(context)));
-		}
-		if (getBody() != null) {
-			Function<Object,Object> bodyFunction = Function.fromBiFunction((table,progressMonitor) -> ((org.nasdanika.html.bootstrap.Table) table).body(), "Body", 1);			
-			consumer.add(bodyFunction.then(getBody().create(context)));
-		}
-		if (getFooter() != null) {
-			Function<Object,Object> footerFunction = Function.fromBiFunction((table,progressMonitor) -> ((org.nasdanika.html.bootstrap.Table) table).footer(), "Footer", 1);			
-			consumer.add(footerFunction.then(getFooter().create(context)));
-		}
-		for (TableRow row: getRows()) {
-			Function<Object,Object> rowFunction = Function.fromBiFunction((table,progressMonitor) -> ((org.nasdanika.html.bootstrap.Table) table).row(), "Row", 1);
-			consumer.add(rowFunction.then(row.create(context)));
+			parts.put("Appearance", appearance.create(context));
 		}
 		
-		BootstrapFactory bootstrapFactory = context.get(BootstrapFactory.class, BootstrapFactory.INSTANCE);
-		java.util.function.Supplier<Object> supplier = () -> {
-			org.nasdanika.html.bootstrap.Table table = bootstrapFactory.table();
-			table.bordered(isBordered());
-			table.borderless(isBorderless());
-			table.dark(isDark());
-			table.hover(isHover());
-			table.small(isSmall());
-			table.striped(isStriped());
-			return table;
-		};
-		Supplier<Object> tableSupplier = Supplier.fromSupplier(supplier, getTitle(), 1);
-		return tableSupplier.then(consumer.asFunction());
+		TableHeader header = getHeader();
+		if (header != null) {
+			parts.put("Header", header.create(context));
+		}
+		TableSection body = getBody();
+		if (body != null) {
+			parts.put("Body", body.create(context));
+		}
+		TableSection footer = getFooter();
+		if (footer != null) {
+			parts.put("Footer", footer.create(context));
+		}
+		Supplier<List<ViewBuilder>> rowBuilderSuppliers = new ListCompoundSupplierFactory<ViewBuilder>("Rows", new ArrayList<>(getRows())).create(context);
+		
+		Supplier<ViewBuilder> rowsBuilderSupplier = rowBuilderSuppliers.then(rowBuilders -> new ViewBuilder() {
+
+			@Override
+			public void build(Object target, ViewGenerator viewGenerator, ProgressMonitor progressMonitor) {
+				org.nasdanika.html.bootstrap.Table table = (org.nasdanika.html.bootstrap.Table) target;
+				for (ViewBuilder rb: rowBuilders) {
+					rb.build(table.row(), viewGenerator, progressMonitor);
+				}
+			}
+			
+		});
+		
+		parts.put("Rows", rowsBuilderSupplier);
+		
+		return parts.then(partsMap -> new ViewPart() {
+
+			@Override
+			public Object generate(ViewGenerator viewGenerator, ProgressMonitor progressMonitor) {
+				org.nasdanika.html.bootstrap.Table table = viewGenerator.get(BootstrapFactory.class).table();
+				table.bordered(isBordered());
+				table.borderless(isBorderless());
+				table.dark(isDark());
+				table.hover(isHover());
+				table.small(isSmall());
+				table.striped(isStriped());
+				
+				ViewBuilder appearanceBuilder = partsMap.get("Appearance");
+				if (appearanceBuilder != null) {
+					appearanceBuilder.build(table, viewGenerator, progressMonitor);
+				}
+				
+				ViewBuilder headerBuilder = partsMap.get("Header");
+				if (headerBuilder != null) {
+					headerBuilder.build(table.header(), viewGenerator, progressMonitor);
+				}
+				
+				ViewBuilder bodyBuilder = partsMap.get("Body");
+				if (bodyBuilder != null) {
+					bodyBuilder.build(table.body(), viewGenerator, progressMonitor);
+				}
+				
+				ViewBuilder footerBuilder = partsMap.get("Footer");
+				if (footerBuilder != null) {
+					footerBuilder.build(table.footer(), viewGenerator, progressMonitor);
+				}
+				
+				ViewBuilder rowsBuilder = partsMap.get("Rows");
+				if (rowsBuilder != null) {
+					rowsBuilder.build(table, viewGenerator, progressMonitor);
+				}
+				
+				return table;
+			}
+			
+		});
+		
 	}
 
 } //TableImpl

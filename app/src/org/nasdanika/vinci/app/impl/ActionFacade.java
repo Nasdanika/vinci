@@ -4,11 +4,12 @@ import java.util.List;
 
 import org.eclipse.emf.ecore.EObject;
 import org.jsoup.Jsoup;
-import org.nasdanika.common.Consumer;
 import org.nasdanika.common.Context;
 import org.nasdanika.common.MarkdownHelper;
+import org.nasdanika.common.NasdanikaException;
 import org.nasdanika.common.NullProgressMonitor;
 import org.nasdanika.common.ProgressMonitor;
+import org.nasdanika.common.Supplier;
 import org.nasdanika.common.Util;
 import org.nasdanika.html.Fragment;
 import org.nasdanika.html.HTMLElement;
@@ -18,6 +19,7 @@ import org.nasdanika.html.app.Decorator;
 import org.nasdanika.html.app.NavigationActionActivator;
 import org.nasdanika.html.app.ScriptActionActivator;
 import org.nasdanika.html.app.SectionStyle;
+import org.nasdanika.html.app.ViewBuilder;
 import org.nasdanika.html.app.ViewGenerator;
 import org.nasdanika.html.app.impl.ActionImpl;
 import org.nasdanika.html.bootstrap.BootstrapElement;
@@ -32,7 +34,7 @@ public class ActionFacade extends org.nasdanika.html.app.impl.ActionImpl impleme
 		
 	private List<Object> content;
 
-	private Consumer<Object> decorator;
+	private Supplier<ViewBuilder> decoratorSupplier;
 	
 	public ActionFacade(Context actionContext, ActionBase target) throws Exception {
 		this(actionContext, target, null, null, null);
@@ -47,7 +49,7 @@ public class ActionFacade extends org.nasdanika.html.app.impl.ActionImpl impleme
 
 		
 		Appearance appearance = target.getAppearance();
-		decorator = appearance == null ? null : appearance.create(actionContext);				
+		decoratorSupplier = appearance == null ? null : appearance.create(actionContext);				
 		
 		setText(actionContext.interpolate(target.getText()));
 		setId(actionContext.interpolate(target.getId()));
@@ -127,26 +129,32 @@ public class ActionFacade extends org.nasdanika.html.app.impl.ActionImpl impleme
 		default:
 			throw new IllegalArgumentException();
 		}
-
+				
 		// category
 		if (parent instanceof ActionCategory) {
 			ActionCategory actionCategory = (ActionCategory) parent;
+			
+			Appearance categoryAappearance = actionCategory.getAppearance();
+			@SuppressWarnings("resource")
+			Supplier<ViewBuilder> categoryDecoratorSupplier = categoryAappearance == null ? null : categoryAappearance.create(actionContext);
 			
 			class CategoryFacade extends org.nasdanika.html.app.impl.LabelImpl implements Decorator {
 
 				@Override
 				public void decorate(Object target, ViewGenerator viewGenerator) {
-					Appearance appearance = actionCategory.getAppearance();
-					if (appearance != null) {
-						try (Consumer<Object> categoryDecorator = appearance == null ? null : appearance.create(actionContext)) {																		
-							NullProgressMonitor progressMonitor = new NullProgressMonitor(); // A better way - from the viewGenerator?
-							if (target instanceof BootstrapElement) {
-								categoryDecorator.execute(target, progressMonitor);
-							} else if (target instanceof HTMLElement) {
-								categoryDecorator.execute(viewGenerator.get(BootstrapFactory.class, BootstrapFactory.INSTANCE).wrap((HTMLElement<?>) target), progressMonitor);
+					if (categoryDecoratorSupplier != null) {
+						NullProgressMonitor progressMonitor = new NullProgressMonitor(); // A better way - from the viewGenerator?
+						try {
+							ViewBuilder cd = categoryDecoratorSupplier.execute(progressMonitor);
+							if (cd != null) {
+								if (target instanceof BootstrapElement) {
+									cd.build(target, viewGenerator, progressMonitor);
+								} else if (target instanceof HTMLElement) {
+									cd.build(viewGenerator.get(BootstrapFactory.class).wrap((HTMLElement<?>) target), viewGenerator, progressMonitor);
+								}
 							}
 						} catch (Exception e) {
-							e.printStackTrace(); // TODO - improve handling, but shall not happen.
+							throw new NasdanikaException(e);
 						}
 					}
 				}
@@ -225,22 +233,27 @@ public class ActionFacade extends org.nasdanika.html.app.impl.ActionImpl impleme
 			return null;
 		}
 		Fragment ret = viewGenerator.get(HTMLFactory.class, HTMLFactory.INSTANCE).fragment();
-		content.forEach(ret);
+		for (Object ce: content) {
+			ret.content(viewGenerator.processViewPart(ce, null));
+		}
 		return ret;
 	}
 
 	@Override
 	public void decorate(Object target, ViewGenerator viewGenerator) {
-		if (decorator != null) {
+		if (decoratorSupplier != null) {
+			NullProgressMonitor progressMonitor = new NullProgressMonitor(); // A better way - from the viewGenerator?
 			try {
-				NullProgressMonitor progressMonitor = new NullProgressMonitor(); // A better way - from the viewGenerator?
-				if (target instanceof BootstrapElement) {
-					decorator.execute(target, progressMonitor);
-				} else if (target instanceof HTMLElement) {
-					decorator.execute(viewGenerator.get(BootstrapFactory.class, BootstrapFactory.INSTANCE).wrap((HTMLElement<?>) target), progressMonitor);
+				ViewBuilder decorator = decoratorSupplier.execute(progressMonitor);
+				if (decorator != null) {
+					if (target instanceof BootstrapElement) {
+						decorator.build(target, viewGenerator, progressMonitor);
+					} else if (target instanceof HTMLElement) {
+						decorator.build(viewGenerator.get(BootstrapFactory.class).wrap((HTMLElement<?>) target), viewGenerator, progressMonitor);
+					}
 				}
 			} catch (Exception e) {
-				e.printStackTrace(); // TODO - improve handling, but shall not happen.
+				throw new NasdanikaException(e);
 			}
 		}
 	}

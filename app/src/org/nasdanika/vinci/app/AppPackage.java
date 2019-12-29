@@ -1662,13 +1662,13 @@ public interface AppPackage extends EPackage {
 	int BOOTSTRAP_CONTAINER_APPLICATION_FEATURE_COUNT = BootstrapPackage.BOOTSTRAP_ELEMENT_FEATURE_COUNT + 8;
 
 	/**
-	 * The operation id for the '<em>As Consumer</em>' operation.
+	 * The operation id for the '<em>As View Builder Supplier</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BOOTSTRAP_CONTAINER_APPLICATION___AS_CONSUMER__CONTEXT = BootstrapPackage.BOOTSTRAP_ELEMENT___AS_CONSUMER__CONTEXT;
+	int BOOTSTRAP_CONTAINER_APPLICATION___AS_VIEW_BUILDER_SUPPLIER__CONTEXT = BootstrapPackage.BOOTSTRAP_ELEMENT___AS_VIEW_BUILDER_SUPPLIER__CONTEXT;
 
 	/**
 	 * The number of operations of the '<em>Bootstrap Container Application</em>' class.
@@ -1744,13 +1744,13 @@ public interface AppPackage extends EPackage {
 	int BOOTSTRAP_CONTAINER_APPLICATION_SECTION_FEATURE_COUNT = BootstrapPackage.BOOTSTRAP_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
-	 * The operation id for the '<em>As Consumer</em>' operation.
+	 * The operation id for the '<em>As View Builder Supplier</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BOOTSTRAP_CONTAINER_APPLICATION_SECTION___AS_CONSUMER__CONTEXT = BootstrapPackage.BOOTSTRAP_ELEMENT___AS_CONSUMER__CONTEXT;
+	int BOOTSTRAP_CONTAINER_APPLICATION_SECTION___AS_VIEW_BUILDER_SUPPLIER__CONTEXT = BootstrapPackage.BOOTSTRAP_ELEMENT___AS_VIEW_BUILDER_SUPPLIER__CONTEXT;
 
 	/**
 	 * The number of operations of the '<em>Bootstrap Container Application Section</em>' class.
@@ -1835,13 +1835,13 @@ public interface AppPackage extends EPackage {
 	int BOOTSTRAP_CONTAINER_APPLICATION_PANEL_FEATURE_COUNT = BOOTSTRAP_CONTAINER_APPLICATION_SECTION_FEATURE_COUNT + 1;
 
 	/**
-	 * The operation id for the '<em>As Consumer</em>' operation.
+	 * The operation id for the '<em>As View Builder Supplier</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BOOTSTRAP_CONTAINER_APPLICATION_PANEL___AS_CONSUMER__CONTEXT = BOOTSTRAP_CONTAINER_APPLICATION_SECTION___AS_CONSUMER__CONTEXT;
+	int BOOTSTRAP_CONTAINER_APPLICATION_PANEL___AS_VIEW_BUILDER_SUPPLIER__CONTEXT = BOOTSTRAP_CONTAINER_APPLICATION_SECTION___AS_VIEW_BUILDER_SUPPLIER__CONTEXT;
 
 	/**
 	 * The number of operations of the '<em>Bootstrap Container Application Panel</em>' class.

@@ -13,6 +13,8 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 import org.nasdanika.html.TagName;
+import org.nasdanika.html.app.ViewBuilder;
+import org.nasdanika.html.app.ViewPart;
 import org.nasdanika.ncore.NcorePackage;
 import org.nasdanika.vinci.html.ContentTag;
 import org.nasdanika.vinci.html.HtmlElement;
@@ -28,6 +30,20 @@ import org.nasdanika.vinci.html.Tag;
  * @generated
  */
 public class HtmlPackageImpl extends EPackageImpl implements HtmlPackage {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass viewPartEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass viewBuilderEClass = null;
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -140,6 +156,26 @@ public class HtmlPackageImpl extends EPackageImpl implements HtmlPackage {
 	 * @generated
 	 */
 	@Override
+	public EClass getViewPart() {
+		return viewPartEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getViewBuilder() {
+		return viewBuilderEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getHtmlElement() {
 		return htmlElementEClass;
 	}
@@ -150,7 +186,7 @@ public class HtmlPackageImpl extends EPackageImpl implements HtmlPackage {
 	 * @generated
 	 */
 	@Override
-	public EOperation getHtmlElement__AsConsumer__Context() {
+	public EOperation getHtmlElement__AsViewBuilderSupplier__Context() {
 		return htmlElementEClass.getEOperations().get(0);
 	}
 
@@ -353,8 +389,12 @@ public class HtmlPackageImpl extends EPackageImpl implements HtmlPackage {
 		isCreated = true;
 
 		// Create classes and their features
+		viewPartEClass = createEClass(VIEW_PART);
+
+		viewBuilderEClass = createEClass(VIEW_BUILDER);
+
 		htmlElementEClass = createEClass(HTML_ELEMENT);
-		createEOperation(htmlElementEClass, HTML_ELEMENT___AS_CONSUMER__CONTEXT);
+		createEOperation(htmlElementEClass, HTML_ELEMENT___AS_VIEW_BUILDER_SUPPLIER__CONTEXT);
 
 		containerEClass = createEClass(CONTAINER);
 		createEReference(containerEClass, CONTAINER__CONTENT);
@@ -415,7 +455,7 @@ public class HtmlPackageImpl extends EPackageImpl implements HtmlPackage {
 		EGenericType g1 = createEGenericType(this.getHtmlElement());
 		tagEClass.getEGenericSuperTypes().add(g1);
 		g1 = createEGenericType(theNcorePackage.getISupplierFactory());
-		EGenericType g2 = createEGenericType(ecorePackage.getEJavaObject());
+		EGenericType g2 = createEGenericType(this.getViewPart());
 		g1.getETypeArguments().add(g2);
 		tagEClass.getEGenericSuperTypes().add(g1);
 		contentTagEClass.getESuperTypes().add(this.getTag());
@@ -423,24 +463,28 @@ public class HtmlPackageImpl extends EPackageImpl implements HtmlPackage {
 		g1 = createEGenericType(theNcorePackage.getNamedElement());
 		pageEClass.getEGenericSuperTypes().add(g1);
 		g1 = createEGenericType(theNcorePackage.getISupplierFactory());
-		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g2 = createEGenericType(this.getViewPart());
 		g1.getETypeArguments().add(g2);
 		pageEClass.getEGenericSuperTypes().add(g1);
 
 		// Initialize classes, features, and operations; add parameters
+		initEClass(viewPartEClass, ViewPart.class, "ViewPart", IS_ABSTRACT, IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(viewBuilderEClass, ViewBuilder.class, "ViewBuilder", IS_ABSTRACT, IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS);
+
 		initEClass(htmlElementEClass, HtmlElement.class, "HtmlElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		EOperation op = initEOperation(getHtmlElement__AsConsumer__Context(), null, "asConsumer", 0, 1, IS_UNIQUE, IS_ORDERED);
+		EOperation op = initEOperation(getHtmlElement__AsViewBuilderSupplier__Context(), null, "asViewBuilderSupplier", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theNcorePackage.getIContext(), "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, theNcorePackage.getException());
-		g1 = createEGenericType(theNcorePackage.getIConsumer());
-		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1 = createEGenericType(theNcorePackage.getISupplier());
+		g2 = createEGenericType(this.getViewBuilder());
 		g1.getETypeArguments().add(g2);
 		initEOperation(op, g1);
 
 		initEClass(containerEClass, org.nasdanika.vinci.html.Container.class, "Container", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		g1 = createEGenericType(theNcorePackage.getISupplierFactory());
-		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g2 = createEGenericType(this.getViewPart());
 		g1.getETypeArguments().add(g2);
 		initEReference(getContainer_Content(), g1, null, "content", null, 0, -1, org.nasdanika.vinci.html.Container.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getContainer_MarkdownContent(), ecorePackage.getEString(), "markdownContent", null, 0, 1, org.nasdanika.vinci.html.Container.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -452,15 +496,15 @@ public class HtmlPackageImpl extends EPackageImpl implements HtmlPackage {
 
 		initEClass(pageEClass, Page.class, "Page", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		g1 = createEGenericType(theNcorePackage.getISupplierFactory());
-		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g2 = createEGenericType(this.getViewPart());
 		g1.getETypeArguments().add(g2);
 		initEReference(getPage_Head(), g1, null, "head", null, 0, -1, Page.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		g1 = createEGenericType(theNcorePackage.getISupplierFactory());
-		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g2 = createEGenericType(this.getViewPart());
 		g1.getETypeArguments().add(g2);
 		initEReference(getPage_Body(), g1, null, "body", null, 0, -1, Page.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		g1 = createEGenericType(theNcorePackage.getIConsumerFactory());
-		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1 = createEGenericType(theNcorePackage.getISupplierFactory());
+		g2 = createEGenericType(this.getViewBuilder());
 		g1.getETypeArguments().add(g2);
 		initEReference(getPage_Builders(), g1, null, "builders", null, 0, -1, Page.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPage_Language(), ecorePackage.getEString(), "language", null, 0, 1, Page.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -498,16 +542,28 @@ public class HtmlPackageImpl extends EPackageImpl implements HtmlPackage {
 			   "documentation", "HTML model"
 		   });
 		addAnnotation
+		  (viewPartEClass,
+		   source,
+		   new String[] {
+			   "documentation", "Consumer takes an argument of type T and creates a void work factory. The work factory creates work a given context. When the work is executed with a progress monitor it operates on the consumer argument and returns null."
+		   });
+		addAnnotation
+		  (viewBuilderEClass,
+		   source,
+		   new String[] {
+			   "documentation", "Consumer takes an argument of type T and creates a void work factory. The work factory creates work a given context. When the work is executed with a progress monitor it operates on the consumer argument and returns null."
+		   });
+		addAnnotation
 		  (htmlElementEClass,
 		   source,
 		   new String[] {
 			   "documentation", "Base class for other HTML and bootstrap elements. "
 		   });
 		addAnnotation
-		  (getHtmlElement__AsConsumer__Context(),
+		  (getHtmlElement__AsViewBuilderSupplier__Context(),
 		   source,
 		   new String[] {
-			   "documentation", "Wraps element into a Consumer so it can be used as a builder - an existing object can be passed to HTML element\'s function and it will \"build\" it by applying styles, attriutes, etc."
+			   "documentation", "Wraps element into a view builder - an existing object can be passed to HTML element\'s function and it will \"build\" it by applying styles, attriutes, etc."
 		   });
 		addAnnotation
 		  (containerEClass,

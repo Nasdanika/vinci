@@ -2,7 +2,8 @@
  */
 package org.nasdanika.vinci.bootstrap;
 
-import org.nasdanika.common.ConsumerFactory;
+import org.nasdanika.common.SupplierFactory;
+import org.nasdanika.html.app.ViewBuilder;
 
 /**
  * <!-- begin-user-doc -->
@@ -11,8 +12,8 @@ import org.nasdanika.common.ConsumerFactory;
  *
  *
  * @see org.nasdanika.vinci.bootstrap.BootstrapPackage#getTableSection()
- * @model superTypes="org.nasdanika.vinci.bootstrap.TableRowContainer org.nasdanika.ncore.IConsumerFactory&lt;org.eclipse.emf.ecore.EJavaObject&gt;"
+ * @model superTypes="org.nasdanika.vinci.bootstrap.TableRowContainer org.nasdanika.ncore.ISupplierFactory&lt;org.nasdanika.vinci.html.ViewBuilder&gt;"
  * @generated
  */
-public interface TableSection extends TableRowContainer, ConsumerFactory<Object> {
+public interface TableSection extends TableRowContainer, SupplierFactory<ViewBuilder> {
 } // TableSection

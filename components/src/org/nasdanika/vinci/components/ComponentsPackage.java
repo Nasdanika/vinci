@@ -328,13 +328,22 @@ public interface ComponentsPackage extends EPackage {
 	int ACTION_LINK__DESCRIPTION = NcorePackage.MODEL_ELEMENT__DESCRIPTION;
 
 	/**
+	 * The feature id for the '<em><b>Target</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION_LINK__TARGET = NcorePackage.MODEL_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>Action Link</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION_LINK_FEATURE_COUNT = NcorePackage.MODEL_ELEMENT_FEATURE_COUNT + 0;
+	int ACTION_LINK_FEATURE_COUNT = NcorePackage.MODEL_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Action Link</em>' class.
@@ -442,6 +451,17 @@ public interface ComponentsPackage extends EPackage {
 	EClass getActionLink();
 
 	/**
+	 * Returns the meta object for the reference '{@link org.nasdanika.vinci.components.ActionLink#getTarget <em>Target</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Target</em>'.
+	 * @see org.nasdanika.vinci.components.ActionLink#getTarget()
+	 * @see #getActionLink()
+	 * @generated
+	 */
+	EReference getActionLink_Target();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -535,6 +555,13 @@ public interface ComponentsPackage extends EPackage {
 		 * @generated
 		 */
 		EClass ACTION_LINK = eINSTANCE.getActionLink();
+		/**
+		 * The meta object literal for the '<em><b>Target</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ACTION_LINK__TARGET = eINSTANCE.getActionLink_Target();
 
 	}
 

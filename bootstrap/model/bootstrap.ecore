@@ -4,6 +4,10 @@
   <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
     <details key="documentation" value="Model of Bootstrap elements."/>
   </eAnnotations>
+  <eClassifiers xsi:type="ecore:EClass" name="BootstrapElement" abstract="true" eSuperTypes="../../org.nasdanika.vinci.html/model/html.ecore#//HtmlElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="appearance" eType="#//Appearance"
+        containment="true"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BootstrapPage" eSuperTypes="../../org.nasdanika.vinci.html/model/html.ecore#//Page">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="HTML page with bootstrap elements in the head - meta, stylesheets, and scripts.&#xA;&#xA;[Overview video](https://www.youtube.com/watch?v=Q6u6hL10xXA) in Russian."/>
@@ -49,8 +53,8 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="text" eType="#//Text" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Float" upperBound="-1"
         eType="#//Float" containment="true"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass ../../org.nasdanika.ncore/model/ncore.ecore#//IConsumerFactory">
-      <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+    <eGenericSuperTypes eClassifier="ecore:EClass ../../org.nasdanika.ncore/model/ncore.ecore#//ISupplierFactory">
+      <eTypeArguments eClassifier="ecore:EClass ../../org.nasdanika.vinci.html/model/html.ecore#//ViewBuilder"/>
     </eGenericSuperTypes>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Border">
@@ -190,10 +194,6 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="side" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="breakpoint" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="BootstrapElement" abstract="true" eSuperTypes="../../org.nasdanika.vinci.html/model/html.ecore#//HtmlElement">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="appearance" eType="#//Appearance"
-        containment="true"/>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Tag" eSuperTypes="../../org.nasdanika.vinci.html/model/html.ecore#//Tag #//BootstrapElement">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="HTML tag with Bootstrap appearance"/>
@@ -237,8 +237,8 @@
       </eGenericType>
     </eStructuralFeatures>
     <eGenericSuperTypes eClassifier="#//Item"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass ../../org.nasdanika.ncore/model/ncore.ecore#//IConsumerFactory">
-      <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+    <eGenericSuperTypes eClassifier="ecore:EClass ../../org.nasdanika.ncore/model/ncore.ecore#//ISupplierFactory">
+      <eTypeArguments eClassifier="ecore:EClass ../../org.nasdanika.vinci.html/model/html.ecore#//ViewBuilder"/>
     </eGenericSuperTypes>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="LinkActionGroupItem" eSuperTypes="#//ActionGroupItem">
@@ -302,15 +302,15 @@
     </eStructuralFeatures>
     <eGenericSuperTypes eClassifier="#//BootstrapElement"/>
     <eGenericSuperTypes eClassifier="ecore:EClass ../../org.nasdanika.ncore/model/ncore.ecore#//ISupplierFactory">
-      <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+      <eTypeArguments eClassifier="ecore:EClass ../../org.nasdanika.vinci.html/model/html.ecore#//ViewPart"/>
     </eGenericSuperTypes>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Row">
     <eStructuralFeatures xsi:type="ecore:EReference" name="columns" upperBound="-1"
         eType="#//Column" containment="true"/>
     <eGenericSuperTypes eClassifier="#//BootstrapElement"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass ../../org.nasdanika.ncore/model/ncore.ecore#//IConsumerFactory">
-      <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+    <eGenericSuperTypes eClassifier="ecore:EClass ../../org.nasdanika.ncore/model/ncore.ecore#//ISupplierFactory">
+      <eTypeArguments eClassifier="ecore:EClass ../../org.nasdanika.vinci.html/model/html.ecore#//ViewBuilder"/>
     </eGenericSuperTypes>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ColumnWidth">
@@ -336,8 +336,8 @@
         eType="#//ColumnWidth" containment="true"/>
     <eGenericSuperTypes eClassifier="#//BootstrapElement"/>
     <eGenericSuperTypes eClassifier="ecore:EClass ../../org.nasdanika.vinci.html/model/html.ecore#//Container"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass ../../org.nasdanika.ncore/model/ncore.ecore#//IConsumerFactory">
-      <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+    <eGenericSuperTypes eClassifier="ecore:EClass ../../org.nasdanika.ncore/model/ncore.ecore#//ISupplierFactory">
+      <eTypeArguments eClassifier="ecore:EClass ../../org.nasdanika.vinci.html/model/html.ecore#//ViewBuilder"/>
     </eGenericSuperTypes>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Card" eSuperTypes="#//Div">
@@ -359,8 +359,8 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TableSection">
     <eGenericSuperTypes eClassifier="#//TableRowContainer"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass ../../org.nasdanika.ncore/model/ncore.ecore#//IConsumerFactory">
-      <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+    <eGenericSuperTypes eClassifier="ecore:EClass ../../org.nasdanika.ncore/model/ncore.ecore#//ISupplierFactory">
+      <eTypeArguments eClassifier="ecore:EClass ../../org.nasdanika.vinci.html/model/html.ecore#//ViewBuilder"/>
     </eGenericSuperTypes>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TableHeader" eSuperTypes="#//TableSection">
@@ -385,7 +385,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="small" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eGenericSuperTypes eClassifier="#//TableRowContainer"/>
     <eGenericSuperTypes eClassifier="ecore:EClass ../../org.nasdanika.ncore/model/ncore.ecore#//ISupplierFactory">
-      <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+      <eTypeArguments eClassifier="ecore:EClass ../../org.nasdanika.vinci.html/model/html.ecore#//ViewPart"/>
     </eGenericSuperTypes>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TableRow">
@@ -394,8 +394,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="color" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="background" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eGenericSuperTypes eClassifier="#//BootstrapElement"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass ../../org.nasdanika.ncore/model/ncore.ecore#//IConsumerFactory">
-      <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+    <eGenericSuperTypes eClassifier="ecore:EClass ../../org.nasdanika.ncore/model/ncore.ecore#//ISupplierFactory">
+      <eTypeArguments eClassifier="ecore:EClass ../../org.nasdanika.vinci.html/model/html.ecore#//ViewBuilder"/>
     </eGenericSuperTypes>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TableCell">
@@ -410,8 +410,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="background" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eGenericSuperTypes eClassifier="ecore:EClass ../../org.nasdanika.vinci.html/model/html.ecore#//Container"/>
     <eGenericSuperTypes eClassifier="#//BootstrapElement"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass ../../org.nasdanika.ncore/model/ncore.ecore#//IConsumerFactory">
-      <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+    <eGenericSuperTypes eClassifier="ecore:EClass ../../org.nasdanika.ncore/model/ncore.ecore#//ISupplierFactory">
+      <eTypeArguments eClassifier="ecore:EClass ../../org.nasdanika.vinci.html/model/html.ecore#//ViewBuilder"/>
     </eGenericSuperTypes>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Tooltip"/>

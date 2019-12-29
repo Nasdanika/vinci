@@ -69,7 +69,121 @@ public interface BootstrapPackage extends EPackage {
 	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getBootstrapPage()
 	 * @generated
 	 */
-	int BOOTSTRAP_PAGE = 0;
+	int BOOTSTRAP_PAGE = 1;
+
+	/**
+	 * The meta object id for the '{@link org.nasdanika.vinci.bootstrap.impl.AppearanceImpl <em>Appearance</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.vinci.bootstrap.impl.AppearanceImpl
+	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getAppearance()
+	 * @generated
+	 */
+	int APPEARANCE = 2;
+
+	/**
+	 * The meta object id for the '{@link org.nasdanika.vinci.bootstrap.impl.BorderImpl <em>Border</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.vinci.bootstrap.impl.BorderImpl
+	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getBorder()
+	 * @generated
+	 */
+	int BORDER = 3;
+
+	/**
+	 * The meta object id for the '{@link org.nasdanika.vinci.bootstrap.impl.SpacingImpl <em>Spacing</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.vinci.bootstrap.impl.SpacingImpl
+	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getSpacing()
+	 * @generated
+	 */
+	int SPACING = 4;
+
+	/**
+	 * The meta object id for the '{@link org.nasdanika.vinci.bootstrap.impl.TextImpl <em>Text</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.vinci.bootstrap.impl.TextImpl
+	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getText()
+	 * @generated
+	 */
+	int TEXT = 5;
+
+	/**
+	 * The meta object id for the '{@link org.nasdanika.vinci.bootstrap.impl.FloatImpl <em>Float</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.vinci.bootstrap.impl.FloatImpl
+	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getFloat()
+	 * @generated
+	 */
+	int FLOAT = 6;
+
+	/**
+	 * The meta object id for the '{@link org.nasdanika.vinci.bootstrap.impl.BootstrapElementImpl <em>Element</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapElementImpl
+	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getBootstrapElement()
+	 * @generated
+	 */
+	int BOOTSTRAP_ELEMENT = 0;
+
+	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOTSTRAP_ELEMENT__TITLE = HtmlPackage.HTML_ELEMENT__TITLE;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOTSTRAP_ELEMENT__DESCRIPTION = HtmlPackage.HTML_ELEMENT__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Appearance</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOTSTRAP_ELEMENT__APPEARANCE = HtmlPackage.HTML_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Element</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOTSTRAP_ELEMENT_FEATURE_COUNT = HtmlPackage.HTML_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>As View Builder Supplier</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOTSTRAP_ELEMENT___AS_VIEW_BUILDER_SUPPLIER__CONTEXT = HtmlPackage.HTML_ELEMENT___AS_VIEW_BUILDER_SUPPLIER__CONTEXT;
+
+	/**
+	 * The number of operations of the '<em>Element</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOTSTRAP_ELEMENT_OPERATION_COUNT = HtmlPackage.HTML_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Title</b></em>' attribute.
@@ -216,23 +330,13 @@ public interface BootstrapPackage extends EPackage {
 	int BOOTSTRAP_PAGE_OPERATION_COUNT = HtmlPackage.PAGE_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link org.nasdanika.vinci.bootstrap.impl.AppearanceImpl <em>Appearance</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.nasdanika.vinci.bootstrap.impl.AppearanceImpl
-	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getAppearance()
-	 * @generated
-	 */
-	int APPEARANCE = 1;
-
-	/**
 	 * The feature id for the '<em><b>Background</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int APPEARANCE__BACKGROUND = NcorePackage.ICONSUMER_FACTORY_FEATURE_COUNT + 0;
+	int APPEARANCE__BACKGROUND = NcorePackage.ISUPPLIER_FACTORY_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Attributes</b></em>' attribute.
@@ -241,7 +345,7 @@ public interface BootstrapPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int APPEARANCE__ATTRIBUTES = NcorePackage.ICONSUMER_FACTORY_FEATURE_COUNT + 1;
+	int APPEARANCE__ATTRIBUTES = NcorePackage.ISUPPLIER_FACTORY_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Border</b></em>' containment reference list.
@@ -250,7 +354,7 @@ public interface BootstrapPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int APPEARANCE__BORDER = NcorePackage.ICONSUMER_FACTORY_FEATURE_COUNT + 2;
+	int APPEARANCE__BORDER = NcorePackage.ISUPPLIER_FACTORY_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Margin</b></em>' containment reference list.
@@ -259,7 +363,7 @@ public interface BootstrapPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int APPEARANCE__MARGIN = NcorePackage.ICONSUMER_FACTORY_FEATURE_COUNT + 3;
+	int APPEARANCE__MARGIN = NcorePackage.ISUPPLIER_FACTORY_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Padding</b></em>' containment reference list.
@@ -268,7 +372,7 @@ public interface BootstrapPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int APPEARANCE__PADDING = NcorePackage.ICONSUMER_FACTORY_FEATURE_COUNT + 4;
+	int APPEARANCE__PADDING = NcorePackage.ISUPPLIER_FACTORY_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Text</b></em>' containment reference.
@@ -277,7 +381,7 @@ public interface BootstrapPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int APPEARANCE__TEXT = NcorePackage.ICONSUMER_FACTORY_FEATURE_COUNT + 5;
+	int APPEARANCE__TEXT = NcorePackage.ISUPPLIER_FACTORY_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Float</b></em>' containment reference list.
@@ -286,7 +390,7 @@ public interface BootstrapPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int APPEARANCE__FLOAT = NcorePackage.ICONSUMER_FACTORY_FEATURE_COUNT + 6;
+	int APPEARANCE__FLOAT = NcorePackage.ISUPPLIER_FACTORY_FEATURE_COUNT + 6;
 
 	/**
 	 * The number of structural features of the '<em>Appearance</em>' class.
@@ -295,7 +399,7 @@ public interface BootstrapPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int APPEARANCE_FEATURE_COUNT = NcorePackage.ICONSUMER_FACTORY_FEATURE_COUNT + 7;
+	int APPEARANCE_FEATURE_COUNT = NcorePackage.ISUPPLIER_FACTORY_FEATURE_COUNT + 7;
 
 	/**
 	 * The number of operations of the '<em>Appearance</em>' class.
@@ -304,17 +408,7 @@ public interface BootstrapPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int APPEARANCE_OPERATION_COUNT = NcorePackage.ICONSUMER_FACTORY_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link org.nasdanika.vinci.bootstrap.impl.BorderImpl <em>Border</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.nasdanika.vinci.bootstrap.impl.BorderImpl
-	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getBorder()
-	 * @generated
-	 */
-	int BORDER = 2;
+	int APPEARANCE_OPERATION_COUNT = NcorePackage.ISUPPLIER_FACTORY_OPERATION_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Color</b></em>' attribute.
@@ -378,16 +472,6 @@ public interface BootstrapPackage extends EPackage {
 	 * @ordered
 	 */
 	int BORDER_OPERATION_COUNT = 0;
-
-	/**
-	 * The meta object id for the '{@link org.nasdanika.vinci.bootstrap.impl.SpacingImpl <em>Spacing</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.nasdanika.vinci.bootstrap.impl.SpacingImpl
-	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getSpacing()
-	 * @generated
-	 */
-	int SPACING = 3;
 
 	/**
 	 * The feature id for the '<em><b>Size</b></em>' attribute.
@@ -480,16 +564,6 @@ public interface BootstrapPackage extends EPackage {
 	int SPACING_OPERATION_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link org.nasdanika.vinci.bootstrap.impl.TextImpl <em>Text</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.nasdanika.vinci.bootstrap.impl.TextImpl
-	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getText()
-	 * @generated
-	 */
-	int TEXT = 4;
-
-	/**
 	 * The feature id for the '<em><b>Alignment</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -580,16 +654,6 @@ public interface BootstrapPackage extends EPackage {
 	int TEXT_OPERATION_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link org.nasdanika.vinci.bootstrap.impl.FloatImpl <em>Float</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.nasdanika.vinci.bootstrap.impl.FloatImpl
-	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getFloat()
-	 * @generated
-	 */
-	int FLOAT = 5;
-
-	/**
 	 * The feature id for the '<em><b>Side</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -624,70 +688,6 @@ public interface BootstrapPackage extends EPackage {
 	 * @ordered
 	 */
 	int FLOAT_OPERATION_COUNT = 0;
-
-	/**
-	 * The meta object id for the '{@link org.nasdanika.vinci.bootstrap.impl.BootstrapElementImpl <em>Element</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapElementImpl
-	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getBootstrapElement()
-	 * @generated
-	 */
-	int BOOTSTRAP_ELEMENT = 6;
-
-	/**
-	 * The feature id for the '<em><b>Title</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BOOTSTRAP_ELEMENT__TITLE = HtmlPackage.HTML_ELEMENT__TITLE;
-
-	/**
-	 * The feature id for the '<em><b>Description</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BOOTSTRAP_ELEMENT__DESCRIPTION = HtmlPackage.HTML_ELEMENT__DESCRIPTION;
-
-	/**
-	 * The feature id for the '<em><b>Appearance</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BOOTSTRAP_ELEMENT__APPEARANCE = HtmlPackage.HTML_ELEMENT_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>Element</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BOOTSTRAP_ELEMENT_FEATURE_COUNT = HtmlPackage.HTML_ELEMENT_FEATURE_COUNT + 1;
-
-	/**
-	 * The operation id for the '<em>As Consumer</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BOOTSTRAP_ELEMENT___AS_CONSUMER__CONTEXT = HtmlPackage.HTML_ELEMENT___AS_CONSUMER__CONTEXT;
-
-	/**
-	 * The number of operations of the '<em>Element</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BOOTSTRAP_ELEMENT_OPERATION_COUNT = HtmlPackage.HTML_ELEMENT_OPERATION_COUNT + 0;
 
 
 	/**
@@ -786,13 +786,13 @@ public interface BootstrapPackage extends EPackage {
 	int TAG_FEATURE_COUNT = HtmlPackage.TAG_FEATURE_COUNT + 1;
 
 	/**
-	 * The operation id for the '<em>As Consumer</em>' operation.
+	 * The operation id for the '<em>As View Builder Supplier</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TAG___AS_CONSUMER__CONTEXT = HtmlPackage.TAG___AS_CONSUMER__CONTEXT;
+	int TAG___AS_VIEW_BUILDER_SUPPLIER__CONTEXT = HtmlPackage.TAG___AS_VIEW_BUILDER_SUPPLIER__CONTEXT;
 
 	/**
 	 * The number of operations of the '<em>Tag</em>' class.
@@ -877,13 +877,13 @@ public interface BootstrapPackage extends EPackage {
 	int CONTENT_TAG_FEATURE_COUNT = HtmlPackage.CONTENT_TAG_FEATURE_COUNT + 1;
 
 	/**
-	 * The operation id for the '<em>As Consumer</em>' operation.
+	 * The operation id for the '<em>As View Builder Supplier</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONTENT_TAG___AS_CONSUMER__CONTEXT = HtmlPackage.CONTENT_TAG___AS_CONSUMER__CONTEXT;
+	int CONTENT_TAG___AS_VIEW_BUILDER_SUPPLIER__CONTEXT = HtmlPackage.CONTENT_TAG___AS_VIEW_BUILDER_SUPPLIER__CONTEXT;
 
 	/**
 	 * The number of operations of the '<em>Content Tag</em>' class.
@@ -950,13 +950,13 @@ public interface BootstrapPackage extends EPackage {
 	int DIV_FEATURE_COUNT = TAG_FEATURE_COUNT + 0;
 
 	/**
-	 * The operation id for the '<em>As Consumer</em>' operation.
+	 * The operation id for the '<em>As View Builder Supplier</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DIV___AS_CONSUMER__CONTEXT = TAG___AS_CONSUMER__CONTEXT;
+	int DIV___AS_VIEW_BUILDER_SUPPLIER__CONTEXT = TAG___AS_VIEW_BUILDER_SUPPLIER__CONTEXT;
 
 	/**
 	 * The number of operations of the '<em>Div</em>' class.
@@ -1447,13 +1447,13 @@ public interface BootstrapPackage extends EPackage {
 	int ACTION_GROUP_FEATURE_COUNT = DIV_FEATURE_COUNT + 2;
 
 	/**
-	 * The operation id for the '<em>As Consumer</em>' operation.
+	 * The operation id for the '<em>As View Builder Supplier</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION_GROUP___AS_CONSUMER__CONTEXT = DIV___AS_CONSUMER__CONTEXT;
+	int ACTION_GROUP___AS_VIEW_BUILDER_SUPPLIER__CONTEXT = DIV___AS_VIEW_BUILDER_SUPPLIER__CONTEXT;
 
 	/**
 	 * The number of operations of the '<em>Action Group</em>' class.
@@ -1519,13 +1519,13 @@ public interface BootstrapPackage extends EPackage {
 	int ALERT_FEATURE_COUNT = DIV_FEATURE_COUNT + 1;
 
 	/**
-	 * The operation id for the '<em>As Consumer</em>' operation.
+	 * The operation id for the '<em>As View Builder Supplier</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ALERT___AS_CONSUMER__CONTEXT = DIV___AS_CONSUMER__CONTEXT;
+	int ALERT___AS_VIEW_BUILDER_SUPPLIER__CONTEXT = DIV___AS_VIEW_BUILDER_SUPPLIER__CONTEXT;
 
 	/**
 	 * The number of operations of the '<em>Alert</em>' class.
@@ -1591,13 +1591,13 @@ public interface BootstrapPackage extends EPackage {
 	int BADGE_FEATURE_COUNT = DIV_FEATURE_COUNT + 1;
 
 	/**
-	 * The operation id for the '<em>As Consumer</em>' operation.
+	 * The operation id for the '<em>As View Builder Supplier</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BADGE___AS_CONSUMER__CONTEXT = DIV___AS_CONSUMER__CONTEXT;
+	int BADGE___AS_VIEW_BUILDER_SUPPLIER__CONTEXT = DIV___AS_VIEW_BUILDER_SUPPLIER__CONTEXT;
 
 	/**
 	 * The number of operations of the '<em>Badge</em>' class.
@@ -1700,13 +1700,13 @@ public interface BootstrapPackage extends EPackage {
 	int BUTTON_FEATURE_COUNT = DIV_FEATURE_COUNT + 2;
 
 	/**
-	 * The operation id for the '<em>As Consumer</em>' operation.
+	 * The operation id for the '<em>As View Builder Supplier</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BUTTON___AS_CONSUMER__CONTEXT = DIV___AS_CONSUMER__CONTEXT;
+	int BUTTON___AS_VIEW_BUILDER_SUPPLIER__CONTEXT = DIV___AS_VIEW_BUILDER_SUPPLIER__CONTEXT;
 
 	/**
 	 * The number of operations of the '<em>Button</em>' class.
@@ -1808,13 +1808,13 @@ public interface BootstrapPackage extends EPackage {
 	int CONTAINER_FEATURE_COUNT = BOOTSTRAP_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
-	 * The operation id for the '<em>As Consumer</em>' operation.
+	 * The operation id for the '<em>As View Builder Supplier</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONTAINER___AS_CONSUMER__CONTEXT = BOOTSTRAP_ELEMENT___AS_CONSUMER__CONTEXT;
+	int CONTAINER___AS_VIEW_BUILDER_SUPPLIER__CONTEXT = BOOTSTRAP_ELEMENT___AS_VIEW_BUILDER_SUPPLIER__CONTEXT;
 
 	/**
 	 * The number of operations of the '<em>Container</em>' class.
@@ -1871,13 +1871,13 @@ public interface BootstrapPackage extends EPackage {
 	int ROW_FEATURE_COUNT = BOOTSTRAP_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
-	 * The operation id for the '<em>As Consumer</em>' operation.
+	 * The operation id for the '<em>As View Builder Supplier</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ROW___AS_CONSUMER__CONTEXT = BOOTSTRAP_ELEMENT___AS_CONSUMER__CONTEXT;
+	int ROW___AS_VIEW_BUILDER_SUPPLIER__CONTEXT = BOOTSTRAP_ELEMENT___AS_VIEW_BUILDER_SUPPLIER__CONTEXT;
 
 	/**
 	 * The number of operations of the '<em>Row</em>' class.
@@ -1998,13 +1998,13 @@ public interface BootstrapPackage extends EPackage {
 	int COLUMN_FEATURE_COUNT = BOOTSTRAP_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
-	 * The operation id for the '<em>As Consumer</em>' operation.
+	 * The operation id for the '<em>As View Builder Supplier</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COLUMN___AS_CONSUMER__CONTEXT = BOOTSTRAP_ELEMENT___AS_CONSUMER__CONTEXT;
+	int COLUMN___AS_VIEW_BUILDER_SUPPLIER__CONTEXT = BOOTSTRAP_ELEMENT___AS_VIEW_BUILDER_SUPPLIER__CONTEXT;
 
 	/**
 	 * The number of operations of the '<em>Column</em>' class.
@@ -2088,13 +2088,13 @@ public interface BootstrapPackage extends EPackage {
 	int CARD_FEATURE_COUNT = DIV_FEATURE_COUNT + 3;
 
 	/**
-	 * The operation id for the '<em>As Consumer</em>' operation.
+	 * The operation id for the '<em>As View Builder Supplier</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CARD___AS_CONSUMER__CONTEXT = DIV___AS_CONSUMER__CONTEXT;
+	int CARD___AS_VIEW_BUILDER_SUPPLIER__CONTEXT = DIV___AS_VIEW_BUILDER_SUPPLIER__CONTEXT;
 
 	/**
 	 * The number of operations of the '<em>Card</em>' class.
@@ -2291,13 +2291,13 @@ public interface BootstrapPackage extends EPackage {
 	int TABLE_ROW_CONTAINER_FEATURE_COUNT = BOOTSTRAP_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
-	 * The operation id for the '<em>As Consumer</em>' operation.
+	 * The operation id for the '<em>As View Builder Supplier</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE_ROW_CONTAINER___AS_CONSUMER__CONTEXT = BOOTSTRAP_ELEMENT___AS_CONSUMER__CONTEXT;
+	int TABLE_ROW_CONTAINER___AS_VIEW_BUILDER_SUPPLIER__CONTEXT = BOOTSTRAP_ELEMENT___AS_VIEW_BUILDER_SUPPLIER__CONTEXT;
 
 	/**
 	 * The number of operations of the '<em>Table Row Container</em>' class.
@@ -2364,13 +2364,13 @@ public interface BootstrapPackage extends EPackage {
 	int TABLE_SECTION_FEATURE_COUNT = TABLE_ROW_CONTAINER_FEATURE_COUNT + 0;
 
 	/**
-	 * The operation id for the '<em>As Consumer</em>' operation.
+	 * The operation id for the '<em>As View Builder Supplier</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE_SECTION___AS_CONSUMER__CONTEXT = TABLE_ROW_CONTAINER___AS_CONSUMER__CONTEXT;
+	int TABLE_SECTION___AS_VIEW_BUILDER_SUPPLIER__CONTEXT = TABLE_ROW_CONTAINER___AS_VIEW_BUILDER_SUPPLIER__CONTEXT;
 
 	/**
 	 * The number of operations of the '<em>Table Section</em>' class.
@@ -2455,13 +2455,13 @@ public interface BootstrapPackage extends EPackage {
 	int TABLE_HEADER_FEATURE_COUNT = TABLE_SECTION_FEATURE_COUNT + 2;
 
 	/**
-	 * The operation id for the '<em>As Consumer</em>' operation.
+	 * The operation id for the '<em>As View Builder Supplier</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE_HEADER___AS_CONSUMER__CONTEXT = TABLE_SECTION___AS_CONSUMER__CONTEXT;
+	int TABLE_HEADER___AS_VIEW_BUILDER_SUPPLIER__CONTEXT = TABLE_SECTION___AS_VIEW_BUILDER_SUPPLIER__CONTEXT;
 
 	/**
 	 * The number of operations of the '<em>Table Header</em>' class.
@@ -2609,13 +2609,13 @@ public interface BootstrapPackage extends EPackage {
 	int TABLE_FEATURE_COUNT = TABLE_ROW_CONTAINER_FEATURE_COUNT + 9;
 
 	/**
-	 * The operation id for the '<em>As Consumer</em>' operation.
+	 * The operation id for the '<em>As View Builder Supplier</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE___AS_CONSUMER__CONTEXT = TABLE_ROW_CONTAINER___AS_CONSUMER__CONTEXT;
+	int TABLE___AS_VIEW_BUILDER_SUPPLIER__CONTEXT = TABLE_ROW_CONTAINER___AS_VIEW_BUILDER_SUPPLIER__CONTEXT;
 
 	/**
 	 * The number of operations of the '<em>Table</em>' class.
@@ -2700,13 +2700,13 @@ public interface BootstrapPackage extends EPackage {
 	int TABLE_ROW_FEATURE_COUNT = BOOTSTRAP_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
-	 * The operation id for the '<em>As Consumer</em>' operation.
+	 * The operation id for the '<em>As View Builder Supplier</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE_ROW___AS_CONSUMER__CONTEXT = BOOTSTRAP_ELEMENT___AS_CONSUMER__CONTEXT;
+	int TABLE_ROW___AS_VIEW_BUILDER_SUPPLIER__CONTEXT = BOOTSTRAP_ELEMENT___AS_VIEW_BUILDER_SUPPLIER__CONTEXT;
 
 	/**
 	 * The number of operations of the '<em>Table Row</em>' class.
@@ -2827,13 +2827,13 @@ public interface BootstrapPackage extends EPackage {
 	int TABLE_CELL_FEATURE_COUNT = HtmlPackage.CONTAINER_FEATURE_COUNT + 8;
 
 	/**
-	 * The operation id for the '<em>As Consumer</em>' operation.
+	 * The operation id for the '<em>As View Builder Supplier</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE_CELL___AS_CONSUMER__CONTEXT = HtmlPackage.CONTAINER_OPERATION_COUNT + 0;
+	int TABLE_CELL___AS_VIEW_BUILDER_SUPPLIER__CONTEXT = HtmlPackage.CONTAINER_OPERATION_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Table Cell</em>' class.

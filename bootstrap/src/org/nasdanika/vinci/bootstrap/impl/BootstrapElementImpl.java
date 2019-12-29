@@ -5,9 +5,10 @@ package org.nasdanika.vinci.bootstrap.impl;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-import org.nasdanika.common.CompoundConsumer;
-import org.nasdanika.common.Consumer;
 import org.nasdanika.common.Context;
+import org.nasdanika.common.ListCompoundSupplier;
+import org.nasdanika.common.Supplier;
+import org.nasdanika.html.app.ViewBuilder;
 import org.nasdanika.vinci.bootstrap.Appearance;
 import org.nasdanika.vinci.bootstrap.BootstrapElement;
 import org.nasdanika.vinci.bootstrap.BootstrapPackage;
@@ -147,14 +148,16 @@ public abstract class BootstrapElementImpl extends HtmlElementImpl implements Bo
 		}
 		return super.eIsSet(featureID);
 	}
-	
+		
 	@Override
-	public Consumer<Object> asConsumer(Context context) throws Exception {
+	public Supplier<ViewBuilder> asViewBuilderSupplier(Context context) throws Exception {
 		Appearance appearance = getAppearance();
 		if (appearance == null) {
-			return super.asConsumer(context);
+			return super.asViewBuilderSupplier(context);
 		}
-		return new CompoundConsumer<Object>(getTitle(), super.asConsumer(context), appearance.create(context));
+		@SuppressWarnings("resource")
+		ListCompoundSupplier<ViewBuilder> viewBuilderSupplier = new ListCompoundSupplier<>(getTitle() + " as View Builder", super.asViewBuilderSupplier(context), appearance.create(context));
+		return viewBuilderSupplier.then(elements -> elements.stream().reduce(ViewBuilder.NOP, (a,b) -> a.compose(b)));
 	}
 
 } //BootstrapElementImpl

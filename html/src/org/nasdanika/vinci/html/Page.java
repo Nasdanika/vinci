@@ -3,8 +3,9 @@
 package org.nasdanika.vinci.html;
 
 import org.eclipse.emf.common.util.EList;
-import org.nasdanika.common.ConsumerFactory;
 import org.nasdanika.common.SupplierFactory;
+import org.nasdanika.html.app.ViewBuilder;
+import org.nasdanika.html.app.ViewPart;
 import org.nasdanika.ncore.NamedElement;
 
 /**
@@ -34,13 +35,13 @@ import org.nasdanika.ncore.NamedElement;
  * </ul>
  *
  * @see org.nasdanika.vinci.html.HtmlPackage#getPage()
- * @model superTypes="org.nasdanika.ncore.NamedElement org.nasdanika.ncore.ISupplierFactory&lt;org.eclipse.emf.ecore.EJavaObject&gt;"
+ * @model superTypes="org.nasdanika.ncore.NamedElement org.nasdanika.ncore.ISupplierFactory&lt;org.nasdanika.vinci.html.ViewPart&gt;"
  * @generated
  */
-public interface Page extends NamedElement, SupplierFactory<Object> {
+public interface Page extends NamedElement, SupplierFactory<ViewPart> {
 	/**
 	 * Returns the value of the '<em><b>Head</b></em>' containment reference list.
-	 * The list contents are of type {@link org.nasdanika.common.SupplierFactory}<code>&lt;java.lang.Object&gt;</code>.
+	 * The list contents are of type {@link org.nasdanika.common.SupplierFactory}<code>&lt;org.nasdanika.html.app.ViewPart&gt;</code>.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
@@ -48,14 +49,14 @@ public interface Page extends NamedElement, SupplierFactory<Object> {
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Head</em>' containment reference list.
 	 * @see org.nasdanika.vinci.html.HtmlPackage#getPage_Head()
-	 * @model type="org.nasdanika.ncore.ISupplierFactory&lt;org.eclipse.emf.ecore.EJavaObject&gt;" containment="true"
+	 * @model type="org.nasdanika.ncore.ISupplierFactory&lt;org.nasdanika.vinci.html.ViewPart&gt;" containment="true"
 	 * @generated
 	 */
-	EList<SupplierFactory<Object>> getHead();
+	EList<SupplierFactory<ViewPart>> getHead();
 
 	/**
 	 * Returns the value of the '<em><b>Body</b></em>' containment reference list.
-	 * The list contents are of type {@link org.nasdanika.common.SupplierFactory}<code>&lt;java.lang.Object&gt;</code>.
+	 * The list contents are of type {@link org.nasdanika.common.SupplierFactory}<code>&lt;org.nasdanika.html.app.ViewPart&gt;</code>.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
@@ -63,14 +64,14 @@ public interface Page extends NamedElement, SupplierFactory<Object> {
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Body</em>' containment reference list.
 	 * @see org.nasdanika.vinci.html.HtmlPackage#getPage_Body()
-	 * @model type="org.nasdanika.ncore.ISupplierFactory&lt;org.eclipse.emf.ecore.EJavaObject&gt;" containment="true"
+	 * @model type="org.nasdanika.ncore.ISupplierFactory&lt;org.nasdanika.vinci.html.ViewPart&gt;" containment="true"
 	 * @generated
 	 */
-	EList<SupplierFactory<Object>> getBody();
+	EList<SupplierFactory<ViewPart>> getBody();
 
 	/**
 	 * Returns the value of the '<em><b>Builders</b></em>' containment reference list.
-	 * The list contents are of type {@link org.nasdanika.common.ConsumerFactory}<code>&lt;java.lang.Object&gt;</code>.
+	 * The list contents are of type {@link org.nasdanika.common.SupplierFactory}<code>&lt;org.nasdanika.html.app.ViewBuilder&gt;</code>.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
@@ -78,10 +79,10 @@ public interface Page extends NamedElement, SupplierFactory<Object> {
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Builders</em>' containment reference list.
 	 * @see org.nasdanika.vinci.html.HtmlPackage#getPage_Builders()
-	 * @model type="org.nasdanika.ncore.IConsumerFactory&lt;org.eclipse.emf.ecore.EJavaObject&gt;" containment="true"
+	 * @model type="org.nasdanika.ncore.ISupplierFactory&lt;org.nasdanika.vinci.html.ViewBuilder&gt;" containment="true"
 	 * @generated
 	 */
-	EList<ConsumerFactory<Object>> getBuilders();
+	EList<SupplierFactory<ViewBuilder>> getBuilders();
 
 	/**
 	 * Returns the value of the '<em><b>Language</b></em>' attribute.

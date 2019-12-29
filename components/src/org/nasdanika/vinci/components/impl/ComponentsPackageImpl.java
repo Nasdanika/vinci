@@ -9,6 +9,7 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 import org.nasdanika.ncore.NcorePackage;
+import org.nasdanika.vinci.app.AppPackage;
 import org.nasdanika.vinci.bootstrap.BootstrapPackage;
 import org.nasdanika.vinci.components.ActionLink;
 import org.nasdanika.vinci.components.ComponentsFactory;
@@ -101,6 +102,7 @@ public class ComponentsPackageImpl extends EPackageImpl implements ComponentsPac
 		isInited = true;
 
 		// Initialize simple dependencies
+		AppPackage.eINSTANCE.eClass();
 		BootstrapPackage.eINSTANCE.eClass();
 		HtmlPackage.eINSTANCE.eClass();
 		NcorePackage.eINSTANCE.eClass();
@@ -215,6 +217,16 @@ public class ComponentsPackageImpl extends EPackageImpl implements ComponentsPac
 	 * @generated
 	 */
 	@Override
+	public EReference getActionLink_Target() {
+		return (EReference)actionLinkEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public ComponentsFactory getComponentsFactory() {
 		return (ComponentsFactory)getEFactoryInstance();
 	}
@@ -250,6 +262,7 @@ public class ComponentsPackageImpl extends EPackageImpl implements ComponentsPac
 		createEAttribute(markdownResourceEClass, MARKDOWN_RESOURCE__LOCATION);
 
 		actionLinkEClass = createEClass(ACTION_LINK);
+		createEReference(actionLinkEClass, ACTION_LINK__TARGET);
 	}
 
 	/**
@@ -278,6 +291,7 @@ public class ComponentsPackageImpl extends EPackageImpl implements ComponentsPac
 		// Obtain other dependent packages
 		NcorePackage theNcorePackage = (NcorePackage)EPackage.Registry.INSTANCE.getEPackage(NcorePackage.eNS_URI);
 		BootstrapPackage theBootstrapPackage = (BootstrapPackage)EPackage.Registry.INSTANCE.getEPackage(BootstrapPackage.eNS_URI);
+		AppPackage theAppPackage = (AppPackage)EPackage.Registry.INSTANCE.getEPackage(AppPackage.eNS_URI);
 
 		// Create type parameters
 
@@ -311,7 +325,8 @@ public class ComponentsPackageImpl extends EPackageImpl implements ComponentsPac
 		initEClass(markdownResourceEClass, MarkdownResource.class, "MarkdownResource", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getMarkdownResource_Location(), ecorePackage.getEString(), "location", null, 1, 1, MarkdownResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(actionLinkEClass, ActionLink.class, "ActionLink", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(actionLinkEClass, ActionLink.class, "ActionLink", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getActionLink_Target(), theAppPackage.getAbstractAction(), null, "target", null, 1, 1, ActionLink.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

@@ -4,8 +4,11 @@ package org.nasdanika.vinci.html.impl;
 
 import org.eclipse.emf.ecore.EClass;
 import org.nasdanika.common.Context;
+import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.common.Supplier;
 import org.nasdanika.html.HTMLFactory;
+import org.nasdanika.html.app.ViewGenerator;
+import org.nasdanika.html.app.ViewPart;
 import org.nasdanika.vinci.html.HtmlPackage;
 import org.nasdanika.vinci.html.Tag;
 
@@ -130,10 +133,18 @@ public class TagImpl extends HtmlElementImpl implements Tag {
 		}
 		return super.eIsSet(featureID);
 	}
-
+	
 	@Override
-	public Supplier<Object> create(Context context) throws Exception {
-		return Supplier.fromSupplier(() -> context.get(HTMLFactory.class, HTMLFactory.INSTANCE).tag(getName()), getTitle(), 1);
+	public Supplier<ViewPart> create(Context arg) throws Exception {
+		ViewPart tagViewPart = new ViewPart() {
+
+			@Override
+			public Object generate(ViewGenerator viewGenerator, ProgressMonitor progressMonitor) {
+				return viewGenerator.get(HTMLFactory.class, HTMLFactory.INSTANCE).tag(getName());
+			}
+			
+		};
+		return Supplier.from(tagViewPart, getTitle());
 	}
 
 } //TagImpl

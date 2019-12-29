@@ -4,7 +4,7 @@
     modelName="Components" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     importerID="org.eclipse.emf.importer.ecore" featureDelegation="Dynamic" complianceLevel="8.0"
     copyrightFields="false" providerRootExtendsClass="org.nasdanika.emf.edit.NasdanikaItemProviderAdapter"
-    usedGenPackages="../../org.nasdanika.vinci.bootstrap/model/bootstrap.genmodel#//bootstrap ../../org.nasdanika.vinci.html/model/html.genmodel#//html ../../org.nasdanika.ncore/model/ncore.genmodel#//ncore"
+    usedGenPackages="../../org.nasdanika.vinci.app/model/app.genmodel#//app ../../org.nasdanika.vinci.bootstrap/model/bootstrap.genmodel#//bootstrap ../../org.nasdanika.vinci.html/model/html.genmodel#//html ../../org.nasdanika.ncore/model/ncore.genmodel#//ncore"
     operationReflection="true" importOrganizing="true">
   <foreignModel>components.ecore</foreignModel>
   <genPackages prefix="Components" basePackage="org.nasdanika.vinci" disposableProviderFactory="true"
@@ -20,6 +20,8 @@
     <genClasses ecoreClass="components.ecore#//MarkdownResource">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute components.ecore#//MarkdownResource/location"/>
     </genClasses>
-    <genClasses image="false" ecoreClass="components.ecore#//ActionLink"/>
+    <genClasses image="false" ecoreClass="components.ecore#//ActionLink">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference components.ecore#//ActionLink/target"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>

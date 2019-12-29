@@ -17,6 +17,7 @@ import org.nasdanika.ncore.NcorePackage;
 import org.nasdanika.vinci.bootstrap.BootstrapFactory;
 import org.nasdanika.vinci.bootstrap.BootstrapPackage;
 import org.nasdanika.vinci.bootstrap.TableCell;
+import org.nasdanika.vinci.html.HtmlPackage;
 import org.nasdanika.vinci.html.provider.ContainerItemProvider;
 
 /**
@@ -312,6 +313,29 @@ public class TableCellItemProvider extends ContainerItemProvider {
 			(createChildParameter
 				(BootstrapPackage.Literals.BOOTSTRAP_ELEMENT__APPEARANCE,
 				 BootstrapFactory.eINSTANCE.createAppearance()));
+	}
+
+	/**
+	 * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getCreateChildText(Object owner, Object feature, Object child, Collection<?> selection) {
+		Object childFeature = feature;
+		Object childObject = child;
+
+		boolean qualify =
+			childFeature == HtmlPackage.Literals.CONTAINER__CONTENT ||
+			childFeature == BootstrapPackage.Literals.BOOTSTRAP_ELEMENT__APPEARANCE;
+
+		if (qualify) {
+			return getString
+				("_UI_CreateChild_text2",
+				 new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
+		}
+		return super.getCreateChildText(owner, feature, child, selection);
 	}
 
 	/**

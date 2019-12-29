@@ -10,12 +10,12 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 
 import org.nasdanika.ncore.provider.ModelElementItemProvider;
 
 import org.nasdanika.vinci.components.ActionLink;
+import org.nasdanika.vinci.components.ComponentsPackage;
 
 /**
  * This is the item provider adapter for a {@link org.nasdanika.vinci.components.ActionLink} object.
@@ -45,8 +45,30 @@ public class ActionLinkItemProvider extends ModelElementItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addTargetPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Target feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	protected void addTargetPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor(
+				 getResourceLocator(),
+				 getString("_UI_ActionLink_target_feature"),
+				 ComponentsPackage.Literals.ACTION_LINK__TARGET,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**

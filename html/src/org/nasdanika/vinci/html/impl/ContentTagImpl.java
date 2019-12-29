@@ -10,9 +10,12 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.nasdanika.common.Context;
+import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.common.StringMapCompoundSupplier;
 import org.nasdanika.common.Supplier;
 import org.nasdanika.common.SupplierFactory;
+import org.nasdanika.html.app.ViewGenerator;
+import org.nasdanika.html.app.ViewPart;
 import org.nasdanika.vinci.html.ContentTag;
 import org.nasdanika.vinci.html.HtmlPackage;
 
@@ -67,8 +70,8 @@ public class ContentTagImpl extends TagImpl implements ContentTag {
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public EList<SupplierFactory<Object>> getContent() {
-		return (EList<SupplierFactory<Object>>)eDynamicGet(HtmlPackage.CONTENT_TAG__CONTENT, HtmlPackage.Literals.CONTAINER__CONTENT, true, true);
+	public EList<SupplierFactory<ViewPart>> getContent() {
+		return (EList<SupplierFactory<ViewPart>>)eDynamicGet(HtmlPackage.CONTENT_TAG__CONTENT, HtmlPackage.Literals.CONTAINER__CONTENT, true, true);
 	}
 
 	/**
@@ -132,7 +135,7 @@ public class ContentTagImpl extends TagImpl implements ContentTag {
 		switch (featureID) {
 			case HtmlPackage.CONTENT_TAG__CONTENT:
 				getContent().clear();
-				getContent().addAll((Collection<? extends SupplierFactory<Object>>)newValue);
+				getContent().addAll((Collection<? extends SupplierFactory<ViewPart>>)newValue);
 				return;
 			case HtmlPackage.CONTENT_TAG__MARKDOWN_CONTENT:
 				setMarkdownContent((String)newValue);
@@ -208,21 +211,29 @@ public class ContentTagImpl extends TagImpl implements ContentTag {
 		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
-	
+
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Override
-	public Supplier<Object> create(Context context) throws Exception {
-		Supplier<Object> tagSupplier = super.create(context);
+	public Supplier<ViewPart> create(Context context) throws Exception {
 		@SuppressWarnings("resource")
-		StringMapCompoundSupplier<Object> mapSupplier = new StringMapCompoundSupplier<>("Parts");
-		mapSupplier.put("Tag", tagSupplier);
+		StringMapCompoundSupplier<Object> mapSupplier = new StringMapCompoundSupplier<>(getTitle());
+		
+		Supplier<ViewPart> tagViewPartSupplier = super.create(context);
+		mapSupplier.put("Tag", (Supplier) tagViewPartSupplier);		
 		mapSupplier.put((Supplier) createContentSupplierFactory().create(context));
 		return mapSupplier.then(map -> {
-			org.nasdanika.html.Tag tag = (org.nasdanika.html.Tag) map.get("Tag");
-			for (Object c: ((Collection<Object>) map.get("Content"))) {
-				tag.accept(c);
-			}
-			return tag;
+			return new ViewPart() {
+
+				@Override
+				public Object generate(ViewGenerator viewGenerator, ProgressMonitor progressMonitor) {
+					org.nasdanika.html.Tag tag = (org.nasdanika.html.Tag) ((ViewPart) map.get("Tag")).generate(viewGenerator, progressMonitor);
+					for (ViewPart viewPart: ((Collection<ViewPart>) map.get("Content"))) {
+						tag.accept(viewGenerator.processViewPart(viewPart, progressMonitor));
+					}
+					return tag;
+				}
+				
+			};
 		});
 	}
 

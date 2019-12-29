@@ -3,6 +3,7 @@
 package org.nasdanika.vinci.bootstrap;
 
 import org.nasdanika.common.SupplierFactory;
+import org.nasdanika.html.app.ViewPart;
 
 /**
  * <!-- begin-user-doc -->
@@ -29,10 +30,10 @@ import org.nasdanika.common.SupplierFactory;
  * </ul>
  *
  * @see org.nasdanika.vinci.bootstrap.BootstrapPackage#getTable()
- * @model superTypes="org.nasdanika.vinci.bootstrap.TableRowContainer org.nasdanika.ncore.ISupplierFactory&lt;org.eclipse.emf.ecore.EJavaObject&gt;"
+ * @model superTypes="org.nasdanika.vinci.bootstrap.TableRowContainer org.nasdanika.ncore.ISupplierFactory&lt;org.nasdanika.vinci.html.ViewPart&gt;"
  * @generated
  */
-public interface Table extends TableRowContainer, SupplierFactory<Object> {
+public interface Table extends TableRowContainer, SupplierFactory<ViewPart> {
 
 	/**
 	 * Returns the value of the '<em><b>Header</b></em>' containment reference.

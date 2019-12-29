@@ -11,10 +11,10 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.InternalEList;
-import org.nasdanika.common.ConsumerFactory;
 import org.nasdanika.common.Context;
 import org.nasdanika.common.Function;
 import org.nasdanika.common.ListCompoundSupplier;
+import org.nasdanika.common.ListCompoundSupplierFactory;
 import org.nasdanika.common.MarkdownHelper;
 import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.common.StringMapCompoundSupplier;
@@ -23,6 +23,9 @@ import org.nasdanika.common.SupplierFactory;
 import org.nasdanika.common.Util;
 import org.nasdanika.html.HTMLFactory;
 import org.nasdanika.html.HTMLPage;
+import org.nasdanika.html.app.ViewBuilder;
+import org.nasdanika.html.app.ViewGenerator;
+import org.nasdanika.html.app.ViewPart;
 import org.nasdanika.html.fontawesome.FontAwesomeFactory;
 import org.nasdanika.html.jstree.JsTreeFactory;
 import org.nasdanika.ncore.impl.NamedElementImpl;
@@ -117,8 +120,8 @@ public class PageImpl extends NamedElementImpl implements Page {
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public EList<SupplierFactory<Object>> getHead() {
-		return (EList<SupplierFactory<Object>>)eDynamicGet(HtmlPackage.PAGE__HEAD, HtmlPackage.Literals.PAGE__HEAD, true, true);
+	public EList<SupplierFactory<ViewPart>> getHead() {
+		return (EList<SupplierFactory<ViewPart>>)eDynamicGet(HtmlPackage.PAGE__HEAD, HtmlPackage.Literals.PAGE__HEAD, true, true);
 	}
 
 	/**
@@ -128,8 +131,8 @@ public class PageImpl extends NamedElementImpl implements Page {
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public EList<SupplierFactory<Object>> getBody() {
-		return (EList<SupplierFactory<Object>>)eDynamicGet(HtmlPackage.PAGE__BODY, HtmlPackage.Literals.PAGE__BODY, true, true);
+	public EList<SupplierFactory<ViewPart>> getBody() {
+		return (EList<SupplierFactory<ViewPart>>)eDynamicGet(HtmlPackage.PAGE__BODY, HtmlPackage.Literals.PAGE__BODY, true, true);
 	}
 
 	/**
@@ -139,8 +142,8 @@ public class PageImpl extends NamedElementImpl implements Page {
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public EList<ConsumerFactory<Object>> getBuilders() {
-		return (EList<ConsumerFactory<Object>>)eDynamicGet(HtmlPackage.PAGE__BUILDERS, HtmlPackage.Literals.PAGE__BUILDERS, true, true);
+	public EList<SupplierFactory<ViewBuilder>> getBuilders() {
+		return (EList<SupplierFactory<ViewBuilder>>)eDynamicGet(HtmlPackage.PAGE__BUILDERS, HtmlPackage.Literals.PAGE__BUILDERS, true, true);
 	}
 
 	/**
@@ -304,15 +307,15 @@ public class PageImpl extends NamedElementImpl implements Page {
 		switch (featureID) {
 			case HtmlPackage.PAGE__HEAD:
 				getHead().clear();
-				getHead().addAll((Collection<? extends SupplierFactory<Object>>)newValue);
+				getHead().addAll((Collection<? extends SupplierFactory<ViewPart>>)newValue);
 				return;
 			case HtmlPackage.PAGE__BODY:
 				getBody().clear();
-				getBody().addAll((Collection<? extends SupplierFactory<Object>>)newValue);
+				getBody().addAll((Collection<? extends SupplierFactory<ViewPart>>)newValue);
 				return;
 			case HtmlPackage.PAGE__BUILDERS:
 				getBuilders().clear();
-				getBuilders().addAll((Collection<? extends ConsumerFactory<Object>>)newValue);
+				getBuilders().addAll((Collection<? extends SupplierFactory<ViewBuilder>>)newValue);
 				return;
 			case HtmlPackage.PAGE__LANGUAGE:
 				setLanguage((String)newValue);
@@ -407,18 +410,18 @@ public class PageImpl extends NamedElementImpl implements Page {
 		return super.eIsSet(featureID);
 	}
 		
-	protected Supplier<List<Object>> createHeadSupplier(Context context) throws Exception {
-		ListCompoundSupplier<Object> ret = new ListCompoundSupplier<Object>("Head");		
-		for (SupplierFactory<Object> ce: getHead()) {
+	protected Supplier<List<ViewPart>> createHeadSupplier(Context context) throws Exception {
+		ListCompoundSupplier<ViewPart> ret = new ListCompoundSupplier<>("Head");		
+		for (SupplierFactory<ViewPart> ce: getHead()) {
 			ret.add(ce.create(context));
 		}
 		
 		return ret;
 	}
 	
-	protected Supplier<List<Object>> createBodySupplier(Context context) throws Exception {
-		ListCompoundSupplier<Object> ret = new ListCompoundSupplier<Object>("Body");		
-		for (SupplierFactory<Object> ce: getBody()) {
+	protected Supplier<List<ViewPart>> createBodySupplier(Context context) throws Exception {
+		ListCompoundSupplier<ViewPart> ret = new ListCompoundSupplier<>("Body");		
+		for (SupplierFactory<ViewPart> ce: getBody()) {
 			ret.add(ce.create(context));
 		}
 		
@@ -430,18 +433,19 @@ public class PageImpl extends NamedElementImpl implements Page {
 	 * @param context
 	 * @return
 	 */
-	protected HTMLPage createPage(Context context) {
-		return context.get(HTMLFactory.class, HTMLFactory.INSTANCE).page();
+	protected HTMLPage createPage(ViewGenerator viewGenerator) {
+		return viewGenerator.get(HTMLFactory.class).page();
 	}
 	
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
-	public Supplier<Object> create(Context context) throws Exception {
+	public Supplier<ViewPart> create(Context context) throws Exception {
 		@SuppressWarnings("resource")
-		StringMapCompoundSupplier<List<Object>> partsSupplier = new StringMapCompoundSupplier<>(getTitle());
+		StringMapCompoundSupplier<List<ViewPart>> partsSupplier = new StringMapCompoundSupplier<>(getTitle());
 		partsSupplier.put(createHeadSupplier(context));
 		partsSupplier.put(createBodySupplier(context));
 
-		Function<Map<String,List<Object>>,Object> pageBuilder = new Function<Map<String,List<Object>>,Object>() {
+		Function<Map<String,List<ViewPart>>,ViewPart> pageBuilder = new Function<Map<String,List<ViewPart>>,ViewPart>() {
 
 			@Override
 			public double size() {
@@ -454,57 +458,76 @@ public class PageImpl extends NamedElementImpl implements Page {
 			}
 
 			@Override
-			public Object execute(Map<String, List<Object>> arg, ProgressMonitor progressMonitor) throws Exception {
-				HTMLPage page = createPage(context);
-				
-				for (Object c: arg.get("Head")) {
-					page.head(c);
-				}
-				
-				for (Object c: arg.get("Body")) {
-					page.body(c);
-				}
-				
-				for (String script: getScripts()) {
-					if (!Util.isBlank(script)) {
-						page.script(context.interpolate(script));						
-					}
-				}
+			public ViewPart execute(Map<String, List<ViewPart>> arg, ProgressMonitor progressMonitor) throws Exception {
+				return new ViewPart() {
 
-				for (String stylesheet: getStylesheets()) {
-					if (!Util.isBlank(stylesheet)) {
-						page.stylesheet(context.interpolate(stylesheet));						
-					}
-				}
+					@Override
+					public Object generate(ViewGenerator viewGenerator, ProgressMonitor progressMonitor) {						
+						HTMLPage page = createPage(viewGenerator);
+						
+						for (Object c: arg.get("Head")) {
+							page.head(viewGenerator.processViewPart(c, progressMonitor));
+						}
+						
+						for (Object c: arg.get("Body")) {
+							page.body(viewGenerator.processViewPart(c, progressMonitor));
+						}
+						
+						for (String script: getScripts()) {
+							if (!Util.isBlank(script)) {
+								page.script(context.interpolate(script));						
+							}
+						}
 
-				String name = context.interpolate(PageImpl.this.getName());
-				if (!Util.isBlank(name)) {
-					page.title(name);
-				}
-				
-				if (isFontAwesome()) {
-					context.get(FontAwesomeFactory.class, FontAwesomeFactory.INSTANCE).cdn(page);
-				}
-				
-				if (isJsTree()) {
-					context.get(JsTreeFactory.class, JsTreeFactory.INSTANCE).cdn(page);
-				}
-				
-				if (isGithubMarkdownCss()) {
-					page.stylesheet(MarkdownHelper.GITHUB_MARKDOWN_CSS_CDN);
-				}
-				
-				return page;
+						for (String stylesheet: getStylesheets()) {
+							if (!Util.isBlank(stylesheet)) {
+								page.stylesheet(context.interpolate(stylesheet));						
+							}
+						}
+
+						String name = context.interpolate(PageImpl.this.getName());
+						if (!Util.isBlank(name)) {
+							page.title(name);
+						}
+						
+						if (isFontAwesome()) {
+							context.get(FontAwesomeFactory.class, FontAwesomeFactory.INSTANCE).cdn(page);
+						}
+						
+						if (isJsTree()) {
+							context.get(JsTreeFactory.class, JsTreeFactory.INSTANCE).cdn(page);
+						}
+						
+						if (isGithubMarkdownCss()) {
+							page.stylesheet(MarkdownHelper.GITHUB_MARKDOWN_CSS_CDN);
+						}
+						
+						return page;
+					}
+					
+				};
 			}
 		}; 
 		
-		Supplier<Object> ret = partsSupplier.then(pageBuilder);
+		StringMapCompoundSupplier<Object> combiner = new StringMapCompoundSupplier<Object>(getTitle());		
+		Supplier<ViewPart> pageSupplier = partsSupplier.then(pageBuilder);
+		combiner.put("Page", (Supplier) pageSupplier);
 		
-		for (ConsumerFactory<Object> builder: getBuilders()) {
-			ret = ret.then(builder.create(context).asFunction());
-		}
-				
-		return ret;
+		Supplier<List<ViewBuilder>> buildersSupplier = new ListCompoundSupplierFactory<ViewBuilder>("Builders", getBuilders()).create(context);
+		combiner.put("Builders", (Supplier) buildersSupplier);
+		
+		return combiner.then(map -> new ViewPart() {
+
+			@Override
+			public Object generate(ViewGenerator viewGenerator, ProgressMonitor progressMonitor) {
+				Object page = ((ViewPart) map.get("Page")).generate(viewGenerator, progressMonitor);
+				for (ViewBuilder builder: (List<ViewBuilder>) map.get("Builders")) {
+					builder.build(pageSupplier, viewGenerator, progressMonitor);
+				}
+				return page;
+			}
+			
+		});
 	}
 
 } //PageImpl

@@ -2,7 +2,8 @@
  */
 package org.nasdanika.vinci.bootstrap;
 
-import org.nasdanika.common.ConsumerFactory;
+import org.nasdanika.common.SupplierFactory;
+import org.nasdanika.html.app.ViewBuilder;
 import org.nasdanika.vinci.html.Container;
 
 /**
@@ -22,10 +23,10 @@ import org.nasdanika.vinci.html.Container;
  * </ul>
  *
  * @see org.nasdanika.vinci.bootstrap.BootstrapPackage#getTableCell()
- * @model superTypes="org.nasdanika.vinci.html.Container org.nasdanika.vinci.bootstrap.BootstrapElement org.nasdanika.ncore.IConsumerFactory&lt;org.eclipse.emf.ecore.EJavaObject&gt;"
+ * @model superTypes="org.nasdanika.vinci.html.Container org.nasdanika.vinci.bootstrap.BootstrapElement org.nasdanika.ncore.ISupplierFactory&lt;org.nasdanika.vinci.html.ViewBuilder&gt;"
  * @generated
  */
-public interface TableCell extends Container, BootstrapElement, ConsumerFactory<Object> {
+public interface TableCell extends Container, BootstrapElement, SupplierFactory<ViewBuilder> {
 	/**
 	 * Returns the value of the '<em><b>Header</b></em>' attribute.
 	 * <!-- begin-user-doc -->

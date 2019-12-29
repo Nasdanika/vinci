@@ -12,12 +12,9 @@ Export-Package: org.nasdanika.vinci.html,
  org.nasdanika.vinci.html.util
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
- org.nasdanika.common;bundle-version="1.0.0";visibility:=reexport,
  org.nasdanika.emf;bundle-version="1.0.0";visibility:=reexport,
  org.nasdanika.ncore;bundle-version="0.1.0";visibility:=reexport,
- org.nasdanika.html;bundle-version="2.0.0";visibility:=reexport,
- org.nasdanika.html.fontawesome;bundle-version="2.0.0",
- org.nasdanika.html.jstree;bundle-version="2.0.0"
+ org.nasdanika.html.app;bundle-version="2.0.0";visibility:=reexport
 Bundle-ActivationPolicy: lazy
 Automatic-Module-Name: org.nasdanika.vinci.html
 Bundle-Activator: org.nasdanika.vinci.html.util.Activator

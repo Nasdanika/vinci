@@ -1627,6 +1627,9 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 		isCreated = true;
 
 		// Create classes and their features
+		bootstrapElementEClass = createEClass(BOOTSTRAP_ELEMENT);
+		createEReference(bootstrapElementEClass, BOOTSTRAP_ELEMENT__APPEARANCE);
+
 		bootstrapPageEClass = createEClass(BOOTSTRAP_PAGE);
 		createEAttribute(bootstrapPageEClass, BOOTSTRAP_PAGE__CDN);
 		createEAttribute(bootstrapPageEClass, BOOTSTRAP_PAGE__THEME);
@@ -1670,9 +1673,6 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 		floatEClass = createEClass(FLOAT);
 		createEAttribute(floatEClass, FLOAT__SIDE);
 		createEAttribute(floatEClass, FLOAT__BREAKPOINT);
-
-		bootstrapElementEClass = createEClass(BOOTSTRAP_ELEMENT);
-		createEReference(bootstrapElementEClass, BOOTSTRAP_ELEMENT__APPEARANCE);
 
 		tagEClass = createEClass(TAG);
 
@@ -1819,12 +1819,12 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
+		bootstrapElementEClass.getESuperTypes().add(theHtmlPackage.getHtmlElement());
 		bootstrapPageEClass.getESuperTypes().add(theHtmlPackage.getPage());
-		EGenericType g1 = createEGenericType(theNcorePackage.getIConsumerFactory());
-		EGenericType g2 = createEGenericType(ecorePackage.getEJavaObject());
+		EGenericType g1 = createEGenericType(theNcorePackage.getISupplierFactory());
+		EGenericType g2 = createEGenericType(theHtmlPackage.getViewBuilder());
 		g1.getETypeArguments().add(g2);
 		appearanceEClass.getEGenericSuperTypes().add(g1);
-		bootstrapElementEClass.getESuperTypes().add(theHtmlPackage.getHtmlElement());
 		tagEClass.getESuperTypes().add(theHtmlPackage.getTag());
 		tagEClass.getESuperTypes().add(this.getBootstrapElement());
 		contentTagEClass.getESuperTypes().add(theHtmlPackage.getContentTag());
@@ -1833,8 +1833,8 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 		itemEClass.getESuperTypes().add(theNcorePackage.getModelElement());
 		g1 = createEGenericType(this.getItem());
 		actionGroupItemEClass.getEGenericSuperTypes().add(g1);
-		g1 = createEGenericType(theNcorePackage.getIConsumerFactory());
-		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1 = createEGenericType(theNcorePackage.getISupplierFactory());
+		g2 = createEGenericType(theHtmlPackage.getViewBuilder());
 		g1.getETypeArguments().add(g2);
 		actionGroupItemEClass.getEGenericSuperTypes().add(g1);
 		linkActionGroupItemEClass.getESuperTypes().add(this.getActionGroupItem());
@@ -1847,54 +1847,57 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 		g1 = createEGenericType(this.getBootstrapElement());
 		containerEClass.getEGenericSuperTypes().add(g1);
 		g1 = createEGenericType(theNcorePackage.getISupplierFactory());
-		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g2 = createEGenericType(theHtmlPackage.getViewPart());
 		g1.getETypeArguments().add(g2);
 		containerEClass.getEGenericSuperTypes().add(g1);
 		g1 = createEGenericType(this.getBootstrapElement());
 		rowEClass.getEGenericSuperTypes().add(g1);
-		g1 = createEGenericType(theNcorePackage.getIConsumerFactory());
-		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1 = createEGenericType(theNcorePackage.getISupplierFactory());
+		g2 = createEGenericType(theHtmlPackage.getViewBuilder());
 		g1.getETypeArguments().add(g2);
 		rowEClass.getEGenericSuperTypes().add(g1);
 		g1 = createEGenericType(this.getBootstrapElement());
 		columnEClass.getEGenericSuperTypes().add(g1);
 		g1 = createEGenericType(theHtmlPackage.getContainer());
 		columnEClass.getEGenericSuperTypes().add(g1);
-		g1 = createEGenericType(theNcorePackage.getIConsumerFactory());
-		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1 = createEGenericType(theNcorePackage.getISupplierFactory());
+		g2 = createEGenericType(theHtmlPackage.getViewBuilder());
 		g1.getETypeArguments().add(g2);
 		columnEClass.getEGenericSuperTypes().add(g1);
 		cardEClass.getESuperTypes().add(this.getDiv());
 		tableRowContainerEClass.getESuperTypes().add(this.getBootstrapElement());
 		g1 = createEGenericType(this.getTableRowContainer());
 		tableSectionEClass.getEGenericSuperTypes().add(g1);
-		g1 = createEGenericType(theNcorePackage.getIConsumerFactory());
-		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1 = createEGenericType(theNcorePackage.getISupplierFactory());
+		g2 = createEGenericType(theHtmlPackage.getViewBuilder());
 		g1.getETypeArguments().add(g2);
 		tableSectionEClass.getEGenericSuperTypes().add(g1);
 		tableHeaderEClass.getESuperTypes().add(this.getTableSection());
 		g1 = createEGenericType(this.getTableRowContainer());
 		tableEClass.getEGenericSuperTypes().add(g1);
 		g1 = createEGenericType(theNcorePackage.getISupplierFactory());
-		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g2 = createEGenericType(theHtmlPackage.getViewPart());
 		g1.getETypeArguments().add(g2);
 		tableEClass.getEGenericSuperTypes().add(g1);
 		g1 = createEGenericType(this.getBootstrapElement());
 		tableRowEClass.getEGenericSuperTypes().add(g1);
-		g1 = createEGenericType(theNcorePackage.getIConsumerFactory());
-		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1 = createEGenericType(theNcorePackage.getISupplierFactory());
+		g2 = createEGenericType(theHtmlPackage.getViewBuilder());
 		g1.getETypeArguments().add(g2);
 		tableRowEClass.getEGenericSuperTypes().add(g1);
 		g1 = createEGenericType(theHtmlPackage.getContainer());
 		tableCellEClass.getEGenericSuperTypes().add(g1);
 		g1 = createEGenericType(this.getBootstrapElement());
 		tableCellEClass.getEGenericSuperTypes().add(g1);
-		g1 = createEGenericType(theNcorePackage.getIConsumerFactory());
-		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1 = createEGenericType(theNcorePackage.getISupplierFactory());
+		g2 = createEGenericType(theHtmlPackage.getViewBuilder());
 		g1.getETypeArguments().add(g2);
 		tableCellEClass.getEGenericSuperTypes().add(g1);
 
 		// Initialize classes, features, and operations; add parameters
+		initEClass(bootstrapElementEClass, BootstrapElement.class, "BootstrapElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getBootstrapElement_Appearance(), this.getAppearance(), null, "appearance", null, 0, 1, BootstrapElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		initEClass(bootstrapPageEClass, BootstrapPage.class, "BootstrapPage", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getBootstrapPage_Cdn(), ecorePackage.getEBoolean(), "cdn", "true", 0, 1, BootstrapPage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getBootstrapPage_Theme(), ecorePackage.getEString(), "theme", null, 0, 1, BootstrapPage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1938,9 +1941,6 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 		initEClass(floatEClass, org.nasdanika.vinci.bootstrap.Float.class, "Float", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getFloat_Side(), ecorePackage.getEString(), "side", null, 1, 1, org.nasdanika.vinci.bootstrap.Float.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getFloat_Breakpoint(), ecorePackage.getEString(), "breakpoint", null, 0, 1, org.nasdanika.vinci.bootstrap.Float.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(bootstrapElementEClass, BootstrapElement.class, "BootstrapElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getBootstrapElement_Appearance(), this.getAppearance(), null, "appearance", null, 0, 1, BootstrapElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(tagEClass, Tag.class, "Tag", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

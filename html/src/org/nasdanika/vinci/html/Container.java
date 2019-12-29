@@ -10,6 +10,7 @@ import org.nasdanika.common.ListCompoundSupplierFactory;
 import org.nasdanika.common.MarkdownHelper;
 import org.nasdanika.common.SupplierFactory;
 import org.nasdanika.common.Util;
+import org.nasdanika.html.app.ViewPart;
 
 /**
  * <!-- begin-user-doc -->
@@ -35,15 +36,15 @@ import org.nasdanika.common.Util;
 public interface Container extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Content</b></em>' containment reference list.
-	 * The list contents are of type {@link org.nasdanika.common.SupplierFactory}<code>&lt;java.lang.Object&gt;</code>.
+	 * The list contents are of type {@link org.nasdanika.common.SupplierFactory}<code>&lt;org.nasdanika.html.app.ViewPart&gt;</code>.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Content</em>' containment reference list.
 	 * @see org.nasdanika.vinci.html.HtmlPackage#getContainer_Content()
-	 * @model type="org.nasdanika.ncore.ISupplierFactory&lt;org.eclipse.emf.ecore.EJavaObject&gt;" containment="true"
+	 * @model type="org.nasdanika.ncore.ISupplierFactory&lt;org.nasdanika.vinci.html.ViewPart&gt;" containment="true"
 	 * @generated
 	 */
-	EList<SupplierFactory<Object>> getContent();
+	EList<SupplierFactory<ViewPart>> getContent();
 
 	/**
 	 * Returns the value of the '<em><b>Markdown Content</b></em>' attribute.
@@ -74,20 +75,20 @@ public interface Container extends EObject {
 	 * Creates a compound supplier factory with markdown content supplier factory first, if markdown content is not blank, and the rest of the content following.
 	 * @return
 	 */
-	default SupplierFactory<List<Object>> createContentSupplierFactory() {
-		ListCompoundSupplierFactory<Object> contentSupplierFactory = new ListCompoundSupplierFactory<Object>("Content");
+	default SupplierFactory<List<ViewPart>> createContentSupplierFactory() {
+		ListCompoundSupplierFactory<ViewPart> contentSupplierFactory = new ListCompoundSupplierFactory<>("Content");
 				
 		String markdown = getMarkdownContent();
 		if (!Util.isBlank(markdown)) {
-			SupplierFactory<Object> markdownSupplierFactory = SupplierFactory.from((context, progressMonidor) -> {
+			SupplierFactory<ViewPart> markdownSupplierFactory = SupplierFactory.from((context, progressMonidor) -> {
 				MarkdownHelper markdownHelper = new MarkdownHelper();
-				return context.interpolate(markdownHelper.markdownToHtml(markdown).trim());				
+				return ViewPart.fromValue(context.interpolate(markdownHelper.markdownToHtml(markdown).trim()));				
 			},  "Markdown content", 1);
 						
 			contentSupplierFactory.add(markdownSupplierFactory);
 		}
 				
-		for (SupplierFactory<Object> content: getContent()) {
+		for (SupplierFactory<ViewPart> content: getContent()) {
 			contentSupplierFactory.add(content);
 		}
 		

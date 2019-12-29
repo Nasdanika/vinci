@@ -19,6 +19,7 @@ import org.nasdanika.common.SupplierFactory;
 import org.nasdanika.common.Util;
 import org.nasdanika.html.Fragment;
 import org.nasdanika.html.HTMLFactory;
+import org.nasdanika.html.app.ViewPart;
 import org.nasdanika.html.bootstrap.ActionGroup;
 import org.nasdanika.html.bootstrap.Color;
 import org.nasdanika.vinci.bootstrap.BootstrapPackage;
@@ -76,8 +77,8 @@ public class ContentActionGroupItemImpl extends ActionGroupItemImpl implements C
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public EList<SupplierFactory<Object>> getContent() {
-		return (EList<SupplierFactory<Object>>)eDynamicGet(BootstrapPackage.CONTENT_ACTION_GROUP_ITEM__CONTENT, HtmlPackage.Literals.CONTAINER__CONTENT, true, true);
+	public EList<SupplierFactory<ViewPart>> getContent() {
+		return (EList<SupplierFactory<ViewPart>>)eDynamicGet(BootstrapPackage.CONTENT_ACTION_GROUP_ITEM__CONTENT, HtmlPackage.Literals.CONTAINER__CONTENT, true, true);
 	}
 
 	/**
@@ -141,7 +142,7 @@ public class ContentActionGroupItemImpl extends ActionGroupItemImpl implements C
 		switch (featureID) {
 			case BootstrapPackage.CONTENT_ACTION_GROUP_ITEM__CONTENT:
 				getContent().clear();
-				getContent().addAll((Collection<? extends SupplierFactory<Object>>)newValue);
+				getContent().addAll((Collection<? extends SupplierFactory<ViewPart>>)newValue);
 				return;
 			case BootstrapPackage.CONTENT_ACTION_GROUP_ITEM__MARKDOWN_CONTENT:
 				setMarkdownContent((String)newValue);

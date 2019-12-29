@@ -10,6 +10,9 @@
   <foreignModel>bootstrap.ecore</foreignModel>
   <genPackages prefix="Bootstrap" basePackage="org.nasdanika.vinci" disposableProviderFactory="true"
       ecorePackage="bootstrap.ecore#/">
+    <genClasses ecoreClass="bootstrap.ecore#//BootstrapElement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference bootstrap.ecore#//BootstrapElement/appearance"/>
+    </genClasses>
     <genClasses ecoreClass="bootstrap.ecore#//BootstrapPage">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bootstrap.ecore#//BootstrapPage/cdn"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bootstrap.ecore#//BootstrapPage/theme"/>
@@ -53,9 +56,6 @@
     <genClasses ecoreClass="bootstrap.ecore#//Float">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bootstrap.ecore#//Float/side"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bootstrap.ecore#//Float/breakpoint"/>
-    </genClasses>
-    <genClasses ecoreClass="bootstrap.ecore#//BootstrapElement">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference bootstrap.ecore#//BootstrapElement/appearance"/>
     </genClasses>
     <genClasses ecoreClass="bootstrap.ecore#//Tag"/>
     <genClasses ecoreClass="bootstrap.ecore#//ContentTag"/>

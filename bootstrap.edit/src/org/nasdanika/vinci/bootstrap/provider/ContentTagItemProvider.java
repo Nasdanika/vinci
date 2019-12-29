@@ -15,6 +15,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.nasdanika.vinci.bootstrap.BootstrapFactory;
 import org.nasdanika.vinci.bootstrap.BootstrapPackage;
 import org.nasdanika.vinci.bootstrap.ContentTag;
+import org.nasdanika.vinci.html.HtmlPackage;
 
 /**
  * This is the item provider adapter for a {@link org.nasdanika.vinci.bootstrap.ContentTag} object.
@@ -148,6 +149,29 @@ public class ContentTagItemProvider extends org.nasdanika.vinci.html.provider.Co
 			(createChildParameter
 				(BootstrapPackage.Literals.BOOTSTRAP_ELEMENT__APPEARANCE,
 				 BootstrapFactory.eINSTANCE.createAppearance()));
+	}
+
+	/**
+	 * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getCreateChildText(Object owner, Object feature, Object child, Collection<?> selection) {
+		Object childFeature = feature;
+		Object childObject = child;
+
+		boolean qualify =
+			childFeature == HtmlPackage.Literals.CONTAINER__CONTENT ||
+			childFeature == BootstrapPackage.Literals.BOOTSTRAP_ELEMENT__APPEARANCE;
+
+		if (qualify) {
+			return getString
+				("_UI_CreateChild_text2",
+				 new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
+		}
+		return super.getCreateChildText(owner, feature, child, selection);
 	}
 
 	/**

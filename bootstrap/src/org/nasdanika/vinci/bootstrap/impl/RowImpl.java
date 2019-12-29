@@ -3,16 +3,20 @@
 package org.nasdanika.vinci.bootstrap.impl;
 
 import java.util.Collection;
+import java.util.List;
 
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.InternalEList;
-import org.nasdanika.common.CompoundConsumer;
-import org.nasdanika.common.Consumer;
 import org.nasdanika.common.Context;
-import org.nasdanika.common.Function;
+import org.nasdanika.common.ListCompoundSupplier;
+import org.nasdanika.common.MapCompoundSupplier;
+import org.nasdanika.common.ProgressMonitor;
+import org.nasdanika.common.Supplier;
+import org.nasdanika.html.app.ViewBuilder;
+import org.nasdanika.html.app.ViewGenerator;
 import org.nasdanika.vinci.bootstrap.Appearance;
 import org.nasdanika.vinci.bootstrap.BootstrapPackage;
 import org.nasdanika.vinci.bootstrap.Column;
@@ -136,18 +140,38 @@ public class RowImpl extends BootstrapElementImpl implements Row {
 		return super.eIsSet(featureID);
 	}
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
-	public Consumer<Object> create(Context context) throws Exception {
-		CompoundConsumer<Object> consumer = new CompoundConsumer<Object>(getTitle());
+	public Supplier<ViewBuilder> create(Context context) throws Exception {
+		@SuppressWarnings("resource")
+		MapCompoundSupplier<String,Object> builderSuppliers = new MapCompoundSupplier<>("Builders");
 		Appearance appearance = getAppearance();
 		if (appearance != null) {
-			consumer.add(appearance.create(context));
+			builderSuppliers.put("Appearance", (Supplier) appearance.create(context));
 		}
+		ListCompoundSupplier<ViewBuilder> colBuilders = new ListCompoundSupplier<>("Cols");
 		for (Column col: getColumns()) {
-			Function<Object,Object> colFunction = Function.fromBiFunction((row,progressMonitor) -> ((org.nasdanika.html.bootstrap.Container.Row) row).col(), "Column", 1);
-			consumer.add(colFunction.then(col.create(context)));
+			colBuilders.add(col.create(context));
 		}
-		return consumer;
+		builderSuppliers.put("Cols", (Supplier) colBuilders);
+		
+		return builderSuppliers.then(builders -> new ViewBuilder() {
+				
+			@Override
+			public void build(Object target, ViewGenerator viewGenerator, ProgressMonitor progressMonitor) {
+				org.nasdanika.html.bootstrap.Container.Row row = (org.nasdanika.html.bootstrap.Container.Row) target; 
+				Object appearanceBuilder = builders.get("Appearance");
+				if (appearanceBuilder instanceof ViewBuilder) {
+					((ViewBuilder) appearanceBuilder).build(row, viewGenerator, progressMonitor);
+				}
+				
+				for (ViewBuilder colBuilder: (List<ViewBuilder>) builders.get("Cols")) {
+					colBuilder.build(row.col(), viewGenerator, progressMonitor);
+				}
+			}
+				
+		});
+		
 	}
 
 } //RowImpl

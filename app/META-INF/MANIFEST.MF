@@ -12,15 +12,13 @@ Export-Package: org.nasdanika.vinci.app,
  org.nasdanika.vinci.app.util
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
- org.nasdanika.common;bundle-version="1.0.0";visibility:=reexport,
  com.github.spullara.mustache.java.compiler;bundle-version="0.9.5",
  org.freemarker.freemarker;bundle-version="2.3.28",
  org.eclipse.emf.ecore.xmi;bundle-version="2.15.0";visibility:=reexport,
  org.nasdanika.emf;bundle-version="1.0.0";visibility:=reexport,
- org.nasdanika.html.app;bundle-version="2.0.0";visibility:=reexport,
- org.nasdanika.ncore;bundle-version="0.1.0";visibility:=reexport,
  org.nasdanika.vinci.bootstrap;bundle-version="0.1.0";visibility:=reexport,
  org.nasdanika.vinci.html;visibility:=reexport,
+ org.nasdanika.ncore;visibility:=reexport,
  org.jsoup;bundle-version="1.12.1"
 Bundle-ActivationPolicy: lazy
 Automatic-Module-Name: org.nasdanika.vinci.app

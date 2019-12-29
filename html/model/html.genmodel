@@ -11,9 +11,11 @@
   <genPackages prefix="Html" basePackage="org.nasdanika.vinci" disposableProviderFactory="true"
       ecorePackage="html.ecore#/">
     <genDataTypes ecoreDataType="html.ecore#//TagName"/>
+    <genClasses image="false" ecoreClass="html.ecore#//ViewPart"/>
+    <genClasses image="false" ecoreClass="html.ecore#//ViewBuilder"/>
     <genClasses ecoreClass="html.ecore#//HtmlElement">
-      <genOperations ecoreOperation="html.ecore#//HtmlElement/asConsumer">
-        <genParameters ecoreParameter="html.ecore#//HtmlElement/asConsumer/context"/>
+      <genOperations ecoreOperation="html.ecore#//HtmlElement/asViewBuilderSupplier">
+        <genParameters ecoreParameter="html.ecore#//HtmlElement/asViewBuilderSupplier/context"/>
       </genOperations>
     </genClasses>
     <genClasses ecoreClass="html.ecore#//Container">

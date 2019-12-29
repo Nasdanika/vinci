@@ -6,6 +6,8 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
 import org.nasdanika.common.SupplierFactory;
+import org.nasdanika.html.app.ViewBuilder;
+import org.nasdanika.html.app.ViewPart;
 import org.nasdanika.ncore.ModelElement;
 import org.nasdanika.ncore.NamedElement;
 import org.nasdanika.vinci.html.Container;
@@ -72,6 +74,18 @@ public class HtmlSwitch<T1> extends Switch<T1> {
 	@Override
 	protected T1 doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
+			case HtmlPackage.VIEW_PART: {
+				ViewPart viewPart = (ViewPart)theEObject;
+				T1 result = caseViewPart(viewPart);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case HtmlPackage.VIEW_BUILDER: {
+				ViewBuilder viewBuilder = (ViewBuilder)theEObject;
+				T1 result = caseViewBuilder(viewBuilder);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case HtmlPackage.HTML_ELEMENT: {
 				HtmlElement htmlElement = (HtmlElement)theEObject;
 				T1 result = caseHtmlElement(htmlElement);
@@ -116,6 +130,36 @@ public class HtmlSwitch<T1> extends Switch<T1> {
 			}
 			default: return defaultCase(theEObject);
 		}
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>View Part</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>View Part</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseViewPart(ViewPart object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>View Builder</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>View Builder</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseViewBuilder(ViewBuilder object) {
+		return null;
 	}
 
 	/**
