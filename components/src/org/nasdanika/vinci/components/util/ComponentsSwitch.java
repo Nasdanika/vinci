@@ -7,6 +7,7 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
 import org.nasdanika.common.SupplierFactory;
 import org.nasdanika.ncore.ModelElement;
+import org.nasdanika.vinci.components.*;
 import org.nasdanika.vinci.components.ComponentsPackage;
 import org.nasdanika.vinci.components.Markdown;
 import org.nasdanika.vinci.components.MarkdownResource;
@@ -95,6 +96,14 @@ public class ComponentsSwitch<T1> extends Switch<T1> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case ComponentsPackage.ACTION_LINK: {
+				ActionLink actionLink = (ActionLink)theEObject;
+				T1 result = caseActionLink(actionLink);
+				if (result == null) result = caseModelElement(actionLink);
+				if (result == null) result = caseISupplierFactory(actionLink);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -141,6 +150,21 @@ public class ComponentsSwitch<T1> extends Switch<T1> {
 	 * @generated
 	 */
 	public T1 caseMarkdownResource(MarkdownResource object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Action Link</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Action Link</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseActionLink(ActionLink object) {
 		return null;
 	}
 

@@ -1096,6 +1096,7 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 		addEEnumLiteral(actionRoleEEnum, ActionRole.SECTION);
 		addEEnumLiteral(actionRoleEEnum, ActionRole.VIEW);
 		addEEnumLiteral(actionRoleEEnum, ActionRole.EDIT);
+		addEEnumLiteral(actionRoleEEnum, ActionRole.NONE);
 
 		initEEnum(activatorTypeEEnum, ActivatorType.class, "ActivatorType");
 		addEEnumLiteral(activatorTypeEEnum, ActivatorType.REFERENCE);
@@ -1356,6 +1357,12 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 		   source,
 		   new String[] {
 			   "documentation", "Actions to display during editing. Applicable to property and property source actions. "
+		   });
+		addAnnotation
+		  (actionRoleEEnum.getELiterals().get(5),
+		   source,
+		   new String[] {
+			   "documentation", "Indicates that an action is not assigned any role and as such shall be explicitly linked to the generated code by using action components, e.g. Action card."
 		   });
 		addAnnotation
 		  (activatorTypeEEnum,

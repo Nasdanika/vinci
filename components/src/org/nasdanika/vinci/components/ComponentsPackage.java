@@ -300,6 +300,53 @@ public interface ComponentsPackage extends EPackage {
 
 
 	/**
+	 * The meta object id for the '{@link org.nasdanika.vinci.components.impl.ActionLinkImpl <em>Action Link</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.vinci.components.impl.ActionLinkImpl
+	 * @see org.nasdanika.vinci.components.impl.ComponentsPackageImpl#getActionLink()
+	 * @generated
+	 */
+	int ACTION_LINK = 3;
+
+	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION_LINK__TITLE = NcorePackage.MODEL_ELEMENT__TITLE;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION_LINK__DESCRIPTION = NcorePackage.MODEL_ELEMENT__DESCRIPTION;
+
+	/**
+	 * The number of structural features of the '<em>Action Link</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION_LINK_FEATURE_COUNT = NcorePackage.MODEL_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Action Link</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION_LINK_OPERATION_COUNT = NcorePackage.MODEL_ELEMENT_OPERATION_COUNT + 0;
+
+
+	/**
 	 * Returns the meta object for class '{@link org.nasdanika.vinci.components.Markdown <em>Markdown</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -383,6 +430,16 @@ public interface ComponentsPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getMarkdownResource_Location();
+
+	/**
+	 * Returns the meta object for class '{@link org.nasdanika.vinci.components.ActionLink <em>Action Link</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Action Link</em>'.
+	 * @see org.nasdanika.vinci.components.ActionLink
+	 * @generated
+	 */
+	EClass getActionLink();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -469,6 +526,15 @@ public interface ComponentsPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute MARKDOWN_RESOURCE__LOCATION = eINSTANCE.getMarkdownResource_Location();
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.vinci.components.impl.ActionLinkImpl <em>Action Link</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.vinci.components.impl.ActionLinkImpl
+		 * @see org.nasdanika.vinci.components.impl.ComponentsPackageImpl#getActionLink()
+		 * @generated
+		 */
+		EClass ACTION_LINK = eINSTANCE.getActionLink();
 
 	}
 

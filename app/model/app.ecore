@@ -251,6 +251,11 @@
         <details key="documentation" value="Actions to display during editing. Applicable to property and property source actions. "/>
       </eAnnotations>
     </eLiterals>
+    <eLiterals name="None" value="5" literal="None">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Indicates that an action is not assigned any role and as such shall be explicitly linked to the generated code by using action components, e.g. Action card."/>
+      </eAnnotations>
+    </eLiterals>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="ActivatorType">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">

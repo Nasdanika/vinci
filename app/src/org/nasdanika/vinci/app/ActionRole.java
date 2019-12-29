@@ -84,7 +84,18 @@ public enum ActionRole implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	EDIT(4, "Edit", "Edit");
+	EDIT(4, "Edit", "Edit"), /**
+	 * The '<em><b>None</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Indicates that an action is not assigned any role and as such shall be explicitly linked to the generated code by using action components, e.g. Action card.
+	 * <!-- end-model-doc -->
+	 * @see #NONE_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	NONE(5, "None", "None");
 
 	/**
 	 * The '<em><b>Navigation</b></em>' literal value.
@@ -157,6 +168,20 @@ public enum ActionRole implements Enumerator {
 	public static final int EDIT_VALUE = 4;
 
 	/**
+	 * The '<em><b>None</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Indicates that an action is not assigned any role and as such shall be explicitly linked to the generated code by using action components, e.g. Action card.
+	 * <!-- end-model-doc -->
+	 * @see #NONE
+	 * @model name="None"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int NONE_VALUE = 5;
+
+	/**
 	 * An array of all the '<em><b>Action Role</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -169,6 +194,7 @@ public enum ActionRole implements Enumerator {
 			SECTION,
 			VIEW,
 			EDIT,
+			NONE,
 		};
 
 	/**
@@ -230,6 +256,7 @@ public enum ActionRole implements Enumerator {
 			case SECTION_VALUE: return SECTION;
 			case VIEW_VALUE: return VIEW;
 			case EDIT_VALUE: return EDIT;
+			case NONE_VALUE: return NONE;
 		}
 		return null;
 	}

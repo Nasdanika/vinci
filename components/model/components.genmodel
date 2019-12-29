@@ -20,5 +20,6 @@
     <genClasses ecoreClass="components.ecore#//MarkdownResource">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute components.ecore#//MarkdownResource/location"/>
     </genClasses>
+    <genClasses image="false" ecoreClass="components.ecore#//ActionLink"/>
   </genPackages>
 </genmodel:GenModel>

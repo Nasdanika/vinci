@@ -201,6 +201,8 @@ public class ActionFacade extends org.nasdanika.html.app.impl.ActionImpl impleme
 		case VIEW:
 			getRoles().add(Action.Role.VIEW);
 			break;
+		case NONE:
+			break;
 		default:
 			getRoles().add(target.getRole().name());
 			break;

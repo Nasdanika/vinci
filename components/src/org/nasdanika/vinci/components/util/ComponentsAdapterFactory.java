@@ -8,6 +8,7 @@ import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
 import org.nasdanika.common.SupplierFactory;
 import org.nasdanika.ncore.ModelElement;
+import org.nasdanika.vinci.components.*;
 import org.nasdanika.vinci.components.ComponentsPackage;
 import org.nasdanika.vinci.components.Markdown;
 import org.nasdanika.vinci.components.MarkdownResource;
@@ -82,6 +83,10 @@ public class ComponentsAdapterFactory extends AdapterFactoryImpl {
 				return createMarkdownResourceAdapter();
 			}
 			@Override
+			public Adapter caseActionLink(ActionLink object) {
+				return createActionLinkAdapter();
+			}
+			@Override
 			public Adapter caseModelElement(ModelElement object) {
 				return createModelElementAdapter();
 			}
@@ -148,6 +153,20 @@ public class ComponentsAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createMarkdownResourceAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.vinci.components.ActionLink <em>Action Link</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.vinci.components.ActionLink
+	 * @generated
+	 */
+	public Adapter createActionLinkAdapter() {
 		return null;
 	}
 

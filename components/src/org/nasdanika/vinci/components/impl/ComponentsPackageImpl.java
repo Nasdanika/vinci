@@ -10,6 +10,7 @@ import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 import org.nasdanika.ncore.NcorePackage;
 import org.nasdanika.vinci.bootstrap.BootstrapPackage;
+import org.nasdanika.vinci.components.ActionLink;
 import org.nasdanika.vinci.components.ComponentsFactory;
 import org.nasdanika.vinci.components.ComponentsPackage;
 import org.nasdanika.vinci.components.Markdown;
@@ -44,6 +45,13 @@ public class ComponentsPackageImpl extends EPackageImpl implements ComponentsPac
 	 * @generated
 	 */
 	private EClass markdownResourceEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass actionLinkEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -197,6 +205,16 @@ public class ComponentsPackageImpl extends EPackageImpl implements ComponentsPac
 	 * @generated
 	 */
 	@Override
+	public EClass getActionLink() {
+		return actionLinkEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public ComponentsFactory getComponentsFactory() {
 		return (ComponentsFactory)getEFactoryInstance();
 	}
@@ -230,6 +248,8 @@ public class ComponentsPackageImpl extends EPackageImpl implements ComponentsPac
 
 		markdownResourceEClass = createEClass(MARKDOWN_RESOURCE);
 		createEAttribute(markdownResourceEClass, MARKDOWN_RESOURCE__LOCATION);
+
+		actionLinkEClass = createEClass(ACTION_LINK);
 	}
 
 	/**
@@ -272,6 +292,12 @@ public class ComponentsPackageImpl extends EPackageImpl implements ComponentsPac
 		markdownEClass.getEGenericSuperTypes().add(g1);
 		markdownTextEClass.getESuperTypes().add(this.getMarkdown());
 		markdownResourceEClass.getESuperTypes().add(this.getMarkdown());
+		g1 = createEGenericType(theNcorePackage.getModelElement());
+		actionLinkEClass.getEGenericSuperTypes().add(g1);
+		g1 = createEGenericType(theNcorePackage.getISupplierFactory());
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		actionLinkEClass.getEGenericSuperTypes().add(g1);
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(markdownEClass, Markdown.class, "Markdown", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -284,6 +310,8 @@ public class ComponentsPackageImpl extends EPackageImpl implements ComponentsPac
 
 		initEClass(markdownResourceEClass, MarkdownResource.class, "MarkdownResource", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getMarkdownResource_Location(), ecorePackage.getEString(), "location", null, 1, 1, MarkdownResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(actionLinkEClass, ActionLink.class, "ActionLink", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);
