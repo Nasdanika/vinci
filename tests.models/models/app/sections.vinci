@@ -237,6 +237,9 @@
         </elements>
       </elements>
       <elements xsi:type="org.nasdanika.vinci.app:ActionCategory" title="Category A" id="07ec0217-1b72-47a4-9924-d7376bc12153" color="Info" text="Category A">
+        <appearance>
+          <text alignment="Center" color="Danger" italic="true"/>
+        </appearance>
         <elements xsi:type="org.nasdanika.vinci.app:Action" title="Section A.1" id="b4167658-29a5-41dc-989b-5224f5d589ac" text="Section A.1" role="Section" sectionColumns="1" markdownContent="Section A.1 content&#xD;&#xA;">
           <elements xsi:type="org.nasdanika.vinci.app:Action" title="Context A.1.1" id="7b740ee7-db9f-43d5-9d39-46453e6d93f3" text="Context A.1.1" role="Context" sectionColumns="1">
             <content xsi:type="org.nasdanika.vinci.components:MarkdownText" markdown="Context 0.1 content"/>
@@ -298,7 +301,7 @@
   <elements xsi:type="org.nasdanika.vinci.app:Action" title="Nav 2" id="f51b3813-9656-46a2-a2e2-5a3958cd8fa6" text="Nav 2"/>
   <content xsi:type="org.nasdanika.ncore:Html" description="" content="&lt;p>&lt;strong>Конфетки &lt;u>бараночки&lt;/u>&lt;/strong>&lt;/p>&#xA;&#xA;&lt;p>&lt;strong>Baranki, korobki. &lt;/strong>&lt;/p>&#xA;&#xA;&lt;p>&lt;span style=&quot;background-color:#2ecc71&quot;>Zuua&lt;/span>&lt;/p>&#xA;&#xA;&lt;p>uuu...&lt;/p>&#xA;&#xA;&lt;p>gjdkdgddhgf&lt;/p>&#xA;"/>
   <content xsi:type="org.nasdanika.vinci.components:ActionLink" target="f51b3813-9656-46a2-a2e2-5a3958cd8fa6"/>
-  <content xsi:type="org.nasdanika.vinci.bootstrap:Table">
+  <content xsi:type="org.nasdanika.vinci.bootstrap:Table" bordered="true">
     <rows>
       <cells>
         <content xsi:type="org.nasdanika.vinci.components:ActionLink" target="f51b3813-9656-46a2-a2e2-5a3958cd8fa6"/>

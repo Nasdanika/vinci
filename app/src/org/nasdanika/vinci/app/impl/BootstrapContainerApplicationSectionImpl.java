@@ -223,12 +223,13 @@ public class BootstrapContainerApplicationSectionImpl extends BootstrapElementIm
 			@Override
 			public void build(Object target, ViewGenerator viewGenerator, ProgressMonitor progressMonitor) {
 				org.nasdanika.html.bootstrap.Container.Row.Col col = (org.nasdanika.html.bootstrap.Container.Row.Col) target;
+				configureCol(col);
 				for (ViewPart cvp: bs.getFirst()) {
 					col.content(viewGenerator.processViewPart(cvp, progressMonitor));
 				}
 				ViewBuilder svb = bs.getSecond();
 				if (svb != null) {
-					svb.build(context, viewGenerator, progressMonitor);
+					svb.build(col, viewGenerator, progressMonitor);
 				}
 			}
 			

@@ -16,7 +16,6 @@ import org.nasdanika.common.Function;
 import org.nasdanika.common.ListCompoundSupplier;
 import org.nasdanika.common.ListCompoundSupplierFactory;
 import org.nasdanika.common.MarkdownHelper;
-import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.common.StringMapCompoundSupplier;
 import org.nasdanika.common.Supplier;
 import org.nasdanika.common.SupplierFactory;
@@ -26,6 +25,7 @@ import org.nasdanika.html.HTMLPage;
 import org.nasdanika.html.app.ViewBuilder;
 import org.nasdanika.html.app.ViewGenerator;
 import org.nasdanika.html.app.ViewPart;
+import org.nasdanika.html.app.impl.ViewGeneratorImpl;
 import org.nasdanika.html.fontawesome.FontAwesomeFactory;
 import org.nasdanika.html.jstree.JsTreeFactory;
 import org.nasdanika.ncore.impl.NamedElementImpl;
@@ -433,8 +433,8 @@ public class PageImpl extends NamedElementImpl implements Page {
 	 * @param context
 	 * @return
 	 */
-	protected HTMLPage createPage(ViewGenerator viewGenerator) {
-		return viewGenerator.get(HTMLFactory.class).page();
+	protected HTMLPage createPage(Context context) {
+		return context.get(HTMLFactory.class, HTMLFactory.INSTANCE).page();
 	}
 	
 	@SuppressWarnings({ "rawtypes", "unchecked" })
@@ -444,91 +444,77 @@ public class PageImpl extends NamedElementImpl implements Page {
 		StringMapCompoundSupplier<List<ViewPart>> partsSupplier = new StringMapCompoundSupplier<>(getTitle());
 		partsSupplier.put(createHeadSupplier(context));
 		partsSupplier.put(createBodySupplier(context));
-
-		Function<Map<String,List<ViewPart>>,ViewPart> pageBuilder = new Function<Map<String,List<ViewPart>>,ViewPart>() {
-
-			@Override
-			public double size() {
-				return 1;
-			}
-
-			@Override
-			public String name() {
-				return "Page";
-			}
-
-			@Override
-			public ViewPart execute(Map<String, List<ViewPart>> arg, ProgressMonitor progressMonitor) throws Exception {
-				return new ViewPart() {
-
-					@Override
-					public Object generate(ViewGenerator viewGenerator, ProgressMonitor progressMonitor) {						
-						HTMLPage page = createPage(viewGenerator);
-						
-						for (Object c: arg.get("Head")) {
-							page.head(viewGenerator.processViewPart(c, progressMonitor));
-						}
-						
-						for (Object c: arg.get("Body")) {
-							page.body(viewGenerator.processViewPart(c, progressMonitor));
-						}
-						
-						for (String script: getScripts()) {
-							if (!Util.isBlank(script)) {
-								page.script(context.interpolate(script));						
-							}
-						}
-
-						for (String stylesheet: getStylesheets()) {
-							if (!Util.isBlank(stylesheet)) {
-								page.stylesheet(context.interpolate(stylesheet));						
-							}
-						}
-
-						String name = context.interpolate(PageImpl.this.getName());
-						if (!Util.isBlank(name)) {
-							page.title(name);
-						}
-						
-						if (isFontAwesome()) {
-							context.get(FontAwesomeFactory.class, FontAwesomeFactory.INSTANCE).cdn(page);
-						}
-						
-						if (isJsTree()) {
-							context.get(JsTreeFactory.class, JsTreeFactory.INSTANCE).cdn(page);
-						}
-						
-						if (isGithubMarkdownCss()) {
-							page.stylesheet(MarkdownHelper.GITHUB_MARKDOWN_CSS_CDN);
-						}
-						
-						return page;
+		
+		Function<Map<String,List<ViewPart>>,Object[]> pageFactory = Function.fromBiFunction((parts, progressMonitor) -> {
+			HTMLPage page = createPage(context);
+			ViewGenerator viewGenerator = new ViewGeneratorImpl(context, page::head, page::body);
+			
+			
+			List<ViewPart> head = parts.get("Head");
+			if (head != null) {
+				for (ViewPart hp: head) {
+					page.head(viewGenerator.processViewPart(hp, progressMonitor));
+				}
+				
+				for (Object bp: parts.get("Body")) {
+					page.body(viewGenerator.processViewPart(bp, progressMonitor));
+				}
+				
+				for (String script: getScripts()) {
+					if (!Util.isBlank(script)) {
+						page.script(context.interpolate(script));						
 					}
-					
-				};
+				}
+
+				for (String stylesheet: getStylesheets()) {
+					if (!Util.isBlank(stylesheet)) {
+						page.stylesheet(context.interpolate(stylesheet));						
+					}
+				}
+
+				String name = context.interpolate(PageImpl.this.getName());
+				if (!Util.isBlank(name)) {
+					page.title(name);
+				}
+				
+				if (isFontAwesome()) {
+					context.get(FontAwesomeFactory.class, FontAwesomeFactory.INSTANCE).cdn(page);
+				}
+				
+				if (isJsTree()) {
+					context.get(JsTreeFactory.class, JsTreeFactory.INSTANCE).cdn(page);
+				}
+				
+				if (isGithubMarkdownCss()) {
+					page.stylesheet(MarkdownHelper.GITHUB_MARKDOWN_CSS_CDN);
+				}
+				
 			}
-		}; 
+			
+			return new Object[] {page, viewGenerator};
+			
+		}, "Page builder", 1);
+		
+		Supplier<Object[]> pageSupplier = partsSupplier.then(pageFactory);
 		
 		@SuppressWarnings("resource")
 		StringMapCompoundSupplier<Object> combiner = new StringMapCompoundSupplier<Object>(getTitle());		
-		Supplier<ViewPart> pageSupplier = partsSupplier.then(pageBuilder);
 		combiner.put("Page", (Supplier) pageSupplier);
 		
 		Supplier<List<ViewBuilder>> buildersSupplier = new ListCompoundSupplierFactory<ViewBuilder>("Builders", getBuilders()).create(context);
 		combiner.put("Builders", (Supplier) buildersSupplier);
 		
-		return combiner.then(map -> new ViewPart() {
-
-			@Override
-			public Object generate(ViewGenerator viewGenerator, ProgressMonitor progressMonitor) {
-				Object page = ((ViewPart) map.get("Page")).generate(viewGenerator, progressMonitor);
-				for (ViewBuilder builder: (List<ViewBuilder>) map.get("Builders")) {
-					builder.build(pageSupplier, viewGenerator, progressMonitor);
-				}
-				return page;
-			}
+		Function<Map<String, Object>, Object> pageBuilder = Function.fromBiFunction((map, progressMonitor) -> {
 			
-		});
+			Object[] pageAndGenerator = ((Object[]) map.get("Page"));
+			for (ViewBuilder builder: (List<ViewBuilder>) map.get("Builders")) {
+				builder.build(pageAndGenerator[0], (ViewGenerator) pageAndGenerator[1], progressMonitor);
+			}
+			return (HTMLPage) pageAndGenerator[0];
+			
+		}, getTitle(), 1);
+		
+		return combiner.then(pageBuilder);
 	}
 
 } //PageImpl

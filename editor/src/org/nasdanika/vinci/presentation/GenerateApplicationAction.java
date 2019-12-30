@@ -72,7 +72,7 @@ public class GenerateApplicationAction<T extends EObject & SupplierFactory<Objec
 			collectActionIds(modelElement, actionIds);
 
 			SubMonitor subMonitor = SubMonitor.convert(monitor, TOTAL_WORK);
-			int actionWorkSlice = TOTAL_WORK / actionIds.size();
+			int actionWorkSlice = TOTAL_WORK / (actionIds.isEmpty() ? 1 : actionIds.size());
 			for (Entry<String, String> actionEntry: actionIds.entrySet()) {														
 				SubMonitor actionMonitor = subMonitor.split(actionWorkSlice);
 				MutableContext actionContext = generationContext.fork();
