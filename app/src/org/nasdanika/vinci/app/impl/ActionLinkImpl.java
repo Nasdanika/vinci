@@ -11,7 +11,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.InternalEList;
-import org.nasdanika.common.Consumer;
 import org.nasdanika.common.Context;
 import org.nasdanika.common.Supplier;
 import org.nasdanika.vinci.app.ActionLink;
@@ -171,7 +170,7 @@ public class ActionLinkImpl extends MinimalEObjectImpl.Container implements Acti
 	 * @generated NOT
 	 */
 	@Override
-	public Consumer<Object> createConsumer(Context context) throws Exception {
+	public Supplier<Object> createApplicationBuilderSupplier(Context context) throws Exception {
 		throw new UnsupportedOperationException();
 	}
 
@@ -287,9 +286,9 @@ public class ActionLinkImpl extends MinimalEObjectImpl.Container implements Acti
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case AppPackage.ACTION_LINK___CREATE_CONSUMER__CONTEXT:
+			case AppPackage.ACTION_LINK___CREATE_APPLICATION_BUILDER_SUPPLIER__CONTEXT:
 				try {
-					return createConsumer((Context)arguments.get(0));
+					return createApplicationBuilderSupplier((Context)arguments.get(0));
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);

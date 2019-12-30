@@ -463,7 +463,7 @@ public class HtmlPackageImpl extends EPackageImpl implements HtmlPackage {
 		g1 = createEGenericType(theNcorePackage.getNamedElement());
 		pageEClass.getEGenericSuperTypes().add(g1);
 		g1 = createEGenericType(theNcorePackage.getISupplierFactory());
-		g2 = createEGenericType(this.getViewPart());
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
 		g1.getETypeArguments().add(g2);
 		pageEClass.getEGenericSuperTypes().add(g1);
 

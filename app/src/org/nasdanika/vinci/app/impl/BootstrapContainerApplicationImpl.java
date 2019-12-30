@@ -2,11 +2,8 @@
  */
 package org.nasdanika.vinci.app.impl;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.List;
 import java.util.Map;
 
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -14,21 +11,18 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.InternalEList;
-import org.nasdanika.common.Command;
-import org.nasdanika.common.CompoundConsumer;
-import org.nasdanika.common.CompoundExecutionParticipant;
-import org.nasdanika.common.Consumer;
 import org.nasdanika.common.Context;
-import org.nasdanika.common.Function;
+import org.nasdanika.common.ListCompoundSupplier;
+import org.nasdanika.common.MapCompoundSupplier;
 import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.common.Supplier;
 import org.nasdanika.common.Util;
 import org.nasdanika.html.HTMLElement;
 import org.nasdanika.html.HTMLPage;
-import org.nasdanika.html.app.Application;
 import org.nasdanika.html.app.ApplicationBuilder;
 import org.nasdanika.html.app.Decorator;
 import org.nasdanika.html.app.DecoratorProvider;
+import org.nasdanika.html.app.ViewBuilder;
 import org.nasdanika.html.app.ViewGenerator;
 import org.nasdanika.html.bootstrap.BootstrapElement;
 import org.nasdanika.html.bootstrap.BootstrapFactory;
@@ -502,17 +496,17 @@ public class BootstrapContainerApplicationImpl extends BootstrapElementImpl impl
 			
 	@SuppressWarnings("resource")
 	@Override
-	public Consumer<Object> create(Context context) throws Exception {		
+	public Supplier<ViewBuilder> create(Context context) throws Exception {		
 		
 		Map<String,Decorator> decorators = new HashMap<>();		
 		
-		Map<Section, Consumer<Object>> sections = new LinkedHashMap<>();
+		MapCompoundSupplier<Section, ViewBuilder> sectionBuilderSuppliers = new MapCompoundSupplier<>(getTitle());
 
-		sections.put(Section.Container, super.asConsumer(context));
+		sectionBuilderSuppliers.put(Section.Container, super.asViewBuilderSupplier(context));
 		
 		BootstrapContainerApplicationSection header = getHeader();
 		if (header != null) {
-			sections.put(Section.Header, header.asConsumer(context));
+			sectionBuilderSuppliers.put(Section.Header, header.asViewBuilderSupplier(context));
 			Decorator titleDecorator = getChildDecorator(header, context, "title");
 			if (titleDecorator != null) {
 				decorators.put("application/header/title", titleDecorator);
@@ -525,35 +519,36 @@ public class BootstrapContainerApplicationImpl extends BootstrapElementImpl impl
 		
 		BootstrapContainerApplicationSection navBar = getNavigationBar();
 		if (navBar != null) {
-			sections.put(Section.NavigationBar, navBar.asConsumer(context));
+			sectionBuilderSuppliers.put(Section.NavigationBar, navBar.asViewBuilderSupplier(context));
 		}
 		
 		BootstrapContainerApplicationSection navPanel = getNavigationPanel();
 		if (navPanel != null) {
-			sections.put(Section.NavigationPanel, navPanel.asConsumer(context));
+			sectionBuilderSuppliers.put(Section.NavigationPanel, navPanel.asViewBuilderSupplier(context));
 		}
 		
 		BootstrapContainerApplicationSection contentPanel = getContentPanel();
 		if (contentPanel != null) {
-			sections.put(Section.ContentPanel, contentPanel.asConsumer(context));
+			sectionBuilderSuppliers.put(Section.ContentPanel, contentPanel.asViewBuilderSupplier(context));
 		}
 		
 		BootstrapContainerApplicationSection footer = getFooter();
 		if (footer != null) {
-			sections.put(Section.Footer, footer.asConsumer(context));
+			sectionBuilderSuppliers.put(Section.Footer, footer.asViewBuilderSupplier(context));
 		}
 		
-		class Generator extends CompoundExecutionParticipant<Consumer<Object>> implements Function<Object, Object> {
-
-			protected Generator(String name) {
-				super(name);
-			}
-			
-			List<Command> sectionBuilders = new ArrayList<>();
+		ListCompoundSupplier<Object> buildersSupplier = new ListCompoundSupplier<>("Builders");		
+		
+		for (BootstrapContainerApplicationBuilder builder: getBuilders()) {
+			buildersSupplier.add(builder.createApplicationBuilderSupplier(context));
+		}
+		
+		return sectionBuilderSuppliers.then(buildersSupplier.asFunction()).then(bs -> new ViewBuilder() {
 
 			@Override
-			public Object execute(Object arg, ProgressMonitor progressMonitor) throws Exception {
-				progressMonitor.setWorkRemaining(size());
+			public void build(Object target, ViewGenerator viewGenerator, ProgressMonitor progressMonitor) {
+				Map<Section, ViewBuilder> sectionBuilders = bs.getFirst();
+				// Takes a page and builds it
 				
 				org.nasdanika.html.app.Application app;
 				if (isRouter()) {
@@ -562,30 +557,30 @@ public class BootstrapContainerApplicationImpl extends BootstrapElementImpl impl
 						
 						DecoratingRoutingApplication() {
 							super(context.get(BootstrapFactory.class, BootstrapFactory.INSTANCE),
-									(HTMLPage) arg,
+									(HTMLPage) target,
 									isFluid());
 						}
 						
 						protected void configureContainer(org.nasdanika.html.bootstrap.Container container) {
-							Consumer<Object> containerConsumer = sections.get(Section.Container);
-							if (containerConsumer != null) {
-								sectionBuilders.add(Supplier.from(container, "Container").then(containerConsumer));
+							ViewBuilder containerBuilder = sectionBuilders.get(Section.Container);
+							if (containerBuilder != null) {
+								containerBuilder.build(container, viewGenerator, progressMonitor);
 							}
 						};								
 						
 						protected void configureHeader(org.nasdanika.html.bootstrap.Container.Row.Col header) {
 							header.width(Breakpoint.DEFAULT, Size.NONE);
-							Consumer<Object> headerConsumer = sections.get(Section.Header);
-							if (headerConsumer != null) {
-								sectionBuilders.add(Supplier.from(header, "Header").then(headerConsumer));
+							ViewBuilder headerBuilder = sectionBuilders.get(Section.Header);
+							if (headerBuilder != null) {
+								headerBuilder.build(header, viewGenerator, progressMonitor);
 							}
 						};
 						
 						protected void configureNavigationBar(org.nasdanika.html.bootstrap.Container.Row.Col navigationBar) {
 							navigationBar.width(Breakpoint.DEFAULT, Size.NONE);
-							Consumer<Object> navBarConsumer = sections.get(Section.NavigationBar);
-							if (navBarConsumer != null) {
-								sectionBuilders.add(Supplier.from(navigationBar, "Navigation Bar").then(navBarConsumer));
+							ViewBuilder navBarBuilder = sectionBuilders.get(Section.NavigationBar);
+							if (navBarBuilder != null) {
+								navBarBuilder.build(navigationBar, viewGenerator, progressMonitor);
 							}
 						};
 						
@@ -609,24 +604,24 @@ public class BootstrapContainerApplicationImpl extends BootstrapElementImpl impl
 						};
 						
 						protected void configureNavigationPanel(org.nasdanika.html.bootstrap.Container.Row.Col navigationPanel) {
-							Consumer<Object> navPanelConsumer = sections.get(Section.NavigationPanel);
-							if (navPanelConsumer != null) {
-								sectionBuilders.add(Supplier.from(navigationPanel, "Container").then(navPanelConsumer));
+							ViewBuilder navPanelBuilder = sectionBuilders.get(Section.NavigationPanel);
+							if (navPanelBuilder != null) {
+								navPanelBuilder.build(navigationPanel, viewGenerator, progressMonitor);
 							}
 						};
 						
 						protected void configureConentPanel(org.nasdanika.html.bootstrap.Container.Row.Col contentPanel) {
-							Consumer<Object> contentPanelConsumer = sections.get(Section.ContentPanel);
-							if (contentPanelConsumer != null) {
-								sectionBuilders.add(Supplier.from(contentPanel, "Content Panel").then(contentPanelConsumer));
+							ViewBuilder contentPanelBuilder = sectionBuilders.get(Section.ContentPanel);
+							if (contentPanelBuilder != null) {
+								contentPanelBuilder.build(contentPanel, viewGenerator, progressMonitor);
 							}
 						};
 						
 						protected void configureFooter(org.nasdanika.html.bootstrap.Container.Row.Col footer) {
 							footer.width(Breakpoint.DEFAULT, Size.NONE);
-							Consumer<Object> footerConsumer = sections.get(Section.Footer);
-							if (footerConsumer != null) {
-								sectionBuilders.add(Supplier.from(footer, "Footer").then(footerConsumer));
+							ViewBuilder footerBuilder = sectionBuilders.get(Section.Footer);
+							if (footerBuilder != null) {
+								footerBuilder.build(footer, viewGenerator, progressMonitor);
 							}
 						}
 
@@ -639,12 +634,12 @@ public class BootstrapContainerApplicationImpl extends BootstrapElementImpl impl
 					
 					app = new DecoratingRoutingApplication();
 				} else {
-										
+					
 					class DecoratingApplication extends org.nasdanika.html.app.impl.BootstrapContainerApplication implements DecoratorProvider {
 						
 						public DecoratingApplication() {
 							super(context.get(BootstrapFactory.class, BootstrapFactory.INSTANCE),
-							(HTMLPage) arg,
+							(HTMLPage) target,
 							isFluid());							
 						}
 
@@ -654,25 +649,25 @@ public class BootstrapContainerApplicationImpl extends BootstrapElementImpl impl
 						}						
 						
 						protected void configureContainer(org.nasdanika.html.bootstrap.Container container) {
-							Consumer<Object> containerConsumer = sections.get(Section.Container);
-							if (containerConsumer != null) {
-								sectionBuilders.add(Supplier.from(container, "Container").then(containerConsumer));
+							ViewBuilder containerBuilder = sectionBuilders.get(Section.Container);
+							if (containerBuilder != null) {
+								containerBuilder.build(container, viewGenerator, progressMonitor);
 							}
 						};								
 						
 						protected void configureHeader(org.nasdanika.html.bootstrap.Container.Row.Col header) {
 							header.width(Breakpoint.DEFAULT, Size.NONE);
-							Consumer<Object> headerConsumer = sections.get(Section.Header);
-							if (headerConsumer != null) {
-								sectionBuilders.add(Supplier.from(header, "Header").then(headerConsumer));
+							ViewBuilder headerBuilder = sectionBuilders.get(Section.Header);
+							if (headerBuilder != null) {
+								headerBuilder.build(header, viewGenerator, progressMonitor);
 							}
 						};
 						
 						protected void configureNavigationBar(org.nasdanika.html.bootstrap.Container.Row.Col navigationBar) {
 							navigationBar.width(Breakpoint.DEFAULT, Size.NONE);
-							Consumer<Object> navBarConsumer = sections.get(Section.NavigationBar);
-							if (navBarConsumer != null) {
-								sectionBuilders.add(Supplier.from(navigationBar, "Navigation Bar").then(navBarConsumer));
+							ViewBuilder navBarBuilder = sectionBuilders.get(Section.NavigationBar);
+							if (navBarBuilder != null) {
+								navBarBuilder.build(navigationBar, viewGenerator, progressMonitor);
 							}
 						};
 						
@@ -696,24 +691,24 @@ public class BootstrapContainerApplicationImpl extends BootstrapElementImpl impl
 						};
 						
 						protected void configureNavigationPanel(org.nasdanika.html.bootstrap.Container.Row.Col navigationPanel) {
-							Consumer<Object> navPanelConsumer = sections.get(Section.NavigationPanel);
-							if (navPanelConsumer != null) {
-								sectionBuilders.add(Supplier.from(navigationPanel, "Container").then(navPanelConsumer));
+							ViewBuilder navPanelBuilder = sectionBuilders.get(Section.NavigationPanel);
+							if (navPanelBuilder != null) {
+								navPanelBuilder.build(navigationPanel, viewGenerator, progressMonitor);
 							}
 						};
 						
 						protected void configureConentPanel(org.nasdanika.html.bootstrap.Container.Row.Col contentPanel) {
-							Consumer<Object> contentPanelConsumer = sections.get(Section.ContentPanel);
-							if (contentPanelConsumer != null) {
-								sectionBuilders.add(Supplier.from(contentPanel, "Content Panel").then(contentPanelConsumer));
+							ViewBuilder contentPanelBuilder = sectionBuilders.get(Section.ContentPanel);
+							if (contentPanelBuilder != null) {
+								contentPanelBuilder.build(contentPanel, viewGenerator, progressMonitor);
 							}
 						};
 						
 						protected void configureFooter(org.nasdanika.html.bootstrap.Container.Row.Col footer) {
 							footer.width(Breakpoint.DEFAULT, Size.NONE);
-							Consumer<Object> footerConsumer = sections.get(Section.Footer);
-							if (footerConsumer != null) {
-								sectionBuilders.add(Supplier.from(footer, "Footer").then(footerConsumer));
+							ViewBuilder footerBuilder = sectionBuilders.get(Section.Footer);
+							if (footerBuilder != null) {
+								footerBuilder.build(footer, viewGenerator, progressMonitor);
 							}
 						};								
 						
@@ -721,39 +716,24 @@ public class BootstrapContainerApplicationImpl extends BootstrapElementImpl impl
 					app = new DecoratingApplication();
 				}
 				
-				for (Command sectionBuilder: sectionBuilders) {
-					sectionBuilder.splitAndExecute(progressMonitor);
+				ApplicationBuilder contextApplicationBuilder = context.get(ApplicationBuilder.class);				
+				if (contextApplicationBuilder != null) {
+					contextApplicationBuilder.build(app, progressMonitor);
 				}
 				
-				return app;
-			}
-
-			@Override
-			protected List<Consumer<Object>> getElements() {
-				return new ArrayList<>(sections.values());
+				for (Object builder: bs.getSecond()) {
+					((ApplicationBuilder) builder).build(app, progressMonitor);
+				}
+				
 			}
 			
-		}
+		});
 		
-		Generator generator = new Generator(getTitle());
-		
-		CompoundConsumer<Object> builders = new CompoundConsumer<Object>("Builders");
-		
-		for (BootstrapContainerApplicationBuilder b: getBuilders()) {
-			builders.add(b.createConsumer(context));
-		}
-		
-		ApplicationBuilder contextApplicationBuilder = context.get(ApplicationBuilder.class);				
-		if (contextApplicationBuilder != null) {
-			builders.add(Consumer.fromBiConsumer((app, monitor) -> contextApplicationBuilder.build((Application) app, monitor), "Context builder", 1));
-		}
-		
-		return generator.then(builders);
 	}
 	
-	@Override
-	public Consumer<Object> asConsumer(Context context) throws Exception {
-		return create(context);
-	}
+//	@Override
+//	public Consumer<Object> asConsumer(Context context) throws Exception {
+//		return create(context);
+//	}
 	
 } //BootstrapContainerApplicationImpl

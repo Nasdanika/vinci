@@ -35,10 +35,10 @@ import org.nasdanika.ncore.NamedElement;
  * </ul>
  *
  * @see org.nasdanika.vinci.html.HtmlPackage#getPage()
- * @model superTypes="org.nasdanika.ncore.NamedElement org.nasdanika.ncore.ISupplierFactory&lt;org.nasdanika.vinci.html.ViewPart&gt;"
+ * @model superTypes="org.nasdanika.ncore.NamedElement org.nasdanika.ncore.ISupplierFactory&lt;org.eclipse.emf.ecore.EJavaObject&gt;"
  * @generated
  */
-public interface Page extends NamedElement, SupplierFactory<ViewPart> {
+public interface Page extends NamedElement, SupplierFactory<Object> {
 	/**
 	 * Returns the value of the '<em><b>Head</b></em>' containment reference list.
 	 * The list contents are of type {@link org.nasdanika.common.SupplierFactory}<code>&lt;org.nasdanika.html.app.ViewPart&gt;</code>.

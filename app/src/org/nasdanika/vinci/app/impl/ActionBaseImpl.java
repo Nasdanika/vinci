@@ -19,23 +19,18 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.util.InternalEList;
-import org.nasdanika.common.CompoundExecutionParticipant;
-import org.nasdanika.common.Consumer;
 import org.nasdanika.common.Context;
-import org.nasdanika.common.ExecutionParticipant;
 import org.nasdanika.common.ListCompoundSupplierFactory;
 import org.nasdanika.common.MapCompoundSupplierFactory;
 import org.nasdanika.common.MarkdownHelper;
 import org.nasdanika.common.MutableContext;
 import org.nasdanika.common.NasdanikaException;
-import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.common.Reference;
 import org.nasdanika.common.Supplier;
 import org.nasdanika.common.SupplierFactory;
 import org.nasdanika.common.Util;
 import org.nasdanika.html.app.Action;
 import org.nasdanika.html.app.Application;
-import org.nasdanika.html.app.ApplicationBuilder;
 import org.nasdanika.html.app.DecoratorProvider;
 import org.nasdanika.html.app.ViewGenerator;
 import org.nasdanika.html.app.impl.ActionApplicationBuilder;
@@ -409,6 +404,19 @@ public abstract class ActionBaseImpl extends LabelImpl implements ActionBase {
 	public EList<SupplierFactory<Object>> getContent() {
 		return (EList<SupplierFactory<Object>>)eDynamicGet(AppPackage.ACTION_BASE__CONTENT, AppPackage.Literals.ACTION_BASE__CONTENT, true, true);
 	}
+	
+	private static Action findById(Action action, String id) {
+		if (action != null && id.equals(action.getId())) {
+			return action;
+		}
+		for (Action child: action.getChildren()) {
+			Action found = findById(child, id);
+			if (found != null) {
+				return found;
+			}
+		}
+		return null;
+	}	
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -416,74 +424,44 @@ public abstract class ActionBaseImpl extends LabelImpl implements ActionBase {
 	 * @generated NOT
 	 */
 	@Override
-	public Consumer<Object> createConsumer(Context context) throws Exception {
-		Supplier<Object> actionSupplier = create(context);
-		class Generator extends CompoundExecutionParticipant<ExecutionParticipant> implements Consumer<Object> {
-
-			protected Generator(String name) {
-				super(name);
-			}
-			
-			@Override
-			public double size() {
-				return super.size() + 1;
-			}
-			
-			private Action findById(Action action, String id) {
-				if (action != null && id.equals(action.getId())) {
-					return action;
-				}
-				for (Action child: action.getChildren()) {
-					Action found = findById(child, id);
-					if (found != null) {
-						return found;
-					}
-				}
-				return null;
-			}
-
-			@Override
-			public void execute(Object arg, ProgressMonitor progressMonitor) throws Exception {
-				Object action = actionSupplier.splitAndExecute(progressMonitor);
-				Action rootAction = (Action) action;
-				List<Action> navChildren = rootAction.getNavigationChildren();
-				Action principalAction = navChildren.isEmpty() ? null : navChildren.get(0); 
-				List<Action> navigationPanelActions = principalAction == null ? Collections.emptyList() : principalAction.getNavigationChildren(); 
-
-				Action activeAction = rootAction;
-				String activeActionId = context.getString("active-action");
-				if (!Util.isBlank(activeActionId)) {
-					Action found = findById(rootAction, activeActionId);
-					if (found != null) {
-						activeAction = found;
-					}
-				}
-
-				ApplicationBuilder  applicationBuilder = new ActionApplicationBuilder(rootAction, principalAction, navigationPanelActions, activeAction) {
-					@Override
-					protected ViewGenerator createViewGenerator(
-							Application application,
-							java.util.function.Consumer<?> headContentConsumer,
-							java.util.function.Consumer<?> bodyContentConsumer) {
-
-						Context appBuilderContext = context;
-						if (application instanceof DecoratorProvider) {
-							appBuilderContext = context.compose(Context.singleton(DecoratorProvider.class, (DecoratorProvider) application));
-						}
-						return new ViewGeneratorImpl(appBuilderContext, headContentConsumer, bodyContentConsumer);
-					}
-				}; 				
-				applicationBuilder.build((Application) arg, progressMonitor.split("Building application", 1));				
-			}
-
-			@Override
-			protected List<ExecutionParticipant> getElements() {
-				return Collections.singletonList(actionSupplier);
-			}
-			
-		}		
+	public Supplier<Object> createApplicationBuilderSupplier(Context context) throws Exception {
 		
-		return new Generator(getTitle());
+		// Returns application builder
+		return create(context).then(action -> {
+			
+			Action rootAction = (Action) action;
+			List<Action> navChildren = rootAction.getNavigationChildren();
+			Action principalAction = navChildren.isEmpty() ? null : navChildren.get(0); 
+			List<Action> navigationPanelActions = principalAction == null ? Collections.emptyList() : principalAction.getNavigationChildren(); 
+
+			Action activeAction = rootAction;
+			String activeActionId = context.getString("active-action");
+			if (!Util.isBlank(activeActionId)) {
+				Action found = findById(rootAction, activeActionId);
+				if (found != null) {
+					activeAction = found;
+				}
+			}
+
+			return new ActionApplicationBuilder(rootAction, principalAction, navigationPanelActions, activeAction) {
+				
+				@Override
+				protected ViewGenerator createViewGenerator(
+						Application application,
+						java.util.function.Consumer<?> headContentConsumer,
+						java.util.function.Consumer<?> bodyContentConsumer) {
+
+					Context appBuilderContext = context;
+					if (application instanceof DecoratorProvider) {
+						appBuilderContext = context.compose(Context.singleton(DecoratorProvider.class, (DecoratorProvider) application));
+					}
+					return new ViewGeneratorImpl(appBuilderContext, headContentConsumer, bodyContentConsumer);
+				}
+				
+			}; 				
+			
+		});
+		
 	}
 
 	/**
@@ -762,7 +740,7 @@ public abstract class ActionBaseImpl extends LabelImpl implements ActionBase {
 	public int eDerivedOperationID(int baseOperationID, Class<?> baseClass) {
 		if (baseClass == BootstrapContainerApplicationBuilder.class) {
 			switch (baseOperationID) {
-				case AppPackage.BOOTSTRAP_CONTAINER_APPLICATION_BUILDER___CREATE_CONSUMER__CONTEXT: return AppPackage.ACTION_BASE___CREATE_CONSUMER__CONTEXT;
+				case AppPackage.BOOTSTRAP_CONTAINER_APPLICATION_BUILDER___CREATE_APPLICATION_BUILDER_SUPPLIER__CONTEXT: return AppPackage.ACTION_BASE___CREATE_APPLICATION_BUILDER_SUPPLIER__CONTEXT;
 				default: return -1;
 			}
 		}
@@ -792,9 +770,9 @@ public abstract class ActionBaseImpl extends LabelImpl implements ActionBase {
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case AppPackage.ACTION_BASE___CREATE_CONSUMER__CONTEXT:
+			case AppPackage.ACTION_BASE___CREATE_APPLICATION_BUILDER_SUPPLIER__CONTEXT:
 				try {
-					return createConsumer((Context)arguments.get(0));
+					return createApplicationBuilderSupplier((Context)arguments.get(0));
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);

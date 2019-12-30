@@ -493,7 +493,7 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 	 * @generated
 	 */
 	@Override
-	public EOperation getBootstrapContainerApplicationBuilder__CreateConsumer__Context() {
+	public EOperation getBootstrapContainerApplicationBuilder__CreateApplicationBuilderSupplier__Context() {
 		return bootstrapContainerApplicationBuilderEClass.getEOperations().get(0);
 	}
 
@@ -915,7 +915,7 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 		createEReference(bootstrapContainerApplicationPanelEClass, BOOTSTRAP_CONTAINER_APPLICATION_PANEL__WIDTH);
 
 		bootstrapContainerApplicationBuilderEClass = createEClass(BOOTSTRAP_CONTAINER_APPLICATION_BUILDER);
-		createEOperation(bootstrapContainerApplicationBuilderEClass, BOOTSTRAP_CONTAINER_APPLICATION_BUILDER___CREATE_CONSUMER__CONTEXT);
+		createEOperation(bootstrapContainerApplicationBuilderEClass, BOOTSTRAP_CONTAINER_APPLICATION_BUILDER___CREATE_APPLICATION_BUILDER_SUPPLIER__CONTEXT);
 
 		// Create enums
 		actionRoleEEnum = createEEnum(ACTION_ROLE);
@@ -997,8 +997,8 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 		partitionEClass.getESuperTypes().add(this.getActionBase());
 		g1 = createEGenericType(theBootstrapPackage.getBootstrapElement());
 		bootstrapContainerApplicationEClass.getEGenericSuperTypes().add(g1);
-		g1 = createEGenericType(theNcorePackage.getIConsumerFactory());
-		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1 = createEGenericType(theNcorePackage.getISupplierFactory());
+		g2 = createEGenericType(theHtmlPackage.getViewBuilder());
 		g1.getETypeArguments().add(g2);
 		bootstrapContainerApplicationEClass.getEGenericSuperTypes().add(g1);
 		bootstrapContainerApplicationSectionEClass.getESuperTypes().add(theBootstrapPackage.getBootstrapElement());
@@ -1081,10 +1081,10 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 
 		initEClass(bootstrapContainerApplicationBuilderEClass, BootstrapContainerApplicationBuilder.class, "BootstrapContainerApplicationBuilder", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		EOperation op = initEOperation(getBootstrapContainerApplicationBuilder__CreateConsumer__Context(), null, "createConsumer", 0, 1, IS_UNIQUE, IS_ORDERED);
+		EOperation op = initEOperation(getBootstrapContainerApplicationBuilder__CreateApplicationBuilderSupplier__Context(), null, "createApplicationBuilderSupplier", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theNcorePackage.getIContext(), "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, theNcorePackage.getException());
-		g1 = createEGenericType(theNcorePackage.getIConsumer());
+		g1 = createEGenericType(theNcorePackage.getISupplier());
 		g2 = createEGenericType(ecorePackage.getEJavaObject());
 		g1.getETypeArguments().add(g2);
 		initEOperation(op, g1);
@@ -1461,10 +1461,10 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 			   "documentation", "Contributes to building BootstrapContainerApplication"
 		   });
 		addAnnotation
-		  (getBootstrapContainerApplicationBuilder__CreateConsumer__Context(),
+		  (getBootstrapContainerApplicationBuilder__CreateApplicationBuilderSupplier__Context(),
 		   source,
 		   new String[] {
-			   "documentation", "Wraps element into a Consumer to be used as an application builder."
+			   "documentation", "Creates a supplier of ApplicationBuilder used to build the application."
 		   });
 	}
 

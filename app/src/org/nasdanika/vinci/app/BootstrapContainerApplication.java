@@ -3,7 +3,8 @@
 package org.nasdanika.vinci.app;
 
 import org.eclipse.emf.common.util.EList;
-import org.nasdanika.common.ConsumerFactory;
+import org.nasdanika.common.SupplierFactory;
+import org.nasdanika.html.app.ViewBuilder;
 import org.nasdanika.vinci.bootstrap.BootstrapElement;
 
 /**
@@ -54,10 +55,10 @@ import org.nasdanika.vinci.bootstrap.BootstrapElement;
  * </ul>
  *
  * @see org.nasdanika.vinci.app.AppPackage#getBootstrapContainerApplication()
- * @model superTypes="org.nasdanika.vinci.bootstrap.BootstrapElement org.nasdanika.ncore.IConsumerFactory&lt;org.eclipse.emf.ecore.EJavaObject&gt;"
+ * @model superTypes="org.nasdanika.vinci.bootstrap.BootstrapElement org.nasdanika.ncore.ISupplierFactory&lt;org.nasdanika.vinci.html.ViewBuilder&gt;"
  * @generated
  */
-public interface BootstrapContainerApplication extends BootstrapElement, ConsumerFactory<Object> {
+public interface BootstrapContainerApplication extends BootstrapElement, SupplierFactory<ViewBuilder> {
 
 	/**
 	 * Returns the value of the '<em><b>Fluid</b></em>' attribute.

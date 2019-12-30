@@ -439,7 +439,7 @@ public class PageImpl extends NamedElementImpl implements Page {
 	
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
-	public Supplier<ViewPart> create(Context context) throws Exception {
+	public Supplier<Object> create(Context context) throws Exception {
 		@SuppressWarnings("resource")
 		StringMapCompoundSupplier<List<ViewPart>> partsSupplier = new StringMapCompoundSupplier<>(getTitle());
 		partsSupplier.put(createHeadSupplier(context));
@@ -509,6 +509,7 @@ public class PageImpl extends NamedElementImpl implements Page {
 			}
 		}; 
 		
+		@SuppressWarnings("resource")
 		StringMapCompoundSupplier<Object> combiner = new StringMapCompoundSupplier<Object>(getTitle());		
 		Supplier<ViewPart> pageSupplier = partsSupplier.then(pageBuilder);
 		combiner.put("Page", (Supplier) pageSupplier);

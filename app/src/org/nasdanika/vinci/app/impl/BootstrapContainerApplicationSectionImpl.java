@@ -3,17 +3,19 @@
 package org.nasdanika.vinci.app.impl;
 
 import java.util.Collection;
-import java.util.List;
 
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.InternalEList;
-import org.nasdanika.common.BiSupplier;
-import org.nasdanika.common.Consumer;
 import org.nasdanika.common.Context;
+import org.nasdanika.common.ProgressMonitor;
+import org.nasdanika.common.Supplier;
 import org.nasdanika.common.SupplierFactory;
+import org.nasdanika.html.app.ViewBuilder;
+import org.nasdanika.html.app.ViewGenerator;
+import org.nasdanika.html.app.ViewPart;
 import org.nasdanika.html.bootstrap.Container.Row.Col;
 import org.nasdanika.vinci.app.AppPackage;
 import org.nasdanika.vinci.app.BootstrapContainerApplicationSection;
@@ -71,8 +73,8 @@ public class BootstrapContainerApplicationSectionImpl extends BootstrapElementIm
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public EList<SupplierFactory<Object>> getContent() {
-		return (EList<SupplierFactory<Object>>)eDynamicGet(AppPackage.BOOTSTRAP_CONTAINER_APPLICATION_SECTION__CONTENT, HtmlPackage.Literals.CONTAINER__CONTENT, true, true);
+	public EList<SupplierFactory<ViewPart>> getContent() {
+		return (EList<SupplierFactory<ViewPart>>)eDynamicGet(AppPackage.BOOTSTRAP_CONTAINER_APPLICATION_SECTION__CONTENT, HtmlPackage.Literals.CONTAINER__CONTENT, true, true);
 	}
 
 	/**
@@ -136,7 +138,7 @@ public class BootstrapContainerApplicationSectionImpl extends BootstrapElementIm
 		switch (featureID) {
 			case AppPackage.BOOTSTRAP_CONTAINER_APPLICATION_SECTION__CONTENT:
 				getContent().clear();
-				getContent().addAll((Collection<? extends SupplierFactory<Object>>)newValue);
+				getContent().addAll((Collection<? extends SupplierFactory<ViewPart>>)newValue);
 				return;
 			case AppPackage.BOOTSTRAP_CONTAINER_APPLICATION_SECTION__MARKDOWN_CONTENT:
 				setMarkdownContent((String)newValue);
@@ -214,14 +216,23 @@ public class BootstrapContainerApplicationSectionImpl extends BootstrapElementIm
 	}
 	
 	@Override
-	public Consumer<Object> asConsumer(Context context) throws Exception {
-		java.util.function.Function<BiSupplier<Object, List<Object>>, Object> builder = biSupplier -> {
-			org.nasdanika.html.bootstrap.Container.Row.Col col = (org.nasdanika.html.bootstrap.Container.Row.Col) biSupplier.getFirst();
-			configureCol(col);
-			biSupplier.getSecond().forEach(col);
-			return col;
-		};
-		return createContentSupplierFactory().create(context).asFunction().then(builder).then(super.asConsumer(context));
+	public Supplier<ViewBuilder> asViewBuilderSupplier(Context context) throws Exception {
+		// Content, appearance, combine
+		return createContentSupplierFactory().create(context).then(super.asViewBuilderSupplier(context).asFunction()).then(bs -> new ViewBuilder() {
+			
+			@Override
+			public void build(Object target, ViewGenerator viewGenerator, ProgressMonitor progressMonitor) {
+				org.nasdanika.html.bootstrap.Container.Row.Col col = (org.nasdanika.html.bootstrap.Container.Row.Col) target;
+				for (ViewPart cvp: bs.getFirst()) {
+					col.content(viewGenerator.processViewPart(cvp, progressMonitor));
+				}
+				ViewBuilder svb = bs.getSecond();
+				if (svb != null) {
+					svb.build(context, viewGenerator, progressMonitor);
+				}
+			}
+			
+		});		
 	}
 
 	/**

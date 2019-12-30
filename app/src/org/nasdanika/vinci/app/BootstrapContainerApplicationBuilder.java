@@ -3,8 +3,8 @@
 package org.nasdanika.vinci.app;
 
 import org.eclipse.emf.ecore.EObject;
-import org.nasdanika.common.Consumer;
 import org.nasdanika.common.Context;
+import org.nasdanika.common.Supplier;
 
 /**
  * <!-- begin-user-doc -->
@@ -25,11 +25,11 @@ public interface BootstrapContainerApplicationBuilder extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Wraps element into a Consumer to be used as an application builder.
+	 * Creates a supplier of ApplicationBuilder used to build the application.
 	 * <!-- end-model-doc -->
-	 * @model type="org.nasdanika.ncore.IConsumer&lt;org.eclipse.emf.ecore.EJavaObject&gt;" exceptions="org.nasdanika.ncore.Exception" contextDataType="org.nasdanika.ncore.IContext"
+	 * @model type="org.nasdanika.ncore.ISupplier&lt;org.eclipse.emf.ecore.EJavaObject&gt;" exceptions="org.nasdanika.ncore.Exception" contextDataType="org.nasdanika.ncore.IContext"
 	 * @generated
 	 */
-	Consumer<Object> createConsumer(Context context) throws Exception;
+	Supplier<Object> createApplicationBuilderSupplier(Context context) throws Exception;
 
 } // BootstrapContainerApplicationBuilder

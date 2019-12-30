@@ -471,13 +471,13 @@ public interface AppPackage extends EPackage {
 	int BOOTSTRAP_CONTAINER_APPLICATION_BUILDER_FEATURE_COUNT = 0;
 
 	/**
-	 * The operation id for the '<em>Create Consumer</em>' operation.
+	 * The operation id for the '<em>Create Application Builder Supplier</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BOOTSTRAP_CONTAINER_APPLICATION_BUILDER___CREATE_CONSUMER__CONTEXT = 0;
+	int BOOTSTRAP_CONTAINER_APPLICATION_BUILDER___CREATE_APPLICATION_BUILDER_SUPPLIER__CONTEXT = 0;
 
 	/**
 	 * The number of operations of the '<em>Bootstrap Container Application Builder</em>' class.
@@ -507,13 +507,13 @@ public interface AppPackage extends EPackage {
 	int ABSTRACT_ACTION_FEATURE_COUNT = BOOTSTRAP_CONTAINER_APPLICATION_BUILDER_FEATURE_COUNT + 1;
 
 	/**
-	 * The operation id for the '<em>Create Consumer</em>' operation.
+	 * The operation id for the '<em>Create Application Builder Supplier</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ABSTRACT_ACTION___CREATE_CONSUMER__CONTEXT = BOOTSTRAP_CONTAINER_APPLICATION_BUILDER___CREATE_CONSUMER__CONTEXT;
+	int ABSTRACT_ACTION___CREATE_APPLICATION_BUILDER_SUPPLIER__CONTEXT = BOOTSTRAP_CONTAINER_APPLICATION_BUILDER___CREATE_APPLICATION_BUILDER_SUPPLIER__CONTEXT;
 
 	/**
 	 * The number of operations of the '<em>Abstract Action</em>' class.
@@ -877,13 +877,13 @@ public interface AppPackage extends EPackage {
 	int ACTION_BASE_FEATURE_COUNT = LABEL_FEATURE_COUNT + 13;
 
 	/**
-	 * The operation id for the '<em>Create Consumer</em>' operation.
+	 * The operation id for the '<em>Create Application Builder Supplier</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION_BASE___CREATE_CONSUMER__CONTEXT = LABEL_OPERATION_COUNT + 0;
+	int ACTION_BASE___CREATE_APPLICATION_BUILDER_SUPPLIER__CONTEXT = LABEL_OPERATION_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Action Base</em>' class.
@@ -995,13 +995,13 @@ public interface AppPackage extends EPackage {
 	int ACTION_LINK_FEATURE_COUNT = ABSTRACT_ACTION_FEATURE_COUNT + 3;
 
 	/**
-	 * The operation id for the '<em>Create Consumer</em>' operation.
+	 * The operation id for the '<em>Create Application Builder Supplier</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION_LINK___CREATE_CONSUMER__CONTEXT = ABSTRACT_ACTION___CREATE_CONSUMER__CONTEXT;
+	int ACTION_LINK___CREATE_APPLICATION_BUILDER_SUPPLIER__CONTEXT = ABSTRACT_ACTION___CREATE_APPLICATION_BUILDER_SUPPLIER__CONTEXT;
 
 	/**
 	 * The number of operations of the '<em>Action Link</em>' class.
@@ -1058,13 +1058,13 @@ public interface AppPackage extends EPackage {
 	int ACTION_REFERENCE_FEATURE_COUNT = ABSTRACT_ACTION_FEATURE_COUNT + 3;
 
 	/**
-	 * The operation id for the '<em>Create Consumer</em>' operation.
+	 * The operation id for the '<em>Create Application Builder Supplier</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION_REFERENCE___CREATE_CONSUMER__CONTEXT = ABSTRACT_ACTION___CREATE_CONSUMER__CONTEXT;
+	int ACTION_REFERENCE___CREATE_APPLICATION_BUILDER_SUPPLIER__CONTEXT = ABSTRACT_ACTION___CREATE_APPLICATION_BUILDER_SUPPLIER__CONTEXT;
 
 	/**
 	 * The number of operations of the '<em>Action Reference</em>' class.
@@ -1292,13 +1292,13 @@ public interface AppPackage extends EPackage {
 	int ACTION_FEATURE_COUNT = ACTION_BASE_FEATURE_COUNT + 0;
 
 	/**
-	 * The operation id for the '<em>Create Consumer</em>' operation.
+	 * The operation id for the '<em>Create Application Builder Supplier</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION___CREATE_CONSUMER__CONTEXT = ACTION_BASE___CREATE_CONSUMER__CONTEXT;
+	int ACTION___CREATE_APPLICATION_BUILDER_SUPPLIER__CONTEXT = ACTION_BASE___CREATE_APPLICATION_BUILDER_SUPPLIER__CONTEXT;
 
 	/**
 	 * The number of operations of the '<em>Action</em>' class.
@@ -1526,13 +1526,13 @@ public interface AppPackage extends EPackage {
 	int PARTITION_FEATURE_COUNT = ACTION_BASE_FEATURE_COUNT + 0;
 
 	/**
-	 * The operation id for the '<em>Create Consumer</em>' operation.
+	 * The operation id for the '<em>Create Application Builder Supplier</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PARTITION___CREATE_CONSUMER__CONTEXT = ACTION_BASE___CREATE_CONSUMER__CONTEXT;
+	int PARTITION___CREATE_APPLICATION_BUILDER_SUPPLIER__CONTEXT = ACTION_BASE___CREATE_APPLICATION_BUILDER_SUPPLIER__CONTEXT;
 
 	/**
 	 * The number of operations of the '<em>Partition</em>' class.
@@ -2129,14 +2129,14 @@ public interface AppPackage extends EPackage {
 	EClass getBootstrapContainerApplicationBuilder();
 
 	/**
-	 * Returns the meta object for the '{@link org.nasdanika.vinci.app.BootstrapContainerApplicationBuilder#createConsumer(org.nasdanika.common.Context) <em>Create Consumer</em>}' operation.
+	 * Returns the meta object for the '{@link org.nasdanika.vinci.app.BootstrapContainerApplicationBuilder#createApplicationBuilderSupplier(org.nasdanika.common.Context) <em>Create Application Builder Supplier</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Create Consumer</em>' operation.
-	 * @see org.nasdanika.vinci.app.BootstrapContainerApplicationBuilder#createConsumer(org.nasdanika.common.Context)
+	 * @return the meta object for the '<em>Create Application Builder Supplier</em>' operation.
+	 * @see org.nasdanika.vinci.app.BootstrapContainerApplicationBuilder#createApplicationBuilderSupplier(org.nasdanika.common.Context)
 	 * @generated
 	 */
-	EOperation getBootstrapContainerApplicationBuilder__CreateConsumer__Context();
+	EOperation getBootstrapContainerApplicationBuilder__CreateApplicationBuilderSupplier__Context();
 
 	/**
 	 * Returns the meta object for class '{@link org.nasdanika.vinci.app.ActionMapping <em>Action Mapping</em>}'.
@@ -2712,12 +2712,12 @@ public interface AppPackage extends EPackage {
 		EClass BOOTSTRAP_CONTAINER_APPLICATION_BUILDER = eINSTANCE.getBootstrapContainerApplicationBuilder();
 
 		/**
-		 * The meta object literal for the '<em><b>Create Consumer</b></em>' operation.
+		 * The meta object literal for the '<em><b>Create Application Builder Supplier</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation BOOTSTRAP_CONTAINER_APPLICATION_BUILDER___CREATE_CONSUMER__CONTEXT = eINSTANCE.getBootstrapContainerApplicationBuilder__CreateConsumer__Context();
+		EOperation BOOTSTRAP_CONTAINER_APPLICATION_BUILDER___CREATE_APPLICATION_BUILDER_SUPPLIER__CONTEXT = eINSTANCE.getBootstrapContainerApplicationBuilder__CreateApplicationBuilderSupplier__Context();
 
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.vinci.app.impl.ActionMappingImpl <em>Action Mapping</em>}' class.

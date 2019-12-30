@@ -11,7 +11,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.InternalEList;
-import org.nasdanika.common.Consumer;
 import org.nasdanika.common.Context;
 import org.nasdanika.common.MutableContext;
 import org.nasdanika.common.Supplier;
@@ -171,7 +170,7 @@ public class ActionReferenceImpl extends MinimalEObjectImpl.Container implements
 	 * @generated NOT
 	 */
 	@Override
-	public Consumer<Object> createConsumer(Context context) throws Exception {
+	public Supplier<Object> createApplicationBuilderSupplier(Context context) throws Exception {
 		throw new UnsupportedOperationException();
 	}
 
@@ -288,9 +287,9 @@ public class ActionReferenceImpl extends MinimalEObjectImpl.Container implements
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case AppPackage.ACTION_REFERENCE___CREATE_CONSUMER__CONTEXT:
+			case AppPackage.ACTION_REFERENCE___CREATE_APPLICATION_BUILDER_SUPPLIER__CONTEXT:
 				try {
-					return createConsumer((Context)arguments.get(0));
+					return createApplicationBuilderSupplier((Context)arguments.get(0));
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
