@@ -150,9 +150,9 @@ public class ActionLinkImpl extends ModelElementImpl implements ActionLink {
 	}		
 	
 	@Override
-	public Supplier<Object> create(Context context) throws Exception {
+	public Supplier<ViewPart> create(Context context) throws Exception {
 		ActionFacade actionFacade = new ActionFacade(context, unwrap(getTarget()));
-		
+		// TODO - appearance.
 		return Supplier.fromCallable(() -> {
 			return new ViewPart() {
 				

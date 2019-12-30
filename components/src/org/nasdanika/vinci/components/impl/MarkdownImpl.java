@@ -2,14 +2,19 @@
  */
 package org.nasdanika.vinci.components.impl;
 
+
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.nasdanika.common.Context;
 import org.nasdanika.common.MarkdownHelper;
+import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.common.Supplier;
 import org.nasdanika.common.Util;
 import org.nasdanika.html.HTMLElement;
+import org.nasdanika.html.HTMLFactory;
+import org.nasdanika.html.app.ViewGenerator;
+import org.nasdanika.html.app.ViewPart;
 import org.nasdanika.html.bootstrap.BootstrapFactory;
 import org.nasdanika.ncore.impl.ModelElementImpl;
 import org.nasdanika.vinci.bootstrap.Appearance;
@@ -234,45 +239,57 @@ public abstract class MarkdownImpl extends ModelElementImpl implements Markdown 
 	protected abstract String doGetMarkdown(Context context) throws Exception;
 	
 	@Override
-	public Supplier<Object> create(Context context) throws Exception {
-		BootstrapFactory bootstrapFactory = context.get(BootstrapFactory.class, BootstrapFactory.INSTANCE);		
+	public Supplier<ViewPart> create(Context context) throws Exception {
 		
 		String markdown = doGetMarkdown(context);
 		if (Util.isBlank(markdown)) {
-			return Supplier.EMPTY;
+			return Supplier.empty();
 		}
-		Supplier<Object> markdownSupplier = Supplier.fromCallable(() -> {
-			MarkdownHelper markdownHelper = new MarkdownHelper();
-			String html = markdownHelper.markdownToHtml(markdown).trim();
-			if (isInterpolate()) {
-				html = context.interpolate(html);
-			}
-			// Peeling of <p></p>
-			String pOpen = "<p>";
-			String pClose = "</p>";
-			if (html.startsWith(pOpen) && html.endsWith(pClose)) {
-				html = html.substring(pOpen.length(), html.length() - pClose.length());
+		
+		Supplier<ViewPart> markdownSupplier = Supplier.fromCallable(() -> new ViewPart() {
+
+			@Override
+			public Object generate(ViewGenerator viewGenerator, ProgressMonitor progressMonitor) {
+				MarkdownHelper markdownHelper = new MarkdownHelper();
+				String html = markdownHelper.markdownToHtml(markdown).trim();
+				if (isInterpolate()) {
+					html = context.interpolate(html);
+				}
+				// Peeling of <p></p>
+				String pOpen = "<p>";
+				String pClose = "</p>";
+				if (html.startsWith(pOpen) && html.endsWith(pClose)) {
+					html = html.substring(pOpen.length(), html.length() - pClose.length());
+				}
+				
+				if (!isStyle()) {
+					return html;
+				}
+				return viewGenerator.get(HTMLFactory.class).div(html).addClass("markdown-body");
 			}
 			
-			if (!isStyle()) {
-				return html;
-			}
-			return bootstrapFactory.getHTMLFactory().div(html).addClass("markdown-body");
 		}, getTitle(), 1);
 		
 		Appearance appearance = getAppearance();
 		if (appearance == null) {
 			return markdownSupplier;
 		}
-				
-		java.util.function.Function<Object, Object> wrapper = mrkdwn -> {
-			if (mrkdwn instanceof String) {
-				mrkdwn = bootstrapFactory.getHTMLFactory().div(mrkdwn);
-			}
-			return mrkdwn instanceof HTMLElement ? bootstrapFactory.wrap((HTMLElement<?>) mrkdwn) : mrkdwn;
-		};
 		
-		return markdownSupplier.then(wrapper).then(appearance.create(context).asFunction());
+		return markdownSupplier.then(appearance.create(context).asFunction()).then(bs -> new ViewPart() {
+
+			@Override
+			public Object generate(ViewGenerator viewGenerator, ProgressMonitor progressMonitor) {
+				java.util.function.Function<Object, Object> wrapper = mrkdwn -> {
+					if (mrkdwn instanceof String) {
+						mrkdwn = viewGenerator.get(HTMLFactory.class).div(mrkdwn);
+					}
+					return mrkdwn instanceof HTMLElement ? viewGenerator.get(BootstrapFactory.class).wrap((HTMLElement<?>) mrkdwn) : mrkdwn;
+				};
+				
+				return bs.getFirst().then(bs.getSecond().before(wrapper));
+			}
+			
+		});
 	}
 	
 

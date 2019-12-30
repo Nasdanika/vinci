@@ -3,6 +3,7 @@
 package org.nasdanika.vinci.components;
 
 import org.nasdanika.common.SupplierFactory;
+import org.nasdanika.html.app.ViewPart;
 import org.nasdanika.ncore.ModelElement;
 import org.nasdanika.vinci.bootstrap.Appearance;
 
@@ -25,10 +26,10 @@ import org.nasdanika.vinci.bootstrap.Appearance;
  * </ul>
  *
  * @see org.nasdanika.vinci.components.ComponentsPackage#getMarkdown()
- * @model abstract="true" superTypes="org.nasdanika.ncore.ModelElement org.nasdanika.ncore.ISupplierFactory&lt;org.eclipse.emf.ecore.EJavaObject&gt;"
+ * @model abstract="true" superTypes="org.nasdanika.ncore.ModelElement org.nasdanika.ncore.ISupplierFactory&lt;org.nasdanika.vinci.html.ViewPart&gt;"
  * @generated
  */
-public interface Markdown extends ModelElement, SupplierFactory<Object> {
+public interface Markdown extends ModelElement, SupplierFactory<ViewPart> {
 
 	/**
 	 * Returns the value of the '<em><b>Style</b></em>' attribute.

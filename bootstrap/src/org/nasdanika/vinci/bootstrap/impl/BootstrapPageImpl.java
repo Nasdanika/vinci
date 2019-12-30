@@ -3,9 +3,9 @@
 package org.nasdanika.vinci.bootstrap.impl;
 
 import org.eclipse.emf.ecore.EClass;
-import org.nasdanika.common.Context;
 import org.nasdanika.common.Util;
 import org.nasdanika.html.HTMLPage;
+import org.nasdanika.html.app.ViewGenerator;
 import org.nasdanika.html.bootstrap.Theme;
 import org.nasdanika.vinci.bootstrap.BootstrapPackage;
 import org.nasdanika.vinci.bootstrap.BootstrapPage;
@@ -174,8 +174,8 @@ public class BootstrapPageImpl extends PageImpl implements BootstrapPage {
 	}
 	
 	@Override
-	protected HTMLPage createPage(Context context) {
-		org.nasdanika.html.bootstrap.BootstrapFactory bootstrapFactory = context.get(org.nasdanika.html.bootstrap.BootstrapFactory.class, org.nasdanika.html.bootstrap.BootstrapFactory.INSTANCE);
+	protected HTMLPage createPage(ViewGenerator viewGenerator) {
+		org.nasdanika.html.bootstrap.BootstrapFactory bootstrapFactory = viewGenerator.get(org.nasdanika.html.bootstrap.BootstrapFactory.class);
 		if (isCdn()) {
 			if (Util.isBlank(getTheme())) {
 				return bootstrapFactory.bootstrapCdnHTMLPage();

@@ -9,14 +9,12 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.InternalEList;
-import org.nasdanika.common.CompoundConsumer;
 import org.nasdanika.common.Context;
 import org.nasdanika.common.Supplier;
-import org.nasdanika.html.bootstrap.BootstrapFactory;
+import org.nasdanika.html.app.ViewPart;
 import org.nasdanika.vinci.bootstrap.ActionGroup;
 import org.nasdanika.vinci.bootstrap.ActionGroupItem;
 import org.nasdanika.vinci.bootstrap.BootstrapPackage;
-import org.nasdanika.vinci.bootstrap.ContentActionGroupItem;
 
 /**
  * <!-- begin-user-doc -->
@@ -176,24 +174,24 @@ public class ActionGroupImpl extends DivImpl implements ActionGroup {
 		}
 		return super.eIsSet(featureID);
 	}
-	
 	@Override
-	public Supplier<Object> create(Context context) throws Exception {
-		Supplier<org.nasdanika.html.bootstrap.ActionGroup> actionGroupSupplier = Supplier.fromSupplier(() -> context.get(BootstrapFactory.class, BootstrapFactory.INSTANCE).actionGroup(isFlush()), "Action group", 1);		
-
-		@SuppressWarnings("resource")
-		CompoundConsumer<Object> itemsConsumer = new CompoundConsumer<>("Items");
-		boolean hasContentItems = false;
-		for (ActionGroupItem item: getItems()) {
-			itemsConsumer.add(item.create(context));
-			hasContentItems = hasContentItems || item instanceof ContentActionGroupItem;
-		}
-		
-		Supplier<Object> ret = actionGroupSupplier.then(itemsConsumer.asFunction());
-		if (hasContentItems) {
-			ret = ret.then(ag -> ((org.nasdanika.html.bootstrap.ActionGroup) ag).asContainer(true)); // TODO - configurable?
-		}
-		return ret;
+	public Supplier<ViewPart> create(Context arg) throws Exception {
+		throw new UnsupportedOperationException("TODO - implement refactoring");
+//		Supplier<org.nasdanika.html.bootstrap.ActionGroup> actionGroupSupplier = Supplier.fromSupplier(() -> context.get(BootstrapFactory.class, BootstrapFactory.INSTANCE).actionGroup(isFlush()), "Action group", 1);		
+//
+//		@SuppressWarnings("resource")
+//		CompoundConsumer<Object> itemsConsumer = new CompoundConsumer<>("Items");
+//		boolean hasContentItems = false;
+//		for (ActionGroupItem item: getItems()) {
+//			itemsConsumer.add(item.create(context));
+//			hasContentItems = hasContentItems || item instanceof ContentActionGroupItem;
+//		}
+//		
+//		Supplier<Object> ret = actionGroupSupplier.then(itemsConsumer.asFunction());
+//		if (hasContentItems) {
+//			ret = ret.then(ag -> ((org.nasdanika.html.bootstrap.ActionGroup) ag).asContainer(true)); // TODO - configurable?
+//		}
+//		return ret;
 	}
 
 } //ActionGroupImpl

@@ -15,10 +15,12 @@ import org.nasdanika.common.BiSupplier;
 import org.nasdanika.common.Consumer;
 import org.nasdanika.common.Context;
 import org.nasdanika.common.StringMapCompoundSupplier;
+import org.nasdanika.common.Supplier;
 import org.nasdanika.common.SupplierFactory;
 import org.nasdanika.common.Util;
 import org.nasdanika.html.Fragment;
 import org.nasdanika.html.HTMLFactory;
+import org.nasdanika.html.app.ViewBuilder;
 import org.nasdanika.html.app.ViewPart;
 import org.nasdanika.html.bootstrap.ActionGroup;
 import org.nasdanika.html.bootstrap.Color;
@@ -218,39 +220,40 @@ public class ContentActionGroupItemImpl extends ActionGroupItemImpl implements C
 		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
-
+	
 	@Override
-	public Consumer<Object> create(Context context) throws Exception {
-		@SuppressWarnings("resource")
-		StringMapCompoundSupplier<List<Object>> partsSupplier = new StringMapCompoundSupplier<>("Parts");
-		partsSupplier.put(createNameSupplier(context));
-		partsSupplier.put(createContentSupplierFactory().create(context));
-
-		java.util.function.Consumer<BiSupplier<Object, Map<String,List<Object>>>> consumer = new java.util.function.Consumer<BiSupplier<Object, Map<String,List<Object>>>>() {
-
-			@Override
-			public void accept(BiSupplier<Object, Map<String,List<Object>>> supplier) {
-				HTMLFactory htmlFactory = context.get(HTMLFactory.class, HTMLFactory.INSTANCE);
-
-				Fragment nameFragment = htmlFactory.fragment();
-				supplier.getSecond().get("Name").forEach(nameFragment);
-				
-				Fragment contentFragment = htmlFactory.fragment();
-				supplier.getSecond().get("Content").forEach(contentFragment);
-				
-				((ActionGroup) supplier.getFirst()).contentAction(
-						nameFragment, 
-						isActive(), 
-						isDisabled(), 
-						Util.isBlank(getColor()) ? null : Color.fromLabel(getColor()), 
-						null, 
-						contentFragment);
-			}
-
-
-		};
-		
-		return partsSupplier.asFunction().then(Consumer.fromConsumer(consumer, getTitle(), 1));
+	public Supplier<ViewBuilder> create(Context arg) throws Exception {
+		throw new UnsupportedOperationException("TODO - implement refactoring");
+//		@SuppressWarnings("resource")
+//		StringMapCompoundSupplier<List<Object>> partsSupplier = new StringMapCompoundSupplier<>("Parts");
+//		partsSupplier.put(createNameSupplier(context));
+//		partsSupplier.put(createContentSupplierFactory().create(context));
+//
+//		java.util.function.Consumer<BiSupplier<Object, Map<String,List<Object>>>> consumer = new java.util.function.Consumer<BiSupplier<Object, Map<String,List<Object>>>>() {
+//
+//			@Override
+//			public void accept(BiSupplier<Object, Map<String,List<Object>>> supplier) {
+//				HTMLFactory htmlFactory = context.get(HTMLFactory.class, HTMLFactory.INSTANCE);
+//
+//				Fragment nameFragment = htmlFactory.fragment();
+//				supplier.getSecond().get("Name").forEach(nameFragment);
+//				
+//				Fragment contentFragment = htmlFactory.fragment();
+//				supplier.getSecond().get("Content").forEach(contentFragment);
+//				
+//				((ActionGroup) supplier.getFirst()).contentAction(
+//						nameFragment, 
+//						isActive(), 
+//						isDisabled(), 
+//						Util.isBlank(getColor()) ? null : Color.fromLabel(getColor()), 
+//						null, 
+//						contentFragment);
+//			}
+//
+//
+//		};
+//		
+//		return partsSupplier.asFunction().then(Consumer.fromConsumer(consumer, getTitle(), 1));
 	}
 
 } //ContentActionGroupItemImpl
