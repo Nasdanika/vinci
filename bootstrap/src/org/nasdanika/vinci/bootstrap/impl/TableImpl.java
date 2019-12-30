@@ -2,14 +2,10 @@
  */
 package org.nasdanika.vinci.bootstrap.impl;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.nasdanika.common.Context;
-import org.nasdanika.common.ListCompoundSupplierFactory;
 import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.common.StringMapCompoundSupplier;
 import org.nasdanika.common.Supplier;
@@ -507,21 +503,7 @@ public class TableImpl extends TableRowContainerImpl implements Table {
 		if (footer != null) {
 			parts.put("Footer", footer.create(context));
 		}
-		Supplier<List<ViewBuilder>> rowBuilderSuppliers = new ListCompoundSupplierFactory<ViewBuilder>("Rows", new ArrayList<>(getRows())).create(context);
-		
-		Supplier<ViewBuilder> rowsBuilderSupplier = rowBuilderSuppliers.then(rowBuilders -> new ViewBuilder() {
-
-			@Override
-			public void build(Object target, ViewGenerator viewGenerator, ProgressMonitor progressMonitor) {
-				org.nasdanika.html.bootstrap.Table table = (org.nasdanika.html.bootstrap.Table) target;
-				for (ViewBuilder rb: rowBuilders) {
-					rb.build(table.row(), viewGenerator, progressMonitor);
-				}
-			}
-			
-		});
-		
-		parts.put("Rows", rowsBuilderSupplier);
+		parts.put("Rows", createRowsBuilderSupplier(context));
 		
 		return parts.then(partsMap -> new ViewPart() {
 

@@ -3,13 +3,14 @@
 package org.nasdanika.vinci.bootstrap.impl;
 
 import org.eclipse.emf.ecore.EClass;
-import org.nasdanika.common.CompoundConsumer;
-import org.nasdanika.common.Consumer;
 import org.nasdanika.common.Context;
-import org.nasdanika.common.Function;
+import org.nasdanika.common.ProgressMonitor;
+import org.nasdanika.common.StringMapCompoundSupplier;
+import org.nasdanika.common.Supplier;
+import org.nasdanika.html.app.ViewBuilder;
+import org.nasdanika.html.app.ViewGenerator;
 import org.nasdanika.vinci.bootstrap.Appearance;
 import org.nasdanika.vinci.bootstrap.BootstrapPackage;
-import org.nasdanika.vinci.bootstrap.TableRow;
 import org.nasdanika.vinci.bootstrap.TableSection;
 
 /**
@@ -39,22 +40,35 @@ public class TableSectionImpl extends TableRowContainerImpl implements TableSect
 		return BootstrapPackage.Literals.TABLE_SECTION;
 	}
 
+	@SuppressWarnings("resource")
 	@Override
-	public Consumer<Object> create(Context context) throws Exception {
-		CompoundConsumer<Object> consumer = new CompoundConsumer<Object>(getTitle());
+	public Supplier<ViewBuilder> create(Context context) throws Exception {		
+		StringMapCompoundSupplier<ViewBuilder> parts = new StringMapCompoundSupplier<>(getTitle());
+		
 		Appearance appearance = getAppearance();
 		if (appearance != null) {
-			consumer.add(appearance.create(context));
+			parts.put("Appearance", appearance.create(context));
 		}
+		parts.put("Rows", createRowsBuilderSupplier(context));
 		
-		for (TableRow row: getRows()) {
-			Function<Object,Object> rowFunction = Function.fromBiFunction(
-					(obj,progressMonitor) -> ((org.nasdanika.html.bootstrap.RowContainer<?,?>) obj).row(),
-					"Column", 
-					1);
-			consumer.add(rowFunction.then(row.create(context)));
-		}
-		return consumer;
+		return parts.then(partsMap -> new ViewBuilder() {
+			
+			public void build(Object target, ViewGenerator viewGenerator, ProgressMonitor progressMonitor) {
+				org.nasdanika.html.bootstrap.RowContainer<?,?> rowContainer = (org.nasdanika.html.bootstrap.RowContainer<?,?>) target;
+				
+				ViewBuilder appearanceBuilder = partsMap.get("Appearance");
+				if (appearanceBuilder != null) {
+					appearanceBuilder.build(rowContainer, viewGenerator, progressMonitor);
+				}
+				
+				ViewBuilder rowsBuilder = partsMap.get("Rows");
+				if (rowsBuilder != null) {
+					rowsBuilder.build(rowContainer, viewGenerator, progressMonitor);
+				}
+			}
+
+		});
+		
 	}
 
 } //TableSectionImpl

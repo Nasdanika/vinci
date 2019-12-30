@@ -3,8 +3,11 @@
 package org.nasdanika.vinci.bootstrap.impl;
 
 import org.eclipse.emf.ecore.EClass;
-import org.nasdanika.common.Consumer;
 import org.nasdanika.common.Context;
+import org.nasdanika.common.ProgressMonitor;
+import org.nasdanika.common.Supplier;
+import org.nasdanika.html.app.ViewBuilder;
+import org.nasdanika.html.app.ViewGenerator;
 import org.nasdanika.vinci.bootstrap.BootstrapPackage;
 import org.nasdanika.vinci.bootstrap.TableHeader;
 
@@ -171,12 +174,17 @@ public class TableHeaderImpl extends TableSectionImpl implements TableHeader {
 	}
 	
 	@Override
-	public Consumer<Object> create(Context context) throws Exception {
-		return super.create(context).asFunction().then(Consumer.fromConsumer(obj -> {
-			org.nasdanika.html.bootstrap.Table.TableHeader header = (org.nasdanika.html.bootstrap.Table.TableHeader) obj;
-			header.dark(isDark());
-			header.light(isLight());
-		}, "Header style", 1));
+	public Supplier<ViewBuilder> create(Context context) throws Exception {
+		return super.create(context).then(vb -> vb.compose(new ViewBuilder() {
+
+			@Override
+			public void build(Object target, ViewGenerator viewGenerator, ProgressMonitor progressMonitor) {
+				org.nasdanika.html.bootstrap.Table.TableHeader header = (org.nasdanika.html.bootstrap.Table.TableHeader) target;
+				header.dark(isDark());
+				header.light(isLight());
+			}
+			
+		}));
 	}
 
 } //TableHeaderImpl

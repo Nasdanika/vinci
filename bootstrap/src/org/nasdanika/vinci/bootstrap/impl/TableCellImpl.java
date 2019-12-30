@@ -3,22 +3,19 @@
 package org.nasdanika.vinci.bootstrap.impl;
 
 import java.lang.reflect.InvocationTargetException;
-import java.util.List;
-import java.util.function.BiFunction;
 
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-import org.nasdanika.common.BiSupplier;
-import org.nasdanika.common.Consumer;
 import org.nasdanika.common.Context;
-import org.nasdanika.common.Function;
 import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.common.Supplier;
 import org.nasdanika.common.SupplierFactory;
 import org.nasdanika.common.Util;
 import org.nasdanika.html.app.ViewBuilder;
+import org.nasdanika.html.app.ViewGenerator;
+import org.nasdanika.html.app.ViewPart;
 import org.nasdanika.html.bootstrap.Color;
 import org.nasdanika.ncore.ModelElement;
 import org.nasdanika.ncore.NcorePackage;
@@ -581,33 +578,40 @@ public class TableCellImpl extends ContainerImpl implements TableCell {
 	}
 
 	@Override
-	public Consumer<Object> create(Context context) throws Exception {
+	public Supplier<ViewBuilder> create(Context context) throws Exception {
 		
-		BiFunction<BiSupplier<Object, List<Object>>, ProgressMonitor, Object> cbf = (biSupplier, progressMonitor) -> {
-			org.nasdanika.html.bootstrap.RowContainer.Row.Cell cell = (org.nasdanika.html.bootstrap.RowContainer.Row.Cell) biSupplier.getFirst();
-			if (!Util.isBlank(getBackground())) {
-				cell.background(Color.fromLabel(getBackground()));
+		Supplier<ViewBuilder> ret = createContentSupplierFactory().create(context).then(content -> new ViewBuilder() {
+
+			@Override
+			public void build(Object target, ViewGenerator viewGenerator, ProgressMonitor progressMonitor) {
+				org.nasdanika.html.bootstrap.RowContainer.Row row = (org.nasdanika.html.bootstrap.RowContainer.Row) target;
+				org.nasdanika.html.bootstrap.RowContainer.Row.Cell cell = isHeader() ? row.header() : row.cell();
+				if (!Util.isBlank(getBackground())) {
+					cell.background(Color.fromLabel(getBackground()));
+				}
+				if (!Util.isBlank(getColor())) {
+					cell.color(Color.fromLabel(getColor()));
+				}
+				if (getColSpan() > 1) {
+					cell.toHTMLElement().colspan(getColSpan());
+				}
+				if (getRowSpan() > 1) {
+					cell.toHTMLElement().rowspan(getRowSpan());
+				}
+				for (ViewPart cvp: content) {
+					cell.toHTMLElement().accept(viewGenerator.processViewPart(cvp, progressMonitor));
+				}
+				
 			}
-			if (!Util.isBlank(getColor())) {
-				cell.color(Color.fromLabel(getColor()));
-			}
-			for (Object c: biSupplier.getSecond()) {
-				cell.toHTMLElement().accept(c);
-			}
-			if (getColSpan() > 1) {
-				cell.toHTMLElement().colspan(getColSpan());
-			}
-			if (getRowSpan() > 1) {
-				cell.toHTMLElement().rowspan(getRowSpan());
-			}
-			return cell;
-		}; 
-		Function<BiSupplier<Object, List<Object>>,Object> combiner = Function.fromBiFunction(cbf , getTitle(), 1);
+			
+		});
 		
-		Function<Object, Object> contentFunction = createContentSupplierFactory().create(context).asFunction().then(combiner);
 		Appearance appearance = getAppearance();
+		if (appearance == null) {
+			return ret;
+		}
 		
-		return contentFunction.then(appearance == null ? Consumer.NOP : appearance.create(context));
+		return ret.then(appearance.create(context).asFunction()).then(bs -> bs.getFirst().compose(bs.getSecond()));
 	}
 
 } //TableCellImpl
