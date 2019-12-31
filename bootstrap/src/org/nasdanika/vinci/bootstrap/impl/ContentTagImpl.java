@@ -203,7 +203,10 @@ public class ContentTagImpl extends org.nasdanika.vinci.html.impl.ContentTagImpl
 			@Override
 			public Object generate(ViewGenerator viewGenerator, ProgressMonitor progressMonitor) {
 				Object ret = ((ViewPart) map.get("Tag")).generate(viewGenerator, progressMonitor);
-				((ViewBuilder) map.get("Appearance")).build(ret, viewGenerator, progressMonitor);
+				Object avb = map.get("Appearance");
+				if (avb instanceof ViewBuilder) {
+					((ViewBuilder) avb).build(ret, viewGenerator, progressMonitor);
+				}
 				return ret;
 			}
 			
