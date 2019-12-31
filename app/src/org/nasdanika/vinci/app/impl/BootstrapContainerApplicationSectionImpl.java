@@ -73,8 +73,8 @@ public class BootstrapContainerApplicationSectionImpl extends BootstrapElementIm
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public EList<SupplierFactory<ViewPart>> getContent() {
-		return (EList<SupplierFactory<ViewPart>>)eDynamicGet(AppPackage.BOOTSTRAP_CONTAINER_APPLICATION_SECTION__CONTENT, HtmlPackage.Literals.CONTAINER__CONTENT, true, true);
+	public EList<SupplierFactory<Object>> getContent() {
+		return (EList<SupplierFactory<Object>>)eDynamicGet(AppPackage.BOOTSTRAP_CONTAINER_APPLICATION_SECTION__CONTENT, HtmlPackage.Literals.CONTAINER__CONTENT, true, true);
 	}
 
 	/**
@@ -138,7 +138,7 @@ public class BootstrapContainerApplicationSectionImpl extends BootstrapElementIm
 		switch (featureID) {
 			case AppPackage.BOOTSTRAP_CONTAINER_APPLICATION_SECTION__CONTENT:
 				getContent().clear();
-				getContent().addAll((Collection<? extends SupplierFactory<ViewPart>>)newValue);
+				getContent().addAll((Collection<? extends SupplierFactory<Object>>)newValue);
 				return;
 			case AppPackage.BOOTSTRAP_CONTAINER_APPLICATION_SECTION__MARKDOWN_CONTENT:
 				setMarkdownContent((String)newValue);

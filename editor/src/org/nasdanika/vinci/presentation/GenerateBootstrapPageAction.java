@@ -4,8 +4,10 @@ import org.eclipse.core.resources.IFile;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.ecore.EObject;
 import org.nasdanika.common.Context;
+import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.common.SupplierFactory;
 import org.nasdanika.html.HTMLPage;
+import org.nasdanika.html.app.impl.ViewGeneratorImpl;
 import org.nasdanika.html.bootstrap.BootstrapFactory;
 import org.nasdanika.html.fontawesome.FontAwesomeFactory;
 import org.nasdanika.html.jstree.JsTreeFactory;
@@ -23,7 +25,7 @@ public class GenerateBootstrapPageAction<T extends EObject & SupplierFactory<Obj
 	}
 	
 	@Override
-	protected Object wrap(Object result, Context context) {
+	protected Object wrap(Object result, Context context, ProgressMonitor progressMonitor) {
 		BootstrapFactory bootstrapFactory = context.get(BootstrapFactory.class, BootstrapFactory.INSTANCE);
 		HTMLPage page = bootstrapFactory.bootstrapCdnHTMLPage();
 		
@@ -33,7 +35,7 @@ public class GenerateBootstrapPageAction<T extends EObject & SupplierFactory<Obj
 		JsTreeFactory jstf = context.get(JsTreeFactory.class, JsTreeFactory.INSTANCE);
 		jstf.cdn(page);
 		
-		page.body(result);
+		page.body(new ViewGeneratorImpl(context, page::head, page::body).processViewPart(result, progressMonitor));
 		return page;
 	}
 	

@@ -2,25 +2,23 @@
  */
 package org.nasdanika.vinci.bootstrap.impl;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-import java.util.Map;
 
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.InternalEList;
-import org.nasdanika.common.BiSupplier;
-import org.nasdanika.common.Consumer;
 import org.nasdanika.common.Context;
-import org.nasdanika.common.StringMapCompoundSupplier;
+import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.common.Supplier;
 import org.nasdanika.common.SupplierFactory;
-import org.nasdanika.common.Util;
 import org.nasdanika.html.Fragment;
 import org.nasdanika.html.HTMLFactory;
 import org.nasdanika.html.app.ViewBuilder;
+import org.nasdanika.html.app.ViewGenerator;
 import org.nasdanika.html.app.ViewPart;
 import org.nasdanika.html.bootstrap.ActionGroup;
 import org.nasdanika.html.bootstrap.Color;
@@ -79,8 +77,8 @@ public class ContentActionGroupItemImpl extends ActionGroupItemImpl implements C
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public EList<SupplierFactory<ViewPart>> getContent() {
-		return (EList<SupplierFactory<ViewPart>>)eDynamicGet(BootstrapPackage.CONTENT_ACTION_GROUP_ITEM__CONTENT, HtmlPackage.Literals.CONTAINER__CONTENT, true, true);
+	public EList<SupplierFactory<Object>> getContent() {
+		return (EList<SupplierFactory<Object>>)eDynamicGet(BootstrapPackage.CONTENT_ACTION_GROUP_ITEM__CONTENT, HtmlPackage.Literals.CONTAINER__CONTENT, true, true);
 	}
 
 	/**
@@ -144,7 +142,7 @@ public class ContentActionGroupItemImpl extends ActionGroupItemImpl implements C
 		switch (featureID) {
 			case BootstrapPackage.CONTENT_ACTION_GROUP_ITEM__CONTENT:
 				getContent().clear();
-				getContent().addAll((Collection<? extends SupplierFactory<ViewPart>>)newValue);
+				getContent().addAll((Collection<? extends SupplierFactory<Object>>)newValue);
 				return;
 			case BootstrapPackage.CONTENT_ACTION_GROUP_ITEM__MARKDOWN_CONTENT:
 				setMarkdownContent((String)newValue);
@@ -222,38 +220,36 @@ public class ContentActionGroupItemImpl extends ActionGroupItemImpl implements C
 	}
 	
 	@Override
-	public Supplier<ViewBuilder> create(Context arg) throws Exception {
-		throw new UnsupportedOperationException("TODO - implement refactoring");
-//		@SuppressWarnings("resource")
-//		StringMapCompoundSupplier<List<Object>> partsSupplier = new StringMapCompoundSupplier<>("Parts");
-//		partsSupplier.put(createNameSupplier(context));
-//		partsSupplier.put(createContentSupplierFactory().create(context));
-//
-//		java.util.function.Consumer<BiSupplier<Object, Map<String,List<Object>>>> consumer = new java.util.function.Consumer<BiSupplier<Object, Map<String,List<Object>>>>() {
-//
-//			@Override
-//			public void accept(BiSupplier<Object, Map<String,List<Object>>> supplier) {
-//				HTMLFactory htmlFactory = context.get(HTMLFactory.class, HTMLFactory.INSTANCE);
-//
-//				Fragment nameFragment = htmlFactory.fragment();
-//				supplier.getSecond().get("Name").forEach(nameFragment);
-//				
-//				Fragment contentFragment = htmlFactory.fragment();
-//				supplier.getSecond().get("Content").forEach(contentFragment);
-//				
-//				((ActionGroup) supplier.getFirst()).contentAction(
-//						nameFragment, 
-//						isActive(), 
-//						isDisabled(), 
-//						Util.isBlank(getColor()) ? null : Color.fromLabel(getColor()), 
-//						null, 
-//						contentFragment);
-//			}
-//
-//
-//		};
-//		
-//		return partsSupplier.asFunction().then(Consumer.fromConsumer(consumer, getTitle(), 1));
+	public Supplier<ViewBuilder> create(Context context) throws Exception {
+		Supplier<List<ViewPart>> nameSupplier = org.nasdanika.vinci.html.Container.wrap(new ArrayList<>(getName())).create(context);
+		Supplier<List<ViewPart>> contentSupplier = createContentSupplierFactory().create(context);
+		
+		return nameSupplier.then(contentSupplier.asFunction()).then(bs -> new ViewBuilder() {
+
+			@Override
+			public void build(Object target, ViewGenerator viewGenerator, ProgressMonitor progressMonitor) {
+				HTMLFactory htmlFactory = viewGenerator.get(HTMLFactory.class);
+
+				Fragment nameFragment = htmlFactory.fragment();
+				for (ViewPart nvp: bs.getFirst()) {
+					nameFragment.content(viewGenerator.processViewPart(nvp, progressMonitor));
+				}
+				
+				Fragment contentFragment = htmlFactory.fragment();
+				for (ViewPart cvp: bs.getSecond()) {
+					contentFragment.content(viewGenerator.processViewPart(cvp, progressMonitor));
+				}
+				
+				((ActionGroup) target).contentAction(
+						nameFragment, 
+						isActive(), 
+						isDisabled(), 
+						org.nasdanika.common.Util.isBlank(getColor()) ? null : Color.fromLabel(getColor()), 
+						null, 
+						contentFragment);
+			}
+		
+		});
 	}
 
 } //ContentActionGroupItemImpl

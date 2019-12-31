@@ -8,7 +8,6 @@ import org.eclipse.emf.ecore.util.Switch;
 import org.nasdanika.common.SupplierFactory;
 import org.nasdanika.ncore.Entity;
 import org.nasdanika.ncore.ModelElement;
-import org.nasdanika.vinci.app.*;
 import org.nasdanika.vinci.app.AbstractAction;
 import org.nasdanika.vinci.app.Action;
 import org.nasdanika.vinci.app.ActionBase;

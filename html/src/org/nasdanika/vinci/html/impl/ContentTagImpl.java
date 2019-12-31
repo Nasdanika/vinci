@@ -70,8 +70,8 @@ public class ContentTagImpl extends TagImpl implements ContentTag {
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public EList<SupplierFactory<ViewPart>> getContent() {
-		return (EList<SupplierFactory<ViewPart>>)eDynamicGet(HtmlPackage.CONTENT_TAG__CONTENT, HtmlPackage.Literals.CONTAINER__CONTENT, true, true);
+	public EList<SupplierFactory<Object>> getContent() {
+		return (EList<SupplierFactory<Object>>)eDynamicGet(HtmlPackage.CONTENT_TAG__CONTENT, HtmlPackage.Literals.CONTAINER__CONTENT, true, true);
 	}
 
 	/**
@@ -135,7 +135,7 @@ public class ContentTagImpl extends TagImpl implements ContentTag {
 		switch (featureID) {
 			case HtmlPackage.CONTENT_TAG__CONTENT:
 				getContent().clear();
-				getContent().addAll((Collection<? extends SupplierFactory<ViewPart>>)newValue);
+				getContent().addAll((Collection<? extends SupplierFactory<Object>>)newValue);
 				return;
 			case HtmlPackage.CONTENT_TAG__MARKDOWN_CONTENT:
 				setMarkdownContent((String)newValue);

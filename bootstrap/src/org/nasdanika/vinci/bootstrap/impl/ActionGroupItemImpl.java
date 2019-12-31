@@ -3,16 +3,11 @@
 package org.nasdanika.vinci.bootstrap.impl;
 
 import java.util.Collection;
-import java.util.List;
-
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.InternalEList;
-import org.nasdanika.common.Context;
-import org.nasdanika.common.ListCompoundSupplier;
-import org.nasdanika.common.Supplier;
 import org.nasdanika.common.SupplierFactory;
 import org.nasdanika.vinci.bootstrap.ActionGroupItem;
 import org.nasdanika.vinci.bootstrap.BootstrapPackage;
@@ -133,16 +128,6 @@ public abstract class ActionGroupItemImpl extends ItemImpl implements ActionGrou
 				return !getName().isEmpty();
 		}
 		return super.eIsSet(featureID);
-	}
-	
-	protected Supplier<List<Object>> createNameSupplier(Context context) throws Exception {
-		ListCompoundSupplier<Object> ret = new ListCompoundSupplier<Object>("Name"); 
-		
-		for (SupplierFactory<Object> ne: getName()) {
-			ret.add(ne.create(context));
-		}
-		
-		return ret;
 	}
 
 } //ActionGroupItemImpl

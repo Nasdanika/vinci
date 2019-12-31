@@ -6,6 +6,9 @@ import java.util.List;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
+import org.nasdanika.common.Context;
+import org.nasdanika.common.Function;
+import org.nasdanika.common.FunctionFactory;
 import org.nasdanika.common.ListCompoundSupplierFactory;
 import org.nasdanika.common.MarkdownHelper;
 import org.nasdanika.common.SupplierFactory;
@@ -36,15 +39,15 @@ import org.nasdanika.html.app.ViewPart;
 public interface Container extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Content</b></em>' containment reference list.
-	 * The list contents are of type {@link org.nasdanika.common.SupplierFactory}<code>&lt;org.nasdanika.html.app.ViewPart&gt;</code>.
+	 * The list contents are of type {@link org.nasdanika.common.SupplierFactory}<code>&lt;java.lang.Object&gt;</code>.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Content</em>' containment reference list.
 	 * @see org.nasdanika.vinci.html.HtmlPackage#getContainer_Content()
-	 * @model type="org.nasdanika.ncore.ISupplierFactory&lt;org.nasdanika.vinci.html.ViewPart&gt;" containment="true"
+	 * @model type="org.nasdanika.ncore.ISupplierFactory&lt;org.eclipse.emf.ecore.EJavaObject&gt;" containment="true"
 	 * @generated
 	 */
-	EList<SupplierFactory<ViewPart>> getContent();
+	EList<SupplierFactory<Object>> getContent();
 
 	/**
 	 * Returns the value of the '<em><b>Markdown Content</b></em>' attribute.
@@ -71,6 +74,26 @@ public interface Container extends EObject {
 	 */
 	void setMarkdownContent(String value);
 	
+	static SupplierFactory<List<ViewPart>> wrap(List<SupplierFactory<Object>> objectsSupplierFactory) {
+		ListCompoundSupplierFactory<ViewPart> contentSupplierFactory = new ListCompoundSupplierFactory<>("Content");
+				
+		FunctionFactory<Object,ViewPart> wrapper = new FunctionFactory<Object, ViewPart>() {
+			
+			@Override
+			public Function<Object, ViewPart> create(Context arg) throws Exception {
+				return Function.fromBiFunction((o,pm) -> ViewPart.fromValue(o), "Wrapper", 1);
+			}
+			
+		};
+				
+		for (SupplierFactory<Object> content: objectsSupplierFactory) {
+			contentSupplierFactory.add(content.then(wrapper));
+		}
+		
+		return contentSupplierFactory;
+		
+	}
+	
 	/**
 	 * Creates a compound supplier factory with markdown content supplier factory first, if markdown content is not blank, and the rest of the content following.
 	 * @return
@@ -87,9 +110,18 @@ public interface Container extends EObject {
 						
 			contentSupplierFactory.add(markdownSupplierFactory);
 		}
+		
+		FunctionFactory<Object,ViewPart> wrapper = new FunctionFactory<Object, ViewPart>() {
+			
+			@Override
+			public Function<Object, ViewPart> create(Context arg) throws Exception {
+				return Function.fromBiFunction((o,pm) -> ViewPart.fromValue(o), "Wrapper", 1);
+			}
+			
+		};
 				
-		for (SupplierFactory<ViewPart> content: getContent()) {
-			contentSupplierFactory.add(content);
+		for (SupplierFactory<Object> content: getContent()) {
+			contentSupplierFactory.add(content.then(wrapper));
 		}
 		
 		return contentSupplierFactory;

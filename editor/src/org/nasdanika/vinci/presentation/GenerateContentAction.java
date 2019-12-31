@@ -24,6 +24,7 @@ import org.nasdanika.common.SupplierFactory;
 import org.nasdanika.common.resources.BinaryEntityContainer;
 import org.nasdanika.eclipse.ProgressMonitorAdapter;
 import org.nasdanika.eclipse.resources.EclipseContainer;
+import org.nasdanika.html.app.impl.ViewGeneratorImpl;
 
 /**
  * @author Pavel Vlasov
@@ -58,7 +59,7 @@ public class GenerateContentAction<T extends EObject & SupplierFactory<Object>> 
 			SubMonitor subMonitor = SubMonitor.convert(monitor, TOTAL_WORK);
 
 			try (Supplier<Object> work = modelElement.create(generationContext)) {
-				double size = work.size() * 2 + 1;
+				double size = work.size() * 2 + 2;
 				double scale = TOTAL_WORK / (size == 0 ? 1.0 : size);
 				try (ProgressMonitor progressMonitor = new ProgressMonitorAdapter(subMonitor, scale)) {
 					try (ProgressMonitor diagnosticMonitor = progressMonitor.split("Diagnostic", size)) {
@@ -74,8 +75,8 @@ public class GenerateContentAction<T extends EObject & SupplierFactory<Object>> 
 					try (ProgressMonitor generationMonitor = progressMonitor.split("Generation", size)) {
 						Object result = work.execute(generationMonitor);
 						String outputName = getOutputName(modelFile, generationContext);
-						try (ProgressMonitor contentMonitor = progressMonitor.split("Writing cotent "+outputName, 1)) {
-							contentContainer.put(outputName, wrap(result, generationContext).toString(), contentMonitor);
+						try (ProgressMonitor wrapMonitor = progressMonitor.split("Wrapping", 1); ProgressMonitor contentMonitor = progressMonitor.split("Writing cotent "+outputName, 1)) {
+							contentContainer.put(outputName, wrap(result, generationContext, wrapMonitor).toString(), contentMonitor);
 						}
 					}
 				}
@@ -101,8 +102,8 @@ public class GenerateContentAction<T extends EObject & SupplierFactory<Object>> 
 	 * @param result
 	 * @return
 	 */
-	protected Object wrap(Object result, Context context) {
-		return result;
+	protected Object wrap(Object result, Context context, ProgressMonitor progressMonitor) {
+		return new ViewGeneratorImpl(context, null, null).processViewPart(result, progressMonitor); 
 	}
 
 }
