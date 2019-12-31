@@ -300,7 +300,11 @@
   </elements>
   <elements xsi:type="org.nasdanika.vinci.app:Action" title="Nav 2" id="f51b3813-9656-46a2-a2e2-5a3958cd8fa6" text="Nav 2"/>
   <content xsi:type="org.nasdanika.ncore:Html" description="" content="&lt;p>&lt;strong>Конфетки &lt;u>бараночки&lt;/u>&lt;/strong>&lt;/p>&#xA;&#xA;&lt;p>&lt;strong>Baranki, korobki. &lt;/strong>&lt;/p>&#xA;&#xA;&lt;p>&lt;span style=&quot;background-color:#2ecc71&quot;>Zuua&lt;/span>&lt;/p>&#xA;&#xA;&lt;p>uuu...&lt;/p>&#xA;&#xA;&lt;p>gjdkdgddhgf&lt;/p>&#xA;"/>
-  <content xsi:type="org.nasdanika.vinci.components:ActionLink" target="f51b3813-9656-46a2-a2e2-5a3958cd8fa6"/>
+  <content xsi:type="org.nasdanika.vinci.components:ActionLink" target="f51b3813-9656-46a2-a2e2-5a3958cd8fa6">
+    <appearance>
+      <border color="Danger" left="false"/>
+    </appearance>
+  </content>
   <content xsi:type="org.nasdanika.vinci.bootstrap:Table" bordered="true">
     <rows>
       <cells>
