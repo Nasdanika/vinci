@@ -283,7 +283,7 @@ public abstract class MarkdownImpl extends ModelElementImpl implements Markdown 
 					if (mrkdwn instanceof String) {
 						mrkdwn = viewGenerator.get(HTMLFactory.class).div(mrkdwn);
 					}
-					return mrkdwn instanceof HTMLElement ? viewGenerator.get(BootstrapFactory.class).wrap((HTMLElement<?>) mrkdwn) : mrkdwn;
+					return mrkdwn;
 				};
 				
 				return bs.getFirst().then(bs.getSecond().before(wrapper));

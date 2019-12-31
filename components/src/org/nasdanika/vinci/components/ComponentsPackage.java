@@ -337,13 +337,22 @@ public interface ComponentsPackage extends EPackage {
 	int ACTION_LINK__TARGET = NcorePackage.MODEL_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Appearance</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION_LINK__APPEARANCE = NcorePackage.MODEL_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Action Link</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION_LINK_FEATURE_COUNT = NcorePackage.MODEL_ELEMENT_FEATURE_COUNT + 1;
+	int ACTION_LINK_FEATURE_COUNT = NcorePackage.MODEL_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Action Link</em>' class.
@@ -462,6 +471,17 @@ public interface ComponentsPackage extends EPackage {
 	EReference getActionLink_Target();
 
 	/**
+	 * Returns the meta object for the containment reference '{@link org.nasdanika.vinci.components.ActionLink#getAppearance <em>Appearance</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Appearance</em>'.
+	 * @see org.nasdanika.vinci.components.ActionLink#getAppearance()
+	 * @see #getActionLink()
+	 * @generated
+	 */
+	EReference getActionLink_Appearance();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -562,6 +582,13 @@ public interface ComponentsPackage extends EPackage {
 		 * @generated
 		 */
 		EReference ACTION_LINK__TARGET = eINSTANCE.getActionLink_Target();
+		/**
+		 * The meta object literal for the '<em><b>Appearance</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ACTION_LINK__APPEARANCE = eINSTANCE.getActionLink_Appearance();
 
 	}
 

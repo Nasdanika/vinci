@@ -15,8 +15,11 @@ import org.nasdanika.common.Context;
 import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.common.Supplier;
 import org.nasdanika.common.Util;
+import org.nasdanika.html.HTMLElement;
+import org.nasdanika.html.HTMLFactory;
 import org.nasdanika.html.app.ViewBuilder;
 import org.nasdanika.html.app.ViewGenerator;
+import org.nasdanika.html.bootstrap.BootstrapFactory;
 import org.nasdanika.html.bootstrap.Breakpoint;
 import org.nasdanika.html.bootstrap.Color;
 import org.nasdanika.html.bootstrap.Placement;
@@ -562,12 +565,22 @@ public class AppearanceImpl extends MinimalEObjectImpl.Container implements Appe
 			
 		};
 		
+		java.util.function.Function<Object, Object> wrapper = target -> {
+			if (target instanceof org.nasdanika.html.bootstrap.BootstrapElement) {
+				return (org.nasdanika.html.bootstrap.BootstrapElement<?,?>) target;
+			} 
+			if (target instanceof HTMLElement) {
+				return BootstrapFactory.INSTANCE.wrap((HTMLElement<?>) target);
+			} 
+			return BootstrapFactory.INSTANCE.wrap(HTMLFactory.INSTANCE.span(target));									
+		};
+		
 		ViewBuilder composedBuilder = backgroundBuilder
 				.compose(borderBuilder)
 				.compose(spacingBuilder)
 				.compose(textBuilder)
 				.compose(floatBuilder)
-				.compose(attributesBuilder);
+				.compose(attributesBuilder).before(wrapper);
 
 		return Supplier.from(composedBuilder, "Appearance");
 	}		

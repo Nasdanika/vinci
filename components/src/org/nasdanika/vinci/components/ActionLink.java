@@ -7,6 +7,7 @@ import org.nasdanika.common.SupplierFactory;
 import org.nasdanika.html.app.ViewPart;
 import org.nasdanika.ncore.ModelElement;
 import org.nasdanika.vinci.app.AbstractAction;
+import org.nasdanika.vinci.bootstrap.Appearance;
 
 /**
  * <!-- begin-user-doc -->
@@ -22,6 +23,7 @@ import org.nasdanika.vinci.app.AbstractAction;
  * </p>
  * <ul>
  *   <li>{@link org.nasdanika.vinci.components.ActionLink#getTarget <em>Target</em>}</li>
+ *   <li>{@link org.nasdanika.vinci.components.ActionLink#getAppearance <em>Appearance</em>}</li>
  * </ul>
  *
  * @see org.nasdanika.vinci.components.ComponentsPackage#getActionLink()
@@ -54,4 +56,29 @@ public interface ActionLink extends ModelElement, SupplierFactory<ViewPart> {
 	 * @generated
 	 */
 	void setTarget(AbstractAction value);
+
+	/**
+	 * Returns the value of the '<em><b>Appearance</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Appearance to apply to the generated HTML.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Appearance</em>' containment reference.
+	 * @see #setAppearance(Appearance)
+	 * @see org.nasdanika.vinci.components.ComponentsPackage#getActionLink_Appearance()
+	 * @model containment="true"
+	 * @generated
+	 */
+	Appearance getAppearance();
+
+	/**
+	 * Sets the value of the '{@link org.nasdanika.vinci.components.ActionLink#getAppearance <em>Appearance</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Appearance</em>' containment reference.
+	 * @see #getAppearance()
+	 * @generated
+	 */
+	void setAppearance(Appearance value);
 } // ActionLink

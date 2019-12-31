@@ -22,6 +22,7 @@
     </genClasses>
     <genClasses image="false" ecoreClass="components.ecore#//ActionLink">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference components.ecore#//ActionLink/target"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference components.ecore#//ActionLink/appearance"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

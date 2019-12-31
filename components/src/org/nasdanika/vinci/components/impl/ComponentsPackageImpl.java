@@ -227,6 +227,16 @@ public class ComponentsPackageImpl extends EPackageImpl implements ComponentsPac
 	 * @generated
 	 */
 	@Override
+	public EReference getActionLink_Appearance() {
+		return (EReference)actionLinkEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public ComponentsFactory getComponentsFactory() {
 		return (ComponentsFactory)getEFactoryInstance();
 	}
@@ -263,6 +273,7 @@ public class ComponentsPackageImpl extends EPackageImpl implements ComponentsPac
 
 		actionLinkEClass = createEClass(ACTION_LINK);
 		createEReference(actionLinkEClass, ACTION_LINK__TARGET);
+		createEReference(actionLinkEClass, ACTION_LINK__APPEARANCE);
 	}
 
 	/**
@@ -328,6 +339,7 @@ public class ComponentsPackageImpl extends EPackageImpl implements ComponentsPac
 
 		initEClass(actionLinkEClass, ActionLink.class, "ActionLink", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getActionLink_Target(), theAppPackage.getAbstractAction(), null, "target", null, 1, 1, ActionLink.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getActionLink_Appearance(), theBootstrapPackage.getAppearance(), null, "appearance", null, 0, 1, ActionLink.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);
