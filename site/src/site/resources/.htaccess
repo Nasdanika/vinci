@@ -1,0 +1,6 @@
+RewriteEngine On
+
+# Product rewrites. 
+
+# Russian documentation
+RewriteRule ^ru/docs/user-manual/(.*)$ /products/vinci/tuturials/User-Manual-2/$1 [NC,L]
