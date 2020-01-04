@@ -2,8 +2,10 @@
  */
 package org.nasdanika.vinci.html;
 
+import org.eclipse.emf.common.util.EList;
 import org.nasdanika.common.SupplierFactory;
 import org.nasdanika.html.app.ViewPart;
+import org.nasdanika.ncore.Entry;
 
 
 /**
@@ -20,6 +22,7 @@ import org.nasdanika.html.app.ViewPart;
  * </p>
  * <ul>
  *   <li>{@link org.nasdanika.vinci.html.Tag#getName <em>Name</em>}</li>
+ *   <li>{@link org.nasdanika.vinci.html.Tag#getAttributes <em>Attributes</em>}</li>
  * </ul>
  *
  * @see org.nasdanika.vinci.html.HtmlPackage#getTag()
@@ -52,4 +55,16 @@ public interface Tag extends HtmlElement, SupplierFactory<ViewPart> {
 	 * @generated
 	 */
 	void setName(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Attributes</b></em>' containment reference list.
+	 * The list contents are of type {@link org.nasdanika.ncore.Entry}<code>&lt;java.lang.Object&gt;</code>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Attributes</em>' containment reference list.
+	 * @see org.nasdanika.vinci.html.HtmlPackage#getTag_Attributes()
+	 * @model type="org.nasdanika.ncore.Entry&lt;org.eclipse.emf.ecore.EJavaObject&gt;" containment="true"
+	 * @generated
+	 */
+	EList<Entry<Object>> getAttributes();
 } // Tag

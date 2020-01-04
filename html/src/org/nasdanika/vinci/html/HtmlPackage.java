@@ -257,13 +257,22 @@ public interface HtmlPackage extends EPackage {
 	int TAG__NAME = HTML_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Attributes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TAG__ATTRIBUTES = HTML_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Tag</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TAG_FEATURE_COUNT = HTML_ELEMENT_FEATURE_COUNT + 1;
+	int TAG_FEATURE_COUNT = HTML_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>As View Builder Supplier</em>' operation.
@@ -320,6 +329,15 @@ public interface HtmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int CONTENT_TAG__NAME = TAG__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Attributes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTENT_TAG__ATTRIBUTES = TAG__ATTRIBUTES;
 
 	/**
 	 * The feature id for the '<em><b>Content</b></em>' containment reference list.
@@ -608,6 +626,17 @@ public interface HtmlPackage extends EPackage {
 	EAttribute getTag_Name();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link org.nasdanika.vinci.html.Tag#getAttributes <em>Attributes</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Attributes</em>'.
+	 * @see org.nasdanika.vinci.html.Tag#getAttributes()
+	 * @see #getTag()
+	 * @generated
+	 */
+	EReference getTag_Attributes();
+
+	/**
 	 * Returns the meta object for class '{@link org.nasdanika.vinci.html.ContentTag <em>Content Tag</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -841,6 +870,14 @@ public interface HtmlPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute TAG__NAME = eINSTANCE.getTag_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Attributes</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TAG__ATTRIBUTES = eINSTANCE.getTag_Attributes();
 
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.vinci.html.impl.ContentTagImpl <em>Content Tag</em>}' class.

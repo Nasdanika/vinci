@@ -178,4 +178,15 @@ public class ContentTagItemProvider extends TagItemProvider {
 		
 	}
 
+	/**
+	 * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public String getCreateChildText(Object owner, Object feature, Object child, Collection<?> selection) {
+		return super.getCreateChildText(owner, feature, child, selection);
+	}
+
 }

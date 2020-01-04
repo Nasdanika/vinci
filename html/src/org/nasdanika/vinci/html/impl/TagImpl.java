@@ -2,13 +2,19 @@
  */
 package org.nasdanika.vinci.html.impl;
 
+import java.util.Collection;
+import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
+import org.eclipse.emf.ecore.util.InternalEList;
 import org.nasdanika.common.Context;
 import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.common.Supplier;
 import org.nasdanika.html.HTMLFactory;
 import org.nasdanika.html.app.ViewGenerator;
 import org.nasdanika.html.app.ViewPart;
+import org.nasdanika.ncore.Entry;
 import org.nasdanika.vinci.html.HtmlPackage;
 import org.nasdanika.vinci.html.Tag;
 
@@ -21,6 +27,7 @@ import org.nasdanika.vinci.html.Tag;
  * </p>
  * <ul>
  *   <li>{@link org.nasdanika.vinci.html.impl.TagImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.nasdanika.vinci.html.impl.TagImpl#getAttributes <em>Attributes</em>}</li>
  * </ul>
  *
  * @generated
@@ -80,11 +87,38 @@ public class TagImpl extends HtmlElementImpl implements Tag {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public EList<Entry<Object>> getAttributes() {
+		return (EList<Entry<Object>>)eDynamicGet(HtmlPackage.TAG__ATTRIBUTES, HtmlPackage.Literals.TAG__ATTRIBUTES, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case HtmlPackage.TAG__ATTRIBUTES:
+				return ((InternalEList<?>)getAttributes()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case HtmlPackage.TAG__NAME:
 				return getName();
+			case HtmlPackage.TAG__ATTRIBUTES:
+				return getAttributes();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -101,6 +135,10 @@ public class TagImpl extends HtmlElementImpl implements Tag {
 			case HtmlPackage.TAG__NAME:
 				setName((String)newValue);
 				return;
+			case HtmlPackage.TAG__ATTRIBUTES:
+				getAttributes().clear();
+				getAttributes().addAll((Collection<? extends Entry<Object>>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -116,6 +154,9 @@ public class TagImpl extends HtmlElementImpl implements Tag {
 			case HtmlPackage.TAG__NAME:
 				setName(NAME_EDEFAULT);
 				return;
+			case HtmlPackage.TAG__ATTRIBUTES:
+				getAttributes().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -130,6 +171,8 @@ public class TagImpl extends HtmlElementImpl implements Tag {
 		switch (featureID) {
 			case HtmlPackage.TAG__NAME:
 				return NAME_EDEFAULT == null ? getName() != null : !NAME_EDEFAULT.equals(getName());
+			case HtmlPackage.TAG__ATTRIBUTES:
+				return !getAttributes().isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
