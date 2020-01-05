@@ -1,12 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<org.nasdanika.vinci.bootstrap:BootstrapPage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.nasdanika.vinci.app="urn:org.nasdanika.vinci.app" xmlns:org.nasdanika.vinci.bootstrap="urn:org.nasdanika.vinci.bootstrap" description="Bank of Nasdanika" name="${actions/active/text}" fontAwesome="true" jsTree="true" githubMarkdownCss="true" theme="Default">
+<org.nasdanika.vinci.bootstrap:BootstrapPage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.nasdanika.ncore="urn:org.nasdanika.ncore" xmlns:org.nasdanika.vinci.app="urn:org.nasdanika.vinci.app" xmlns:org.nasdanika.vinci.bootstrap="urn:org.nasdanika.vinci.bootstrap" description="Bank of Nasdanika" name="${actions/active/text}" fontAwesome="true" jsTree="true" githubMarkdownCss="true" theme="Default">
   <builders xsi:type="org.nasdanika.vinci.app:BootstrapContainerApplication">
-    <appearance attributes="children:&#xA;    content-row:&#xA;        style:&#xA;            min-height: 25rem">
+    <appearance>
+      <attributes xsi:type="org.nasdanika.ncore:Object" name="children">
+        <entries xsi:type="org.nasdanika.ncore:Object" name="content-row">
+          <entries xsi:type="org.nasdanika.ncore:Object" name="style">
+            <entries xsi:type="org.nasdanika.ncore:Property" value="25rem" name="min-height"/>
+          </entries>
+        </entries>
+      </attributes>
       <border color="Dark"/>
       <margin size="2" breakpoint="" bottom="false" left="false" right="false"/>
     </appearance>
     <header>
-      <appearance background="Primary" attributes="children:&#xD;&#xA;    title:&#xD;&#xA;        class:&#xD;&#xA;            display: 4&#xD;&#xA;            text: light&#xD;&#xA;        style:&#xD;&#xA;            text-decoration: none&#xD;&#xA;    navs:&#xD;&#xA;        class:&#xD;&#xA;            text: light&#xD;&#xA;"/>
+      <appearance background="Primary">
+        <attributes xsi:type="org.nasdanika.ncore:Object" name="children">
+          <entries xsi:type="org.nasdanika.ncore:Object" name="title">
+            <entries xsi:type="org.nasdanika.ncore:Object" name="class">
+              <entries xsi:type="org.nasdanika.ncore:Property" value="4" name="display"/>
+              <entries xsi:type="org.nasdanika.ncore:Property" value="light" name="text"/>
+            </entries>
+            <entries xsi:type="org.nasdanika.ncore:Object" name="style">
+              <entries xsi:type="org.nasdanika.ncore:Object" name="text">
+                <entries xsi:type="org.nasdanika.ncore:Property" value="none" name="decoration"/>
+              </entries>
+            </entries>
+          </entries>
+          <entries xsi:type="org.nasdanika.ncore:Object" name="navs">
+            <entries xsi:type="org.nasdanika.ncore:Object" name="class">
+              <entries xsi:type="org.nasdanika.ncore:Property" value="light" name="text"/>
+            </entries>
+          </entries>
+        </attributes>
+      </appearance>
     </header>
     <navigationPanel>
       <appearance>

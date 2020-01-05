@@ -486,7 +486,11 @@
   <content xsi:type="org.nasdanika.vinci.bootstrap:Table" bordered="true">
     <rows>
       <cells>
-        <content xsi:type="org.nasdanika.vinci.components:ActionLink" target="f51b3813-9656-46a2-a2e2-5a3958cd8fa6"/>
+        <content xsi:type="org.nasdanika.vinci.components:ActionLink" target="f51b3813-9656-46a2-a2e2-5a3958cd8fa6">
+          <appearance>
+            <attributes xsi:type="org.nasdanika.ncore:Property" value="border: solid 1px red" name="style"/>
+          </appearance>
+        </content>
       </cells>
     </rows>
   </content>

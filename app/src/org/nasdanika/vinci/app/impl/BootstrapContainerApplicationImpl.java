@@ -468,21 +468,24 @@ public class BootstrapContainerApplicationImpl extends BootstrapElementImpl impl
 			return null;
 		}
 		for (Entry<?> attr: appearance.getAttributes()) {
-			if (attr.isEnabled() && "children".equals(attr.getName()) && attr instanceof org.nasdanika.ncore.Object) {				
-				return ((org.nasdanika.ncore.Object) attr).create(context).then(childrenAttributes -> new Decorator() {
-
-					@SuppressWarnings("unchecked")
-					@Override
-					public void decorate(Object target, ViewGenerator viewGenerator) {
-						if (target instanceof BootstrapElement) {
-							target = ((BootstrapElement<?,?>) target).toHTMLElement();
-						}
-						if (target instanceof HTMLElement) {
-							((HTMLElement<?>) target).attributes((Map<String, Object>) childrenAttributes);
-						}
+			if (attr.isEnabled() && "children".equals(attr.getName()) && attr instanceof org.nasdanika.ncore.Object) {	
+				for (Entry<?> childAttribute: ((org.nasdanika.ncore.Object) attr).getEntries()) {
+					if (childAttribute.isEnabled() && name.equals(childAttribute.getName()) && childAttribute instanceof org.nasdanika.ncore.Object) {	
+						return ((org.nasdanika.ncore.Object) childAttribute).create(context).then(childrenAttributes -> new Decorator() {
+		
+							@Override
+							public void decorate(Object target, ViewGenerator viewGenerator) {
+								if (target instanceof BootstrapElement) {
+									target = ((BootstrapElement<?,?>) target).toHTMLElement();
+								}
+								if (target instanceof HTMLElement) {
+									((HTMLElement<?>) target).attributes((Map<String, Object>) childrenAttributes);
+								}
+							}
+							
+						});
 					}
-					
-				});
+				}
 			}
 		}
 		return null;
@@ -610,7 +613,6 @@ public class BootstrapContainerApplicationImpl extends BootstrapElementImpl impl
 							}
 						};
 						
-						@SuppressWarnings("unchecked")
 						protected void configureContentRow(org.nasdanika.html.bootstrap.Container.Row contentRow) {
 							Object contentRowAttributes = appearanceChidlrenAttributes.get("content-row");
 							if (contentRowAttributes instanceof Map) {
