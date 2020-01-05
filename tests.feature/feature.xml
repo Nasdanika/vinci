@@ -18,7 +18,7 @@
 
    <requires>
       <import feature="org.nasdanika.vinci.feature" version="0.1.0.qualifier"/>
-      <import feature="org.nasdanika.equinox.feature" version="1.0.0.qualifier"/>
+      <!-- <import feature="org.nasdanika.equinox.feature" version="1.0.0.qualifier"/> -->
    </requires>
 
    <plugin
