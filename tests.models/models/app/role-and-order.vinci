@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <org.nasdanika.vinci.bootstrap:BootstrapPage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.nasdanika.vinci.app="urn:org.nasdanika.vinci.app" xmlns:org.nasdanika.vinci.bootstrap="urn:org.nasdanika.vinci.bootstrap" title="Роли и порядок Action Nasdanika Vinci" name="Роли и порядок" fontAwesome="true" jsTree="true" githubMarkdownCss="true" theme="Journal">
   <builders xsi:type="org.nasdanika.vinci.app:BootstrapContainerApplication" title="Роли и порядок" fluid="true">
-    <appearance attributes="children:&#xD;&#xA;    content-row:&#xD;&#xA;         style:&#xD;&#xA;           min-height: 35rem"/>
+    <appearance/>
     <header>
-      <appearance background="Dark" attributes="children:&#xD;&#xA;    title:&#xD;&#xA;        style:&#xD;&#xA;            text-decoration: none&#xD;&#xA;">
+      <appearance background="Dark">
         <padding size="2" left="false" right="false"/>
       </appearance>
     </header>
@@ -26,7 +26,7 @@
       </appearance>
     </footer>
     <builders xsi:type="org.nasdanika.vinci.app:Action" title="Root Action " id="index" text="Корневая Action (Root Action) " linkedElements="da7a2879-8335-448c-be06-b7b71dd30751 e0d1369f-7a9d-4722-aafe-443d6a6f8969 f0b02cc5-63d5-4015-b8fa-c6a6abf148e3 ea03cac7-9586-4717-915e-4d9d5ac31006 6fc03ed4-6e91-458b-a23a-4f502cb66492 af7f1ad5-73ad-42ef-8a1c-58040c711923 c1de63a7-9ef2-460f-af70-58321ceb3a11 09955c3e-39cf-4de7-bff2-12fdc73080d5 e88791e0-f227-43e8-a5d8-2324371db028 c5fc94c2-f59c-42af-907c-e4403489c4b4" sectionStyle="Tab" markdownContent="## Это корневая Action (Root Action) &#xD;&#xA;&#xD;&#xA;У нее всегда роль  - Navigation. &#xD;&#xA;&#xD;&#xA;Первый ребенок этой Action c навигационной ролью становится Principal Action и отражается первым в горизонтальной навигационной панели.&#xD;&#xA;&#xD;&#xA;Следующие навигационные дети и категории с навигационными детьми отражаются в правом верхнем углу экрана в области Header.&#xD;&#xA;&#xD;&#xA;Контекстные дети корневой  Action располагаются в футере.&#xD;&#xA;&#xD;&#xA;----&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;">
-      <appearance background="" attributes="class:&#xD;&#xA;    display: 4">
+      <appearance background="">
         <text color="Light"/>
       </appearance>
       <elements xsi:type="org.nasdanika.vinci.app:Action" title="Root Navigation # 1 -> Principal Action" id="da7a2879-8335-448c-be06-b7b71dd30751" text="Root Navigation # 1 -> Principal Action" linkedElements="00c64056-c6ab-4763-a1e3-738d44e8203d c2936a78-1b81-4cee-b478-4df81deb0ccd 87c55606-0567-4ac3-b20f-87f95642fb18 102021c4-96d0-43cd-b8cb-c0196d50f014 182100f4-88cf-4b34-a118-50a80e2cef6c a13f3d25-2581-4bb3-be1f-a65aa1861c9b be19fb6c-e4d0-46b9-81ef-4e20961e5edd 0fa33158-8d8e-43f2-a153-fd3b618de5a9 ec9e68b1-ac6b-4328-b8ae-c444529e090b aba3382f-7f4b-416d-98bf-a61e4fb6135f 4ba3b671-08b3-4791-a7fc-d45535579b85 44adf327-7b35-467f-9404-4f15d9f84634" sectionStyle="Card" markdownContent="Это первый навигационный ребенок корневой Action.&#xD;&#xA;&#xD;&#xA;Он  имеет собственное название - Principal Action (Стволовая Action).&#xD;&#xA;&#xD;&#xA;В поле Linked Elements стволовая Action должна располагаться самой первой.&#xD;&#xA;  ">
@@ -64,12 +64,12 @@
       <elements xsi:type="org.nasdanika.vinci.app:Action" title="Action-7" id="a673c6df-d203-4924-9f5d-cdf65faeb082" text="Action-7"/>
       <elements xsi:type="org.nasdanika.vinci.app:Action" title="Action-8" id="5affb43d-a98b-4422-be64-d35ffc1f924d" text="Action-8"/>
       <elements xsi:type="org.nasdanika.vinci.app:Action" title=" Root Context # 1" id="c1de63a7-9ef2-460f-af70-58321ceb3a11" text=" Root Context # 1" linkedElements="52dbc56d-19a4-403a-baae-fb3a98b912f2" role="Context" sectionStyle="Card tab">
-        <appearance attributes="class:&#xD;&#xA;    h: 5">
+        <appearance>
           <text color="Light" weight="Bold"/>
         </appearance>
       </elements>
       <elements xsi:type="org.nasdanika.vinci.app:Action" title="Root Context # 2" id="09955c3e-39cf-4de7-bff2-12fdc73080d5" text=" Root Context # 2" linkedElements="52dbc56d-19a4-403a-baae-fb3a98b912f2" role="Context" sectionStyle="Tab">
-        <appearance attributes="class:&#xD;&#xA;    h: 5">
+        <appearance>
           <text color="Light" weight="Bold"/>
         </appearance>
       </elements>

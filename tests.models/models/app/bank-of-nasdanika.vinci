@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <org.nasdanika.vinci.bootstrap:BootstrapPage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.nasdanika.ncore="urn:org.nasdanika.ncore" xmlns:org.nasdanika.vinci.app="urn:org.nasdanika.vinci.app" xmlns:org.nasdanika.vinci.bootstrap="urn:org.nasdanika.vinci.bootstrap" description="Bank of Nasdanika" name="Bank of Nasdanika" fontAwesome="true" jsTree="true" theme="Sandstone">
   <builders xsi:type="org.nasdanika.vinci.app:BootstrapContainerApplication">
-    <appearance attributes="children:&#xA;    content-row:&#xA;        style:&#xA;            min-height: 25rem">
+    <appearance>
       <border color="Dark"/>
       <margin size="2" breakpoint="" bottom="false" left="false" right="false"/>
     </appearance>
@@ -26,11 +26,11 @@
       </appearance>
     </footer>
     <builders xsi:type="org.nasdanika.vinci.app:Action" title="Bank of Nasdanika" id="index" text="Bank of Nasdanika" icon="fas fa-university" linkedElements="524984d0-253e-4ac7-b100-3c489d4ccc3a c5c8ec03-0f9e-4b0b-bf46-350c9b6ba59a ab1778bc-f554-43a4-a785-bff3160764dc" markdownContent="An example of markdown content of action. Possible use - a TODO list to implement:&#xD;&#xA;&#xD;&#xA;* Do this&#xD;&#xA;* Do that&#xD;&#xA;* Enjoy&#xD;&#xA;">
-      <appearance attributes="class:&#xA;    display: 4&#xA;style:&#xA;    text:&#xA;        decoration: none">
+      <appearance>
         <text color="Light"/>
       </appearance>
       <elements xsi:type="org.nasdanika.vinci.app:Action" title="Locations" id="c5c8ec03-0f9e-4b0b-bf46-350c9b6ba59a" text="Locations" icon="far fa-building">
-        <appearance background="" attributes="">
+        <appearance background="">
           <text color="White"/>
         </appearance>
       </elements>

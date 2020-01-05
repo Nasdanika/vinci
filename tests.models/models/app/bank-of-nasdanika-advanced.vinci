@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <org.nasdanika.vinci.bootstrap:BootstrapPage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.nasdanika.ncore="urn:org.nasdanika.ncore" xmlns:org.nasdanika.vinci.app="urn:org.nasdanika.vinci.app" xmlns:org.nasdanika.vinci.bootstrap="urn:org.nasdanika.vinci.bootstrap" xmlns:org.nasdanika.vinci.components="urn:org.nasdanika.vinci.components" description="Bank of Nasdanika with categorized navigation children (accounts)&#xA;and drop-down in header navigation." name="Bank of Nasdanika" fontAwesome="true" jsTree="true" theme="Sandstone">
   <builders xsi:type="org.nasdanika.vinci.app:BootstrapContainerApplication">
-    <appearance attributes="children:&#xA;    content-row:&#xA;        style:&#xA;            min-height: 25rem">
+    <appearance>
       <border color="Dark"/>
       <margin size="2" breakpoint="" bottom="false" left="false" right="false"/>
     </appearance>
@@ -25,12 +25,12 @@
         <text alignment="Center" italic="true"/>
       </appearance>
     </footer>
-    <builders xsi:type="org.nasdanika.vinci.app:Action" title="Bank of Nasdanika" color="" id="index" text="Bank of Nasdanika" icon="fas fa-university" linkedElements="524984d0-253e-4ac7-b100-3c489d4ccc3a c5c8ec03-0f9e-4b0b-bf46-350c9b6ba59a ab1778bc-f554-43a4-a785-bff3160764dc b5aaeece-2e7c-4676-9cae-4899973bf52e">
-      <appearance attributes="class:&#xA;    display: 4&#xA;style:&#xA;    text:&#xA;        decoration: none">
+    <builders xsi:type="org.nasdanika.vinci.app:Action" title="Bank of Nasdanika" id="index" color="" text="Bank of Nasdanika" icon="fas fa-university" linkedElements="524984d0-253e-4ac7-b100-3c489d4ccc3a c5c8ec03-0f9e-4b0b-bf46-350c9b6ba59a ab1778bc-f554-43a4-a785-bff3160764dc b5aaeece-2e7c-4676-9cae-4899973bf52e">
+      <appearance>
         <text color="Light"/>
       </appearance>
       <elements xsi:type="org.nasdanika.vinci.app:Action" title="Locations" id="c5c8ec03-0f9e-4b0b-bf46-350c9b6ba59a" text="Locations" icon="far fa-building">
-        <appearance background="" attributes="">
+        <appearance background="">
           <text color="White"/>
         </appearance>
       </elements>
