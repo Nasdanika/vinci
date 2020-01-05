@@ -4,9 +4,7 @@ package org.nasdanika.vinci.bootstrap.util;
 
 import java.util.Arrays;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -21,6 +19,7 @@ import org.nasdanika.html.bootstrap.Breakpoint;
 import org.nasdanika.html.bootstrap.Color;
 import org.nasdanika.html.bootstrap.Size;
 import org.nasdanika.html.bootstrap.Theme;
+import org.nasdanika.ncore.NcorePackage;
 import org.nasdanika.vinci.bootstrap.Accordion;
 import org.nasdanika.vinci.bootstrap.ActionGroup;
 import org.nasdanika.vinci.bootstrap.ActionGroupItem;
@@ -64,7 +63,7 @@ import org.nasdanika.vinci.bootstrap.TableSection;
 import org.nasdanika.vinci.bootstrap.Tag;
 import org.nasdanika.vinci.bootstrap.Text;
 import org.nasdanika.vinci.bootstrap.Tooltip;
-import org.yaml.snakeyaml.Yaml;
+import org.nasdanika.vinci.html.util.HtmlValidator;
 
 /**
  * <!-- begin-user-doc -->
@@ -109,6 +108,14 @@ public class BootstrapValidator extends EObjectValidator {
 	protected static final int DIAGNOSTIC_CODE_COUNT = GENERATED_DIAGNOSTIC_CODE_COUNT;
 
 	/**
+	 * The cached base package validator.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected HtmlValidator htmlValidator;
+
+	/**
 	 * Creates an instance of the switch.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -116,6 +123,7 @@ public class BootstrapValidator extends EObjectValidator {
 	 */
 	public BootstrapValidator() {
 		super();
+		htmlValidator = HtmlValidator.INSTANCE;
 	}
 
 	/**
@@ -301,8 +309,9 @@ public class BootstrapValidator extends EObjectValidator {
 			boolean bottomDefined = false;
 			boolean leftDefined = false;
 			boolean rightDefined = false;
+			boolean ret = true;
 			for (Border border: appearance.getBorder()) {
-				DiagnosticHelper helper = new DiagnosticHelper(diagnostics, DIAGNOSTIC_SOURCE, 0, appearance);
+				DiagnosticHelper helper = new DiagnosticHelper(diagnostics, DIAGNOSTIC_SOURCE, 0, border);
 				if (!colors.add(border.getColor())) {
 					helper.warning("Duplicate border color: "+border.getColor(), BootstrapPackage.Literals.BORDER__COLOR);
 				}
@@ -330,7 +339,9 @@ public class BootstrapValidator extends EObjectValidator {
 					}
 					rightDefined = true;
 				}
+				ret = ret && helper.isSuccess();
 			}
+			return ret;
 		}
 		return true;
 	}
@@ -361,31 +372,31 @@ public class BootstrapValidator extends EObjectValidator {
 	 * @generated NOT
 	 */
 	public boolean validateAppearance_attributes(Appearance appearance, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (diagnostics != null && !Util.isBlank(appearance.getAttributes())) {			
-			DiagnosticHelper helper = new DiagnosticHelper(diagnostics, DIAGNOSTIC_SOURCE, 0, appearance);			
-			try {
-				Yaml yaml = new Yaml();
-				Map<String,Object> attributes = yaml.load(appearance.getAttributes());
-				for (Entry<String, Object> entry: attributes.entrySet()) {
-					Object value = entry.getValue();
-					switch (entry.getKey()) {
+		if (diagnostics != null) {			
+			Set<String> names = new HashSet<>();
+			boolean ret = true;
+			for (org.nasdanika.ncore.Entry<?> attr: appearance.getAttributes()) {
+				if (attr.isEnabled()) {
+					DiagnosticHelper helper = new DiagnosticHelper(diagnostics, DIAGNOSTIC_SOURCE, 0, attr);
+					if (!names.add(attr.getName())) {
+						helper.error("Duplicate attribute: "+attr.getName(), NcorePackage.Literals.NAMED_ELEMENT__NAME);
+						ret = false;
+					}
+					switch (attr.getName()) {
 					case "class":
 					case "data":
 					case "style":
 					case "children":
 						break;
 					default:
-						if (!(entry.getKey().startsWith("data-")) && (value instanceof List || value instanceof Map)) {
-							helper.warning("Structured value for attribute "+entry.getKey()+": "+value, BootstrapPackage.Literals.APPEARANCE__ATTRIBUTES);
+						if (!(attr.getName().startsWith("data-")) && (attr instanceof org.nasdanika.ncore.List || attr instanceof org.nasdanika.ncore.Object)) {
+							helper.warning("Structured attribute - List or Map");
 						}
-					}
+					}					
 				}
-			} catch (Exception e) {
-				helper.error("Cannot load attributes: "+e, BootstrapPackage.Literals.APPEARANCE__ATTRIBUTES);
 			}
-			return helper.isSuccess();
+			return ret;
 		}
-		
 		return true;
 	}
 
@@ -643,7 +654,17 @@ public class BootstrapValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateTag(Tag tag, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(tag, diagnostics, context);
+		if (!validate_NoCircularContainment(tag, diagnostics, context)) return false;
+		boolean result = validate_EveryMultiplicityConforms(tag, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(tag, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(tag, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(tag, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(tag, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(tag, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(tag, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(tag, diagnostics, context);
+		if (result || diagnostics != null) result &= htmlValidator.validateTag_attributes(tag, diagnostics, context);
+		return result;
 	}
 
 	/**
@@ -652,7 +673,17 @@ public class BootstrapValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateContentTag(ContentTag contentTag, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(contentTag, diagnostics, context);
+		if (!validate_NoCircularContainment(contentTag, diagnostics, context)) return false;
+		boolean result = validate_EveryMultiplicityConforms(contentTag, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(contentTag, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(contentTag, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(contentTag, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(contentTag, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(contentTag, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(contentTag, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(contentTag, diagnostics, context);
+		if (result || diagnostics != null) result &= htmlValidator.validateTag_attributes(contentTag, diagnostics, context);
+		return result;
 	}
 
 	/**
@@ -661,7 +692,17 @@ public class BootstrapValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateDiv(Div div, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(div, diagnostics, context);
+		if (!validate_NoCircularContainment(div, diagnostics, context)) return false;
+		boolean result = validate_EveryMultiplicityConforms(div, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(div, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(div, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(div, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(div, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(div, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(div, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(div, diagnostics, context);
+		if (result || diagnostics != null) result &= htmlValidator.validateTag_attributes(div, diagnostics, context);
+		return result;
 	}
 
 	/**
@@ -784,7 +825,17 @@ public class BootstrapValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateActionGroup(ActionGroup actionGroup, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(actionGroup, diagnostics, context);
+		if (!validate_NoCircularContainment(actionGroup, diagnostics, context)) return false;
+		boolean result = validate_EveryMultiplicityConforms(actionGroup, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(actionGroup, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(actionGroup, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(actionGroup, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(actionGroup, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(actionGroup, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(actionGroup, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(actionGroup, diagnostics, context);
+		if (result || diagnostics != null) result &= htmlValidator.validateTag_attributes(actionGroup, diagnostics, context);
+		return result;
 	}
 
 	/**
@@ -793,7 +844,17 @@ public class BootstrapValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateAlert(Alert alert, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(alert, diagnostics, context);
+		if (!validate_NoCircularContainment(alert, diagnostics, context)) return false;
+		boolean result = validate_EveryMultiplicityConforms(alert, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(alert, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(alert, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(alert, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(alert, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(alert, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(alert, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(alert, diagnostics, context);
+		if (result || diagnostics != null) result &= htmlValidator.validateTag_attributes(alert, diagnostics, context);
+		return result;
 	}
 
 	/**
@@ -802,7 +863,17 @@ public class BootstrapValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateBadge(Badge badge, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(badge, diagnostics, context);
+		if (!validate_NoCircularContainment(badge, diagnostics, context)) return false;
+		boolean result = validate_EveryMultiplicityConforms(badge, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(badge, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(badge, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(badge, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(badge, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(badge, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(badge, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(badge, diagnostics, context);
+		if (result || diagnostics != null) result &= htmlValidator.validateTag_attributes(badge, diagnostics, context);
+		return result;
 	}
 
 	/**
@@ -820,7 +891,17 @@ public class BootstrapValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateButton(Button button, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(button, diagnostics, context);
+		if (!validate_NoCircularContainment(button, diagnostics, context)) return false;
+		boolean result = validate_EveryMultiplicityConforms(button, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(button, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(button, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(button, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(button, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(button, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(button, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(button, diagnostics, context);
+		if (result || diagnostics != null) result &= htmlValidator.validateTag_attributes(button, diagnostics, context);
+		return result;
 	}
 
 	/**
@@ -932,7 +1013,17 @@ public class BootstrapValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateCard(Card card, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(card, diagnostics, context);
+		if (!validate_NoCircularContainment(card, diagnostics, context)) return false;
+		boolean result = validate_EveryMultiplicityConforms(card, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(card, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(card, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(card, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(card, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(card, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(card, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(card, diagnostics, context);
+		if (result || diagnostics != null) result &= htmlValidator.validateTag_attributes(card, diagnostics, context);
+		return result;
 	}
 
 	/**

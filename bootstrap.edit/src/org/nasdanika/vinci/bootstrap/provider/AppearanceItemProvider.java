@@ -3,12 +3,14 @@
 package org.nasdanika.vinci.bootstrap.provider;
 
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -18,6 +20,7 @@ import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+import org.nasdanika.emf.edit.EReferenceItemProvider;
 import org.nasdanika.emf.edit.NasdanikaItemProviderAdapter;
 import org.nasdanika.vinci.bootstrap.Appearance;
 import org.nasdanika.vinci.bootstrap.BootstrapFactory;
@@ -59,7 +62,6 @@ public class AppearanceItemProvider
 			super.getPropertyDescriptors(object);
 
 			addBackgroundPropertyDescriptor(object);
-			addAttributesPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -84,27 +86,19 @@ public class AppearanceItemProvider
 				 null,
 				 enumChoices(org.nasdanika.html.bootstrap.Color.class, true, c -> c.label)));
 	}
-
-	/**
-	 * This adds a property descriptor for the Attributes feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	protected void addAttributesPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor(
-				 getResourceLocator(),
-				 getString("_UI_Appearance_attributes_feature"),
-				 BootstrapPackage.Literals.APPEARANCE__ATTRIBUTES,
-				 true,
-				 true,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null,
-				 null));
-	}
+		
+	@Override
+	public Collection<?> getChildren(Object object) {
+		List<EReferenceItemProvider> children = eReferenceItemProviders.get(object);
+		if (children == null) {
+			children = new ArrayList<>();
+			eReferenceItemProviders.put(object, children);
+			children.add(new EReferenceItemProvider(this, (EObject) object, BootstrapPackage.Literals.APPEARANCE__ATTRIBUTES));
+		}
+		Collection<Object> ret = new ArrayList<>(children);
+		ret.addAll(super.getChildren(object));
+		return ret;
+	}		
 
 	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
@@ -112,12 +106,13 @@ public class AppearanceItemProvider
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
+//			childrenFeatures.add(BootstrapPackage.Literals.APPEARANCE__ATTRIBUTES);
 			childrenFeatures.add(BootstrapPackage.Literals.APPEARANCE__BORDER);
 			childrenFeatures.add(BootstrapPackage.Literals.APPEARANCE__MARGIN);
 			childrenFeatures.add(BootstrapPackage.Literals.APPEARANCE__PADDING);
@@ -186,9 +181,9 @@ public class AppearanceItemProvider
 
 		switch (notification.getFeatureID(Appearance.class)) {
 			case BootstrapPackage.APPEARANCE__BACKGROUND:
-			case BootstrapPackage.APPEARANCE__ATTRIBUTES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
+			case BootstrapPackage.APPEARANCE__ATTRIBUTES:
 			case BootstrapPackage.APPEARANCE__BORDER:
 			case BootstrapPackage.APPEARANCE__MARGIN:
 			case BootstrapPackage.APPEARANCE__PADDING:
@@ -205,11 +200,15 @@ public class AppearanceItemProvider
 	 * that can be created under this object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+				
+		for (EObject expr: org.nasdanika.ncore.util.Activator.NAMED_EXPRESSIONS_PALETTE.getElements()) {
+			newChildDescriptors.add(createChildParameter(BootstrapPackage.Literals.APPEARANCE__ATTRIBUTES, expr));						
+		}		
 
 		newChildDescriptors.add
 			(createChildParameter

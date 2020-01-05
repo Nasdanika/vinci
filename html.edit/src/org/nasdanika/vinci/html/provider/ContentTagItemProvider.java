@@ -3,6 +3,7 @@
 package org.nasdanika.vinci.html.provider;
 
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
@@ -13,6 +14,7 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+import org.nasdanika.emf.edit.EReferenceItemProvider;
 import org.nasdanika.vinci.html.ContentTag;
 import org.nasdanika.vinci.html.HtmlPackage;
 
@@ -69,20 +71,37 @@ public class ContentTagItemProvider extends TagItemProvider {
 				 null,
 				 null));
 	}
-
+	
+	@Override
+	public Collection<?> getChildren(Object object) {
+		List<EReferenceItemProvider> children = eReferenceItemProviders.get(object);
+		if (children == null) {
+			children = new ArrayList<>();
+			eReferenceItemProviders.put(object, children);
+			
+			// Inherited - kinda bad style, maybe improve in the future.
+			children.add(new EReferenceItemProvider(this, (EObject) object, HtmlPackage.Literals.TAG__ATTRIBUTES));
+			
+			children.add(new EReferenceItemProvider(this, (EObject) object, HtmlPackage.Literals.CONTAINER__CONTENT));
+		}
+		Collection<Object> ret = new ArrayList<>(children);
+//		ret.addAll(super.getChildren(object)); - Not calling super - explicitly handling inherited above.
+		return ret;
+	}	
+	
 	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(HtmlPackage.Literals.CONTAINER__CONTENT);
+//			childrenFeatures.add(HtmlPackage.Literals.CONTAINER__CONTENT);
 		}
 		return childrenFeatures;
 	}

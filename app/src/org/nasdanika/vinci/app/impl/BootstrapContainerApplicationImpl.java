@@ -3,7 +3,7 @@
 package org.nasdanika.vinci.app.impl;
 
 import java.util.Collection;
-import java.util.HashMap;
+import java.util.Collections;
 import java.util.Map;
 
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -12,11 +12,13 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.nasdanika.common.Context;
+import org.nasdanika.common.ElementIdentityMapCompoundSupplier;
 import org.nasdanika.common.ListCompoundSupplier;
 import org.nasdanika.common.MapCompoundSupplier;
 import org.nasdanika.common.ProgressMonitor;
+import org.nasdanika.common.Reference;
+import org.nasdanika.common.StringMapCompoundSupplier;
 import org.nasdanika.common.Supplier;
-import org.nasdanika.common.Util;
 import org.nasdanika.html.HTMLElement;
 import org.nasdanika.html.HTMLPage;
 import org.nasdanika.html.app.ApplicationBuilder;
@@ -28,6 +30,7 @@ import org.nasdanika.html.bootstrap.BootstrapElement;
 import org.nasdanika.html.bootstrap.BootstrapFactory;
 import org.nasdanika.html.bootstrap.Breakpoint;
 import org.nasdanika.html.bootstrap.Size;
+import org.nasdanika.ncore.Entry;
 import org.nasdanika.vinci.app.AppPackage;
 import org.nasdanika.vinci.app.BootstrapContainerApplication;
 import org.nasdanika.vinci.app.BootstrapContainerApplicationBuilder;
@@ -35,7 +38,6 @@ import org.nasdanika.vinci.app.BootstrapContainerApplicationPanel;
 import org.nasdanika.vinci.app.BootstrapContainerApplicationSection;
 import org.nasdanika.vinci.bootstrap.Appearance;
 import org.nasdanika.vinci.bootstrap.impl.BootstrapElementImpl;
-import org.yaml.snakeyaml.Yaml;
 
 /**
  * <!-- begin-user-doc -->
@@ -460,22 +462,14 @@ public class BootstrapContainerApplicationImpl extends BootstrapElementImpl impl
 		Footer
 	}
 	
-	static Decorator getChildDecorator(org.nasdanika.vinci.bootstrap.BootstrapElement bootstrapElement, Context context, String name) {
-		Appearance headerAppearance = bootstrapElement.getAppearance();
-		if (headerAppearance == null) {
+	static Supplier<Decorator> getChildDecorator(org.nasdanika.vinci.bootstrap.BootstrapElement bootstrapElement, Context context, String name) throws Exception {
+		Appearance appearance = bootstrapElement.getAppearance();
+		if (appearance == null) {
 			return null;
 		}
-		String attributesStr = headerAppearance.getAttributes();
-		if (Util.isBlank(attributesStr)) {
-			return null;
-		}
-		Yaml yaml = new Yaml();
-		Map<String,Object> attributes = yaml.load(attributesStr);
-		Object children = attributes.get("children");
-		if (children instanceof Map) {
-			Object childAttrs = ((Map<?,?>) children).get(name);
-			if (childAttrs instanceof Map) {
-				return new Decorator() {
+		for (Entry<?> attr: appearance.getAttributes()) {
+			if (attr.isEnabled() && "children".equals(attr.getName()) && attr instanceof org.nasdanika.ncore.Object) {				
+				return ((org.nasdanika.ncore.Object) attr).create(context).then(childrenAttributes -> new Decorator() {
 
 					@SuppressWarnings("unchecked")
 					@Override
@@ -484,36 +478,53 @@ public class BootstrapContainerApplicationImpl extends BootstrapElementImpl impl
 							target = ((BootstrapElement<?,?>) target).toHTMLElement();
 						}
 						if (target instanceof HTMLElement) {
-							((HTMLElement<?>) target).attributes(context.interpolate((Map<String, Object>) childAttrs));
+							((HTMLElement<?>) target).attributes((Map<String, Object>) childrenAttributes);
 						}
 					}
 					
-				};
+				});
 			}
 		}
 		return null;
 	}
 			
-	@SuppressWarnings("resource")
+	@SuppressWarnings({ "resource", "unchecked", "rawtypes" })
 	@Override
-	public Supplier<ViewBuilder> create(Context context) throws Exception {		
+	public Supplier<ViewBuilder> create(Context context) throws Exception {				
+		ElementIdentityMapCompoundSupplier<Object> resultsSupplier = new ElementIdentityMapCompoundSupplier<Object>(getTitle());
 		
-		Map<String,Decorator> decorators = new HashMap<>();		
+		Reference<Supplier<Map<String,Object>>> appearanceChildrenAttributesSupplierReference = new Reference<>();
+		
+		Appearance appearance = getAppearance();
+		if (appearance != null) {
+			for (Entry<?> attr: appearance.getAttributes()) {
+				if (attr.isEnabled() && "children".equals(attr.getName()) && attr instanceof org.nasdanika.ncore.Object) {
+					Supplier<Map<String, Object>> aSupplier = ((org.nasdanika.ncore.Object) attr).create(context);
+					resultsSupplier.put((Supplier) aSupplier);
+					appearanceChildrenAttributesSupplierReference.set(aSupplier);
+					break;
+				}
+			}
+		}		
+
+		StringMapCompoundSupplier<Decorator> decoratorsSupplier = new StringMapCompoundSupplier<>("Decorators");		
+		resultsSupplier.put((Supplier) decoratorsSupplier);
 		
 		MapCompoundSupplier<Section, ViewBuilder> sectionBuilderSuppliers = new MapCompoundSupplier<>(getTitle());
+		resultsSupplier.put((Supplier) sectionBuilderSuppliers);
 
 		sectionBuilderSuppliers.put(Section.Container, super.asViewBuilderSupplier(context));
 		
 		BootstrapContainerApplicationSection header = getHeader();
 		if (header != null) {
 			sectionBuilderSuppliers.put(Section.Header, header.asViewBuilderSupplier(context));
-			Decorator titleDecorator = getChildDecorator(header, context, "title");
+			Supplier<Decorator> titleDecorator = getChildDecorator(header, context, "title");
 			if (titleDecorator != null) {
-				decorators.put("application/header/title", titleDecorator);
+				decoratorsSupplier.put("application/header/title", titleDecorator);
 			}
-			Decorator navsDecorator = getChildDecorator(header, context, "navs");
+			Supplier<Decorator> navsDecorator = getChildDecorator(header, context, "navs");
 			if (navsDecorator != null) {
-				decorators.put("application/header/navs", navsDecorator);
+				decoratorsSupplier.put("application/header/navs", navsDecorator);
 			}
 		}
 		
@@ -537,17 +548,32 @@ public class BootstrapContainerApplicationImpl extends BootstrapElementImpl impl
 			sectionBuilderSuppliers.put(Section.Footer, footer.asViewBuilderSupplier(context));
 		}
 		
-		ListCompoundSupplier<Object> buildersSupplier = new ListCompoundSupplier<>("Builders");		
+		ListCompoundSupplier<Object> buildersSupplier = new ListCompoundSupplier<>("Builders");
+		resultsSupplier.put((Supplier) buildersSupplier);
 		
 		for (BootstrapContainerApplicationBuilder builder: getBuilders()) {
 			buildersSupplier.add(builder.createApplicationBuilderSupplier(context));
 		}
-		
-		return sectionBuilderSuppliers.then(buildersSupplier.asFunction()).then(bs -> new ViewBuilder() {
+						
+		return resultsSupplier.then(results -> new ViewBuilder() {
+			
+			/**
+			 * Convenience method for retrieving results.
+			 * @param <R>
+			 * @param supplier
+			 * @return
+			 */
+			private <R> R getResult(Supplier<R> supplier) {
+				return (R) results.apply((Supplier) supplier);
+			}
 
 			@Override
 			public void build(Object target, ViewGenerator viewGenerator, ProgressMonitor progressMonitor) {
-				Map<Section, ViewBuilder> sectionBuilders = bs.getFirst();
+				Map<Section, ViewBuilder> sectionBuilders = getResult(sectionBuilderSuppliers);
+				Map<String, Decorator> decorators = getResult(decoratorsSupplier);
+				Supplier<Map<String, Object>> aSupplier = appearanceChildrenAttributesSupplierReference.get();
+				Map<String, Object> appearanceChidlrenAttributes = aSupplier == null ? Collections.emptyMap() : getResult(aSupplier);
+				
 				// Takes a page and builds it
 				
 				org.nasdanika.html.app.Application app;
@@ -586,20 +612,9 @@ public class BootstrapContainerApplicationImpl extends BootstrapElementImpl impl
 						
 						@SuppressWarnings("unchecked")
 						protected void configureContentRow(org.nasdanika.html.bootstrap.Container.Row contentRow) {
-							Appearance appearance = getAppearance();
-							if (appearance != null) {
-								String attributesStr = appearance.getAttributes();
-								if (!Util.isBlank(attributesStr)) {
-									Yaml yaml = new Yaml();
-									Map<String,Object> attributes = yaml.load(attributesStr);
-									Object children = attributes.get("children");
-									if (children instanceof Map) {
-										Object contentRowAttributes = ((Map<?,?>) children).get("content-row");
-										if (contentRowAttributes instanceof Map) {
-											contentRow.toHTMLElement().attributes(context.interpolate((Map<String,Object>) contentRowAttributes));
-										}
-									}
-								}
+							Object contentRowAttributes = appearanceChidlrenAttributes.get("content-row");
+							if (contentRowAttributes instanceof Map) {
+								contentRow.toHTMLElement().attributes((Map<String,Object>) contentRowAttributes);
 							}
 						};
 						
@@ -673,20 +688,9 @@ public class BootstrapContainerApplicationImpl extends BootstrapElementImpl impl
 						
 						@SuppressWarnings("unchecked")
 						protected void configureContentRow(org.nasdanika.html.bootstrap.Container.Row contentRow) {
-							Appearance appearance = getAppearance();
-							if (appearance != null) {
-								String attributesStr = appearance.getAttributes();
-								if (!Util.isBlank(attributesStr)) {
-									Yaml yaml = new Yaml();
-									Map<String,Object> attributes = yaml.load(attributesStr);
-									Object children = attributes.get("children");
-									if (children instanceof Map) {
-										Object contentRowAttributes = ((Map<?,?>) children).get("content-row");
-										if (contentRowAttributes instanceof Map) {
-											contentRow.toHTMLElement().attributes(context.interpolate((Map<String,Object>) contentRowAttributes));
-										}
-									}
-								}
+							Object contentRowAttributes = appearanceChidlrenAttributes.get("content-row");
+							if (contentRowAttributes instanceof Map) {
+								contentRow.toHTMLElement().attributes((Map<String,Object>) contentRowAttributes);
 							}
 						};
 						
@@ -721,7 +725,7 @@ public class BootstrapContainerApplicationImpl extends BootstrapElementImpl impl
 					contextApplicationBuilder.build(app, progressMonitor);
 				}
 				
-				for (Object builder: bs.getSecond()) {
+				for (Object builder: getResult(buildersSupplier)) {
 					((ApplicationBuilder) builder).build(app, progressMonitor);
 				}
 				

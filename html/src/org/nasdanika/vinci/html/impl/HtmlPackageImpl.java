@@ -11,6 +11,7 @@ import org.eclipse.emf.ecore.EGenericType;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
+import org.eclipse.emf.ecore.EValidator;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 import org.nasdanika.html.TagName;
 import org.nasdanika.html.app.ViewBuilder;
@@ -22,6 +23,7 @@ import org.nasdanika.vinci.html.HtmlFactory;
 import org.nasdanika.vinci.html.HtmlPackage;
 import org.nasdanika.vinci.html.Page;
 import org.nasdanika.vinci.html.Tag;
+import org.nasdanika.vinci.html.util.HtmlValidator;
 
 /**
  * <!-- begin-user-doc -->
@@ -141,6 +143,16 @@ public class HtmlPackageImpl extends EPackageImpl implements HtmlPackage {
 
 		// Initialize created meta-data
 		theHtmlPackage.initializePackageContents();
+
+		// Register package validator
+		EValidator.Registry.INSTANCE.put
+			(theHtmlPackage,
+			 new EValidator.Descriptor() {
+				 @Override
+				 public EValidator getEValidator() {
+					 return HtmlValidator.INSTANCE;
+				 }
+			 });
 
 		// Mark meta-data to indicate it can't be changed
 		theHtmlPackage.freeze();
@@ -540,6 +552,8 @@ public class HtmlPackageImpl extends EPackageImpl implements HtmlPackage {
 		createGenModelAnnotations();
 		// urn:org.nasdanika
 		createUrnorgAnnotations();
+		// http://www.eclipse.org/emf/2002/Ecore
+		createEcoreAnnotations();
 	}
 
 	/**
@@ -679,6 +693,22 @@ public class HtmlPackageImpl extends EPackageImpl implements HtmlPackage {
 		   source,
 		   new String[] {
 			   "content-type", "text/markdown"
+		   });
+	}
+
+	/**
+	 * Initializes the annotations for <b>http://www.eclipse.org/emf/2002/Ecore</b>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void createEcoreAnnotations() {
+		String source = "http://www.eclipse.org/emf/2002/Ecore";
+		addAnnotation
+		  (tagEClass,
+		   source,
+		   new String[] {
+			   "constraints", "attributes"
 		   });
 	}
 

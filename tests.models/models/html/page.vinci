@@ -1,4 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<org.nasdanika.vinci.html:Page xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.nasdanika.ncore="urn:org.nasdanika.ncore" xmlns:org.nasdanika.vinci.html="urn:org.nasdanika.vinci.html" name="Test HTML page">
+<org.nasdanika.vinci.html:Page xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.nasdanika.ncore="urn:org.nasdanika.ncore" xmlns:org.nasdanika.vinci.bootstrap="urn:org.nasdanika.vinci.bootstrap" xmlns:org.nasdanika.vinci.html="urn:org.nasdanika.vinci.html" name="Test HTML page">
   <body xsi:type="org.nasdanika.ncore:Value" value="Hello world!"/>
+  <body xsi:type="org.nasdanika.vinci.bootstrap:ContentTag" name="div" markdownContent="My markdown content in a paragraph.">
+    <attributes xsi:type="org.nasdanika.ncore:Property" title="Tag style." value="color:red" name="style"/>
+    <attributes xsi:type="org.nasdanika.ncore:Object" name="style">
+      <entries xsi:type="org.nasdanika.ncore:Object" name="text">
+        <entries xsi:type="org.nasdanika.ncore:Property" value="bold" name="weight"/>
+      </entries>
+    </attributes>
+    <attributes xsi:type="org.nasdanika.ncore:List" name="class">
+      <elements xsi:type="org.nasdanika.ncore:Value" title="" value="border-dark"/>
+    </attributes>
+    <content xsi:type="org.nasdanika.ncore:Html"/>
+    <content xsi:type="org.nasdanika.vinci.bootstrap:Table" bordered="true">
+      <rows>
+        <cells markdownContent="More or less fun."/>
+      </rows>
+    </content>
+  </body>
 </org.nasdanika.vinci.html:Page>

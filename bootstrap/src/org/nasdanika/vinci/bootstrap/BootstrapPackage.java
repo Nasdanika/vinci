@@ -339,7 +339,7 @@ public interface BootstrapPackage extends EPackage {
 	int APPEARANCE__BACKGROUND = NcorePackage.ISUPPLIER_FACTORY_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Attributes</b></em>' attribute.
+	 * The feature id for the '<em><b>Attributes</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -768,6 +768,15 @@ public interface BootstrapPackage extends EPackage {
 	int TAG__NAME = HtmlPackage.TAG__NAME;
 
 	/**
+	 * The feature id for the '<em><b>Attributes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TAG__ATTRIBUTES = HtmlPackage.TAG__ATTRIBUTES;
+
+	/**
 	 * The feature id for the '<em><b>Appearance</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -839,6 +848,15 @@ public interface BootstrapPackage extends EPackage {
 	 * @ordered
 	 */
 	int CONTENT_TAG__NAME = HtmlPackage.CONTENT_TAG__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Attributes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTENT_TAG__ATTRIBUTES = HtmlPackage.CONTENT_TAG__ATTRIBUTES;
 
 	/**
 	 * The feature id for the '<em><b>Content</b></em>' containment reference list.
@@ -930,6 +948,15 @@ public interface BootstrapPackage extends EPackage {
 	 * @ordered
 	 */
 	int DIV__NAME = TAG__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Attributes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DIV__ATTRIBUTES = TAG__ATTRIBUTES;
 
 	/**
 	 * The feature id for the '<em><b>Appearance</b></em>' containment reference.
@@ -1411,6 +1438,15 @@ public interface BootstrapPackage extends EPackage {
 	int ACTION_GROUP__NAME = DIV__NAME;
 
 	/**
+	 * The feature id for the '<em><b>Attributes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION_GROUP__ATTRIBUTES = DIV__ATTRIBUTES;
+
+	/**
 	 * The feature id for the '<em><b>Appearance</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1492,6 +1528,15 @@ public interface BootstrapPackage extends EPackage {
 	int ALERT__NAME = DIV__NAME;
 
 	/**
+	 * The feature id for the '<em><b>Attributes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ALERT__ATTRIBUTES = DIV__ATTRIBUTES;
+
+	/**
 	 * The feature id for the '<em><b>Appearance</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1562,6 +1607,15 @@ public interface BootstrapPackage extends EPackage {
 	 * @ordered
 	 */
 	int BADGE__NAME = DIV__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Attributes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BADGE__ATTRIBUTES = DIV__ATTRIBUTES;
 
 	/**
 	 * The feature id for the '<em><b>Appearance</b></em>' containment reference.
@@ -1662,6 +1716,15 @@ public interface BootstrapPackage extends EPackage {
 	 * @ordered
 	 */
 	int BUTTON__NAME = DIV__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Attributes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUTTON__ATTRIBUTES = DIV__ATTRIBUTES;
 
 	/**
 	 * The feature id for the '<em><b>Appearance</b></em>' containment reference.
@@ -2041,6 +2104,15 @@ public interface BootstrapPackage extends EPackage {
 	 * @ordered
 	 */
 	int CARD__NAME = DIV__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Attributes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CARD__ATTRIBUTES = DIV__ATTRIBUTES;
 
 	/**
 	 * The feature id for the '<em><b>Appearance</b></em>' containment reference.
@@ -3066,15 +3138,15 @@ public interface BootstrapPackage extends EPackage {
 	EAttribute getAppearance_Background();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.bootstrap.Appearance#getAttributes <em>Attributes</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.nasdanika.vinci.bootstrap.Appearance#getAttributes <em>Attributes</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Attributes</em>'.
+	 * @return the meta object for the containment reference list '<em>Attributes</em>'.
 	 * @see org.nasdanika.vinci.bootstrap.Appearance#getAttributes()
 	 * @see #getAppearance()
 	 * @generated
 	 */
-	EAttribute getAppearance_Attributes();
+	EReference getAppearance_Attributes();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link org.nasdanika.vinci.bootstrap.Appearance#getBorder <em>Border</em>}'.
@@ -4308,12 +4380,12 @@ public interface BootstrapPackage extends EPackage {
 		 */
 		EAttribute APPEARANCE__BACKGROUND = eINSTANCE.getAppearance_Background();
 		/**
-		 * The meta object literal for the '<em><b>Attributes</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Attributes</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute APPEARANCE__ATTRIBUTES = eINSTANCE.getAppearance_Attributes();
+		EReference APPEARANCE__ATTRIBUTES = eINSTANCE.getAppearance_Attributes();
 		/**
 		 * The meta object literal for the '<em><b>Border</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->

@@ -494,8 +494,8 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 	 * @generated
 	 */
 	@Override
-	public EAttribute getAppearance_Attributes() {
-		return (EAttribute)appearanceEClass.getEStructuralFeatures().get(1);
+	public EReference getAppearance_Attributes() {
+		return (EReference)appearanceEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -1636,7 +1636,7 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 
 		appearanceEClass = createEClass(APPEARANCE);
 		createEAttribute(appearanceEClass, APPEARANCE__BACKGROUND);
-		createEAttribute(appearanceEClass, APPEARANCE__ATTRIBUTES);
+		createEReference(appearanceEClass, APPEARANCE__ATTRIBUTES);
 		createEReference(appearanceEClass, APPEARANCE__BORDER);
 		createEReference(appearanceEClass, APPEARANCE__MARGIN);
 		createEReference(appearanceEClass, APPEARANCE__PADDING);
@@ -1904,7 +1904,10 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 
 		initEClass(appearanceEClass, Appearance.class, "Appearance", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getAppearance_Background(), ecorePackage.getEString(), "background", null, 0, 1, Appearance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getAppearance_Attributes(), ecorePackage.getEString(), "attributes", null, 0, 1, Appearance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		g1 = createEGenericType(theNcorePackage.getEntry());
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		initEReference(getAppearance_Attributes(), g1, null, "attributes", null, 0, -1, Appearance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAppearance_Border(), this.getBorder(), null, "border", null, 0, 4, Appearance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAppearance_Margin(), this.getSpacing(), null, "margin", null, 0, -1, Appearance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAppearance_Padding(), this.getSpacing(), null, "padding", null, 0, -1, Appearance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

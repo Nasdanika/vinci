@@ -6,6 +6,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.nasdanika.common.SupplierFactory;
 import org.nasdanika.html.app.ViewBuilder;
+import org.nasdanika.ncore.Entry;
 
 /**
  * <!-- begin-user-doc -->
@@ -61,7 +62,8 @@ public interface Appearance extends EObject, SupplierFactory<ViewBuilder> {
 	void setBackground(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Attributes</b></em>' attribute.
+	 * Returns the value of the '<em><b>Attributes</b></em>' containment reference list.
+	 * The list contents are of type {@link org.nasdanika.ncore.Entry}<code>&lt;java.lang.Object&gt;</code>.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
@@ -171,23 +173,12 @@ public interface Appearance extends EObject, SupplierFactory<ViewBuilder> {
 	 * ```
 	 * 
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Attributes</em>' attribute.
-	 * @see #setAttributes(String)
+	 * @return the value of the '<em>Attributes</em>' containment reference list.
 	 * @see org.nasdanika.vinci.bootstrap.BootstrapPackage#getAppearance_Attributes()
-	 * @model
+	 * @model type="org.nasdanika.ncore.Entry&lt;org.eclipse.emf.ecore.EJavaObject&gt;" containment="true"
 	 * @generated
 	 */
-	String getAttributes();
-
-	/**
-	 * Sets the value of the '{@link org.nasdanika.vinci.bootstrap.Appearance#getAttributes <em>Attributes</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Attributes</em>' attribute.
-	 * @see #getAttributes()
-	 * @generated
-	 */
-	void setAttributes(String value);
+	EList<Entry<Object>> getAttributes();
 
 	/**
 	 * Returns the value of the '<em><b>Border</b></em>' containment reference list.

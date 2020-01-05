@@ -3,7 +3,6 @@
 package org.nasdanika.vinci.bootstrap.impl;
 
 import java.util.Collection;
-import java.util.Map;
 
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
@@ -12,6 +11,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.nasdanika.common.Context;
+import org.nasdanika.common.MapCompoundSupplier;
 import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.common.Supplier;
 import org.nasdanika.common.Util;
@@ -24,13 +24,13 @@ import org.nasdanika.html.bootstrap.Breakpoint;
 import org.nasdanika.html.bootstrap.Color;
 import org.nasdanika.html.bootstrap.Placement;
 import org.nasdanika.html.bootstrap.Size;
+import org.nasdanika.ncore.Entry;
 import org.nasdanika.vinci.bootstrap.Appearance;
 import org.nasdanika.vinci.bootstrap.BootstrapPackage;
 import org.nasdanika.vinci.bootstrap.Border;
 import org.nasdanika.vinci.bootstrap.Float;
 import org.nasdanika.vinci.bootstrap.Spacing;
 import org.nasdanika.vinci.bootstrap.Text;
-import org.yaml.snakeyaml.Yaml;
 
 /**
  * <!-- begin-user-doc -->
@@ -61,16 +61,6 @@ public class AppearanceImpl extends MinimalEObjectImpl.Container implements Appe
 	 * @ordered
 	 */
 	protected static final String BACKGROUND_EDEFAULT = null;
-
-	/**
-	 * The default value of the '{@link #getAttributes() <em>Attributes</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getAttributes()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String ATTRIBUTES_EDEFAULT = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -126,19 +116,10 @@ public class AppearanceImpl extends MinimalEObjectImpl.Container implements Appe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
-	public String getAttributes() {
-		return (String)eDynamicGet(BootstrapPackage.APPEARANCE__ATTRIBUTES, BootstrapPackage.Literals.APPEARANCE__ATTRIBUTES, true, true);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setAttributes(String newAttributes) {
-		eDynamicSet(BootstrapPackage.APPEARANCE__ATTRIBUTES, BootstrapPackage.Literals.APPEARANCE__ATTRIBUTES, newAttributes);
+	public EList<Entry<Object>> getAttributes() {
+		return (EList<Entry<Object>>)eDynamicGet(BootstrapPackage.APPEARANCE__ATTRIBUTES, BootstrapPackage.Literals.APPEARANCE__ATTRIBUTES, true, true);
 	}
 
 	/**
@@ -224,6 +205,8 @@ public class AppearanceImpl extends MinimalEObjectImpl.Container implements Appe
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case BootstrapPackage.APPEARANCE__ATTRIBUTES:
+				return ((InternalEList<?>)getAttributes()).basicRemove(otherEnd, msgs);
 			case BootstrapPackage.APPEARANCE__BORDER:
 				return ((InternalEList<?>)getBorder()).basicRemove(otherEnd, msgs);
 			case BootstrapPackage.APPEARANCE__MARGIN:
@@ -277,7 +260,8 @@ public class AppearanceImpl extends MinimalEObjectImpl.Container implements Appe
 				setBackground((String)newValue);
 				return;
 			case BootstrapPackage.APPEARANCE__ATTRIBUTES:
-				setAttributes((String)newValue);
+				getAttributes().clear();
+				getAttributes().addAll((Collection<? extends Entry<Object>>)newValue);
 				return;
 			case BootstrapPackage.APPEARANCE__BORDER:
 				getBorder().clear();
@@ -314,7 +298,7 @@ public class AppearanceImpl extends MinimalEObjectImpl.Container implements Appe
 				setBackground(BACKGROUND_EDEFAULT);
 				return;
 			case BootstrapPackage.APPEARANCE__ATTRIBUTES:
-				setAttributes(ATTRIBUTES_EDEFAULT);
+				getAttributes().clear();
 				return;
 			case BootstrapPackage.APPEARANCE__BORDER:
 				getBorder().clear();
@@ -346,7 +330,7 @@ public class AppearanceImpl extends MinimalEObjectImpl.Container implements Appe
 			case BootstrapPackage.APPEARANCE__BACKGROUND:
 				return BACKGROUND_EDEFAULT == null ? getBackground() != null : !BACKGROUND_EDEFAULT.equals(getBackground());
 			case BootstrapPackage.APPEARANCE__ATTRIBUTES:
-				return ATTRIBUTES_EDEFAULT == null ? getAttributes() != null : !ATTRIBUTES_EDEFAULT.equals(getAttributes());
+				return !getAttributes().isEmpty();
 			case BootstrapPackage.APPEARANCE__BORDER:
 				return !getBorder().isEmpty();
 			case BootstrapPackage.APPEARANCE__MARGIN:
@@ -549,21 +533,6 @@ public class AppearanceImpl extends MinimalEObjectImpl.Container implements Appe
 			}
 			
 		};
-				
-		ViewBuilder attributesBuilder = new ViewBuilder() {
-			
-			@Override
-			public void build(Object target, ViewGenerator viewGenerator, ProgressMonitor monitor) {
-				String attributesStr = getAttributes();
-				if (!Util.isBlank(attributesStr)) {
-					Yaml yaml = new Yaml();
-					Map<String,Object> attributes = yaml.load(attributesStr);
-					org.nasdanika.html.bootstrap.BootstrapElement<?,?> bootstrapElement = (org.nasdanika.html.bootstrap.BootstrapElement<?,?>) target;
-					bootstrapElement.toHTMLElement().attributes(context.interpolate(attributes));
-				}
-			}
-			
-		};
 		
 		java.util.function.Function<Object, Object> wrapper = target -> {
 			if (target instanceof org.nasdanika.html.bootstrap.BootstrapElement) {
@@ -579,10 +548,34 @@ public class AppearanceImpl extends MinimalEObjectImpl.Container implements Appe
 				.compose(borderBuilder)
 				.compose(spacingBuilder)
 				.compose(textBuilder)
-				.compose(floatBuilder)
-				.compose(attributesBuilder).before(wrapper);
+				.compose(floatBuilder).before(wrapper);
 
-		return Supplier.from(composedBuilder, "Appearance");
+		Supplier<ViewBuilder> appearanceSupplier = Supplier.from(composedBuilder, "Appearance");
+		
+		if (getAttributes().isEmpty()) {		
+			return appearanceSupplier;
+		}
+		
+		@SuppressWarnings("resource")
+		MapCompoundSupplier<String,Object> attrsSupplier = new MapCompoundSupplier<>("Attributes");
+		
+		for (Entry<Object> e: getAttributes()) {
+			if (e.isEnabled()) {
+				attrsSupplier.put(e.getName(), e.create(context));
+			}
+		}
+		
+		return appearanceSupplier.then(attrsSupplier.asFunction()).then(bs -> new ViewBuilder() {
+
+			@Override
+			public void build(Object target, ViewGenerator viewGenerator, ProgressMonitor progressMonitor) {
+				bs.getFirst().build(target, viewGenerator, progressMonitor);
+				org.nasdanika.html.HTMLElement<?> htmlElement = target instanceof org.nasdanika.html.bootstrap.BootstrapElement<?,?> ? ((org.nasdanika.html.bootstrap.BootstrapElement<?,?>) target).toHTMLElement() : (org.nasdanika.html.HTMLElement<?>) target;  
+				htmlElement.attributes(bs.getSecond());
+			}
+			
+		});
+				
 	}		
 
 } //AppearanceImpl

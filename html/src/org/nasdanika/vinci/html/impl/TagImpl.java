@@ -9,6 +9,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.nasdanika.common.Context;
+import org.nasdanika.common.MapCompoundSupplier;
 import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.common.Supplier;
 import org.nasdanika.html.HTMLFactory;
@@ -178,7 +179,7 @@ public class TagImpl extends HtmlElementImpl implements Tag {
 	}
 	
 	@Override
-	public Supplier<ViewPart> create(Context arg) throws Exception {
+	public Supplier<ViewPart> create(Context context) throws Exception {
 		ViewPart tagViewPart = new ViewPart() {
 
 			@Override
@@ -187,7 +188,33 @@ public class TagImpl extends HtmlElementImpl implements Tag {
 			}
 			
 		};
-		return Supplier.from(tagViewPart, getTitle());
+				
+		Supplier<ViewPart> viewPartSupplier = Supplier.from(tagViewPart, getTitle());
+		
+		if (getAttributes().isEmpty()) {
+			return viewPartSupplier;
+		}
+				
+		@SuppressWarnings("resource")
+		MapCompoundSupplier<String,Object> attrsSupplier = new MapCompoundSupplier<>("Attributes");
+		
+		for (Entry<Object> e: getAttributes()) {
+			if (e.isEnabled()) {
+				attrsSupplier.put(e.getName(), e.create(context));
+			}
+		}
+		
+		return viewPartSupplier.then(attrsSupplier.asFunction()).then(bs -> new ViewPart() {
+
+			@Override
+			public Object generate(ViewGenerator viewGenerator, ProgressMonitor progressMonitor) {
+				org.nasdanika.html.Tag ret = (org.nasdanika.html.Tag) bs.getFirst().generate(viewGenerator, progressMonitor);
+				ret.attributes(bs.getSecond());
+				return ret;
+			}
+			
+		});
+		
 	}
 
 } //TagImpl

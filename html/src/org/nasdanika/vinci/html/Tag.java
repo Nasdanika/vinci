@@ -27,6 +27,7 @@ import org.nasdanika.ncore.Entry;
  *
  * @see org.nasdanika.vinci.html.HtmlPackage#getTag()
  * @model superTypes="org.nasdanika.vinci.html.HtmlElement org.nasdanika.ncore.ISupplierFactory&lt;org.nasdanika.vinci.html.ViewPart&gt;"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore constraints='attributes'"
  * @generated
  */
 public interface Tag extends HtmlElement, SupplierFactory<ViewPart> {

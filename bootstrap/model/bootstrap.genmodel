@@ -19,7 +19,7 @@
     </genClasses>
     <genClasses ecoreClass="bootstrap.ecore#//Appearance">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bootstrap.ecore#//Appearance/background"/>
-      <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute bootstrap.ecore#//Appearance/attributes"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference bootstrap.ecore#//Appearance/attributes"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference bootstrap.ecore#//Appearance/border"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference bootstrap.ecore#//Appearance/margin"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference bootstrap.ecore#//Appearance/padding"/>

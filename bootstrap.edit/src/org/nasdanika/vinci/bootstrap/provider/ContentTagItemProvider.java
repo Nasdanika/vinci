@@ -163,6 +163,7 @@ public class ContentTagItemProvider extends org.nasdanika.vinci.html.provider.Co
 		Object childObject = child;
 
 		boolean qualify =
+			childFeature == HtmlPackage.Literals.TAG__ATTRIBUTES ||
 			childFeature == HtmlPackage.Literals.CONTAINER__CONTENT ||
 			childFeature == BootstrapPackage.Literals.BOOTSTRAP_ELEMENT__APPEARANCE;
 
