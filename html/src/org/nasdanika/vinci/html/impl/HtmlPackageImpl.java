@@ -22,6 +22,12 @@ import org.nasdanika.vinci.html.HtmlElement;
 import org.nasdanika.vinci.html.HtmlFactory;
 import org.nasdanika.vinci.html.HtmlPackage;
 import org.nasdanika.vinci.html.Page;
+import org.nasdanika.vinci.html.Script;
+import org.nasdanika.vinci.html.ScriptReference;
+import org.nasdanika.vinci.html.ScriptResource;
+import org.nasdanika.vinci.html.Stylesheet;
+import org.nasdanika.vinci.html.StylesheetReference;
+import org.nasdanika.vinci.html.StylesheetResource;
 import org.nasdanika.vinci.html.Tag;
 import org.nasdanika.vinci.html.util.HtmlValidator;
 
@@ -80,6 +86,48 @@ public class HtmlPackageImpl extends EPackageImpl implements HtmlPackage {
 	 * @generated
 	 */
 	private EClass pageEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass stylesheetEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass stylesheetResourceEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass stylesheetReferenceEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass scriptEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass scriptResourceEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass scriptReferenceEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -328,7 +376,7 @@ public class HtmlPackageImpl extends EPackageImpl implements HtmlPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getPage_Stylesheets() {
+	public EAttribute getPage_FontAwesome() {
 		return (EAttribute)pageEClass.getEStructuralFeatures().get(4);
 	}
 
@@ -338,7 +386,7 @@ public class HtmlPackageImpl extends EPackageImpl implements HtmlPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getPage_Scripts() {
+	public EAttribute getPage_JsTree() {
 		return (EAttribute)pageEClass.getEStructuralFeatures().get(5);
 	}
 
@@ -348,7 +396,7 @@ public class HtmlPackageImpl extends EPackageImpl implements HtmlPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getPage_FontAwesome() {
+	public EAttribute getPage_GithubMarkdownCss() {
 		return (EAttribute)pageEClass.getEStructuralFeatures().get(6);
 	}
 
@@ -358,8 +406,8 @@ public class HtmlPackageImpl extends EPackageImpl implements HtmlPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getPage_JsTree() {
-		return (EAttribute)pageEClass.getEStructuralFeatures().get(7);
+	public EClass getStylesheet() {
+		return stylesheetEClass;
 	}
 
 	/**
@@ -368,8 +416,108 @@ public class HtmlPackageImpl extends EPackageImpl implements HtmlPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getPage_GithubMarkdownCss() {
-		return (EAttribute)pageEClass.getEStructuralFeatures().get(8);
+	public EAttribute getStylesheet_Code() {
+		return (EAttribute)stylesheetEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getStylesheetResource() {
+		return stylesheetResourceEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getStylesheetResource_Location() {
+		return (EAttribute)stylesheetResourceEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getStylesheetReference() {
+		return stylesheetReferenceEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getStylesheetReference_Href() {
+		return (EAttribute)stylesheetReferenceEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getScript() {
+		return scriptEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getScript_Code() {
+		return (EAttribute)scriptEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getScriptResource() {
+		return scriptResourceEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getScriptResource_Location() {
+		return (EAttribute)scriptResourceEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getScriptReference() {
+		return scriptReferenceEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getScriptReference_Src() {
+		return (EAttribute)scriptReferenceEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -433,11 +581,27 @@ public class HtmlPackageImpl extends EPackageImpl implements HtmlPackage {
 		createEReference(pageEClass, PAGE__BODY);
 		createEReference(pageEClass, PAGE__BUILDERS);
 		createEAttribute(pageEClass, PAGE__LANGUAGE);
-		createEAttribute(pageEClass, PAGE__STYLESHEETS);
-		createEAttribute(pageEClass, PAGE__SCRIPTS);
 		createEAttribute(pageEClass, PAGE__FONT_AWESOME);
 		createEAttribute(pageEClass, PAGE__JS_TREE);
 		createEAttribute(pageEClass, PAGE__GITHUB_MARKDOWN_CSS);
+
+		stylesheetEClass = createEClass(STYLESHEET);
+		createEAttribute(stylesheetEClass, STYLESHEET__CODE);
+
+		stylesheetResourceEClass = createEClass(STYLESHEET_RESOURCE);
+		createEAttribute(stylesheetResourceEClass, STYLESHEET_RESOURCE__LOCATION);
+
+		stylesheetReferenceEClass = createEClass(STYLESHEET_REFERENCE);
+		createEAttribute(stylesheetReferenceEClass, STYLESHEET_REFERENCE__HREF);
+
+		scriptEClass = createEClass(SCRIPT);
+		createEAttribute(scriptEClass, SCRIPT__CODE);
+
+		scriptResourceEClass = createEClass(SCRIPT_RESOURCE);
+		createEAttribute(scriptResourceEClass, SCRIPT_RESOURCE__LOCATION);
+
+		scriptReferenceEClass = createEClass(SCRIPT_REFERENCE);
+		createEAttribute(scriptReferenceEClass, SCRIPT_REFERENCE__SRC);
 
 		// Create data types
 		tagNameEDataType = createEDataType(TAG_NAME);
@@ -489,6 +653,42 @@ public class HtmlPackageImpl extends EPackageImpl implements HtmlPackage {
 		g2 = createEGenericType(ecorePackage.getEJavaObject());
 		g1.getETypeArguments().add(g2);
 		pageEClass.getEGenericSuperTypes().add(g1);
+		g1 = createEGenericType(theNcorePackage.getModelElement());
+		stylesheetEClass.getEGenericSuperTypes().add(g1);
+		g1 = createEGenericType(theNcorePackage.getISupplierFactory());
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		stylesheetEClass.getEGenericSuperTypes().add(g1);
+		g1 = createEGenericType(theNcorePackage.getModelElement());
+		stylesheetResourceEClass.getEGenericSuperTypes().add(g1);
+		g1 = createEGenericType(theNcorePackage.getISupplierFactory());
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		stylesheetResourceEClass.getEGenericSuperTypes().add(g1);
+		g1 = createEGenericType(theNcorePackage.getModelElement());
+		stylesheetReferenceEClass.getEGenericSuperTypes().add(g1);
+		g1 = createEGenericType(theNcorePackage.getISupplierFactory());
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		stylesheetReferenceEClass.getEGenericSuperTypes().add(g1);
+		g1 = createEGenericType(theNcorePackage.getModelElement());
+		scriptEClass.getEGenericSuperTypes().add(g1);
+		g1 = createEGenericType(theNcorePackage.getISupplierFactory());
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		scriptEClass.getEGenericSuperTypes().add(g1);
+		g1 = createEGenericType(theNcorePackage.getModelElement());
+		scriptResourceEClass.getEGenericSuperTypes().add(g1);
+		g1 = createEGenericType(theNcorePackage.getISupplierFactory());
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		scriptResourceEClass.getEGenericSuperTypes().add(g1);
+		g1 = createEGenericType(theNcorePackage.getModelElement());
+		scriptReferenceEClass.getEGenericSuperTypes().add(g1);
+		g1 = createEGenericType(theNcorePackage.getISupplierFactory());
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		scriptReferenceEClass.getEGenericSuperTypes().add(g1);
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(viewPartEClass, ViewPart.class, "ViewPart", IS_ABSTRACT, IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS);
@@ -523,11 +723,11 @@ public class HtmlPackageImpl extends EPackageImpl implements HtmlPackage {
 
 		initEClass(pageEClass, Page.class, "Page", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		g1 = createEGenericType(theNcorePackage.getISupplierFactory());
-		g2 = createEGenericType(this.getViewPart());
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
 		g1.getETypeArguments().add(g2);
 		initEReference(getPage_Head(), g1, null, "head", null, 0, -1, Page.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		g1 = createEGenericType(theNcorePackage.getISupplierFactory());
-		g2 = createEGenericType(this.getViewPart());
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
 		g1.getETypeArguments().add(g2);
 		initEReference(getPage_Body(), g1, null, "body", null, 0, -1, Page.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		g1 = createEGenericType(theNcorePackage.getISupplierFactory());
@@ -535,11 +735,27 @@ public class HtmlPackageImpl extends EPackageImpl implements HtmlPackage {
 		g1.getETypeArguments().add(g2);
 		initEReference(getPage_Builders(), g1, null, "builders", null, 0, -1, Page.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPage_Language(), ecorePackage.getEString(), "language", null, 0, 1, Page.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getPage_Stylesheets(), ecorePackage.getEString(), "stylesheets", null, 0, -1, Page.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getPage_Scripts(), ecorePackage.getEString(), "scripts", null, 0, -1, Page.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPage_FontAwesome(), ecorePackage.getEBoolean(), "fontAwesome", null, 0, 1, Page.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPage_JsTree(), ecorePackage.getEBoolean(), "jsTree", null, 0, 1, Page.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPage_GithubMarkdownCss(), ecorePackage.getEBoolean(), "githubMarkdownCss", null, 0, 1, Page.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(stylesheetEClass, Stylesheet.class, "Stylesheet", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getStylesheet_Code(), ecorePackage.getEString(), "code", null, 1, 1, Stylesheet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(stylesheetResourceEClass, StylesheetResource.class, "StylesheetResource", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getStylesheetResource_Location(), ecorePackage.getEString(), "location", null, 1, 1, StylesheetResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(stylesheetReferenceEClass, StylesheetReference.class, "StylesheetReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getStylesheetReference_Href(), ecorePackage.getEString(), "href", null, 1, 1, StylesheetReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(scriptEClass, Script.class, "Script", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getScript_Code(), ecorePackage.getEString(), "code", null, 1, 1, Script.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(scriptResourceEClass, ScriptResource.class, "ScriptResource", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getScriptResource_Location(), ecorePackage.getEString(), "location", null, 1, 1, ScriptResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(scriptReferenceEClass, ScriptReference.class, "ScriptReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getScriptReference_Src(), ecorePackage.getEString(), "src", null, 1, 1, ScriptReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize data types
 		initEDataType(tagNameEDataType, TagName.class, "TagName", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
@@ -649,18 +865,6 @@ public class HtmlPackageImpl extends EPackageImpl implements HtmlPackage {
 			   "documentation", "Page language - ``lang`` attribute."
 		   });
 		addAnnotation
-		  (getPage_Stylesheets(),
-		   source,
-		   new String[] {
-			   "documentation", "URL\'s of external stylesheets used by the page."
-		   });
-		addAnnotation
-		  (getPage_Scripts(),
-		   source,
-		   new String[] {
-			   "documentation", "URL\'s of external scripts used by the page, e.g. jQuery."
-		   });
-		addAnnotation
 		  (getPage_FontAwesome(),
 		   source,
 		   new String[] {
@@ -678,6 +882,42 @@ public class HtmlPackageImpl extends EPackageImpl implements HtmlPackage {
 		   new String[] {
 			   "documentation", "If this attribute is set to true [GitHub Markdown CSS](https://github.com/sindresorhus/github-markdown-css) CDN stylesheet reference is added to the head."
 		   });
+		addAnnotation
+		  (getStylesheet_Code(),
+		   source,
+		   new String[] {
+			   "documentation", "Stylesheet code."
+		   });
+		addAnnotation
+		  (getStylesheetResource_Location(),
+		   source,
+		   new String[] {
+			   "documentation", "Stylesheet code location relative to the model resource location."
+		   });
+		addAnnotation
+		  (getStylesheetReference_Href(),
+		   source,
+		   new String[] {
+			   "documentation", "Stylesheet URL."
+		   });
+		addAnnotation
+		  (getScript_Code(),
+		   source,
+		   new String[] {
+			   "documentation", "Script code."
+		   });
+		addAnnotation
+		  (getScriptResource_Location(),
+		   source,
+		   new String[] {
+			   "documentation", "Script code location relative to the model resource location."
+		   });
+		addAnnotation
+		  (getScriptReference_Src(),
+		   source,
+		   new String[] {
+			   "documentation", "Script URL."
+		   });
 	}
 
 	/**
@@ -693,6 +933,18 @@ public class HtmlPackageImpl extends EPackageImpl implements HtmlPackage {
 		   source,
 		   new String[] {
 			   "content-type", "text/markdown"
+		   });
+		addAnnotation
+		  (getStylesheet_Code(),
+		   source,
+		   new String[] {
+			   "content-type", "text/code"
+		   });
+		addAnnotation
+		  (getScript_Code(),
+		   source,
+		   new String[] {
+			   "content-type", "text/code"
 		   });
 	}
 

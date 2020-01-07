@@ -9,6 +9,7 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import org.nasdanika.html.TagName;
+import org.nasdanika.vinci.html.*;
 import org.nasdanika.vinci.html.ContentTag;
 import org.nasdanika.vinci.html.HtmlFactory;
 import org.nasdanika.vinci.html.HtmlPackage;
@@ -63,6 +64,12 @@ public class HtmlFactoryImpl extends EFactoryImpl implements HtmlFactory {
 			case HtmlPackage.TAG: return createTag();
 			case HtmlPackage.CONTENT_TAG: return createContentTag();
 			case HtmlPackage.PAGE: return createPage();
+			case HtmlPackage.STYLESHEET: return createStylesheet();
+			case HtmlPackage.STYLESHEET_RESOURCE: return createStylesheetResource();
+			case HtmlPackage.STYLESHEET_REFERENCE: return createStylesheetReference();
+			case HtmlPackage.SCRIPT: return createScript();
+			case HtmlPackage.SCRIPT_RESOURCE: return createScriptResource();
+			case HtmlPackage.SCRIPT_REFERENCE: return createScriptReference();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -140,6 +147,72 @@ public class HtmlFactoryImpl extends EFactoryImpl implements HtmlFactory {
 	public Page createPage() {
 		PageImpl page = new PageImpl();
 		return page;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Stylesheet createStylesheet() {
+		StylesheetImpl stylesheet = new StylesheetImpl();
+		return stylesheet;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public StylesheetResource createStylesheetResource() {
+		StylesheetResourceImpl stylesheetResource = new StylesheetResourceImpl();
+		return stylesheetResource;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public StylesheetReference createStylesheetReference() {
+		StylesheetReferenceImpl stylesheetReference = new StylesheetReferenceImpl();
+		return stylesheetReference;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Script createScript() {
+		ScriptImpl script = new ScriptImpl();
+		return script;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ScriptResource createScriptResource() {
+		ScriptResourceImpl scriptResource = new ScriptResourceImpl();
+		return scriptResource;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ScriptReference createScriptReference() {
+		ScriptReferenceImpl scriptReference = new ScriptReferenceImpl();
+		return scriptReference;
 	}
 
 	/**

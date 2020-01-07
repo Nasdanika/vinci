@@ -13,7 +13,6 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.nasdanika.common.Context;
 import org.nasdanika.common.Function;
-import org.nasdanika.common.ListCompoundSupplier;
 import org.nasdanika.common.ListCompoundSupplierFactory;
 import org.nasdanika.common.MarkdownHelper;
 import org.nasdanika.common.StringMapCompoundSupplier;
@@ -24,7 +23,6 @@ import org.nasdanika.html.HTMLFactory;
 import org.nasdanika.html.HTMLPage;
 import org.nasdanika.html.app.ViewBuilder;
 import org.nasdanika.html.app.ViewGenerator;
-import org.nasdanika.html.app.ViewPart;
 import org.nasdanika.html.app.impl.ViewGeneratorImpl;
 import org.nasdanika.html.fontawesome.FontAwesomeFactory;
 import org.nasdanika.html.jstree.JsTreeFactory;
@@ -44,8 +42,6 @@ import org.nasdanika.vinci.html.Page;
  *   <li>{@link org.nasdanika.vinci.html.impl.PageImpl#getBody <em>Body</em>}</li>
  *   <li>{@link org.nasdanika.vinci.html.impl.PageImpl#getBuilders <em>Builders</em>}</li>
  *   <li>{@link org.nasdanika.vinci.html.impl.PageImpl#getLanguage <em>Language</em>}</li>
- *   <li>{@link org.nasdanika.vinci.html.impl.PageImpl#getStylesheets <em>Stylesheets</em>}</li>
- *   <li>{@link org.nasdanika.vinci.html.impl.PageImpl#getScripts <em>Scripts</em>}</li>
  *   <li>{@link org.nasdanika.vinci.html.impl.PageImpl#isFontAwesome <em>Font Awesome</em>}</li>
  *   <li>{@link org.nasdanika.vinci.html.impl.PageImpl#isJsTree <em>Js Tree</em>}</li>
  *   <li>{@link org.nasdanika.vinci.html.impl.PageImpl#isGithubMarkdownCss <em>Github Markdown Css</em>}</li>
@@ -120,8 +116,8 @@ public class PageImpl extends NamedElementImpl implements Page {
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public EList<SupplierFactory<ViewPart>> getHead() {
-		return (EList<SupplierFactory<ViewPart>>)eDynamicGet(HtmlPackage.PAGE__HEAD, HtmlPackage.Literals.PAGE__HEAD, true, true);
+	public EList<SupplierFactory<Object>> getHead() {
+		return (EList<SupplierFactory<Object>>)eDynamicGet(HtmlPackage.PAGE__HEAD, HtmlPackage.Literals.PAGE__HEAD, true, true);
 	}
 
 	/**
@@ -131,8 +127,8 @@ public class PageImpl extends NamedElementImpl implements Page {
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public EList<SupplierFactory<ViewPart>> getBody() {
-		return (EList<SupplierFactory<ViewPart>>)eDynamicGet(HtmlPackage.PAGE__BODY, HtmlPackage.Literals.PAGE__BODY, true, true);
+	public EList<SupplierFactory<Object>> getBody() {
+		return (EList<SupplierFactory<Object>>)eDynamicGet(HtmlPackage.PAGE__BODY, HtmlPackage.Literals.PAGE__BODY, true, true);
 	}
 
 	/**
@@ -164,28 +160,6 @@ public class PageImpl extends NamedElementImpl implements Page {
 	@Override
 	public void setLanguage(String newLanguage) {
 		eDynamicSet(HtmlPackage.PAGE__LANGUAGE, HtmlPackage.Literals.PAGE__LANGUAGE, newLanguage);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@SuppressWarnings("unchecked")
-	@Override
-	public EList<String> getStylesheets() {
-		return (EList<String>)eDynamicGet(HtmlPackage.PAGE__STYLESHEETS, HtmlPackage.Literals.PAGE__STYLESHEETS, true, true);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@SuppressWarnings("unchecked")
-	@Override
-	public EList<String> getScripts() {
-		return (EList<String>)eDynamicGet(HtmlPackage.PAGE__SCRIPTS, HtmlPackage.Literals.PAGE__SCRIPTS, true, true);
 	}
 
 	/**
@@ -282,10 +256,6 @@ public class PageImpl extends NamedElementImpl implements Page {
 				return getBuilders();
 			case HtmlPackage.PAGE__LANGUAGE:
 				return getLanguage();
-			case HtmlPackage.PAGE__STYLESHEETS:
-				return getStylesheets();
-			case HtmlPackage.PAGE__SCRIPTS:
-				return getScripts();
 			case HtmlPackage.PAGE__FONT_AWESOME:
 				return isFontAwesome();
 			case HtmlPackage.PAGE__JS_TREE:
@@ -307,11 +277,11 @@ public class PageImpl extends NamedElementImpl implements Page {
 		switch (featureID) {
 			case HtmlPackage.PAGE__HEAD:
 				getHead().clear();
-				getHead().addAll((Collection<? extends SupplierFactory<ViewPart>>)newValue);
+				getHead().addAll((Collection<? extends SupplierFactory<Object>>)newValue);
 				return;
 			case HtmlPackage.PAGE__BODY:
 				getBody().clear();
-				getBody().addAll((Collection<? extends SupplierFactory<ViewPart>>)newValue);
+				getBody().addAll((Collection<? extends SupplierFactory<Object>>)newValue);
 				return;
 			case HtmlPackage.PAGE__BUILDERS:
 				getBuilders().clear();
@@ -319,14 +289,6 @@ public class PageImpl extends NamedElementImpl implements Page {
 				return;
 			case HtmlPackage.PAGE__LANGUAGE:
 				setLanguage((String)newValue);
-				return;
-			case HtmlPackage.PAGE__STYLESHEETS:
-				getStylesheets().clear();
-				getStylesheets().addAll((Collection<? extends String>)newValue);
-				return;
-			case HtmlPackage.PAGE__SCRIPTS:
-				getScripts().clear();
-				getScripts().addAll((Collection<? extends String>)newValue);
 				return;
 			case HtmlPackage.PAGE__FONT_AWESOME:
 				setFontAwesome((Boolean)newValue);
@@ -361,12 +323,6 @@ public class PageImpl extends NamedElementImpl implements Page {
 			case HtmlPackage.PAGE__LANGUAGE:
 				setLanguage(LANGUAGE_EDEFAULT);
 				return;
-			case HtmlPackage.PAGE__STYLESHEETS:
-				getStylesheets().clear();
-				return;
-			case HtmlPackage.PAGE__SCRIPTS:
-				getScripts().clear();
-				return;
 			case HtmlPackage.PAGE__FONT_AWESOME:
 				setFontAwesome(FONT_AWESOME_EDEFAULT);
 				return;
@@ -396,10 +352,6 @@ public class PageImpl extends NamedElementImpl implements Page {
 				return !getBuilders().isEmpty();
 			case HtmlPackage.PAGE__LANGUAGE:
 				return LANGUAGE_EDEFAULT == null ? getLanguage() != null : !LANGUAGE_EDEFAULT.equals(getLanguage());
-			case HtmlPackage.PAGE__STYLESHEETS:
-				return !getStylesheets().isEmpty();
-			case HtmlPackage.PAGE__SCRIPTS:
-				return !getScripts().isEmpty();
 			case HtmlPackage.PAGE__FONT_AWESOME:
 				return isFontAwesome() != FONT_AWESOME_EDEFAULT;
 			case HtmlPackage.PAGE__JS_TREE:
@@ -408,24 +360,6 @@ public class PageImpl extends NamedElementImpl implements Page {
 				return isGithubMarkdownCss() != GITHUB_MARKDOWN_CSS_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
-	}
-		
-	protected Supplier<List<ViewPart>> createHeadSupplier(Context context) throws Exception {
-		ListCompoundSupplier<ViewPart> ret = new ListCompoundSupplier<>("Head");		
-		for (SupplierFactory<ViewPart> ce: getHead()) {
-			ret.add(ce.create(context));
-		}
-		
-		return ret;
-	}
-	
-	protected Supplier<List<ViewPart>> createBodySupplier(Context context) throws Exception {
-		ListCompoundSupplier<ViewPart> ret = new ListCompoundSupplier<>("Body");		
-		for (SupplierFactory<ViewPart> ce: getBody()) {
-			ret.add(ce.create(context));
-		}
-		
-		return ret;
 	}
 	
 	/**
@@ -441,18 +375,17 @@ public class PageImpl extends NamedElementImpl implements Page {
 	@Override
 	public Supplier<Object> create(Context context) throws Exception {
 		@SuppressWarnings("resource")
-		StringMapCompoundSupplier<List<ViewPart>> partsSupplier = new StringMapCompoundSupplier<>(getTitle());
-		partsSupplier.put(createHeadSupplier(context));
-		partsSupplier.put(createBodySupplier(context));
+		StringMapCompoundSupplier<List<Object>> partsSupplier = new StringMapCompoundSupplier<>(getTitle());
+		partsSupplier.put(new ListCompoundSupplierFactory<Object>("Head", getHead()).create(context));
+		partsSupplier.put(new ListCompoundSupplierFactory<Object>("Body", getBody()).create(context));
 		
-		Function<Map<String,List<ViewPart>>,Object[]> pageFactory = Function.fromBiFunction((parts, progressMonitor) -> {
+		Function<Map<String,List<Object>>,Object[]> pageFactory = Function.fromBiFunction((parts, progressMonitor) -> {
 			HTMLPage page = createPage(context);
 			ViewGenerator viewGenerator = new ViewGeneratorImpl(context, page::head, page::body);
 			
-			
-			List<ViewPart> head = parts.get("Head");
+			List<Object> head = parts.get("Head");
 			if (head != null) {
-				for (ViewPart hp: head) {
+				for (Object hp: head) {
 					page.head(viewGenerator.processViewPart(hp, progressMonitor));
 				}
 				
@@ -460,18 +393,18 @@ public class PageImpl extends NamedElementImpl implements Page {
 					page.body(viewGenerator.processViewPart(bp, progressMonitor));
 				}
 				
-				for (String script: getScripts()) {
-					if (!Util.isBlank(script)) {
-						page.script(context.interpolate(script));						
-					}
-				}
-
-				for (String stylesheet: getStylesheets()) {
-					if (!Util.isBlank(stylesheet)) {
-						page.stylesheet(context.interpolate(stylesheet));						
-					}
-				}
-
+//				for (String script: getScripts()) {
+//					if (!Util.isBlank(script)) {
+//						page.script(context.interpolate(script));						
+//					}
+//				}
+//
+//				for (String stylesheet: getStylesheets()) {
+//					if (!Util.isBlank(stylesheet)) {
+//						page.stylesheet(context.interpolate(stylesheet));						
+//					}
+//				}
+//
 				String name = context.interpolate(PageImpl.this.getName());
 				if (!Util.isBlank(name)) {
 					page.title(name);

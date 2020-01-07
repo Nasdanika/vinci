@@ -58,6 +58,60 @@ public interface HtmlFactory extends EFactory {
 	Page createPage();
 
 	/**
+	 * Returns a new object of class '<em>Stylesheet</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Stylesheet</em>'.
+	 * @generated
+	 */
+	Stylesheet createStylesheet();
+
+	/**
+	 * Returns a new object of class '<em>Stylesheet Resource</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Stylesheet Resource</em>'.
+	 * @generated
+	 */
+	StylesheetResource createStylesheetResource();
+
+	/**
+	 * Returns a new object of class '<em>Stylesheet Reference</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Stylesheet Reference</em>'.
+	 * @generated
+	 */
+	StylesheetReference createStylesheetReference();
+
+	/**
+	 * Returns a new object of class '<em>Script</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Script</em>'.
+	 * @generated
+	 */
+	Script createScript();
+
+	/**
+	 * Returns a new object of class '<em>Script Resource</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Script Resource</em>'.
+	 * @generated
+	 */
+	ScriptResource createScriptResource();
+
+	/**
+	 * Returns a new object of class '<em>Script Reference</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Script Reference</em>'.
+	 * @generated
+	 */
+	ScriptReference createScriptReference();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

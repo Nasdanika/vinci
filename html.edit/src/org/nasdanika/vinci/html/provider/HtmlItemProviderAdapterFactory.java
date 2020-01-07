@@ -162,6 +162,144 @@ public class HtmlItemProviderAdapterFactory extends HtmlAdapterFactory implement
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.nasdanika.vinci.html.Stylesheet} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected StylesheetItemProvider stylesheetItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.nasdanika.vinci.html.Stylesheet}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createStylesheetAdapter() {
+		if (stylesheetItemProvider == null) {
+			stylesheetItemProvider = new StylesheetItemProvider(this);
+		}
+
+		return stylesheetItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.nasdanika.vinci.html.StylesheetResource} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected StylesheetResourceItemProvider stylesheetResourceItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.nasdanika.vinci.html.StylesheetResource}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createStylesheetResourceAdapter() {
+		if (stylesheetResourceItemProvider == null) {
+			stylesheetResourceItemProvider = new StylesheetResourceItemProvider(this);
+		}
+
+		return stylesheetResourceItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.nasdanika.vinci.html.StylesheetReference} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected StylesheetReferenceItemProvider stylesheetReferenceItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.nasdanika.vinci.html.StylesheetReference}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createStylesheetReferenceAdapter() {
+		if (stylesheetReferenceItemProvider == null) {
+			stylesheetReferenceItemProvider = new StylesheetReferenceItemProvider(this);
+		}
+
+		return stylesheetReferenceItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.nasdanika.vinci.html.Script} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ScriptItemProvider scriptItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.nasdanika.vinci.html.Script}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createScriptAdapter() {
+		if (scriptItemProvider == null) {
+			scriptItemProvider = new ScriptItemProvider(this);
+		}
+
+		return scriptItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.nasdanika.vinci.html.ScriptResource} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ScriptResourceItemProvider scriptResourceItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.nasdanika.vinci.html.ScriptResource}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createScriptResourceAdapter() {
+		if (scriptResourceItemProvider == null) {
+			scriptResourceItemProvider = new ScriptResourceItemProvider(this);
+		}
+
+		return scriptResourceItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.nasdanika.vinci.html.ScriptReference} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ScriptReferenceItemProvider scriptReferenceItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.nasdanika.vinci.html.ScriptReference}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createScriptReferenceAdapter() {
+		if (scriptReferenceItemProvider == null) {
+			scriptReferenceItemProvider = new ScriptReferenceItemProvider(this);
+		}
+
+		return scriptReferenceItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -270,6 +408,12 @@ public class HtmlItemProviderAdapterFactory extends HtmlAdapterFactory implement
 		if (tagItemProvider != null) tagItemProvider.dispose();
 		if (contentTagItemProvider != null) contentTagItemProvider.dispose();
 		if (pageItemProvider != null) pageItemProvider.dispose();
+		if (stylesheetItemProvider != null) stylesheetItemProvider.dispose();
+		if (stylesheetResourceItemProvider != null) stylesheetResourceItemProvider.dispose();
+		if (stylesheetReferenceItemProvider != null) stylesheetReferenceItemProvider.dispose();
+		if (scriptItemProvider != null) scriptItemProvider.dispose();
+		if (scriptResourceItemProvider != null) scriptResourceItemProvider.dispose();
+		if (scriptReferenceItemProvider != null) scriptReferenceItemProvider.dispose();
 	}
 
 }

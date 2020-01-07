@@ -249,24 +249,6 @@ public interface BootstrapPackage extends EPackage {
 	int BOOTSTRAP_PAGE__LANGUAGE = HtmlPackage.PAGE__LANGUAGE;
 
 	/**
-	 * The feature id for the '<em><b>Stylesheets</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BOOTSTRAP_PAGE__STYLESHEETS = HtmlPackage.PAGE__STYLESHEETS;
-
-	/**
-	 * The feature id for the '<em><b>Scripts</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BOOTSTRAP_PAGE__SCRIPTS = HtmlPackage.PAGE__SCRIPTS;
-
-	/**
 	 * The feature id for the '<em><b>Font Awesome</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

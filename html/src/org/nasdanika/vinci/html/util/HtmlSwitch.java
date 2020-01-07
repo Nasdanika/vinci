@@ -10,6 +10,7 @@ import org.nasdanika.html.app.ViewBuilder;
 import org.nasdanika.html.app.ViewPart;
 import org.nasdanika.ncore.ModelElement;
 import org.nasdanika.ncore.NamedElement;
+import org.nasdanika.vinci.html.*;
 import org.nasdanika.vinci.html.Container;
 import org.nasdanika.vinci.html.ContentTag;
 import org.nasdanika.vinci.html.HtmlElement;
@@ -128,6 +129,54 @@ public class HtmlSwitch<T1> extends Switch<T1> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case HtmlPackage.STYLESHEET: {
+				Stylesheet stylesheet = (Stylesheet)theEObject;
+				T1 result = caseStylesheet(stylesheet);
+				if (result == null) result = caseModelElement(stylesheet);
+				if (result == null) result = caseISupplierFactory(stylesheet);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case HtmlPackage.STYLESHEET_RESOURCE: {
+				StylesheetResource stylesheetResource = (StylesheetResource)theEObject;
+				T1 result = caseStylesheetResource(stylesheetResource);
+				if (result == null) result = caseModelElement(stylesheetResource);
+				if (result == null) result = caseISupplierFactory(stylesheetResource);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case HtmlPackage.STYLESHEET_REFERENCE: {
+				StylesheetReference stylesheetReference = (StylesheetReference)theEObject;
+				T1 result = caseStylesheetReference(stylesheetReference);
+				if (result == null) result = caseModelElement(stylesheetReference);
+				if (result == null) result = caseISupplierFactory(stylesheetReference);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case HtmlPackage.SCRIPT: {
+				Script script = (Script)theEObject;
+				T1 result = caseScript(script);
+				if (result == null) result = caseModelElement(script);
+				if (result == null) result = caseISupplierFactory(script);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case HtmlPackage.SCRIPT_RESOURCE: {
+				ScriptResource scriptResource = (ScriptResource)theEObject;
+				T1 result = caseScriptResource(scriptResource);
+				if (result == null) result = caseModelElement(scriptResource);
+				if (result == null) result = caseISupplierFactory(scriptResource);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case HtmlPackage.SCRIPT_REFERENCE: {
+				ScriptReference scriptReference = (ScriptReference)theEObject;
+				T1 result = caseScriptReference(scriptReference);
+				if (result == null) result = caseModelElement(scriptReference);
+				if (result == null) result = caseISupplierFactory(scriptReference);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -234,6 +283,96 @@ public class HtmlSwitch<T1> extends Switch<T1> {
 	 * @generated
 	 */
 	public T1 casePage(Page object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Stylesheet</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Stylesheet</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseStylesheet(Stylesheet object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Stylesheet Resource</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Stylesheet Resource</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseStylesheetResource(StylesheetResource object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Stylesheet Reference</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Stylesheet Reference</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseStylesheetReference(StylesheetReference object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Script</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Script</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseScript(Script object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Script Resource</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Script Resource</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseScriptResource(ScriptResource object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Script Reference</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Script Reference</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseScriptReference(ScriptReference object) {
 		return null;
 	}
 

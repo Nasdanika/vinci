@@ -5,7 +5,6 @@ package org.nasdanika.vinci.html.util;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
-
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EObject;
@@ -17,6 +16,7 @@ import org.nasdanika.html.app.ViewBuilder;
 import org.nasdanika.html.app.ViewPart;
 import org.nasdanika.ncore.Entry;
 import org.nasdanika.ncore.NcorePackage;
+import org.nasdanika.vinci.html.*;
 import org.nasdanika.vinci.html.Container;
 import org.nasdanika.vinci.html.ContentTag;
 import org.nasdanika.vinci.html.HtmlElement;
@@ -110,6 +110,18 @@ public class HtmlValidator extends EObjectValidator {
 				return validateContentTag((ContentTag)value, diagnostics, context);
 			case HtmlPackage.PAGE:
 				return validatePage((Page)value, diagnostics, context);
+			case HtmlPackage.STYLESHEET:
+				return validateStylesheet((Stylesheet)value, diagnostics, context);
+			case HtmlPackage.STYLESHEET_RESOURCE:
+				return validateStylesheetResource((StylesheetResource)value, diagnostics, context);
+			case HtmlPackage.STYLESHEET_REFERENCE:
+				return validateStylesheetReference((StylesheetReference)value, diagnostics, context);
+			case HtmlPackage.SCRIPT:
+				return validateScript((Script)value, diagnostics, context);
+			case HtmlPackage.SCRIPT_RESOURCE:
+				return validateScriptResource((ScriptResource)value, diagnostics, context);
+			case HtmlPackage.SCRIPT_REFERENCE:
+				return validateScriptReference((ScriptReference)value, diagnostics, context);
 			case HtmlPackage.TAG_NAME:
 				return validateTagName((TagName)value, diagnostics, context);
 			default:
@@ -233,6 +245,60 @@ public class HtmlValidator extends EObjectValidator {
 	 */
 	public boolean validatePage(Page page, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(page, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateStylesheet(Stylesheet stylesheet, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(stylesheet, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateStylesheetResource(StylesheetResource stylesheetResource, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(stylesheetResource, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateStylesheetReference(StylesheetReference stylesheetReference, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(stylesheetReference, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateScript(Script script, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(script, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateScriptResource(ScriptResource scriptResource, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(scriptResource, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateScriptReference(ScriptReference scriptReference, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(scriptReference, diagnostics, context);
 	}
 
 	/**

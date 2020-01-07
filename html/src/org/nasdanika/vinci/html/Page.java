@@ -5,7 +5,6 @@ package org.nasdanika.vinci.html;
 import org.eclipse.emf.common.util.EList;
 import org.nasdanika.common.SupplierFactory;
 import org.nasdanika.html.app.ViewBuilder;
-import org.nasdanika.html.app.ViewPart;
 import org.nasdanika.ncore.NamedElement;
 
 /**
@@ -27,8 +26,6 @@ import org.nasdanika.ncore.NamedElement;
  *   <li>{@link org.nasdanika.vinci.html.Page#getBody <em>Body</em>}</li>
  *   <li>{@link org.nasdanika.vinci.html.Page#getBuilders <em>Builders</em>}</li>
  *   <li>{@link org.nasdanika.vinci.html.Page#getLanguage <em>Language</em>}</li>
- *   <li>{@link org.nasdanika.vinci.html.Page#getStylesheets <em>Stylesheets</em>}</li>
- *   <li>{@link org.nasdanika.vinci.html.Page#getScripts <em>Scripts</em>}</li>
  *   <li>{@link org.nasdanika.vinci.html.Page#isFontAwesome <em>Font Awesome</em>}</li>
  *   <li>{@link org.nasdanika.vinci.html.Page#isJsTree <em>Js Tree</em>}</li>
  *   <li>{@link org.nasdanika.vinci.html.Page#isGithubMarkdownCss <em>Github Markdown Css</em>}</li>
@@ -41,7 +38,7 @@ import org.nasdanika.ncore.NamedElement;
 public interface Page extends NamedElement, SupplierFactory<Object> {
 	/**
 	 * Returns the value of the '<em><b>Head</b></em>' containment reference list.
-	 * The list contents are of type {@link org.nasdanika.common.SupplierFactory}<code>&lt;org.nasdanika.html.app.ViewPart&gt;</code>.
+	 * The list contents are of type {@link org.nasdanika.common.SupplierFactory}<code>&lt;java.lang.Object&gt;</code>.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
@@ -49,14 +46,14 @@ public interface Page extends NamedElement, SupplierFactory<Object> {
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Head</em>' containment reference list.
 	 * @see org.nasdanika.vinci.html.HtmlPackage#getPage_Head()
-	 * @model type="org.nasdanika.ncore.ISupplierFactory&lt;org.nasdanika.vinci.html.ViewPart&gt;" containment="true"
+	 * @model type="org.nasdanika.ncore.ISupplierFactory&lt;org.eclipse.emf.ecore.EJavaObject&gt;" containment="true"
 	 * @generated
 	 */
-	EList<SupplierFactory<ViewPart>> getHead();
+	EList<SupplierFactory<Object>> getHead();
 
 	/**
 	 * Returns the value of the '<em><b>Body</b></em>' containment reference list.
-	 * The list contents are of type {@link org.nasdanika.common.SupplierFactory}<code>&lt;org.nasdanika.html.app.ViewPart&gt;</code>.
+	 * The list contents are of type {@link org.nasdanika.common.SupplierFactory}<code>&lt;java.lang.Object&gt;</code>.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
@@ -64,10 +61,10 @@ public interface Page extends NamedElement, SupplierFactory<Object> {
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Body</em>' containment reference list.
 	 * @see org.nasdanika.vinci.html.HtmlPackage#getPage_Body()
-	 * @model type="org.nasdanika.ncore.ISupplierFactory&lt;org.nasdanika.vinci.html.ViewPart&gt;" containment="true"
+	 * @model type="org.nasdanika.ncore.ISupplierFactory&lt;org.eclipse.emf.ecore.EJavaObject&gt;" containment="true"
 	 * @generated
 	 */
-	EList<SupplierFactory<ViewPart>> getBody();
+	EList<SupplierFactory<Object>> getBody();
 
 	/**
 	 * Returns the value of the '<em><b>Builders</b></em>' containment reference list.
@@ -108,36 +105,6 @@ public interface Page extends NamedElement, SupplierFactory<Object> {
 	 * @generated
 	 */
 	void setLanguage(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Stylesheets</b></em>' attribute list.
-	 * The list contents are of type {@link java.lang.String}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * URL's of external stylesheets used by the page.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Stylesheets</em>' attribute list.
-	 * @see org.nasdanika.vinci.html.HtmlPackage#getPage_Stylesheets()
-	 * @model
-	 * @generated
-	 */
-	EList<String> getStylesheets();
-
-	/**
-	 * Returns the value of the '<em><b>Scripts</b></em>' attribute list.
-	 * The list contents are of type {@link java.lang.String}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * URL's of external scripts used by the page, e.g. jQuery.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Scripts</em>' attribute list.
-	 * @see org.nasdanika.vinci.html.HtmlPackage#getPage_Scripts()
-	 * @model
-	 * @generated
-	 */
-	EList<String> getScripts();
 
 	/**
 	 * Returns the value of the '<em><b>Font Awesome</b></em>' attribute.

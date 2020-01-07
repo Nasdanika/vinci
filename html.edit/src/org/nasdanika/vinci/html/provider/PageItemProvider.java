@@ -19,6 +19,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.nasdanika.common.Util;
 import org.nasdanika.emf.edit.EReferenceItemProvider;
 import org.nasdanika.ncore.provider.NamedElementItemProvider;
+import org.nasdanika.vinci.html.HtmlFactory;
 import org.nasdanika.vinci.html.HtmlPackage;
 import org.nasdanika.vinci.html.Page;
 
@@ -69,8 +70,6 @@ public class PageItemProvider extends NamedElementItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addLanguagePropertyDescriptor(object);
-			addStylesheetsPropertyDescriptor(object);
-			addScriptsPropertyDescriptor(object);
 			addFontAwesomePropertyDescriptor(object);
 			addJsTreePropertyDescriptor(object);
 			addGithubMarkdownCssPropertyDescriptor(object);
@@ -90,48 +89,6 @@ public class PageItemProvider extends NamedElementItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_Page_language_feature"),
 				 HtmlPackage.Literals.PAGE__LANGUAGE,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Stylesheets feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	protected void addStylesheetsPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor(
-				 getResourceLocator(),
-				 getString("_UI_Page_stylesheets_feature"),
-				 HtmlPackage.Literals.PAGE__STYLESHEETS,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Scripts feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	protected void addScriptsPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor(
-				 getResourceLocator(),
-				 getString("_UI_Page_scripts_feature"),
-				 HtmlPackage.Literals.PAGE__SCRIPTS,
 				 true,
 				 false,
 				 false,
@@ -290,8 +247,6 @@ public class PageItemProvider extends NamedElementItemProvider {
 
 		switch (notification.getFeatureID(Page.class)) {
 			case HtmlPackage.PAGE__LANGUAGE:
-			case HtmlPackage.PAGE__STYLESHEETS:
-			case HtmlPackage.PAGE__SCRIPTS:
 			case HtmlPackage.PAGE__FONT_AWESOME:
 			case HtmlPackage.PAGE__JS_TREE:
 			case HtmlPackage.PAGE__GITHUB_MARKDOWN_CSS:
@@ -319,6 +274,16 @@ public class PageItemProvider extends NamedElementItemProvider {
 		for (EObject expr: org.nasdanika.ncore.util.Activator.EXPRESSIONS_PALETTE.getElements()) {
 			newChildDescriptors.add(createChildParameter(HtmlPackage.Literals.PAGE__HEAD, expr));						
 		}
+		
+		// Stylesheets and scripts
+		newChildDescriptors.add(createChildParameter(HtmlPackage.Literals.PAGE__HEAD, HtmlFactory.eINSTANCE.createScript()));						
+		newChildDescriptors.add(createChildParameter(HtmlPackage.Literals.PAGE__HEAD, HtmlFactory.eINSTANCE.createScriptResource()));						
+		newChildDescriptors.add(createChildParameter(HtmlPackage.Literals.PAGE__HEAD, HtmlFactory.eINSTANCE.createScriptReference()));						
+		
+		newChildDescriptors.add(createChildParameter(HtmlPackage.Literals.PAGE__HEAD, HtmlFactory.eINSTANCE.createStylesheet()));						
+		newChildDescriptors.add(createChildParameter(HtmlPackage.Literals.PAGE__HEAD, HtmlFactory.eINSTANCE.createStylesheetResource()));						
+		newChildDescriptors.add(createChildParameter(HtmlPackage.Literals.PAGE__HEAD, HtmlFactory.eINSTANCE.createStylesheetReference()));						
+		
 		for (EObject expr: org.nasdanika.ncore.util.Activator.EXPRESSIONS_PALETTE.getElements()) {
 			newChildDescriptors.add(createChildParameter(HtmlPackage.Literals.PAGE__BODY, expr));						
 		}

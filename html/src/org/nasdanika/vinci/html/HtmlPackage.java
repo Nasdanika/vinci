@@ -458,31 +458,13 @@ public interface HtmlPackage extends EPackage {
 	int PAGE__LANGUAGE = NcorePackage.NAMED_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
-	 * The feature id for the '<em><b>Stylesheets</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PAGE__STYLESHEETS = NcorePackage.NAMED_ELEMENT_FEATURE_COUNT + 4;
-
-	/**
-	 * The feature id for the '<em><b>Scripts</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PAGE__SCRIPTS = NcorePackage.NAMED_ELEMENT_FEATURE_COUNT + 5;
-
-	/**
 	 * The feature id for the '<em><b>Font Awesome</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PAGE__FONT_AWESOME = NcorePackage.NAMED_ELEMENT_FEATURE_COUNT + 6;
+	int PAGE__FONT_AWESOME = NcorePackage.NAMED_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Js Tree</b></em>' attribute.
@@ -491,7 +473,7 @@ public interface HtmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PAGE__JS_TREE = NcorePackage.NAMED_ELEMENT_FEATURE_COUNT + 7;
+	int PAGE__JS_TREE = NcorePackage.NAMED_ELEMENT_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Github Markdown Css</b></em>' attribute.
@@ -500,7 +482,7 @@ public interface HtmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PAGE__GITHUB_MARKDOWN_CSS = NcorePackage.NAMED_ELEMENT_FEATURE_COUNT + 8;
+	int PAGE__GITHUB_MARKDOWN_CSS = NcorePackage.NAMED_ELEMENT_FEATURE_COUNT + 6;
 
 	/**
 	 * The number of structural features of the '<em>Page</em>' class.
@@ -509,7 +491,7 @@ public interface HtmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PAGE_FEATURE_COUNT = NcorePackage.NAMED_ELEMENT_FEATURE_COUNT + 9;
+	int PAGE_FEATURE_COUNT = NcorePackage.NAMED_ELEMENT_FEATURE_COUNT + 7;
 
 	/**
 	 * The number of operations of the '<em>Page</em>' class.
@@ -521,6 +503,336 @@ public interface HtmlPackage extends EPackage {
 	int PAGE_OPERATION_COUNT = NcorePackage.NAMED_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link org.nasdanika.vinci.html.impl.StylesheetImpl <em>Stylesheet</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.vinci.html.impl.StylesheetImpl
+	 * @see org.nasdanika.vinci.html.impl.HtmlPackageImpl#getStylesheet()
+	 * @generated
+	 */
+	int STYLESHEET = 7;
+
+	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STYLESHEET__TITLE = NcorePackage.MODEL_ELEMENT__TITLE;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STYLESHEET__DESCRIPTION = NcorePackage.MODEL_ELEMENT__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Code</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STYLESHEET__CODE = NcorePackage.MODEL_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Stylesheet</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STYLESHEET_FEATURE_COUNT = NcorePackage.MODEL_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Stylesheet</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STYLESHEET_OPERATION_COUNT = NcorePackage.MODEL_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.nasdanika.vinci.html.impl.StylesheetResourceImpl <em>Stylesheet Resource</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.vinci.html.impl.StylesheetResourceImpl
+	 * @see org.nasdanika.vinci.html.impl.HtmlPackageImpl#getStylesheetResource()
+	 * @generated
+	 */
+	int STYLESHEET_RESOURCE = 8;
+
+	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STYLESHEET_RESOURCE__TITLE = NcorePackage.MODEL_ELEMENT__TITLE;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STYLESHEET_RESOURCE__DESCRIPTION = NcorePackage.MODEL_ELEMENT__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Location</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STYLESHEET_RESOURCE__LOCATION = NcorePackage.MODEL_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Stylesheet Resource</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STYLESHEET_RESOURCE_FEATURE_COUNT = NcorePackage.MODEL_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Stylesheet Resource</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STYLESHEET_RESOURCE_OPERATION_COUNT = NcorePackage.MODEL_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.nasdanika.vinci.html.impl.StylesheetReferenceImpl <em>Stylesheet Reference</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.vinci.html.impl.StylesheetReferenceImpl
+	 * @see org.nasdanika.vinci.html.impl.HtmlPackageImpl#getStylesheetReference()
+	 * @generated
+	 */
+	int STYLESHEET_REFERENCE = 9;
+
+	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STYLESHEET_REFERENCE__TITLE = NcorePackage.MODEL_ELEMENT__TITLE;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STYLESHEET_REFERENCE__DESCRIPTION = NcorePackage.MODEL_ELEMENT__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Href</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STYLESHEET_REFERENCE__HREF = NcorePackage.MODEL_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Stylesheet Reference</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STYLESHEET_REFERENCE_FEATURE_COUNT = NcorePackage.MODEL_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Stylesheet Reference</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STYLESHEET_REFERENCE_OPERATION_COUNT = NcorePackage.MODEL_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.nasdanika.vinci.html.impl.ScriptImpl <em>Script</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.vinci.html.impl.ScriptImpl
+	 * @see org.nasdanika.vinci.html.impl.HtmlPackageImpl#getScript()
+	 * @generated
+	 */
+	int SCRIPT = 10;
+
+	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCRIPT__TITLE = NcorePackage.MODEL_ELEMENT__TITLE;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCRIPT__DESCRIPTION = NcorePackage.MODEL_ELEMENT__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Code</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCRIPT__CODE = NcorePackage.MODEL_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Script</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCRIPT_FEATURE_COUNT = NcorePackage.MODEL_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Script</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCRIPT_OPERATION_COUNT = NcorePackage.MODEL_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.nasdanika.vinci.html.impl.ScriptResourceImpl <em>Script Resource</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.vinci.html.impl.ScriptResourceImpl
+	 * @see org.nasdanika.vinci.html.impl.HtmlPackageImpl#getScriptResource()
+	 * @generated
+	 */
+	int SCRIPT_RESOURCE = 11;
+
+	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCRIPT_RESOURCE__TITLE = NcorePackage.MODEL_ELEMENT__TITLE;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCRIPT_RESOURCE__DESCRIPTION = NcorePackage.MODEL_ELEMENT__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Location</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCRIPT_RESOURCE__LOCATION = NcorePackage.MODEL_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Script Resource</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCRIPT_RESOURCE_FEATURE_COUNT = NcorePackage.MODEL_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Script Resource</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCRIPT_RESOURCE_OPERATION_COUNT = NcorePackage.MODEL_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.nasdanika.vinci.html.impl.ScriptReferenceImpl <em>Script Reference</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.vinci.html.impl.ScriptReferenceImpl
+	 * @see org.nasdanika.vinci.html.impl.HtmlPackageImpl#getScriptReference()
+	 * @generated
+	 */
+	int SCRIPT_REFERENCE = 12;
+
+	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCRIPT_REFERENCE__TITLE = NcorePackage.MODEL_ELEMENT__TITLE;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCRIPT_REFERENCE__DESCRIPTION = NcorePackage.MODEL_ELEMENT__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Src</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCRIPT_REFERENCE__SRC = NcorePackage.MODEL_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Script Reference</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCRIPT_REFERENCE_FEATURE_COUNT = NcorePackage.MODEL_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Script Reference</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCRIPT_REFERENCE_OPERATION_COUNT = NcorePackage.MODEL_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '<em>Tag Name</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -528,7 +840,7 @@ public interface HtmlPackage extends EPackage {
 	 * @see org.nasdanika.vinci.html.impl.HtmlPackageImpl#getTagName()
 	 * @generated
 	 */
-	int TAG_NAME = 7;
+	int TAG_NAME = 13;
 
 	/**
 	 * Returns the meta object for class '{@link org.nasdanika.html.app.ViewPart <em>View Part</em>}'.
@@ -701,28 +1013,6 @@ public interface HtmlPackage extends EPackage {
 	EAttribute getPage_Language();
 
 	/**
-	 * Returns the meta object for the attribute list '{@link org.nasdanika.vinci.html.Page#getStylesheets <em>Stylesheets</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute list '<em>Stylesheets</em>'.
-	 * @see org.nasdanika.vinci.html.Page#getStylesheets()
-	 * @see #getPage()
-	 * @generated
-	 */
-	EAttribute getPage_Stylesheets();
-
-	/**
-	 * Returns the meta object for the attribute list '{@link org.nasdanika.vinci.html.Page#getScripts <em>Scripts</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute list '<em>Scripts</em>'.
-	 * @see org.nasdanika.vinci.html.Page#getScripts()
-	 * @see #getPage()
-	 * @generated
-	 */
-	EAttribute getPage_Scripts();
-
-	/**
 	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.html.Page#isFontAwesome <em>Font Awesome</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -754,6 +1044,132 @@ public interface HtmlPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getPage_GithubMarkdownCss();
+
+	/**
+	 * Returns the meta object for class '{@link org.nasdanika.vinci.html.Stylesheet <em>Stylesheet</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Stylesheet</em>'.
+	 * @see org.nasdanika.vinci.html.Stylesheet
+	 * @generated
+	 */
+	EClass getStylesheet();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.html.Stylesheet#getCode <em>Code</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Code</em>'.
+	 * @see org.nasdanika.vinci.html.Stylesheet#getCode()
+	 * @see #getStylesheet()
+	 * @generated
+	 */
+	EAttribute getStylesheet_Code();
+
+	/**
+	 * Returns the meta object for class '{@link org.nasdanika.vinci.html.StylesheetResource <em>Stylesheet Resource</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Stylesheet Resource</em>'.
+	 * @see org.nasdanika.vinci.html.StylesheetResource
+	 * @generated
+	 */
+	EClass getStylesheetResource();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.html.StylesheetResource#getLocation <em>Location</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Location</em>'.
+	 * @see org.nasdanika.vinci.html.StylesheetResource#getLocation()
+	 * @see #getStylesheetResource()
+	 * @generated
+	 */
+	EAttribute getStylesheetResource_Location();
+
+	/**
+	 * Returns the meta object for class '{@link org.nasdanika.vinci.html.StylesheetReference <em>Stylesheet Reference</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Stylesheet Reference</em>'.
+	 * @see org.nasdanika.vinci.html.StylesheetReference
+	 * @generated
+	 */
+	EClass getStylesheetReference();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.html.StylesheetReference#getHref <em>Href</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Href</em>'.
+	 * @see org.nasdanika.vinci.html.StylesheetReference#getHref()
+	 * @see #getStylesheetReference()
+	 * @generated
+	 */
+	EAttribute getStylesheetReference_Href();
+
+	/**
+	 * Returns the meta object for class '{@link org.nasdanika.vinci.html.Script <em>Script</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Script</em>'.
+	 * @see org.nasdanika.vinci.html.Script
+	 * @generated
+	 */
+	EClass getScript();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.html.Script#getCode <em>Code</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Code</em>'.
+	 * @see org.nasdanika.vinci.html.Script#getCode()
+	 * @see #getScript()
+	 * @generated
+	 */
+	EAttribute getScript_Code();
+
+	/**
+	 * Returns the meta object for class '{@link org.nasdanika.vinci.html.ScriptResource <em>Script Resource</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Script Resource</em>'.
+	 * @see org.nasdanika.vinci.html.ScriptResource
+	 * @generated
+	 */
+	EClass getScriptResource();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.html.ScriptResource#getLocation <em>Location</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Location</em>'.
+	 * @see org.nasdanika.vinci.html.ScriptResource#getLocation()
+	 * @see #getScriptResource()
+	 * @generated
+	 */
+	EAttribute getScriptResource_Location();
+
+	/**
+	 * Returns the meta object for class '{@link org.nasdanika.vinci.html.ScriptReference <em>Script Reference</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Script Reference</em>'.
+	 * @see org.nasdanika.vinci.html.ScriptReference
+	 * @generated
+	 */
+	EClass getScriptReference();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.html.ScriptReference#getSrc <em>Src</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Src</em>'.
+	 * @see org.nasdanika.vinci.html.ScriptReference#getSrc()
+	 * @see #getScriptReference()
+	 * @generated
+	 */
+	EAttribute getScriptReference_Src();
 
 	/**
 	 * Returns the meta object for data type '{@link org.nasdanika.html.TagName <em>Tag Name</em>}'.
@@ -932,22 +1348,6 @@ public interface HtmlPackage extends EPackage {
 		EAttribute PAGE__LANGUAGE = eINSTANCE.getPage_Language();
 
 		/**
-		 * The meta object literal for the '<em><b>Stylesheets</b></em>' attribute list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute PAGE__STYLESHEETS = eINSTANCE.getPage_Stylesheets();
-
-		/**
-		 * The meta object literal for the '<em><b>Scripts</b></em>' attribute list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute PAGE__SCRIPTS = eINSTANCE.getPage_Scripts();
-
-		/**
 		 * The meta object literal for the '<em><b>Font Awesome</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -970,6 +1370,114 @@ public interface HtmlPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute PAGE__GITHUB_MARKDOWN_CSS = eINSTANCE.getPage_GithubMarkdownCss();
+
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.vinci.html.impl.StylesheetImpl <em>Stylesheet</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.vinci.html.impl.StylesheetImpl
+		 * @see org.nasdanika.vinci.html.impl.HtmlPackageImpl#getStylesheet()
+		 * @generated
+		 */
+		EClass STYLESHEET = eINSTANCE.getStylesheet();
+
+		/**
+		 * The meta object literal for the '<em><b>Code</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute STYLESHEET__CODE = eINSTANCE.getStylesheet_Code();
+
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.vinci.html.impl.StylesheetResourceImpl <em>Stylesheet Resource</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.vinci.html.impl.StylesheetResourceImpl
+		 * @see org.nasdanika.vinci.html.impl.HtmlPackageImpl#getStylesheetResource()
+		 * @generated
+		 */
+		EClass STYLESHEET_RESOURCE = eINSTANCE.getStylesheetResource();
+
+		/**
+		 * The meta object literal for the '<em><b>Location</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute STYLESHEET_RESOURCE__LOCATION = eINSTANCE.getStylesheetResource_Location();
+
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.vinci.html.impl.StylesheetReferenceImpl <em>Stylesheet Reference</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.vinci.html.impl.StylesheetReferenceImpl
+		 * @see org.nasdanika.vinci.html.impl.HtmlPackageImpl#getStylesheetReference()
+		 * @generated
+		 */
+		EClass STYLESHEET_REFERENCE = eINSTANCE.getStylesheetReference();
+
+		/**
+		 * The meta object literal for the '<em><b>Href</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute STYLESHEET_REFERENCE__HREF = eINSTANCE.getStylesheetReference_Href();
+
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.vinci.html.impl.ScriptImpl <em>Script</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.vinci.html.impl.ScriptImpl
+		 * @see org.nasdanika.vinci.html.impl.HtmlPackageImpl#getScript()
+		 * @generated
+		 */
+		EClass SCRIPT = eINSTANCE.getScript();
+
+		/**
+		 * The meta object literal for the '<em><b>Code</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SCRIPT__CODE = eINSTANCE.getScript_Code();
+
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.vinci.html.impl.ScriptResourceImpl <em>Script Resource</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.vinci.html.impl.ScriptResourceImpl
+		 * @see org.nasdanika.vinci.html.impl.HtmlPackageImpl#getScriptResource()
+		 * @generated
+		 */
+		EClass SCRIPT_RESOURCE = eINSTANCE.getScriptResource();
+
+		/**
+		 * The meta object literal for the '<em><b>Location</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SCRIPT_RESOURCE__LOCATION = eINSTANCE.getScriptResource_Location();
+
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.vinci.html.impl.ScriptReferenceImpl <em>Script Reference</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.vinci.html.impl.ScriptReferenceImpl
+		 * @see org.nasdanika.vinci.html.impl.HtmlPackageImpl#getScriptReference()
+		 * @generated
+		 */
+		EClass SCRIPT_REFERENCE = eINSTANCE.getScriptReference();
+
+		/**
+		 * The meta object literal for the '<em><b>Src</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SCRIPT_REFERENCE__SRC = eINSTANCE.getScriptReference_Src();
 
 		/**
 		 * The meta object literal for the '<em>Tag Name</em>' data type.

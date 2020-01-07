@@ -11,6 +11,7 @@ import org.nasdanika.html.app.ViewBuilder;
 import org.nasdanika.html.app.ViewPart;
 import org.nasdanika.ncore.ModelElement;
 import org.nasdanika.ncore.NamedElement;
+import org.nasdanika.vinci.html.*;
 import org.nasdanika.vinci.html.Container;
 import org.nasdanika.vinci.html.ContentTag;
 import org.nasdanika.vinci.html.HtmlElement;
@@ -101,6 +102,30 @@ public class HtmlAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter casePage(Page object) {
 				return createPageAdapter();
+			}
+			@Override
+			public Adapter caseStylesheet(Stylesheet object) {
+				return createStylesheetAdapter();
+			}
+			@Override
+			public Adapter caseStylesheetResource(StylesheetResource object) {
+				return createStylesheetResourceAdapter();
+			}
+			@Override
+			public Adapter caseStylesheetReference(StylesheetReference object) {
+				return createStylesheetReferenceAdapter();
+			}
+			@Override
+			public Adapter caseScript(Script object) {
+				return createScriptAdapter();
+			}
+			@Override
+			public Adapter caseScriptResource(ScriptResource object) {
+				return createScriptResourceAdapter();
+			}
+			@Override
+			public Adapter caseScriptReference(ScriptReference object) {
+				return createScriptReferenceAdapter();
 			}
 			@Override
 			public Adapter caseModelElement(ModelElement object) {
@@ -229,6 +254,90 @@ public class HtmlAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createPageAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.vinci.html.Stylesheet <em>Stylesheet</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.vinci.html.Stylesheet
+	 * @generated
+	 */
+	public Adapter createStylesheetAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.vinci.html.StylesheetResource <em>Stylesheet Resource</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.vinci.html.StylesheetResource
+	 * @generated
+	 */
+	public Adapter createStylesheetResourceAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.vinci.html.StylesheetReference <em>Stylesheet Reference</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.vinci.html.StylesheetReference
+	 * @generated
+	 */
+	public Adapter createStylesheetReferenceAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.vinci.html.Script <em>Script</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.vinci.html.Script
+	 * @generated
+	 */
+	public Adapter createScriptAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.vinci.html.ScriptResource <em>Script Resource</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.vinci.html.ScriptResource
+	 * @generated
+	 */
+	public Adapter createScriptResourceAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.vinci.html.ScriptReference <em>Script Reference</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.vinci.html.ScriptReference
+	 * @generated
+	 */
+	public Adapter createScriptReferenceAdapter() {
 		return null;
 	}
 

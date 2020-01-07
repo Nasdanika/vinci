@@ -83,7 +83,7 @@
         <details key="documentation" value="Head content."/>
       </eAnnotations>
       <eGenericType eClassifier="ecore:EClass ../../org.nasdanika.ncore/model/ncore.ecore#//ISupplierFactory">
-        <eTypeArguments eClassifier="#//ViewPart"/>
+        <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
       </eGenericType>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="body" upperBound="-1" containment="true">
@@ -91,7 +91,7 @@
         <details key="documentation" value="Body content."/>
       </eAnnotations>
       <eGenericType eClassifier="ecore:EClass ../../org.nasdanika.ncore/model/ncore.ecore#//ISupplierFactory">
-        <eTypeArguments eClassifier="#//ViewPart"/>
+        <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
       </eGenericType>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="builders" upperBound="-1"
@@ -106,18 +106,6 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="language" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Page language - ``lang`` attribute."/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="stylesheets" upperBound="-1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="URL's of external stylesheets used by the page."/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="scripts" upperBound="-1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="URL's of external scripts used by the page, e.g. jQuery."/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="fontAwesome" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
@@ -136,6 +124,80 @@
       </eAnnotations>
     </eStructuralFeatures>
     <eGenericSuperTypes eClassifier="ecore:EClass ../../org.nasdanika.ncore/model/ncore.ecore#//NamedElement"/>
+    <eGenericSuperTypes eClassifier="ecore:EClass ../../org.nasdanika.ncore/model/ncore.ecore#//ISupplierFactory">
+      <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+    </eGenericSuperTypes>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Stylesheet">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="code" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Stylesheet code."/>
+      </eAnnotations>
+      <eAnnotations source="urn:org.nasdanika">
+        <details key="content-type" value="text/code"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eGenericSuperTypes eClassifier="ecore:EClass ../../org.nasdanika.ncore/model/ncore.ecore#//ModelElement"/>
+    <eGenericSuperTypes eClassifier="ecore:EClass ../../org.nasdanika.ncore/model/ncore.ecore#//ISupplierFactory">
+      <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+    </eGenericSuperTypes>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="StylesheetResource">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="location" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Stylesheet code location relative to the model resource location."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eGenericSuperTypes eClassifier="ecore:EClass ../../org.nasdanika.ncore/model/ncore.ecore#//ModelElement"/>
+    <eGenericSuperTypes eClassifier="ecore:EClass ../../org.nasdanika.ncore/model/ncore.ecore#//ISupplierFactory">
+      <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+    </eGenericSuperTypes>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="StylesheetReference">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="href" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Stylesheet URL."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eGenericSuperTypes eClassifier="ecore:EClass ../../org.nasdanika.ncore/model/ncore.ecore#//ModelElement"/>
+    <eGenericSuperTypes eClassifier="ecore:EClass ../../org.nasdanika.ncore/model/ncore.ecore#//ISupplierFactory">
+      <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+    </eGenericSuperTypes>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Script">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="code" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Script code."/>
+      </eAnnotations>
+      <eAnnotations source="urn:org.nasdanika">
+        <details key="content-type" value="text/code"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eGenericSuperTypes eClassifier="ecore:EClass ../../org.nasdanika.ncore/model/ncore.ecore#//ModelElement"/>
+    <eGenericSuperTypes eClassifier="ecore:EClass ../../org.nasdanika.ncore/model/ncore.ecore#//ISupplierFactory">
+      <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+    </eGenericSuperTypes>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ScriptResource">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="location" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Script code location relative to the model resource location."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eGenericSuperTypes eClassifier="ecore:EClass ../../org.nasdanika.ncore/model/ncore.ecore#//ModelElement"/>
+    <eGenericSuperTypes eClassifier="ecore:EClass ../../org.nasdanika.ncore/model/ncore.ecore#//ISupplierFactory">
+      <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+    </eGenericSuperTypes>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ScriptReference">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="src" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Script URL."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eGenericSuperTypes eClassifier="ecore:EClass ../../org.nasdanika.ncore/model/ncore.ecore#//ModelElement"/>
     <eGenericSuperTypes eClassifier="ecore:EClass ../../org.nasdanika.ncore/model/ncore.ecore#//ISupplierFactory">
       <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
     </eGenericSuperTypes>

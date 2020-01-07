@@ -32,11 +32,27 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference html.ecore#//Page/body"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference html.ecore#//Page/builders"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute html.ecore#//Page/language"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute html.ecore#//Page/stylesheets"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute html.ecore#//Page/scripts"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute html.ecore#//Page/fontAwesome"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute html.ecore#//Page/jsTree"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute html.ecore#//Page/githubMarkdownCss"/>
+    </genClasses>
+    <genClasses ecoreClass="html.ecore#//Stylesheet">
+      <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute html.ecore#//Stylesheet/code"/>
+    </genClasses>
+    <genClasses ecoreClass="html.ecore#//StylesheetResource">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute html.ecore#//StylesheetResource/location"/>
+    </genClasses>
+    <genClasses ecoreClass="html.ecore#//StylesheetReference">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute html.ecore#//StylesheetReference/href"/>
+    </genClasses>
+    <genClasses ecoreClass="html.ecore#//Script">
+      <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute html.ecore#//Script/code"/>
+    </genClasses>
+    <genClasses ecoreClass="html.ecore#//ScriptResource">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute html.ecore#//ScriptResource/location"/>
+    </genClasses>
+    <genClasses ecoreClass="html.ecore#//ScriptReference">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute html.ecore#//ScriptReference/src"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>
