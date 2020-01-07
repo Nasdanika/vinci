@@ -51,6 +51,6 @@ jobs:
             no_output_timeout: 120m
 
       # Deploying sites
-      - run: cd site;../apache-maven-3.6.0/bin/mvn -X -s ../.circleci/settings.xml site-deploy
+      - run: cd site;../apache-maven-3.6.0/bin/mvn -s ../.circleci/settings.xml site-deploy
             
 
