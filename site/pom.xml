@@ -12,6 +12,7 @@
 	</properties>
 	
 	<build>
+		<!-- 
 		<extensions>
 	      <extension>
 	        <groupId>org.apache.maven.wagon</groupId>
@@ -19,6 +20,7 @@
 	         <version>3.3.4</version>
 	      </extension>
 		</extensions>
+		 -->
 		<plugins>
 			<plugin>
 			    <groupId>org.apache.maven.plugins</groupId>
@@ -143,7 +145,7 @@
 							<goal>copy-resources</goal>
 						</goals>
 						<configuration>
-							<outputDirectory>${basedir}/target/site/model-doc</outputDirectory>
+							<outputDirectory>${basedir}/target//model-doc</outputDirectory>
 							<resources>
 								<resource>
 									<directory>${basedir}/target/products/org.nasdanika.vinci.tests.product/linux/gtk/x86_64/target/model-doc</directory>
@@ -183,7 +185,7 @@
 				<version>1.8</version>
 				<executions>
 					<execution>
-						<id>ftp</id>
+						<id>sftp</id>
 						<phase>post-site</phase>
 						<configuration>
 							<target>
@@ -199,6 +201,10 @@
 									<fileset defaultexcludes="false">
 										<include name="**" />
 									</fileset>
+								</ftp>
+								
+								<ftp server="${env.FTP_SERVER}" userid="${env.FTP_USER}" password="${env.FTP_PASSWORD}" remotedir="/${siteDir}" passive="yes">
+								    <fileset dir="${basedir}/target/"/>
 								</ftp>
 							</target>
 						</configuration>
@@ -224,10 +230,12 @@
 	</build>
 	
 	<url>https://www.nasdanika.org/${env.CIRCLE_BRANCH}/products/${siteDir}</url>
+	<!-- 
 	<distributionManagement>
 		<site>
 			<id>nasdanika-org</id>
 			<url>sftp://${env.FTP_SERVER}/${siteDir}</url>
 		</site>
-	</distributionManagement>		
+	</distributionManagement>
+	 -->		
 </project>
