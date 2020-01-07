@@ -15,7 +15,7 @@
 		<extensions>
 	      <extension>
 	        <groupId>org.apache.maven.wagon</groupId>
-	         <artifactId>wagon-ftp</artifactId>
+	         <artifactId>wagon-ssh</artifactId>
 	         <version>3.3.4</version>
 	      </extension>
 		</extensions>
@@ -232,7 +232,7 @@
 	<distributionManagement>
 		<site>
 			<id>nasdanika-org</id>
-			<url>ftp://${env.FTP_SERVER}/${siteDir}</url>
+			<url>sftp://${env.FTP_SERVER}/${siteDir}</url>
 		</site>
 	</distributionManagement>
 </project>
