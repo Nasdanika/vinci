@@ -172,30 +172,6 @@ public class BootstrapAdapterFactory extends AdapterFactoryImpl {
 				return createActionGroupAdapter();
 			}
 			@Override
-			public Adapter caseAlert(Alert object) {
-				return createAlertAdapter();
-			}
-			@Override
-			public Adapter caseBadge(Badge object) {
-				return createBadgeAdapter();
-			}
-			@Override
-			public Adapter caseBreadcrumbs(Breadcrumbs object) {
-				return createBreadcrumbsAdapter();
-			}
-			@Override
-			public Adapter caseButton(Button object) {
-				return createButtonAdapter();
-			}
-			@Override
-			public Adapter caseButtonGroup(ButtonGroup object) {
-				return createButtonGroupAdapter();
-			}
-			@Override
-			public Adapter caseButtonToolbar(ButtonToolbar object) {
-				return createButtonToolbarAdapter();
-			}
-			@Override
 			public Adapter caseContainer(Container object) {
 				return createContainerAdapter();
 			}
@@ -210,30 +186,6 @@ public class BootstrapAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseColumn(Column object) {
 				return createColumnAdapter();
-			}
-			@Override
-			public Adapter caseCard(Card object) {
-				return createCardAdapter();
-			}
-			@Override
-			public Adapter caseDropdown(Dropdown object) {
-				return createDropdownAdapter();
-			}
-			@Override
-			public Adapter caseForm(Form object) {
-				return createFormAdapter();
-			}
-			@Override
-			public Adapter caseListGroup(ListGroup object) {
-				return createListGroupAdapter();
-			}
-			@Override
-			public Adapter caseNavs(Navs object) {
-				return createNavsAdapter();
-			}
-			@Override
-			public Adapter caseNavbar(Navbar object) {
-				return createNavbarAdapter();
 			}
 			@Override
 			public Adapter caseTableRowContainer(TableRowContainer object) {
@@ -258,6 +210,54 @@ public class BootstrapAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseTableCell(TableCell object) {
 				return createTableCellAdapter();
+			}
+			@Override
+			public Adapter caseCard(Card object) {
+				return createCardAdapter();
+			}
+			@Override
+			public Adapter caseAlert(Alert object) {
+				return createAlertAdapter();
+			}
+			@Override
+			public Adapter caseBadge(Badge object) {
+				return createBadgeAdapter();
+			}
+			@Override
+			public Adapter caseBreadcrumbs(Breadcrumbs object) {
+				return createBreadcrumbsAdapter();
+			}
+			@Override
+			public Adapter caseButton(Button object) {
+				return createButtonAdapter();
+			}
+			@Override
+			public Adapter caseButtonGroup(ButtonGroup object) {
+				return createButtonGroupAdapter();
+			}
+			@Override
+			public Adapter caseButtonToolbar(ButtonToolbar object) {
+				return createButtonToolbarAdapter();
+			}
+			@Override
+			public Adapter caseDropdown(Dropdown object) {
+				return createDropdownAdapter();
+			}
+			@Override
+			public Adapter caseForm(Form object) {
+				return createFormAdapter();
+			}
+			@Override
+			public Adapter caseListGroup(ListGroup object) {
+				return createListGroupAdapter();
+			}
+			@Override
+			public Adapter caseNavs(Navs object) {
+				return createNavsAdapter();
+			}
+			@Override
+			public Adapter caseNavbar(Navbar object) {
+				return createNavbarAdapter();
 			}
 			@Override
 			public Adapter caseTooltip(Tooltip object) {

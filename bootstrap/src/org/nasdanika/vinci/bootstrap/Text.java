@@ -9,6 +9,10 @@ import org.eclipse.emf.ecore.EObject;
  * A representation of the model object '<em><b>Text</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <!-- begin-model-doc -->
+ * Text styling.
+ * <!-- end-model-doc -->
+ *
  * <p>
  * The following features are supported:
  * </p>
@@ -33,7 +37,7 @@ public interface Text extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Border bootstrap color.
+	 * Text alignment.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Alignment</em>' attribute.
 	 * @see #setAlignment(String)
@@ -58,7 +62,7 @@ public interface Text extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Border bootstrap color.
+	 * Text bootstrap color.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Color</em>' attribute.
 	 * @see #setColor(String)
@@ -83,7 +87,7 @@ public interface Text extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Border bootstrap color.
+	 * Text case transformation.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Transform</em>' attribute.
 	 * @see #setTransform(String)
@@ -108,7 +112,7 @@ public interface Text extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Border bootstrap color.
+	 * Text weight.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Weight</em>' attribute.
 	 * @see #setWeight(String)
@@ -133,7 +137,7 @@ public interface Text extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Border bootstrap color.
+	 * Monospace flag.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Monospace</em>' attribute.
 	 * @see #setMonospace(boolean)
@@ -158,7 +162,7 @@ public interface Text extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Border bootstrap color.
+	 * Italic flag.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Italic</em>' attribute.
 	 * @see #setItalic(boolean)
@@ -183,7 +187,7 @@ public interface Text extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Border bootstrap color.
+	 * Prevents text from wrapping.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Nowrap</em>' attribute.
 	 * @see #setNowrap(boolean)
@@ -208,7 +212,7 @@ public interface Text extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Border bootstrap color.
+	 * Use to truncate the text with an ellipsis.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Truncate</em>' attribute.
 	 * @see #setTruncate(boolean)

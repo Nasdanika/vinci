@@ -39,6 +39,9 @@ public interface Table extends TableRowContainer, SupplierFactory<ViewPart> {
 	 * Returns the value of the '<em><b>Header</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Table header.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Header</em>' containment reference.
 	 * @see #setHeader(TableHeader)
 	 * @see org.nasdanika.vinci.bootstrap.BootstrapPackage#getTable_Header()
@@ -61,6 +64,9 @@ public interface Table extends TableRowContainer, SupplierFactory<ViewPart> {
 	 * Returns the value of the '<em><b>Body</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Table body.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Body</em>' containment reference.
 	 * @see #setBody(TableSection)
 	 * @see org.nasdanika.vinci.bootstrap.BootstrapPackage#getTable_Body()
@@ -83,6 +89,9 @@ public interface Table extends TableRowContainer, SupplierFactory<ViewPart> {
 	 * Returns the value of the '<em><b>Footer</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Table footer.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Footer</em>' containment reference.
 	 * @see #setFooter(TableSection)
 	 * @see org.nasdanika.vinci.bootstrap.BootstrapPackage#getTable_Footer()
@@ -105,6 +114,9 @@ public interface Table extends TableRowContainer, SupplierFactory<ViewPart> {
 	 * Returns the value of the '<em><b>Dark</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Dark table flag.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Dark</em>' attribute.
 	 * @see #setDark(boolean)
 	 * @see org.nasdanika.vinci.bootstrap.BootstrapPackage#getTable_Dark()
@@ -127,6 +139,9 @@ public interface Table extends TableRowContainer, SupplierFactory<ViewPart> {
 	 * Returns the value of the '<em><b>Striped</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Striped table flag.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Striped</em>' attribute.
 	 * @see #setStriped(boolean)
 	 * @see org.nasdanika.vinci.bootstrap.BootstrapPackage#getTable_Striped()
@@ -149,6 +164,9 @@ public interface Table extends TableRowContainer, SupplierFactory<ViewPart> {
 	 * Returns the value of the '<em><b>Bordered</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Bordered table flag.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Bordered</em>' attribute.
 	 * @see #setBordered(boolean)
 	 * @see org.nasdanika.vinci.bootstrap.BootstrapPackage#getTable_Bordered()
@@ -171,6 +189,9 @@ public interface Table extends TableRowContainer, SupplierFactory<ViewPart> {
 	 * Returns the value of the '<em><b>Borderless</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Borderless table flag.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Borderless</em>' attribute.
 	 * @see #setBorderless(boolean)
 	 * @see org.nasdanika.vinci.bootstrap.BootstrapPackage#getTable_Borderless()
@@ -193,6 +214,9 @@ public interface Table extends TableRowContainer, SupplierFactory<ViewPart> {
 	 * Returns the value of the '<em><b>Hover</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * If checked, rows change background on mouse pointer hover.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Hover</em>' attribute.
 	 * @see #setHover(boolean)
 	 * @see org.nasdanika.vinci.bootstrap.BootstrapPackage#getTable_Hover()
@@ -215,6 +239,9 @@ public interface Table extends TableRowContainer, SupplierFactory<ViewPart> {
 	 * Returns the value of the '<em><b>Small</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Small table flag.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Small</em>' attribute.
 	 * @see #setSmall(boolean)
 	 * @see org.nasdanika.vinci.bootstrap.BootstrapPackage#getTable_Small()

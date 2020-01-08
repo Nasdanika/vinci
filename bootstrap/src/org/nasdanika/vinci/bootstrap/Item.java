@@ -32,6 +32,9 @@ public interface Item extends ModelElement {
 	 * Returns the value of the '<em><b>Active</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Indicates that the item is active (currently selected).
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Active</em>' attribute.
 	 * @see #setActive(boolean)
 	 * @see org.nasdanika.vinci.bootstrap.BootstrapPackage#getItem_Active()
@@ -54,6 +57,9 @@ public interface Item extends ModelElement {
 	 * Returns the value of the '<em><b>Disabled</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Indicates that the item is disabled and cannot be activated/selected.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Disabled</em>' attribute.
 	 * @see #setDisabled(boolean)
 	 * @see org.nasdanika.vinci.bootstrap.BootstrapPackage#getItem_Disabled()
@@ -77,7 +83,7 @@ public interface Item extends ModelElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Bootstrap color.
+	 * Item Bootstrap color.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Color</em>' attribute.
 	 * @see #setColor(String)

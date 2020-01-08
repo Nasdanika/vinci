@@ -9,6 +9,10 @@ import org.eclipse.emf.ecore.EObject;
  * A representation of the model object '<em><b>Float</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <!-- begin-model-doc -->
+ * Defines element floating - left or right - for a given breakpoint.
+ * <!-- end-model-doc -->
+ *
  * <p>
  * The following features are supported:
  * </p>
@@ -26,6 +30,9 @@ public interface Float extends EObject {
 	 * Returns the value of the '<em><b>Side</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Side to float to.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Side</em>' attribute.
 	 * @see #setSide(String)
 	 * @see org.nasdanika.vinci.bootstrap.BootstrapPackage#getFloat_Side()
@@ -48,6 +55,9 @@ public interface Float extends EObject {
 	 * Returns the value of the '<em><b>Breakpoint</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Breakpoint.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Breakpoint</em>' attribute.
 	 * @see #setBreakpoint(String)
 	 * @see org.nasdanika.vinci.bootstrap.BootstrapPackage#getFloat_Breakpoint()

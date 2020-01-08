@@ -9,6 +9,10 @@ import org.nasdanika.vinci.html.HtmlElement;
  * A representation of the model object '<em><b>Element</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <!-- begin-model-doc -->
+ * An HTML element with Bootstrap appearance.
+ * <!-- end-model-doc -->
+ *
  * <p>
  * The following features are supported:
  * </p>
@@ -26,6 +30,9 @@ public interface BootstrapElement extends HtmlElement {
 	 * Returns the value of the '<em><b>Appearance</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Customizes appearance of Bootstrap element.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Appearance</em>' containment reference.
 	 * @see #setAppearance(Appearance)
 	 * @see org.nasdanika.vinci.bootstrap.BootstrapPackage#getBootstrapElement_Appearance()

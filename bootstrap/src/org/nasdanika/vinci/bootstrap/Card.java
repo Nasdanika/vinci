@@ -9,6 +9,10 @@ import org.eclipse.emf.common.util.EList;
  * A representation of the model object '<em><b>Card</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <!-- begin-model-doc -->
+ * Bootstrap [card](https://getbootstrap.com/docs/4.0/components/card/).
+ * <!-- end-model-doc -->
+ *
  * <p>
  * The following features are supported:
  * </p>
@@ -27,6 +31,9 @@ public interface Card extends Div {
 	 * Returns the value of the '<em><b>Header</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Card header.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Header</em>' containment reference.
 	 * @see #setHeader(Div)
 	 * @see org.nasdanika.vinci.bootstrap.BootstrapPackage#getCard_Header()
@@ -50,6 +57,9 @@ public interface Card extends Div {
 	 * The list contents are of type {@link org.nasdanika.vinci.bootstrap.Div}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Card body.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Body</em>' containment reference list.
 	 * @see org.nasdanika.vinci.bootstrap.BootstrapPackage#getCard_Body()
 	 * @model containment="true"
@@ -61,6 +71,9 @@ public interface Card extends Div {
 	 * Returns the value of the '<em><b>Footer</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Card footer.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Footer</em>' containment reference.
 	 * @see #setFooter(Div)
 	 * @see org.nasdanika.vinci.bootstrap.BootstrapPackage#getCard_Footer()

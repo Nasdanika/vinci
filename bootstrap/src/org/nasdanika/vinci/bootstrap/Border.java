@@ -9,6 +9,10 @@ import org.eclipse.emf.ecore.EObject;
  * A representation of the model object '<em><b>Border</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <!-- begin-model-doc -->
+ * Border configuration specifies border location and color.
+ * <!-- end-model-doc -->
+ *
  * <p>
  * The following features are supported:
  * </p>

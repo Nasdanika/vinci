@@ -11,6 +11,10 @@ import org.nasdanika.html.app.ViewBuilder;
  * A representation of the model object '<em><b>Row</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <!-- begin-model-doc -->
+ * Container rows
+ * <!-- end-model-doc -->
+ *
  * <p>
  * The following features are supported:
  * </p>
@@ -28,6 +32,9 @@ public interface Row extends BootstrapElement, SupplierFactory<ViewBuilder> {
 	 * The list contents are of type {@link org.nasdanika.vinci.bootstrap.Column}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Row columns.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Columns</em>' containment reference list.
 	 * @see org.nasdanika.vinci.bootstrap.BootstrapPackage#getRow_Columns()
 	 * @model containment="true"

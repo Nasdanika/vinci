@@ -161,6 +161,11 @@ public class CardItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(BootstrapPackage.Literals.CARD__HEADER,
+				 BootstrapFactory.eINSTANCE.createCard()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(BootstrapPackage.Literals.CARD__HEADER,
 				 BootstrapFactory.eINSTANCE.createAlert()));
 
 		newChildDescriptors.add
@@ -172,11 +177,6 @@ public class CardItemProvider
 			(createChildParameter
 				(BootstrapPackage.Literals.CARD__HEADER,
 				 BootstrapFactory.eINSTANCE.createButton()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(BootstrapPackage.Literals.CARD__HEADER,
-				 BootstrapFactory.eINSTANCE.createCard()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -191,6 +191,11 @@ public class CardItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(BootstrapPackage.Literals.CARD__BODY,
+				 BootstrapFactory.eINSTANCE.createCard()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(BootstrapPackage.Literals.CARD__BODY,
 				 BootstrapFactory.eINSTANCE.createAlert()));
 
 		newChildDescriptors.add
@@ -202,11 +207,6 @@ public class CardItemProvider
 			(createChildParameter
 				(BootstrapPackage.Literals.CARD__BODY,
 				 BootstrapFactory.eINSTANCE.createButton()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(BootstrapPackage.Literals.CARD__BODY,
-				 BootstrapFactory.eINSTANCE.createCard()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -221,6 +221,11 @@ public class CardItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(BootstrapPackage.Literals.CARD__FOOTER,
+				 BootstrapFactory.eINSTANCE.createCard()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(BootstrapPackage.Literals.CARD__FOOTER,
 				 BootstrapFactory.eINSTANCE.createAlert()));
 
 		newChildDescriptors.add
@@ -232,11 +237,6 @@ public class CardItemProvider
 			(createChildParameter
 				(BootstrapPackage.Literals.CARD__FOOTER,
 				 BootstrapFactory.eINSTANCE.createButton()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(BootstrapPackage.Literals.CARD__FOOTER,
-				 BootstrapFactory.eINSTANCE.createCard()));
 	}
 
 	/**

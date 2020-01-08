@@ -33,6 +33,9 @@ public interface Container extends BootstrapElement, SupplierFactory<ViewPart> {
 	 * The list contents are of type {@link org.nasdanika.vinci.bootstrap.Row}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Container rows.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Rows</em>' containment reference list.
 	 * @see org.nasdanika.vinci.bootstrap.BootstrapPackage#getContainer_Rows()
 	 * @model containment="true"

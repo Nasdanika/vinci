@@ -246,63 +246,6 @@ public class BootstrapSwitch<T1> extends Switch<T1> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case BootstrapPackage.ALERT: {
-				Alert alert = (Alert)theEObject;
-				T1 result = caseAlert(alert);
-				if (result == null) result = caseDiv(alert);
-				if (result == null) result = caseTag(alert);
-				if (result == null) result = caseHtml_Tag(alert);
-				if (result == null) result = caseBootstrapElement(alert);
-				if (result == null) result = caseHtmlElement(alert);
-				if (result == null) result = caseISupplierFactory(alert);
-				if (result == null) result = caseModelElement(alert);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case BootstrapPackage.BADGE: {
-				Badge badge = (Badge)theEObject;
-				T1 result = caseBadge(badge);
-				if (result == null) result = caseDiv(badge);
-				if (result == null) result = caseTag(badge);
-				if (result == null) result = caseHtml_Tag(badge);
-				if (result == null) result = caseBootstrapElement(badge);
-				if (result == null) result = caseHtmlElement(badge);
-				if (result == null) result = caseISupplierFactory(badge);
-				if (result == null) result = caseModelElement(badge);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case BootstrapPackage.BREADCRUMBS: {
-				Breadcrumbs breadcrumbs = (Breadcrumbs)theEObject;
-				T1 result = caseBreadcrumbs(breadcrumbs);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case BootstrapPackage.BUTTON: {
-				Button button = (Button)theEObject;
-				T1 result = caseButton(button);
-				if (result == null) result = caseDiv(button);
-				if (result == null) result = caseTag(button);
-				if (result == null) result = caseHtml_Tag(button);
-				if (result == null) result = caseBootstrapElement(button);
-				if (result == null) result = caseHtmlElement(button);
-				if (result == null) result = caseISupplierFactory(button);
-				if (result == null) result = caseModelElement(button);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case BootstrapPackage.BUTTON_GROUP: {
-				ButtonGroup buttonGroup = (ButtonGroup)theEObject;
-				T1 result = caseButtonGroup(buttonGroup);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case BootstrapPackage.BUTTON_TOOLBAR: {
-				ButtonToolbar buttonToolbar = (ButtonToolbar)theEObject;
-				T1 result = caseButtonToolbar(buttonToolbar);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case BootstrapPackage.CONTAINER: {
 				Container container = (Container)theEObject;
 				T1 result = caseContainer(container);
@@ -337,49 +280,6 @@ public class BootstrapSwitch<T1> extends Switch<T1> {
 				if (result == null) result = caseISupplierFactory(column);
 				if (result == null) result = caseHtmlElement(column);
 				if (result == null) result = caseModelElement(column);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case BootstrapPackage.CARD: {
-				Card card = (Card)theEObject;
-				T1 result = caseCard(card);
-				if (result == null) result = caseDiv(card);
-				if (result == null) result = caseTag(card);
-				if (result == null) result = caseHtml_Tag(card);
-				if (result == null) result = caseBootstrapElement(card);
-				if (result == null) result = caseHtmlElement(card);
-				if (result == null) result = caseISupplierFactory(card);
-				if (result == null) result = caseModelElement(card);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case BootstrapPackage.DROPDOWN: {
-				Dropdown dropdown = (Dropdown)theEObject;
-				T1 result = caseDropdown(dropdown);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case BootstrapPackage.FORM: {
-				Form form = (Form)theEObject;
-				T1 result = caseForm(form);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case BootstrapPackage.LIST_GROUP: {
-				ListGroup listGroup = (ListGroup)theEObject;
-				T1 result = caseListGroup(listGroup);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case BootstrapPackage.NAVS: {
-				Navs navs = (Navs)theEObject;
-				T1 result = caseNavs(navs);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case BootstrapPackage.NAVBAR: {
-				Navbar navbar = (Navbar)theEObject;
-				T1 result = caseNavbar(navbar);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -444,6 +344,106 @@ public class BootstrapSwitch<T1> extends Switch<T1> {
 				if (result == null) result = caseISupplierFactory(tableCell);
 				if (result == null) result = caseHtmlElement(tableCell);
 				if (result == null) result = caseModelElement(tableCell);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case BootstrapPackage.CARD: {
+				Card card = (Card)theEObject;
+				T1 result = caseCard(card);
+				if (result == null) result = caseDiv(card);
+				if (result == null) result = caseTag(card);
+				if (result == null) result = caseHtml_Tag(card);
+				if (result == null) result = caseBootstrapElement(card);
+				if (result == null) result = caseHtmlElement(card);
+				if (result == null) result = caseISupplierFactory(card);
+				if (result == null) result = caseModelElement(card);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case BootstrapPackage.ALERT: {
+				Alert alert = (Alert)theEObject;
+				T1 result = caseAlert(alert);
+				if (result == null) result = caseDiv(alert);
+				if (result == null) result = caseTag(alert);
+				if (result == null) result = caseHtml_Tag(alert);
+				if (result == null) result = caseBootstrapElement(alert);
+				if (result == null) result = caseHtmlElement(alert);
+				if (result == null) result = caseISupplierFactory(alert);
+				if (result == null) result = caseModelElement(alert);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case BootstrapPackage.BADGE: {
+				Badge badge = (Badge)theEObject;
+				T1 result = caseBadge(badge);
+				if (result == null) result = caseDiv(badge);
+				if (result == null) result = caseTag(badge);
+				if (result == null) result = caseHtml_Tag(badge);
+				if (result == null) result = caseBootstrapElement(badge);
+				if (result == null) result = caseHtmlElement(badge);
+				if (result == null) result = caseISupplierFactory(badge);
+				if (result == null) result = caseModelElement(badge);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case BootstrapPackage.BREADCRUMBS: {
+				Breadcrumbs breadcrumbs = (Breadcrumbs)theEObject;
+				T1 result = caseBreadcrumbs(breadcrumbs);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case BootstrapPackage.BUTTON: {
+				Button button = (Button)theEObject;
+				T1 result = caseButton(button);
+				if (result == null) result = caseDiv(button);
+				if (result == null) result = caseTag(button);
+				if (result == null) result = caseHtml_Tag(button);
+				if (result == null) result = caseBootstrapElement(button);
+				if (result == null) result = caseHtmlElement(button);
+				if (result == null) result = caseISupplierFactory(button);
+				if (result == null) result = caseModelElement(button);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case BootstrapPackage.BUTTON_GROUP: {
+				ButtonGroup buttonGroup = (ButtonGroup)theEObject;
+				T1 result = caseButtonGroup(buttonGroup);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case BootstrapPackage.BUTTON_TOOLBAR: {
+				ButtonToolbar buttonToolbar = (ButtonToolbar)theEObject;
+				T1 result = caseButtonToolbar(buttonToolbar);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case BootstrapPackage.DROPDOWN: {
+				Dropdown dropdown = (Dropdown)theEObject;
+				T1 result = caseDropdown(dropdown);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case BootstrapPackage.FORM: {
+				Form form = (Form)theEObject;
+				T1 result = caseForm(form);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case BootstrapPackage.LIST_GROUP: {
+				ListGroup listGroup = (ListGroup)theEObject;
+				T1 result = caseListGroup(listGroup);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case BootstrapPackage.NAVS: {
+				Navs navs = (Navs)theEObject;
+				T1 result = caseNavs(navs);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case BootstrapPackage.NAVBAR: {
+				Navbar navbar = (Navbar)theEObject;
+				T1 result = caseNavbar(navbar);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}

@@ -13,6 +13,10 @@ import org.nasdanika.vinci.html.Container;
  * A representation of the model object '<em><b>Column</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <!-- begin-model-doc -->
+ * Container row column.
+ * <!-- end-model-doc -->
+ *
  * <p>
  * The following features are supported:
  * </p>
@@ -31,6 +35,9 @@ public interface Column extends BootstrapElement, Container, SupplierFactory<Vie
 	 * The list contents are of type {@link org.nasdanika.vinci.bootstrap.ColumnWidth}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Column widths for different breakpoints.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Width</em>' containment reference list.
 	 * @see org.nasdanika.vinci.bootstrap.BootstrapPackage#getColumn_Width()
 	 * @model containment="true"

@@ -1697,22 +1697,6 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 		createEAttribute(actionGroupEClass, ACTION_GROUP__FLUSH);
 		createEReference(actionGroupEClass, ACTION_GROUP__ITEMS);
 
-		alertEClass = createEClass(ALERT);
-		createEAttribute(alertEClass, ALERT__COLOR);
-
-		badgeEClass = createEClass(BADGE);
-		createEAttribute(badgeEClass, BADGE__COLOR);
-
-		breadcrumbsEClass = createEClass(BREADCRUMBS);
-
-		buttonEClass = createEClass(BUTTON);
-		createEAttribute(buttonEClass, BUTTON__COLOR);
-		createEAttribute(buttonEClass, BUTTON__OUTLINE);
-
-		buttonGroupEClass = createEClass(BUTTON_GROUP);
-
-		buttonToolbarEClass = createEClass(BUTTON_TOOLBAR);
-
 		containerEClass = createEClass(CONTAINER);
 		createEReference(containerEClass, CONTAINER__ROWS);
 		createEAttribute(containerEClass, CONTAINER__FLUID);
@@ -1726,21 +1710,6 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 
 		columnEClass = createEClass(COLUMN);
 		createEReference(columnEClass, COLUMN__WIDTH);
-
-		cardEClass = createEClass(CARD);
-		createEReference(cardEClass, CARD__HEADER);
-		createEReference(cardEClass, CARD__BODY);
-		createEReference(cardEClass, CARD__FOOTER);
-
-		dropdownEClass = createEClass(DROPDOWN);
-
-		formEClass = createEClass(FORM);
-
-		listGroupEClass = createEClass(LIST_GROUP);
-
-		navsEClass = createEClass(NAVS);
-
-		navbarEClass = createEClass(NAVBAR);
 
 		tableRowContainerEClass = createEClass(TABLE_ROW_CONTAINER);
 		createEReference(tableRowContainerEClass, TABLE_ROW_CONTAINER__ROWS);
@@ -1773,6 +1742,37 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 		createEAttribute(tableCellEClass, TABLE_CELL__ROW_SPAN);
 		createEAttribute(tableCellEClass, TABLE_CELL__COLOR);
 		createEAttribute(tableCellEClass, TABLE_CELL__BACKGROUND);
+
+		cardEClass = createEClass(CARD);
+		createEReference(cardEClass, CARD__HEADER);
+		createEReference(cardEClass, CARD__BODY);
+		createEReference(cardEClass, CARD__FOOTER);
+
+		alertEClass = createEClass(ALERT);
+		createEAttribute(alertEClass, ALERT__COLOR);
+
+		badgeEClass = createEClass(BADGE);
+		createEAttribute(badgeEClass, BADGE__COLOR);
+
+		breadcrumbsEClass = createEClass(BREADCRUMBS);
+
+		buttonEClass = createEClass(BUTTON);
+		createEAttribute(buttonEClass, BUTTON__COLOR);
+		createEAttribute(buttonEClass, BUTTON__OUTLINE);
+
+		buttonGroupEClass = createEClass(BUTTON_GROUP);
+
+		buttonToolbarEClass = createEClass(BUTTON_TOOLBAR);
+
+		dropdownEClass = createEClass(DROPDOWN);
+
+		formEClass = createEClass(FORM);
+
+		listGroupEClass = createEClass(LIST_GROUP);
+
+		navsEClass = createEClass(NAVS);
+
+		navbarEClass = createEClass(NAVBAR);
 
 		tooltipEClass = createEClass(TOOLTIP);
 
@@ -1841,9 +1841,6 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 		contentActionGroupItemEClass.getESuperTypes().add(this.getActionGroupItem());
 		contentActionGroupItemEClass.getESuperTypes().add(theHtmlPackage.getContainer());
 		actionGroupEClass.getESuperTypes().add(this.getDiv());
-		alertEClass.getESuperTypes().add(this.getDiv());
-		badgeEClass.getESuperTypes().add(this.getDiv());
-		buttonEClass.getESuperTypes().add(this.getDiv());
 		g1 = createEGenericType(this.getBootstrapElement());
 		containerEClass.getEGenericSuperTypes().add(g1);
 		g1 = createEGenericType(theNcorePackage.getISupplierFactory());
@@ -1864,7 +1861,6 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 		g2 = createEGenericType(theHtmlPackage.getViewBuilder());
 		g1.getETypeArguments().add(g2);
 		columnEClass.getEGenericSuperTypes().add(g1);
-		cardEClass.getESuperTypes().add(this.getDiv());
 		tableRowContainerEClass.getESuperTypes().add(this.getBootstrapElement());
 		g1 = createEGenericType(this.getTableRowContainer());
 		tableSectionEClass.getEGenericSuperTypes().add(g1);
@@ -1893,6 +1889,10 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 		g2 = createEGenericType(theHtmlPackage.getViewBuilder());
 		g1.getETypeArguments().add(g2);
 		tableCellEClass.getEGenericSuperTypes().add(g1);
+		cardEClass.getESuperTypes().add(this.getDiv());
+		alertEClass.getESuperTypes().add(this.getDiv());
+		badgeEClass.getESuperTypes().add(this.getDiv());
+		buttonEClass.getESuperTypes().add(this.getDiv());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(bootstrapElementEClass, BootstrapElement.class, "BootstrapElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1971,22 +1971,6 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 		initEAttribute(getActionGroup_Flush(), ecorePackage.getEBoolean(), "flush", null, 0, 1, ActionGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getActionGroup_Items(), this.getActionGroupItem(), null, "items", null, 0, -1, ActionGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(alertEClass, Alert.class, "Alert", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getAlert_Color(), ecorePackage.getEString(), "color", null, 0, 1, Alert.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(badgeEClass, Badge.class, "Badge", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getBadge_Color(), ecorePackage.getEString(), "color", null, 0, 1, Badge.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(breadcrumbsEClass, Breadcrumbs.class, "Breadcrumbs", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(buttonEClass, Button.class, "Button", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getButton_Color(), ecorePackage.getEString(), "color", null, 0, 1, Button.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getButton_Outline(), ecorePackage.getEBoolean(), "outline", null, 0, 1, Button.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(buttonGroupEClass, ButtonGroup.class, "ButtonGroup", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(buttonToolbarEClass, ButtonToolbar.class, "ButtonToolbar", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
 		initEClass(containerEClass, org.nasdanika.vinci.bootstrap.Container.class, "Container", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getContainer_Rows(), this.getRow(), null, "rows", null, 0, -1, org.nasdanika.vinci.bootstrap.Container.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getContainer_Fluid(), ecorePackage.getEBoolean(), "fluid", null, 0, 1, org.nasdanika.vinci.bootstrap.Container.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2000,21 +1984,6 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 
 		initEClass(columnEClass, Column.class, "Column", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getColumn_Width(), this.getColumnWidth(), null, "width", null, 0, -1, Column.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(cardEClass, Card.class, "Card", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getCard_Header(), this.getDiv(), null, "header", null, 0, 1, Card.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getCard_Body(), this.getDiv(), null, "body", null, 0, -1, Card.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getCard_Footer(), this.getDiv(), null, "footer", null, 0, 1, Card.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(dropdownEClass, Dropdown.class, "Dropdown", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(formEClass, Form.class, "Form", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(listGroupEClass, ListGroup.class, "ListGroup", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(navsEClass, Navs.class, "Navs", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(navbarEClass, Navbar.class, "Navbar", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(tableRowContainerEClass, TableRowContainer.class, "TableRowContainer", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getTableRowContainer_Rows(), this.getTableRow(), null, "rows", null, 0, -1, TableRowContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2047,6 +2016,37 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 		initEAttribute(getTableCell_RowSpan(), ecorePackage.getEInt(), "rowSpan", null, 0, 1, TableCell.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTableCell_Color(), ecorePackage.getEString(), "color", null, 0, 1, TableCell.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTableCell_Background(), ecorePackage.getEString(), "background", null, 0, 1, TableCell.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(cardEClass, Card.class, "Card", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getCard_Header(), this.getDiv(), null, "header", null, 0, 1, Card.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCard_Body(), this.getDiv(), null, "body", null, 0, -1, Card.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCard_Footer(), this.getDiv(), null, "footer", null, 0, 1, Card.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(alertEClass, Alert.class, "Alert", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getAlert_Color(), ecorePackage.getEString(), "color", null, 0, 1, Alert.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(badgeEClass, Badge.class, "Badge", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getBadge_Color(), ecorePackage.getEString(), "color", null, 0, 1, Badge.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(breadcrumbsEClass, Breadcrumbs.class, "Breadcrumbs", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(buttonEClass, Button.class, "Button", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getButton_Color(), ecorePackage.getEString(), "color", null, 0, 1, Button.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getButton_Outline(), ecorePackage.getEBoolean(), "outline", null, 0, 1, Button.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(buttonGroupEClass, ButtonGroup.class, "ButtonGroup", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(buttonToolbarEClass, ButtonToolbar.class, "ButtonToolbar", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(dropdownEClass, Dropdown.class, "Dropdown", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(formEClass, Form.class, "Form", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(listGroupEClass, ListGroup.class, "ListGroup", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(navsEClass, Navs.class, "Navs", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(navbarEClass, Navbar.class, "Navbar", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(tooltipEClass, Tooltip.class, "Tooltip", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -2085,6 +2085,18 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 			   "documentation", "Model of Bootstrap elements."
 		   });
 		addAnnotation
+		  (bootstrapElementEClass,
+		   source,
+		   new String[] {
+			   "documentation", "An HTML element with Bootstrap appearance."
+		   });
+		addAnnotation
+		  (getBootstrapElement_Appearance(),
+		   source,
+		   new String[] {
+			   "documentation", "Customizes appearance of Bootstrap element."
+		   });
+		addAnnotation
 		  (bootstrapPageEClass,
 		   source,
 		   new String[] {
@@ -2118,7 +2130,43 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 		  (getAppearance_Attributes(),
 		   source,
 		   new String[] {
-			   "documentation", "HTML attributes in [YAML](https://en.wikipedia.org/wiki/YAML) format. YAML is used because it:\n\n* Provides a convenient way of definining structured/hierarchical attributes such as ``class``, ``style``, and ``data-*``. These attributes are treated in a special way as explained below.\n* Comments improve maintainability.\n* Allows to define a hierarchy of element configurations with ``children`` pesudo-attribute which is not output to HTML.\n\n## Interpolation\n\nAttribute values are interpolated, i.e. tokens in the form of ``${token name[|default value]}`` are replaced with the contextual values or default values, if any. Examples:\n\n* ``${my-style}`` - Token without a default value.\n* ``${font-weight|bold}`` - Token with a default value.\n\n## Regular attributes\n\nFor all top-level keys except ``class``, ``style``, and ``data`` attribute value is produced by converting the value to string for scalars and to JSON string for lists and maps. \nFor attributes which do not start with ``data-`` a warning is issued if the value is not a scalar, i.e. a list or a map.\n\n### Example\n\n```yaml\ntitle: Hello\nhref: \"https://www.nasdanika.org\"\ndata-toggle: \"#mybutton\"\n```\n\n## Class\n\nFor class attribute its value is formed by concantenating elements using space as a separator. If elements are hierarchical then class name is formed by concatenation with a dash (``-``) as a separator.\n\n### Examples\n\nAll these examples yield the same HTML output, which one to use is a question of preference.\n\n#### String value\n\n```yaml\nclass: d-none d-lg-block d-print-block\n```\n\n#### List\n\n```yaml\nclass: \n    - d-none \n    - d-lg-block \n    - d-print-block\n ```\n\n#### Map and List\n\n```yaml\nclass: \n    - d:\n        - none \n        - lg-block \n        - print-block\n ```\n\n#### Map\n\n```yaml\nclass: \n    d:\n        none: true # Boolean values are not concatenated into the class name, they serve as flags. In this case true is needed because none is part of a map, not a list\n        lg: block\n        print: block\n ```\n\n## Data\n\nIf value of ``data`` attbibute is a map then keys of that map get concatenated with ``data`` using dash (``-``) as a separator, them same applies to nested maps. Non-map values become attribute values - scalars are converted to string, lists are converted to JSON string.\n\n### Example\n\n```yaml\ndata:\n    toggle: collapse\n    target: \"#collapseexample\"\n```\n\n## Style\n\nStyle can be defined as a string, list or map. If style is defined as a list, all list values are concatenated with a space as a separator - it is a convent way for long unstructured definitions.\n\nIf style value is a map then the value and its contained map values are processed in the following fashion:\n\n* Keys are concatenated with dash as a separator.\n* List values are contcatenated wtih space as a separator.\n\n### Example\n\n```yaml\nstyle:\n    text:\n        decoration: none\n        color: blue\n        align: center\n        shadow:\n            - 2px\n            - 3px\n            - red\n    border: 1px solid black\n```\n"
+			   "documentation", "HTML element (tag) attributes.\n\n## Interpolation\n\nAttribute values are interpolated, i.e. tokens in the form of ``${token name[|default value]}`` are replaced with the contextual values or default values, if any. Examples:\n\n* ``${my-style}`` - Token without a default value.\n* ``${font-weight|bold}`` - Token with a default value.\n\n## Regular attributes\n\nFor all top-level entries except ``class``, ``style``, and ``data`` attribute value is produced by converting the value to string for scalars and to JSON string for lists and maps. \nFor attributes which do not start with ``data-`` a warning is issued if the value is not a scalar, i.e. a list or a map.\n\n## Class\n\nFor class attribute its value is formed by concantenating elements using space as a separator. If elements are hierarchical then class name is formed by concatenation with a dash (``-``) as a separator.\n\n## Data\n\nIf value of ``data`` attbibute is a map then keys of that map get concatenated with ``data`` using dash (``-``) as a separator, them same applies to nested maps. Non-map values become attribute values - scalars are converted to string, lists are converted to JSON string.\n\n## Style\n\nStyle can be defined as a string, list or map. If style is defined as a list, all list values are concatenated with a space as a separator - it is a convent way for long unstructured definitions.\n\nIf style value is a map then the value and its contained map values are processed in the following fashion:\n\n* Keys are concatenated with dash as a separator.\n* List values are contcatenated wtih space as a separator.\n"
+		   });
+		addAnnotation
+		  (getAppearance_Border(),
+		   source,
+		   new String[] {
+			   "documentation", "Border configuration."
+		   });
+		addAnnotation
+		  (getAppearance_Margin(),
+		   source,
+		   new String[] {
+			   "documentation", "Margin configuration."
+		   });
+		addAnnotation
+		  (getAppearance_Padding(),
+		   source,
+		   new String[] {
+			   "documentation", "Padding configuration."
+		   });
+		addAnnotation
+		  (getAppearance_Text(),
+		   source,
+		   new String[] {
+			   "documentation", "Text style"
+		   });
+		addAnnotation
+		  (getAppearance_Float(),
+		   source,
+		   new String[] {
+			   "documentation", "Float configuration."
+		   });
+		addAnnotation
+		  (borderEClass,
+		   source,
+		   new String[] {
+			   "documentation", "Border configuration specifies border location and color."
 		   });
 		addAnnotation
 		  (getBorder_Color(),
@@ -2151,16 +2199,22 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 			   "documentation", "Righ border."
 		   });
 		addAnnotation
+		  (spacingEClass,
+		   source,
+		   new String[] {
+			   "documentation", "Spacing - padding or margin. Specifies size, location, and breakpoint."
+		   });
+		addAnnotation
 		  (getSpacing_Size(),
 		   source,
 		   new String[] {
-			   "documentation", "Border bootstrap color."
+			   "documentation", "Spacing size - from 0 to 5 or auto."
 		   });
 		addAnnotation
 		  (getSpacing_Breakpoint(),
 		   source,
 		   new String[] {
-			   "documentation", "Border bootstrap color."
+			   "documentation", "Spacing breakpoint."
 		   });
 		addAnnotation
 		  (getSpacing_Top(),
@@ -2199,52 +2253,76 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 			   "documentation", "Vertical spacing."
 		   });
 		addAnnotation
+		  (textEClass,
+		   source,
+		   new String[] {
+			   "documentation", "Text styling."
+		   });
+		addAnnotation
 		  (getText_Alignment(),
 		   source,
 		   new String[] {
-			   "documentation", "Border bootstrap color."
+			   "documentation", "Text alignment."
 		   });
 		addAnnotation
 		  (getText_Color(),
 		   source,
 		   new String[] {
-			   "documentation", "Border bootstrap color."
+			   "documentation", "Text bootstrap color."
 		   });
 		addAnnotation
 		  (getText_Transform(),
 		   source,
 		   new String[] {
-			   "documentation", "Border bootstrap color."
+			   "documentation", "Text case transformation."
 		   });
 		addAnnotation
 		  (getText_Weight(),
 		   source,
 		   new String[] {
-			   "documentation", "Border bootstrap color."
+			   "documentation", "Text weight."
 		   });
 		addAnnotation
 		  (getText_Monospace(),
 		   source,
 		   new String[] {
-			   "documentation", "Border bootstrap color."
+			   "documentation", "Monospace flag."
 		   });
 		addAnnotation
 		  (getText_Italic(),
 		   source,
 		   new String[] {
-			   "documentation", "Border bootstrap color."
+			   "documentation", "Italic flag."
 		   });
 		addAnnotation
 		  (getText_Nowrap(),
 		   source,
 		   new String[] {
-			   "documentation", "Border bootstrap color."
+			   "documentation", "Prevents text from wrapping."
 		   });
 		addAnnotation
 		  (getText_Truncate(),
 		   source,
 		   new String[] {
-			   "documentation", "Border bootstrap color."
+			   "documentation", "Use to truncate the text with an ellipsis."
+		   });
+		addAnnotation
+		  (floatEClass,
+		   source,
+		   new String[] {
+			   "documentation", "Defines element floating - left or right - for a given breakpoint."
+		   });
+		addAnnotation
+		  (getFloat_Side(),
+		   source,
+		   new String[] {
+			   "documentation", "Side to float to."
+		   });
+		addAnnotation
+		  (getFloat_Breakpoint(),
+		   source,
+		   new String[] {
+			   "documentation", "Breakpoint."
 		   });
 		addAnnotation
 		  (tagEClass,
@@ -2271,10 +2349,22 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 			   "documentation", "Base class for model elements which can be active, disabled, and have color."
 		   });
 		addAnnotation
+		  (getItem_Active(),
+		   source,
+		   new String[] {
+			   "documentation", "Indicates that the item is active (currently selected)."
+		   });
+		addAnnotation
+		  (getItem_Disabled(),
+		   source,
+		   new String[] {
+			   "documentation", "Indicates that the item is disabled and cannot be activated/selected."
+		   });
+		addAnnotation
 		  (getItem_Color(),
 		   source,
 		   new String[] {
-			   "documentation", "Bootstrap color."
+			   "documentation", "Item Bootstrap color."
 		   });
 		addAnnotation
 		  (actionGroupItemEClass,
@@ -2325,16 +2415,16 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 			   "documentation", "Group items."
 		   });
 		addAnnotation
-		  (buttonEClass,
-		   source,
-		   new String[] {
-			   "documentation", "TODO - size - enum? Block, active, disabled."
-		   });
-		addAnnotation
 		  (containerEClass,
 		   source,
 		   new String[] {
 			   "documentation", "[Bootstrap layout](https://getbootstrap.com/docs/4.3/layout/overview/) container contains rows which in turn contain columns."
+		   });
+		addAnnotation
+		  (getContainer_Rows(),
+		   source,
+		   new String[] {
+			   "documentation", "Container rows."
 		   });
 		addAnnotation
 		  (getContainer_Fluid(),
@@ -2343,10 +2433,22 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 			   "documentation", "Fluid container spans the entire width of the viewport."
 		   });
 		addAnnotation
+		  (rowEClass,
+		   source,
+		   new String[] {
+			   "documentation", "Container rows"
+		   });
+		addAnnotation
+		  (getRow_Columns(),
+		   source,
+		   new String[] {
+			   "documentation", "Row columns."
+		   });
+		addAnnotation
 		  (columnWidthEClass,
 		   source,
 		   new String[] {
-			   "documentation", "Column width"
+			   "documentation", "Column width for a given breakpoint."
 		   });
 		addAnnotation
 		  (getColumnWidth_Breakpoint(),
@@ -2361,16 +2463,202 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 			   "documentation", "Column width."
 		   });
 		addAnnotation
+		  (columnEClass,
+		   source,
+		   new String[] {
+			   "documentation", "Container row column."
+		   });
+		addAnnotation
+		  (getColumn_Width(),
+		   source,
+		   new String[] {
+			   "documentation", "Column widths for different breakpoints."
+		   });
+		addAnnotation
+		  (tableRowContainerEClass,
+		   source,
+		   new String[] {
+			   "documentation", "Base class for containers of rows - table, header, body, footer."
+		   });
+		addAnnotation
+		  (getTableRowContainer_Rows(),
+		   source,
+		   new String[] {
+			   "documentation", "Table rows."
+		   });
+		addAnnotation
+		  (tableSectionEClass,
+		   source,
+		   new String[] {
+			   "documentation", "Table section - body or footer, header has its own class."
+		   });
+		addAnnotation
+		  (tableHeaderEClass,
+		   source,
+		   new String[] {
+			   "documentation", "Table header."
+		   });
+		addAnnotation
+		  (getTableHeader_Dark(),
+		   source,
+		   new String[] {
+			   "documentation", "Dark header (mutually exclusive with light)."
+		   });
+		addAnnotation
+		  (getTableHeader_Light(),
+		   source,
+		   new String[] {
+			   "documentation", "Light header (mutually exclusive with dark)."
+		   });
+		addAnnotation
 		  (tableEClass,
 		   source,
 		   new String[] {
 			   "documentation", "[Bootstrap table](https://getbootstrap.com/docs/4.0/content/tables/)"
 		   });
 		addAnnotation
+		  (getTable_Header(),
+		   source,
+		   new String[] {
+			   "documentation", "Table header."
+		   });
+		addAnnotation
+		  (getTable_Body(),
+		   source,
+		   new String[] {
+			   "documentation", "Table body."
+		   });
+		addAnnotation
+		  (getTable_Footer(),
+		   source,
+		   new String[] {
+			   "documentation", "Table footer."
+		   });
+		addAnnotation
+		  (getTable_Dark(),
+		   source,
+		   new String[] {
+			   "documentation", "Dark table flag."
+		   });
+		addAnnotation
+		  (getTable_Striped(),
+		   source,
+		   new String[] {
+			   "documentation", "Striped table flag."
+		   });
+		addAnnotation
+		  (getTable_Bordered(),
+		   source,
+		   new String[] {
+			   "documentation", "Bordered table flag."
+		   });
+		addAnnotation
+		  (getTable_Borderless(),
+		   source,
+		   new String[] {
+			   "documentation", "Borderless table flag."
+		   });
+		addAnnotation
+		  (getTable_Hover(),
+		   source,
+		   new String[] {
+			   "documentation", "If checked, rows change background on mouse pointer hover."
+		   });
+		addAnnotation
+		  (getTable_Small(),
+		   source,
+		   new String[] {
+			   "documentation", "Small table flag."
+		   });
+		addAnnotation
+		  (tableRowEClass,
+		   source,
+		   new String[] {
+			   "documentation", "Table row."
+		   });
+		addAnnotation
+		  (getTableRow_Cells(),
+		   source,
+		   new String[] {
+			   "documentation", "Table row cells."
+		   });
+		addAnnotation
+		  (getTableRow_Color(),
+		   source,
+		   new String[] {
+			   "documentation", "Row color."
+		   });
+		addAnnotation
+		  (getTableRow_Background(),
+		   source,
+		   new String[] {
+			   "documentation", "Row background color. Displays differently from \"Color\". Can also be specified via appearance."
+		   });
+		addAnnotation
+		  (tableCellEClass,
+		   source,
+		   new String[] {
+			   "documentation", "Table cell - regular or header."
+		   });
+		addAnnotation
 		  (getTableCell_Header(),
 		   source,
 		   new String[] {
 			   "documentation", "If true, table cell is generated as ``<th>`` instead of the default ``<td>``."
+		   });
+		addAnnotation
+		  (getTableCell_ColSpan(),
+		   source,
+		   new String[] {
+			   "documentation", "Column span for the cell."
+		   });
+		addAnnotation
+		  (getTableCell_RowSpan(),
+		   source,
+		   new String[] {
+			   "documentation", "Row span for the cell."
+		   });
+		addAnnotation
+		  (getTableCell_Color(),
+		   source,
+		   new String[] {
+			   "documentation", "Cell color."
+		   });
+		addAnnotation
+		  (getTableCell_Background(),
+		   source,
+		   new String[] {
+			   "documentation", "Cell background color. Displays differently from \"Color\". Can also be specified via appearance."
+		   });
+		addAnnotation
+		  (cardEClass,
+		   source,
+		   new String[] {
+			   "documentation", "Bootstrap [card](https://getbootstrap.com/docs/4.0/components/card/)."
+		   });
+		addAnnotation
+		  (getCard_Header(),
+		   source,
+		   new String[] {
+			   "documentation", "Card header."
+		   });
+		addAnnotation
+		  (getCard_Body(),
+		   source,
+		   new String[] {
+			   "documentation", "Card body."
+		   });
+		addAnnotation
+		  (getCard_Footer(),
+		   source,
+		   new String[] {
+			   "documentation", "Card footer."
+		   });
+		addAnnotation
+		  (buttonEClass,
+		   source,
+		   new String[] {
+			   "documentation", "TODO - size - enum? Block, active, disabled."
 		   });
 	}
 

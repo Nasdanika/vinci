@@ -9,6 +9,10 @@ import org.eclipse.emf.ecore.EObject;
  * A representation of the model object '<em><b>Spacing</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <!-- begin-model-doc -->
+ * Spacing - padding or margin. Specifies size, location, and breakpoint.
+ * <!-- end-model-doc -->
+ *
  * <p>
  * The following features are supported:
  * </p>
@@ -33,7 +37,7 @@ public interface Spacing extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Border bootstrap color.
+	 * Spacing size - from 0 to 5 or auto.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Size</em>' attribute.
 	 * @see #setSize(String)
@@ -58,7 +62,7 @@ public interface Spacing extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Border bootstrap color.
+	 * Spacing breakpoint.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Breakpoint</em>' attribute.
 	 * @see #setBreakpoint(String)

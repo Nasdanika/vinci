@@ -9,6 +9,10 @@ import org.eclipse.emf.common.util.EList;
  * A representation of the model object '<em><b>Table Row Container</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <!-- begin-model-doc -->
+ * Base class for containers of rows - table, header, body, footer.
+ * <!-- end-model-doc -->
+ *
  * <p>
  * The following features are supported:
  * </p>
@@ -26,6 +30,9 @@ public interface TableRowContainer extends BootstrapElement {
 	 * The list contents are of type {@link org.nasdanika.vinci.bootstrap.TableRow}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Table rows.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Rows</em>' containment reference list.
 	 * @see org.nasdanika.vinci.bootstrap.BootstrapPackage#getTableRowContainer_Rows()
 	 * @model containment="true"

@@ -176,18 +176,6 @@ public class BootstrapValidator extends EObjectValidator {
 				return validateContentActionGroupItem((ContentActionGroupItem)value, diagnostics, context);
 			case BootstrapPackage.ACTION_GROUP:
 				return validateActionGroup((ActionGroup)value, diagnostics, context);
-			case BootstrapPackage.ALERT:
-				return validateAlert((Alert)value, diagnostics, context);
-			case BootstrapPackage.BADGE:
-				return validateBadge((Badge)value, diagnostics, context);
-			case BootstrapPackage.BREADCRUMBS:
-				return validateBreadcrumbs((Breadcrumbs)value, diagnostics, context);
-			case BootstrapPackage.BUTTON:
-				return validateButton((Button)value, diagnostics, context);
-			case BootstrapPackage.BUTTON_GROUP:
-				return validateButtonGroup((ButtonGroup)value, diagnostics, context);
-			case BootstrapPackage.BUTTON_TOOLBAR:
-				return validateButtonToolbar((ButtonToolbar)value, diagnostics, context);
 			case BootstrapPackage.CONTAINER:
 				return validateContainer((Container)value, diagnostics, context);
 			case BootstrapPackage.ROW:
@@ -196,18 +184,6 @@ public class BootstrapValidator extends EObjectValidator {
 				return validateColumnWidth((ColumnWidth)value, diagnostics, context);
 			case BootstrapPackage.COLUMN:
 				return validateColumn((Column)value, diagnostics, context);
-			case BootstrapPackage.CARD:
-				return validateCard((Card)value, diagnostics, context);
-			case BootstrapPackage.DROPDOWN:
-				return validateDropdown((Dropdown)value, diagnostics, context);
-			case BootstrapPackage.FORM:
-				return validateForm((Form)value, diagnostics, context);
-			case BootstrapPackage.LIST_GROUP:
-				return validateListGroup((ListGroup)value, diagnostics, context);
-			case BootstrapPackage.NAVS:
-				return validateNavs((Navs)value, diagnostics, context);
-			case BootstrapPackage.NAVBAR:
-				return validateNavbar((Navbar)value, diagnostics, context);
 			case BootstrapPackage.TABLE_ROW_CONTAINER:
 				return validateTableRowContainer((TableRowContainer)value, diagnostics, context);
 			case BootstrapPackage.TABLE_SECTION:
@@ -220,6 +196,30 @@ public class BootstrapValidator extends EObjectValidator {
 				return validateTableRow((TableRow)value, diagnostics, context);
 			case BootstrapPackage.TABLE_CELL:
 				return validateTableCell((TableCell)value, diagnostics, context);
+			case BootstrapPackage.CARD:
+				return validateCard((Card)value, diagnostics, context);
+			case BootstrapPackage.ALERT:
+				return validateAlert((Alert)value, diagnostics, context);
+			case BootstrapPackage.BADGE:
+				return validateBadge((Badge)value, diagnostics, context);
+			case BootstrapPackage.BREADCRUMBS:
+				return validateBreadcrumbs((Breadcrumbs)value, diagnostics, context);
+			case BootstrapPackage.BUTTON:
+				return validateButton((Button)value, diagnostics, context);
+			case BootstrapPackage.BUTTON_GROUP:
+				return validateButtonGroup((ButtonGroup)value, diagnostics, context);
+			case BootstrapPackage.BUTTON_TOOLBAR:
+				return validateButtonToolbar((ButtonToolbar)value, diagnostics, context);
+			case BootstrapPackage.DROPDOWN:
+				return validateDropdown((Dropdown)value, diagnostics, context);
+			case BootstrapPackage.FORM:
+				return validateForm((Form)value, diagnostics, context);
+			case BootstrapPackage.LIST_GROUP:
+				return validateListGroup((ListGroup)value, diagnostics, context);
+			case BootstrapPackage.NAVS:
+				return validateNavs((Navs)value, diagnostics, context);
+			case BootstrapPackage.NAVBAR:
+				return validateNavbar((Navbar)value, diagnostics, context);
 			case BootstrapPackage.TOOLTIP:
 				return validateTooltip((Tooltip)value, diagnostics, context);
 			case BootstrapPackage.INPUT_GROUP:

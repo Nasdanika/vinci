@@ -11,6 +11,10 @@ import org.nasdanika.vinci.html.Container;
  * A representation of the model object '<em><b>Table Cell</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <!-- begin-model-doc -->
+ * Table cell - regular or header.
+ * <!-- end-model-doc -->
+ *
  * <p>
  * The following features are supported:
  * </p>
@@ -56,6 +60,9 @@ public interface TableCell extends Container, BootstrapElement, SupplierFactory<
 	 * Returns the value of the '<em><b>Col Span</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Column span for the cell.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Col Span</em>' attribute.
 	 * @see #setColSpan(int)
 	 * @see org.nasdanika.vinci.bootstrap.BootstrapPackage#getTableCell_ColSpan()
@@ -78,6 +85,9 @@ public interface TableCell extends Container, BootstrapElement, SupplierFactory<
 	 * Returns the value of the '<em><b>Row Span</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Row span for the cell.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Row Span</em>' attribute.
 	 * @see #setRowSpan(int)
 	 * @see org.nasdanika.vinci.bootstrap.BootstrapPackage#getTableCell_RowSpan()
@@ -100,6 +110,9 @@ public interface TableCell extends Container, BootstrapElement, SupplierFactory<
 	 * Returns the value of the '<em><b>Color</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Cell color.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Color</em>' attribute.
 	 * @see #setColor(String)
 	 * @see org.nasdanika.vinci.bootstrap.BootstrapPackage#getTableCell_Color()
@@ -122,6 +135,9 @@ public interface TableCell extends Container, BootstrapElement, SupplierFactory<
 	 * Returns the value of the '<em><b>Background</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Cell background color. Displays differently from "Color". Can also be specified via appearance.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Background</em>' attribute.
 	 * @see #setBackground(String)
 	 * @see org.nasdanika.vinci.bootstrap.BootstrapPackage#getTableCell_Background()
