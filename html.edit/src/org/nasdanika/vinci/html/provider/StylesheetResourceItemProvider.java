@@ -78,7 +78,7 @@ public class StylesheetResourceItemProvider
 	 * This returns StylesheetResource.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public Object getImage(Object object) {
@@ -86,8 +86,7 @@ public class StylesheetResourceItemProvider
 		List<Object> images = new ArrayList<Object>(2);
 		images.add(image);
 		images.add(NcoreEditPlugin.INSTANCE.getImage("full/obj16/LinkDecorator.gif"));
-		return new ComposedImage(images);		
-		
+		return new ComposedImage(images);				
 	}
 
 	/**

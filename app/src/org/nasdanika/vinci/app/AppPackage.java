@@ -489,13 +489,22 @@ public interface AppPackage extends EPackage {
 	int BOOTSTRAP_CONTAINER_APPLICATION_BUILDER_OPERATION_COUNT = 1;
 
 	/**
+	 * The feature id for the '<em><b>Configuration</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_ACTION__CONFIGURATION = BOOTSTRAP_CONTAINER_APPLICATION_BUILDER_FEATURE_COUNT + 0;
+
+	/**
 	 * The feature id for the '<em><b>Action Mappings</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ABSTRACT_ACTION__ACTION_MAPPINGS = BOOTSTRAP_CONTAINER_APPLICATION_BUILDER_FEATURE_COUNT + 0;
+	int ABSTRACT_ACTION__ACTION_MAPPINGS = BOOTSTRAP_CONTAINER_APPLICATION_BUILDER_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Abstract Action</em>' class.
@@ -504,7 +513,7 @@ public interface AppPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ABSTRACT_ACTION_FEATURE_COUNT = BOOTSTRAP_CONTAINER_APPLICATION_BUILDER_FEATURE_COUNT + 1;
+	int ABSTRACT_ACTION_FEATURE_COUNT = BOOTSTRAP_CONTAINER_APPLICATION_BUILDER_FEATURE_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Create Application Builder Supplier</em>' operation.
@@ -751,13 +760,22 @@ public interface AppPackage extends EPackage {
 	int ACTION_BASE__APPEARANCE = LABEL__APPEARANCE;
 
 	/**
+	 * The feature id for the '<em><b>Configuration</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION_BASE__CONFIGURATION = LABEL_FEATURE_COUNT + 0;
+
+	/**
 	 * The feature id for the '<em><b>Action Mappings</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION_BASE__ACTION_MAPPINGS = LABEL_FEATURE_COUNT + 0;
+	int ACTION_BASE__ACTION_MAPPINGS = LABEL_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Elements</b></em>' containment reference list.
@@ -766,7 +784,7 @@ public interface AppPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION_BASE__ELEMENTS = LABEL_FEATURE_COUNT + 1;
+	int ACTION_BASE__ELEMENTS = LABEL_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Linked Elements</b></em>' reference list.
@@ -775,7 +793,7 @@ public interface AppPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION_BASE__LINKED_ELEMENTS = LABEL_FEATURE_COUNT + 2;
+	int ACTION_BASE__LINKED_ELEMENTS = LABEL_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Role</b></em>' attribute.
@@ -784,7 +802,7 @@ public interface AppPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION_BASE__ROLE = LABEL_FEATURE_COUNT + 3;
+	int ACTION_BASE__ROLE = LABEL_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Section Style</b></em>' attribute.
@@ -793,7 +811,7 @@ public interface AppPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION_BASE__SECTION_STYLE = LABEL_FEATURE_COUNT + 4;
+	int ACTION_BASE__SECTION_STYLE = LABEL_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Section Columns</b></em>' attribute.
@@ -802,7 +820,7 @@ public interface AppPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION_BASE__SECTION_COLUMNS = LABEL_FEATURE_COUNT + 5;
+	int ACTION_BASE__SECTION_COLUMNS = LABEL_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Activator</b></em>' attribute.
@@ -811,7 +829,7 @@ public interface AppPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION_BASE__ACTIVATOR = LABEL_FEATURE_COUNT + 6;
+	int ACTION_BASE__ACTIVATOR = LABEL_FEATURE_COUNT + 7;
 
 	/**
 	 * The feature id for the '<em><b>Activator Type</b></em>' attribute.
@@ -820,7 +838,7 @@ public interface AppPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION_BASE__ACTIVATOR_TYPE = LABEL_FEATURE_COUNT + 7;
+	int ACTION_BASE__ACTIVATOR_TYPE = LABEL_FEATURE_COUNT + 8;
 
 	/**
 	 * The feature id for the '<em><b>Confirmation</b></em>' attribute.
@@ -829,7 +847,7 @@ public interface AppPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION_BASE__CONFIRMATION = LABEL_FEATURE_COUNT + 8;
+	int ACTION_BASE__CONFIRMATION = LABEL_FEATURE_COUNT + 9;
 
 	/**
 	 * The feature id for the '<em><b>Disabled</b></em>' attribute.
@@ -838,7 +856,7 @@ public interface AppPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION_BASE__DISABLED = LABEL_FEATURE_COUNT + 9;
+	int ACTION_BASE__DISABLED = LABEL_FEATURE_COUNT + 10;
 
 	/**
 	 * The feature id for the '<em><b>Embedded</b></em>' attribute.
@@ -847,7 +865,7 @@ public interface AppPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION_BASE__EMBEDDED = LABEL_FEATURE_COUNT + 10;
+	int ACTION_BASE__EMBEDDED = LABEL_FEATURE_COUNT + 11;
 
 	/**
 	 * The feature id for the '<em><b>Markdown Content</b></em>' attribute.
@@ -856,7 +874,7 @@ public interface AppPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION_BASE__MARKDOWN_CONTENT = LABEL_FEATURE_COUNT + 11;
+	int ACTION_BASE__MARKDOWN_CONTENT = LABEL_FEATURE_COUNT + 12;
 
 	/**
 	 * The feature id for the '<em><b>Content</b></em>' containment reference list.
@@ -865,7 +883,7 @@ public interface AppPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION_BASE__CONTENT = LABEL_FEATURE_COUNT + 12;
+	int ACTION_BASE__CONTENT = LABEL_FEATURE_COUNT + 13;
 
 	/**
 	 * The number of structural features of the '<em>Action Base</em>' class.
@@ -874,7 +892,7 @@ public interface AppPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION_BASE_FEATURE_COUNT = LABEL_FEATURE_COUNT + 13;
+	int ACTION_BASE_FEATURE_COUNT = LABEL_FEATURE_COUNT + 14;
 
 	/**
 	 * The operation id for the '<em>Create Application Builder Supplier</em>' operation.
@@ -950,6 +968,15 @@ public interface AppPackage extends EPackage {
 	int ACTION_MAPPING_OPERATION_COUNT = 0;
 
 	/**
+	 * The feature id for the '<em><b>Configuration</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION_LINK__CONFIGURATION = ABSTRACT_ACTION__CONFIGURATION;
+
+	/**
 	 * The feature id for the '<em><b>Action Mappings</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1011,6 +1038,15 @@ public interface AppPackage extends EPackage {
 	 * @ordered
 	 */
 	int ACTION_LINK_OPERATION_COUNT = ABSTRACT_ACTION_OPERATION_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Configuration</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION_REFERENCE__CONFIGURATION = ABSTRACT_ACTION__CONFIGURATION;
 
 	/**
 	 * The feature id for the '<em><b>Action Mappings</b></em>' containment reference list.
@@ -1164,6 +1200,15 @@ public interface AppPackage extends EPackage {
 	 * @ordered
 	 */
 	int ACTION__APPEARANCE = ACTION_BASE__APPEARANCE;
+
+	/**
+	 * The feature id for the '<em><b>Configuration</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION__CONFIGURATION = ACTION_BASE__CONFIGURATION;
 
 	/**
 	 * The feature id for the '<em><b>Action Mappings</b></em>' containment reference list.
@@ -1398,6 +1443,15 @@ public interface AppPackage extends EPackage {
 	 * @ordered
 	 */
 	int PARTITION__APPEARANCE = ACTION_BASE__APPEARANCE;
+
+	/**
+	 * The feature id for the '<em><b>Configuration</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARTITION__CONFIGURATION = ACTION_BASE__CONFIGURATION;
 
 	/**
 	 * The feature id for the '<em><b>Action Mappings</b></em>' containment reference list.

@@ -7,6 +7,7 @@ import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
 import org.nasdanika.common.SupplierFactory;
+import org.nasdanika.ncore.Configurable;
 import org.nasdanika.ncore.Entity;
 import org.nasdanika.ncore.ModelElement;
 import org.nasdanika.vinci.app.AbstractAction;
@@ -160,6 +161,10 @@ public class AppAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public <T> Adapter caseISupplierFactory(SupplierFactory<T> object) {
 				return createISupplierFactoryAdapter();
+			}
+			@Override
+			public Adapter caseConfigurable(Configurable object) {
+				return createConfigurableAdapter();
 			}
 			@Override
 			public Adapter caseHtmlElement(HtmlElement object) {
@@ -344,6 +349,20 @@ public class AppAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createISupplierFactoryAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.ncore.Configurable <em>Configurable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.ncore.Configurable
+	 * @generated
+	 */
+	public Adapter createConfigurableAdapter() {
 		return null;
 	}
 

@@ -98,6 +98,7 @@
     </eStructuralFeatures>
     <eGenericSuperTypes eClassifier="#//BootstrapContainerApplicationBuilder"/>
     <eGenericSuperTypes eClassifier="#//ActionElement"/>
+    <eGenericSuperTypes eClassifier="ecore:EClass ../../org.nasdanika.ncore/model/ncore.ecore#//Configurable"/>
     <eGenericSuperTypes eClassifier="ecore:EClass ../../org.nasdanika.ncore/model/ncore.ecore#//ISupplierFactory">
       <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
     </eGenericSuperTypes>

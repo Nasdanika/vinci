@@ -3,19 +3,20 @@
 package org.nasdanika.vinci.components.provider;
 
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.edit.provider.ComposedImage;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.nasdanika.ncore.provider.ModelElementItemProvider;
-
+import org.nasdanika.ncore.provider.NcoreEditPlugin;
+import org.nasdanika.vinci.app.provider.AppEditPlugin;
 import org.nasdanika.vinci.bootstrap.BootstrapFactory;
 import org.nasdanika.vinci.components.ActionLink;
 import org.nasdanika.vinci.components.ComponentsPackage;
@@ -108,16 +109,22 @@ public class ActionLinkItemProvider extends ModelElementItemProvider {
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getText(Object object) {
 		String label = ((ActionLink)object).getTitle();
-		return label == null || label.length() == 0 ?
-			getString("_UI_ActionLink_type") :
-			getString("_UI_ActionLink_type") + " " + label;
+		return label == null || label.length() == 0 ? getString("_UI_ActionLink_type") : label;
 	}
 
+	@Override
+	public Object getImage(Object object) {
+		Object image = overlayImage(object, AppEditPlugin.INSTANCE.getImage("full/obj16/Action.png"));
+		List<Object> images = new ArrayList<Object>(2);
+		images.add(image);
+		images.add(NcoreEditPlugin.INSTANCE.getImage("full/obj16/ReferenceDecorator.png"));
+		return new ComposedImage(images);		
+	}
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached

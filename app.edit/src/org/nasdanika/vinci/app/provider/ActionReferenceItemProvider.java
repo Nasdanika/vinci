@@ -10,6 +10,7 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ComposedImage;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
@@ -20,6 +21,7 @@ import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+import org.nasdanika.ncore.NcorePackage;
 import org.nasdanika.ncore.provider.NcoreEditPlugin;
 import org.nasdanika.vinci.app.ActionReference;
 import org.nasdanika.vinci.app.AppFactory;
@@ -135,6 +137,7 @@ public class ActionReferenceItemProvider extends AppItemProviderAdapter implemen
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
+			childrenFeatures.add(NcorePackage.Literals.CONFIGURABLE__CONFIGURATION);
 			childrenFeatures.add(AppPackage.Literals.ABSTRACT_ACTION__ACTION_MAPPINGS);
 		}
 		return childrenFeatures;
@@ -182,14 +185,12 @@ public class ActionReferenceItemProvider extends AppItemProviderAdapter implemen
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getText(Object object) {
 		String label = ((ActionReference)object).getTitle();
-		return label == null || label.length() == 0 ?
-			getString("_UI_ActionReference_type") :
-			getString("_UI_ActionReference_type") + " " + label;
+		return label == null || label.length() == 0 ? getString("_UI_ActionReference_type") : label;
 	}
 
 
@@ -209,6 +210,7 @@ public class ActionReferenceItemProvider extends AppItemProviderAdapter implemen
 			case AppPackage.ACTION_REFERENCE__DESCRIPTION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
+			case AppPackage.ACTION_REFERENCE__CONFIGURATION:
 			case AppPackage.ACTION_REFERENCE__ACTION_MAPPINGS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
@@ -221,11 +223,15 @@ public class ActionReferenceItemProvider extends AppItemProviderAdapter implemen
 	 * that can be created under this object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		for (EObject expr: org.nasdanika.ncore.util.Activator.NAMED_EXPRESSIONS_PALETTE.getElements()) {
+			newChildDescriptors.add(createChildParameter(NcorePackage.Literals.CONFIGURABLE__CONFIGURATION, expr));						
+		}		
 
 		newChildDescriptors.add
 			(createChildParameter

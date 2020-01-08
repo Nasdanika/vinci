@@ -6,8 +6,10 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
 import org.nasdanika.common.SupplierFactory;
+import org.nasdanika.ncore.Configurable;
 import org.nasdanika.ncore.Entity;
 import org.nasdanika.ncore.ModelElement;
+import org.nasdanika.vinci.app.*;
 import org.nasdanika.vinci.app.AbstractAction;
 import org.nasdanika.vinci.app.Action;
 import org.nasdanika.vinci.app.ActionBase;
@@ -122,6 +124,7 @@ public class AppSwitch<T1> extends Switch<T1> {
 				T1 result = caseAbstractAction(abstractAction);
 				if (result == null) result = caseBootstrapContainerApplicationBuilder(abstractAction);
 				if (result == null) result = caseActionElement(abstractAction);
+				if (result == null) result = caseConfigurable(abstractAction);
 				if (result == null) result = caseISupplierFactory(abstractAction);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -149,6 +152,7 @@ public class AppSwitch<T1> extends Switch<T1> {
 				if (result == null) result = caseISupplierFactory(actionBase);
 				if (result == null) result = caseBootstrapContainerApplicationBuilder(actionBase);
 				if (result == null) result = caseActionElement(actionBase);
+				if (result == null) result = caseConfigurable(actionBase);
 				if (result == null) result = caseModelElement(actionBase);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -165,6 +169,7 @@ public class AppSwitch<T1> extends Switch<T1> {
 				if (result == null) result = caseAbstractAction(actionLink);
 				if (result == null) result = caseBootstrapContainerApplicationBuilder(actionLink);
 				if (result == null) result = caseActionElement(actionLink);
+				if (result == null) result = caseConfigurable(actionLink);
 				if (result == null) result = caseISupplierFactory(actionLink);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -175,6 +180,7 @@ public class AppSwitch<T1> extends Switch<T1> {
 				if (result == null) result = caseAbstractAction(actionReference);
 				if (result == null) result = caseBootstrapContainerApplicationBuilder(actionReference);
 				if (result == null) result = caseActionElement(actionReference);
+				if (result == null) result = caseConfigurable(actionReference);
 				if (result == null) result = caseISupplierFactory(actionReference);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -190,6 +196,7 @@ public class AppSwitch<T1> extends Switch<T1> {
 				if (result == null) result = caseISupplierFactory(action);
 				if (result == null) result = caseBootstrapContainerApplicationBuilder(action);
 				if (result == null) result = caseActionElement(action);
+				if (result == null) result = caseConfigurable(action);
 				if (result == null) result = caseModelElement(action);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -205,6 +212,7 @@ public class AppSwitch<T1> extends Switch<T1> {
 				if (result == null) result = caseISupplierFactory(partition);
 				if (result == null) result = caseBootstrapContainerApplicationBuilder(partition);
 				if (result == null) result = caseActionElement(partition);
+				if (result == null) result = caseConfigurable(partition);
 				if (result == null) result = caseModelElement(partition);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -412,6 +420,21 @@ public class AppSwitch<T1> extends Switch<T1> {
 	 * @generated
 	 */
 	public <T> T1 caseISupplierFactory(SupplierFactory<T> object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Configurable</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Configurable</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseConfigurable(Configurable object) {
 		return null;
 	}
 

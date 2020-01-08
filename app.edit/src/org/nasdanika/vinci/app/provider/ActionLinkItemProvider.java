@@ -3,13 +3,16 @@
 package org.nasdanika.vinci.app.provider;
 
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.edit.provider.ComposedImage;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
@@ -18,6 +21,8 @@ import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+import org.nasdanika.ncore.NcorePackage;
+import org.nasdanika.ncore.provider.NcoreEditPlugin;
 import org.nasdanika.vinci.app.ActionLink;
 import org.nasdanika.vinci.app.AppFactory;
 import org.nasdanika.vinci.app.AppPackage;
@@ -132,6 +137,7 @@ public class ActionLinkItemProvider extends AppItemProviderAdapter implements IE
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
+			childrenFeatures.add(NcorePackage.Literals.CONFIGURABLE__CONFIGURATION);
 			childrenFeatures.add(AppPackage.Literals.ABSTRACT_ACTION__ACTION_MAPPINGS);
 		}
 		return childrenFeatures;
@@ -154,11 +160,15 @@ public class ActionLinkItemProvider extends AppItemProviderAdapter implements IE
 	 * This returns ActionLink.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/ActionLink"));
+		Object image = overlayImage(object, getResourceLocator().getImage("full/obj16/Action.png"));
+		List<Object> images = new ArrayList<Object>(2);
+		images.add(image);
+		images.add(NcoreEditPlugin.INSTANCE.getImage("full/obj16/ReferenceDecorator.png"));
+		return new ComposedImage(images);		
 	}
 
 	/**
@@ -175,14 +185,12 @@ public class ActionLinkItemProvider extends AppItemProviderAdapter implements IE
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getText(Object object) {
 		String label = ((ActionLink)object).getTitle();
-		return label == null || label.length() == 0 ?
-			getString("_UI_ActionLink_type") :
-			getString("_UI_ActionLink_type") + " " + label;
+		return label == null || label.length() == 0 ? getString("_UI_ActionLink_type") : label;
 	}
 
 
@@ -203,6 +211,7 @@ public class ActionLinkItemProvider extends AppItemProviderAdapter implements IE
 			case AppPackage.ACTION_LINK__REF:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
+			case AppPackage.ACTION_LINK__CONFIGURATION:
 			case AppPackage.ACTION_LINK__ACTION_MAPPINGS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
@@ -215,11 +224,15 @@ public class ActionLinkItemProvider extends AppItemProviderAdapter implements IE
 	 * that can be created under this object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		for (EObject expr: org.nasdanika.ncore.util.Activator.NAMED_EXPRESSIONS_PALETTE.getElements()) {
+			newChildDescriptors.add(createChildParameter(NcorePackage.Literals.CONFIGURABLE__CONFIGURATION, expr));						
+		}		
 
 		newChildDescriptors.add
 			(createChildParameter

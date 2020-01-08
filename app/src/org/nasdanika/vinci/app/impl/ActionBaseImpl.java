@@ -35,6 +35,9 @@ import org.nasdanika.html.app.DecoratorProvider;
 import org.nasdanika.html.app.ViewGenerator;
 import org.nasdanika.html.app.impl.ActionApplicationBuilder;
 import org.nasdanika.html.app.impl.ViewGeneratorImpl;
+import org.nasdanika.ncore.Configurable;
+import org.nasdanika.ncore.Entry;
+import org.nasdanika.ncore.NcorePackage;
 import org.nasdanika.vinci.app.AbstractAction;
 import org.nasdanika.vinci.app.ActionBase;
 import org.nasdanika.vinci.app.ActionCategory;
@@ -53,6 +56,7 @@ import org.nasdanika.vinci.app.BootstrapContainerApplicationBuilder;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link org.nasdanika.vinci.app.impl.ActionBaseImpl#getConfiguration <em>Configuration</em>}</li>
  *   <li>{@link org.nasdanika.vinci.app.impl.ActionBaseImpl#getActionMappings <em>Action Mappings</em>}</li>
  *   <li>{@link org.nasdanika.vinci.app.impl.ActionBaseImpl#getElements <em>Elements</em>}</li>
  *   <li>{@link org.nasdanika.vinci.app.impl.ActionBaseImpl#getLinkedElements <em>Linked Elements</em>}</li>
@@ -179,6 +183,17 @@ public abstract class ActionBaseImpl extends LabelImpl implements ActionBase {
 	@Override
 	protected EClass eStaticClass() {
 		return AppPackage.Literals.ACTION_BASE;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public EList<Entry<Object>> getConfiguration() {
+		return (EList<Entry<Object>>)eDynamicGet(AppPackage.ACTION_BASE__CONFIGURATION, NcorePackage.Literals.CONFIGURABLE__CONFIGURATION, true, true);
 	}
 
 	/**
@@ -472,6 +487,8 @@ public abstract class ActionBaseImpl extends LabelImpl implements ActionBase {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case AppPackage.ACTION_BASE__CONFIGURATION:
+				return ((InternalEList<?>)getConfiguration()).basicRemove(otherEnd, msgs);
 			case AppPackage.ACTION_BASE__ACTION_MAPPINGS:
 				return ((InternalEList<?>)getActionMappings()).basicRemove(otherEnd, msgs);
 			case AppPackage.ACTION_BASE__ELEMENTS:
@@ -490,6 +507,8 @@ public abstract class ActionBaseImpl extends LabelImpl implements ActionBase {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case AppPackage.ACTION_BASE__CONFIGURATION:
+				return getConfiguration();
 			case AppPackage.ACTION_BASE__ACTION_MAPPINGS:
 				return getActionMappings();
 			case AppPackage.ACTION_BASE__ELEMENTS:
@@ -529,6 +548,10 @@ public abstract class ActionBaseImpl extends LabelImpl implements ActionBase {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case AppPackage.ACTION_BASE__CONFIGURATION:
+				getConfiguration().clear();
+				getConfiguration().addAll((Collection<? extends Entry<Object>>)newValue);
+				return;
 			case AppPackage.ACTION_BASE__ACTION_MAPPINGS:
 				getActionMappings().clear();
 				getActionMappings().addAll((Collection<? extends ActionMapping>)newValue);
@@ -584,6 +607,9 @@ public abstract class ActionBaseImpl extends LabelImpl implements ActionBase {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case AppPackage.ACTION_BASE__CONFIGURATION:
+				getConfiguration().clear();
+				return;
 			case AppPackage.ACTION_BASE__ACTION_MAPPINGS:
 				getActionMappings().clear();
 				return;
@@ -635,6 +661,8 @@ public abstract class ActionBaseImpl extends LabelImpl implements ActionBase {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case AppPackage.ACTION_BASE__CONFIGURATION:
+				return !getConfiguration().isEmpty();
 			case AppPackage.ACTION_BASE__ACTION_MAPPINGS:
 				return !getActionMappings().isEmpty();
 			case AppPackage.ACTION_BASE__ELEMENTS:
@@ -682,6 +710,12 @@ public abstract class ActionBaseImpl extends LabelImpl implements ActionBase {
 				default: return -1;
 			}
 		}
+		if (baseClass == Configurable.class) {
+			switch (derivedFeatureID) {
+				case AppPackage.ACTION_BASE__CONFIGURATION: return NcorePackage.CONFIGURABLE__CONFIGURATION;
+				default: return -1;
+			}
+		}
 		if (baseClass == AbstractAction.class) {
 			switch (derivedFeatureID) {
 				case AppPackage.ACTION_BASE__ACTION_MAPPINGS: return AppPackage.ABSTRACT_ACTION__ACTION_MAPPINGS;
@@ -715,6 +749,12 @@ public abstract class ActionBaseImpl extends LabelImpl implements ActionBase {
 				default: return -1;
 			}
 		}
+		if (baseClass == Configurable.class) {
+			switch (baseFeatureID) {
+				case NcorePackage.CONFIGURABLE__CONFIGURATION: return AppPackage.ACTION_BASE__CONFIGURATION;
+				default: return -1;
+			}
+		}
 		if (baseClass == AbstractAction.class) {
 			switch (baseFeatureID) {
 				case AppPackage.ABSTRACT_ACTION__ACTION_MAPPINGS: return AppPackage.ACTION_BASE__ACTION_MAPPINGS;
@@ -745,6 +785,11 @@ public abstract class ActionBaseImpl extends LabelImpl implements ActionBase {
 			}
 		}
 		if (baseClass == ActionElement.class) {
+			switch (baseOperationID) {
+				default: return -1;
+			}
+		}
+		if (baseClass == Configurable.class) {
 			switch (baseOperationID) {
 				default: return -1;
 			}

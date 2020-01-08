@@ -16,6 +16,7 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.nasdanika.emf.edit.EReferenceItemProvider;
 import org.nasdanika.html.app.SectionStyle;
+import org.nasdanika.ncore.NcorePackage;
 import org.nasdanika.vinci.app.ActionBase;
 import org.nasdanika.vinci.app.AppFactory;
 import org.nasdanika.vinci.app.AppPackage;
@@ -280,8 +281,9 @@ public class ActionBaseItemProvider extends LabelItemProvider {
 			eReferenceItemProviders.put(object, children);
 			children.add(new EReferenceItemProvider(this, (EObject) object, AppPackage.Literals.CONTAINER__ELEMENTS));
 			children.add(new EReferenceItemProvider(this, (EObject) object, AppPackage.Literals.CONTAINER__LINKED_ELEMENTS));
-			children.add(new EReferenceItemProvider(this, (EObject) object, AppPackage.Literals.ABSTRACT_ACTION__ACTION_MAPPINGS)); 
 			children.add(new EReferenceItemProvider(this, (EObject) object, AppPackage.Literals.ACTION_BASE__CONTENT)); 
+			children.add(new EReferenceItemProvider(this, (EObject) object, AppPackage.Literals.ABSTRACT_ACTION__ACTION_MAPPINGS)); 
+			children.add(new EReferenceItemProvider(this, (EObject) object, NcorePackage.Literals.CONFIGURABLE__CONFIGURATION)); 
 		}
 		Collection<Object> ret = new ArrayList<>(children);
 		ret.addAll(super.getChildren(object));
@@ -371,6 +373,7 @@ public class ActionBaseItemProvider extends LabelItemProvider {
 			case AppPackage.ACTION_BASE__MARKDOWN_CONTENT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
+			case AppPackage.ACTION_BASE__CONFIGURATION:
 			case AppPackage.ACTION_BASE__ACTION_MAPPINGS:
 			case AppPackage.ACTION_BASE__ELEMENTS:
 			case AppPackage.ACTION_BASE__CONTENT:
@@ -391,6 +394,11 @@ public class ActionBaseItemProvider extends LabelItemProvider {
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 		
+		// --- Configuration ---		
+		for (EObject expr: org.nasdanika.ncore.util.Activator.NAMED_EXPRESSIONS_PALETTE.getElements()) {
+			newChildDescriptors.add(createChildParameter(NcorePackage.Literals.CONFIGURABLE__CONFIGURATION, expr));						
+		}		
+				
 		// --- Content ---
 		for (EObject expr: org.nasdanika.ncore.util.Activator.EXPRESSIONS_PALETTE.getElements()) {
 			newChildDescriptors.add(createChildParameter(AppPackage.Literals.ACTION_BASE__CONTENT, expr));						

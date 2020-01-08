@@ -4,6 +4,7 @@ package org.nasdanika.vinci.app;
 
 import org.eclipse.emf.common.util.EList;
 import org.nasdanika.common.SupplierFactory;
+import org.nasdanika.ncore.Configurable;
 
 
 /**
@@ -23,10 +24,10 @@ import org.nasdanika.common.SupplierFactory;
  * </ul>
  *
  * @see org.nasdanika.vinci.app.AppPackage#getAbstractAction()
- * @model interface="true" abstract="true" superTypes="org.nasdanika.vinci.app.BootstrapContainerApplicationBuilder org.nasdanika.vinci.app.ActionElement org.nasdanika.ncore.ISupplierFactory&lt;org.eclipse.emf.ecore.EJavaObject&gt;"
+ * @model interface="true" abstract="true" superTypes="org.nasdanika.vinci.app.BootstrapContainerApplicationBuilder org.nasdanika.vinci.app.ActionElement org.nasdanika.ncore.Configurable org.nasdanika.ncore.ISupplierFactory&lt;org.eclipse.emf.ecore.EJavaObject&gt;"
  * @generated
  */
-public interface AbstractAction extends BootstrapContainerApplicationBuilder, ActionElement, SupplierFactory<Object> {
+public interface AbstractAction extends BootstrapContainerApplicationBuilder, ActionElement, Configurable, SupplierFactory<Object> {
 
 	/**
 	 * Returns the value of the '<em><b>Action Mappings</b></em>' containment reference list.
