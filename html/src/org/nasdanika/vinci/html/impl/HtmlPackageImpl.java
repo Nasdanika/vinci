@@ -6,14 +6,12 @@ import static org.nasdanika.vinci.html.HtmlPackage.CONTAINER;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EGenericType;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EValidator;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
-import org.nasdanika.html.TagName;
 import org.nasdanika.html.app.ViewBuilder;
 import org.nasdanika.html.app.ViewPart;
 import org.nasdanika.ncore.NcorePackage;
@@ -128,13 +126,6 @@ public class HtmlPackageImpl extends EPackageImpl implements HtmlPackage {
 	 * @generated
 	 */
 	private EClass scriptReferenceEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EDataType tagNameEDataType = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -526,16 +517,6 @@ public class HtmlPackageImpl extends EPackageImpl implements HtmlPackage {
 	 * @generated
 	 */
 	@Override
-	public EDataType getTagName() {
-		return tagNameEDataType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public HtmlFactory getHtmlFactory() {
 		return (HtmlFactory)getEFactoryInstance();
 	}
@@ -602,9 +583,6 @@ public class HtmlPackageImpl extends EPackageImpl implements HtmlPackage {
 
 		scriptReferenceEClass = createEClass(SCRIPT_REFERENCE);
 		createEAttribute(scriptReferenceEClass, SCRIPT_REFERENCE__SRC);
-
-		// Create data types
-		tagNameEDataType = createEDataType(TAG_NAME);
 	}
 
 	/**
@@ -757,9 +735,6 @@ public class HtmlPackageImpl extends EPackageImpl implements HtmlPackage {
 		initEClass(scriptReferenceEClass, ScriptReference.class, "ScriptReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getScriptReference_Src(), ecorePackage.getEString(), "src", null, 1, 1, ScriptReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		// Initialize data types
-		initEDataType(tagNameEDataType, TagName.class, "TagName", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
-
 		// Create resource
 		createResource(eNS_URI);
 
@@ -790,13 +765,13 @@ public class HtmlPackageImpl extends EPackageImpl implements HtmlPackage {
 		  (viewPartEClass,
 		   source,
 		   new String[] {
-			   "documentation", "Consumer takes an argument of type T and creates a void work factory. The work factory creates work a given context. When the work is executed with a progress monitor it operates on the consumer argument and returns null."
+			   "documentation", "View part uses ViewGenerator to generate HTML content."
 		   });
 		addAnnotation
 		  (viewBuilderEClass,
 		   source,
 		   new String[] {
-			   "documentation", "Consumer takes an argument of type T and creates a void work factory. The work factory creates work a given context. When the work is executed with a progress monitor it operates on the consumer argument and returns null."
+			   "documentation", "View builder operates on an element passed to it and leverages a View generator."
 		   });
 		addAnnotation
 		  (htmlElementEClass,
@@ -817,6 +792,12 @@ public class HtmlPackageImpl extends EPackageImpl implements HtmlPackage {
 			   "documentation", "Container of content such as text and HTML markup."
 		   });
 		addAnnotation
+		  (getContainer_Content(),
+		   source,
+		   new String[] {
+			   "documentation", "Container content."
+		   });
+		addAnnotation
 		  (getContainer_MarkdownContent(),
 		   source,
 		   new String[] {
@@ -833,6 +814,18 @@ public class HtmlPackageImpl extends EPackageImpl implements HtmlPackage {
 		   source,
 		   new String[] {
 			   "documentation", "Tag name."
+		   });
+		addAnnotation
+		  (getTag_Attributes(),
+		   source,
+		   new String[] {
+			   "documentation", "Tag attributes.\n\n## Interpolation\n\nAttribute values are interpolated, i.e. tokens in the form of ``${token name[|default value]}`` are replaced with the contextual values or default values, if any. Examples:\n\n* ``${my-style}`` - Token without a default value.\n* ``${font-weight|bold}`` - Token with a default value.\n\n## Regular attributes\n\nFor all top-level entries except ``class``, ``style``, and ``data`` attribute value is produced by converting the value to string for scalars and to JSON string for lists and maps. \nFor attributes which do not start with ``data-`` a warning is issued if the value is not a scalar, i.e. a list or a map.\n\n## Class\n\nFor class attribute its value is formed by concantenating elements using space as a separator. If elements are hierarchical then class name is formed by concatenation with a dash (``-``) as a separator.\n\n## Data\n\nIf value of ``data`` attbibute is a map then keys of that map get concatenated with ``data`` using dash (``-``) as a separator, them same applies to nested maps. Non-map values become attribute values - scalars are converted to string, lists are converted to JSON string.\n\n## Style\n\nStyle can be defined as a string, list or map. If style is defined as a list, all list values are concatenated with a space as a separator - it is a convent way for long unstructured definitions.\n\nIf style value is a map then the value and its contained map values are processed in the following fashion:\n\n* Keys are concatenated with dash as a separator.\n* List values are contcatenated wtih space as a separator.\n"
+		   });
+		addAnnotation
+		  (contentTagEClass,
+		   source,
+		   new String[] {
+			   "documentation", "HTML Tag with content."
 		   });
 		addAnnotation
 		  (pageEClass,
@@ -883,10 +876,22 @@ public class HtmlPackageImpl extends EPackageImpl implements HtmlPackage {
 			   "documentation", "If this attribute is set to true [GitHub Markdown CSS](https://github.com/sindresorhus/github-markdown-css) CDN stylesheet reference is added to the head."
 		   });
 		addAnnotation
+		  (stylesheetEClass,
+		   source,
+		   new String[] {
+			   "documentation", "CSS stylesheet with code stored in the model element ``code`` attribute."
+		   });
+		addAnnotation
 		  (getStylesheet_Code(),
 		   source,
 		   new String[] {
 			   "documentation", "Stylesheet code."
+		   });
+		addAnnotation
+		  (stylesheetResourceEClass,
+		   source,
+		   new String[] {
+			   "documentation", "CSS stylesheet with code loaded from a resource specified in the ``location`` attribute."
 		   });
 		addAnnotation
 		  (getStylesheetResource_Location(),
@@ -895,10 +900,22 @@ public class HtmlPackageImpl extends EPackageImpl implements HtmlPackage {
 			   "documentation", "Stylesheet code location relative to the model resource location."
 		   });
 		addAnnotation
+		  (stylesheetReferenceEClass,
+		   source,
+		   new String[] {
+			   "documentation", "Reference to an external stylesheet."
+		   });
+		addAnnotation
 		  (getStylesheetReference_Href(),
 		   source,
 		   new String[] {
 			   "documentation", "Stylesheet URL."
+		   });
+		addAnnotation
+		  (scriptEClass,
+		   source,
+		   new String[] {
+			   "documentation", "Script with code stored in the model element ``code`` attribute."
 		   });
 		addAnnotation
 		  (getScript_Code(),
@@ -907,10 +924,22 @@ public class HtmlPackageImpl extends EPackageImpl implements HtmlPackage {
 			   "documentation", "Script code."
 		   });
 		addAnnotation
+		  (scriptResourceEClass,
+		   source,
+		   new String[] {
+			   "documentation", "Script which loads code from a resource specified in the ``location`` attribute."
+		   });
+		addAnnotation
 		  (getScriptResource_Location(),
 		   source,
 		   new String[] {
 			   "documentation", "Script code location relative to the model resource location."
+		   });
+		addAnnotation
+		  (scriptReferenceEClass,
+		   source,
+		   new String[] {
+			   "documentation", "References external script."
 		   });
 		addAnnotation
 		  (getScriptReference_Src(),

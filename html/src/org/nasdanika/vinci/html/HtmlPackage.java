@@ -4,7 +4,6 @@ package org.nasdanika.vinci.html;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
@@ -833,16 +832,6 @@ public interface HtmlPackage extends EPackage {
 	int SCRIPT_REFERENCE_OPERATION_COUNT = NcorePackage.MODEL_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '<em>Tag Name</em>' data type.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.nasdanika.html.TagName
-	 * @see org.nasdanika.vinci.html.impl.HtmlPackageImpl#getTagName()
-	 * @generated
-	 */
-	int TAG_NAME = 13;
-
-	/**
 	 * Returns the meta object for class '{@link org.nasdanika.html.app.ViewPart <em>View Part</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1172,17 +1161,6 @@ public interface HtmlPackage extends EPackage {
 	EAttribute getScriptReference_Src();
 
 	/**
-	 * Returns the meta object for data type '{@link org.nasdanika.html.TagName <em>Tag Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for data type '<em>Tag Name</em>'.
-	 * @see org.nasdanika.html.TagName
-	 * @model instanceClass="org.nasdanika.html.TagName"
-	 * @generated
-	 */
-	EDataType getTagName();
-
-	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1478,16 +1456,6 @@ public interface HtmlPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute SCRIPT_REFERENCE__SRC = eINSTANCE.getScriptReference_Src();
-
-		/**
-		 * The meta object literal for the '<em>Tag Name</em>' data type.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.nasdanika.html.TagName
-		 * @see org.nasdanika.vinci.html.impl.HtmlPackageImpl#getTagName()
-		 * @generated
-		 */
-		EDataType TAG_NAME = eINSTANCE.getTagName();
 
 	}
 

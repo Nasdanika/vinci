@@ -10,6 +10,10 @@ import org.nasdanika.ncore.ModelElement;
  * A representation of the model object '<em><b>Script</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <!-- begin-model-doc -->
+ * Script with code stored in the model element ``code`` attribute.
+ * <!-- end-model-doc -->
+ *
  * <p>
  * The following features are supported:
  * </p>

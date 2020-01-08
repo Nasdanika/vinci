@@ -11,7 +11,6 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.nasdanika.emf.DiagnosticHelper;
-import org.nasdanika.html.TagName;
 import org.nasdanika.html.app.ViewBuilder;
 import org.nasdanika.html.app.ViewPart;
 import org.nasdanika.ncore.Entry;
@@ -122,8 +121,6 @@ public class HtmlValidator extends EObjectValidator {
 				return validateScriptResource((ScriptResource)value, diagnostics, context);
 			case HtmlPackage.SCRIPT_REFERENCE:
 				return validateScriptReference((ScriptReference)value, diagnostics, context);
-			case HtmlPackage.TAG_NAME:
-				return validateTagName((TagName)value, diagnostics, context);
 			default:
 				return true;
 		}
@@ -299,15 +296,6 @@ public class HtmlValidator extends EObjectValidator {
 	 */
 	public boolean validateScriptReference(ScriptReference scriptReference, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(scriptReference, diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateTagName(TagName tagName, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return true;
 	}
 
 	/**

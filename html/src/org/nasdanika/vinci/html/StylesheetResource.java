@@ -10,6 +10,10 @@ import org.nasdanika.ncore.ModelElement;
  * A representation of the model object '<em><b>Stylesheet Resource</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <!-- begin-model-doc -->
+ * CSS stylesheet with code loaded from a resource specified in the ``location`` attribute.
+ * <!-- end-model-doc -->
+ *
  * <p>
  * The following features are supported:
  * </p>

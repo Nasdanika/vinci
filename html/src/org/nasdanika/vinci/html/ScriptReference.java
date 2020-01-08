@@ -10,6 +10,10 @@ import org.nasdanika.ncore.ModelElement;
  * A representation of the model object '<em><b>Script Reference</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <!-- begin-model-doc -->
+ * References external script.
+ * <!-- end-model-doc -->
+ *
  * <p>
  * The following features are supported:
  * </p>

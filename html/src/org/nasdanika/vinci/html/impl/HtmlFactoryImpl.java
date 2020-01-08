@@ -3,12 +3,10 @@
 package org.nasdanika.vinci.html.impl;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
-import org.nasdanika.html.TagName;
 import org.nasdanika.vinci.html.*;
 import org.nasdanika.vinci.html.ContentTag;
 import org.nasdanika.vinci.html.HtmlFactory;
@@ -72,36 +70,6 @@ public class HtmlFactoryImpl extends EFactoryImpl implements HtmlFactory {
 			case HtmlPackage.SCRIPT_REFERENCE: return createScriptReference();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
-		}
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object createFromString(EDataType eDataType, String initialValue) {
-		switch (eDataType.getClassifierID()) {
-			case HtmlPackage.TAG_NAME:
-				return createTagNameFromString(eDataType, initialValue);
-			default:
-				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
-		}
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String convertToString(EDataType eDataType, Object instanceValue) {
-		switch (eDataType.getClassifierID()) {
-			case HtmlPackage.TAG_NAME:
-				return convertTagNameToString(eDataType, instanceValue);
-			default:
-				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
 	}
 
@@ -213,24 +181,6 @@ public class HtmlFactoryImpl extends EFactoryImpl implements HtmlFactory {
 	public ScriptReference createScriptReference() {
 		ScriptReferenceImpl scriptReference = new ScriptReferenceImpl();
 		return scriptReference;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public TagName createTagNameFromString(EDataType eDataType, String initialValue) {
-		return (TagName)super.createFromString(eDataType, initialValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertTagNameToString(EDataType eDataType, Object instanceValue) {
-		return super.convertToString(eDataType, instanceValue);
 	}
 
 	/**

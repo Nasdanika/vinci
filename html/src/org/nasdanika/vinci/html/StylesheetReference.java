@@ -10,6 +10,10 @@ import org.nasdanika.ncore.ModelElement;
  * A representation of the model object '<em><b>Stylesheet Reference</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <!-- begin-model-doc -->
+ * Reference to an external stylesheet.
+ * <!-- end-model-doc -->
+ *
  * <p>
  * The following features are supported:
  * </p>
