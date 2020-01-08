@@ -12,7 +12,7 @@ import org.nasdanika.common.SupplierFactory;
  *
  * <!-- begin-model-doc -->
  * Base class for concrete action classes - Action and Partition. These sub-classes are semantically equivalent and differ only in diagram representation - Action is represented by a node, Partition by a container node.
- * Action can be a child of another action or of an action category. It may contain content and action elements - abstract actions and action categories. It may also contain action aliases - logical names of actions referenced by this action's content.
+ * Action can be a child of another action or of an action category. It may contain content and action elements - abstract actions and action categories. It may also contain action mappings - logical names of actions referenced by this action's content.
  * <!-- end-model-doc -->
  *
  * <p>
@@ -43,7 +43,23 @@ public interface ActionBase extends Label, AbstractAction, Container<ActionEleme
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Actions may play different roles in their container.
+	 * Actions may play different roles in their container. Action roles are used in automated "wiring" of actions into the generated application:
+	 * 
+	 * For the root action its children are displayed depending on their rolw as follows:
+	 * 
+	 * * Navigation: 
+	 *     * The first navigation child is called "Principal" and is displayed in the navbar brand. 
+	 *     * The remaining navigation children are displayed in navs on the right in the header.
+	 * * Context children are displayed in the footer.
+	 * 
+	 * For the principal action (the first navigation child of the root action):
+	 * 
+	 * * Navigation actions are displayed in the navigation panel on the left.
+	 * * Context actions are displayed in the navbar.
+	 * 
+	 * For other non-section actions navigation children are displayed in the navigation panel and context children are displayed in right-floating navs on the top of the content panel.
+	 * 
+	 * Section actions are displayed as part of the content panel of their parent. Their navigation children are treated as sections and display of their context children depends on the section style.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Role</em>' attribute.
 	 * @see org.nasdanika.vinci.app.ActionRole
@@ -149,6 +165,9 @@ public interface ActionBase extends Label, AbstractAction, Container<ActionEleme
 	 * The literals are from the enumeration {@link org.nasdanika.vinci.app.ActivatorType}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Action activator type. Actions may have no activators. Activator and activator type settings are not used for actions in Section role.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Activator Type</em>' attribute.
 	 * @see org.nasdanika.vinci.app.ActivatorType
 	 * @see #setActivatorType(ActivatorType)
@@ -174,7 +193,7 @@ public interface ActionBase extends Label, AbstractAction, Container<ActionEleme
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Confirmation to display in a confirmation dialog before action execution to give the user an opportunity to cancel the action. E.g. confirmation of deletion.
+	 * Confirmation to display in a confirmation dialog before action activation to give the user an opportunity to cancel the action. E.g. confirmation of deletion.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Confirmation</em>' attribute.
 	 * @see #setConfirmation(String)
@@ -224,7 +243,7 @@ public interface ActionBase extends Label, AbstractAction, Container<ActionEleme
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * If true, then action content is displayed instead of action label. For example, a login form action or a search action can be embedded into a navbar.
+	 * If true, then action content is displayed instead of the action label. For example, a login form action or a search action can be embedded into a navbar.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Embedded</em>' attribute.
 	 * @see #setEmbedded(boolean)
@@ -249,7 +268,7 @@ public interface ActionBase extends Label, AbstractAction, Container<ActionEleme
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Value	[Markdown](https://en.wikipedia.org/wiki/Markdown) text. If this attribute contains text, the text is converted to HTML, interpolated and used as the first content element.
+	 * [Markdown](https://en.wikipedia.org/wiki/Markdown) text. If this attribute contains text, the text is converted to HTML, interpolated and used as the first content element.
 	 * The primary purpose of this attribute is rapid development/prototyping of web applications/sites. 
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Markdown Content</em>' attribute.
@@ -276,7 +295,7 @@ public interface ActionBase extends Label, AbstractAction, Container<ActionEleme
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Action content generator(s).
+	 * Action content.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Content</em>' containment reference list.
 	 * @see org.nasdanika.vinci.app.AppPackage#getActionBase_Content()

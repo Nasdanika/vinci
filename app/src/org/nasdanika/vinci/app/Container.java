@@ -11,7 +11,7 @@ import org.eclipse.emf.ecore.EObject;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * Container of elements
+ * Container of elements.
  * <!-- end-model-doc -->
  *
  * <p>
@@ -32,7 +32,7 @@ public interface Container<E> extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Container elements
+	 * Container elements.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Elements</em>' containment reference list.
 	 * @see org.nasdanika.vinci.app.AppPackage#getContainer_Elements()

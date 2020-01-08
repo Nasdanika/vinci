@@ -9,7 +9,7 @@ package org.nasdanika.vinci.app;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * A link to an external action specification in JSON or YAML format.
+ * A link to an action stored in a resource which is not loaded as part of the editing resource set - it is loaded only during the generation. For example, action link reference may contain interpolation tokens and different actions can be linked based on generation configuration.
  * <!-- end-model-doc -->
  *
  * <p>
@@ -30,6 +30,9 @@ public interface ActionLink extends AbstractAction {
 	 * Returns the value of the '<em><b>Title</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Link title to display in the editor.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Title</em>' attribute.
 	 * @see #setTitle(String)
 	 * @see org.nasdanika.vinci.app.AppPackage#getActionLink_Title()
@@ -52,6 +55,9 @@ public interface ActionLink extends AbstractAction {
 	 * Returns the value of the '<em><b>Description</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Link description.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Description</em>' attribute.
 	 * @see #setDescription(String)
 	 * @see org.nasdanika.vinci.app.AppPackage#getActionLink_Description()
@@ -75,7 +81,7 @@ public interface ActionLink extends AbstractAction {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Action specification URL relsolved relative to the model location.
+	 * Action specification URL interpolated and then relsolved relative to the model location.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Ref</em>' attribute.
 	 * @see #setRef(String)

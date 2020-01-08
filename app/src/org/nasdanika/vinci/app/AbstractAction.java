@@ -35,7 +35,7 @@ public interface AbstractAction extends BootstrapContainerApplicationBuilder, Ac
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A collection of mappings of action logical names to target actions. Aliases are inherited by action children.
+	 * A collection of mappings of action logical names to target actions. Action mappings are inherited by action children.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Action Mappings</em>' containment reference list.
 	 * @see org.nasdanika.vinci.app.AppPackage#getAbstractAction_ActionMappings()

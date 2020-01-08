@@ -12,7 +12,7 @@ import org.nasdanika.vinci.bootstrap.Appearance;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * 
+ * Label is a base class for actions and categories.
  * <!-- end-model-doc -->
  *
  * <p>
@@ -39,7 +39,7 @@ public interface Label extends Entity, SupplierFactory<Object> {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * 
+	 * Label bootstrap color.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Color</em>' attribute.
 	 * @see #setColor(String)
@@ -64,7 +64,7 @@ public interface Label extends Entity, SupplierFactory<Object> {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * 
+	 * Notification to display next to the label. E.g. a number of new messages in an inbox.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Notification</em>' attribute.
 	 * @see #setNotification(String)
@@ -89,7 +89,7 @@ public interface Label extends Entity, SupplierFactory<Object> {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Can be used for cusomization of label appearance in addition to label appearance attributes - color and outline.
+	 * Can be used for cusomization of label appearance in addition to "built-in" label appearance attributes - color and outline.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Appearance</em>' containment reference.
 	 * @see #setAppearance(Appearance)
@@ -114,7 +114,7 @@ public interface Label extends Entity, SupplierFactory<Object> {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * 
+	 * Label text.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Text</em>' attribute.
 	 * @see #setText(String)
@@ -164,7 +164,7 @@ public interface Label extends Entity, SupplierFactory<Object> {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * 
+	 * Label tooltip.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Tooltip</em>' attribute.
 	 * @see #setTooltip(String)
@@ -189,7 +189,7 @@ public interface Label extends Entity, SupplierFactory<Object> {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * 
+	 * For some label representations specifies that the label shall be displayed as an outline instead of a solid fill.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Outline</em>' attribute.
 	 * @see #setOutline(boolean)

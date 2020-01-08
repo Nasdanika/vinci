@@ -31,6 +31,9 @@ public interface BootstrapContainerApplicationPanel extends BootstrapContainerAp
 	 * The list contents are of type {@link org.nasdanika.vinci.bootstrap.ColumnWidth}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Columnt widths for different breakpoints.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Width</em>' containment reference list.
 	 * @see org.nasdanika.vinci.app.AppPackage#getBootstrapContainerApplicationPanel_Width()
 	 * @model containment="true"

@@ -9,7 +9,7 @@ package org.nasdanika.vinci.app;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * 
+ * Grouping of actions.
  * <!-- end-model-doc -->
  *
  *

@@ -6,13 +6,13 @@
   </eAnnotations>
   <eClassifiers xsi:type="ecore:EClass" name="Container" abstract="true" interface="true">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="Container of elements"/>
+      <details key="documentation" value="Container of elements."/>
     </eAnnotations>
     <eTypeParameters name="E"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="elements" upperBound="-1"
         containment="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Container elements"/>
+        <details key="documentation" value="Container elements."/>
       </eAnnotations>
       <eGenericType eTypeParameter="#//Container/E"/>
     </eStructuralFeatures>
@@ -25,19 +25,19 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Label" abstract="true">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value=""/>
+      <details key="documentation" value="Label is a base class for actions and categories."/>
     </eAnnotations>
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
       <details key="constraints" value="color"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="color" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value=""/>
+        <details key="documentation" value="Label bootstrap color."/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value=""/>
+        <details key="documentation" value="Label text."/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="icon" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
@@ -47,23 +47,23 @@
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="tooltip" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value=""/>
+        <details key="documentation" value="Label tooltip."/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="outline" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value=""/>
+        <details key="documentation" value="For some label representations specifies that the label shall be displayed as an outline instead of a solid fill."/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="notification" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value=""/>
+        <details key="documentation" value="Notification to display next to the label. E.g. a number of new messages in an inbox."/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="appearance" eType="ecore:EClass ../../org.nasdanika.vinci.bootstrap/model/bootstrap.ecore#//Appearance"
         containment="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Can be used for cusomization of label appearance in addition to label appearance attributes - color and outline."/>
+        <details key="documentation" value="Can be used for cusomization of label appearance in addition to &quot;built-in&quot; label appearance attributes - color and outline."/>
       </eAnnotations>
     </eStructuralFeatures>
     <eGenericSuperTypes eClassifier="ecore:EClass ../../org.nasdanika.ncore/model/ncore.ecore#//Entity"/>
@@ -93,7 +93,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="actionMappings" upperBound="-1"
         eType="#//ActionMapping" containment="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="A collection of mappings of action logical names to target actions. Aliases are inherited by action children."/>
+        <details key="documentation" value="A collection of mappings of action logical names to target actions. Action mappings are inherited by action children."/>
       </eAnnotations>
     </eStructuralFeatures>
     <eGenericSuperTypes eClassifier="#//BootstrapContainerApplicationBuilder"/>
@@ -105,7 +105,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ActionCategory">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value=""/>
+      <details key="documentation" value="Grouping of actions."/>
     </eAnnotations>
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
       <details key="constraints" value="elements"/>
@@ -117,14 +117,14 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ActionBase" abstract="true">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="Base class for concrete action classes - Action and Partition. These sub-classes are semantically equivalent and differ only in diagram representation - Action is represented by a node, Partition by a container node.&#xA;Action can be a child of another action or of an action category. It may contain content and action elements - abstract actions and action categories. It may also contain action aliases - logical names of actions referenced by this action's content."/>
+      <details key="documentation" value="Base class for concrete action classes - Action and Partition. These sub-classes are semantically equivalent and differ only in diagram representation - Action is represented by a node, Partition by a container node.&#xA;Action can be a child of another action or of an action category. It may contain content and action elements - abstract actions and action categories. It may also contain action mappings - logical names of actions referenced by this action's content."/>
     </eAnnotations>
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
       <details key="constraints" value="sectionStyle"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="role" eType="#//ActionRole">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Actions may play different roles in their container."/>
+        <details key="documentation" value="Actions may play different roles in their container. Action roles are used in automated &quot;wiring&quot; of actions into the generated application:&#xA;&#xA;For the root action its children are displayed depending on their rolw as follows:&#xA;&#xA;* Navigation: &#xA;    * The first navigation child is called &quot;Principal&quot; and is displayed in the navbar brand. &#xA;    * The remaining navigation children are displayed in navs on the right in the header.&#xA;* Context children are displayed in the footer.&#xA;&#xA;For the principal action (the first navigation child of the root action):&#xA;&#xA;* Navigation actions are displayed in the navigation panel on the left.&#xA;* Context actions are displayed in the navbar.&#xA;&#xA;For other non-section actions navigation children are displayed in the navigation panel and context children are displayed in right-floating navs on the top of the content panel.&#xA;&#xA;Section actions are displayed as part of the content panel of their parent. Their navigation children are treated as sections and display of their context children depends on the section style."/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="sectionStyle" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
@@ -143,10 +143,14 @@
         <details key="documentation" value="Activator is either a URL if the activator type is Reference, or a script if the activator type is Script or Bind.&#xA;&#xA;The application generator generates a page for an action only In the activator type is Reference and the URL does not contain ``://`` and does not start with ``/`` or ``./``. &#xA;Using ``./`` is a way to reference externally generated content. For example, create a hierarch/federation of sites."/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="activatorType" eType="#//ActivatorType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="activatorType" eType="#//ActivatorType">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Action activator type. Actions may have no activators. Activator and activator type settings are not used for actions in Section role."/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="confirmation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Confirmation to display in a confirmation dialog before action execution to give the user an opportunity to cancel the action. E.g. confirmation of deletion."/>
+        <details key="documentation" value="Confirmation to display in a confirmation dialog before action activation to give the user an opportunity to cancel the action. E.g. confirmation of deletion."/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="disabled" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
@@ -156,12 +160,12 @@
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="embedded" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="If true, then action content is displayed instead of action label. For example, a login form action or a search action can be embedded into a navbar."/>
+        <details key="documentation" value="If true, then action content is displayed instead of the action label. For example, a login form action or a search action can be embedded into a navbar."/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="markdownContent" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Value&#x9;[Markdown](https://en.wikipedia.org/wiki/Markdown) text. If this attribute contains text, the text is converted to HTML, interpolated and used as the first content element.&#xA;The primary purpose of this attribute is rapid development/prototyping of web applications/sites. "/>
+        <details key="documentation" value="[Markdown](https://en.wikipedia.org/wiki/Markdown) text. If this attribute contains text, the text is converted to HTML, interpolated and used as the first content element.&#xA;The primary purpose of this attribute is rapid development/prototyping of web applications/sites. "/>
       </eAnnotations>
       <eAnnotations source="urn:org.nasdanika">
         <details key="content-type" value="text/markdown"/>
@@ -170,7 +174,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="content" upperBound="-1"
         containment="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Action content generator(s)."/>
+        <details key="documentation" value="Action content."/>
       </eAnnotations>
       <eGenericType eClassifier="ecore:EClass ../../org.nasdanika.ncore/model/ncore.ecore#//ISupplierFactory">
         <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
@@ -192,30 +196,54 @@
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="target" lowerBound="1"
-        eType="#//AbstractAction"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        eType="#//AbstractAction">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Mapping target."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Mapping description."/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ActionLink" eSuperTypes="#//AbstractAction">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="A link to an external action specification in JSON or YAML format."/>
+      <details key="documentation" value="A link to an action stored in a resource which is not loaded as part of the editing resource set - it is loaded only during the generation. For example, action link reference may contain interpolation tokens and different actions can be linked based on generation configuration."/>
     </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="title" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="title" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Link title to display in the editor."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Link description."/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="ref" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Action specification URL relsolved relative to the model location."/>
+        <details key="documentation" value="Action specification URL interpolated and then relsolved relative to the model location."/>
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ActionReference" eSuperTypes="#//AbstractAction">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="Action reference allows to &quot;mount&quot; an existing action as a child of another action."/>
+      <details key="documentation" value="Action reference allows to &quot;mount&quot; an existing action as a child of another action. &#xA;Using action references a single &quot;logical&quot; aciton hierarchy may be assembled from multiple model resources."/>
     </eAnnotations>
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
       <details key="constraints" value="action"/>
     </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="title" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="title" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Reference title to display in the editor."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Reference description."/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="action" lowerBound="1"
         eType="#//AbstractAction">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -295,7 +323,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BootstrapContainerApplication">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="Bootstrap container application is a page builder which structures a page into 5 areas:&#xA;&#xA;* Header&#xA;* Navigation bar&#xA;* Navigation pane&#xA;* Content pane&#xA;* Footer&#xA;&#xA;Page structuring is performed with Bootstrap container, rows and columns. &#xA;&#xA;Appearance of the top-level container can be customized using Appearance child element. Appearance of the row containing navigation and content panels can be customized using ``children/content-row`` attributes section.&#xA;&#xA;E.g. &#xA;&#xA;```yaml&#xA;children:&#xA;    content-row:&#xA;        style:&#xA;            min-height: 15rem&#xA;```&#xA;&#xA;[Overview video](https://www.youtube.com/watch?v=W-hGbnM9wNM) in Russian.&#xA;&#xA;&#xA;"/>
+      <details key="documentation" value="Bootstrap container application is a page builder which structures a page into 5 areas:&#xA;&#xA;* Header&#xA;* Navigation bar&#xA;* Navigation pane&#xA;* Content pane&#xA;* Footer&#xA;&#xA;Page structuring is performed with Bootstrap container, rows and columns. &#xA;&#xA;Appearance of the top-level container can be customized using Appearance child element. Appearance of the row containing navigation and content panels can be customized using ``children/content-row`` attributes section.&#xA;&#xA;E.g. &#xA;&#xA;```yaml&#xA;children:&#xA;    content-row:&#xA;        style:&#xA;            min-height: 15rem&#xA;```&#xA;&#xA;Also application can be customized by providing a stylesheet or script. Script can be used to implement &quot;rules inheritance&quot; which is not supported by CSS. &#xA;Below is a sample script demonstrating the approach:&#xA;&#xA;```&#xA;$(document).ready( function() {&#xA;  $('.nsd-root-action').css(['.display-4']);&#xA;}&#xA;```&#xA;&#xA;[Overview video](https://www.youtube.com/watch?v=W-hGbnM9wNM) in Russian.&#xA;&#xA;&#xA;"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="fluid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -314,11 +342,23 @@
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="navigationBar" eType="#//BootstrapContainerApplicationSection"
-        containment="true"/>
+        containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Navigation bar."/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="navigationPanel" eType="#//BootstrapContainerApplicationPanel"
-        containment="true"/>
+        containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Left navigation panel."/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="contentPanel" eType="#//BootstrapContainerApplicationPanel"
-        containment="true"/>
+        containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Content panel on the right of the navigation panel."/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="footer" eType="#//BootstrapContainerApplicationSection"
         containment="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -328,7 +368,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="builders" upperBound="-1"
         eType="#//BootstrapContainerApplicationBuilder" containment="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Builders operate on an instance of ``org.nasdanika.html.app.impl.BootstrapContainerRouterApplication``&#xA;passed to them by this model element during generation."/>
+        <details key="documentation" value="Builders operate on an instance of ``org.nasdanika.html.app.impl.BootstrapContainerApplication`` or ``org.nasdanika.html.app.impl.BootstrapContainerRouterApplication``&#xA;passed to them by this model element during generation."/>
       </eAnnotations>
     </eStructuralFeatures>
     <eGenericSuperTypes eClassifier="ecore:EClass ../../org.nasdanika.vinci.bootstrap/model/bootstrap.ecore#//BootstrapElement"/>
@@ -349,7 +389,11 @@
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="width" upperBound="-1"
         eType="ecore:EClass ../../org.nasdanika.vinci.bootstrap/model/bootstrap.ecore#//ColumnWidth"
-        containment="true"/>
+        containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Columnt widths for different breakpoints."/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BootstrapContainerApplicationBuilder"
       abstract="true" interface="true">

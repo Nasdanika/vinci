@@ -1136,13 +1136,13 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 		  (containerEClass,
 		   source,
 		   new String[] {
-			   "documentation", "Container of elements"
+			   "documentation", "Container of elements."
 		   });
 		addAnnotation
 		  (getContainer_Elements(),
 		   source,
 		   new String[] {
-			   "documentation", "Container elements"
+			   "documentation", "Container elements."
 		   });
 		addAnnotation
 		  (getContainer_LinkedElements(),
@@ -1154,19 +1154,19 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 		  (labelEClass,
 		   source,
 		   new String[] {
-			   "documentation", ""
+			   "documentation", "Label is a base class for actions and categories."
 		   });
 		addAnnotation
 		  (getLabel_Color(),
 		   source,
 		   new String[] {
-			   "documentation", ""
+			   "documentation", "Label bootstrap color."
 		   });
 		addAnnotation
 		  (getLabel_Text(),
 		   source,
 		   new String[] {
-			   "documentation", ""
+			   "documentation", "Label text."
 		   });
 		addAnnotation
 		  (getLabel_Icon(),
@@ -1178,25 +1178,25 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 		  (getLabel_Tooltip(),
 		   source,
 		   new String[] {
-			   "documentation", ""
+			   "documentation", "Label tooltip."
 		   });
 		addAnnotation
 		  (getLabel_Outline(),
 		   source,
 		   new String[] {
-			   "documentation", ""
+			   "documentation", "For some label representations specifies that the label shall be displayed as an outline instead of a solid fill."
 		   });
 		addAnnotation
 		  (getLabel_Notification(),
 		   source,
 		   new String[] {
-			   "documentation", ""
+			   "documentation", "Notification to display next to the label. E.g. a number of new messages in an inbox."
 		   });
 		addAnnotation
 		  (getLabel_Appearance(),
 		   source,
 		   new String[] {
-			   "documentation", "Can be used for cusomization of label appearance in addition to label appearance attributes - color and outline."
+			   "documentation", "Can be used for cusomization of label appearance in addition to \"built-in\" label appearance attributes - color and outline."
 		   });
 		addAnnotation
 		  (categoryEClass,
@@ -1220,25 +1220,25 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 		  (getAbstractAction_ActionMappings(),
 		   source,
 		   new String[] {
-			   "documentation", "A collection of mappings of action logical names to target actions. Aliases are inherited by action children."
+			   "documentation", "A collection of mappings of action logical names to target actions. Action mappings are inherited by action children."
 		   });
 		addAnnotation
 		  (actionCategoryEClass,
 		   source,
 		   new String[] {
-			   "documentation", ""
+			   "documentation", "Grouping of actions."
 		   });
 		addAnnotation
 		  (actionBaseEClass,
 		   source,
 		   new String[] {
-			   "documentation", "Base class for concrete action classes - Action and Partition. These sub-classes are semantically equivalent and differ only in diagram representation - Action is represented by a node, Partition by a container node.\nAction can be a child of another action or of an action category. It may contain content and action elements - abstract actions and action categories. It may also contain action aliases - logical names of actions referenced by this action\'s content."
+			   "documentation", "Base class for concrete action classes - Action and Partition. These sub-classes are semantically equivalent and differ only in diagram representation - Action is represented by a node, Partition by a container node.\nAction can be a child of another action or of an action category. It may contain content and action elements - abstract actions and action categories. It may also contain action mappings - logical names of actions referenced by this action\'s content."
 		   });
 		addAnnotation
 		  (getActionBase_Role(),
 		   source,
 		   new String[] {
-			   "documentation", "Actions may play different roles in their container."
+			   "documentation", "Actions may play different roles in their container. Action roles are used in automated \"wiring\" of actions into the generated application:\n\nFor the root action its children are displayed depending on their rolw as follows:\n\n* Navigation: \n    * The first navigation child is called \"Principal\" and is displayed in the navbar brand. \n    * The remaining navigation children are displayed in navs on the right in the header.\n* Context children are displayed in the footer.\n\nFor the principal action (the first navigation child of the root action):\n\n* Navigation actions are displayed in the navigation panel on the left.\n* Context actions are displayed in the navbar.\n\nFor other non-section actions navigation children are displayed in the navigation panel and context children are displayed in right-floating navs on the top of the content panel.\n\nSection actions are displayed as part of the content panel of their parent. Their navigation children are treated as sections and display of their context children depends on the section style."
 		   });
 		addAnnotation
 		  (getActionBase_SectionStyle(),
@@ -1259,10 +1259,16 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 			   "documentation", "Activator is either a URL if the activator type is Reference, or a script if the activator type is Script or Bind.\n\nThe application generator generates a page for an action only In the activator type is Reference and the URL does not contain ``://`` and does not start with ``/`` or ``./``. \nUsing ``./`` is a way to reference externally generated content. For example, create a hierarch/federation of sites."
 		   });
 		addAnnotation
+		  (getActionBase_ActivatorType(),
+		   source,
+		   new String[] {
+			   "documentation", "Action activator type. Actions may have no activators. Activator and activator type settings are not used for actions in Section role."
+		   });
+		addAnnotation
 		  (getActionBase_Confirmation(),
 		   source,
 		   new String[] {
-			   "documentation", "Confirmation to display in a confirmation dialog before action execution to give the user an opportunity to cancel the action. E.g. confirmation of deletion."
+			   "documentation", "Confirmation to display in a confirmation dialog before action activation to give the user an opportunity to cancel the action. E.g. confirmation of deletion."
 		   });
 		addAnnotation
 		  (getActionBase_Disabled(),
@@ -1274,19 +1280,19 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 		  (getActionBase_Embedded(),
 		   source,
 		   new String[] {
-			   "documentation", "If true, then action content is displayed instead of action label. For example, a login form action or a search action can be embedded into a navbar."
+			   "documentation", "If true, then action content is displayed instead of the action label. For example, a login form action or a search action can be embedded into a navbar."
 		   });
 		addAnnotation
 		  (getActionBase_MarkdownContent(),
 		   source,
 		   new String[] {
-			   "documentation", "Value\t[Markdown](https://en.wikipedia.org/wiki/Markdown) text. If this attribute contains text, the text is converted to HTML, interpolated and used as the first content element.\nThe primary purpose of this attribute is rapid development/prototyping of web applications/sites. "
+			   "documentation", "[Markdown](https://en.wikipedia.org/wiki/Markdown) text. If this attribute contains text, the text is converted to HTML, interpolated and used as the first content element.\nThe primary purpose of this attribute is rapid development/prototyping of web applications/sites. "
 		   });
 		addAnnotation
 		  (getActionBase_Content(),
 		   source,
 		   new String[] {
-			   "documentation", "Action content generator(s)."
+			   "documentation", "Action content."
 		   });
 		addAnnotation
 		  (actionMappingEClass,
@@ -1301,22 +1307,58 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 			   "documentation", "Logical name of the target action."
 		   });
 		addAnnotation
+		  (getActionMapping_Target(),
+		   source,
+		   new String[] {
+			   "documentation", "Mapping target."
+		   });
+		addAnnotation
+		  (getActionMapping_Description(),
+		   source,
+		   new String[] {
+			   "documentation", "Mapping description."
+		   });
+		addAnnotation
 		  (actionLinkEClass,
 		   source,
 		   new String[] {
-			   "documentation", "A link to an external action specification in JSON or YAML format."
+			   "documentation", "A link to an action stored in a resource which is not loaded as part of the editing resource set - it is loaded only during the generation. For example, action link reference may contain interpolation tokens and different actions can be linked based on generation configuration."
+		   });
+		addAnnotation
+		  (getActionLink_Title(),
+		   source,
+		   new String[] {
+			   "documentation", "Link title to display in the editor."
+		   });
+		addAnnotation
+		  (getActionLink_Description(),
+		   source,
+		   new String[] {
+			   "documentation", "Link description."
 		   });
 		addAnnotation
 		  (getActionLink_Ref(),
 		   source,
 		   new String[] {
-			   "documentation", "Action specification URL relsolved relative to the model location."
+			   "documentation", "Action specification URL interpolated and then relsolved relative to the model location."
 		   });
 		addAnnotation
 		  (actionReferenceEClass,
 		   source,
 		   new String[] {
-			   "documentation", "Action reference allows to \"mount\" an existing action as a child of another action."
+			   "documentation", "Action reference allows to \"mount\" an existing action as a child of another action. \nUsing action references a single \"logical\" aciton hierarchy may be assembled from multiple model resources."
+		   });
+		addAnnotation
+		  (getActionReference_Title(),
+		   source,
+		   new String[] {
+			   "documentation", "Reference title to display in the editor."
+		   });
+		addAnnotation
+		  (getActionReference_Description(),
+		   source,
+		   new String[] {
+			   "documentation", "Reference description."
 		   });
 		addAnnotation
 		  (getActionReference_Action(),
@@ -1412,7 +1454,7 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 		  (bootstrapContainerApplicationEClass,
 		   source,
 		   new String[] {
-			   "documentation", "Bootstrap container application is a page builder which structures a page into 5 areas:\n\n* Header\n* Navigation bar\n* Navigation pane\n* Content pane\n* Footer\n\nPage structuring is performed with Bootstrap container, rows and columns. \n\nAppearance of the top-level container can be customized using Appearance child element. Appearance of the row containing navigation and content panels can be customized using ``children/content-row`` attributes section.\n\nE.g. \n\n```yaml\nchildren:\n    content-row:\n        style:\n            min-height: 15rem\n```\n\n[Overview video](https://www.youtube.com/watch?v=W-hGbnM9wNM) in Russian.\n\n\n"
+			   "documentation", "Bootstrap container application is a page builder which structures a page into 5 areas:\n\n* Header\n* Navigation bar\n* Navigation pane\n* Content pane\n* Footer\n\nPage structuring is performed with Bootstrap container, rows and columns. \n\nAppearance of the top-level container can be customized using Appearance child element. Appearance of the row containing navigation and content panels can be customized using ``children/content-row`` attributes section.\n\nE.g. \n\n```yaml\nchildren:\n    content-row:\n        style:\n            min-height: 15rem\n```\n\nAlso application can be customized by providing a stylesheet or script. Script can be used to implement \"rules inheritance\" which is not supported by CSS. \nBelow is a sample script demonstrating the approach:\n\n```\n$(document).ready( function() {\n  $(\'.nsd-root-action\').css([\'.display-4\']);\n}\n```\n\n[Overview video](https://www.youtube.com/watch?v=W-hGbnM9wNM) in Russian.\n\n\n"
 		   });
 		addAnnotation
 		  (getBootstrapContainerApplication_Fluid(),
@@ -1433,6 +1475,24 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 			   "documentation", "Application header.\n\nThe header may contribute to appearance of its content provided by application builders by specifiying ``title`` and ``navs`` keys under the ``children`` pseudo-attribute of its appearance.\n\nThe ``title`` key defines appearance of the header title - the link of the root action. The ``navs`` key defines appearance of the navigation bar build from the root\'s navigation \nchildren after the first one (the principal action).\n\nExample:\n\n```yaml\nchildren:\n    title:\n        class:\n            display: 4\n            text: light\n        style:\n            text-decoration: none\n    title:\n        class:\n            text: light\n```\n"
 		   });
 		addAnnotation
+		  (getBootstrapContainerApplication_NavigationBar(),
+		   source,
+		   new String[] {
+			   "documentation", "Navigation bar."
+		   });
+		addAnnotation
+		  (getBootstrapContainerApplication_NavigationPanel(),
+		   source,
+		   new String[] {
+			   "documentation", "Left navigation panel."
+		   });
+		addAnnotation
+		  (getBootstrapContainerApplication_ContentPanel(),
+		   source,
+		   new String[] {
+			   "documentation", "Content panel on the right of the navigation panel."
+		   });
+		addAnnotation
 		  (getBootstrapContainerApplication_Footer(),
 		   source,
 		   new String[] {
@@ -1442,7 +1502,7 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 		  (getBootstrapContainerApplication_Builders(),
 		   source,
 		   new String[] {
-			   "documentation", "Builders operate on an instance of ``org.nasdanika.html.app.impl.BootstrapContainerRouterApplication``\npassed to them by this model element during generation."
+			   "documentation", "Builders operate on an instance of ``org.nasdanika.html.app.impl.BootstrapContainerApplication`` or ``org.nasdanika.html.app.impl.BootstrapContainerRouterApplication``\npassed to them by this model element during generation."
 		   });
 		addAnnotation
 		  (bootstrapContainerApplicationSectionEClass,
@@ -1455,6 +1515,12 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 		   source,
 		   new String[] {
 			   "documentation", "Bootstrap container application panel - a section with width spec - navigation panel and content panel."
+		   });
+		addAnnotation
+		  (getBootstrapContainerApplicationPanel_Width(),
+		   source,
+		   new String[] {
+			   "documentation", "Columnt widths for different breakpoints."
 		   });
 		addAnnotation
 		  (bootstrapContainerApplicationBuilderEClass,

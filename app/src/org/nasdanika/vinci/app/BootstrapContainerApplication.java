@@ -34,6 +34,15 @@ import org.nasdanika.vinci.bootstrap.BootstrapElement;
  *             min-height: 15rem
  * ```
  * 
+ * Also application can be customized by providing a stylesheet or script. Script can be used to implement "rules inheritance" which is not supported by CSS. 
+ * Below is a sample script demonstrating the approach:
+ * 
+ * ```
+ * $(document).ready( function() {
+ *   $('.nsd-root-action').css(['.display-4']);
+ * }
+ * ```
+ * 
  * [Overview video](https://www.youtube.com/watch?v=W-hGbnM9wNM) in Russian.
  * 
  * 
@@ -160,6 +169,9 @@ public interface BootstrapContainerApplication extends BootstrapElement, Supplie
 	 * Returns the value of the '<em><b>Navigation Bar</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Navigation bar.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Navigation Bar</em>' containment reference.
 	 * @see #setNavigationBar(BootstrapContainerApplicationSection)
 	 * @see org.nasdanika.vinci.app.AppPackage#getBootstrapContainerApplication_NavigationBar()
@@ -182,6 +194,9 @@ public interface BootstrapContainerApplication extends BootstrapElement, Supplie
 	 * Returns the value of the '<em><b>Navigation Panel</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Left navigation panel.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Navigation Panel</em>' containment reference.
 	 * @see #setNavigationPanel(BootstrapContainerApplicationPanel)
 	 * @see org.nasdanika.vinci.app.AppPackage#getBootstrapContainerApplication_NavigationPanel()
@@ -204,6 +219,9 @@ public interface BootstrapContainerApplication extends BootstrapElement, Supplie
 	 * Returns the value of the '<em><b>Content Panel</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Content panel on the right of the navigation panel.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Content Panel</em>' containment reference.
 	 * @see #setContentPanel(BootstrapContainerApplicationPanel)
 	 * @see org.nasdanika.vinci.app.AppPackage#getBootstrapContainerApplication_ContentPanel()
@@ -267,7 +285,7 @@ public interface BootstrapContainerApplication extends BootstrapElement, Supplie
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Builders operate on an instance of ``org.nasdanika.html.app.impl.BootstrapContainerRouterApplication``
+	 * Builders operate on an instance of ``org.nasdanika.html.app.impl.BootstrapContainerApplication`` or ``org.nasdanika.html.app.impl.BootstrapContainerRouterApplication``
 	 * passed to them by this model element during generation.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Builders</em>' containment reference list.

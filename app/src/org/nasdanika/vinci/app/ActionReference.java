@@ -9,7 +9,8 @@ package org.nasdanika.vinci.app;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * Action reference allows to "mount" an existing action as a child of another action.
+ * Action reference allows to "mount" an existing action as a child of another action. 
+ * Using action references a single "logical" aciton hierarchy may be assembled from multiple model resources.
  * <!-- end-model-doc -->
  *
  * <p>
@@ -30,6 +31,9 @@ public interface ActionReference extends AbstractAction {
 	 * Returns the value of the '<em><b>Title</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Reference title to display in the editor.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Title</em>' attribute.
 	 * @see #setTitle(String)
 	 * @see org.nasdanika.vinci.app.AppPackage#getActionReference_Title()
@@ -52,6 +56,9 @@ public interface ActionReference extends AbstractAction {
 	 * Returns the value of the '<em><b>Description</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Reference description.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Description</em>' attribute.
 	 * @see #setDescription(String)
 	 * @see org.nasdanika.vinci.app.AppPackage#getActionReference_Description()
