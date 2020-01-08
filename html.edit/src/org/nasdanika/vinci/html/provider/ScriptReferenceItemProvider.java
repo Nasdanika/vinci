@@ -79,7 +79,7 @@ public class ScriptReferenceItemProvider
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/ScriptReference"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ScriptReference.png"));
 	}
 
 	/**
@@ -96,14 +96,12 @@ public class ScriptReferenceItemProvider
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getText(Object object) {
 		String label = ((ScriptReference)object).getTitle();
-		return label == null || label.length() == 0 ?
-			getString("_UI_ScriptReference_type") :
-			getString("_UI_ScriptReference_type") + " " + label;
+		return label == null || label.length() == 0 ? getString("_UI_ScriptReference_type") : label;
 	}
 
 

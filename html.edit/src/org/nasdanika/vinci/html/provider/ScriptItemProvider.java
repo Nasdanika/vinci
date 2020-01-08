@@ -75,11 +75,12 @@ public class ScriptItemProvider
 	 * This returns Script.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
-	@Override
+	@Override 
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Script"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Script.png"));
+		
 	}
 
 	/**
@@ -96,14 +97,12 @@ public class ScriptItemProvider
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getText(Object object) {
 		String label = ((Script)object).getTitle();
-		return label == null || label.length() == 0 ?
-			getString("_UI_Script_type") :
-			getString("_UI_Script_type") + " " + label;
+		return label == null || label.length() == 0 ? getString("_UI_Script_type") : label;
 	}
 
 

@@ -3,16 +3,19 @@
 package org.nasdanika.vinci.html.provider;
 
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
+import org.eclipse.emf.edit.provider.ComposedImage;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.nasdanika.ncore.provider.ModelElementItemProvider;
+import org.nasdanika.ncore.provider.NcoreEditPlugin;
 import org.nasdanika.vinci.html.HtmlPackage;
 import org.nasdanika.vinci.html.StylesheetResource;
 
@@ -79,7 +82,12 @@ public class StylesheetResourceItemProvider
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/StylesheetResource"));
+		Object image = overlayImage(object, getResourceLocator().getImage("full/obj16/Stylesheet.png"));
+		List<Object> images = new ArrayList<Object>(2);
+		images.add(image);
+		images.add(NcoreEditPlugin.INSTANCE.getImage("full/obj16/LinkDecorator.gif"));
+		return new ComposedImage(images);		
+		
 	}
 
 	/**
@@ -96,14 +104,12 @@ public class StylesheetResourceItemProvider
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getText(Object object) {
 		String label = ((StylesheetResource)object).getTitle();
-		return label == null || label.length() == 0 ?
-			getString("_UI_StylesheetResource_type") :
-			getString("_UI_StylesheetResource_type") + " " + label;
+		return label == null || label.length() == 0 ? getString("_UI_StylesheetResource_type") : label;
 	}
 
 

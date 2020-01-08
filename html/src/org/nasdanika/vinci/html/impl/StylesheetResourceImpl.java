@@ -147,7 +147,7 @@ public class StylesheetResourceImpl extends ModelElementImpl implements Styleshe
 				
 				@Override
 				public Object generate(ViewGenerator viewGenerator, ProgressMonitor progressMonitor) {
-					return viewGenerator.get(HTMLFactory.class).tag(TagName.style, url); // TODO - support interpolation.
+					return viewGenerator.get(HTMLFactory.class).tag(TagName.style, System.lineSeparator(), url, System.lineSeparator()); // TODO - support interpolation.
 				}
 				
 			};

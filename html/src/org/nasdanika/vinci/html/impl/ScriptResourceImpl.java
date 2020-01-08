@@ -147,7 +147,7 @@ public class ScriptResourceImpl extends ModelElementImpl implements ScriptResour
 				
 				@Override
 				public Object generate(ViewGenerator viewGenerator, ProgressMonitor progressMonitor) {
-					return viewGenerator.get(HTMLFactory.class).tag(TagName.script, url); // TODO - support interpolation.
+					return viewGenerator.get(HTMLFactory.class).tag(TagName.script, System.lineSeparator(), url, System.lineSeparator()); // TODO - support interpolation.
 				}
 				
 			};
