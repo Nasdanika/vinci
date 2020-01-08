@@ -232,6 +232,7 @@
               <firstModelOperations xsi:type="tool:Navigation" createIfNotExistent="true" diagramDescription="//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='CategoryDiagram']"/>
             </initialOperation>
           </ownedTools>
+          <ownedTools xsi:type="tool_1:ExternalJavaAction" name="generateApplicationExternalJavaAction" label="Generate Application" id="org.nasdanika.vinci.design.generateApplicationExternalJavaAction"/>
         </toolSections>
       </defaultLayer>
     </ownedRepresentations>

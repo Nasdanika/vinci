@@ -7,4 +7,11 @@
 	       name="vinci">
     </component>
   </extension>
+  <extension
+        point="org.eclipse.sirius.externalJavaAction">
+     <javaActions
+           actionClass="org.nasdanika.vinci.design.GenerateApplicationExternalJavaAction"
+           id="org.nasdanika.vinci.design.generateApplicationExternalJavaAction">
+     </javaActions>
+  </extension>
 </plugin>

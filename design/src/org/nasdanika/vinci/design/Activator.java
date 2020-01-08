@@ -8,6 +8,7 @@ import java.util.Set;
 import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.action.IContributionItem;
 import org.eclipse.jface.viewers.ISelection;
+import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.ITreeContentProvider;
 import org.eclipse.sirius.business.api.componentization.ViewpointRegistry;
 import org.eclipse.sirius.ui.tools.api.views.ViewHelper;
@@ -17,6 +18,8 @@ import org.eclipse.sirius.ui.tools.internal.views.modelexplorer.extension.ISessi
 import org.eclipse.sirius.viewpoint.description.Viewpoint;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.nasdanika.emf.edit.EReferenceItemProvider;
+import org.nasdanika.vinci.app.ActionBase;
+import org.nasdanika.vinci.presentation.GenerateApplicationAction;
 import org.osgi.framework.BundleContext;
 
 /**
@@ -65,6 +68,15 @@ public class Activator extends AbstractUIPlugin {
 						
 						@Override
 						public Iterable<IAction> getContextMenuActions(ISelection selection) {
+							if (!selection.isEmpty() && selection instanceof IStructuredSelection) {
+								IStructuredSelection ss = (IStructuredSelection) selection;
+								if (ss.size() == 1 
+										&& ss.getFirstElement() instanceof ActionBase
+										&& ((ActionBase) ss.getFirstElement()).eContainer() == null) {
+									
+									return Collections.singleton(new GenerateApplicationAction<ActionBase>("Generate application", (ActionBase) ss.getFirstElement(), null));																		
+								}
+							}
 							return Collections.emptySet();
 						}
 						
