@@ -9,7 +9,7 @@ import org.eclipse.jface.action.Action;
 import org.eclipse.sirius.tools.api.ui.IExternalJavaAction;
 import org.eclipse.sirius.viewpoint.DRepresentationElement;
 import org.nasdanika.vinci.app.ActionBase;
-import org.nasdanika.vinci.presentation.GenerateApplicationAction;
+import org.nasdanika.vinci.presentation.GenerateTemplatedApplicationAction;
 
 
 public class GenerateApplicationExternalJavaAction implements IExternalJavaAction {
@@ -32,7 +32,7 @@ public class GenerateApplicationExternalJavaAction implements IExternalJavaActio
 	@Override
 	public void execute(Collection<? extends EObject> selection, Map<String, Object> context) {
 		ActionBase action = (ActionBase) ((DRepresentationElement) selection.iterator().next()).getSemanticElements().iterator().next();
-		Action generateApplicationAction = new GenerateApplicationAction<ActionBase>("Generate application", action, null);
+		Action generateApplicationAction = new GenerateTemplatedApplicationAction("Generate application", action, null);
 		generateApplicationAction.run();
 	}
 

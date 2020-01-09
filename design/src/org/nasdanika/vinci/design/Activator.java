@@ -5,8 +5,10 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.action.IContributionItem;
+import org.eclipse.jface.action.MenuManager;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.ITreeContentProvider;
@@ -17,9 +19,14 @@ import org.eclipse.sirius.ui.tools.internal.views.modelexplorer.extension.IConte
 import org.eclipse.sirius.ui.tools.internal.views.modelexplorer.extension.ISessionViewExtension;
 import org.eclipse.sirius.viewpoint.description.Viewpoint;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
+import org.nasdanika.common.SupplierFactory;
 import org.nasdanika.emf.edit.EReferenceItemProvider;
-import org.nasdanika.vinci.app.ActionBase;
+import org.nasdanika.vinci.app.AbstractAction;
+import org.nasdanika.vinci.bootstrap.BootstrapPage;
 import org.nasdanika.vinci.presentation.GenerateApplicationAction;
+import org.nasdanika.vinci.presentation.GenerateBootstrapPageAction;
+import org.nasdanika.vinci.presentation.GenerateContentAction;
+import org.nasdanika.vinci.presentation.GenerateTemplatedApplicationAction;
 import org.osgi.framework.BundleContext;
 
 /**
@@ -62,21 +69,32 @@ public class Activator extends AbstractUIPlugin {
 					return new IContextMenuActionProvider() {
 						
 						@Override
+						@SuppressWarnings({ "unchecked", "rawtypes" })
 						public Iterable<IContributionItem> getContextualMenuContributionItems(ISelection selection) {
+							if (!selection.isEmpty() && selection instanceof IStructuredSelection && ((IStructuredSelection) selection).size() == 1) {
+								MenuManager generateMenuManager = new MenuManager("Generate");
+								Object selectedElement = ((IStructuredSelection) selection).getFirstElement();
+								
+								if (selectedElement instanceof BootstrapPage) {
+									BootstrapPage page = (BootstrapPage) selectedElement;
+									if (!page.getBuilders().isEmpty()) {
+										generateMenuManager.add(new GenerateApplicationAction<BootstrapPage>("Application", page, null));
+									}
+									generateMenuManager.add(new GenerateContentAction("Content", (EObject) selectedElement, null));		
+								} else if (selectedElement instanceof AbstractAction) {
+									// TODO - multiple templates, categorize.
+									generateMenuManager.add(new GenerateTemplatedApplicationAction("Application", (AbstractAction) selectedElement, null));						
+								} else if (selectedElement instanceof SupplierFactory) {
+									generateMenuManager.add(new GenerateContentAction("Content", (EObject) selectedElement, null));			
+									generateMenuManager.add(new GenerateBootstrapPageAction("Bootstrap page", (EObject) selectedElement, null));			
+								}
+								return Collections.singleton(generateMenuManager);
+							}
 							return Collections.emptySet();
 						}
 						
 						@Override
 						public Iterable<IAction> getContextMenuActions(ISelection selection) {
-							if (!selection.isEmpty() && selection instanceof IStructuredSelection) {
-								IStructuredSelection ss = (IStructuredSelection) selection;
-								if (ss.size() == 1 
-										&& ss.getFirstElement() instanceof ActionBase
-										&& ((ActionBase) ss.getFirstElement()).eContainer() == null) {
-									
-									return Collections.singleton(new GenerateApplicationAction<ActionBase>("Generate application", (ActionBase) ss.getFirstElement(), null));																		
-								}
-							}
 							return Collections.emptySet();
 						}
 						
