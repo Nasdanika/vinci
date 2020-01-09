@@ -10,14 +10,6 @@
   <foreignModel>app.ecore</foreignModel>
   <genPackages prefix="App" basePackage="org.nasdanika.vinci" disposableProviderFactory="true"
       ecorePackage="app.ecore#/">
-    <genEnums typeSafeEnumCompatible="false" ecoreEnum="app.ecore#//ActionRole">
-      <genEnumLiterals ecoreEnumLiteral="app.ecore#//ActionRole/Navigation"/>
-      <genEnumLiterals ecoreEnumLiteral="app.ecore#//ActionRole/Context"/>
-      <genEnumLiterals ecoreEnumLiteral="app.ecore#//ActionRole/Section"/>
-      <genEnumLiterals ecoreEnumLiteral="app.ecore#//ActionRole/View"/>
-      <genEnumLiterals ecoreEnumLiteral="app.ecore#//ActionRole/Edit"/>
-      <genEnumLiterals ecoreEnumLiteral="app.ecore#//ActionRole/None"/>
-    </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="app.ecore#//ActivatorType">
       <genEnumLiterals ecoreEnumLiteral="app.ecore#//ActivatorType/Reference"/>
       <genEnumLiterals ecoreEnumLiteral="app.ecore#//ActivatorType/Script"/>

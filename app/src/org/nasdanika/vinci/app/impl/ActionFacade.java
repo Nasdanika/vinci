@@ -14,7 +14,6 @@ import org.nasdanika.common.Util;
 import org.nasdanika.html.Fragment;
 import org.nasdanika.html.HTMLElement;
 import org.nasdanika.html.HTMLFactory;
-import org.nasdanika.html.app.Action;
 import org.nasdanika.html.app.Decorator;
 import org.nasdanika.html.app.NavigationActionActivator;
 import org.nasdanika.html.app.ScriptActionActivator;
@@ -95,7 +94,7 @@ public class ActionFacade extends org.nasdanika.html.app.impl.ActionImpl impleme
 		case REFERENCE:
 			if (Util.isBlank(activator) && !Util.isBlank(target.getId())) {
 				activator = target.getId() + ".html";
-				if (target.getRole() == ActionRole.SECTION) {
+				if ("Section".equals(target.getRole())) {
 					activator += "#" + target.getId();
 				}
 			}
@@ -193,27 +192,9 @@ public class ActionFacade extends org.nasdanika.html.app.impl.ActionImpl impleme
 		
 		setSectionStyle(Util.isBlank(target.getSectionStyle()) ? SectionStyle.AUTO : SectionStyle.fromLabel(target.getSectionStyle()));
 
-		switch (target.getRole()) {
-		case CONTEXT:
-			getRoles().add(Action.Role.CONTEXT);
-			break;
-		case EDIT:
-			getRoles().add(Action.Role.EDIT);
-			break;
-		case NAVIGATION:
-			getRoles().add(Action.Role.NAVIGATION);
-			break;
-		case SECTION:
-			getRoles().add(Action.Role.SECTION);
-			break;
-		case VIEW:
-			getRoles().add(Action.Role.VIEW);
-			break;
-		case NONE:
-			break;
-		default:
-			getRoles().add(target.getRole().name());
-			break;
+		ActionRole role = ActionRole.fromLabel(target.getRole());
+		if (!Util.isBlank(role.code)) {
+			getRoles().add(role.code);
 		}
 
 		this.content = content;

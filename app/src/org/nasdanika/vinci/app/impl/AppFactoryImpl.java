@@ -8,19 +8,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
-import org.nasdanika.vinci.app.Action;
-import org.nasdanika.vinci.app.ActionCategory;
-import org.nasdanika.vinci.app.ActionLink;
-import org.nasdanika.vinci.app.ActionMapping;
-import org.nasdanika.vinci.app.ActionReference;
-import org.nasdanika.vinci.app.ActionRole;
-import org.nasdanika.vinci.app.ActivatorType;
-import org.nasdanika.vinci.app.AppFactory;
-import org.nasdanika.vinci.app.AppPackage;
-import org.nasdanika.vinci.app.BootstrapContainerApplication;
-import org.nasdanika.vinci.app.BootstrapContainerApplicationPanel;
-import org.nasdanika.vinci.app.BootstrapContainerApplicationSection;
-import org.nasdanika.vinci.app.Partition;
+import org.nasdanika.vinci.app.*;
 
 /**
  * <!-- begin-user-doc -->
@@ -88,8 +76,6 @@ public class AppFactoryImpl extends EFactoryImpl implements AppFactory {
 	@Override
 	public Object createFromString(EDataType eDataType, String initialValue) {
 		switch (eDataType.getClassifierID()) {
-			case AppPackage.ACTION_ROLE:
-				return createActionRoleFromString(eDataType, initialValue);
 			case AppPackage.ACTIVATOR_TYPE:
 				return createActivatorTypeFromString(eDataType, initialValue);
 			default:
@@ -105,8 +91,6 @@ public class AppFactoryImpl extends EFactoryImpl implements AppFactory {
 	@Override
 	public String convertToString(EDataType eDataType, Object instanceValue) {
 		switch (eDataType.getClassifierID()) {
-			case AppPackage.ACTION_ROLE:
-				return convertActionRoleToString(eDataType, instanceValue);
 			case AppPackage.ACTIVATOR_TYPE:
 				return convertActivatorTypeToString(eDataType, instanceValue);
 			default:
@@ -211,26 +195,6 @@ public class AppFactoryImpl extends EFactoryImpl implements AppFactory {
 	public ActionReference createActionReference() {
 		ActionReferenceImpl actionReference = new ActionReferenceImpl();
 		return actionReference;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ActionRole createActionRoleFromString(EDataType eDataType, String initialValue) {
-		ActionRole result = ActionRole.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertActionRoleToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
 	}
 
 	/**

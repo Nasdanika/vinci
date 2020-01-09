@@ -43,7 +43,6 @@ import org.nasdanika.vinci.app.ActionBase;
 import org.nasdanika.vinci.app.ActionCategory;
 import org.nasdanika.vinci.app.ActionElement;
 import org.nasdanika.vinci.app.ActionMapping;
-import org.nasdanika.vinci.app.ActionRole;
 import org.nasdanika.vinci.app.ActivatorType;
 import org.nasdanika.vinci.app.AppPackage;
 import org.nasdanika.vinci.app.BootstrapContainerApplicationBuilder;
@@ -84,7 +83,7 @@ public abstract class ActionBaseImpl extends LabelImpl implements ActionBase {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final ActionRole ROLE_EDEFAULT = ActionRole.NAVIGATION;
+	protected static final String ROLE_EDEFAULT = "Navigation";
 
 	/**
 	 * The default value of the '{@link #getSectionStyle() <em>Section Style</em>}' attribute.
@@ -235,8 +234,8 @@ public abstract class ActionBaseImpl extends LabelImpl implements ActionBase {
 	 * @generated
 	 */
 	@Override
-	public ActionRole getRole() {
-		return (ActionRole)eDynamicGet(AppPackage.ACTION_BASE__ROLE, AppPackage.Literals.ACTION_BASE__ROLE, true, true);
+	public String getRole() {
+		return (String)eDynamicGet(AppPackage.ACTION_BASE__ROLE, AppPackage.Literals.ACTION_BASE__ROLE, true, true);
 	}
 
 	/**
@@ -245,7 +244,7 @@ public abstract class ActionBaseImpl extends LabelImpl implements ActionBase {
 	 * @generated
 	 */
 	@Override
-	public void setRole(ActionRole newRole) {
+	public void setRole(String newRole) {
 		eDynamicSet(AppPackage.ACTION_BASE__ROLE, AppPackage.Literals.ACTION_BASE__ROLE, newRole);
 	}
 
@@ -565,7 +564,7 @@ public abstract class ActionBaseImpl extends LabelImpl implements ActionBase {
 				getLinkedElements().addAll((Collection<? extends ActionElement>)newValue);
 				return;
 			case AppPackage.ACTION_BASE__ROLE:
-				setRole((ActionRole)newValue);
+				setRole((String)newValue);
 				return;
 			case AppPackage.ACTION_BASE__SECTION_STYLE:
 				setSectionStyle((String)newValue);
@@ -670,7 +669,7 @@ public abstract class ActionBaseImpl extends LabelImpl implements ActionBase {
 			case AppPackage.ACTION_BASE__LINKED_ELEMENTS:
 				return !getLinkedElements().isEmpty();
 			case AppPackage.ACTION_BASE__ROLE:
-				return getRole() != ROLE_EDEFAULT;
+				return ROLE_EDEFAULT == null ? getRole() != null : !ROLE_EDEFAULT.equals(getRole());
 			case AppPackage.ACTION_BASE__SECTION_STYLE:
 				return SECTION_STYLE_EDEFAULT == null ? getSectionStyle() != null : !SECTION_STYLE_EDEFAULT.equals(getSectionStyle());
 			case AppPackage.ACTION_BASE__SECTION_COLUMNS:

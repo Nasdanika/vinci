@@ -1907,16 +1907,6 @@ public interface AppPackage extends EPackage {
 	int BOOTSTRAP_CONTAINER_APPLICATION_PANEL_OPERATION_COUNT = BOOTSTRAP_CONTAINER_APPLICATION_SECTION_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link org.nasdanika.vinci.app.ActionRole <em>Action Role</em>}' enum.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.nasdanika.vinci.app.ActionRole
-	 * @see org.nasdanika.vinci.app.impl.AppPackageImpl#getActionRole()
-	 * @generated
-	 */
-	int ACTION_ROLE = 16;
-
-	/**
 	 * The meta object id for the '{@link org.nasdanika.vinci.app.ActivatorType <em>Activator Type</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1924,7 +1914,7 @@ public interface AppPackage extends EPackage {
 	 * @see org.nasdanika.vinci.app.impl.AppPackageImpl#getActivatorType()
 	 * @generated
 	 */
-	int ACTIVATOR_TYPE = 17;
+	int ACTIVATOR_TYPE = 16;
 
 	/**
 	 * Returns the meta object for class '{@link org.nasdanika.vinci.app.Label <em>Label</em>}'.
@@ -2320,16 +2310,6 @@ public interface AppPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getActionReference_Action();
-
-	/**
-	 * Returns the meta object for enum '{@link org.nasdanika.vinci.app.ActionRole <em>Action Role</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for enum '<em>Action Role</em>'.
-	 * @see org.nasdanika.vinci.app.ActionRole
-	 * @generated
-	 */
-	EEnum getActionRole();
 
 	/**
 	 * Returns the meta object for enum '{@link org.nasdanika.vinci.app.ActivatorType <em>Activator Type</em>}'.
@@ -2874,16 +2854,6 @@ public interface AppPackage extends EPackage {
 		 * @generated
 		 */
 		EReference ACTION_REFERENCE__ACTION = eINSTANCE.getActionReference_Action();
-
-		/**
-		 * The meta object literal for the '{@link org.nasdanika.vinci.app.ActionRole <em>Action Role</em>}' enum.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.nasdanika.vinci.app.ActionRole
-		 * @see org.nasdanika.vinci.app.impl.AppPackageImpl#getActionRole()
-		 * @generated
-		 */
-		EEnum ACTION_ROLE = eINSTANCE.getActionRole();
 
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.vinci.app.ActivatorType <em>Activator Type</em>}' enum.

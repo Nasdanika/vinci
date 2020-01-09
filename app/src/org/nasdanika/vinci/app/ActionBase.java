@@ -39,11 +39,11 @@ import org.nasdanika.common.SupplierFactory;
 public interface ActionBase extends Label, AbstractAction, Container<ActionElement> {
 	/**
 	 * Returns the value of the '<em><b>Role</b></em>' attribute.
-	 * The literals are from the enumeration {@link org.nasdanika.vinci.app.ActionRole}.
+	 * The default value is <code>"Navigation"</code>.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Actions may play different roles in their container. Action roles are used in automated "wiring" of actions into the generated application:
+	 * Action roles are used in "wiring" of actions into the generated Web UI.
 	 * 
 	 * For the root action its children are displayed depending on their rolw as follows:
 	 * 
@@ -59,27 +59,29 @@ public interface ActionBase extends Label, AbstractAction, Container<ActionEleme
 	 * 
 	 * For other non-section actions navigation children are displayed in the navigation panel and context children are displayed in right-floating navs on the top of the content panel.
 	 * 
-	 * Section actions are displayed as part of the content panel of their parent. Their navigation children are treated as sections and display of their context children depends on the section style.
+	 * Section actions are displayed as part of the content panel body of their parent. Their navigation children are treated as sections and display of their context children depends on the section style.
+	 * 
+	 * Content left and Content right acitons are displayed on the left and right of the content body respectively.
+	 * 
+	 * View and Edit actions are applicable for properties and property sources.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Role</em>' attribute.
-	 * @see org.nasdanika.vinci.app.ActionRole
-	 * @see #setRole(ActionRole)
+	 * @see #setRole(String)
 	 * @see org.nasdanika.vinci.app.AppPackage#getActionBase_Role()
-	 * @model
+	 * @model default="Navigation"
 	 * @generated
 	 */
-	ActionRole getRole();
+	String getRole();
 
 	/**
 	 * Sets the value of the '{@link org.nasdanika.vinci.app.ActionBase#getRole <em>Role</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Role</em>' attribute.
-	 * @see org.nasdanika.vinci.app.ActionRole
 	 * @see #getRole()
 	 * @generated
 	 */
-	void setRole(ActionRole value);
+	void setRole(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Section Style</b></em>' attribute.

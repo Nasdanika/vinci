@@ -23,25 +23,7 @@ import org.nasdanika.common.Util;
 import org.nasdanika.emf.DiagnosticHelper;
 import org.nasdanika.html.app.SectionStyle;
 import org.nasdanika.html.bootstrap.Color;
-import org.nasdanika.vinci.app.AbstractAction;
-import org.nasdanika.vinci.app.Action;
-import org.nasdanika.vinci.app.ActionBase;
-import org.nasdanika.vinci.app.ActionCategory;
-import org.nasdanika.vinci.app.ActionElement;
-import org.nasdanika.vinci.app.ActionLink;
-import org.nasdanika.vinci.app.ActionMapping;
-import org.nasdanika.vinci.app.ActionReference;
-import org.nasdanika.vinci.app.ActionRole;
-import org.nasdanika.vinci.app.ActivatorType;
-import org.nasdanika.vinci.app.AppPackage;
-import org.nasdanika.vinci.app.BootstrapContainerApplication;
-import org.nasdanika.vinci.app.BootstrapContainerApplicationBuilder;
-import org.nasdanika.vinci.app.BootstrapContainerApplicationPanel;
-import org.nasdanika.vinci.app.BootstrapContainerApplicationSection;
-import org.nasdanika.vinci.app.Category;
-import org.nasdanika.vinci.app.Container;
-import org.nasdanika.vinci.app.Label;
-import org.nasdanika.vinci.app.Partition;
+import org.nasdanika.vinci.app.*;
 
 /**
  * <!-- begin-user-doc -->
@@ -147,8 +129,6 @@ public class AppValidator extends EObjectValidator {
 				return validateBootstrapContainerApplicationPanel((BootstrapContainerApplicationPanel)value, diagnostics, context);
 			case AppPackage.BOOTSTRAP_CONTAINER_APPLICATION_BUILDER:
 				return validateBootstrapContainerApplicationBuilder((BootstrapContainerApplicationBuilder)value, diagnostics, context);
-			case AppPackage.ACTION_ROLE:
-				return validateActionRole((ActionRole)value, diagnostics, context);
 			case AppPackage.ACTIVATOR_TYPE:
 				return validateActivatorType((ActivatorType)value, diagnostics, context);
 			default:
@@ -472,15 +452,6 @@ public class AppValidator extends EObjectValidator {
 	 */
 	public boolean validateBootstrapContainerApplicationBuilder(BootstrapContainerApplicationBuilder bootstrapContainerApplicationBuilder, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(bootstrapContainerApplicationBuilder, diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateActionRole(ActionRole actionRole, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return true;
 	}
 
 	/**

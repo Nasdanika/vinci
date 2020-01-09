@@ -31,7 +31,6 @@ import org.nasdanika.common.resources.BinaryEntityContainer;
 import org.nasdanika.eclipse.ProgressMonitorAdapter;
 import org.nasdanika.eclipse.resources.EclipseContainer;
 import org.nasdanika.vinci.app.ActionReference;
-import org.nasdanika.vinci.app.ActionRole;
 import org.nasdanika.vinci.app.ActivatorType;
 
 /**
@@ -136,7 +135,7 @@ public class GenerateApplicationAction<T extends EObject & SupplierFactory<Objec
 			String url = action.getActivator();
 			if (Util.isBlank(url)) {
 				url = action.getId()+".html";
-				if (action.getRole() == ActionRole.SECTION) {
+				if ("Section".equals(action.getRole())) {
 					url += "#" + action.getId();
 				}
 			}

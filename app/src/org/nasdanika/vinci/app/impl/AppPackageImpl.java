@@ -23,7 +23,6 @@ import org.nasdanika.vinci.app.ActionElement;
 import org.nasdanika.vinci.app.ActionLink;
 import org.nasdanika.vinci.app.ActionMapping;
 import org.nasdanika.vinci.app.ActionReference;
-import org.nasdanika.vinci.app.ActionRole;
 import org.nasdanika.vinci.app.ActivatorType;
 import org.nasdanika.vinci.app.AppFactory;
 import org.nasdanika.vinci.app.AppPackage;
@@ -121,13 +120,6 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 	 * @generated
 	 */
 	private EClass actionReferenceEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EEnum actionRoleEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -623,16 +615,6 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 	 * @generated
 	 */
 	@Override
-	public EEnum getActionRole() {
-		return actionRoleEEnum;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EEnum getActivatorType() {
 		return activatorTypeEEnum;
 	}
@@ -918,7 +900,6 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 		createEOperation(bootstrapContainerApplicationBuilderEClass, BOOTSTRAP_CONTAINER_APPLICATION_BUILDER___CREATE_APPLICATION_BUILDER_SUPPLIER__CONTEXT);
 
 		// Create enums
-		actionRoleEEnum = createEEnum(ACTION_ROLE);
 		activatorTypeEEnum = createEEnum(ACTIVATOR_TYPE);
 	}
 
@@ -1033,7 +1014,7 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 		initEClass(actionCategoryEClass, ActionCategory.class, "ActionCategory", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(actionBaseEClass, ActionBase.class, "ActionBase", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getActionBase_Role(), this.getActionRole(), "role", null, 0, 1, ActionBase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getActionBase_Role(), ecorePackage.getEString(), "role", "Navigation", 0, 1, ActionBase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getActionBase_SectionStyle(), ecorePackage.getEString(), "sectionStyle", null, 0, 1, ActionBase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getActionBase_SectionColumns(), ecorePackage.getEInt(), "sectionColumns", "3", 0, 1, ActionBase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getActionBase_Activator(), ecorePackage.getEString(), "activator", null, 0, 1, ActionBase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1092,14 +1073,6 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 		initEOperation(op, g1);
 
 		// Initialize enums and add enum literals
-		initEEnum(actionRoleEEnum, ActionRole.class, "ActionRole");
-		addEEnumLiteral(actionRoleEEnum, ActionRole.NAVIGATION);
-		addEEnumLiteral(actionRoleEEnum, ActionRole.CONTEXT);
-		addEEnumLiteral(actionRoleEEnum, ActionRole.SECTION);
-		addEEnumLiteral(actionRoleEEnum, ActionRole.VIEW);
-		addEEnumLiteral(actionRoleEEnum, ActionRole.EDIT);
-		addEEnumLiteral(actionRoleEEnum, ActionRole.NONE);
-
 		initEEnum(activatorTypeEEnum, ActivatorType.class, "ActivatorType");
 		addEEnumLiteral(activatorTypeEEnum, ActivatorType.REFERENCE);
 		addEEnumLiteral(activatorTypeEEnum, ActivatorType.SCRIPT);
@@ -1238,7 +1211,7 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 		  (getActionBase_Role(),
 		   source,
 		   new String[] {
-			   "documentation", "Actions may play different roles in their container. Action roles are used in automated \"wiring\" of actions into the generated application:\n\nFor the root action its children are displayed depending on their rolw as follows:\n\n* Navigation: \n    * The first navigation child is called \"Principal\" and is displayed in the navbar brand. \n    * The remaining navigation children are displayed in navs on the right in the header.\n* Context children are displayed in the footer.\n\nFor the principal action (the first navigation child of the root action):\n\n* Navigation actions are displayed in the navigation panel on the left.\n* Context actions are displayed in the navbar.\n\nFor other non-section actions navigation children are displayed in the navigation panel and context children are displayed in right-floating navs on the top of the content panel.\n\nSection actions are displayed as part of the content panel of their parent. Their navigation children are treated as sections and display of their context children depends on the section style."
+			   "documentation", "Action roles are used in \"wiring\" of actions into the generated Web UI.\n\nFor the root action its children are displayed depending on their rolw as follows:\n\n* Navigation: \n    * The first navigation child is called \"Principal\" and is displayed in the navbar brand. \n    * The remaining navigation children are displayed in navs on the right in the header.\n* Context children are displayed in the footer.\n\nFor the principal action (the first navigation child of the root action):\n\n* Navigation actions are displayed in the navigation panel on the left.\n* Context actions are displayed in the navbar.\n\nFor other non-section actions navigation children are displayed in the navigation panel and context children are displayed in right-floating navs on the top of the content panel.\n\nSection actions are displayed as part of the content panel body of their parent. Their navigation children are treated as sections and display of their context children depends on the section style.\n\nContent left and Content right acitons are displayed on the left and right of the content body respectively.\n\nView and Edit actions are applicable for properties and property sources."
 		   });
 		addAnnotation
 		  (getActionBase_SectionStyle(),
@@ -1365,48 +1338,6 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 		   source,
 		   new String[] {
 			   "documentation", "Referenced/mounted action."
-		   });
-		addAnnotation
-		  (actionRoleEEnum,
-		   source,
-		   new String[] {
-			   "documentation", "Actions may play different roles in their container."
-		   });
-		addAnnotation
-		  (actionRoleEEnum.getELiterals().get(0),
-		   source,
-		   new String[] {
-			   "documentation", "Navigation actions are displayed as action children in the navigation panel. For the root action the first navigation child is the principal action and the rest is displayed in the right-top navs in the header."
-		   });
-		addAnnotation
-		  (actionRoleEEnum.getELiterals().get(1),
-		   source,
-		   new String[] {
-			   "documentation", "Context actions are displayed in the navbar for the principal action, in the context menu in jsTree, and in the right navs in the content panel."
-		   });
-		addAnnotation
-		  (actionRoleEEnum.getELiterals().get(2),
-		   source,
-		   new String[] {
-			   "documentation", "Section actions are displayed as content sections - paragraphs, tabs, etc. depending on sections style."
-		   });
-		addAnnotation
-		  (actionRoleEEnum.getELiterals().get(3),
-		   source,
-		   new String[] {
-			   "documentation", "Actions to display during viewing. Applicable to property and property source actions. "
-		   });
-		addAnnotation
-		  (actionRoleEEnum.getELiterals().get(4),
-		   source,
-		   new String[] {
-			   "documentation", "Actions to display during editing. Applicable to property and property source actions. "
-		   });
-		addAnnotation
-		  (actionRoleEEnum.getELiterals().get(5),
-		   source,
-		   new String[] {
-			   "documentation", "Indicates that an action is not assigned any role and as such shall be explicitly linked to the generated code by using action components, e.g. Action card."
 		   });
 		addAnnotation
 		  (activatorTypeEEnum,

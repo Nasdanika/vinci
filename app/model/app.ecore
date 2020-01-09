@@ -122,9 +122,10 @@
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
       <details key="constraints" value="sectionStyle"/>
     </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="role" eType="#//ActionRole">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="role" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral="Navigation">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Actions may play different roles in their container. Action roles are used in automated &quot;wiring&quot; of actions into the generated application:&#xA;&#xA;For the root action its children are displayed depending on their rolw as follows:&#xA;&#xA;* Navigation: &#xA;    * The first navigation child is called &quot;Principal&quot; and is displayed in the navbar brand. &#xA;    * The remaining navigation children are displayed in navs on the right in the header.&#xA;* Context children are displayed in the footer.&#xA;&#xA;For the principal action (the first navigation child of the root action):&#xA;&#xA;* Navigation actions are displayed in the navigation panel on the left.&#xA;* Context actions are displayed in the navbar.&#xA;&#xA;For other non-section actions navigation children are displayed in the navigation panel and context children are displayed in right-floating navs on the top of the content panel.&#xA;&#xA;Section actions are displayed as part of the content panel of their parent. Their navigation children are treated as sections and display of their context children depends on the section style."/>
+        <details key="documentation" value="Action roles are used in &quot;wiring&quot; of actions into the generated Web UI.&#xA;&#xA;For the root action its children are displayed depending on their rolw as follows:&#xA;&#xA;* Navigation: &#xA;    * The first navigation child is called &quot;Principal&quot; and is displayed in the navbar brand. &#xA;    * The remaining navigation children are displayed in navs on the right in the header.&#xA;* Context children are displayed in the footer.&#xA;&#xA;For the principal action (the first navigation child of the root action):&#xA;&#xA;* Navigation actions are displayed in the navigation panel on the left.&#xA;* Context actions are displayed in the navbar.&#xA;&#xA;For other non-section actions navigation children are displayed in the navigation panel and context children are displayed in right-floating navs on the top of the content panel.&#xA;&#xA;Section actions are displayed as part of the content panel body of their parent. Their navigation children are treated as sections and display of their context children depends on the section style.&#xA;&#xA;Content left and Content right acitons are displayed on the left and right of the content body respectively.&#xA;&#xA;View and Edit actions are applicable for properties and property sources."/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="sectionStyle" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
@@ -250,41 +251,6 @@
         <details key="documentation" value="Referenced/mounted action."/>
       </eAnnotations>
     </eStructuralFeatures>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EEnum" name="ActionRole">
-    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="Actions may play different roles in their container."/>
-    </eAnnotations>
-    <eLiterals name="Navigation">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Navigation actions are displayed as action children in the navigation panel. For the root action the first navigation child is the principal action and the rest is displayed in the right-top navs in the header."/>
-      </eAnnotations>
-    </eLiterals>
-    <eLiterals name="Context" value="1">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Context actions are displayed in the navbar for the principal action, in the context menu in jsTree, and in the right navs in the content panel."/>
-      </eAnnotations>
-    </eLiterals>
-    <eLiterals name="Section" value="2">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Section actions are displayed as content sections - paragraphs, tabs, etc. depending on sections style."/>
-      </eAnnotations>
-    </eLiterals>
-    <eLiterals name="View" value="3">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Actions to display during viewing. Applicable to property and property source actions. "/>
-      </eAnnotations>
-    </eLiterals>
-    <eLiterals name="Edit" value="4">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Actions to display during editing. Applicable to property and property source actions. "/>
-      </eAnnotations>
-    </eLiterals>
-    <eLiterals name="None" value="5" literal="None">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Indicates that an action is not assigned any role and as such shall be explicitly linked to the generated code by using action components, e.g. Action card."/>
-      </eAnnotations>
-    </eLiterals>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="ActivatorType">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
