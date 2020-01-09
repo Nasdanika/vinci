@@ -8,22 +8,25 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.common.util.ResourceLocator;
+
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+
 import org.nasdanika.emf.edit.NasdanikaItemProviderAdapter;
 
 /**
- * This is the item provider adapter for a {@link org.nasdanika.vinci.bootstrap.Breadcrumbs} object.
+ * This is the item provider adapter for a {@link org.nasdanika.vinci.bootstrap.Breadcrumb} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class BreadcrumbsItemProvider 
+public class BreadcrumbItemProvider 
 	extends NasdanikaItemProviderAdapter
 	implements
 		IEditingDomainItemProvider,
@@ -37,7 +40,7 @@ public class BreadcrumbsItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public BreadcrumbsItemProvider(AdapterFactory adapterFactory) {
+	public BreadcrumbItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -85,7 +88,7 @@ public class BreadcrumbsItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_Breadcrumbs_type");
+		return getString("_UI_Breadcrumb_type");
 	}
 
 

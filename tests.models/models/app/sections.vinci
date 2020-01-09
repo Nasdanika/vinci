@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <org.nasdanika.vinci.app:Action xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.nasdanika.ncore="urn:org.nasdanika.ncore" xmlns:org.nasdanika.vinci.app="urn:org.nasdanika.vinci.app" xmlns:org.nasdanika.vinci.bootstrap="urn:org.nasdanika.vinci.bootstrap" xmlns:org.nasdanika.vinci.components="urn:org.nasdanika.vinci.components" title="Root" description="Element description.&#xD;&#xA;" id="index" text="Root" sectionColumns="1" markdownContent="mumu-bubu&#xD;&#xA;&#xD;&#xA;* One&#xD;&#xA;* Dos&#xD;&#xA;">
+  <configuration xsi:type="org.nasdanika.ncore:Property" name="template"/>
   <elements xsi:type="org.nasdanika.vinci.app:Action" title="Principal" id="89905baf-526b-4f04-8bb2-50fab6e04eeb" text="Principal" sectionColumns="1">
     <elements xsi:type="org.nasdanika.vinci.app:Action" title="Default" id="33e59c8e-67f3-4188-8062-9dea36bfdf56" text="Default" sectionStyle="Auto" sectionColumns="1">
       <elements xsi:type="org.nasdanika.vinci.app:Action" title="Section 1" id="d4586dff-fbe0-44cf-b099-15121ac7b4dc" text="Section 1" role="Section" sectionColumns="1">
@@ -240,7 +241,7 @@
         <appearance>
           <text alignment="Center" color="Danger" italic="true"/>
         </appearance>
-        <elements xsi:type="org.nasdanika.vinci.app:Action" title="Section A.1" id="b4167658-29a5-41dc-989b-5224f5d589ac" text="Section A.1" role="Section" sectionColumns="1" markdownContent="Section A.1 content&#xD;&#xA;">
+        <elements xsi:type="org.nasdanika.vinci.app:Action" title="Section A.1" id="b4167658-29a5-41dc-989b-5224f5d589ac" text="Section A.1" role="Content left" sectionColumns="1" markdownContent="Section A.1 content&#xD;&#xA;">
           <elements xsi:type="org.nasdanika.vinci.app:Action" title="Context A.1.1" id="7b740ee7-db9f-43d5-9d39-46453e6d93f3" text="Context A.1.1" role="Context" sectionColumns="1">
             <content xsi:type="org.nasdanika.vinci.components:MarkdownText" markdown="Context 0.1 content"/>
           </elements>
@@ -250,7 +251,7 @@
             </elements>
           </elements>
         </elements>
-        <elements xsi:type="org.nasdanika.vinci.app:Action" title="Section A.2" id="fd6f596d-e094-4f5e-ae96-baff1e9f735d" text="Section A.2" role="Section" sectionColumns="1" markdownContent="Section A.2 content"/>
+        <elements xsi:type="org.nasdanika.vinci.app:Action" title="Section A.2" id="fd6f596d-e094-4f5e-ae96-baff1e9f735d" text="Section A.2" role="Content right" sectionColumns="1" markdownContent="Section A.2 content"/>
       </elements>
       <elements xsi:type="org.nasdanika.vinci.app:Action" title="Section 2" id="7aee8128-6205-41ea-88a6-eec70a78e09c" color="Success" text="Section 2" role="Section" sectionColumns="1" markdownContent="Section 2 content">
         <elements xsi:type="org.nasdanika.vinci.app:Action" title="Section 2.1" id="c25e2a95-af2b-4941-ab22-58ac252b0492" text="Section 2.1" sectionColumns="1" markdownContent="Section 2.1. content&#xD;&#xA;"/>

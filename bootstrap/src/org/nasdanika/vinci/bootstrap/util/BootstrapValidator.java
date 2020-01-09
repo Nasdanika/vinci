@@ -30,7 +30,7 @@ import org.nasdanika.vinci.bootstrap.BootstrapElement;
 import org.nasdanika.vinci.bootstrap.BootstrapPackage;
 import org.nasdanika.vinci.bootstrap.BootstrapPage;
 import org.nasdanika.vinci.bootstrap.Border;
-import org.nasdanika.vinci.bootstrap.Breadcrumbs;
+import org.nasdanika.vinci.bootstrap.Breadcrumb;
 import org.nasdanika.vinci.bootstrap.Button;
 import org.nasdanika.vinci.bootstrap.ButtonGroup;
 import org.nasdanika.vinci.bootstrap.ButtonToolbar;
@@ -202,8 +202,8 @@ public class BootstrapValidator extends EObjectValidator {
 				return validateAlert((Alert)value, diagnostics, context);
 			case BootstrapPackage.BADGE:
 				return validateBadge((Badge)value, diagnostics, context);
-			case BootstrapPackage.BREADCRUMBS:
-				return validateBreadcrumbs((Breadcrumbs)value, diagnostics, context);
+			case BootstrapPackage.BREADCRUMB:
+				return validateBreadcrumb((Breadcrumb)value, diagnostics, context);
 			case BootstrapPackage.BUTTON:
 				return validateButton((Button)value, diagnostics, context);
 			case BootstrapPackage.BUTTON_GROUP:
@@ -881,8 +881,8 @@ public class BootstrapValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateBreadcrumbs(Breadcrumbs breadcrumbs, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(breadcrumbs, diagnostics, context);
+	public boolean validateBreadcrumb(Breadcrumb breadcrumb, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(breadcrumb, diagnostics, context);
 	}
 
 	/**

@@ -3,24 +3,26 @@
 package org.nasdanika.vinci.bootstrap.impl;
 
 import org.eclipse.emf.ecore.EClass;
+
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
 import org.nasdanika.vinci.bootstrap.BootstrapPackage;
-import org.nasdanika.vinci.bootstrap.Breadcrumbs;
+import org.nasdanika.vinci.bootstrap.Breadcrumb;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Breadcrumbs</b></em>'.
+ * An implementation of the model object '<em><b>Breadcrumb</b></em>'.
  * <!-- end-user-doc -->
  *
  * @generated
  */
-public class BreadcrumbsImpl extends MinimalEObjectImpl.Container implements Breadcrumbs {
+public class BreadcrumbImpl extends MinimalEObjectImpl.Container implements Breadcrumb {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected BreadcrumbsImpl() {
+	protected BreadcrumbImpl() {
 		super();
 	}
 
@@ -31,7 +33,7 @@ public class BreadcrumbsImpl extends MinimalEObjectImpl.Container implements Bre
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return BootstrapPackage.Literals.BREADCRUMBS;
+		return BootstrapPackage.Literals.BREADCRUMB;
 	}
 
 	/**
@@ -44,4 +46,4 @@ public class BreadcrumbsImpl extends MinimalEObjectImpl.Container implements Bre
 		return 0;
 	}
 
-} //BreadcrumbsImpl
+} //BreadcrumbImpl

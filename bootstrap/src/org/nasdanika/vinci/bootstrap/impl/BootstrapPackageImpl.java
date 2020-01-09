@@ -23,7 +23,7 @@ import org.nasdanika.vinci.bootstrap.BootstrapFactory;
 import org.nasdanika.vinci.bootstrap.BootstrapPackage;
 import org.nasdanika.vinci.bootstrap.BootstrapPage;
 import org.nasdanika.vinci.bootstrap.Border;
-import org.nasdanika.vinci.bootstrap.Breadcrumbs;
+import org.nasdanika.vinci.bootstrap.Breadcrumb;
 import org.nasdanika.vinci.bootstrap.Button;
 import org.nasdanika.vinci.bootstrap.ButtonGroup;
 import org.nasdanika.vinci.bootstrap.ButtonToolbar;
@@ -214,6 +214,13 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass breadcrumbEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass buttonEClass = null;
 
 	/**
@@ -243,13 +250,6 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 	 * @generated
 	 */
 	private EClass actionGroupEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass breadcrumbsEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1144,6 +1144,16 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 	 * @generated
 	 */
 	@Override
+	public EClass getBreadcrumb() {
+		return breadcrumbEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getButton() {
 		return buttonEClass;
 	}
@@ -1226,16 +1236,6 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 	@Override
 	public EReference getActionGroup_Items() {
 		return (EReference)actionGroupEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EClass getBreadcrumbs() {
-		return breadcrumbsEClass;
 	}
 
 	/**
@@ -1754,7 +1754,7 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 		badgeEClass = createEClass(BADGE);
 		createEAttribute(badgeEClass, BADGE__COLOR);
 
-		breadcrumbsEClass = createEClass(BREADCRUMBS);
+		breadcrumbEClass = createEClass(BREADCRUMB);
 
 		buttonEClass = createEClass(BUTTON);
 		createEAttribute(buttonEClass, BUTTON__COLOR);
@@ -2028,7 +2028,7 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 		initEClass(badgeEClass, Badge.class, "Badge", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getBadge_Color(), ecorePackage.getEString(), "color", null, 0, 1, Badge.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(breadcrumbsEClass, Breadcrumbs.class, "Breadcrumbs", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(breadcrumbEClass, Breadcrumb.class, "Breadcrumb", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(buttonEClass, Button.class, "Button", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getButton_Color(), ecorePackage.getEString(), "color", null, 0, 1, Button.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

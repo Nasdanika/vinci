@@ -184,6 +184,15 @@ public interface BootstrapFactory extends EFactory {
 	Badge createBadge();
 
 	/**
+	 * Returns a new object of class '<em>Breadcrumb</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Breadcrumb</em>'.
+	 * @generated
+	 */
+	Breadcrumb createBreadcrumb();
+
+	/**
 	 * Returns a new object of class '<em>Button</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -227,15 +236,6 @@ public interface BootstrapFactory extends EFactory {
 	 * @generated
 	 */
 	ActionGroup createActionGroup();
-
-	/**
-	 * Returns a new object of class '<em>Breadcrumbs</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Breadcrumbs</em>'.
-	 * @generated
-	 */
-	Breadcrumbs createBreadcrumbs();
 
 	/**
 	 * Returns a new object of class '<em>Form</em>'.

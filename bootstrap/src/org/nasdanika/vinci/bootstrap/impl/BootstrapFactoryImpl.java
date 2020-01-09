@@ -17,7 +17,7 @@ import org.nasdanika.vinci.bootstrap.BootstrapFactory;
 import org.nasdanika.vinci.bootstrap.BootstrapPackage;
 import org.nasdanika.vinci.bootstrap.BootstrapPage;
 import org.nasdanika.vinci.bootstrap.Border;
-import org.nasdanika.vinci.bootstrap.Breadcrumbs;
+import org.nasdanika.vinci.bootstrap.Breadcrumb;
 import org.nasdanika.vinci.bootstrap.Button;
 import org.nasdanika.vinci.bootstrap.ButtonGroup;
 import org.nasdanika.vinci.bootstrap.ButtonToolbar;
@@ -116,7 +116,7 @@ public class BootstrapFactoryImpl extends EFactoryImpl implements BootstrapFacto
 			case BootstrapPackage.CARD: return createCard();
 			case BootstrapPackage.ALERT: return createAlert();
 			case BootstrapPackage.BADGE: return createBadge();
-			case BootstrapPackage.BREADCRUMBS: return createBreadcrumbs();
+			case BootstrapPackage.BREADCRUMB: return createBreadcrumb();
 			case BootstrapPackage.BUTTON: return createButton();
 			case BootstrapPackage.BUTTON_GROUP: return createButtonGroup();
 			case BootstrapPackage.BUTTON_TOOLBAR: return createButtonToolbar();
@@ -340,6 +340,17 @@ public class BootstrapFactoryImpl extends EFactoryImpl implements BootstrapFacto
 	 * @generated
 	 */
 	@Override
+	public Breadcrumb createBreadcrumb() {
+		BreadcrumbImpl breadcrumb = new BreadcrumbImpl();
+		return breadcrumb;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Button createButton() {
 		ButtonImpl button = new ButtonImpl();
 		return button;
@@ -387,17 +398,6 @@ public class BootstrapFactoryImpl extends EFactoryImpl implements BootstrapFacto
 	public ActionGroup createActionGroup() {
 		ActionGroupImpl actionGroup = new ActionGroupImpl();
 		return actionGroup;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Breadcrumbs createBreadcrumbs() {
-		BreadcrumbsImpl breadcrumbs = new BreadcrumbsImpl();
-		return breadcrumbs;
 	}
 
 	/**

@@ -1483,16 +1483,6 @@ public interface BootstrapPackage extends EPackage {
 	int ACTION_GROUP_OPERATION_COUNT = DIV_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link org.nasdanika.vinci.bootstrap.impl.BreadcrumbsImpl <em>Breadcrumbs</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.nasdanika.vinci.bootstrap.impl.BreadcrumbsImpl
-	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getBreadcrumbs()
-	 * @generated
-	 */
-	int BREADCRUMBS = 28;
-
-	/**
 	 * The feature id for the '<em><b>Title</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2665,22 +2655,32 @@ public interface BootstrapPackage extends EPackage {
 	int BADGE_OPERATION_COUNT = DIV_OPERATION_COUNT + 0;
 
 	/**
-	 * The number of structural features of the '<em>Breadcrumbs</em>' class.
+	 * The meta object id for the '{@link org.nasdanika.vinci.bootstrap.impl.BreadcrumbImpl <em>Breadcrumb</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.vinci.bootstrap.impl.BreadcrumbImpl
+	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getBreadcrumb()
 	 * @generated
-	 * @ordered
 	 */
-	int BREADCRUMBS_FEATURE_COUNT = 0;
+	int BREADCRUMB = 28;
 
 	/**
-	 * The number of operations of the '<em>Breadcrumbs</em>' class.
+	 * The number of structural features of the '<em>Breadcrumb</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BREADCRUMBS_OPERATION_COUNT = 0;
+	int BREADCRUMB_FEATURE_COUNT = 0;
+
+	/**
+	 * The number of operations of the '<em>Breadcrumb</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BREADCRUMB_OPERATION_COUNT = 0;
 
 	/**
 	 * The feature id for the '<em><b>Title</b></em>' attribute.
@@ -3816,6 +3816,16 @@ public interface BootstrapPackage extends EPackage {
 	EAttribute getBadge_Color();
 
 	/**
+	 * Returns the meta object for class '{@link org.nasdanika.vinci.bootstrap.Breadcrumb <em>Breadcrumb</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Breadcrumb</em>'.
+	 * @see org.nasdanika.vinci.bootstrap.Breadcrumb
+	 * @generated
+	 */
+	EClass getBreadcrumb();
+
+	/**
 	 * Returns the meta object for class '{@link org.nasdanika.vinci.bootstrap.Button <em>Button</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3908,16 +3918,6 @@ public interface BootstrapPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getActionGroup_Items();
-
-	/**
-	 * Returns the meta object for class '{@link org.nasdanika.vinci.bootstrap.Breadcrumbs <em>Breadcrumbs</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Breadcrumbs</em>'.
-	 * @see org.nasdanika.vinci.bootstrap.Breadcrumbs
-	 * @generated
-	 */
-	EClass getBreadcrumbs();
 
 	/**
 	 * Returns the meta object for class '{@link org.nasdanika.vinci.bootstrap.Form <em>Form</em>}'.
@@ -4855,6 +4855,15 @@ public interface BootstrapPackage extends EPackage {
 		 */
 		EAttribute BADGE__COLOR = eINSTANCE.getBadge_Color();
 		/**
+		 * The meta object literal for the '{@link org.nasdanika.vinci.bootstrap.impl.BreadcrumbImpl <em>Breadcrumb</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.vinci.bootstrap.impl.BreadcrumbImpl
+		 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getBreadcrumb()
+		 * @generated
+		 */
+		EClass BREADCRUMB = eINSTANCE.getBreadcrumb();
+		/**
 		 * The meta object literal for the '{@link org.nasdanika.vinci.bootstrap.impl.ButtonImpl <em>Button</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -4927,15 +4936,6 @@ public interface BootstrapPackage extends EPackage {
 		 * @generated
 		 */
 		EReference ACTION_GROUP__ITEMS = eINSTANCE.getActionGroup_Items();
-		/**
-		 * The meta object literal for the '{@link org.nasdanika.vinci.bootstrap.impl.BreadcrumbsImpl <em>Breadcrumbs</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.nasdanika.vinci.bootstrap.impl.BreadcrumbsImpl
-		 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getBreadcrumbs()
-		 * @generated
-		 */
-		EClass BREADCRUMBS = eINSTANCE.getBreadcrumbs();
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.vinci.bootstrap.impl.FormImpl <em>Form</em>}' class.
 		 * <!-- begin-user-doc -->

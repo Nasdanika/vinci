@@ -18,6 +18,7 @@ import org.nasdanika.emf.edit.EReferenceItemProvider;
 import org.nasdanika.html.app.SectionStyle;
 import org.nasdanika.ncore.NcorePackage;
 import org.nasdanika.vinci.app.ActionBase;
+import org.nasdanika.vinci.app.ActionRole;
 import org.nasdanika.vinci.app.AppFactory;
 import org.nasdanika.vinci.app.AppPackage;
 
@@ -98,11 +99,11 @@ public class ActionBaseItemProvider extends LabelItemProvider {
 				 AppPackage.Literals.ACTION_BASE__ROLE,
 				 true,
 				 false,
-				 false,
+				 true,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null,
-				 null));
+				 enumChoices(ActionRole.class, false, ar -> ar.label)));
 	}
 
 	/**

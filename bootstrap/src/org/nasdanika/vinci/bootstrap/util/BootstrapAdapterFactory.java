@@ -19,7 +19,7 @@ import org.nasdanika.vinci.bootstrap.BootstrapElement;
 import org.nasdanika.vinci.bootstrap.BootstrapPackage;
 import org.nasdanika.vinci.bootstrap.BootstrapPage;
 import org.nasdanika.vinci.bootstrap.Border;
-import org.nasdanika.vinci.bootstrap.Breadcrumbs;
+import org.nasdanika.vinci.bootstrap.Breadcrumb;
 import org.nasdanika.vinci.bootstrap.Button;
 import org.nasdanika.vinci.bootstrap.ButtonGroup;
 import org.nasdanika.vinci.bootstrap.ButtonToolbar;
@@ -224,8 +224,8 @@ public class BootstrapAdapterFactory extends AdapterFactoryImpl {
 				return createBadgeAdapter();
 			}
 			@Override
-			public Adapter caseBreadcrumbs(Breadcrumbs object) {
-				return createBreadcrumbsAdapter();
+			public Adapter caseBreadcrumb(Breadcrumb object) {
+				return createBreadcrumbAdapter();
 			}
 			@Override
 			public Adapter caseButton(Button object) {
@@ -630,6 +630,20 @@ public class BootstrapAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.vinci.bootstrap.Breadcrumb <em>Breadcrumb</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.vinci.bootstrap.Breadcrumb
+	 * @generated
+	 */
+	public Adapter createBreadcrumbAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link org.nasdanika.vinci.bootstrap.Button <em>Button</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -696,20 +710,6 @@ public class BootstrapAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createActionGroupAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.nasdanika.vinci.bootstrap.Breadcrumbs <em>Breadcrumbs</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.nasdanika.vinci.bootstrap.Breadcrumbs
-	 * @generated
-	 */
-	public Adapter createBreadcrumbsAdapter() {
 		return null;
 	}
 

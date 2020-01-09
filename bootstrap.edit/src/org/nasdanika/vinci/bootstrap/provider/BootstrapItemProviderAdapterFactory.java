@@ -484,6 +484,29 @@ public class BootstrapItemProviderAdapterFactory extends BootstrapAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.nasdanika.vinci.bootstrap.Breadcrumb} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected BreadcrumbItemProvider breadcrumbItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.nasdanika.vinci.bootstrap.Breadcrumb}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createBreadcrumbAdapter() {
+		if (breadcrumbItemProvider == null) {
+			breadcrumbItemProvider = new BreadcrumbItemProvider(this);
+		}
+
+		return breadcrumbItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link org.nasdanika.vinci.bootstrap.Button} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -596,29 +619,6 @@ public class BootstrapItemProviderAdapterFactory extends BootstrapAdapterFactory
 		}
 
 		return actionGroupItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link org.nasdanika.vinci.bootstrap.Breadcrumbs} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected BreadcrumbsItemProvider breadcrumbsItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link org.nasdanika.vinci.bootstrap.Breadcrumbs}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createBreadcrumbsAdapter() {
-		if (breadcrumbsItemProvider == null) {
-			breadcrumbsItemProvider = new BreadcrumbsItemProvider(this);
-		}
-
-		return breadcrumbsItemProvider;
 	}
 
 	/**
@@ -1095,7 +1095,7 @@ public class BootstrapItemProviderAdapterFactory extends BootstrapAdapterFactory
 		if (cardItemProvider != null) cardItemProvider.dispose();
 		if (alertItemProvider != null) alertItemProvider.dispose();
 		if (badgeItemProvider != null) badgeItemProvider.dispose();
-		if (breadcrumbsItemProvider != null) breadcrumbsItemProvider.dispose();
+		if (breadcrumbItemProvider != null) breadcrumbItemProvider.dispose();
 		if (buttonItemProvider != null) buttonItemProvider.dispose();
 		if (buttonGroupItemProvider != null) buttonGroupItemProvider.dispose();
 		if (buttonToolbarItemProvider != null) buttonToolbarItemProvider.dispose();

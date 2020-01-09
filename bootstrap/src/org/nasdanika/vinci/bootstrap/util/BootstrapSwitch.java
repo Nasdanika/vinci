@@ -18,7 +18,7 @@ import org.nasdanika.vinci.bootstrap.BootstrapElement;
 import org.nasdanika.vinci.bootstrap.BootstrapPackage;
 import org.nasdanika.vinci.bootstrap.BootstrapPage;
 import org.nasdanika.vinci.bootstrap.Border;
-import org.nasdanika.vinci.bootstrap.Breadcrumbs;
+import org.nasdanika.vinci.bootstrap.Breadcrumb;
 import org.nasdanika.vinci.bootstrap.Button;
 import org.nasdanika.vinci.bootstrap.ButtonGroup;
 import org.nasdanika.vinci.bootstrap.ButtonToolbar;
@@ -386,9 +386,9 @@ public class BootstrapSwitch<T1> extends Switch<T1> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case BootstrapPackage.BREADCRUMBS: {
-				Breadcrumbs breadcrumbs = (Breadcrumbs)theEObject;
-				T1 result = caseBreadcrumbs(breadcrumbs);
+			case BootstrapPackage.BREADCRUMB: {
+				Breadcrumb breadcrumb = (Breadcrumb)theEObject;
+				T1 result = caseBreadcrumb(breadcrumb);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -803,6 +803,21 @@ public class BootstrapSwitch<T1> extends Switch<T1> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Breadcrumb</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Breadcrumb</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseBreadcrumb(Breadcrumb object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Button</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -874,21 +889,6 @@ public class BootstrapSwitch<T1> extends Switch<T1> {
 	 * @generated
 	 */
 	public T1 caseActionGroup(ActionGroup object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Breadcrumbs</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Breadcrumbs</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T1 caseBreadcrumbs(Breadcrumbs object) {
 		return null;
 	}
 
