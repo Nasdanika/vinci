@@ -4,8 +4,10 @@ package org.nasdanika.vinci.app.util;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 import org.eclipse.emf.common.util.BasicDiagnostic;
@@ -14,6 +16,7 @@ import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.common.util.TreeIterator;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
@@ -23,7 +26,25 @@ import org.nasdanika.common.Util;
 import org.nasdanika.emf.DiagnosticHelper;
 import org.nasdanika.html.app.SectionStyle;
 import org.nasdanika.html.bootstrap.Color;
-import org.nasdanika.vinci.app.*;
+import org.nasdanika.ncore.ModelElement;
+import org.nasdanika.vinci.app.AbstractAction;
+import org.nasdanika.vinci.app.Action;
+import org.nasdanika.vinci.app.ActionBase;
+import org.nasdanika.vinci.app.ActionCategory;
+import org.nasdanika.vinci.app.ActionElement;
+import org.nasdanika.vinci.app.ActionLink;
+import org.nasdanika.vinci.app.ActionMapping;
+import org.nasdanika.vinci.app.ActionReference;
+import org.nasdanika.vinci.app.ActivatorType;
+import org.nasdanika.vinci.app.AppPackage;
+import org.nasdanika.vinci.app.BootstrapContainerApplication;
+import org.nasdanika.vinci.app.BootstrapContainerApplicationBuilder;
+import org.nasdanika.vinci.app.BootstrapContainerApplicationPanel;
+import org.nasdanika.vinci.app.BootstrapContainerApplicationSection;
+import org.nasdanika.vinci.app.Category;
+import org.nasdanika.vinci.app.Container;
+import org.nasdanika.vinci.app.Label;
+import org.nasdanika.vinci.app.Partition;
 
 /**
  * <!-- begin-user-doc -->
@@ -354,6 +375,26 @@ public class AppValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validateActionReference_action(actionReference, diagnostics, context);
 		return result;
 	}
+	
+	private boolean validateCircularReference(ActionReference actionReference, Set<ActionReference> traversed) {
+		if (traversed.add(actionReference)) {
+			AbstractAction action = actionReference.getAction();
+			if (action instanceof ActionReference) {
+				return validateCircularReference((ActionReference) action, traversed);
+			}
+			TreeIterator<EObject> cit = action.eAllContents();
+			while (cit.hasNext()) {
+				EObject next = cit.next();
+				if (next instanceof ActionReference) {
+					if (!validateCircularReference((ActionReference) next, traversed)) {
+						return false;
+					}
+				}
+			}
+			return true;
+		} 
+		return false;
+	}
 
 	/**
 	 * Validates the action constraint of '<em>Action Reference</em>'.
@@ -363,6 +404,42 @@ public class AppValidator extends EObjectValidator {
 	 */
 	public boolean validateActionReference_action(ActionReference actionReference, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		if (diagnostics != null && actionReference.getAction() != null) {
+			// Validate circularity
+			DiagnosticHelper helper = new DiagnosticHelper(diagnostics, DIAGNOSTIC_SOURCE, 0, actionReference);
+			
+			// Direct
+//			if (actionReference.getAction() == actionReference) {
+//				helper.error("Action reference points to itself", AppPackage.Literals.ACTION_REFERENCE__ACTION);
+//			}
+			
+			// Containment - target action directly or indirectly contains action reference
+			Set<ActionReference> traversed = new HashSet<>();
+			validateCircularReference(actionReference, traversed);
+			StringBuilder path = new StringBuilder();
+			for (ActionReference pe: traversed) {	
+				if (path.length() > 0) {
+					path.append(" => ");
+				}
+				AbstractAction referencedAction = pe.getAction();
+				String targetLabel;
+				if (referencedAction instanceof ModelElement) {
+					targetLabel = ((ModelElement) referencedAction).getTitle();
+				} else if (referencedAction instanceof ActionReference) {
+					targetLabel = ((ActionReference) referencedAction).getTitle();
+				} else if (referencedAction instanceof ActionLink) {
+					targetLabel = ((ActionLink) referencedAction).getTitle();
+				} else {
+					targetLabel = referencedAction.toString();
+				}
+				path.append(pe.getTitle() + " -> " + targetLabel);
+			}
+			helper.error("Loop in action references: "+path, AppPackage.Literals.ACTION_REFERENCE__ACTION);			
+			
+			// Do not proceed if circularity test failed
+			if (!helper.isSuccess()) {
+				return false;
+			}
+			
 			// Maybe unnecessary?
 			Diagnostician diagnostician = new Diagnostician() {
 				

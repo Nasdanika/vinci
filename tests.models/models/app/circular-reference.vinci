@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.nasdanika.vinci.app:Action xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.nasdanika.vinci.app="urn:org.nasdanika.vinci.app" title="Root" id="906a993e-de50-414e-bd7b-b7170b8d6273" text="Root">
+  <elements xsi:type="org.nasdanika.vinci.app:ActionReference" title="Root reference" action="906a993e-de50-414e-bd7b-b7170b8d6273"/>
+  <elements xsi:type="org.nasdanika.vinci.app:ActionReference" title="Self reference" action="//@elements.1"/>
+</org.nasdanika.vinci.app:Action>
