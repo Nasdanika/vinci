@@ -122,6 +122,7 @@ public class TagItemProvider extends org.nasdanika.vinci.html.provider.TagItemPr
 	 */
 	@Override
 	public void notifyChanged(Notification notification) {
+		updateChildren(notification);
 		super.notifyChanged(notification);
 	}
 

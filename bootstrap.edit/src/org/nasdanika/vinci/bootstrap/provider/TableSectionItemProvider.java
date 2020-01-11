@@ -102,6 +102,7 @@ public class TableSectionItemProvider extends TableRowContainerItemProvider {
 	 */
 	@Override
 	public void notifyChanged(Notification notification) {
+		updateChildren(notification);
 		super.notifyChanged(notification);
 	}
 
