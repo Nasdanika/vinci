@@ -36,7 +36,6 @@ import org.nasdanika.html.app.ViewGenerator;
 import org.nasdanika.html.app.impl.ActionApplicationBuilder;
 import org.nasdanika.html.app.impl.ViewGeneratorImpl;
 import org.nasdanika.ncore.Configurable;
-import org.nasdanika.ncore.Entry;
 import org.nasdanika.ncore.NcorePackage;
 import org.nasdanika.vinci.app.AbstractAction;
 import org.nasdanika.vinci.app.ActionBase;
@@ -191,8 +190,8 @@ public abstract class ActionBaseImpl extends LabelImpl implements ActionBase {
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public EList<Entry<Object>> getConfiguration() {
-		return (EList<Entry<Object>>)eDynamicGet(AppPackage.ACTION_BASE__CONFIGURATION, NcorePackage.Literals.CONFIGURABLE__CONFIGURATION, true, true);
+	public EList<SupplierFactory<Object>> getConfiguration() {
+		return (EList<SupplierFactory<Object>>)eDynamicGet(AppPackage.ACTION_BASE__CONFIGURATION, NcorePackage.Literals.CONFIGURABLE__CONFIGURATION, true, true);
 	}
 
 	/**
@@ -549,7 +548,7 @@ public abstract class ActionBaseImpl extends LabelImpl implements ActionBase {
 		switch (featureID) {
 			case AppPackage.ACTION_BASE__CONFIGURATION:
 				getConfiguration().clear();
-				getConfiguration().addAll((Collection<? extends Entry<Object>>)newValue);
+				getConfiguration().addAll((Collection<? extends SupplierFactory<Object>>)newValue);
 				return;
 			case AppPackage.ACTION_BASE__ACTION_MAPPINGS:
 				getActionMappings().clear();

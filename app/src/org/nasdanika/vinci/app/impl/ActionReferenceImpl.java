@@ -16,7 +16,6 @@ import org.nasdanika.common.MutableContext;
 import org.nasdanika.common.Supplier;
 import org.nasdanika.common.SupplierFactory;
 import org.nasdanika.ncore.Configurable;
-import org.nasdanika.ncore.Entry;
 import org.nasdanika.ncore.NcorePackage;
 import org.nasdanika.vinci.app.AbstractAction;
 import org.nasdanika.vinci.app.ActionElement;
@@ -97,8 +96,8 @@ public class ActionReferenceImpl extends MinimalEObjectImpl.Container implements
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public EList<Entry<Object>> getConfiguration() {
-		return (EList<Entry<Object>>)eDynamicGet(AppPackage.ACTION_REFERENCE__CONFIGURATION, NcorePackage.Literals.CONFIGURABLE__CONFIGURATION, true, true);
+	public EList<SupplierFactory<Object>> getConfiguration() {
+		return (EList<SupplierFactory<Object>>)eDynamicGet(AppPackage.ACTION_REFERENCE__CONFIGURATION, NcorePackage.Literals.CONFIGURABLE__CONFIGURATION, true, true);
 	}
 
 	/**
@@ -241,7 +240,7 @@ public class ActionReferenceImpl extends MinimalEObjectImpl.Container implements
 		switch (featureID) {
 			case AppPackage.ACTION_REFERENCE__CONFIGURATION:
 				getConfiguration().clear();
-				getConfiguration().addAll((Collection<? extends Entry<Object>>)newValue);
+				getConfiguration().addAll((Collection<? extends SupplierFactory<Object>>)newValue);
 				return;
 			case AppPackage.ACTION_REFERENCE__ACTION_MAPPINGS:
 				getActionMappings().clear();

@@ -15,7 +15,6 @@ import org.nasdanika.common.Context;
 import org.nasdanika.common.Supplier;
 import org.nasdanika.common.SupplierFactory;
 import org.nasdanika.ncore.Configurable;
-import org.nasdanika.ncore.Entry;
 import org.nasdanika.ncore.NcorePackage;
 import org.nasdanika.vinci.app.ActionElement;
 import org.nasdanika.vinci.app.ActionLink;
@@ -106,8 +105,8 @@ public class ActionLinkImpl extends MinimalEObjectImpl.Container implements Acti
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public EList<Entry<Object>> getConfiguration() {
-		return (EList<Entry<Object>>)eDynamicGet(AppPackage.ACTION_LINK__CONFIGURATION, NcorePackage.Literals.CONFIGURABLE__CONFIGURATION, true, true);
+	public EList<SupplierFactory<Object>> getConfiguration() {
+		return (EList<SupplierFactory<Object>>)eDynamicGet(AppPackage.ACTION_LINK__CONFIGURATION, NcorePackage.Literals.CONFIGURABLE__CONFIGURATION, true, true);
 	}
 
 	/**
@@ -240,7 +239,7 @@ public class ActionLinkImpl extends MinimalEObjectImpl.Container implements Acti
 		switch (featureID) {
 			case AppPackage.ACTION_LINK__CONFIGURATION:
 				getConfiguration().clear();
-				getConfiguration().addAll((Collection<? extends Entry<Object>>)newValue);
+				getConfiguration().addAll((Collection<? extends SupplierFactory<Object>>)newValue);
 				return;
 			case AppPackage.ACTION_LINK__ACTION_MAPPINGS:
 				getActionMappings().clear();
