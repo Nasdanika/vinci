@@ -405,40 +405,30 @@ public class AppValidator extends EObjectValidator {
 	public boolean validateActionReference_action(ActionReference actionReference, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		if (diagnostics != null && actionReference.getAction() != null) {
 			// Validate circularity
-			DiagnosticHelper helper = new DiagnosticHelper(diagnostics, DIAGNOSTIC_SOURCE, 0, actionReference);
-			
-			// Direct
-//			if (actionReference.getAction() == actionReference) {
-//				helper.error("Action reference points to itself", AppPackage.Literals.ACTION_REFERENCE__ACTION);
-//			}
-			
-			// Containment - target action directly or indirectly contains action reference
 			Set<ActionReference> traversed = new HashSet<>();
-			validateCircularReference(actionReference, traversed);
-			StringBuilder path = new StringBuilder();
-			for (ActionReference pe: traversed) {	
-				if (path.length() > 0) {
-					path.append(" => ");
+			if (!validateCircularReference(actionReference, traversed)) {
+				StringBuilder path = new StringBuilder();
+				for (ActionReference pe: traversed) {	
+					if (path.length() > 0) {
+						path.append(" => ");
+					}
+					AbstractAction referencedAction = pe.getAction();
+					String targetLabel;
+					if (referencedAction instanceof ModelElement) {
+						targetLabel = ((ModelElement) referencedAction).getTitle();
+					} else if (referencedAction instanceof ActionReference) {
+						targetLabel = ((ActionReference) referencedAction).getTitle();
+					} else if (referencedAction instanceof ActionLink) {
+						targetLabel = ((ActionLink) referencedAction).getTitle();
+					} else {
+						targetLabel = referencedAction.toString();
+					}
+					path.append(pe.getTitle() + " -> " + targetLabel);
 				}
-				AbstractAction referencedAction = pe.getAction();
-				String targetLabel;
-				if (referencedAction instanceof ModelElement) {
-					targetLabel = ((ModelElement) referencedAction).getTitle();
-				} else if (referencedAction instanceof ActionReference) {
-					targetLabel = ((ActionReference) referencedAction).getTitle();
-				} else if (referencedAction instanceof ActionLink) {
-					targetLabel = ((ActionLink) referencedAction).getTitle();
-				} else {
-					targetLabel = referencedAction.toString();
-				}
-				path.append(pe.getTitle() + " -> " + targetLabel);
-			}
-			helper.error("Loop in action references: "+path, AppPackage.Literals.ACTION_REFERENCE__ACTION);			
-			
-			// Do not proceed if circularity test failed
-			if (!helper.isSuccess()) {
+				DiagnosticHelper helper = new DiagnosticHelper(diagnostics, DIAGNOSTIC_SOURCE, 0, actionReference);
+				helper.error("Loop in action references: "+path, AppPackage.Literals.ACTION_REFERENCE__ACTION);
 				return false;
-			}
+			}			
 			
 			// Maybe unnecessary?
 			Diagnostician diagnostician = new Diagnostician() {
