@@ -31,6 +31,11 @@ import org.nasdanika.ncore.Configurable;
  *     * Primary
  *         * ``platform:/plugin/org.nasdanika.vinci.templates/pages/default/primary.vinci``
  *         * ``platform:/plugin/org.nasdanika.vinci.templates/pages/default/primary-fluid.vinci`` - fluid container.
+ * * Cerulean
+ *     * Primary
+ *         * ``platform:/plugin/org.nasdanika.vinci.templates/pages/cerulean/primary.vinci``
+ *         * ``platform:/plugin/org.nasdanika.vinci.templates/pages/cerulean/primary-fluid.vinci`` - fluid container.
+ * 
  * 
  *     
  * <!-- end-model-doc -->
