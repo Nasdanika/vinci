@@ -10,6 +10,10 @@
     <semanticResources>pages/default/primary.vinci</semanticResources>
     <semanticResources>pages/cerulean/primary.vinci</semanticResources>
     <semanticResources>pages/cerulean/primary-fluid.vinci</semanticResources>
+    <semanticResources>pages/cerulean/dark.vinci</semanticResources>
+    <semanticResources>pages/cerulean/primary-dark.vinci</semanticResources>
+    <semanticResources>pages/cerulean/dark-fluid.vinci</semanticResources>
+    <semanticResources>pages/cerulean/primary-dark-fluid.vinci</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_xD_Q0ApBEeq01PnEy7pPaA">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/resource/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']"/>
       <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_zfIdkApBEeq01PnEy7pPaA" name="Bank of Nasdanika Diagram" repPath="#_zeF7wApBEeq01PnEy7pPaA">

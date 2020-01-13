@@ -35,8 +35,11 @@ import org.nasdanika.ncore.Configurable;
  *     * Primary
  *         * ``platform:/plugin/org.nasdanika.vinci.templates/pages/cerulean/primary.vinci``
  *         * ``platform:/plugin/org.nasdanika.vinci.templates/pages/cerulean/primary-fluid.vinci`` - fluid container.
- * 
- * 
+ *         * ``platform:/plugin/org.nasdanika.vinci.templates/pages/cerulean/primary-dark.vinci`` - dark navigation bar.
+ *         * ``platform:/plugin/org.nasdanika.vinci.templates/pages/cerulean/primary-dark-fluid.vinci`` - dark navigation bar, fluid container.
+ *     * Dark 
+ *         * ``platform:/plugin/org.nasdanika.vinci.templates/pages/cerulean/dark.vinci``
+ *         * ``platform:/plugin/org.nasdanika.vinci.templates/pages/cerulean/dark-fluid.vinci`` - fluid container.
  *     
  * <!-- end-model-doc -->
  *
