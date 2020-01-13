@@ -383,7 +383,7 @@ public class ActionReferenceImpl extends MinimalEObjectImpl.Container implements
 	public Supplier<Object> create(Context context) throws Exception {
 		MutableContext actionContext = context.fork();
 		new ActionMappingsPropertyComputer("action-mappings", getActionMappings()).put(actionContext);
-		return getAction().create(actionContext);
+		return configure(getAction()).create(actionContext);
 	}
 		
 } //ActionReferenceImpl

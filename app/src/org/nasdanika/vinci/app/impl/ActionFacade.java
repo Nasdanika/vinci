@@ -34,6 +34,10 @@ public class ActionFacade extends org.nasdanika.html.app.impl.ActionImpl impleme
 	private List<Object> content;
 
 	private Supplier<ViewBuilder> decoratorSupplier;
+
+	private Context actionContext; 
+
+	private ActionBase target;
 	
 	public ActionFacade(Context actionContext, ActionBase target) throws Exception {
 		this(actionContext, target, null, null, null);
@@ -46,6 +50,8 @@ public class ActionFacade extends org.nasdanika.html.app.impl.ActionImpl impleme
 			List<Object> content,
 			List<Object> elements) throws Exception {
 
+		this.actionContext = actionContext;
+		this.target = target;
 		
 		Appearance appearance = target.getAppearance();
 		decoratorSupplier = appearance == null ? null : appearance.create(actionContext);				
@@ -242,6 +248,20 @@ public class ActionFacade extends org.nasdanika.html.app.impl.ActionImpl impleme
 	@Override
 	public String toString() {
 		return "Action facade "+getText();
+	}
+	
+	/**
+	 * @return Action context built from the generation context and action configurations. 
+	 */
+	public Context getContext() {
+		return actionContext;
+	}
+	
+	/**
+	 * @return {@link ActionBase} facaded by this aciton.
+	 */
+	public ActionBase getTarget() {
+		return target;
 	}
 
 };

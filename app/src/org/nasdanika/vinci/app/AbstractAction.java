@@ -14,6 +14,25 @@ import org.nasdanika.ncore.Configurable;
  *
  * <!-- begin-model-doc -->
  * Base class for different types of actions - action, action link, and action reference.
+ * 
+ * # Customizing action page template
+ * 
+ * When an HTML application is generated from an action model with "Generate action" it uses a built-in page template by default. 
+ * The page template can be customized by setting ``page-template`` configuration property. 
+ * The value of the property shall be a page template model URI relative to the action's resource (model file).
+ * 
+ * The default value of the property is ``platform:/plugin/org.nasdanika.vinci.templates/pages/default/primary.vinci``.
+ * 
+ * ## Built-in page templates
+ * 
+ * ``org.nasdanika.vinci.templates`` plugin, which is part of the Vinci distribution, provides the following page templates (organized by theme and header color):
+ * 
+ * * Default
+ *     * Primary
+ *         * ``platform:/plugin/org.nasdanika.vinci.templates/pages/default/primary.vinci``
+ *         * ``platform:/plugin/org.nasdanika.vinci.templates/pages/default/primary-fluid.vinci`` - fluid container.
+ * 
+ *     
  * <!-- end-model-doc -->
  *
  * <p>

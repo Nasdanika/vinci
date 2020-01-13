@@ -8,7 +8,7 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
-import java.util.function.Function;
+import java.util.function.BiFunction;
 
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
@@ -20,11 +20,13 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.nasdanika.common.Context;
+import org.nasdanika.common.FunctionFactory;
 import org.nasdanika.common.ListCompoundSupplierFactory;
 import org.nasdanika.common.MapCompoundSupplierFactory;
 import org.nasdanika.common.MarkdownHelper;
 import org.nasdanika.common.MutableContext;
 import org.nasdanika.common.NasdanikaException;
+import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.common.Reference;
 import org.nasdanika.common.Supplier;
 import org.nasdanika.common.SupplierFactory;
@@ -827,9 +829,6 @@ public abstract class ActionBaseImpl extends LabelImpl implements ActionBase {
 	@Override
 	public Supplier<Object> create(Context context) throws Exception {
 		
-		MutableContext actionContext = context.fork();
-		new ActionMappingsPropertyComputer("action-mappings", getActionMappings()).put(actionContext);
-
 		String ELEMENTS_KEY = "Elements";		
 		String CONTENT_KEY = "Content";			
 		
@@ -923,19 +922,30 @@ public abstract class ActionBaseImpl extends LabelImpl implements ActionBase {
 		mcs.put(CONTENT_KEY, contentFactory);
 		mcs.put(ELEMENTS_KEY, elementsFactory);
 		
-		Function<? super Map<String, List<Object>>, Object> actionFacadeFactory = config -> {
-			try { 
-				return new ActionFacade(
-					actionContext, 
-					ActionBaseImpl.this, 
-					parentRef.get(), 
-					config.get(CONTENT_KEY), 
-					config.get(ELEMENTS_KEY));
-			} catch (Exception e) {
-				throw new NasdanikaException(e);
+		FunctionFactory<Map<String, List<Object>>, Object> actionFacadeFactory = new FunctionFactory<Map<String,List<Object>>, Object>() {
+			
+			@Override
+			public org.nasdanika.common.Function<Map<String, List<Object>>, Object> create(Context functionContext) throws Exception {
+					BiFunction<Map<String, List<Object>>, ProgressMonitor, Object> ret = (config, progressMonitor) -> {
+					try { 
+						return new ActionFacade(
+							functionContext, 
+							ActionBaseImpl.this, 
+							parentRef.get(), 
+							config.get(CONTENT_KEY), 
+							config.get(ELEMENTS_KEY));
+					} catch (Exception e) {
+						throw new NasdanikaException(e);
+					}
+				};
+				return org.nasdanika.common.Function.fromBiFunction(ret, "Action facade", 1);
 			}
 		};
-		return mcs.create(actionContext).then(actionFacadeFactory);
+				
+		MutableContext actionContext = context.fork();
+		new ActionMappingsPropertyComputer("action-mappings", getActionMappings()).put(actionContext);
+		
+		return configure(mcs.then(actionFacadeFactory)).create(actionContext);
 	}
 
 } //ActionBaseImpl

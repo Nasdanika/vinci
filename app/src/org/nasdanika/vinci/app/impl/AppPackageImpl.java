@@ -1187,7 +1187,7 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 		  (abstractActionEClass,
 		   source,
 		   new String[] {
-			   "documentation", "Base class for different types of actions - action, action link, and action reference."
+			   "documentation", "Base class for different types of actions - action, action link, and action reference.\n\n# Customizing action page template\n\nWhen an HTML application is generated from an action model with \"Generate action\" it uses a built-in page template by default. \nThe page template can be customized by setting ``page-template`` configuration property. \nThe value of the property shall be a page template model URI relative to the action\'s resource (model file).\n\nThe default value of the property is ``platform:/plugin/org.nasdanika.vinci.templates/pages/default/primary.vinci``.\n\n## Built-in page templates\n\n``org.nasdanika.vinci.templates`` plugin, which is part of the Vinci distribution, provides the following page templates (organized by theme and header color):\n\n* Default\n    * Primary\n        * ``platform:/plugin/org.nasdanika.vinci.templates/pages/default/primary.vinci``\n        * ``platform:/plugin/org.nasdanika.vinci.templates/pages/default/primary-fluid.vinci`` - fluid container.\n\n    "
 		   });
 		addAnnotation
 		  (getAbstractAction_ActionMappings(),
