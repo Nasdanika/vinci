@@ -877,13 +877,22 @@ public interface AppPackage extends EPackage {
 	int ACTION_BASE__MARKDOWN_CONTENT = LABEL_FEATURE_COUNT + 12;
 
 	/**
+	 * The feature id for the '<em><b>Page Template</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION_BASE__PAGE_TEMPLATE = LABEL_FEATURE_COUNT + 13;
+
+	/**
 	 * The feature id for the '<em><b>Content</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION_BASE__CONTENT = LABEL_FEATURE_COUNT + 13;
+	int ACTION_BASE__CONTENT = LABEL_FEATURE_COUNT + 14;
 
 	/**
 	 * The number of structural features of the '<em>Action Base</em>' class.
@@ -892,7 +901,7 @@ public interface AppPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION_BASE_FEATURE_COUNT = LABEL_FEATURE_COUNT + 14;
+	int ACTION_BASE_FEATURE_COUNT = LABEL_FEATURE_COUNT + 15;
 
 	/**
 	 * The operation id for the '<em>Create Application Builder Supplier</em>' operation.
@@ -1319,6 +1328,15 @@ public interface AppPackage extends EPackage {
 	int ACTION__MARKDOWN_CONTENT = ACTION_BASE__MARKDOWN_CONTENT;
 
 	/**
+	 * The feature id for the '<em><b>Page Template</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION__PAGE_TEMPLATE = ACTION_BASE__PAGE_TEMPLATE;
+
+	/**
 	 * The feature id for the '<em><b>Content</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1560,6 +1578,15 @@ public interface AppPackage extends EPackage {
 	 * @ordered
 	 */
 	int PARTITION__MARKDOWN_CONTENT = ACTION_BASE__MARKDOWN_CONTENT;
+
+	/**
+	 * The feature id for the '<em><b>Page Template</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARTITION__PAGE_TEMPLATE = ACTION_BASE__PAGE_TEMPLATE;
 
 	/**
 	 * The feature id for the '<em><b>Content</b></em>' containment reference list.
@@ -2472,6 +2499,17 @@ public interface AppPackage extends EPackage {
 	EAttribute getActionBase_MarkdownContent();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.app.ActionBase#getPageTemplate <em>Page Template</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Page Template</em>'.
+	 * @see org.nasdanika.vinci.app.ActionBase#getPageTemplate()
+	 * @see #getActionBase()
+	 * @generated
+	 */
+	EAttribute getActionBase_PageTemplate();
+
+	/**
 	 * Returns the meta object for the containment reference list '{@link org.nasdanika.vinci.app.ActionBase#getContent <em>Content</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2984,6 +3022,14 @@ public interface AppPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute ACTION_BASE__MARKDOWN_CONTENT = eINSTANCE.getActionBase_MarkdownContent();
+
+		/**
+		 * The meta object literal for the '<em><b>Page Template</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ACTION_BASE__PAGE_TEMPLATE = eINSTANCE.getActionBase_PageTemplate();
 
 		/**
 		 * The meta object literal for the '<em><b>Content</b></em>' containment reference list feature.

@@ -28,6 +28,7 @@ import org.nasdanika.common.SupplierFactory;
  *   <li>{@link org.nasdanika.vinci.app.ActionBase#isDisabled <em>Disabled</em>}</li>
  *   <li>{@link org.nasdanika.vinci.app.ActionBase#isEmbedded <em>Embedded</em>}</li>
  *   <li>{@link org.nasdanika.vinci.app.ActionBase#getMarkdownContent <em>Markdown Content</em>}</li>
+ *   <li>{@link org.nasdanika.vinci.app.ActionBase#getPageTemplate <em>Page Template</em>}</li>
  *   <li>{@link org.nasdanika.vinci.app.ActionBase#getContent <em>Content</em>}</li>
  * </ul>
  *
@@ -290,6 +291,51 @@ public interface ActionBase extends Label, AbstractAction, Container<ActionEleme
 	 * @generated
 	 */
 	void setMarkdownContent(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Page Template</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * URI of the page template to use for generation of a Web Application. The URI is resolved relative to the action's containing resource.
+	 * Defaults to ``platform:/plugin/org.nasdanika.vinci.templates/pages/default/primary.vinci`` built-in template.
+	 * 
+	 * ## Built-in page templates
+	 * 
+	 * ``org.nasdanika.vinci.templates`` plugin, which is part of the Vinci distribution, provides the following page templates (organized by theme and header color):
+	 * 
+	 * * Default
+	 *     * Primary
+	 *         * ``platform:/plugin/org.nasdanika.vinci.templates/pages/default/primary.vinci``
+	 *         * ``platform:/plugin/org.nasdanika.vinci.templates/pages/default/primary-fluid.vinci`` - fluid container.
+	 * * Cerulean
+	 *     * Primary
+	 *         * ``platform:/plugin/org.nasdanika.vinci.templates/pages/cerulean/primary.vinci``
+	 *         * ``platform:/plugin/org.nasdanika.vinci.templates/pages/cerulean/primary-fluid.vinci`` - fluid container.
+	 *         * ``platform:/plugin/org.nasdanika.vinci.templates/pages/cerulean/primary-dark.vinci`` - dark navigation bar.
+	 *         * ``platform:/plugin/org.nasdanika.vinci.templates/pages/cerulean/primary-dark-fluid.vinci`` - dark navigation bar, fluid container.
+	 *     * Dark 
+	 *         * ``platform:/plugin/org.nasdanika.vinci.templates/pages/cerulean/dark.vinci``
+	 *         * ``platform:/plugin/org.nasdanika.vinci.templates/pages/cerulean/dark-fluid.vinci`` - fluid container.
+	 *     
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Page Template</em>' attribute.
+	 * @see #setPageTemplate(String)
+	 * @see org.nasdanika.vinci.app.AppPackage#getActionBase_PageTemplate()
+	 * @model
+	 * @generated
+	 */
+	String getPageTemplate();
+
+	/**
+	 * Sets the value of the '{@link org.nasdanika.vinci.app.ActionBase#getPageTemplate <em>Page Template</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Page Template</em>' attribute.
+	 * @see #getPageTemplate()
+	 * @generated
+	 */
+	void setPageTemplate(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Content</b></em>' containment reference list.

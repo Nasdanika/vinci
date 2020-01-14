@@ -2,7 +2,9 @@ package org.nasdanika.vinci.app.impl;
 
 import java.util.List;
 
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.resource.Resource;
 import org.jsoup.Jsoup;
 import org.nasdanika.common.Context;
 import org.nasdanika.common.MarkdownHelper;
@@ -14,6 +16,7 @@ import org.nasdanika.common.Util;
 import org.nasdanika.html.Fragment;
 import org.nasdanika.html.HTMLElement;
 import org.nasdanika.html.HTMLFactory;
+import org.nasdanika.html.app.Action;
 import org.nasdanika.html.app.Decorator;
 import org.nasdanika.html.app.NavigationActionActivator;
 import org.nasdanika.html.app.ScriptActionActivator;
@@ -30,6 +33,9 @@ import org.nasdanika.vinci.app.ActionRole;
 import org.nasdanika.vinci.bootstrap.Appearance;
 
 public class ActionFacade extends org.nasdanika.html.app.impl.ActionImpl implements Decorator {
+	
+	// String representation: platform:/plugin/org.nasdanika.vinci.templates/pages/default/primary.vinci
+	public static final URI DEFAULT_PAGE_TEMPLATE = URI.createPlatformPluginURI("/org.nasdanika.vinci.templates/pages/default/primary.vinci", true);
 		
 	private List<Object> content;
 
@@ -262,6 +268,27 @@ public class ActionFacade extends org.nasdanika.html.app.impl.ActionImpl impleme
 	 */
 	public ActionBase getTarget() {
 		return target;
+	}
+	
+	/**
+	 * @return Page template for the action. Inherited from parent. Defaults to <code>platform:/plugin/org.nasdanika.vinci.templates/pages/default/primary.vinci</code>. 
+	 */
+	public URI getPageTemplate() {
+		String pageTemplate = target.getPageTemplate();
+		if (Util.isBlank(pageTemplate)) {
+			Action theParent = getParent();
+			if (theParent instanceof ActionFacade) {
+				return ((ActionFacade) theParent).getPageTemplate();
+			}
+			return DEFAULT_PAGE_TEMPLATE;
+		}
+		URI ret = URI.createURI(actionContext.interpolate(pageTemplate));
+		Resource resource = target.eResource();
+		if (resource == null) {
+			return ret;
+		}
+		URI resUri = resource.getURI();
+		return ret.resolve(resUri);
 	}
 
 };

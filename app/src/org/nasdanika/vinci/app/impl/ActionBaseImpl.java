@@ -69,6 +69,7 @@ import org.nasdanika.vinci.app.BootstrapContainerApplicationBuilder;
  *   <li>{@link org.nasdanika.vinci.app.impl.ActionBaseImpl#isDisabled <em>Disabled</em>}</li>
  *   <li>{@link org.nasdanika.vinci.app.impl.ActionBaseImpl#isEmbedded <em>Embedded</em>}</li>
  *   <li>{@link org.nasdanika.vinci.app.impl.ActionBaseImpl#getMarkdownContent <em>Markdown Content</em>}</li>
+ *   <li>{@link org.nasdanika.vinci.app.impl.ActionBaseImpl#getPageTemplate <em>Page Template</em>}</li>
  *   <li>{@link org.nasdanika.vinci.app.impl.ActionBaseImpl#getContent <em>Content</em>}</li>
  * </ul>
  *
@@ -165,6 +166,16 @@ public abstract class ActionBaseImpl extends LabelImpl implements ActionBase {
 	 * @ordered
 	 */
 	protected static final String MARKDOWN_CONTENT_EDEFAULT = null;
+
+	/**
+	 * The default value of the '{@link #getPageTemplate() <em>Page Template</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPageTemplate()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String PAGE_TEMPLATE_EDEFAULT = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -414,6 +425,26 @@ public abstract class ActionBaseImpl extends LabelImpl implements ActionBase {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
+	public String getPageTemplate() {
+		return (String)eDynamicGet(AppPackage.ACTION_BASE__PAGE_TEMPLATE, AppPackage.Literals.ACTION_BASE__PAGE_TEMPLATE, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setPageTemplate(String newPageTemplate) {
+		eDynamicSet(AppPackage.ACTION_BASE__PAGE_TEMPLATE, AppPackage.Literals.ACTION_BASE__PAGE_TEMPLATE, newPageTemplate);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public EList<SupplierFactory<Object>> getContent() {
@@ -533,6 +564,8 @@ public abstract class ActionBaseImpl extends LabelImpl implements ActionBase {
 				return isEmbedded();
 			case AppPackage.ACTION_BASE__MARKDOWN_CONTENT:
 				return getMarkdownContent();
+			case AppPackage.ACTION_BASE__PAGE_TEMPLATE:
+				return getPageTemplate();
 			case AppPackage.ACTION_BASE__CONTENT:
 				return getContent();
 		}
@@ -591,6 +624,9 @@ public abstract class ActionBaseImpl extends LabelImpl implements ActionBase {
 			case AppPackage.ACTION_BASE__MARKDOWN_CONTENT:
 				setMarkdownContent((String)newValue);
 				return;
+			case AppPackage.ACTION_BASE__PAGE_TEMPLATE:
+				setPageTemplate((String)newValue);
+				return;
 			case AppPackage.ACTION_BASE__CONTENT:
 				getContent().clear();
 				getContent().addAll((Collection<? extends SupplierFactory<Object>>)newValue);
@@ -646,6 +682,9 @@ public abstract class ActionBaseImpl extends LabelImpl implements ActionBase {
 			case AppPackage.ACTION_BASE__MARKDOWN_CONTENT:
 				setMarkdownContent(MARKDOWN_CONTENT_EDEFAULT);
 				return;
+			case AppPackage.ACTION_BASE__PAGE_TEMPLATE:
+				setPageTemplate(PAGE_TEMPLATE_EDEFAULT);
+				return;
 			case AppPackage.ACTION_BASE__CONTENT:
 				getContent().clear();
 				return;
@@ -687,6 +726,8 @@ public abstract class ActionBaseImpl extends LabelImpl implements ActionBase {
 				return isEmbedded() != EMBEDDED_EDEFAULT;
 			case AppPackage.ACTION_BASE__MARKDOWN_CONTENT:
 				return MARKDOWN_CONTENT_EDEFAULT == null ? getMarkdownContent() != null : !MARKDOWN_CONTENT_EDEFAULT.equals(getMarkdownContent());
+			case AppPackage.ACTION_BASE__PAGE_TEMPLATE:
+				return PAGE_TEMPLATE_EDEFAULT == null ? getPageTemplate() != null : !PAGE_TEMPLATE_EDEFAULT.equals(getPageTemplate());
 			case AppPackage.ACTION_BASE__CONTENT:
 				return !getContent().isEmpty();
 		}

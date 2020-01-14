@@ -63,11 +63,6 @@ import org.nasdanika.vinci.html.HtmlPackage;
  */
 public class GenerateTemplatedApplicationAction extends VinciGenerateAction<AbstractAction> {
 		
-	// String representation: platform:/plugin/org.nasdanika.vinci.templates/pages/default/primary.vinci
-	private static final URI DEFAULT_PAGE_TEMPLATE = URI.createPlatformPluginURI("/org.nasdanika.vinci.templates/pages/default/primary.vinci", true);
-
-	private static final String PAGE_TEMPLATE_CONTEXT_KEY = "page-template";
-
 	private static final int TOTAL_WORK = 1000;
 
 	public static BiFunction<String, Object, InputStream> ENCODER = (path, contents) -> {
@@ -92,7 +87,7 @@ public class GenerateTemplatedApplicationAction extends VinciGenerateAction<Abst
 			outputName = lastDotIdx == -1 ? outputName + "-site" : outputName.substring(0, lastDotIdx);
 			
 			EclipseContainer output = new EclipseContainer(modelFile.getParent().getFolder(new Path(outputName)));
-			Context generationContext = Context.singleton(BinaryEntityContainer.class, output).compose(Context.singleton(PAGE_TEMPLATE_CONTEXT_KEY, DEFAULT_PAGE_TEMPLATE)); 
+			Context generationContext = Context.singleton(BinaryEntityContainer.class, output); 
 			
 			SubMonitor subMonitor = SubMonitor.convert(monitor, TOTAL_WORK);
 			
@@ -188,26 +183,10 @@ public class GenerateTemplatedApplicationAction extends VinciGenerateAction<Abst
 		
 				SubMonitor pageMonitor = monitor.split(pageWork);
 				
-				URI templateUri = DEFAULT_PAGE_TEMPLATE;
-				
-				if (activeAction instanceof ActionFacade) {
-					Object templateObj = ((ActionFacade) activeAction).getContext().get(PAGE_TEMPLATE_CONTEXT_KEY);
-					if (templateObj instanceof URI) {
-						templateUri = (URI) templateObj;
-					} else if (templateObj instanceof String) {
-						Resource resource = ((ActionFacade) activeAction).getTarget().eResource();
-						if (resource != null) {
-							URI resUri = resource.getURI();
-							URI refUri = URI.createURI((String) templateObj);
-							templateUri = refUri.resolve(resUri);
-						}
-					}
-				}
-				
-				System.out.println(templateUri);
-				
+				URI templateUri = activeAction instanceof ActionFacade ? ((ActionFacade) activeAction).getPageTemplate() : ActionFacade.DEFAULT_PAGE_TEMPLATE;				
 				Resource templateResource = resourceSet.getResource(templateUri, true);
-				BootstrapPage page = (BootstrapPage) templateResource.getContents().get(0);	
+				String fragment = templateUri.fragment();				
+				BootstrapPage page = (BootstrapPage) (fragment == null ? templateResource.getContents().get(0) : templateResource.getEObject(fragment));	
 				
 				Diagnostician diagnostician = new Diagnostician() {
 					

@@ -765,8 +765,18 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 	 * @generated
 	 */
 	@Override
+	public EAttribute getActionBase_PageTemplate() {
+		return (EAttribute)actionBaseEClass.getEStructuralFeatures().get(9);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EReference getActionBase_Content() {
-		return (EReference)actionBaseEClass.getEStructuralFeatures().get(9);
+		return (EReference)actionBaseEClass.getEStructuralFeatures().get(10);
 	}
 
 	/**
@@ -860,6 +870,7 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 		createEAttribute(actionBaseEClass, ACTION_BASE__DISABLED);
 		createEAttribute(actionBaseEClass, ACTION_BASE__EMBEDDED);
 		createEAttribute(actionBaseEClass, ACTION_BASE__MARKDOWN_CONTENT);
+		createEAttribute(actionBaseEClass, ACTION_BASE__PAGE_TEMPLATE);
 		createEReference(actionBaseEClass, ACTION_BASE__CONTENT);
 
 		actionMappingEClass = createEClass(ACTION_MAPPING);
@@ -1023,6 +1034,7 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 		initEAttribute(getActionBase_Disabled(), ecorePackage.getEBoolean(), "disabled", null, 0, 1, ActionBase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getActionBase_Embedded(), ecorePackage.getEBoolean(), "embedded", null, 0, 1, ActionBase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getActionBase_MarkdownContent(), ecorePackage.getEString(), "markdownContent", null, 0, 1, ActionBase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getActionBase_PageTemplate(), ecorePackage.getEString(), "pageTemplate", null, 0, 1, ActionBase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		g1 = createEGenericType(theNcorePackage.getISupplierFactory());
 		g2 = createEGenericType(ecorePackage.getEJavaObject());
 		g1.getETypeArguments().add(g2);
@@ -1187,7 +1199,7 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 		  (abstractActionEClass,
 		   source,
 		   new String[] {
-			   "documentation", "Base class for different types of actions - action, action link, and action reference.\n\n# Customizing action page template\n\nWhen an HTML application is generated from an action model with \"Generate action\" it uses a built-in page template by default. \nThe page template can be customized by setting ``page-template`` configuration property. \nThe value of the property shall be a page template model URI relative to the action\'s resource (model file).\n\nThe default value of the property is ``platform:/plugin/org.nasdanika.vinci.templates/pages/default/primary.vinci``.\n\n## Built-in page templates\n\n``org.nasdanika.vinci.templates`` plugin, which is part of the Vinci distribution, provides the following page templates (organized by theme and header color):\n\n* Default\n    * Primary\n        * ``platform:/plugin/org.nasdanika.vinci.templates/pages/default/primary.vinci``\n        * ``platform:/plugin/org.nasdanika.vinci.templates/pages/default/primary-fluid.vinci`` - fluid container.\n* Cerulean\n    * Primary\n        * ``platform:/plugin/org.nasdanika.vinci.templates/pages/cerulean/primary.vinci``\n        * ``platform:/plugin/org.nasdanika.vinci.templates/pages/cerulean/primary-fluid.vinci`` - fluid container.\n        * ``platform:/plugin/org.nasdanika.vinci.templates/pages/cerulean/primary-dark.vinci`` - dark navigation bar.\n        * ``platform:/plugin/org.nasdanika.vinci.templates/pages/cerulean/primary-dark-fluid.vinci`` - dark navigation bar, fluid container.\n    * Dark \n        * ``platform:/plugin/org.nasdanika.vinci.templates/pages/cerulean/dark.vinci``\n        * ``platform:/plugin/org.nasdanika.vinci.templates/pages/cerulean/dark-fluid.vinci`` - fluid container.\n    "
+			   "documentation", "Base class for different types of actions - action, action link, and action reference."
 		   });
 		addAnnotation
 		  (getAbstractAction_ActionMappings(),
@@ -1260,6 +1272,12 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 		   source,
 		   new String[] {
 			   "documentation", "[Markdown](https://en.wikipedia.org/wiki/Markdown) text. If this attribute contains text, the text is converted to HTML, interpolated and used as the first content element.\nThe primary purpose of this attribute is rapid development/prototyping of web applications/sites. "
+		   });
+		addAnnotation
+		  (getActionBase_PageTemplate(),
+		   source,
+		   new String[] {
+			   "documentation", "URI of the page template to use for generation of a Web Application. The URI is resolved relative to the action\'s containing resource.\nDefaults to ``platform:/plugin/org.nasdanika.vinci.templates/pages/default/primary.vinci`` built-in template.\n\n## Built-in page templates\n\n``org.nasdanika.vinci.templates`` plugin, which is part of the Vinci distribution, provides the following page templates (organized by theme and header color):\n\n* Default\n    * Primary\n        * ``platform:/plugin/org.nasdanika.vinci.templates/pages/default/primary.vinci``\n        * ``platform:/plugin/org.nasdanika.vinci.templates/pages/default/primary-fluid.vinci`` - fluid container.\n* Cerulean\n    * Primary\n        * ``platform:/plugin/org.nasdanika.vinci.templates/pages/cerulean/primary.vinci``\n        * ``platform:/plugin/org.nasdanika.vinci.templates/pages/cerulean/primary-fluid.vinci`` - fluid container.\n        * ``platform:/plugin/org.nasdanika.vinci.templates/pages/cerulean/primary-dark.vinci`` - dark navigation bar.\n        * ``platform:/plugin/org.nasdanika.vinci.templates/pages/cerulean/primary-dark-fluid.vinci`` - dark navigation bar, fluid container.\n    * Dark \n        * ``platform:/plugin/org.nasdanika.vinci.templates/pages/cerulean/dark.vinci``\n        * ``platform:/plugin/org.nasdanika.vinci.templates/pages/cerulean/dark-fluid.vinci`` - fluid container.\n    "
 		   });
 		addAnnotation
 		  (getActionBase_Content(),
