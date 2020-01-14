@@ -8,7 +8,10 @@ import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
 import org.nasdanika.common.SupplierFactory;
 import org.nasdanika.ncore.ModelElement;
+import org.nasdanika.vinci.bootstrap.BootstrapElement;
+import org.nasdanika.vinci.bootstrap.TableConfiguration;
 import org.nasdanika.vinci.components.*;
+import org.nasdanika.vinci.html.HtmlElement;
 import org.nasdanika.vinci.components.ComponentsPackage;
 import org.nasdanika.vinci.components.Markdown;
 import org.nasdanika.vinci.components.MarkdownResource;
@@ -87,12 +90,36 @@ public class ComponentsAdapterFactory extends AdapterFactoryImpl {
 				return createActionLinkAdapter();
 			}
 			@Override
+			public Adapter caseTableOfContentsBase(TableOfContentsBase object) {
+				return createTableOfContentsBaseAdapter();
+			}
+			@Override
+			public Adapter caseTableOfContents(TableOfContents object) {
+				return createTableOfContentsAdapter();
+			}
+			@Override
+			public Adapter caseListOfContents(ListOfContents object) {
+				return createListOfContentsAdapter();
+			}
+			@Override
 			public Adapter caseModelElement(ModelElement object) {
 				return createModelElementAdapter();
 			}
 			@Override
 			public <T> Adapter caseISupplierFactory(SupplierFactory<T> object) {
 				return createISupplierFactoryAdapter();
+			}
+			@Override
+			public Adapter caseHtmlElement(HtmlElement object) {
+				return createHtmlElementAdapter();
+			}
+			@Override
+			public Adapter caseBootstrapElement(BootstrapElement object) {
+				return createBootstrapElementAdapter();
+			}
+			@Override
+			public Adapter caseTableConfiguration(TableConfiguration object) {
+				return createTableConfigurationAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -171,6 +198,48 @@ public class ComponentsAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.vinci.components.TableOfContentsBase <em>Table Of Contents Base</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.vinci.components.TableOfContentsBase
+	 * @generated
+	 */
+	public Adapter createTableOfContentsBaseAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.vinci.components.TableOfContents <em>Table Of Contents</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.vinci.components.TableOfContents
+	 * @generated
+	 */
+	public Adapter createTableOfContentsAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.vinci.components.ListOfContents <em>List Of Contents</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.vinci.components.ListOfContents
+	 * @generated
+	 */
+	public Adapter createListOfContentsAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link org.nasdanika.ncore.ModelElement <em>Model Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -195,6 +264,48 @@ public class ComponentsAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createISupplierFactoryAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.vinci.html.HtmlElement <em>Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.vinci.html.HtmlElement
+	 * @generated
+	 */
+	public Adapter createHtmlElementAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.vinci.bootstrap.BootstrapElement <em>Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.vinci.bootstrap.BootstrapElement
+	 * @generated
+	 */
+	public Adapter createBootstrapElementAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.vinci.bootstrap.TableConfiguration <em>Table Configuration</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.vinci.bootstrap.TableConfiguration
+	 * @generated
+	 */
+	public Adapter createTableConfigurationAdapter() {
 		return null;
 	}
 

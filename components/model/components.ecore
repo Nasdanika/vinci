@@ -113,7 +113,7 @@
       <details key="documentation" value="Containing action content rendered in a table."/>
     </eAnnotations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ListOfContents" eSuperTypes="#//TableOfContentsBase ../../org.nasdanika.vinci.bootstrap/model/bootstrap.ecore#//TableConfiguration">
+  <eClassifiers xsi:type="ecore:EClass" name="ListOfContents" eSuperTypes="#//TableOfContentsBase">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Containing action content rendered in a list."/>
     </eAnnotations>

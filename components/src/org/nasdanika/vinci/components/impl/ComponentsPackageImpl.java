@@ -14,9 +14,12 @@ import org.nasdanika.vinci.bootstrap.BootstrapPackage;
 import org.nasdanika.vinci.components.ActionLink;
 import org.nasdanika.vinci.components.ComponentsFactory;
 import org.nasdanika.vinci.components.ComponentsPackage;
+import org.nasdanika.vinci.components.ListOfContents;
 import org.nasdanika.vinci.components.Markdown;
 import org.nasdanika.vinci.components.MarkdownResource;
 import org.nasdanika.vinci.components.MarkdownText;
+import org.nasdanika.vinci.components.TableOfContents;
+import org.nasdanika.vinci.components.TableOfContentsBase;
 import org.nasdanika.vinci.html.HtmlPackage;
 
 /**
@@ -53,6 +56,27 @@ public class ComponentsPackageImpl extends EPackageImpl implements ComponentsPac
 	 * @generated
 	 */
 	private EClass actionLinkEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass tableOfContentsBaseEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass tableOfContentsEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass listOfContentsEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -237,6 +261,86 @@ public class ComponentsPackageImpl extends EPackageImpl implements ComponentsPac
 	 * @generated
 	 */
 	@Override
+	public EClass getTableOfContentsBase() {
+		return tableOfContentsBaseEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getTableOfContentsBase_Header() {
+		return (EAttribute)tableOfContentsBaseEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getTableOfContentsBase_Descriptions() {
+		return (EAttribute)tableOfContentsBaseEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getTableOfContentsBase_Role() {
+		return (EAttribute)tableOfContentsBaseEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getTableOfContentsBase_Depth() {
+		return (EAttribute)tableOfContentsBaseEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getTableOfContents() {
+		return tableOfContentsEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getListOfContents() {
+		return listOfContentsEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getListOfContents_Ordering() {
+		return (EAttribute)listOfContentsEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public ComponentsFactory getComponentsFactory() {
 		return (ComponentsFactory)getEFactoryInstance();
 	}
@@ -274,6 +378,17 @@ public class ComponentsPackageImpl extends EPackageImpl implements ComponentsPac
 		actionLinkEClass = createEClass(ACTION_LINK);
 		createEReference(actionLinkEClass, ACTION_LINK__TARGET);
 		createEReference(actionLinkEClass, ACTION_LINK__APPEARANCE);
+
+		tableOfContentsBaseEClass = createEClass(TABLE_OF_CONTENTS_BASE);
+		createEAttribute(tableOfContentsBaseEClass, TABLE_OF_CONTENTS_BASE__HEADER);
+		createEAttribute(tableOfContentsBaseEClass, TABLE_OF_CONTENTS_BASE__DESCRIPTIONS);
+		createEAttribute(tableOfContentsBaseEClass, TABLE_OF_CONTENTS_BASE__ROLE);
+		createEAttribute(tableOfContentsBaseEClass, TABLE_OF_CONTENTS_BASE__DEPTH);
+
+		tableOfContentsEClass = createEClass(TABLE_OF_CONTENTS);
+
+		listOfContentsEClass = createEClass(LIST_OF_CONTENTS);
+		createEAttribute(listOfContentsEClass, LIST_OF_CONTENTS__ORDERING);
 	}
 
 	/**
@@ -324,6 +439,15 @@ public class ComponentsPackageImpl extends EPackageImpl implements ComponentsPac
 		g2 = createEGenericType(theHtmlPackage.getViewPart());
 		g1.getETypeArguments().add(g2);
 		actionLinkEClass.getEGenericSuperTypes().add(g1);
+		g1 = createEGenericType(theBootstrapPackage.getBootstrapElement());
+		tableOfContentsBaseEClass.getEGenericSuperTypes().add(g1);
+		g1 = createEGenericType(theNcorePackage.getISupplierFactory());
+		g2 = createEGenericType(theHtmlPackage.getViewPart());
+		g1.getETypeArguments().add(g2);
+		tableOfContentsBaseEClass.getEGenericSuperTypes().add(g1);
+		tableOfContentsEClass.getESuperTypes().add(this.getTableOfContentsBase());
+		tableOfContentsEClass.getESuperTypes().add(theBootstrapPackage.getTableConfiguration());
+		listOfContentsEClass.getESuperTypes().add(this.getTableOfContentsBase());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(markdownEClass, Markdown.class, "Markdown", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -340,6 +464,17 @@ public class ComponentsPackageImpl extends EPackageImpl implements ComponentsPac
 		initEClass(actionLinkEClass, ActionLink.class, "ActionLink", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getActionLink_Target(), theAppPackage.getAbstractAction(), null, "target", null, 1, 1, ActionLink.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getActionLink_Appearance(), theBootstrapPackage.getAppearance(), null, "appearance", null, 0, 1, ActionLink.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(tableOfContentsBaseEClass, TableOfContentsBase.class, "TableOfContentsBase", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getTableOfContentsBase_Header(), ecorePackage.getEString(), "header", "", 0, 1, TableOfContentsBase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTableOfContentsBase_Descriptions(), ecorePackage.getEString(), "descriptions", "", 0, 1, TableOfContentsBase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTableOfContentsBase_Role(), ecorePackage.getEString(), "role", "", 0, 1, TableOfContentsBase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTableOfContentsBase_Depth(), ecorePackage.getEInt(), "depth", "3", 0, 1, TableOfContentsBase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(tableOfContentsEClass, TableOfContents.class, "TableOfContents", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(listOfContentsEClass, ListOfContents.class, "ListOfContents", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getListOfContents_Ordering(), ecorePackage.getEString(), "ordering", "", 0, 1, ListOfContents.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

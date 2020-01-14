@@ -49,6 +49,24 @@ public interface ComponentsFactory extends EFactory {
 	ActionLink createActionLink();
 
 	/**
+	 * Returns a new object of class '<em>Table Of Contents</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Table Of Contents</em>'.
+	 * @generated
+	 */
+	TableOfContents createTableOfContents();
+
+	/**
+	 * Returns a new object of class '<em>List Of Contents</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>List Of Contents</em>'.
+	 * @generated
+	 */
+	ListOfContents createListOfContents();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -7,7 +7,10 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
 import org.nasdanika.common.SupplierFactory;
 import org.nasdanika.ncore.ModelElement;
+import org.nasdanika.vinci.bootstrap.BootstrapElement;
+import org.nasdanika.vinci.bootstrap.TableConfiguration;
 import org.nasdanika.vinci.components.*;
+import org.nasdanika.vinci.html.HtmlElement;
 import org.nasdanika.vinci.components.ComponentsPackage;
 import org.nasdanika.vinci.components.Markdown;
 import org.nasdanika.vinci.components.MarkdownResource;
@@ -104,6 +107,39 @@ public class ComponentsSwitch<T1> extends Switch<T1> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case ComponentsPackage.TABLE_OF_CONTENTS_BASE: {
+				TableOfContentsBase tableOfContentsBase = (TableOfContentsBase)theEObject;
+				T1 result = caseTableOfContentsBase(tableOfContentsBase);
+				if (result == null) result = caseBootstrapElement(tableOfContentsBase);
+				if (result == null) result = caseISupplierFactory(tableOfContentsBase);
+				if (result == null) result = caseHtmlElement(tableOfContentsBase);
+				if (result == null) result = caseModelElement(tableOfContentsBase);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ComponentsPackage.TABLE_OF_CONTENTS: {
+				TableOfContents tableOfContents = (TableOfContents)theEObject;
+				T1 result = caseTableOfContents(tableOfContents);
+				if (result == null) result = caseTableOfContentsBase(tableOfContents);
+				if (result == null) result = caseTableConfiguration(tableOfContents);
+				if (result == null) result = caseBootstrapElement(tableOfContents);
+				if (result == null) result = caseISupplierFactory(tableOfContents);
+				if (result == null) result = caseHtmlElement(tableOfContents);
+				if (result == null) result = caseModelElement(tableOfContents);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ComponentsPackage.LIST_OF_CONTENTS: {
+				ListOfContents listOfContents = (ListOfContents)theEObject;
+				T1 result = caseListOfContents(listOfContents);
+				if (result == null) result = caseTableOfContentsBase(listOfContents);
+				if (result == null) result = caseBootstrapElement(listOfContents);
+				if (result == null) result = caseISupplierFactory(listOfContents);
+				if (result == null) result = caseHtmlElement(listOfContents);
+				if (result == null) result = caseModelElement(listOfContents);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -169,6 +205,51 @@ public class ComponentsSwitch<T1> extends Switch<T1> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Table Of Contents Base</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Table Of Contents Base</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseTableOfContentsBase(TableOfContentsBase object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Table Of Contents</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Table Of Contents</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseTableOfContents(TableOfContents object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>List Of Contents</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>List Of Contents</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseListOfContents(ListOfContents object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Model Element</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -195,6 +276,51 @@ public class ComponentsSwitch<T1> extends Switch<T1> {
 	 * @generated
 	 */
 	public <T> T1 caseISupplierFactory(SupplierFactory<T> object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Element</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseHtmlElement(HtmlElement object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Element</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseBootstrapElement(BootstrapElement object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Table Configuration</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Table Configuration</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseTableConfiguration(TableConfiguration object) {
 		return null;
 	}
 

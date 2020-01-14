@@ -7,6 +7,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.nasdanika.ncore.NcorePackage;
+import org.nasdanika.vinci.bootstrap.BootstrapPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -365,6 +366,370 @@ public interface ComponentsPackage extends EPackage {
 
 
 	/**
+	 * The meta object id for the '{@link org.nasdanika.vinci.components.impl.TableOfContentsBaseImpl <em>Table Of Contents Base</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.vinci.components.impl.TableOfContentsBaseImpl
+	 * @see org.nasdanika.vinci.components.impl.ComponentsPackageImpl#getTableOfContentsBase()
+	 * @generated
+	 */
+	int TABLE_OF_CONTENTS_BASE = 4;
+
+	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_OF_CONTENTS_BASE__TITLE = BootstrapPackage.BOOTSTRAP_ELEMENT__TITLE;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_OF_CONTENTS_BASE__DESCRIPTION = BootstrapPackage.BOOTSTRAP_ELEMENT__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Appearance</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_OF_CONTENTS_BASE__APPEARANCE = BootstrapPackage.BOOTSTRAP_ELEMENT__APPEARANCE;
+
+	/**
+	 * The feature id for the '<em><b>Header</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_OF_CONTENTS_BASE__HEADER = BootstrapPackage.BOOTSTRAP_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Descriptions</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_OF_CONTENTS_BASE__DESCRIPTIONS = BootstrapPackage.BOOTSTRAP_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Role</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_OF_CONTENTS_BASE__ROLE = BootstrapPackage.BOOTSTRAP_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Depth</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_OF_CONTENTS_BASE__DEPTH = BootstrapPackage.BOOTSTRAP_ELEMENT_FEATURE_COUNT + 3;
+
+	/**
+	 * The number of structural features of the '<em>Table Of Contents Base</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_OF_CONTENTS_BASE_FEATURE_COUNT = BootstrapPackage.BOOTSTRAP_ELEMENT_FEATURE_COUNT + 4;
+
+	/**
+	 * The operation id for the '<em>As View Builder Supplier</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_OF_CONTENTS_BASE___AS_VIEW_BUILDER_SUPPLIER__CONTEXT = BootstrapPackage.BOOTSTRAP_ELEMENT___AS_VIEW_BUILDER_SUPPLIER__CONTEXT;
+
+	/**
+	 * The number of operations of the '<em>Table Of Contents Base</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_OF_CONTENTS_BASE_OPERATION_COUNT = BootstrapPackage.BOOTSTRAP_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.nasdanika.vinci.components.impl.TableOfContentsImpl <em>Table Of Contents</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.vinci.components.impl.TableOfContentsImpl
+	 * @see org.nasdanika.vinci.components.impl.ComponentsPackageImpl#getTableOfContents()
+	 * @generated
+	 */
+	int TABLE_OF_CONTENTS = 5;
+
+	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_OF_CONTENTS__TITLE = TABLE_OF_CONTENTS_BASE__TITLE;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_OF_CONTENTS__DESCRIPTION = TABLE_OF_CONTENTS_BASE__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Appearance</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_OF_CONTENTS__APPEARANCE = TABLE_OF_CONTENTS_BASE__APPEARANCE;
+
+	/**
+	 * The feature id for the '<em><b>Header</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_OF_CONTENTS__HEADER = TABLE_OF_CONTENTS_BASE__HEADER;
+
+	/**
+	 * The feature id for the '<em><b>Descriptions</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_OF_CONTENTS__DESCRIPTIONS = TABLE_OF_CONTENTS_BASE__DESCRIPTIONS;
+
+	/**
+	 * The feature id for the '<em><b>Role</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_OF_CONTENTS__ROLE = TABLE_OF_CONTENTS_BASE__ROLE;
+
+	/**
+	 * The feature id for the '<em><b>Depth</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_OF_CONTENTS__DEPTH = TABLE_OF_CONTENTS_BASE__DEPTH;
+
+	/**
+	 * The feature id for the '<em><b>Dark</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_OF_CONTENTS__DARK = TABLE_OF_CONTENTS_BASE_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Striped</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_OF_CONTENTS__STRIPED = TABLE_OF_CONTENTS_BASE_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Bordered</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_OF_CONTENTS__BORDERED = TABLE_OF_CONTENTS_BASE_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Borderless</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_OF_CONTENTS__BORDERLESS = TABLE_OF_CONTENTS_BASE_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Hover</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_OF_CONTENTS__HOVER = TABLE_OF_CONTENTS_BASE_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Small</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_OF_CONTENTS__SMALL = TABLE_OF_CONTENTS_BASE_FEATURE_COUNT + 5;
+
+	/**
+	 * The number of structural features of the '<em>Table Of Contents</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_OF_CONTENTS_FEATURE_COUNT = TABLE_OF_CONTENTS_BASE_FEATURE_COUNT + 6;
+
+	/**
+	 * The operation id for the '<em>As View Builder Supplier</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_OF_CONTENTS___AS_VIEW_BUILDER_SUPPLIER__CONTEXT = TABLE_OF_CONTENTS_BASE___AS_VIEW_BUILDER_SUPPLIER__CONTEXT;
+
+	/**
+	 * The number of operations of the '<em>Table Of Contents</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_OF_CONTENTS_OPERATION_COUNT = TABLE_OF_CONTENTS_BASE_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.nasdanika.vinci.components.impl.ListOfContentsImpl <em>List Of Contents</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.vinci.components.impl.ListOfContentsImpl
+	 * @see org.nasdanika.vinci.components.impl.ComponentsPackageImpl#getListOfContents()
+	 * @generated
+	 */
+	int LIST_OF_CONTENTS = 6;
+
+	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LIST_OF_CONTENTS__TITLE = TABLE_OF_CONTENTS_BASE__TITLE;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LIST_OF_CONTENTS__DESCRIPTION = TABLE_OF_CONTENTS_BASE__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Appearance</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LIST_OF_CONTENTS__APPEARANCE = TABLE_OF_CONTENTS_BASE__APPEARANCE;
+
+	/**
+	 * The feature id for the '<em><b>Header</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LIST_OF_CONTENTS__HEADER = TABLE_OF_CONTENTS_BASE__HEADER;
+
+	/**
+	 * The feature id for the '<em><b>Descriptions</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LIST_OF_CONTENTS__DESCRIPTIONS = TABLE_OF_CONTENTS_BASE__DESCRIPTIONS;
+
+	/**
+	 * The feature id for the '<em><b>Role</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LIST_OF_CONTENTS__ROLE = TABLE_OF_CONTENTS_BASE__ROLE;
+
+	/**
+	 * The feature id for the '<em><b>Depth</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LIST_OF_CONTENTS__DEPTH = TABLE_OF_CONTENTS_BASE__DEPTH;
+
+	/**
+	 * The feature id for the '<em><b>Ordering</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LIST_OF_CONTENTS__ORDERING = TABLE_OF_CONTENTS_BASE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>List Of Contents</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LIST_OF_CONTENTS_FEATURE_COUNT = TABLE_OF_CONTENTS_BASE_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>As View Builder Supplier</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LIST_OF_CONTENTS___AS_VIEW_BUILDER_SUPPLIER__CONTEXT = TABLE_OF_CONTENTS_BASE___AS_VIEW_BUILDER_SUPPLIER__CONTEXT;
+
+	/**
+	 * The number of operations of the '<em>List Of Contents</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LIST_OF_CONTENTS_OPERATION_COUNT = TABLE_OF_CONTENTS_BASE_OPERATION_COUNT + 0;
+
+
+	/**
 	 * Returns the meta object for class '{@link org.nasdanika.vinci.components.Markdown <em>Markdown</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -482,6 +847,91 @@ public interface ComponentsPackage extends EPackage {
 	EReference getActionLink_Appearance();
 
 	/**
+	 * Returns the meta object for class '{@link org.nasdanika.vinci.components.TableOfContentsBase <em>Table Of Contents Base</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Table Of Contents Base</em>'.
+	 * @see org.nasdanika.vinci.components.TableOfContentsBase
+	 * @generated
+	 */
+	EClass getTableOfContentsBase();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.components.TableOfContentsBase#getHeader <em>Header</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Header</em>'.
+	 * @see org.nasdanika.vinci.components.TableOfContentsBase#getHeader()
+	 * @see #getTableOfContentsBase()
+	 * @generated
+	 */
+	EAttribute getTableOfContentsBase_Header();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.components.TableOfContentsBase#getDescriptions <em>Descriptions</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Descriptions</em>'.
+	 * @see org.nasdanika.vinci.components.TableOfContentsBase#getDescriptions()
+	 * @see #getTableOfContentsBase()
+	 * @generated
+	 */
+	EAttribute getTableOfContentsBase_Descriptions();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.components.TableOfContentsBase#getRole <em>Role</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Role</em>'.
+	 * @see org.nasdanika.vinci.components.TableOfContentsBase#getRole()
+	 * @see #getTableOfContentsBase()
+	 * @generated
+	 */
+	EAttribute getTableOfContentsBase_Role();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.components.TableOfContentsBase#getDepth <em>Depth</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Depth</em>'.
+	 * @see org.nasdanika.vinci.components.TableOfContentsBase#getDepth()
+	 * @see #getTableOfContentsBase()
+	 * @generated
+	 */
+	EAttribute getTableOfContentsBase_Depth();
+
+	/**
+	 * Returns the meta object for class '{@link org.nasdanika.vinci.components.TableOfContents <em>Table Of Contents</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Table Of Contents</em>'.
+	 * @see org.nasdanika.vinci.components.TableOfContents
+	 * @generated
+	 */
+	EClass getTableOfContents();
+
+	/**
+	 * Returns the meta object for class '{@link org.nasdanika.vinci.components.ListOfContents <em>List Of Contents</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>List Of Contents</em>'.
+	 * @see org.nasdanika.vinci.components.ListOfContents
+	 * @generated
+	 */
+	EClass getListOfContents();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.components.ListOfContents#getOrdering <em>Ordering</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Ordering</em>'.
+	 * @see org.nasdanika.vinci.components.ListOfContents#getOrdering()
+	 * @see #getListOfContents()
+	 * @generated
+	 */
+	EAttribute getListOfContents_Ordering();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -589,6 +1039,68 @@ public interface ComponentsPackage extends EPackage {
 		 * @generated
 		 */
 		EReference ACTION_LINK__APPEARANCE = eINSTANCE.getActionLink_Appearance();
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.vinci.components.impl.TableOfContentsBaseImpl <em>Table Of Contents Base</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.vinci.components.impl.TableOfContentsBaseImpl
+		 * @see org.nasdanika.vinci.components.impl.ComponentsPackageImpl#getTableOfContentsBase()
+		 * @generated
+		 */
+		EClass TABLE_OF_CONTENTS_BASE = eINSTANCE.getTableOfContentsBase();
+		/**
+		 * The meta object literal for the '<em><b>Header</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TABLE_OF_CONTENTS_BASE__HEADER = eINSTANCE.getTableOfContentsBase_Header();
+		/**
+		 * The meta object literal for the '<em><b>Descriptions</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TABLE_OF_CONTENTS_BASE__DESCRIPTIONS = eINSTANCE.getTableOfContentsBase_Descriptions();
+		/**
+		 * The meta object literal for the '<em><b>Role</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TABLE_OF_CONTENTS_BASE__ROLE = eINSTANCE.getTableOfContentsBase_Role();
+		/**
+		 * The meta object literal for the '<em><b>Depth</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TABLE_OF_CONTENTS_BASE__DEPTH = eINSTANCE.getTableOfContentsBase_Depth();
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.vinci.components.impl.TableOfContentsImpl <em>Table Of Contents</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.vinci.components.impl.TableOfContentsImpl
+		 * @see org.nasdanika.vinci.components.impl.ComponentsPackageImpl#getTableOfContents()
+		 * @generated
+		 */
+		EClass TABLE_OF_CONTENTS = eINSTANCE.getTableOfContents();
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.vinci.components.impl.ListOfContentsImpl <em>List Of Contents</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.vinci.components.impl.ListOfContentsImpl
+		 * @see org.nasdanika.vinci.components.impl.ComponentsPackageImpl#getListOfContents()
+		 * @generated
+		 */
+		EClass LIST_OF_CONTENTS = eINSTANCE.getListOfContents();
+		/**
+		 * The meta object literal for the '<em><b>Ordering</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute LIST_OF_CONTENTS__ORDERING = eINSTANCE.getListOfContents_Ordering();
 
 	}
 

@@ -401,6 +401,7 @@
           </elements>
           <content xsi:type="org.nasdanika.vinci.components:MarkdownText" markdown="Section 1.2 content&#xD;&#xA;&#xD;&#xA;Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"/>
         </elements>
+        <content xsi:type="org.nasdanika.vinci.components:ListOfContents"/>
         <content xsi:type="org.nasdanika.vinci.components:MarkdownText" markdown="Section 1 content"/>
       </elements>
       <elements xsi:type="org.nasdanika.vinci.app:Action" title="Context 0.1" id="37b30534-2a80-4003-afd0-95e7aec78be2" text="Context 0.1" role="Context" sectionColumns="1">
@@ -478,6 +479,7 @@
   </elements>
   <elements xsi:type="org.nasdanika.vinci.app:Action" title="Nav 2" id="f51b3813-9656-46a2-a2e2-5a3958cd8fa6" text="Nav 2"/>
   <elements xsi:type="org.nasdanika.vinci.app:Action" title="Footer action" id="54010cb6-8d9c-48e6-a2be-4bb49aec3240" text="Footer action" role="Context" markdownContent="My footer action."/>
+  <content xsi:type="org.nasdanika.vinci.components:TableOfContents"/>
   <content xsi:type="org.nasdanika.ncore:Html" description="" content="&lt;p>&lt;strong>Конфетки &lt;u>бараночки&lt;/u>&lt;/strong>&lt;/p>&#xA;&#xA;&lt;p>&lt;strong>Baranki, korobki. &lt;/strong>&lt;/p>&#xA;&#xA;&lt;p>&lt;span style=&quot;background-color:#2ecc71&quot;>Zuua&lt;/span>&lt;/p>&#xA;&#xA;&lt;p>uuu...&lt;/p>&#xA;&#xA;&lt;p>gjdkdgddhgf&lt;/p>&#xA;"/>
   <content xsi:type="org.nasdanika.vinci.components:ActionLink" target="f51b3813-9656-46a2-a2e2-5a3958cd8fa6">
     <appearance>

@@ -141,6 +141,52 @@ public class ComponentsItemProviderAdapterFactory extends ComponentsAdapterFacto
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.nasdanika.vinci.components.TableOfContents} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected TableOfContentsItemProvider tableOfContentsItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.nasdanika.vinci.components.TableOfContents}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createTableOfContentsAdapter() {
+		if (tableOfContentsItemProvider == null) {
+			tableOfContentsItemProvider = new TableOfContentsItemProvider(this);
+		}
+
+		return tableOfContentsItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.nasdanika.vinci.components.ListOfContents} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ListOfContentsItemProvider listOfContentsItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.nasdanika.vinci.components.ListOfContents}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createListOfContentsAdapter() {
+		if (listOfContentsItemProvider == null) {
+			listOfContentsItemProvider = new ListOfContentsItemProvider(this);
+		}
+
+		return listOfContentsItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -248,6 +294,8 @@ public class ComponentsItemProviderAdapterFactory extends ComponentsAdapterFacto
 		if (markdownTextItemProvider != null) markdownTextItemProvider.dispose();
 		if (markdownResourceItemProvider != null) markdownResourceItemProvider.dispose();
 		if (actionLinkItemProvider != null) actionLinkItemProvider.dispose();
+		if (tableOfContentsItemProvider != null) tableOfContentsItemProvider.dispose();
+		if (listOfContentsItemProvider != null) listOfContentsItemProvider.dispose();
 	}
 
 }

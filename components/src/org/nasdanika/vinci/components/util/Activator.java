@@ -14,7 +14,9 @@ public class Activator implements BundleActivator {
 		htmlContentPalette.add(
 				ComponentsPackage.Literals.ACTION_LINK,
 				ComponentsPackage.Literals.MARKDOWN_TEXT,
-				ComponentsPackage.Literals.MARKDOWN_RESOURCE);	
+				ComponentsPackage.Literals.MARKDOWN_RESOURCE,
+				ComponentsPackage.Literals.LIST_OF_CONTENTS,
+				ComponentsPackage.Literals.TABLE_OF_CONTENTS);	
 	}
 
 	@Override

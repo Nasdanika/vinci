@@ -24,5 +24,15 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference components.ecore#//ActionLink/target"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference components.ecore#//ActionLink/appearance"/>
     </genClasses>
+    <genClasses image="false" ecoreClass="components.ecore#//TableOfContentsBase">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute components.ecore#//TableOfContentsBase/header"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute components.ecore#//TableOfContentsBase/descriptions"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute components.ecore#//TableOfContentsBase/role"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute components.ecore#//TableOfContentsBase/depth"/>
+    </genClasses>
+    <genClasses ecoreClass="components.ecore#//TableOfContents"/>
+    <genClasses ecoreClass="components.ecore#//ListOfContents">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute components.ecore#//ListOfContents/ordering"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>
