@@ -44,6 +44,7 @@ import org.nasdanika.vinci.bootstrap.Row;
 import org.nasdanika.vinci.bootstrap.Spacing;
 import org.nasdanika.vinci.bootstrap.Table;
 import org.nasdanika.vinci.bootstrap.TableCell;
+import org.nasdanika.vinci.bootstrap.TableConfiguration;
 import org.nasdanika.vinci.bootstrap.TableHeader;
 import org.nasdanika.vinci.bootstrap.TableRow;
 import org.nasdanika.vinci.bootstrap.TableRowContainer;
@@ -315,11 +316,18 @@ public class BootstrapSwitch<T1> extends Switch<T1> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case BootstrapPackage.TABLE_CONFIGURATION: {
+				TableConfiguration tableConfiguration = (TableConfiguration)theEObject;
+				T1 result = caseTableConfiguration(tableConfiguration);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case BootstrapPackage.TABLE: {
 				Table table = (Table)theEObject;
 				T1 result = caseTable(table);
 				if (result == null) result = caseTableRowContainer(table);
 				if (result == null) result = caseISupplierFactory(table);
+				if (result == null) result = caseTableConfiguration(table);
 				if (result == null) result = caseBootstrapElement(table);
 				if (result == null) result = caseHtmlElement(table);
 				if (result == null) result = caseModelElement(table);
@@ -994,6 +1002,21 @@ public class BootstrapSwitch<T1> extends Switch<T1> {
 	 * @generated
 	 */
 	public T1 caseTableHeader(TableHeader object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Table Configuration</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Table Configuration</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseTableConfiguration(TableConfiguration object) {
 		return null;
 	}
 

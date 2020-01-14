@@ -9,6 +9,7 @@ import org.nasdanika.common.Context;
 import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.common.StringMapCompoundSupplier;
 import org.nasdanika.common.Supplier;
+import org.nasdanika.common.SupplierFactory;
 import org.nasdanika.html.app.ViewBuilder;
 import org.nasdanika.html.app.ViewGenerator;
 import org.nasdanika.html.app.ViewPart;
@@ -16,6 +17,7 @@ import org.nasdanika.html.bootstrap.BootstrapFactory;
 import org.nasdanika.vinci.bootstrap.Appearance;
 import org.nasdanika.vinci.bootstrap.BootstrapPackage;
 import org.nasdanika.vinci.bootstrap.Table;
+import org.nasdanika.vinci.bootstrap.TableConfiguration;
 import org.nasdanika.vinci.bootstrap.TableHeader;
 import org.nasdanika.vinci.bootstrap.TableSection;
 
@@ -27,15 +29,15 @@ import org.nasdanika.vinci.bootstrap.TableSection;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.nasdanika.vinci.bootstrap.impl.TableImpl#getHeader <em>Header</em>}</li>
- *   <li>{@link org.nasdanika.vinci.bootstrap.impl.TableImpl#getBody <em>Body</em>}</li>
- *   <li>{@link org.nasdanika.vinci.bootstrap.impl.TableImpl#getFooter <em>Footer</em>}</li>
  *   <li>{@link org.nasdanika.vinci.bootstrap.impl.TableImpl#isDark <em>Dark</em>}</li>
  *   <li>{@link org.nasdanika.vinci.bootstrap.impl.TableImpl#isStriped <em>Striped</em>}</li>
  *   <li>{@link org.nasdanika.vinci.bootstrap.impl.TableImpl#isBordered <em>Bordered</em>}</li>
  *   <li>{@link org.nasdanika.vinci.bootstrap.impl.TableImpl#isBorderless <em>Borderless</em>}</li>
  *   <li>{@link org.nasdanika.vinci.bootstrap.impl.TableImpl#isHover <em>Hover</em>}</li>
  *   <li>{@link org.nasdanika.vinci.bootstrap.impl.TableImpl#isSmall <em>Small</em>}</li>
+ *   <li>{@link org.nasdanika.vinci.bootstrap.impl.TableImpl#getHeader <em>Header</em>}</li>
+ *   <li>{@link org.nasdanika.vinci.bootstrap.impl.TableImpl#getBody <em>Body</em>}</li>
+ *   <li>{@link org.nasdanika.vinci.bootstrap.impl.TableImpl#getFooter <em>Footer</em>}</li>
  * </ul>
  *
  * @generated
@@ -212,7 +214,7 @@ public class TableImpl extends TableRowContainerImpl implements Table {
 	 */
 	@Override
 	public boolean isDark() {
-		return (Boolean)eDynamicGet(BootstrapPackage.TABLE__DARK, BootstrapPackage.Literals.TABLE__DARK, true, true);
+		return (Boolean)eDynamicGet(BootstrapPackage.TABLE__DARK, BootstrapPackage.Literals.TABLE_CONFIGURATION__DARK, true, true);
 	}
 
 	/**
@@ -222,7 +224,7 @@ public class TableImpl extends TableRowContainerImpl implements Table {
 	 */
 	@Override
 	public void setDark(boolean newDark) {
-		eDynamicSet(BootstrapPackage.TABLE__DARK, BootstrapPackage.Literals.TABLE__DARK, newDark);
+		eDynamicSet(BootstrapPackage.TABLE__DARK, BootstrapPackage.Literals.TABLE_CONFIGURATION__DARK, newDark);
 	}
 
 	/**
@@ -232,7 +234,7 @@ public class TableImpl extends TableRowContainerImpl implements Table {
 	 */
 	@Override
 	public boolean isStriped() {
-		return (Boolean)eDynamicGet(BootstrapPackage.TABLE__STRIPED, BootstrapPackage.Literals.TABLE__STRIPED, true, true);
+		return (Boolean)eDynamicGet(BootstrapPackage.TABLE__STRIPED, BootstrapPackage.Literals.TABLE_CONFIGURATION__STRIPED, true, true);
 	}
 
 	/**
@@ -242,7 +244,7 @@ public class TableImpl extends TableRowContainerImpl implements Table {
 	 */
 	@Override
 	public void setStriped(boolean newStriped) {
-		eDynamicSet(BootstrapPackage.TABLE__STRIPED, BootstrapPackage.Literals.TABLE__STRIPED, newStriped);
+		eDynamicSet(BootstrapPackage.TABLE__STRIPED, BootstrapPackage.Literals.TABLE_CONFIGURATION__STRIPED, newStriped);
 	}
 
 	/**
@@ -252,7 +254,7 @@ public class TableImpl extends TableRowContainerImpl implements Table {
 	 */
 	@Override
 	public boolean isBordered() {
-		return (Boolean)eDynamicGet(BootstrapPackage.TABLE__BORDERED, BootstrapPackage.Literals.TABLE__BORDERED, true, true);
+		return (Boolean)eDynamicGet(BootstrapPackage.TABLE__BORDERED, BootstrapPackage.Literals.TABLE_CONFIGURATION__BORDERED, true, true);
 	}
 
 	/**
@@ -262,7 +264,7 @@ public class TableImpl extends TableRowContainerImpl implements Table {
 	 */
 	@Override
 	public void setBordered(boolean newBordered) {
-		eDynamicSet(BootstrapPackage.TABLE__BORDERED, BootstrapPackage.Literals.TABLE__BORDERED, newBordered);
+		eDynamicSet(BootstrapPackage.TABLE__BORDERED, BootstrapPackage.Literals.TABLE_CONFIGURATION__BORDERED, newBordered);
 	}
 
 	/**
@@ -272,7 +274,7 @@ public class TableImpl extends TableRowContainerImpl implements Table {
 	 */
 	@Override
 	public boolean isBorderless() {
-		return (Boolean)eDynamicGet(BootstrapPackage.TABLE__BORDERLESS, BootstrapPackage.Literals.TABLE__BORDERLESS, true, true);
+		return (Boolean)eDynamicGet(BootstrapPackage.TABLE__BORDERLESS, BootstrapPackage.Literals.TABLE_CONFIGURATION__BORDERLESS, true, true);
 	}
 
 	/**
@@ -282,7 +284,7 @@ public class TableImpl extends TableRowContainerImpl implements Table {
 	 */
 	@Override
 	public void setBorderless(boolean newBorderless) {
-		eDynamicSet(BootstrapPackage.TABLE__BORDERLESS, BootstrapPackage.Literals.TABLE__BORDERLESS, newBorderless);
+		eDynamicSet(BootstrapPackage.TABLE__BORDERLESS, BootstrapPackage.Literals.TABLE_CONFIGURATION__BORDERLESS, newBorderless);
 	}
 
 	/**
@@ -292,7 +294,7 @@ public class TableImpl extends TableRowContainerImpl implements Table {
 	 */
 	@Override
 	public boolean isHover() {
-		return (Boolean)eDynamicGet(BootstrapPackage.TABLE__HOVER, BootstrapPackage.Literals.TABLE__HOVER, true, true);
+		return (Boolean)eDynamicGet(BootstrapPackage.TABLE__HOVER, BootstrapPackage.Literals.TABLE_CONFIGURATION__HOVER, true, true);
 	}
 
 	/**
@@ -302,7 +304,7 @@ public class TableImpl extends TableRowContainerImpl implements Table {
 	 */
 	@Override
 	public void setHover(boolean newHover) {
-		eDynamicSet(BootstrapPackage.TABLE__HOVER, BootstrapPackage.Literals.TABLE__HOVER, newHover);
+		eDynamicSet(BootstrapPackage.TABLE__HOVER, BootstrapPackage.Literals.TABLE_CONFIGURATION__HOVER, newHover);
 	}
 
 	/**
@@ -312,7 +314,7 @@ public class TableImpl extends TableRowContainerImpl implements Table {
 	 */
 	@Override
 	public boolean isSmall() {
-		return (Boolean)eDynamicGet(BootstrapPackage.TABLE__SMALL, BootstrapPackage.Literals.TABLE__SMALL, true, true);
+		return (Boolean)eDynamicGet(BootstrapPackage.TABLE__SMALL, BootstrapPackage.Literals.TABLE_CONFIGURATION__SMALL, true, true);
 	}
 
 	/**
@@ -322,7 +324,7 @@ public class TableImpl extends TableRowContainerImpl implements Table {
 	 */
 	@Override
 	public void setSmall(boolean newSmall) {
-		eDynamicSet(BootstrapPackage.TABLE__SMALL, BootstrapPackage.Literals.TABLE__SMALL, newSmall);
+		eDynamicSet(BootstrapPackage.TABLE__SMALL, BootstrapPackage.Literals.TABLE_CONFIGURATION__SMALL, newSmall);
 	}
 
 	/**
@@ -351,12 +353,6 @@ public class TableImpl extends TableRowContainerImpl implements Table {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case BootstrapPackage.TABLE__HEADER:
-				return getHeader();
-			case BootstrapPackage.TABLE__BODY:
-				return getBody();
-			case BootstrapPackage.TABLE__FOOTER:
-				return getFooter();
 			case BootstrapPackage.TABLE__DARK:
 				return isDark();
 			case BootstrapPackage.TABLE__STRIPED:
@@ -369,6 +365,12 @@ public class TableImpl extends TableRowContainerImpl implements Table {
 				return isHover();
 			case BootstrapPackage.TABLE__SMALL:
 				return isSmall();
+			case BootstrapPackage.TABLE__HEADER:
+				return getHeader();
+			case BootstrapPackage.TABLE__BODY:
+				return getBody();
+			case BootstrapPackage.TABLE__FOOTER:
+				return getFooter();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -381,15 +383,6 @@ public class TableImpl extends TableRowContainerImpl implements Table {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case BootstrapPackage.TABLE__HEADER:
-				setHeader((TableHeader)newValue);
-				return;
-			case BootstrapPackage.TABLE__BODY:
-				setBody((TableSection)newValue);
-				return;
-			case BootstrapPackage.TABLE__FOOTER:
-				setFooter((TableSection)newValue);
-				return;
 			case BootstrapPackage.TABLE__DARK:
 				setDark((Boolean)newValue);
 				return;
@@ -408,6 +401,15 @@ public class TableImpl extends TableRowContainerImpl implements Table {
 			case BootstrapPackage.TABLE__SMALL:
 				setSmall((Boolean)newValue);
 				return;
+			case BootstrapPackage.TABLE__HEADER:
+				setHeader((TableHeader)newValue);
+				return;
+			case BootstrapPackage.TABLE__BODY:
+				setBody((TableSection)newValue);
+				return;
+			case BootstrapPackage.TABLE__FOOTER:
+				setFooter((TableSection)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -420,15 +422,6 @@ public class TableImpl extends TableRowContainerImpl implements Table {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case BootstrapPackage.TABLE__HEADER:
-				setHeader((TableHeader)null);
-				return;
-			case BootstrapPackage.TABLE__BODY:
-				setBody((TableSection)null);
-				return;
-			case BootstrapPackage.TABLE__FOOTER:
-				setFooter((TableSection)null);
-				return;
 			case BootstrapPackage.TABLE__DARK:
 				setDark(DARK_EDEFAULT);
 				return;
@@ -447,6 +440,15 @@ public class TableImpl extends TableRowContainerImpl implements Table {
 			case BootstrapPackage.TABLE__SMALL:
 				setSmall(SMALL_EDEFAULT);
 				return;
+			case BootstrapPackage.TABLE__HEADER:
+				setHeader((TableHeader)null);
+				return;
+			case BootstrapPackage.TABLE__BODY:
+				setBody((TableSection)null);
+				return;
+			case BootstrapPackage.TABLE__FOOTER:
+				setFooter((TableSection)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -459,12 +461,6 @@ public class TableImpl extends TableRowContainerImpl implements Table {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case BootstrapPackage.TABLE__HEADER:
-				return getHeader() != null;
-			case BootstrapPackage.TABLE__BODY:
-				return getBody() != null;
-			case BootstrapPackage.TABLE__FOOTER:
-				return getFooter() != null;
 			case BootstrapPackage.TABLE__DARK:
 				return isDark() != DARK_EDEFAULT;
 			case BootstrapPackage.TABLE__STRIPED:
@@ -477,8 +473,66 @@ public class TableImpl extends TableRowContainerImpl implements Table {
 				return isHover() != HOVER_EDEFAULT;
 			case BootstrapPackage.TABLE__SMALL:
 				return isSmall() != SMALL_EDEFAULT;
+			case BootstrapPackage.TABLE__HEADER:
+				return getHeader() != null;
+			case BootstrapPackage.TABLE__BODY:
+				return getBody() != null;
+			case BootstrapPackage.TABLE__FOOTER:
+				return getFooter() != null;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
+		if (baseClass == SupplierFactory.class) {
+			switch (derivedFeatureID) {
+				default: return -1;
+			}
+		}
+		if (baseClass == TableConfiguration.class) {
+			switch (derivedFeatureID) {
+				case BootstrapPackage.TABLE__DARK: return BootstrapPackage.TABLE_CONFIGURATION__DARK;
+				case BootstrapPackage.TABLE__STRIPED: return BootstrapPackage.TABLE_CONFIGURATION__STRIPED;
+				case BootstrapPackage.TABLE__BORDERED: return BootstrapPackage.TABLE_CONFIGURATION__BORDERED;
+				case BootstrapPackage.TABLE__BORDERLESS: return BootstrapPackage.TABLE_CONFIGURATION__BORDERLESS;
+				case BootstrapPackage.TABLE__HOVER: return BootstrapPackage.TABLE_CONFIGURATION__HOVER;
+				case BootstrapPackage.TABLE__SMALL: return BootstrapPackage.TABLE_CONFIGURATION__SMALL;
+				default: return -1;
+			}
+		}
+		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
+		if (baseClass == SupplierFactory.class) {
+			switch (baseFeatureID) {
+				default: return -1;
+			}
+		}
+		if (baseClass == TableConfiguration.class) {
+			switch (baseFeatureID) {
+				case BootstrapPackage.TABLE_CONFIGURATION__DARK: return BootstrapPackage.TABLE__DARK;
+				case BootstrapPackage.TABLE_CONFIGURATION__STRIPED: return BootstrapPackage.TABLE__STRIPED;
+				case BootstrapPackage.TABLE_CONFIGURATION__BORDERED: return BootstrapPackage.TABLE__BORDERED;
+				case BootstrapPackage.TABLE_CONFIGURATION__BORDERLESS: return BootstrapPackage.TABLE__BORDERLESS;
+				case BootstrapPackage.TABLE_CONFIGURATION__HOVER: return BootstrapPackage.TABLE__HOVER;
+				case BootstrapPackage.TABLE_CONFIGURATION__SMALL: return BootstrapPackage.TABLE__SMALL;
+				default: return -1;
+			}
+		}
+		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
 	@SuppressWarnings("resource")

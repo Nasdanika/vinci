@@ -66,7 +66,7 @@ public class TableItemProvider
 			(createItemPropertyDescriptor(
 				 getResourceLocator(),
 				 getString("_UI_Table_dark_feature"),
-				 BootstrapPackage.Literals.TABLE__DARK,
+				 BootstrapPackage.Literals.TABLE_CONFIGURATION__DARK,
 				 true,
 				 false,
 				 false,
@@ -87,7 +87,7 @@ public class TableItemProvider
 			(createItemPropertyDescriptor(
 				 getResourceLocator(),
 				 getString("_UI_Table_striped_feature"),
-				 BootstrapPackage.Literals.TABLE__STRIPED,
+				 BootstrapPackage.Literals.TABLE_CONFIGURATION__STRIPED,
 				 true,
 				 false,
 				 false,
@@ -108,7 +108,7 @@ public class TableItemProvider
 			(createItemPropertyDescriptor(
 				 getResourceLocator(),
 				 getString("_UI_Table_bordered_feature"),
-				 BootstrapPackage.Literals.TABLE__BORDERED,
+				 BootstrapPackage.Literals.TABLE_CONFIGURATION__BORDERED,
 				 true,
 				 false,
 				 false,
@@ -129,7 +129,7 @@ public class TableItemProvider
 			(createItemPropertyDescriptor(
 				 getResourceLocator(),
 				 getString("_UI_Table_borderless_feature"),
-				 BootstrapPackage.Literals.TABLE__BORDERLESS,
+				 BootstrapPackage.Literals.TABLE_CONFIGURATION__BORDERLESS,
 				 true,
 				 false,
 				 false,
@@ -150,7 +150,7 @@ public class TableItemProvider
 			(createItemPropertyDescriptor(
 				 getResourceLocator(),
 				 getString("_UI_Table_hover_feature"),
-				 BootstrapPackage.Literals.TABLE__HOVER,
+				 BootstrapPackage.Literals.TABLE_CONFIGURATION__HOVER,
 				 true,
 				 false,
 				 false,
@@ -171,7 +171,7 @@ public class TableItemProvider
 			(createItemPropertyDescriptor(
 				 getResourceLocator(),
 				 getString("_UI_Table_small_feature"),
-				 BootstrapPackage.Literals.TABLE__SMALL,
+				 BootstrapPackage.Literals.TABLE_CONFIGURATION__SMALL,
 				 true,
 				 false,
 				 false,

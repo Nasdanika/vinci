@@ -48,6 +48,7 @@ import org.nasdanika.vinci.bootstrap.Row;
 import org.nasdanika.vinci.bootstrap.Spacing;
 import org.nasdanika.vinci.bootstrap.Table;
 import org.nasdanika.vinci.bootstrap.TableCell;
+import org.nasdanika.vinci.bootstrap.TableConfiguration;
 import org.nasdanika.vinci.bootstrap.TableHeader;
 import org.nasdanika.vinci.bootstrap.TableRow;
 import org.nasdanika.vinci.bootstrap.TableRowContainer;
@@ -299,6 +300,13 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 	 * @generated
 	 */
 	private EClass tableHeaderEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass tableConfigurationEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1344,6 +1352,76 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 	 * @generated
 	 */
 	@Override
+	public EClass getTableConfiguration() {
+		return tableConfigurationEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getTableConfiguration_Dark() {
+		return (EAttribute)tableConfigurationEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getTableConfiguration_Striped() {
+		return (EAttribute)tableConfigurationEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getTableConfiguration_Bordered() {
+		return (EAttribute)tableConfigurationEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getTableConfiguration_Borderless() {
+		return (EAttribute)tableConfigurationEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getTableConfiguration_Hover() {
+		return (EAttribute)tableConfigurationEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getTableConfiguration_Small() {
+		return (EAttribute)tableConfigurationEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getTable() {
 		return tableEClass;
 	}
@@ -1376,66 +1454,6 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 	@Override
 	public EReference getTable_Footer() {
 		return (EReference)tableEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getTable_Dark() {
-		return (EAttribute)tableEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getTable_Striped() {
-		return (EAttribute)tableEClass.getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getTable_Bordered() {
-		return (EAttribute)tableEClass.getEStructuralFeatures().get(5);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getTable_Borderless() {
-		return (EAttribute)tableEClass.getEStructuralFeatures().get(6);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getTable_Hover() {
-		return (EAttribute)tableEClass.getEStructuralFeatures().get(7);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getTable_Small() {
-		return (EAttribute)tableEClass.getEStructuralFeatures().get(8);
 	}
 
 	/**
@@ -1720,16 +1738,18 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 		createEAttribute(tableHeaderEClass, TABLE_HEADER__DARK);
 		createEAttribute(tableHeaderEClass, TABLE_HEADER__LIGHT);
 
+		tableConfigurationEClass = createEClass(TABLE_CONFIGURATION);
+		createEAttribute(tableConfigurationEClass, TABLE_CONFIGURATION__DARK);
+		createEAttribute(tableConfigurationEClass, TABLE_CONFIGURATION__STRIPED);
+		createEAttribute(tableConfigurationEClass, TABLE_CONFIGURATION__BORDERED);
+		createEAttribute(tableConfigurationEClass, TABLE_CONFIGURATION__BORDERLESS);
+		createEAttribute(tableConfigurationEClass, TABLE_CONFIGURATION__HOVER);
+		createEAttribute(tableConfigurationEClass, TABLE_CONFIGURATION__SMALL);
+
 		tableEClass = createEClass(TABLE);
 		createEReference(tableEClass, TABLE__HEADER);
 		createEReference(tableEClass, TABLE__BODY);
 		createEReference(tableEClass, TABLE__FOOTER);
-		createEAttribute(tableEClass, TABLE__DARK);
-		createEAttribute(tableEClass, TABLE__STRIPED);
-		createEAttribute(tableEClass, TABLE__BORDERED);
-		createEAttribute(tableEClass, TABLE__BORDERLESS);
-		createEAttribute(tableEClass, TABLE__HOVER);
-		createEAttribute(tableEClass, TABLE__SMALL);
 
 		tableRowEClass = createEClass(TABLE_ROW);
 		createEReference(tableRowEClass, TABLE_ROW__CELLS);
@@ -1875,6 +1895,8 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 		g2 = createEGenericType(theHtmlPackage.getViewPart());
 		g1.getETypeArguments().add(g2);
 		tableEClass.getEGenericSuperTypes().add(g1);
+		g1 = createEGenericType(this.getTableConfiguration());
+		tableEClass.getEGenericSuperTypes().add(g1);
 		g1 = createEGenericType(this.getBootstrapElement());
 		tableRowEClass.getEGenericSuperTypes().add(g1);
 		g1 = createEGenericType(theNcorePackage.getISupplierFactory());
@@ -1994,16 +2016,18 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 		initEAttribute(getTableHeader_Dark(), ecorePackage.getEBoolean(), "dark", null, 0, 1, TableHeader.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTableHeader_Light(), ecorePackage.getEBoolean(), "light", null, 0, 1, TableHeader.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEClass(tableConfigurationEClass, TableConfiguration.class, "TableConfiguration", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getTableConfiguration_Dark(), ecorePackage.getEBoolean(), "dark", null, 0, 1, TableConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTableConfiguration_Striped(), ecorePackage.getEBoolean(), "striped", null, 0, 1, TableConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTableConfiguration_Bordered(), ecorePackage.getEBoolean(), "bordered", null, 0, 1, TableConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTableConfiguration_Borderless(), ecorePackage.getEBoolean(), "borderless", null, 0, 1, TableConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTableConfiguration_Hover(), ecorePackage.getEBoolean(), "hover", null, 0, 1, TableConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTableConfiguration_Small(), ecorePackage.getEBoolean(), "small", null, 0, 1, TableConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		initEClass(tableEClass, Table.class, "Table", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getTable_Header(), this.getTableHeader(), null, "header", null, 0, 1, Table.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTable_Body(), this.getTableSection(), null, "body", null, 0, 1, Table.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTable_Footer(), this.getTableSection(), null, "footer", null, 0, 1, Table.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getTable_Dark(), ecorePackage.getEBoolean(), "dark", null, 0, 1, Table.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getTable_Striped(), ecorePackage.getEBoolean(), "striped", null, 0, 1, Table.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getTable_Bordered(), ecorePackage.getEBoolean(), "bordered", null, 0, 1, Table.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getTable_Borderless(), ecorePackage.getEBoolean(), "borderless", null, 0, 1, Table.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getTable_Hover(), ecorePackage.getEBoolean(), "hover", null, 0, 1, Table.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getTable_Small(), ecorePackage.getEBoolean(), "small", null, 0, 1, Table.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(tableRowEClass, TableRow.class, "TableRow", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getTableRow_Cells(), this.getTableCell(), null, "cells", null, 0, -1, TableRow.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2511,6 +2535,48 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 			   "documentation", "Light header (mutually exclusive with dark)."
 		   });
 		addAnnotation
+		  (tableConfigurationEClass,
+		   source,
+		   new String[] {
+			   "documentation", "Configuration of [bootstrap table](https://getbootstrap.com/docs/4.0/content/tables/)"
+		   });
+		addAnnotation
+		  (getTableConfiguration_Dark(),
+		   source,
+		   new String[] {
+			   "documentation", "Dark table flag."
+		   });
+		addAnnotation
+		  (getTableConfiguration_Striped(),
+		   source,
+		   new String[] {
+			   "documentation", "Striped table flag."
+		   });
+		addAnnotation
+		  (getTableConfiguration_Bordered(),
+		   source,
+		   new String[] {
+			   "documentation", "Bordered table flag."
+		   });
+		addAnnotation
+		  (getTableConfiguration_Borderless(),
+		   source,
+		   new String[] {
+			   "documentation", "Borderless table flag."
+		   });
+		addAnnotation
+		  (getTableConfiguration_Hover(),
+		   source,
+		   new String[] {
+			   "documentation", "If checked, rows change background on mouse pointer hover."
+		   });
+		addAnnotation
+		  (getTableConfiguration_Small(),
+		   source,
+		   new String[] {
+			   "documentation", "Small table flag."
+		   });
+		addAnnotation
 		  (tableEClass,
 		   source,
 		   new String[] {
@@ -2533,42 +2599,6 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 		   source,
 		   new String[] {
 			   "documentation", "Table footer."
-		   });
-		addAnnotation
-		  (getTable_Dark(),
-		   source,
-		   new String[] {
-			   "documentation", "Dark table flag."
-		   });
-		addAnnotation
-		  (getTable_Striped(),
-		   source,
-		   new String[] {
-			   "documentation", "Striped table flag."
-		   });
-		addAnnotation
-		  (getTable_Bordered(),
-		   source,
-		   new String[] {
-			   "documentation", "Bordered table flag."
-		   });
-		addAnnotation
-		  (getTable_Borderless(),
-		   source,
-		   new String[] {
-			   "documentation", "Borderless table flag."
-		   });
-		addAnnotation
-		  (getTable_Hover(),
-		   source,
-		   new String[] {
-			   "documentation", "If checked, rows change background on mouse pointer hover."
-		   });
-		addAnnotation
-		  (getTable_Small(),
-		   source,
-		   new String[] {
-			   "documentation", "Small table flag."
 		   });
 		addAnnotation
 		  (tableRowEClass,

@@ -56,6 +56,7 @@ import org.nasdanika.vinci.bootstrap.Row;
 import org.nasdanika.vinci.bootstrap.Spacing;
 import org.nasdanika.vinci.bootstrap.Table;
 import org.nasdanika.vinci.bootstrap.TableCell;
+import org.nasdanika.vinci.bootstrap.TableConfiguration;
 import org.nasdanika.vinci.bootstrap.TableHeader;
 import org.nasdanika.vinci.bootstrap.TableRow;
 import org.nasdanika.vinci.bootstrap.TableRowContainer;
@@ -190,6 +191,8 @@ public class BootstrapValidator extends EObjectValidator {
 				return validateTableSection((TableSection)value, diagnostics, context);
 			case BootstrapPackage.TABLE_HEADER:
 				return validateTableHeader((TableHeader)value, diagnostics, context);
+			case BootstrapPackage.TABLE_CONFIGURATION:
+				return validateTableConfiguration((TableConfiguration)value, diagnostics, context);
 			case BootstrapPackage.TABLE:
 				return validateTable((Table)value, diagnostics, context);
 			case BootstrapPackage.TABLE_ROW:
@@ -1096,6 +1099,15 @@ public class BootstrapValidator extends EObjectValidator {
 	 */
 	public boolean validateTableHeader(TableHeader tableHeader, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(tableHeader, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateTableConfiguration(TableConfiguration tableConfiguration, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(tableConfiguration, diagnostics, context);
 	}
 
 	/**

@@ -98,16 +98,18 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bootstrap.ecore#//TableHeader/dark"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bootstrap.ecore#//TableHeader/light"/>
     </genClasses>
+    <genClasses image="false" ecoreClass="bootstrap.ecore#//TableConfiguration">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bootstrap.ecore#//TableConfiguration/dark"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bootstrap.ecore#//TableConfiguration/striped"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bootstrap.ecore#//TableConfiguration/bordered"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bootstrap.ecore#//TableConfiguration/borderless"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bootstrap.ecore#//TableConfiguration/hover"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bootstrap.ecore#//TableConfiguration/small"/>
+    </genClasses>
     <genClasses ecoreClass="bootstrap.ecore#//Table">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference bootstrap.ecore#//Table/header"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference bootstrap.ecore#//Table/body"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference bootstrap.ecore#//Table/footer"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bootstrap.ecore#//Table/dark"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bootstrap.ecore#//Table/striped"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bootstrap.ecore#//Table/bordered"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bootstrap.ecore#//Table/borderless"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bootstrap.ecore#//Table/hover"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bootstrap.ecore#//Table/small"/>
     </genClasses>
     <genClasses ecoreClass="bootstrap.ecore#//TableRow">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference bootstrap.ecore#//TableRow/cells"/>

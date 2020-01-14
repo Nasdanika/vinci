@@ -710,7 +710,7 @@ public interface BootstrapPackage extends EPackage {
 	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getCard()
 	 * @generated
 	 */
-	int CARD = 25;
+	int CARD = 26;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.vinci.bootstrap.impl.TagImpl <em>Tag</em>}' class.
@@ -1330,7 +1330,7 @@ public interface BootstrapPackage extends EPackage {
 	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getAlert()
 	 * @generated
 	 */
-	int ALERT = 26;
+	int ALERT = 27;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.vinci.bootstrap.impl.BadgeImpl <em>Badge</em>}' class.
@@ -1340,7 +1340,7 @@ public interface BootstrapPackage extends EPackage {
 	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getBadge()
 	 * @generated
 	 */
-	int BADGE = 27;
+	int BADGE = 28;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.vinci.bootstrap.impl.ButtonImpl <em>Button</em>}' class.
@@ -1350,7 +1350,7 @@ public interface BootstrapPackage extends EPackage {
 	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getButton()
 	 * @generated
 	 */
-	int BUTTON = 29;
+	int BUTTON = 30;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.vinci.bootstrap.impl.ButtonGroupImpl <em>Button Group</em>}' class.
@@ -1360,7 +1360,7 @@ public interface BootstrapPackage extends EPackage {
 	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getButtonGroup()
 	 * @generated
 	 */
-	int BUTTON_GROUP = 30;
+	int BUTTON_GROUP = 31;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.vinci.bootstrap.impl.ButtonToolbarImpl <em>Button Toolbar</em>}' class.
@@ -1370,7 +1370,7 @@ public interface BootstrapPackage extends EPackage {
 	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getButtonToolbar()
 	 * @generated
 	 */
-	int BUTTON_TOOLBAR = 31;
+	int BUTTON_TOOLBAR = 32;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.vinci.bootstrap.impl.DropdownImpl <em>Dropdown</em>}' class.
@@ -1380,7 +1380,7 @@ public interface BootstrapPackage extends EPackage {
 	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getDropdown()
 	 * @generated
 	 */
-	int DROPDOWN = 32;
+	int DROPDOWN = 33;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.vinci.bootstrap.impl.ActionGroupImpl <em>Action Group</em>}' class.
@@ -1752,7 +1752,7 @@ public interface BootstrapPackage extends EPackage {
 	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getForm()
 	 * @generated
 	 */
-	int FORM = 33;
+	int FORM = 34;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.vinci.bootstrap.impl.ListGroupImpl <em>List Group</em>}' class.
@@ -1762,7 +1762,7 @@ public interface BootstrapPackage extends EPackage {
 	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getListGroup()
 	 * @generated
 	 */
-	int LIST_GROUP = 34;
+	int LIST_GROUP = 35;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.vinci.bootstrap.impl.NavsImpl <em>Navs</em>}' class.
@@ -1772,7 +1772,7 @@ public interface BootstrapPackage extends EPackage {
 	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getNavs()
 	 * @generated
 	 */
-	int NAVS = 35;
+	int NAVS = 36;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.vinci.bootstrap.impl.NavbarImpl <em>Navbar</em>}' class.
@@ -1782,7 +1782,7 @@ public interface BootstrapPackage extends EPackage {
 	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getNavbar()
 	 * @generated
 	 */
-	int NAVBAR = 36;
+	int NAVBAR = 37;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.vinci.bootstrap.impl.TableRowContainerImpl <em>Table Row Container</em>}' class.
@@ -2022,6 +2022,88 @@ public interface BootstrapPackage extends EPackage {
 	int TABLE_HEADER_OPERATION_COUNT = TABLE_SECTION_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link org.nasdanika.vinci.bootstrap.TableConfiguration <em>Table Configuration</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.vinci.bootstrap.TableConfiguration
+	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getTableConfiguration()
+	 * @generated
+	 */
+	int TABLE_CONFIGURATION = 22;
+
+	/**
+	 * The feature id for the '<em><b>Dark</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_CONFIGURATION__DARK = 0;
+
+	/**
+	 * The feature id for the '<em><b>Striped</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_CONFIGURATION__STRIPED = 1;
+
+	/**
+	 * The feature id for the '<em><b>Bordered</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_CONFIGURATION__BORDERED = 2;
+
+	/**
+	 * The feature id for the '<em><b>Borderless</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_CONFIGURATION__BORDERLESS = 3;
+
+	/**
+	 * The feature id for the '<em><b>Hover</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_CONFIGURATION__HOVER = 4;
+
+	/**
+	 * The feature id for the '<em><b>Small</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_CONFIGURATION__SMALL = 5;
+
+	/**
+	 * The number of structural features of the '<em>Table Configuration</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_CONFIGURATION_FEATURE_COUNT = 6;
+
+	/**
+	 * The number of operations of the '<em>Table Configuration</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_CONFIGURATION_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link org.nasdanika.vinci.bootstrap.impl.TableImpl <em>Table</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2029,7 +2111,7 @@ public interface BootstrapPackage extends EPackage {
 	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getTable()
 	 * @generated
 	 */
-	int TABLE = 22;
+	int TABLE = 23;
 
 	/**
 	 * The feature id for the '<em><b>Title</b></em>' attribute.
@@ -2068,40 +2150,13 @@ public interface BootstrapPackage extends EPackage {
 	int TABLE__ROWS = TABLE_ROW_CONTAINER__ROWS;
 
 	/**
-	 * The feature id for the '<em><b>Header</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TABLE__HEADER = TABLE_ROW_CONTAINER_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Body</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TABLE__BODY = TABLE_ROW_CONTAINER_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Footer</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TABLE__FOOTER = TABLE_ROW_CONTAINER_FEATURE_COUNT + 2;
-
-	/**
 	 * The feature id for the '<em><b>Dark</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE__DARK = TABLE_ROW_CONTAINER_FEATURE_COUNT + 3;
+	int TABLE__DARK = TABLE_ROW_CONTAINER_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Striped</b></em>' attribute.
@@ -2110,7 +2165,7 @@ public interface BootstrapPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE__STRIPED = TABLE_ROW_CONTAINER_FEATURE_COUNT + 4;
+	int TABLE__STRIPED = TABLE_ROW_CONTAINER_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Bordered</b></em>' attribute.
@@ -2119,7 +2174,7 @@ public interface BootstrapPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE__BORDERED = TABLE_ROW_CONTAINER_FEATURE_COUNT + 5;
+	int TABLE__BORDERED = TABLE_ROW_CONTAINER_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Borderless</b></em>' attribute.
@@ -2128,7 +2183,7 @@ public interface BootstrapPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE__BORDERLESS = TABLE_ROW_CONTAINER_FEATURE_COUNT + 6;
+	int TABLE__BORDERLESS = TABLE_ROW_CONTAINER_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Hover</b></em>' attribute.
@@ -2137,7 +2192,7 @@ public interface BootstrapPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE__HOVER = TABLE_ROW_CONTAINER_FEATURE_COUNT + 7;
+	int TABLE__HOVER = TABLE_ROW_CONTAINER_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Small</b></em>' attribute.
@@ -2146,7 +2201,34 @@ public interface BootstrapPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE__SMALL = TABLE_ROW_CONTAINER_FEATURE_COUNT + 8;
+	int TABLE__SMALL = TABLE_ROW_CONTAINER_FEATURE_COUNT + 5;
+
+	/**
+	 * The feature id for the '<em><b>Header</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE__HEADER = TABLE_ROW_CONTAINER_FEATURE_COUNT + 6;
+
+	/**
+	 * The feature id for the '<em><b>Body</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE__BODY = TABLE_ROW_CONTAINER_FEATURE_COUNT + 7;
+
+	/**
+	 * The feature id for the '<em><b>Footer</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE__FOOTER = TABLE_ROW_CONTAINER_FEATURE_COUNT + 8;
 
 	/**
 	 * The number of structural features of the '<em>Table</em>' class.
@@ -2183,7 +2265,7 @@ public interface BootstrapPackage extends EPackage {
 	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getTableRow()
 	 * @generated
 	 */
-	int TABLE_ROW = 23;
+	int TABLE_ROW = 24;
 
 	/**
 	 * The feature id for the '<em><b>Title</b></em>' attribute.
@@ -2274,7 +2356,7 @@ public interface BootstrapPackage extends EPackage {
 	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getTableCell()
 	 * @generated
 	 */
-	int TABLE_CELL = 24;
+	int TABLE_CELL = 25;
 
 	/**
 	 * The feature id for the '<em><b>Content</b></em>' containment reference list.
@@ -2662,7 +2744,7 @@ public interface BootstrapPackage extends EPackage {
 	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getBreadcrumb()
 	 * @generated
 	 */
-	int BREADCRUMB = 28;
+	int BREADCRUMB = 29;
 
 	/**
 	 * The number of structural features of the '<em>Breadcrumb</em>' class.
@@ -2906,7 +2988,7 @@ public interface BootstrapPackage extends EPackage {
 	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getTooltip()
 	 * @generated
 	 */
-	int TOOLTIP = 37;
+	int TOOLTIP = 38;
 
 	/**
 	 * The number of structural features of the '<em>Tooltip</em>' class.
@@ -2934,7 +3016,7 @@ public interface BootstrapPackage extends EPackage {
 	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getInputGroup()
 	 * @generated
 	 */
-	int INPUT_GROUP = 38;
+	int INPUT_GROUP = 39;
 
 	/**
 	 * The number of structural features of the '<em>Input Group</em>' class.
@@ -2962,7 +3044,7 @@ public interface BootstrapPackage extends EPackage {
 	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getFormGroup()
 	 * @generated
 	 */
-	int FORM_GROUP = 39;
+	int FORM_GROUP = 40;
 
 	/**
 	 * The number of structural features of the '<em>Form Group</em>' class.
@@ -2990,7 +3072,7 @@ public interface BootstrapPackage extends EPackage {
 	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getCollapse()
 	 * @generated
 	 */
-	int COLLAPSE = 40;
+	int COLLAPSE = 41;
 
 	/**
 	 * The number of structural features of the '<em>Collapse</em>' class.
@@ -3018,7 +3100,7 @@ public interface BootstrapPackage extends EPackage {
 	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getModal()
 	 * @generated
 	 */
-	int MODAL = 41;
+	int MODAL = 42;
 
 	/**
 	 * The number of structural features of the '<em>Modal</em>' class.
@@ -3046,7 +3128,7 @@ public interface BootstrapPackage extends EPackage {
 	 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getAccordion()
 	 * @generated
 	 */
-	int ACCORDION = 42;
+	int ACCORDION = 43;
 
 	/**
 	 * The number of structural features of the '<em>Accordion</em>' class.
@@ -4023,6 +4105,82 @@ public interface BootstrapPackage extends EPackage {
 	EAttribute getTableHeader_Light();
 
 	/**
+	 * Returns the meta object for class '{@link org.nasdanika.vinci.bootstrap.TableConfiguration <em>Table Configuration</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Table Configuration</em>'.
+	 * @see org.nasdanika.vinci.bootstrap.TableConfiguration
+	 * @generated
+	 */
+	EClass getTableConfiguration();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.bootstrap.TableConfiguration#isDark <em>Dark</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Dark</em>'.
+	 * @see org.nasdanika.vinci.bootstrap.TableConfiguration#isDark()
+	 * @see #getTableConfiguration()
+	 * @generated
+	 */
+	EAttribute getTableConfiguration_Dark();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.bootstrap.TableConfiguration#isStriped <em>Striped</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Striped</em>'.
+	 * @see org.nasdanika.vinci.bootstrap.TableConfiguration#isStriped()
+	 * @see #getTableConfiguration()
+	 * @generated
+	 */
+	EAttribute getTableConfiguration_Striped();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.bootstrap.TableConfiguration#isBordered <em>Bordered</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Bordered</em>'.
+	 * @see org.nasdanika.vinci.bootstrap.TableConfiguration#isBordered()
+	 * @see #getTableConfiguration()
+	 * @generated
+	 */
+	EAttribute getTableConfiguration_Bordered();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.bootstrap.TableConfiguration#isBorderless <em>Borderless</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Borderless</em>'.
+	 * @see org.nasdanika.vinci.bootstrap.TableConfiguration#isBorderless()
+	 * @see #getTableConfiguration()
+	 * @generated
+	 */
+	EAttribute getTableConfiguration_Borderless();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.bootstrap.TableConfiguration#isHover <em>Hover</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Hover</em>'.
+	 * @see org.nasdanika.vinci.bootstrap.TableConfiguration#isHover()
+	 * @see #getTableConfiguration()
+	 * @generated
+	 */
+	EAttribute getTableConfiguration_Hover();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.bootstrap.TableConfiguration#isSmall <em>Small</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Small</em>'.
+	 * @see org.nasdanika.vinci.bootstrap.TableConfiguration#isSmall()
+	 * @see #getTableConfiguration()
+	 * @generated
+	 */
+	EAttribute getTableConfiguration_Small();
+
+	/**
 	 * Returns the meta object for class '{@link org.nasdanika.vinci.bootstrap.Table <em>Table</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4064,72 +4222,6 @@ public interface BootstrapPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getTable_Footer();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.bootstrap.Table#isDark <em>Dark</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Dark</em>'.
-	 * @see org.nasdanika.vinci.bootstrap.Table#isDark()
-	 * @see #getTable()
-	 * @generated
-	 */
-	EAttribute getTable_Dark();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.bootstrap.Table#isStriped <em>Striped</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Striped</em>'.
-	 * @see org.nasdanika.vinci.bootstrap.Table#isStriped()
-	 * @see #getTable()
-	 * @generated
-	 */
-	EAttribute getTable_Striped();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.bootstrap.Table#isBordered <em>Bordered</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Bordered</em>'.
-	 * @see org.nasdanika.vinci.bootstrap.Table#isBordered()
-	 * @see #getTable()
-	 * @generated
-	 */
-	EAttribute getTable_Bordered();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.bootstrap.Table#isBorderless <em>Borderless</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Borderless</em>'.
-	 * @see org.nasdanika.vinci.bootstrap.Table#isBorderless()
-	 * @see #getTable()
-	 * @generated
-	 */
-	EAttribute getTable_Borderless();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.bootstrap.Table#isHover <em>Hover</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Hover</em>'.
-	 * @see org.nasdanika.vinci.bootstrap.Table#isHover()
-	 * @see #getTable()
-	 * @generated
-	 */
-	EAttribute getTable_Hover();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.bootstrap.Table#isSmall <em>Small</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Small</em>'.
-	 * @see org.nasdanika.vinci.bootstrap.Table#isSmall()
-	 * @see #getTable()
-	 * @generated
-	 */
-	EAttribute getTable_Small();
 
 	/**
 	 * Returns the meta object for class '{@link org.nasdanika.vinci.bootstrap.TableRow <em>Table Row</em>}'.
@@ -5021,6 +5113,57 @@ public interface BootstrapPackage extends EPackage {
 		 */
 		EAttribute TABLE_HEADER__LIGHT = eINSTANCE.getTableHeader_Light();
 		/**
+		 * The meta object literal for the '{@link org.nasdanika.vinci.bootstrap.TableConfiguration <em>Table Configuration</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.vinci.bootstrap.TableConfiguration
+		 * @see org.nasdanika.vinci.bootstrap.impl.BootstrapPackageImpl#getTableConfiguration()
+		 * @generated
+		 */
+		EClass TABLE_CONFIGURATION = eINSTANCE.getTableConfiguration();
+		/**
+		 * The meta object literal for the '<em><b>Dark</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TABLE_CONFIGURATION__DARK = eINSTANCE.getTableConfiguration_Dark();
+		/**
+		 * The meta object literal for the '<em><b>Striped</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TABLE_CONFIGURATION__STRIPED = eINSTANCE.getTableConfiguration_Striped();
+		/**
+		 * The meta object literal for the '<em><b>Bordered</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TABLE_CONFIGURATION__BORDERED = eINSTANCE.getTableConfiguration_Bordered();
+		/**
+		 * The meta object literal for the '<em><b>Borderless</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TABLE_CONFIGURATION__BORDERLESS = eINSTANCE.getTableConfiguration_Borderless();
+		/**
+		 * The meta object literal for the '<em><b>Hover</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TABLE_CONFIGURATION__HOVER = eINSTANCE.getTableConfiguration_Hover();
+		/**
+		 * The meta object literal for the '<em><b>Small</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TABLE_CONFIGURATION__SMALL = eINSTANCE.getTableConfiguration_Small();
+		/**
 		 * The meta object literal for the '{@link org.nasdanika.vinci.bootstrap.impl.TableImpl <em>Table</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -5050,48 +5193,6 @@ public interface BootstrapPackage extends EPackage {
 		 * @generated
 		 */
 		EReference TABLE__FOOTER = eINSTANCE.getTable_Footer();
-		/**
-		 * The meta object literal for the '<em><b>Dark</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute TABLE__DARK = eINSTANCE.getTable_Dark();
-		/**
-		 * The meta object literal for the '<em><b>Striped</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute TABLE__STRIPED = eINSTANCE.getTable_Striped();
-		/**
-		 * The meta object literal for the '<em><b>Bordered</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute TABLE__BORDERED = eINSTANCE.getTable_Bordered();
-		/**
-		 * The meta object literal for the '<em><b>Borderless</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute TABLE__BORDERLESS = eINSTANCE.getTable_Borderless();
-		/**
-		 * The meta object literal for the '<em><b>Hover</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute TABLE__HOVER = eINSTANCE.getTable_Hover();
-		/**
-		 * The meta object literal for the '<em><b>Small</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute TABLE__SMALL = eINSTANCE.getTable_Small();
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.vinci.bootstrap.impl.TableRowImpl <em>Table Row</em>}' class.
 		 * <!-- begin-user-doc -->
