@@ -52,7 +52,7 @@ public class GenerateModelDocumentation extends TestsBase {
 	 */
 	@Test
 	public void testEcoreHelp() throws Exception {		
-		EcoreHelpGenerator generator = new EcoreHelpGenerator("Model", null, null, "Vinci", "../org.nasdanika.vinci.help/toc.xml#Codegen", "doc/model/");
+		EcoreHelpGenerator generator = new EcoreHelpGenerator("Model", null, null, "Vinci", "../org.nasdanika.vinci.help/toc.xml#Vinci", "doc/model/");
 		generator.loadGenModel(NCORE_MODEL_URI);
 		generator.loadGenModel(VINCI_APP_MODEL_URI);
 		generator.loadGenModel(VINCI_HTML_MODEL_URI);
