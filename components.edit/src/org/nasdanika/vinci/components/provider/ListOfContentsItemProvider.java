@@ -44,6 +44,7 @@ public class ListOfContentsItemProvider extends TableOfContentsBaseItemProvider 
 			super.getPropertyDescriptors(object);
 
 			addOrderingPropertyDescriptor(object);
+			addTooltipsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -67,6 +68,27 @@ public class ListOfContentsItemProvider extends TableOfContentsBaseItemProvider 
 				 null,
 				 null,
 				 enumChoices(OrderedListType.class, true, t -> t.label)));
+	}
+
+	/**
+	 * This adds a property descriptor for the Tooltips feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	protected void addTooltipsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor(
+				 getResourceLocator(),
+				 getString("_UI_ListOfContents_tooltips_feature"),
+				 ComponentsPackage.Literals.LIST_OF_CONTENTS__TOOLTIPS,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**
@@ -106,6 +128,7 @@ public class ListOfContentsItemProvider extends TableOfContentsBaseItemProvider 
 
 		switch (notification.getFeatureID(ListOfContents.class)) {
 			case ComponentsPackage.LIST_OF_CONTENTS__ORDERING:
+			case ComponentsPackage.LIST_OF_CONTENTS__TOOLTIPS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

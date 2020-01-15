@@ -3,7 +3,12 @@
 package org.nasdanika.vinci.components.impl;
 
 import org.eclipse.emf.ecore.EClass;
-
+import org.nasdanika.common.Context;
+import org.nasdanika.common.ProgressMonitor;
+import org.nasdanika.common.Supplier;
+import org.nasdanika.html.app.ViewGenerator;
+import org.nasdanika.html.app.ViewPart;
+import org.nasdanika.vinci.bootstrap.Appearance;
 import org.nasdanika.vinci.bootstrap.impl.BootstrapElementImpl;
 
 import org.nasdanika.vinci.components.ComponentsPackage;
@@ -18,7 +23,6 @@ import org.nasdanika.vinci.components.TableOfContentsBase;
  * </p>
  * <ul>
  *   <li>{@link org.nasdanika.vinci.components.impl.TableOfContentsBaseImpl#getHeader <em>Header</em>}</li>
- *   <li>{@link org.nasdanika.vinci.components.impl.TableOfContentsBaseImpl#getDescriptions <em>Descriptions</em>}</li>
  *   <li>{@link org.nasdanika.vinci.components.impl.TableOfContentsBaseImpl#getRole <em>Role</em>}</li>
  *   <li>{@link org.nasdanika.vinci.components.impl.TableOfContentsBaseImpl#getDepth <em>Depth</em>}</li>
  * </ul>
@@ -35,16 +39,6 @@ public abstract class TableOfContentsBaseImpl extends BootstrapElementImpl imple
 	 * @ordered
 	 */
 	protected static final String HEADER_EDEFAULT = "";
-
-	/**
-	 * The default value of the '{@link #getDescriptions() <em>Descriptions</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getDescriptions()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String DESCRIPTIONS_EDEFAULT = "";
 
 	/**
 	 * The default value of the '{@link #getRole() <em>Role</em>}' attribute.
@@ -111,26 +105,6 @@ public abstract class TableOfContentsBaseImpl extends BootstrapElementImpl imple
 	 * @generated
 	 */
 	@Override
-	public String getDescriptions() {
-		return (String)eDynamicGet(ComponentsPackage.TABLE_OF_CONTENTS_BASE__DESCRIPTIONS, ComponentsPackage.Literals.TABLE_OF_CONTENTS_BASE__DESCRIPTIONS, true, true);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setDescriptions(String newDescriptions) {
-		eDynamicSet(ComponentsPackage.TABLE_OF_CONTENTS_BASE__DESCRIPTIONS, ComponentsPackage.Literals.TABLE_OF_CONTENTS_BASE__DESCRIPTIONS, newDescriptions);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public String getRole() {
 		return (String)eDynamicGet(ComponentsPackage.TABLE_OF_CONTENTS_BASE__ROLE, ComponentsPackage.Literals.TABLE_OF_CONTENTS_BASE__ROLE, true, true);
 	}
@@ -175,8 +149,6 @@ public abstract class TableOfContentsBaseImpl extends BootstrapElementImpl imple
 		switch (featureID) {
 			case ComponentsPackage.TABLE_OF_CONTENTS_BASE__HEADER:
 				return getHeader();
-			case ComponentsPackage.TABLE_OF_CONTENTS_BASE__DESCRIPTIONS:
-				return getDescriptions();
 			case ComponentsPackage.TABLE_OF_CONTENTS_BASE__ROLE:
 				return getRole();
 			case ComponentsPackage.TABLE_OF_CONTENTS_BASE__DEPTH:
@@ -195,9 +167,6 @@ public abstract class TableOfContentsBaseImpl extends BootstrapElementImpl imple
 		switch (featureID) {
 			case ComponentsPackage.TABLE_OF_CONTENTS_BASE__HEADER:
 				setHeader((String)newValue);
-				return;
-			case ComponentsPackage.TABLE_OF_CONTENTS_BASE__DESCRIPTIONS:
-				setDescriptions((String)newValue);
 				return;
 			case ComponentsPackage.TABLE_OF_CONTENTS_BASE__ROLE:
 				setRole((String)newValue);
@@ -220,9 +189,6 @@ public abstract class TableOfContentsBaseImpl extends BootstrapElementImpl imple
 			case ComponentsPackage.TABLE_OF_CONTENTS_BASE__HEADER:
 				setHeader(HEADER_EDEFAULT);
 				return;
-			case ComponentsPackage.TABLE_OF_CONTENTS_BASE__DESCRIPTIONS:
-				setDescriptions(DESCRIPTIONS_EDEFAULT);
-				return;
 			case ComponentsPackage.TABLE_OF_CONTENTS_BASE__ROLE:
 				setRole(ROLE_EDEFAULT);
 				return;
@@ -243,8 +209,6 @@ public abstract class TableOfContentsBaseImpl extends BootstrapElementImpl imple
 		switch (featureID) {
 			case ComponentsPackage.TABLE_OF_CONTENTS_BASE__HEADER:
 				return HEADER_EDEFAULT == null ? getHeader() != null : !HEADER_EDEFAULT.equals(getHeader());
-			case ComponentsPackage.TABLE_OF_CONTENTS_BASE__DESCRIPTIONS:
-				return DESCRIPTIONS_EDEFAULT == null ? getDescriptions() != null : !DESCRIPTIONS_EDEFAULT.equals(getDescriptions());
 			case ComponentsPackage.TABLE_OF_CONTENTS_BASE__ROLE:
 				return ROLE_EDEFAULT == null ? getRole() != null : !ROLE_EDEFAULT.equals(getRole());
 			case ComponentsPackage.TABLE_OF_CONTENTS_BASE__DEPTH:
@@ -252,5 +216,32 @@ public abstract class TableOfContentsBaseImpl extends BootstrapElementImpl imple
 		}
 		return super.eIsSet(featureID);
 	}
+	
+	protected abstract Supplier<ViewPart> createTableOfContents(Context context) throws Exception;	
+	
+	@Override
+	public Supplier<ViewPart> create(Context context) throws Exception {
+		Supplier<ViewPart> ret = createTableOfContents(context);
+				
+		if (ret == null) {
+			return ret;
+		}
+		
+		Appearance appearance = getAppearance();
+		if (appearance == null) {
+			return ret;
+		}
+		
+		return ret.then(appearance.create(context).asFunction()).then(bs -> new ViewPart() {
+
+			@Override
+			public Object generate(ViewGenerator viewGenerator, ProgressMonitor progressMonitor) {				
+				return bs.getFirst().then(bs.getSecond());
+			}
+			
+		});
+		
+	}
+	
 
 } //TableOfContentsBaseImpl

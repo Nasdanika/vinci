@@ -26,13 +26,15 @@
     </genClasses>
     <genClasses image="false" ecoreClass="components.ecore#//TableOfContentsBase">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute components.ecore#//TableOfContentsBase/header"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute components.ecore#//TableOfContentsBase/descriptions"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute components.ecore#//TableOfContentsBase/role"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute components.ecore#//TableOfContentsBase/depth"/>
     </genClasses>
-    <genClasses ecoreClass="components.ecore#//TableOfContents"/>
+    <genClasses ecoreClass="components.ecore#//TableOfContents">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute components.ecore#//TableOfContents/descriptions"/>
+    </genClasses>
     <genClasses ecoreClass="components.ecore#//ListOfContents">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute components.ecore#//ListOfContents/ordering"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute components.ecore#//ListOfContents/tooltips"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

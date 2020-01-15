@@ -221,10 +221,13 @@ public class ActionFacade extends org.nasdanika.html.app.impl.ActionImpl impleme
 	}
 
 	@Override
-	public Object generate(ViewGenerator viewGenerator, ProgressMonitor progressMonitor) {
+	public Object generate(ViewGenerator viewGen, ProgressMonitor progressMonitor) {
 		if (content == null) {
 			return null;
 		}
+		ViewGenerator viewGenerator = viewGen.fork();
+		viewGenerator.register(Action.class, this);
+		
 		Fragment ret = viewGenerator.get(HTMLFactory.class, HTMLFactory.INSTANCE).fragment();
 		for (Object ce: content) {
 			ret.content(viewGenerator.processViewPart(ce, null));

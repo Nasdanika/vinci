@@ -49,6 +49,7 @@ public class TableOfContentsItemProvider extends TableOfContentsBaseItemProvider
 			addBorderlessPropertyDescriptor(object);
 			addHoverPropertyDescriptor(object);
 			addSmallPropertyDescriptor(object);
+			addDescriptionsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -180,6 +181,27 @@ public class TableOfContentsItemProvider extends TableOfContentsBaseItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Descriptions feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	protected void addDescriptionsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor(
+				 getResourceLocator(),
+				 getString("_UI_TableOfContents_descriptions_feature"),
+				 ComponentsPackage.Literals.TABLE_OF_CONTENTS__DESCRIPTIONS,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This returns TableOfContents.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -223,6 +245,7 @@ public class TableOfContentsItemProvider extends TableOfContentsBaseItemProvider
 			case ComponentsPackage.TABLE_OF_CONTENTS__BORDERLESS:
 			case ComponentsPackage.TABLE_OF_CONTENTS__HOVER:
 			case ComponentsPackage.TABLE_OF_CONTENTS__SMALL:
+			case ComponentsPackage.TABLE_OF_CONTENTS__DESCRIPTIONS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

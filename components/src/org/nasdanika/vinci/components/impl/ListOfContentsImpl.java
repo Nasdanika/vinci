@@ -5,7 +5,11 @@ package org.nasdanika.vinci.components.impl;
 import org.eclipse.emf.ecore.EClass;
 import org.nasdanika.common.Context;
 import org.nasdanika.common.Supplier;
+import org.nasdanika.common.Util;
+import org.nasdanika.html.OrderedListType;
+import org.nasdanika.html.app.Action;
 import org.nasdanika.html.app.ViewPart;
+import org.nasdanika.html.app.viewparts.ListOfContentsViewPart;
 import org.nasdanika.vinci.components.ComponentsPackage;
 import org.nasdanika.vinci.components.ListOfContents;
 
@@ -18,6 +22,7 @@ import org.nasdanika.vinci.components.ListOfContents;
  * </p>
  * <ul>
  *   <li>{@link org.nasdanika.vinci.components.impl.ListOfContentsImpl#getOrdering <em>Ordering</em>}</li>
+ *   <li>{@link org.nasdanika.vinci.components.impl.ListOfContentsImpl#isTooltips <em>Tooltips</em>}</li>
  * </ul>
  *
  * @generated
@@ -32,6 +37,16 @@ public class ListOfContentsImpl extends TableOfContentsBaseImpl implements ListO
 	 * @ordered
 	 */
 	protected static final String ORDERING_EDEFAULT = "";
+
+	/**
+	 * The default value of the '{@link #isTooltips() <em>Tooltips</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isTooltips()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean TOOLTIPS_EDEFAULT = false;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -78,10 +93,32 @@ public class ListOfContentsImpl extends TableOfContentsBaseImpl implements ListO
 	 * @generated
 	 */
 	@Override
+	public boolean isTooltips() {
+		return (Boolean)eDynamicGet(ComponentsPackage.LIST_OF_CONTENTS__TOOLTIPS, ComponentsPackage.Literals.LIST_OF_CONTENTS__TOOLTIPS, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setTooltips(boolean newTooltips) {
+		eDynamicSet(ComponentsPackage.LIST_OF_CONTENTS__TOOLTIPS, ComponentsPackage.Literals.LIST_OF_CONTENTS__TOOLTIPS, newTooltips);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case ComponentsPackage.LIST_OF_CONTENTS__ORDERING:
 				return getOrdering();
+			case ComponentsPackage.LIST_OF_CONTENTS__TOOLTIPS:
+				return isTooltips();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -96,6 +133,9 @@ public class ListOfContentsImpl extends TableOfContentsBaseImpl implements ListO
 		switch (featureID) {
 			case ComponentsPackage.LIST_OF_CONTENTS__ORDERING:
 				setOrdering((String)newValue);
+				return;
+			case ComponentsPackage.LIST_OF_CONTENTS__TOOLTIPS:
+				setTooltips((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -112,6 +152,9 @@ public class ListOfContentsImpl extends TableOfContentsBaseImpl implements ListO
 			case ComponentsPackage.LIST_OF_CONTENTS__ORDERING:
 				setOrdering(ORDERING_EDEFAULT);
 				return;
+			case ComponentsPackage.LIST_OF_CONTENTS__TOOLTIPS:
+				setTooltips(TOOLTIPS_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -126,13 +169,22 @@ public class ListOfContentsImpl extends TableOfContentsBaseImpl implements ListO
 		switch (featureID) {
 			case ComponentsPackage.LIST_OF_CONTENTS__ORDERING:
 				return ORDERING_EDEFAULT == null ? getOrdering() != null : !ORDERING_EDEFAULT.equals(getOrdering());
+			case ComponentsPackage.LIST_OF_CONTENTS__TOOLTIPS:
+				return isTooltips() != TOOLTIPS_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
-
+	
 	@Override
-	public Supplier<ViewPart> create(Context arg) throws Exception {
-		return Supplier.from(ViewPart.fromValue("List of Contents will be here"), getTitle());
+	protected Supplier<ViewPart> createTableOfContents(Context context) throws Exception {
+		ListOfContentsViewPart listOfContentsViewPart = new ListOfContentsViewPart(
+				"Section".equals(getRole()) ? Action.Role.SECTION : Action.Role.NAVIGATION, 
+				context.interpolate(getHeader()), 
+				isTooltips(), 
+				getDepth(), 
+				Util.isBlank(getOrdering()) ? null : OrderedListType.fromLabel(getOrdering()));
+		
+		return Supplier.from(listOfContentsViewPart, getTitle());
 	}
 
 } //ListOfContentsImpl

@@ -5,10 +5,11 @@ package org.nasdanika.vinci.components.impl;
 import org.eclipse.emf.ecore.EClass;
 import org.nasdanika.common.Context;
 import org.nasdanika.common.Supplier;
+import org.nasdanika.html.app.Action;
 import org.nasdanika.html.app.ViewPart;
+import org.nasdanika.html.app.viewparts.TableOfContentsViewPart;
 import org.nasdanika.vinci.bootstrap.BootstrapPackage;
 import org.nasdanika.vinci.bootstrap.TableConfiguration;
-
 import org.nasdanika.vinci.components.ComponentsPackage;
 import org.nasdanika.vinci.components.TableOfContents;
 
@@ -26,6 +27,7 @@ import org.nasdanika.vinci.components.TableOfContents;
  *   <li>{@link org.nasdanika.vinci.components.impl.TableOfContentsImpl#isBorderless <em>Borderless</em>}</li>
  *   <li>{@link org.nasdanika.vinci.components.impl.TableOfContentsImpl#isHover <em>Hover</em>}</li>
  *   <li>{@link org.nasdanika.vinci.components.impl.TableOfContentsImpl#isSmall <em>Small</em>}</li>
+ *   <li>{@link org.nasdanika.vinci.components.impl.TableOfContentsImpl#isDescriptions <em>Descriptions</em>}</li>
  * </ul>
  *
  * @generated
@@ -90,6 +92,16 @@ public class TableOfContentsImpl extends TableOfContentsBaseImpl implements Tabl
 	 * @ordered
 	 */
 	protected static final boolean SMALL_EDEFAULT = false;
+
+	/**
+	 * The default value of the '{@link #isDescriptions() <em>Descriptions</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isDescriptions()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean DESCRIPTIONS_EDEFAULT = false;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -236,6 +248,26 @@ public class TableOfContentsImpl extends TableOfContentsBaseImpl implements Tabl
 	 * @generated
 	 */
 	@Override
+	public boolean isDescriptions() {
+		return (Boolean)eDynamicGet(ComponentsPackage.TABLE_OF_CONTENTS__DESCRIPTIONS, ComponentsPackage.Literals.TABLE_OF_CONTENTS__DESCRIPTIONS, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setDescriptions(boolean newDescriptions) {
+		eDynamicSet(ComponentsPackage.TABLE_OF_CONTENTS__DESCRIPTIONS, ComponentsPackage.Literals.TABLE_OF_CONTENTS__DESCRIPTIONS, newDescriptions);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case ComponentsPackage.TABLE_OF_CONTENTS__DARK:
@@ -250,6 +282,8 @@ public class TableOfContentsImpl extends TableOfContentsBaseImpl implements Tabl
 				return isHover();
 			case ComponentsPackage.TABLE_OF_CONTENTS__SMALL:
 				return isSmall();
+			case ComponentsPackage.TABLE_OF_CONTENTS__DESCRIPTIONS:
+				return isDescriptions();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -279,6 +313,9 @@ public class TableOfContentsImpl extends TableOfContentsBaseImpl implements Tabl
 				return;
 			case ComponentsPackage.TABLE_OF_CONTENTS__SMALL:
 				setSmall((Boolean)newValue);
+				return;
+			case ComponentsPackage.TABLE_OF_CONTENTS__DESCRIPTIONS:
+				setDescriptions((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -310,6 +347,9 @@ public class TableOfContentsImpl extends TableOfContentsBaseImpl implements Tabl
 			case ComponentsPackage.TABLE_OF_CONTENTS__SMALL:
 				setSmall(SMALL_EDEFAULT);
 				return;
+			case ComponentsPackage.TABLE_OF_CONTENTS__DESCRIPTIONS:
+				setDescriptions(DESCRIPTIONS_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -334,6 +374,8 @@ public class TableOfContentsImpl extends TableOfContentsBaseImpl implements Tabl
 				return isHover() != HOVER_EDEFAULT;
 			case ComponentsPackage.TABLE_OF_CONTENTS__SMALL:
 				return isSmall() != SMALL_EDEFAULT;
+			case ComponentsPackage.TABLE_OF_CONTENTS__DESCRIPTIONS:
+				return isDescriptions() != DESCRIPTIONS_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -379,10 +421,24 @@ public class TableOfContentsImpl extends TableOfContentsBaseImpl implements Tabl
 		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
-
+	
 	@Override
-	public Supplier<ViewPart> create(Context arg) throws Exception {
-		return Supplier.from(ViewPart.fromValue("Table of Contents will be here"), getTitle());
+	protected Supplier<ViewPart> createTableOfContents(Context context) throws Exception {
+		TableOfContentsViewPart tableOfContentsViewPart = new TableOfContentsViewPart(
+				"Section".equals(getRole()) ? Action.Role.SECTION : Action.Role.NAVIGATION, 
+				context.interpolate(getHeader()), 
+				isDescriptions(), 
+				getDepth());
+		
+		tableOfContentsViewPart.setBordered(isBordered());
+		tableOfContentsViewPart.setBorderless(isBorderless());
+		tableOfContentsViewPart.setDark(isDark());
+		tableOfContentsViewPart.setHover(isHover());
+		tableOfContentsViewPart.setSmall(isSmall());
+		tableOfContentsViewPart.setStriped(isStriped());
+		
+		return Supplier.from(tableOfContentsViewPart, getTitle());
 	}
+	
 
 } //TableOfContentsImpl

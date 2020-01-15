@@ -570,8 +570,17 @@ public class AppearanceImpl extends MinimalEObjectImpl.Container implements Appe
 			@Override
 			public void build(Object target, ViewGenerator viewGenerator, ProgressMonitor progressMonitor) {
 				bs.getFirst().build(target, viewGenerator, progressMonitor);
-				org.nasdanika.html.HTMLElement<?> htmlElement = target instanceof org.nasdanika.html.bootstrap.BootstrapElement<?,?> ? ((org.nasdanika.html.bootstrap.BootstrapElement<?,?>) target).toHTMLElement() : (org.nasdanika.html.HTMLElement<?>) target;  
-				htmlElement.attributes(bs.getSecond());
+				org.nasdanika.html.HTMLElement<?> htmlElement;
+				if (target instanceof org.nasdanika.html.bootstrap.BootstrapElement<?,?>) {
+					htmlElement = ((org.nasdanika.html.bootstrap.BootstrapElement<?,?>) target).toHTMLElement();  
+				} else if (target instanceof org.nasdanika.html.HTMLElement) {
+					htmlElement = (org.nasdanika.html.HTMLElement<?>) target;
+				} else {
+					htmlElement = target == null || target instanceof String && Util.isBlank((String) target) ? null : viewGenerator.get(HTMLFactory.class).span(target);
+				}
+				if (htmlElement != null) {
+					htmlElement.attributes(bs.getSecond());
+				}
 			}
 			
 		});

@@ -11,8 +11,6 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
-
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
@@ -51,7 +49,6 @@ public class TableOfContentsBaseItemProvider extends BootstrapElementItemProvide
 			super.getPropertyDescriptors(object);
 
 			addHeaderPropertyDescriptor(object);
-			addDescriptionsPropertyDescriptor(object);
 			addRolePropertyDescriptor(object);
 			addDepthPropertyDescriptor(object);
 		}
@@ -70,27 +67,6 @@ public class TableOfContentsBaseItemProvider extends BootstrapElementItemProvide
 				 getResourceLocator(),
 				 getString("_UI_TableOfContentsBase_header_feature"),
 				 ComponentsPackage.Literals.TABLE_OF_CONTENTS_BASE__HEADER,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Descriptions feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addDescriptionsPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor(
-				 getResourceLocator(),
-				 getString("_UI_TableOfContentsBase_descriptions_feature"),
-				 ComponentsPackage.Literals.TABLE_OF_CONTENTS_BASE__DESCRIPTIONS,
 				 true,
 				 false,
 				 false,
@@ -167,7 +143,6 @@ public class TableOfContentsBaseItemProvider extends BootstrapElementItemProvide
 
 		switch (notification.getFeatureID(TableOfContentsBase.class)) {
 			case ComponentsPackage.TABLE_OF_CONTENTS_BASE__HEADER:
-			case ComponentsPackage.TABLE_OF_CONTENTS_BASE__DESCRIPTIONS:
 			case ComponentsPackage.TABLE_OF_CONTENTS_BASE__ROLE:
 			case ComponentsPackage.TABLE_OF_CONTENTS_BASE__DEPTH:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));

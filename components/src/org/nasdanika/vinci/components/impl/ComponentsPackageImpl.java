@@ -281,7 +281,7 @@ public class ComponentsPackageImpl extends EPackageImpl implements ComponentsPac
 	 * @generated
 	 */
 	@Override
-	public EAttribute getTableOfContentsBase_Descriptions() {
+	public EAttribute getTableOfContentsBase_Role() {
 		return (EAttribute)tableOfContentsBaseEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -291,18 +291,8 @@ public class ComponentsPackageImpl extends EPackageImpl implements ComponentsPac
 	 * @generated
 	 */
 	@Override
-	public EAttribute getTableOfContentsBase_Role() {
-		return (EAttribute)tableOfContentsBaseEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EAttribute getTableOfContentsBase_Depth() {
-		return (EAttribute)tableOfContentsBaseEClass.getEStructuralFeatures().get(3);
+		return (EAttribute)tableOfContentsBaseEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -313,6 +303,16 @@ public class ComponentsPackageImpl extends EPackageImpl implements ComponentsPac
 	@Override
 	public EClass getTableOfContents() {
 		return tableOfContentsEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getTableOfContents_Descriptions() {
+		return (EAttribute)tableOfContentsEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -333,6 +333,16 @@ public class ComponentsPackageImpl extends EPackageImpl implements ComponentsPac
 	@Override
 	public EAttribute getListOfContents_Ordering() {
 		return (EAttribute)listOfContentsEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getListOfContents_Tooltips() {
+		return (EAttribute)listOfContentsEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -381,14 +391,15 @@ public class ComponentsPackageImpl extends EPackageImpl implements ComponentsPac
 
 		tableOfContentsBaseEClass = createEClass(TABLE_OF_CONTENTS_BASE);
 		createEAttribute(tableOfContentsBaseEClass, TABLE_OF_CONTENTS_BASE__HEADER);
-		createEAttribute(tableOfContentsBaseEClass, TABLE_OF_CONTENTS_BASE__DESCRIPTIONS);
 		createEAttribute(tableOfContentsBaseEClass, TABLE_OF_CONTENTS_BASE__ROLE);
 		createEAttribute(tableOfContentsBaseEClass, TABLE_OF_CONTENTS_BASE__DEPTH);
 
 		tableOfContentsEClass = createEClass(TABLE_OF_CONTENTS);
+		createEAttribute(tableOfContentsEClass, TABLE_OF_CONTENTS__DESCRIPTIONS);
 
 		listOfContentsEClass = createEClass(LIST_OF_CONTENTS);
 		createEAttribute(listOfContentsEClass, LIST_OF_CONTENTS__ORDERING);
+		createEAttribute(listOfContentsEClass, LIST_OF_CONTENTS__TOOLTIPS);
 	}
 
 	/**
@@ -467,14 +478,15 @@ public class ComponentsPackageImpl extends EPackageImpl implements ComponentsPac
 
 		initEClass(tableOfContentsBaseEClass, TableOfContentsBase.class, "TableOfContentsBase", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTableOfContentsBase_Header(), ecorePackage.getEString(), "header", "", 0, 1, TableOfContentsBase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getTableOfContentsBase_Descriptions(), ecorePackage.getEString(), "descriptions", "", 0, 1, TableOfContentsBase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTableOfContentsBase_Role(), ecorePackage.getEString(), "role", "", 0, 1, TableOfContentsBase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTableOfContentsBase_Depth(), ecorePackage.getEInt(), "depth", "3", 0, 1, TableOfContentsBase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(tableOfContentsEClass, TableOfContents.class, "TableOfContents", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getTableOfContents_Descriptions(), ecorePackage.getEBoolean(), "descriptions", "false", 0, 1, TableOfContents.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(listOfContentsEClass, ListOfContents.class, "ListOfContents", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getListOfContents_Ordering(), ecorePackage.getEString(), "ordering", "", 0, 1, ListOfContents.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getListOfContents_Tooltips(), ecorePackage.getEBoolean(), "tooltips", "false", 0, 1, ListOfContents.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

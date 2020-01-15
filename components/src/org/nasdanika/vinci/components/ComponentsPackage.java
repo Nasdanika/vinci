@@ -412,22 +412,13 @@ public interface ComponentsPackage extends EPackage {
 	int TABLE_OF_CONTENTS_BASE__HEADER = BootstrapPackage.BOOTSTRAP_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Descriptions</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TABLE_OF_CONTENTS_BASE__DESCRIPTIONS = BootstrapPackage.BOOTSTRAP_ELEMENT_FEATURE_COUNT + 1;
-
-	/**
 	 * The feature id for the '<em><b>Role</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE_OF_CONTENTS_BASE__ROLE = BootstrapPackage.BOOTSTRAP_ELEMENT_FEATURE_COUNT + 2;
+	int TABLE_OF_CONTENTS_BASE__ROLE = BootstrapPackage.BOOTSTRAP_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Depth</b></em>' attribute.
@@ -436,7 +427,7 @@ public interface ComponentsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE_OF_CONTENTS_BASE__DEPTH = BootstrapPackage.BOOTSTRAP_ELEMENT_FEATURE_COUNT + 3;
+	int TABLE_OF_CONTENTS_BASE__DEPTH = BootstrapPackage.BOOTSTRAP_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Table Of Contents Base</em>' class.
@@ -445,7 +436,7 @@ public interface ComponentsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE_OF_CONTENTS_BASE_FEATURE_COUNT = BootstrapPackage.BOOTSTRAP_ELEMENT_FEATURE_COUNT + 4;
+	int TABLE_OF_CONTENTS_BASE_FEATURE_COUNT = BootstrapPackage.BOOTSTRAP_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>As View Builder Supplier</em>' operation.
@@ -510,15 +501,6 @@ public interface ComponentsPackage extends EPackage {
 	 * @ordered
 	 */
 	int TABLE_OF_CONTENTS__HEADER = TABLE_OF_CONTENTS_BASE__HEADER;
-
-	/**
-	 * The feature id for the '<em><b>Descriptions</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TABLE_OF_CONTENTS__DESCRIPTIONS = TABLE_OF_CONTENTS_BASE__DESCRIPTIONS;
 
 	/**
 	 * The feature id for the '<em><b>Role</b></em>' attribute.
@@ -593,13 +575,22 @@ public interface ComponentsPackage extends EPackage {
 	int TABLE_OF_CONTENTS__SMALL = TABLE_OF_CONTENTS_BASE_FEATURE_COUNT + 5;
 
 	/**
+	 * The feature id for the '<em><b>Descriptions</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_OF_CONTENTS__DESCRIPTIONS = TABLE_OF_CONTENTS_BASE_FEATURE_COUNT + 6;
+
+	/**
 	 * The number of structural features of the '<em>Table Of Contents</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE_OF_CONTENTS_FEATURE_COUNT = TABLE_OF_CONTENTS_BASE_FEATURE_COUNT + 6;
+	int TABLE_OF_CONTENTS_FEATURE_COUNT = TABLE_OF_CONTENTS_BASE_FEATURE_COUNT + 7;
 
 	/**
 	 * The operation id for the '<em>As View Builder Supplier</em>' operation.
@@ -666,15 +657,6 @@ public interface ComponentsPackage extends EPackage {
 	int LIST_OF_CONTENTS__HEADER = TABLE_OF_CONTENTS_BASE__HEADER;
 
 	/**
-	 * The feature id for the '<em><b>Descriptions</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LIST_OF_CONTENTS__DESCRIPTIONS = TABLE_OF_CONTENTS_BASE__DESCRIPTIONS;
-
-	/**
 	 * The feature id for the '<em><b>Role</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -702,13 +684,22 @@ public interface ComponentsPackage extends EPackage {
 	int LIST_OF_CONTENTS__ORDERING = TABLE_OF_CONTENTS_BASE_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Tooltips</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LIST_OF_CONTENTS__TOOLTIPS = TABLE_OF_CONTENTS_BASE_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>List Of Contents</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LIST_OF_CONTENTS_FEATURE_COUNT = TABLE_OF_CONTENTS_BASE_FEATURE_COUNT + 1;
+	int LIST_OF_CONTENTS_FEATURE_COUNT = TABLE_OF_CONTENTS_BASE_FEATURE_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>As View Builder Supplier</em>' operation.
@@ -868,17 +859,6 @@ public interface ComponentsPackage extends EPackage {
 	EAttribute getTableOfContentsBase_Header();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.components.TableOfContentsBase#getDescriptions <em>Descriptions</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Descriptions</em>'.
-	 * @see org.nasdanika.vinci.components.TableOfContentsBase#getDescriptions()
-	 * @see #getTableOfContentsBase()
-	 * @generated
-	 */
-	EAttribute getTableOfContentsBase_Descriptions();
-
-	/**
 	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.components.TableOfContentsBase#getRole <em>Role</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -911,6 +891,17 @@ public interface ComponentsPackage extends EPackage {
 	EClass getTableOfContents();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.components.TableOfContents#isDescriptions <em>Descriptions</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Descriptions</em>'.
+	 * @see org.nasdanika.vinci.components.TableOfContents#isDescriptions()
+	 * @see #getTableOfContents()
+	 * @generated
+	 */
+	EAttribute getTableOfContents_Descriptions();
+
+	/**
 	 * Returns the meta object for class '{@link org.nasdanika.vinci.components.ListOfContents <em>List Of Contents</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -930,6 +921,17 @@ public interface ComponentsPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getListOfContents_Ordering();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.components.ListOfContents#isTooltips <em>Tooltips</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Tooltips</em>'.
+	 * @see org.nasdanika.vinci.components.ListOfContents#isTooltips()
+	 * @see #getListOfContents()
+	 * @generated
+	 */
+	EAttribute getListOfContents_Tooltips();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -1056,13 +1058,6 @@ public interface ComponentsPackage extends EPackage {
 		 */
 		EAttribute TABLE_OF_CONTENTS_BASE__HEADER = eINSTANCE.getTableOfContentsBase_Header();
 		/**
-		 * The meta object literal for the '<em><b>Descriptions</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute TABLE_OF_CONTENTS_BASE__DESCRIPTIONS = eINSTANCE.getTableOfContentsBase_Descriptions();
-		/**
 		 * The meta object literal for the '<em><b>Role</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1086,6 +1081,13 @@ public interface ComponentsPackage extends EPackage {
 		 */
 		EClass TABLE_OF_CONTENTS = eINSTANCE.getTableOfContents();
 		/**
+		 * The meta object literal for the '<em><b>Descriptions</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TABLE_OF_CONTENTS__DESCRIPTIONS = eINSTANCE.getTableOfContents_Descriptions();
+		/**
 		 * The meta object literal for the '{@link org.nasdanika.vinci.components.impl.ListOfContentsImpl <em>List Of Contents</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1101,6 +1103,13 @@ public interface ComponentsPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute LIST_OF_CONTENTS__ORDERING = eINSTANCE.getListOfContents_Ordering();
+		/**
+		 * The meta object literal for the '<em><b>Tooltips</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute LIST_OF_CONTENTS__TOOLTIPS = eINSTANCE.getListOfContents_Tooltips();
 
 	}
 

@@ -22,7 +22,6 @@ import org.nasdanika.vinci.bootstrap.BootstrapElement;
  * </p>
  * <ul>
  *   <li>{@link org.nasdanika.vinci.components.TableOfContentsBase#getHeader <em>Header</em>}</li>
- *   <li>{@link org.nasdanika.vinci.components.TableOfContentsBase#getDescriptions <em>Descriptions</em>}</li>
  *   <li>{@link org.nasdanika.vinci.components.TableOfContentsBase#getRole <em>Role</em>}</li>
  *   <li>{@link org.nasdanika.vinci.components.TableOfContentsBase#getDepth <em>Depth</em>}</li>
  * </ul>
@@ -57,32 +56,6 @@ public interface TableOfContentsBase extends BootstrapElement, SupplierFactory<V
 	 * @generated
 	 */
 	void setHeader(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Descriptions</b></em>' attribute.
-	 * The default value is <code>""</code>.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * If selected, action descriptions are shown in the table of contents.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Descriptions</em>' attribute.
-	 * @see #setDescriptions(String)
-	 * @see org.nasdanika.vinci.components.ComponentsPackage#getTableOfContentsBase_Descriptions()
-	 * @model default=""
-	 * @generated
-	 */
-	String getDescriptions();
-
-	/**
-	 * Sets the value of the '{@link org.nasdanika.vinci.components.TableOfContentsBase#getDescriptions <em>Descriptions</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Descriptions</em>' attribute.
-	 * @see #getDescriptions()
-	 * @generated
-	 */
-	void setDescriptions(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Role</b></em>' attribute.
