@@ -18,6 +18,7 @@ public class GenerateModelDocumentation extends TestsBase {
 	private static final String VINCI_APP_MODEL_URI = "urn:org.nasdanika.vinci.app";
 	private static final String VINCI_HTML_MODEL_URI = "urn:org.nasdanika.vinci.html";
 	private static final String VINCI_BOOTSTRAP_MODEL_URI = "urn:org.nasdanika.vinci.bootstrap";
+	private static final String VINCI_COMPONENTS_MODEL_URI = "urn:org.nasdanika.vinci.components";
 	
 	/**
 	 * Generates Ecore model documentation.
@@ -30,6 +31,7 @@ public class GenerateModelDocumentation extends TestsBase {
 		generator.loadGenModel(VINCI_APP_MODEL_URI);
 		generator.loadGenModel(VINCI_HTML_MODEL_URI);
 		generator.loadGenModel(VINCI_BOOTSTRAP_MODEL_URI);
+		generator.loadGenModel(VINCI_COMPONENTS_MODEL_URI);
 		File docDir = new File("target/model-doc");
 		System.out.println("Generating HTML model documentation to "+docDir.getAbsolutePath());
 		BinaryEntityContainer fsc = new FileSystemContainer(docDir);
@@ -57,6 +59,7 @@ public class GenerateModelDocumentation extends TestsBase {
 		generator.loadGenModel(VINCI_APP_MODEL_URI);
 		generator.loadGenModel(VINCI_HTML_MODEL_URI);
 		generator.loadGenModel(VINCI_BOOTSTRAP_MODEL_URI);
+		generator.loadGenModel(VINCI_COMPONENTS_MODEL_URI);
 		File docDir = new File("target/help/model");
 		System.out.println("Generating Eclipse help model documentation to "+docDir.getAbsolutePath());
 		BinaryEntityContainer fsc = new FileSystemContainer(docDir);
