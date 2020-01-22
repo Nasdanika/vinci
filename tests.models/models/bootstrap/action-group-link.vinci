@@ -3,7 +3,7 @@
   <items xsi:type="org.nasdanika.vinci.bootstrap:LinkActionGroupItem" url="#">
     <name xsi:type="org.nasdanika.ncore:Value" value="Item One"/>
   </items>
-  <items xsi:type="org.nasdanika.vinci.bootstrap:LinkActionGroupItem" active="true" url="#">
+  <items xsi:type="org.nasdanika.vinci.bootstrap:LinkActionGroupItem" title="Hmm" active="true" url="#">
     <name xsi:type="org.nasdanika.ncore:Value" value="Item Two - Active"/>
   </items>
   <items xsi:type="org.nasdanika.vinci.bootstrap:LinkActionGroupItem" disabled="true" url="#">

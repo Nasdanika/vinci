@@ -125,7 +125,7 @@
       </elements>
       <content xsi:type="org.nasdanika.vinci.components:MarkdownText" markdown="Paragraphs content"/>
     </elements>
-    <elements xsi:type="org.nasdanika.vinci.app:Action" title="Cards" id="de29c063-bda0-4406-a5b5-c7913c00d0f0" text="Cards" sectionStyle="Card">
+    <elements xsi:type="org.nasdanika.vinci.app:Action" title="Cards" description="Some description" id="de29c063-bda0-4406-a5b5-c7913c00d0f0" text="Cards" sectionStyle="Card">
       <elements xsi:type="org.nasdanika.vinci.app:Action" title="Section 1" id="9d4fce59-aed6-4aaf-abca-644135916ee2" text="Section 1" sectionStyle="Card" sectionColumns="1">
         <elements xsi:type="org.nasdanika.vinci.app:Action" title="Context 1.1" id="416ab384-1a80-44b6-8bd1-63de5ec2fdbd" text="Context 1.1" role="Context" sectionColumns="1">
           <content xsi:type="org.nasdanika.vinci.components:MarkdownText" markdown="Context 1.1 content"/>
@@ -486,7 +486,7 @@
       <content xsi:type="org.nasdanika.vinci.components:MarkdownText" markdown="Paragraphs content"/>
     </elements>
   </elements>
-  <elements xsi:type="org.nasdanika.vinci.app:Action" title="Nav 2" id="f51b3813-9656-46a2-a2e2-5a3958cd8fa6" text="Nav 2"/>
+  <elements xsi:type="org.nasdanika.vinci.app:Action" title="Navigation 2" id="f51b3813-9656-46a2-a2e2-5a3958cd8fa6" text="Nav 2"/>
   <elements xsi:type="org.nasdanika.vinci.app:Action" title="Footer action" id="54010cb6-8d9c-48e6-a2be-4bb49aec3240" text="Footer action" role="Context" markdownContent="My footer action."/>
   <content xsi:type="org.nasdanika.vinci.components:TableOfContents"/>
   <content xsi:type="org.nasdanika.ncore:Html" description="" content="&lt;p>&lt;strong>Конфетки &lt;u>бараночки&lt;/u>&lt;/strong>&lt;/p>&#xA;&#xA;&lt;p>&lt;strong>Baranki, korobki. &lt;/strong>&lt;/p>&#xA;&#xA;&lt;p>&lt;span style=&quot;background-color:#2ecc71&quot;>Zuua&lt;/span>&lt;/p>&#xA;&#xA;&lt;p>uuu...&lt;/p>&#xA;&#xA;&lt;p>gjdkdgddhgf&lt;/p>&#xA;"/>

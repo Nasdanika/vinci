@@ -431,15 +431,13 @@ public class ActionBaseItemProvider extends LabelItemProvider {
 			newChildDescriptors.add(createChildParameter(AppPackage.Literals.ACTION_BASE__CONTENT, expr));						
 		}
 
-		// --- Mappings ---
-		
+		// --- Mappings ---		
 		newChildDescriptors.add
 			(createChildParameter
 				(AppPackage.Literals.ABSTRACT_ACTION__ACTION_MAPPINGS,
 				 AppFactory.eINSTANCE.createActionMapping()));
 
-		// --- Elements ---
-		
+		// --- Elements ---		
 		newChildDescriptors.add
 			(createChildParameter
 				(AppPackage.Literals.CONTAINER__ELEMENTS,
