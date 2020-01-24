@@ -189,7 +189,7 @@ public class ActionFacade extends org.nasdanika.html.app.impl.ActionImpl impleme
 				MarkdownHelper catHelper = new MarkdownHelper();
 				cat.setDescription(catHelper.markdownToHtml(catDescription));
 				if (Util.isBlank(catTooltip)) {
-					String textDoc = Jsoup.parse(getDescription()).text();
+					String textDoc = Jsoup.parse(cat.getDescription()).text();
 					cat.setTooltip(catHelper.firstSentence(textDoc));
 
 				}
