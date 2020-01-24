@@ -187,16 +187,16 @@ public class ActionFacade extends org.nasdanika.html.app.impl.ActionImpl impleme
 			String catTooltip = actionCategory.getTooltip();
 			if (!Util.isBlank(catDescription)) {
 				MarkdownHelper catHelper = new MarkdownHelper();
-				setDescription(catHelper.markdownToHtml(catDescription));
+				cat.setDescription(catHelper.markdownToHtml(catDescription));
 				if (Util.isBlank(catTooltip)) {
 					String textDoc = Jsoup.parse(getDescription()).text();
-					setTooltip(catHelper.firstSentence(textDoc));
+					cat.setTooltip(catHelper.firstSentence(textDoc));
 
 				}
 			}
 			// tooltip
 			if (!Util.isBlank(catTooltip)) {
-				setTooltip(catTooltip);
+				cat.setTooltip(catTooltip);
 			}
 
 			setCategory(cat);
