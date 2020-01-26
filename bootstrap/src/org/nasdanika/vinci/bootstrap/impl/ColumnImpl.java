@@ -11,7 +11,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.nasdanika.common.Context;
-import org.nasdanika.common.MapCompoundSupplierFactory;
+import org.nasdanika.common.ElementIdentityMapCompoundSupplierFactory;
 import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.common.Supplier;
 import org.nasdanika.common.SupplierFactory;
@@ -259,15 +259,15 @@ public class ColumnImpl extends BootstrapElementImpl implements Column {
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
 	public Supplier<ViewBuilder> create(Context context) throws Exception {
-		MapCompoundSupplierFactory<String, Object> mapSupplierFactory = new MapCompoundSupplierFactory<String, Object>(getTitle());
-		Appearance appearance = getAppearance();
-		if (appearance != null) {
-			mapSupplierFactory.put("Apperance", (SupplierFactory) appearance);
-		}
-				
-		mapSupplierFactory.put("Content", (SupplierFactory) createContentSupplierFactory());
 		
-		return mapSupplierFactory.create(context).then(map -> new ViewBuilder( ) {
+		ElementIdentityMapCompoundSupplierFactory<Object> mapSupplierFactory = new ElementIdentityMapCompoundSupplierFactory<>(getTitle());
+		Appearance appearance = getAppearance();
+		mapSupplierFactory.put((SupplierFactory) appearance);
+				
+		SupplierFactory contentSupplierFactory = (SupplierFactory) createContentSupplierFactory();
+		mapSupplierFactory.put(contentSupplierFactory);
+		
+		return mapSupplierFactory.create(context).then(results -> new ViewBuilder( ) {
 
 			@Override
 			public void build(Object target, ViewGenerator viewGenerator, ProgressMonitor progressMonitor) {
@@ -278,12 +278,12 @@ public class ColumnImpl extends BootstrapElementImpl implements Column {
 					col.width(breakpoint, width);
 				}
 				
-				ViewBuilder apperanceBuilder = (ViewBuilder) map.get("Appearance");
+				ViewBuilder apperanceBuilder = (ViewBuilder) results.apply((SupplierFactory) appearance);
 				if (apperanceBuilder != null) {
 					apperanceBuilder.build(target, viewGenerator, progressMonitor);
 				}
 				
-				for (ViewPart contentViewPart: (List<ViewPart>) map.get("Content")) {
+				for (ViewPart contentViewPart: (List<ViewPart>) results.apply(contentSupplierFactory)) {
 					col.content(viewGenerator.processViewPart(contentViewPart, progressMonitor));
 				}
 			}
