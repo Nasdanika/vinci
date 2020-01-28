@@ -154,21 +154,26 @@ public class ActionFacade extends org.nasdanika.html.app.impl.ActionImpl impleme
 				@Override
 				public void decorate(Object target, ViewGenerator viewGenerator) {
 					if (categoryDecoratorSupplier != null) {
-						NullProgressMonitor progressMonitor = new NullProgressMonitor(); // A better way - from the viewGenerator?
-						try {
-							ViewBuilder cd = categoryDecoratorSupplier.execute(progressMonitor);
-							if (cd != null) {
-								if (target instanceof BootstrapElement) {
-									cd.build(target, viewGenerator, progressMonitor);
-								} else if (target instanceof HTMLElement) {
-									cd.build(viewGenerator.get(BootstrapFactory.class).wrap((HTMLElement<?>) target), viewGenerator, progressMonitor);
+						Object decoratorSelector = viewGenerator.get(Decorator.SELECTOR_KEY);
+						if ("content-panel.breadcrumb".equals(decoratorSelector)) {
+							// TODO 
+						} else {
+							NullProgressMonitor progressMonitor = new NullProgressMonitor(); // A better way - from the viewGenerator?
+							try {
+								ViewBuilder cd = categoryDecoratorSupplier.execute(progressMonitor);
+								if (cd != null) {
+									if (target instanceof BootstrapElement) {
+										cd.build(target, viewGenerator, progressMonitor);
+									} else if (target instanceof HTMLElement) {
+										cd.build(viewGenerator.get(BootstrapFactory.class).wrap((HTMLElement<?>) target), viewGenerator, progressMonitor);
+									}
 								}
+							} catch (Exception e) {
+								throw new NasdanikaException(e);
 							}
-						} catch (Exception e) {
-							throw new NasdanikaException(e);
 						}
 					}
-				}
+				}								
 				
 			}
 			
@@ -238,18 +243,27 @@ public class ActionFacade extends org.nasdanika.html.app.impl.ActionImpl impleme
 	@Override
 	public void decorate(Object target, ViewGenerator viewGenerator) {
 		if (decoratorSupplier != null) {
-			NullProgressMonitor progressMonitor = new NullProgressMonitor(); // A better way - from the viewGenerator?
-			try {
-				ViewBuilder decorator = decoratorSupplier.execute(progressMonitor);
-				if (decorator != null) {
-					if (target instanceof BootstrapElement) {
-						decorator.build(target, viewGenerator, progressMonitor);
-					} else if (target instanceof HTMLElement) {
-						decorator.build(viewGenerator.get(BootstrapFactory.class).wrap((HTMLElement<?>) target), viewGenerator, progressMonitor);
+			Object decoratorSelector = viewGenerator.get(Decorator.SELECTOR_KEY);
+			if ("content-panel.title".equals(decoratorSelector)) {
+				// TODO
+			} else if ("content-panel.breadcrumb".equals(decoratorSelector)) {
+				// TODO 
+			} else if ("action-link".equals(decoratorSelector)) {
+				// TODO 
+			} else {
+				NullProgressMonitor progressMonitor = new NullProgressMonitor(); // A better way - from the viewGenerator?
+				try {
+					ViewBuilder decorator = decoratorSupplier.execute(progressMonitor);
+					if (decorator != null) {
+						if (target instanceof BootstrapElement) {
+							decorator.build(target, viewGenerator, progressMonitor);
+						} else if (target instanceof HTMLElement) {
+							decorator.build(viewGenerator.get(BootstrapFactory.class).wrap((HTMLElement<?>) target), viewGenerator, progressMonitor);
+						}
 					}
+				} catch (Exception e) {
+					throw new NasdanikaException(e);
 				}
-			} catch (Exception e) {
-				throw new NasdanikaException(e);
 			}
 		}
 	}

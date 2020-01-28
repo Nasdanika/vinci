@@ -189,7 +189,10 @@
               <content xsi:type="org.nasdanika.vinci.components:MarkdownText" markdown="Context 1.3.2.1 content"/>
             </elements>
           </elements>
-          <elements xsi:type="org.nasdanika.vinci.app:Action" title="Section 1.3.1" id="0de9022e-05d5-4ab0-8409-4a43a93fa6f0" text="Section 1.3.1" role="Section" sectionStyle="Table" sectionColumns="1">
+          <elements xsi:type="org.nasdanika.vinci.app:Action" title="Section 1.3.1" id="0de9022e-05d5-4ab0-8409-4a43a93fa6f0" text="Section 1.3.1----" role="Section" sectionStyle="Table" sectionColumns="1">
+            <appearance>
+              <border color="Danger"/>
+            </appearance>
             <elements xsi:type="org.nasdanika.vinci.app:Action" title="Context 1.3.1.1" id="2353b030-a77d-4b53-8d1a-ca9f26c844bb" text="Context 1.3.1.1" role="Context" sectionColumns="1">
               <content xsi:type="org.nasdanika.vinci.components:MarkdownText" markdown="Context 1.3.1.1 content"/>
             </elements>

@@ -8,6 +8,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.nasdanika.common.Context;
 import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.common.Supplier;
+import org.nasdanika.html.app.Decorator;
 import org.nasdanika.html.app.ViewGenerator;
 import org.nasdanika.html.app.ViewPart;
 import org.nasdanika.ncore.impl.ModelElementImpl;
@@ -216,7 +217,9 @@ public class ActionLinkImpl extends ModelElementImpl implements ActionLink {
 				
 				@Override
 				public Object generate(ViewGenerator viewGenerator, ProgressMonitor progressMonitor) {
-					return viewGenerator.link(actionFacade);
+					ViewGenerator alvg = viewGenerator.fork();
+					alvg.put(Decorator.SELECTOR_KEY, "action-link");
+					return alvg.link(actionFacade);
 				}
 				
 				@Override

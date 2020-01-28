@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:diagram="http://www.eclipse.org/sirius/diagram/1.1.0" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:org.nasdanika.sirius.tree="urn:org.nasdanika.sirius.tree" xmlns:org.nasdanika.vinci.app="urn:org.nasdanika.vinci.app" xmlns:org.nasdanika.vinci.bootstrap="urn:org.nasdanika.vinci.bootstrap" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" xsi:schemaLocation="http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/style/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description/style">
-  <viewpoint:DAnalysis uid="_iTq8kPh5EemxOe8SGGgbEg" selectedViews="_aY4HwAsmEeq0g_u-YiMOrg _xD_Q0ApBEeq01PnEy7pPaA" version="14.1.0.201810161215">
+  <viewpoint:DAnalysis uid="_iTq8kPh5EemxOe8SGGgbEg" selectedViews="_aY4HwAsmEeq0g_u-YiMOrg _xD_Q0ApBEeq01PnEy7pPaA" version="14.3.0.201909031200">
     <semanticResources>platform:/resource/org.nasdanika.vinci.html/model/html.genmodel</semanticResources>
     <semanticResources>platform:/resource/org.nasdanika.ncore/model/ncore.genmodel</semanticResources>
     <semanticResources>platform:/resource/org.nasdanika.vinci.html/model/html.ecore</semanticResources>
@@ -104,7 +104,7 @@
       </ownedRepresentationDescriptors>
     </ownedViews>
   </viewpoint:DAnalysis>
-  <diagram:DSemanticDiagram uid="_zeF7wApBEeq01PnEy7pPaA" name="Bank of Nasdanika Diagram">
+  <diagram:DSemanticDiagram uid="_zeF7wApBEeq01PnEy7pPaA">
     <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_zfEMIApBEeq01PnEy7pPaA" source="DANNOTATION_CUSTOMIZATION_KEY">
       <data xmi:type="diagram:ComputedStyleDescriptionRegistry" uid="_zfEMIQpBEeq01PnEy7pPaA"/>
     </ownedAnnotationEntries>
@@ -551,7 +551,7 @@
     <activatedLayers xmi:type="description_1:Layer" href="platform:/resource/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer"/>
     <target xmi:type="org.nasdanika.vinci.app:Action" href="models/app/bootstrap-container-action-application.vinci#index"/>
   </diagram:DSemanticDiagram>
-  <diagram:DSemanticDiagram uid="_dKMY0AsmEeq0g_u-YiMOrg" name="Bank of Nasdanika Action Diagram">
+  <diagram:DSemanticDiagram uid="_dKMY0AsmEeq0g_u-YiMOrg">
     <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_dOXHIAsmEeq0g_u-YiMOrg" source="DANNOTATION_CUSTOMIZATION_KEY">
       <data xmi:type="diagram:ComputedStyleDescriptionRegistry" uid="_dOXHIQsmEeq0g_u-YiMOrg"/>
     </ownedAnnotationEntries>
@@ -989,7 +989,7 @@
     <activatedLayers xmi:type="description_1:Layer" href="platform:/plugin/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer"/>
     <target xmi:type="org.nasdanika.vinci.app:Action" href="models/app/bank-of-nasdanika.vinci#index"/>
   </diagram:DSemanticDiagram>
-  <diagram:DSemanticDiagram uid="_9tRiMA9HEeqEtJEfHAR34w" name="Bank of Nasdanika Advanced">
+  <diagram:DSemanticDiagram uid="_9tRiMA9HEeqEtJEfHAR34w">
     <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_9t3YPQ9HEeqEtJEfHAR34w" source="DANNOTATION_CUSTOMIZATION_KEY">
       <data xmi:type="diagram:ComputedStyleDescriptionRegistry" uid="_9t3YPg9HEeqEtJEfHAR34w"/>
     </ownedAnnotationEntries>
@@ -2036,7 +2036,7 @@
     <activatedLayers xmi:type="description_1:Layer" href="platform:/resource/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer"/>
     <target xmi:type="org.nasdanika.vinci.app:Action" href="models/app/bank-of-nasdanika-advanced.vinci#index"/>
   </diagram:DSemanticDiagram>
-  <diagram:DSemanticDiagram uid="_2bpt8BOVEeqWS9fJtraz9w" name="Vinci Site Diagram">
+  <diagram:DSemanticDiagram uid="_2bpt8BOVEeqWS9fJtraz9w">
     <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_2bze8BOVEeqWS9fJtraz9w" source="DANNOTATION_CUSTOMIZATION_KEY">
       <data xmi:type="diagram:ComputedStyleDescriptionRegistry" uid="_2bze8ROVEeqWS9fJtraz9w"/>
     </ownedAnnotationEntries>
@@ -2255,7 +2255,7 @@
     <activatedLayers xmi:type="description_1:Layer" href="platform:/resource/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer"/>
     <target xmi:type="org.nasdanika.vinci.app:Action" href="models/doc/vinci-doc.vinci#index"/>
   </diagram:DSemanticDiagram>
-  <diagram:DSemanticDiagram uid="_QEF6UBSfEeqsqcSOgmFtCQ" name="Насданика">
+  <diagram:DSemanticDiagram uid="_QEF6UBSfEeqsqcSOgmFtCQ">
     <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_QFGnBBSfEeqsqcSOgmFtCQ" source="DANNOTATION_CUSTOMIZATION_KEY">
       <data xmi:type="diagram:ComputedStyleDescriptionRegistry" uid="_QFGnBRSfEeqsqcSOgmFtCQ"/>
     </ownedAnnotationEntries>
@@ -2460,7 +2460,7 @@
     <activatedLayers xmi:type="description_1:Layer" href="platform:/resource/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer"/>
     <target xmi:type="org.nasdanika.vinci.app:Action" href="models/doc/винчи-документация.vinci#index"/>
   </diagram:DSemanticDiagram>
-  <diagram:DSemanticDiagram uid="_W1QXcBaUEeqoaNi2WE1B_A" name="Nasdanika">
+  <diagram:DSemanticDiagram uid="_W1QXcBaUEeqoaNi2WE1B_A">
     <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_W2WjoBaUEeqoaNi2WE1B_A" source="DANNOTATION_CUSTOMIZATION_KEY">
       <data xmi:type="diagram:ComputedStyleDescriptionRegistry" uid="_W2WjoRaUEeqoaNi2WE1B_A"/>
     </ownedAnnotationEntries>
@@ -2665,7 +2665,7 @@
     <activatedLayers xmi:type="description_1:Layer" href="platform:/plugin/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer"/>
     <target xmi:type="org.nasdanika.vinci.app:Action" href="models/doc/vinci-doc.vinci#index"/>
   </diagram:DSemanticDiagram>
-  <diagram:DSemanticDiagram uid="_yQCSgBdNEeqGRsK3PrYRDQ" name="Bank of Nasdanika Advanced Action Diagram">
+  <diagram:DSemanticDiagram uid="_yQCSgBdNEeqGRsK3PrYRDQ">
     <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_yQVNcBdNEeqGRsK3PrYRDQ" source="DANNOTATION_CUSTOMIZATION_KEY">
       <data xmi:type="diagram:ComputedStyleDescriptionRegistry" uid="_yQVNcRdNEeqGRsK3PrYRDQ"/>
     </ownedAnnotationEntries>
@@ -3644,7 +3644,7 @@
     <activatedLayers xmi:type="description_1:Layer" href="platform:/plugin/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer"/>
     <target xmi:type="org.nasdanika.vinci.app:Action" href="models/app/bank-of-nasdanika-advanced.vinci#index"/>
   </diagram:DSemanticDiagram>
-  <diagram:DSemanticDiagram uid="_2rRuwBdNEeqGRsK3PrYRDQ" name="Joe Doe Diagram">
+  <diagram:DSemanticDiagram uid="_2rRuwBdNEeqGRsK3PrYRDQ">
     <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_2rULAxdNEeqGRsK3PrYRDQ" source="DANNOTATION_CUSTOMIZATION_KEY">
       <data xmi:type="diagram:ComputedStyleDescriptionRegistry" uid="_2rULBBdNEeqGRsK3PrYRDQ"/>
     </ownedAnnotationEntries>
@@ -3799,7 +3799,7 @@
     <activatedLayers xmi:type="description_1:Layer" href="platform:/plugin/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer"/>
     <target xmi:type="org.nasdanika.vinci.app:Action" href="models/app/bank-of-nasdanika-advanced.vinci#524984d0-253e-4ac7-b100-3c489d4ccc3a"/>
   </diagram:DSemanticDiagram>
-  <diagram:DSemanticDiagram uid="_GshykBdTEeq1SrUHI-I6IQ" name="Joe Doe Action Diagram">
+  <diagram:DSemanticDiagram uid="_GshykBdTEeq1SrUHI-I6IQ">
     <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_GshylRdTEeq1SrUHI-I6IQ" source="DANNOTATION_CUSTOMIZATION_KEY">
       <data xmi:type="diagram:ComputedStyleDescriptionRegistry" uid="_GshylhdTEeq1SrUHI-I6IQ"/>
     </ownedAnnotationEntries>
@@ -3871,7 +3871,7 @@
     <activatedLayers xmi:type="description_1:Layer" href="platform:/plugin/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer"/>
     <target xmi:type="org.nasdanika.vinci.app:Action" href="models/app/bank-of-nasdanika.vinci#524984d0-253e-4ac7-b100-3c489d4ccc3a"/>
   </diagram:DSemanticDiagram>
-  <diagram:DSemanticDiagram uid="_EzdUQBhoEeqwxLi9qDedHw" name="Credit Card Action Diagram">
+  <diagram:DSemanticDiagram uid="_EzdUQBhoEeqwxLi9qDedHw">
     <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_EznFQhhoEeqwxLi9qDedHw" source="DANNOTATION_CUSTOMIZATION_KEY">
       <data xmi:type="diagram:ComputedStyleDescriptionRegistry" uid="_EznFQxhoEeqwxLi9qDedHw"/>
     </ownedAnnotationEntries>
@@ -3923,7 +3923,7 @@
     <activatedLayers xmi:type="description_1:Layer" href="platform:/plugin/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer"/>
     <target xmi:type="org.nasdanika.vinci.app:Action" href="models/app/bank-of-nasdanika-advanced.vinci#e871d844-e734-466b-acb0-8fc82bfd841f"/>
   </diagram:DSemanticDiagram>
-  <diagram:DSemanticDiagram uid="_jqQwQB3BEeqvgru3t91wIA" name="Category Diagram">
+  <diagram:DSemanticDiagram uid="_jqQwQB3BEeqvgru3t91wIA">
     <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_jrI6AB3BEeqvgru3t91wIA" source="DANNOTATION_CUSTOMIZATION_KEY">
       <data xmi:type="diagram:ComputedStyleDescriptionRegistry" uid="_jrI6AR3BEeqvgru3t91wIA"/>
     </ownedAnnotationEntries>
@@ -4041,7 +4041,7 @@
     <activatedLayers xmi:type="description_1:Layer" href="platform:/plugin/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='CategoryDiagram']/@defaultLayer"/>
     <target xmi:type="org.nasdanika.vinci.app:ActionCategory" href="models/app/category-diagram.vinci#013e9671-5ee1-4076-8de9-df6fdacbb958"/>
   </diagram:DSemanticDiagram>
-  <diagram:DSemanticDiagram uid="_tT7xgB3HEeq2GtHWS1qBEA" name="Category Diagram 2">
+  <diagram:DSemanticDiagram uid="_tT7xgB3HEeq2GtHWS1qBEA">
     <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_tUBREB3HEeq2GtHWS1qBEA" source="DANNOTATION_CUSTOMIZATION_KEY">
       <data xmi:type="diagram:ComputedStyleDescriptionRegistry" uid="_tUBRER3HEeq2GtHWS1qBEA"/>
     </ownedAnnotationEntries>
@@ -4074,7 +4074,7 @@
     <activatedLayers xmi:type="description_1:Layer" href="platform:/plugin/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='CategoryDiagram']/@defaultLayer"/>
     <target xmi:type="org.nasdanika.vinci.app:ActionCategory" href="models/app/category-diagram.vinci#4c0e5327-3979-4aa1-bd69-b16b1c0e9bc3"/>
   </diagram:DSemanticDiagram>
-  <diagram:DSemanticDiagram uid="_N_jKUDHYEeqcT4TQLTbXog" name="new Action Diagram">
+  <diagram:DSemanticDiagram uid="_N_jKUDHYEeqcT4TQLTbXog">
     <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_OAeXYDHYEeqcT4TQLTbXog" source="DANNOTATION_CUSTOMIZATION_KEY">
       <data xmi:type="diagram:ComputedStyleDescriptionRegistry" uid="_OAeXYTHYEeqcT4TQLTbXog"/>
     </ownedAnnotationEntries>
@@ -4164,15 +4164,15 @@
     <activatedLayers xmi:type="description_1:Layer" href="platform:/plugin/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer"/>
     <target xmi:type="org.nasdanika.vinci.app:Action" href="models/app/sections.vinci#index"/>
   </diagram:DSemanticDiagram>
-  <org.nasdanika.sirius.tree:AdapterFactoryTree uid="_0cbtcDxAEeqVyqW2nYoI7A" name="Cards tree">
+  <org.nasdanika.sirius.tree:AdapterFactoryTree uid="_0cbtcDxAEeqVyqW2nYoI7A">
     <target xmi:type="org.nasdanika.vinci.app:Action" href="models/app/sections.vinci#de29c063-bda0-4406-a5b5-c7913c00d0f0"/>
     <description xmi:type="org.nasdanika.sirius.tree:AdapterFactoryTreeDescription" href="platform:/plugin/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='vinciAdapterFactoryTree']"/>
   </org.nasdanika.sirius.tree:AdapterFactoryTree>
-  <org.nasdanika.sirius.tree:AdapterFactoryTree uid="_P6p9IDxBEeqVyqW2nYoI7A" name="new Vinci Adapter Factory Tree ">
+  <org.nasdanika.sirius.tree:AdapterFactoryTree uid="_P6p9IDxBEeqVyqW2nYoI7A">
     <target xmi:type="org.nasdanika.vinci.app:Action" href="models/app/sections.vinci#index"/>
     <description xmi:type="org.nasdanika.sirius.tree:AdapterFactoryTreeDescription" href="platform:/plugin/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='vinciAdapterFactoryTree']"/>
   </org.nasdanika.sirius.tree:AdapterFactoryTree>
-  <org.nasdanika.sirius.tree:AdapterFactoryTree uid="_5pVasDxBEeqVyqW2nYoI7A" name="new Vinci Adapter Factory Tree ">
+  <org.nasdanika.sirius.tree:AdapterFactoryTree uid="_5pVasDxBEeqVyqW2nYoI7A">
     <target xmi:type="org.nasdanika.vinci.bootstrap:Table" href="models/app/sections.vinci#//@content.3"/>
     <description xmi:type="org.nasdanika.sirius.tree:AdapterFactoryTreeDescription" href="platform:/plugin/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='vinciAdapterFactoryTree']"/>
   </org.nasdanika.sirius.tree:AdapterFactoryTree>
