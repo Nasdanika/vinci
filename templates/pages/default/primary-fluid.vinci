@@ -37,6 +37,7 @@
     <navigationPanel>
       <appearance>
         <border color="Light" top="false" bottom="false" left="false"/>
+        <padding size="1" top="false" left="false" right="false"/>
       </appearance>
       <width breakpoint="" width="auto"/>
     </navigationPanel>
