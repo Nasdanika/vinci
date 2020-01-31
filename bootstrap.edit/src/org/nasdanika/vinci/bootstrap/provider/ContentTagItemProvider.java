@@ -3,6 +3,7 @@
 package org.nasdanika.vinci.bootstrap.provider;
 
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
@@ -12,6 +13,7 @@ import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+import org.nasdanika.vinci.bootstrap.Appearance;
 import org.nasdanika.vinci.bootstrap.BootstrapFactory;
 import org.nasdanika.vinci.bootstrap.BootstrapPackage;
 import org.nasdanika.vinci.bootstrap.ContentTag;
@@ -65,6 +67,16 @@ public class ContentTagItemProvider extends org.nasdanika.vinci.html.provider.Co
 		}
 		return childrenFeatures;
 	}
+		
+	@Override
+	public Collection<?> getChildren(Object object) {
+		Collection<Object> ret = new ArrayList<>(super.getChildren(object));
+		Appearance appearance = ((ContentTag) object).getAppearance();
+		if (appearance != null) {
+			ret.add(appearance);
+		}
+		return ret;
+	}		
 
 	/**
 	 * <!-- begin-user-doc -->

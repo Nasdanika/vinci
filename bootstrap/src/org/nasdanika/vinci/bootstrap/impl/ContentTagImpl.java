@@ -195,7 +195,7 @@ public class ContentTagImpl extends org.nasdanika.vinci.html.impl.ContentTagImpl
 		Supplier<ViewBuilder> appearanceSupplier = appearance.create(context);
 		
 		StringMapCompoundSupplier<Object> partsSupplier = new StringMapCompoundSupplier<Object>(getTitle());
-		partsSupplier.put("Apperance", (Supplier) appearanceSupplier);
+		partsSupplier.put("Appearance", (Supplier) appearanceSupplier);
 		partsSupplier.put("Tag", (Supplier) super.create(context));
 		
 		return partsSupplier.then(map -> new ViewPart() {
