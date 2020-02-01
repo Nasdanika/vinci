@@ -11,6 +11,10 @@ package org.nasdanika.vinci.app;
  * <!-- begin-model-doc -->
  * Action reference allows to "mount" an existing action as a child of another action. 
  * Using action references a single "logical" aciton hierarchy may be assembled from multiple model resources.
+ * 
+ * The referenced action inherits this action reference context. As such the same referenced action referenced by different action references may behave differently depending
+ * on the action reference context/configuration. I.e. a reference may create a different "instance" of referenced action. 
+ * In this case the referenced action activator shall also be context dependent - otherwise different instances of the same action will point to the same resource/url.
  * <!-- end-model-doc -->
  *
  * <p>

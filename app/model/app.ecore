@@ -215,7 +215,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ActionLink" eSuperTypes="#//AbstractAction">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="A link to an action stored in a resource which is not loaded as part of the editing resource set - it is loaded only during the generation. For example, action link reference may contain interpolation tokens and different actions can be linked based on generation configuration."/>
+      <details key="documentation" value="A link to an action stored in a resource which is not loaded as part of the editing resource set - it is loaded only during the generation. For example, action link reference may contain interpolation tokens and different actions can be linked based on generation configuration.&#xA;&#xA;The linked action inherits this action link context. As such the same linked action linked by different action links may behave differently depending&#xA;on the action link context/configuration. &#xA;I.e. a link may create a different &quot;instance&quot; of linked action. &#xA;In this case the linked action activator shall also be context dependent - otherwise different instances of the same action will point to the same resource/url."/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="title" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -235,7 +235,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ActionReference" eSuperTypes="#//AbstractAction">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="Action reference allows to &quot;mount&quot; an existing action as a child of another action. &#xA;Using action references a single &quot;logical&quot; aciton hierarchy may be assembled from multiple model resources."/>
+      <details key="documentation" value="Action reference allows to &quot;mount&quot; an existing action as a child of another action. &#xA;Using action references a single &quot;logical&quot; aciton hierarchy may be assembled from multiple model resources.&#xA;&#xA;The referenced action inherits this action reference context. As such the same referenced action referenced by different action references may behave differently depending&#xA;on the action reference context/configuration. I.e. a reference may create a different &quot;instance&quot; of referenced action. &#xA;In this case the referenced action activator shall also be context dependent - otherwise different instances of the same action will point to the same resource/url."/>
     </eAnnotations>
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
       <details key="constraints" value="action"/>

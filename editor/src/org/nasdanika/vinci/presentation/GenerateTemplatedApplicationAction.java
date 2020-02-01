@@ -87,7 +87,6 @@ public class GenerateTemplatedApplicationAction extends VinciGenerateAction<Abst
 			outputName = lastDotIdx == -1 ? outputName + "-site" : outputName.substring(0, lastDotIdx);
 			
 			EclipseContainer output = new EclipseContainer(modelFile.getParent().getFolder(new Path(outputName)));
-			Context generationContext = Context.singleton(BinaryEntityContainer.class, output); 
 			
 			SubMonitor subMonitor = SubMonitor.convert(monitor, TOTAL_WORK);
 			
@@ -102,7 +101,8 @@ public class GenerateTemplatedApplicationAction extends VinciGenerateAction<Abst
 			for (EPackage ePackage: ePackages) {
 				resourceSet.getPackageRegistry().put(ePackage.getNsURI(), ePackage);
 			}
-						
+			Context generationContext = Context.singleton(BinaryEntityContainer.class, output).compose(Context.singleton(ResourceSet.class, resourceSet)); 
+			
 			// Generate action tree
 			try (Supplier<Object> work = modelElement.create(generationContext)) {
 				double size = work.size() * 2 + 1;

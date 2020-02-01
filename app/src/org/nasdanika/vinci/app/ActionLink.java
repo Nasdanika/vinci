@@ -10,6 +10,11 @@ package org.nasdanika.vinci.app;
  *
  * <!-- begin-model-doc -->
  * A link to an action stored in a resource which is not loaded as part of the editing resource set - it is loaded only during the generation. For example, action link reference may contain interpolation tokens and different actions can be linked based on generation configuration.
+ * 
+ * The linked action inherits this action link context. As such the same linked action linked by different action links may behave differently depending
+ * on the action link context/configuration. 
+ * I.e. a link may create a different "instance" of linked action. 
+ * In this case the linked action activator shall also be context dependent - otherwise different instances of the same action will point to the same resource/url.
  * <!-- end-model-doc -->
  *
  * <p>

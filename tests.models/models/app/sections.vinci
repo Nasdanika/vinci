@@ -123,6 +123,10 @@
           <elements xsi:type="org.nasdanika.vinci.app:Action" title="Section 2.A.2" id="6d7da6bc-3a52-40c6-8187-164386a4718e" text="Section 2.A.2" role="Section" sectionColumns="1" markdownContent="Section 2.A.2 content"/>
         </elements>
       </elements>
+      <elements xsi:type="org.nasdanika.vinci.app:ActionLink" title="Action link test" description="Links another action." ref="${action-link-ref}">
+        <configuration xsi:type="org.nasdanika.ncore:Property" value="linked-action.vinci" interpolate="false" name="action-link-ref"/>
+        <configuration xsi:type="org.nasdanika.ncore:Property" value="I'm a linked action!" interpolate="false" name="action-link-text"/>
+      </elements>
       <content xsi:type="org.nasdanika.vinci.components:MarkdownText" markdown="Paragraphs content"/>
     </elements>
     <elements xsi:type="org.nasdanika.vinci.app:Action" title="Cards" description="Some description" id="de29c063-bda0-4406-a5b5-c7913c00d0f0" text="Cards" sectionStyle="Card">

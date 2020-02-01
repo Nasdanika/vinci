@@ -4,18 +4,28 @@ package org.nasdanika.vinci.app.impl;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
+import java.util.Map;
 
 import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.Diagnostic;
+import org.eclipse.emf.common.util.DiagnosticException;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
+import org.eclipse.emf.ecore.util.Diagnostician;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.nasdanika.common.Context;
+import org.nasdanika.common.MutableContext;
 import org.nasdanika.common.Supplier;
 import org.nasdanika.common.SupplierFactory;
 import org.nasdanika.ncore.Configurable;
 import org.nasdanika.ncore.NcorePackage;
+import org.nasdanika.vinci.app.ActionBase;
 import org.nasdanika.vinci.app.ActionElement;
 import org.nasdanika.vinci.app.ActionLink;
 import org.nasdanika.vinci.app.ActionMapping;
@@ -187,7 +197,7 @@ public class ActionLinkImpl extends MinimalEObjectImpl.Container implements Acti
 	 */
 	@Override
 	public Supplier<Object> createApplicationBuilderSupplier(Context context) throws Exception {
-		throw new UnsupportedOperationException();
+		return ActionLink.super.createApplicationBuilderSupplier(context);
 	}
 
 	/**
@@ -379,8 +389,52 @@ public class ActionLinkImpl extends MinimalEObjectImpl.Container implements Acti
 	}
 
 	@Override
-	public Supplier<Object> create(Context arg) throws Exception {
-		throw new UnsupportedOperationException();
+	public Supplier<Object> create(Context ctx) throws Exception {
+		
+		SupplierFactory<Object> sf = context -> {
+			
+			URI refUri = URI.createURI(context.interpolate(getRef()));
+			Resource resource = eResource();
+			if (resource != null) {
+				URI resUri = resource.getURI();
+				refUri = refUri.resolve(resUri);
+			}
+					
+			java.util.function.Function<Class<ResourceSet>,ResourceSet> factory = type -> {
+				if (ResourceSet.class.isAssignableFrom(type)) {
+					return new ResourceSetImpl();
+				}
+				throw new UnsupportedOperationException("Unsupported type: "+type+", expected "+ResourceSet.class);
+			};
+			
+			ResourceSet resourceSet = context.get(ResourceSet.class, factory);
+			Resource refResource = resourceSet.getResource(refUri, true);
+			String fragment = refUri.fragment();				
+			ActionBase action = (ActionBase) (fragment == null ? refResource.getContents().get(0) : refResource.getEObject(fragment));
+			
+			// Not performing diagnostic in a regular way as it might be dependent on context variables not available at design time.
+			
+			Diagnostician diagnostician = new Diagnostician() {
+				
+				public Map<Object,Object> createDefaultContext() {
+					Map<Object, Object> ctx = super.createDefaultContext();
+					ctx.put(Context.class, context);
+					return ctx;
+				};
+				
+			};				
+			Diagnostic validationResult = diagnostician.validate(action);
+			if (validationResult.getSeverity() == Diagnostic.ERROR) {
+				throw new DiagnosticException(validationResult);
+			}
+			
+			return action.create(context);
+		};
+		
+		MutableContext actionContext = ctx.fork();
+		new ActionMappingsPropertyComputer("action-mappings", getActionMappings()).put(actionContext);
+		
+		return configure(sf).create(actionContext);		
 	}
 	
 } //ActionLinkImpl

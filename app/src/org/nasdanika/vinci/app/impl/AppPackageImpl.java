@@ -1313,7 +1313,7 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 		  (actionLinkEClass,
 		   source,
 		   new String[] {
-			   "documentation", "A link to an action stored in a resource which is not loaded as part of the editing resource set - it is loaded only during the generation. For example, action link reference may contain interpolation tokens and different actions can be linked based on generation configuration."
+			   "documentation", "A link to an action stored in a resource which is not loaded as part of the editing resource set - it is loaded only during the generation. For example, action link reference may contain interpolation tokens and different actions can be linked based on generation configuration.\n\nThe linked action inherits this action link context. As such the same linked action linked by different action links may behave differently depending\non the action link context/configuration. \nI.e. a link may create a different \"instance\" of linked action. \nIn this case the linked action activator shall also be context dependent - otherwise different instances of the same action will point to the same resource/url."
 		   });
 		addAnnotation
 		  (getActionLink_Title(),
@@ -1337,7 +1337,7 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 		  (actionReferenceEClass,
 		   source,
 		   new String[] {
-			   "documentation", "Action reference allows to \"mount\" an existing action as a child of another action. \nUsing action references a single \"logical\" aciton hierarchy may be assembled from multiple model resources."
+			   "documentation", "Action reference allows to \"mount\" an existing action as a child of another action. \nUsing action references a single \"logical\" aciton hierarchy may be assembled from multiple model resources.\n\nThe referenced action inherits this action reference context. As such the same referenced action referenced by different action references may behave differently depending\non the action reference context/configuration. I.e. a reference may create a different \"instance\" of referenced action. \nIn this case the referenced action activator shall also be context dependent - otherwise different instances of the same action will point to the same resource/url."
 		   });
 		addAnnotation
 		  (getActionReference_Title(),

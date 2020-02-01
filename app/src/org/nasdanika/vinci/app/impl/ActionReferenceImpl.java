@@ -187,7 +187,7 @@ public class ActionReferenceImpl extends MinimalEObjectImpl.Container implements
 	 */
 	@Override
 	public Supplier<Object> createApplicationBuilderSupplier(Context context) throws Exception {
-		throw new UnsupportedOperationException();
+		return ActionReference.super.createApplicationBuilderSupplier(context);
 	}
 
 	/**

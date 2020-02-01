@@ -9,6 +9,15 @@
           <text color="Light" weight="Bold"/>
         </appearance>
       </content>
+      <content xsi:type="org.nasdanika.vinci.bootstrap:Container">
+        <rows>
+          <appearance background="White"/>
+          <columns markdownContent="Travesty of life."/>
+        </rows>
+        <rows>
+          <appearance background="Danger"/>
+        </rows>
+      </content>
     </footer>
   </builders>
 </org.nasdanika.vinci.bootstrap:BootstrapPage>
