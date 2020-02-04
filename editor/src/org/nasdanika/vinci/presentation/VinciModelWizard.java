@@ -99,6 +99,8 @@ public class VinciModelWizard extends Wizard implements INewWizard {
 	 */
 	protected IWorkbench workbench;
 
+	protected InitialObjectConfigurationPage initialObjectConfigurationPage;
+
 	/**
 	 * This just records the information.
 	 * <!-- begin-user-doc -->
@@ -305,6 +307,12 @@ public class VinciModelWizard extends Wizard implements INewWizard {
 		initialObjectCreationPage.setTitle(VinciEditorPlugin.INSTANCE.getString("_UI_AppModelWizard_label"));
 		initialObjectCreationPage.setDescription(VinciEditorPlugin.INSTANCE.getString("_UI_Wizard_initial_object_description"));
 		addPage(initialObjectCreationPage);
+		
+		initialObjectConfigurationPage = new InitialObjectConfigurationPage("initial-object-configuration");
+		initialObjectConfigurationPage.setTitle(VinciEditorPlugin.INSTANCE.getString("_UI_AppModelWizard_label"));
+		initialObjectConfigurationPage.setDescription(VinciEditorPlugin.INSTANCE.getString("_UI_Wizard_initial_object_configuration_description"));
+		addPage(initialObjectConfigurationPage);
+		
 	}
 
 	/**

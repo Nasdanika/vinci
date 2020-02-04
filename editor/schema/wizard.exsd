@@ -1,0 +1,216 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- Schema file written by PDE -->
+<schema targetNamespace="org.nasdanika.vinci.editor" xmlns="http://www.w3.org/2001/XMLSchema">
+<annotation>
+      <appInfo>
+         <meta.schema plugin="org.nasdanika.vinci.editor" id="wizard" name="Contributions to the Vinci new wizard"/>
+      </appInfo>
+      <documentation>
+         [Enter description of this extension point.]
+      </documentation>
+   </annotation>
+
+   <element name="extension">
+      <annotation>
+         <appInfo>
+            <meta.element />
+         </appInfo>
+      </annotation>
+      <complexType>
+         <sequence>
+            <element ref="palette" minOccurs="0" maxOccurs="unbounded"/>
+            <element ref="element" minOccurs="0" maxOccurs="unbounded"/>
+         </sequence>
+         <attribute name="point" type="string" use="required">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="id" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="name" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+               <appInfo>
+                  <meta.attribute translatable="true"/>
+               </appInfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="palette">
+      <annotation>
+         <documentation>
+            Grouping of elements and sub-palettes.
+         </documentation>
+      </annotation>
+      <complexType>
+         <sequence>
+            <element ref="palette" minOccurs="0" maxOccurs="unbounded"/>
+            <element ref="element" minOccurs="0" maxOccurs="unbounded"/>
+         </sequence>
+         <attribute name="icon" type="string">
+            <annotation>
+               <documentation>
+                  Palette icon. A generic palette image is used if this attribute is blank.
+               </documentation>
+               <appInfo>
+                  <meta.attribute kind="resource"/>
+               </appInfo>
+            </annotation>
+         </attribute>
+         <attribute name="name" type="string" use="required">
+            <annotation>
+               <documentation>
+                  Palette name.
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="id" type="string">
+            <annotation>
+               <documentation>
+                  Palette id unique in the declaring bundle. Used for bottom-up linking of other categories and elements.
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="parent" type="string">
+            <annotation>
+               <documentation>
+                  Parent palette id in the format &lt;code&gt;bundle symbolic name#id&lt;/code&gt;.
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="description" type="string">
+            <annotation>
+               <documentation>
+                  Palette description.
+               </documentation>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="element">
+      <annotation>
+         <documentation>
+            Defines a new model element to be created.
+         </documentation>
+      </annotation>
+      <complexType>
+         <attribute name="icon" type="string">
+            <annotation>
+               <documentation>
+                  Element icon. If blank then the adapter factory image is used.
+               </documentation>
+               <appInfo>
+                  <meta.attribute kind="resource"/>
+               </appInfo>
+            </annotation>
+         </attribute>
+         <attribute name="name" type="string">
+            <annotation>
+               <documentation>
+                  Element name. Element text provided by the adapter factory is used if this attribute is blank.
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="palette" type="string">
+            <annotation>
+               <documentation>
+                  Palette id in the format &lt;code&gt;bundle symbolic name#id&lt;/code&gt;.
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="description" type="string">
+            <annotation>
+               <documentation>
+                  Element description. Model documentation, if present, is used if this attribute is blank.
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="configurator" type="string">
+            <annotation>
+               <documentation>
+                  Creates configuration page content and configures the model element.
+               </documentation>
+               <appInfo>
+                  <meta.attribute kind="java" basedOn=":org.nasdanika.vinci.presentation.ModelElementConfigurator"/>
+               </appInfo>
+            </annotation>
+         </attribute>
+         <attribute name="model" type="string">
+            <annotation>
+               <documentation>
+                  Model containing the element to be create as its root. The new element is created by the model element by copying and passing through the configurator, if specified.
+This attribute is mutually exclusive with epackage/eclass attributes.
+               </documentation>
+               <appInfo>
+                  <meta.attribute kind="resource"/>
+               </appInfo>
+            </annotation>
+         </attribute>
+         <attribute name="epackage" type="string">
+            <annotation>
+               <documentation>
+                  NS URI of EPacakge containing EClass specified in eclass attribute. Mutually exclusive with the model attributed.
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="eclass" type="string">
+            <annotation>
+               <documentation>
+                  Name of the model element EClass .
+               </documentation>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <annotation>
+      <appInfo>
+         <meta.section type="since"/>
+      </appInfo>
+      <documentation>
+         [Enter the first release in which this extension point appears.]
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appInfo>
+         <meta.section type="examples"/>
+      </appInfo>
+      <documentation>
+         [Enter extension point usage example here.]
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appInfo>
+         <meta.section type="apiinfo"/>
+      </appInfo>
+      <documentation>
+         [Enter API information here.]
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appInfo>
+         <meta.section type="implementation"/>
+      </appInfo>
+      <documentation>
+         [Enter information about supplied implementation of this extension point.]
+      </documentation>
+   </annotation>
+
+
+</schema>

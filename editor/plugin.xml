@@ -5,6 +5,7 @@
 -->
 
 <plugin>
+   <extension-point id="wizard" name="Contributions to the Vinci new wizard" schema="schema/wizard.exsd"/>
 
    <extension point="org.eclipse.ui.newWizards">
       <category
