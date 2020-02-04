@@ -282,7 +282,9 @@ public class PageItemProvider extends NamedElementItemProvider {
 		
 		newChildDescriptors.add(createChildParameter(HtmlPackage.Literals.PAGE__HEAD, HtmlFactory.eINSTANCE.createStylesheet()));						
 		newChildDescriptors.add(createChildParameter(HtmlPackage.Literals.PAGE__HEAD, HtmlFactory.eINSTANCE.createStylesheetResource()));						
-		newChildDescriptors.add(createChildParameter(HtmlPackage.Literals.PAGE__HEAD, HtmlFactory.eINSTANCE.createStylesheetReference()));						
+		newChildDescriptors.add(createChildParameter(HtmlPackage.Literals.PAGE__HEAD, HtmlFactory.eINSTANCE.createStylesheetReference()));
+		
+		newChildDescriptors.add(createChildParameter(HtmlPackage.Literals.PAGE__HEAD, HtmlFactory.eINSTANCE.createContentTag()));						
 		
 		for (EObject expr: org.nasdanika.ncore.util.Activator.EXPRESSIONS_PALETTE.getElements()) {
 			newChildDescriptors.add(createChildParameter(HtmlPackage.Literals.PAGE__BODY, expr));						

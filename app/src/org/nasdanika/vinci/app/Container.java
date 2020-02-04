@@ -2,8 +2,14 @@
  */
 package org.nasdanika.vinci.app;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.resource.ResourceSet;
 
 /**
  * <!-- begin-user-doc -->
@@ -54,5 +60,33 @@ public interface Container<E> extends EObject {
 	 * @generated
 	 */
 	EList<E> getLinkedElements();
+	
+	/**
+	 * @return Own elements which are not linked from any other container in the resource set plus the linked elements
+	 */
+	default List<E> getEffectiveElements() {
+		List<E> elements = new ArrayList<>(getElements());
+		Resource resource = eResource();	
+		if (resource != null) {
+			ResourceSet resourceSet = resource.getResourceSet();
+			TreeIterator<?> cit;
+			if (resourceSet == null) {
+				cit = resource.getAllContents();
+			} else {
+				cit = resourceSet.getAllContents();
+			}
+			while (cit.hasNext()) {
+				Object next = cit.next();
+				if (next instanceof org.nasdanika.vinci.app.Container) {
+					EList<?> nLinkedElements = ((org.nasdanika.vinci.app.Container<?>) next).getLinkedElements();
+					elements.removeAll(nLinkedElements);
+				}
+			}
+		}
+		
+		elements.addAll(getLinkedElements());
+		
+		return elements;
+	}
 
 } // Container

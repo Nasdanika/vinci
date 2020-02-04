@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.nasdanika.vinci.app:Action xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.nasdanika.vinci.app="urn:org.nasdanika.vinci.app" id="index" text="r">
+  <elements xsi:type="org.nasdanika.vinci.app:Action" id="67890f3f-9063-49a2-b65e-db168d7c8a2f" text="p">
+    <elements xsi:type="org.nasdanika.vinci.app:ActionCategory" id="17d40172-dcd4-4d79-b53c-f1cec69725c1" text="c" linkedElements="f44ba79f-14e6-4add-84fc-4c20eecb7880">
+      <elements xsi:type="org.nasdanika.vinci.app:Action" id="f44ba79f-14e6-4add-84fc-4c20eecb7880" text="a1"/>
+      <elements xsi:type="org.nasdanika.vinci.app:Action" id="780b229a-7c2e-4eef-a5f8-ce0a8a7b07dc" text="a2"/>
+    </elements>
+  </elements>
+</org.nasdanika.vinci.app:Action>

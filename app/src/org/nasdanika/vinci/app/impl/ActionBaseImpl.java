@@ -817,25 +817,7 @@ public abstract class ActionBaseImpl extends LabelImpl implements ActionBase {
 		String ELEMENTS_KEY = "Elements";		
 		String CONTENT_KEY = "Content";			
 		
-		List<SupplierFactory<Object>> content = new ArrayList<>();		
-		
-		String markdown = getMarkdownContent();
-		if (!Util.isBlank(markdown)) {
-			SupplierFactory<Object> markdownSupplierFactory = SupplierFactory.from((ctx, progressMonidor) -> {
-				MarkdownHelper markdownHelper = new MarkdownHelper();
-				return ctx.interpolate(markdownHelper.markdownToHtml(markdown).trim());				
-			},  "Markdown content", 1);
-			content.add(markdownSupplierFactory);
-		}
-				
-		content.addAll(getContent());
-		
-		ListCompoundSupplierFactory<Object> contentFactory = new ListCompoundSupplierFactory<Object>(CONTENT_KEY, content);
-		
-		ListCompoundSupplierFactory<Object> elementsFactory = new ListCompoundSupplierFactory<Object>(ELEMENTS_KEY);
-
-		// Removing all elements which are linked from other objects.
-		List<ActionElement> elements = new ArrayList<>(getElements());
+		// Effective parent.
 		Resource resource = eResource();	
 		Reference<EObject> parentRef = new Reference<>(eContainer());
 		if (resource != null) {
@@ -849,62 +831,43 @@ public abstract class ActionBaseImpl extends LabelImpl implements ActionBase {
 			while (cit.hasNext()) {
 				Object next = cit.next();
 				if (next instanceof org.nasdanika.vinci.app.Container) {
-					EList<?> nLinkedElements = ((org.nasdanika.vinci.app.Container<?>) next).getLinkedElements();
-					elements.removeAll(nLinkedElements);
-					if (nLinkedElements.contains(this)) {
+					if (((org.nasdanika.vinci.app.Container<?>) next).getLinkedElements().contains(this)) {
 						parentRef.set((EObject) next);
 					}
 				}
 			}
 		}
 		
-		for (ActionElement e: elements) {
+		ListCompoundSupplierFactory<Object> elementsFactory = new ListCompoundSupplierFactory<Object>(ELEMENTS_KEY);
+
+		for (ActionElement e: getEffectiveElements()) {
 			if (e instanceof AbstractAction) {
 				elementsFactory.add((AbstractAction) e); 
 			} else { // ActionCategory
-				for (ActionElement ce: ((ActionCategory) e).getElements()) {
+				for (ActionElement ce: ((ActionCategory) e).getEffectiveElements()) {
 					if (ce instanceof AbstractAction) {
 						elementsFactory.add((AbstractAction) ce);
 					}
 				}
-				for (AbstractAction ce: ((ActionCategory) e).getLinkedElements()) {
-					elementsFactory.add(ce);
-				}
 			}
 		}
-		for (ActionElement e: getLinkedElements()) {
-			if (e instanceof AbstractAction) {
-				elementsFactory.add((AbstractAction) e);; 
-			} else {
-				ActionCategory actionCategory = (ActionCategory) e;
-				List<AbstractAction> actionCategoryElements = new ArrayList<>(actionCategory.getElements());
-				// Removing all elements which are linked from other objects.
-				if (resource != null) {
-					ResourceSet resourceSet = resource.getResourceSet();
-					TreeIterator<?> cit;
-					if (resourceSet == null) {
-						cit = resource.getAllContents();
-					} else {
-						cit = resourceSet.getAllContents();
-					}
-					while (cit.hasNext()) {
-						Object next = cit.next();
-						if (next instanceof org.nasdanika.vinci.app.Container) {
-							actionCategoryElements.removeAll(((org.nasdanika.vinci.app.Container<?>) next).getLinkedElements());
-						}
-					}
-				}
+		
+		MapCompoundSupplierFactory<String, List<Object>> mcs = new MapCompoundSupplierFactory<>("Action");		
+		
+		List<SupplierFactory<Object>> content = new ArrayList<>();		
+		
+		String markdown = getMarkdownContent();
+		if (!Util.isBlank(markdown)) {
+			SupplierFactory<Object> markdownSupplierFactory = SupplierFactory.from((ctx, progressMonidor) -> {
+				MarkdownHelper markdownHelper = new MarkdownHelper();
+				return ctx.interpolate(markdownHelper.markdownToHtml(markdown).trim());				
+			},  "Markdown content", 1);
+			content.add(markdownSupplierFactory);
+		}
 				
-				for (AbstractAction ce: actionCategoryElements) {
-					elementsFactory.add(ce);
-				}
-				for (AbstractAction ce: actionCategory.getLinkedElements()) {
-					elementsFactory.add(ce);
-				}
-			}
-		}
-		MapCompoundSupplierFactory<String, List<Object>> mcs = new MapCompoundSupplierFactory<>("Action");
-		mcs.put(CONTENT_KEY, contentFactory);
+		content.addAll(getContent());		
+		mcs.put(CONTENT_KEY, new ListCompoundSupplierFactory<Object>(CONTENT_KEY, content));
+		
 		mcs.put(ELEMENTS_KEY, elementsFactory);
 		
 		FunctionFactory<Map<String, List<Object>>, Object> actionFacadeFactory = new FunctionFactory<Map<String,List<Object>>, Object>() {
