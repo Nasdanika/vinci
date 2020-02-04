@@ -149,7 +149,7 @@ public class VinciModelWizard extends Wizard implements INewWizard {
 
 							// Add the initial model object to the contents.
 							//
-							EObject rootObject = initialObjectCreationPage.createInitialModel();
+							EObject rootObject = initialObjectConfigurationPage.getInitialModel();
 							if (rootObject != null) {
 								resource.getContents().add(rootObject);
 							}
@@ -308,7 +308,7 @@ public class VinciModelWizard extends Wizard implements INewWizard {
 		initialObjectCreationPage.setDescription(VinciEditorPlugin.INSTANCE.getString("_UI_Wizard_initial_object_description"));
 		addPage(initialObjectCreationPage);
 		
-		initialObjectConfigurationPage = new InitialObjectConfigurationPage("initial-object-configuration");
+		initialObjectConfigurationPage = new InitialObjectConfigurationPage("initial-object-configuration", initialObjectCreationPage);
 		initialObjectConfigurationPage.setTitle(VinciEditorPlugin.INSTANCE.getString("_UI_AppModelWizard_label"));
 		initialObjectConfigurationPage.setDescription(VinciEditorPlugin.INSTANCE.getString("_UI_Wizard_initial_object_configuration_description"));
 		addPage(initialObjectConfigurationPage);

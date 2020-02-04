@@ -18,8 +18,7 @@
       </annotation>
       <complexType>
          <sequence>
-            <element ref="palette" minOccurs="0" maxOccurs="unbounded"/>
-            <element ref="element" minOccurs="0" maxOccurs="unbounded"/>
+            <element ref="configurator" minOccurs="0" maxOccurs="unbounded"/>
          </sequence>
          <attribute name="point" type="string" use="required">
             <annotation>
@@ -48,128 +47,50 @@
       </complexType>
    </element>
 
-   <element name="palette">
+   <element name="configurator">
       <annotation>
          <documentation>
-            Grouping of elements and sub-palettes.
+            Configurator for a new model element.
          </documentation>
       </annotation>
       <complexType>
          <sequence>
-            <element ref="palette" minOccurs="0" maxOccurs="unbounded"/>
-            <element ref="element" minOccurs="0" maxOccurs="unbounded"/>
+            <element ref="parameter" minOccurs="0" maxOccurs="unbounded"/>
          </sequence>
-         <attribute name="icon" type="string">
-            <annotation>
-               <documentation>
-                  Palette icon. A generic palette image is used if this attribute is blank.
-               </documentation>
-               <appInfo>
-                  <meta.attribute kind="resource"/>
-               </appInfo>
-            </annotation>
-         </attribute>
-         <attribute name="name" type="string" use="required">
-            <annotation>
-               <documentation>
-                  Palette name.
-               </documentation>
-            </annotation>
-         </attribute>
-         <attribute name="id" type="string">
-            <annotation>
-               <documentation>
-                  Palette id unique in the declaring bundle. Used for bottom-up linking of other categories and elements.
-               </documentation>
-            </annotation>
-         </attribute>
-         <attribute name="parent" type="string">
-            <annotation>
-               <documentation>
-                  Parent palette id in the format &lt;code&gt;bundle symbolic name#id&lt;/code&gt;.
-               </documentation>
-            </annotation>
-         </attribute>
-         <attribute name="description" type="string">
-            <annotation>
-               <documentation>
-                  Palette description.
-               </documentation>
-            </annotation>
-         </attribute>
-      </complexType>
-   </element>
-
-   <element name="element">
-      <annotation>
-         <documentation>
-            Defines a new model element to be created.
-         </documentation>
-      </annotation>
-      <complexType>
-         <attribute name="icon" type="string">
-            <annotation>
-               <documentation>
-                  Element icon. If blank then the adapter factory image is used.
-               </documentation>
-               <appInfo>
-                  <meta.attribute kind="resource"/>
-               </appInfo>
-            </annotation>
-         </attribute>
-         <attribute name="name" type="string">
-            <annotation>
-               <documentation>
-                  Element name. Element text provided by the adapter factory is used if this attribute is blank.
-               </documentation>
-            </annotation>
-         </attribute>
-         <attribute name="palette" type="string">
-            <annotation>
-               <documentation>
-                  Palette id in the format &lt;code&gt;bundle symbolic name#id&lt;/code&gt;.
-               </documentation>
-            </annotation>
-         </attribute>
-         <attribute name="description" type="string">
-            <annotation>
-               <documentation>
-                  Element description. Model documentation, if present, is used if this attribute is blank.
-               </documentation>
-            </annotation>
-         </attribute>
-         <attribute name="configurator" type="string">
+         <attribute name="class" type="string">
             <annotation>
                <documentation>
                   Creates configuration page content and configures the model element.
                </documentation>
                <appInfo>
-                  <meta.attribute kind="java" basedOn=":org.nasdanika.vinci.presentation.ModelElementConfigurator"/>
+                  <meta.attribute kind="java" basedOn=":org.nasdanika.vinci.presentation.InitialObjectConfigurator"/>
                </appInfo>
             </annotation>
          </attribute>
-         <attribute name="model" type="string">
+      </complexType>
+   </element>
+
+   <element name="parameter">
+      <annotation>
+         <appInfo>
+            <meta.element labelAttribute="name"/>
+         </appInfo>
+         <documentation>
+            Configurator parameter is passed to the command by calling its addParameter(String,String) method.
+         </documentation>
+      </annotation>
+      <complexType>
+         <attribute name="name" type="string" use="required">
             <annotation>
                <documentation>
-                  Model containing the element to be create as its root. The new element is created by the model element by copying and passing through the configurator, if specified.
-This attribute is mutually exclusive with epackage/eclass attributes.
+                  Parameter name.
                </documentation>
-               <appInfo>
-                  <meta.attribute kind="resource"/>
-               </appInfo>
             </annotation>
          </attribute>
-         <attribute name="epackage" type="string">
+         <attribute name="value" type="string" use="required">
             <annotation>
                <documentation>
-                  NS URI of EPacakge containing EClass specified in eclass attribute. Mutually exclusive with the model attributed.
-               </documentation>
-            </annotation>
-         </attribute>
-         <attribute name="eclass" type="string">
-            <annotation>
-               <documentation>
-                  Name of the model element EClass .
+                  Parameter value.
                </documentation>
             </annotation>
          </attribute>

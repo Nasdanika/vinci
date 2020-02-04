@@ -1,11 +1,16 @@
 package org.nasdanika.vinci.presentation;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.MissingResourceException;
+import java.util.stream.Collectors;
 
 import org.eclipse.core.databinding.observable.value.IObservableValue;
 import org.eclipse.core.databinding.observable.value.IValueChangeListener;
 import org.eclipse.core.databinding.observable.value.ValueChangeEvent;
+import org.eclipse.core.runtime.IConfigurationElement;
+import org.eclipse.core.runtime.Platform;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
@@ -45,6 +50,7 @@ public class InitialObjectCreationPage extends WizardPage {
 	private ITreeContentProvider contentProvider;
 	private ComposedAdapterFactory adapterFactory;
 	private Object value;	
+	private List<InitialObjectConfigurator> configurators = new ArrayList<>();
 	
 	private Object[] roots = {
 			BootstrapFactory.eINSTANCE.createBootstrapPage(),
@@ -54,6 +60,8 @@ public class InitialObjectCreationPage extends WizardPage {
 			org.nasdanika.ncore.util.Activator.EXPRESSIONS_PALETTE
 	};  
 
+	private static final String WIZARD_EXTENSION_POINT_ID = "org.nasdanika.vinci.editor.wizard";
+	
 	/**
 	 * @generated
 	 * <!-- begin-user-doc -->
@@ -71,6 +79,22 @@ public class InitialObjectCreationPage extends WizardPage {
 	 */
 	public InitialObjectCreationPage(String pageId) {
 		super(pageId);
+		
+		configurators = new ArrayList<>(); 
+		for (IConfigurationElement ce: Platform.getExtensionRegistry().getConfigurationElementsFor(WIZARD_EXTENSION_POINT_ID)) {
+			if ("configurator".equals(ce.getName())) {
+				
+				try {
+					InitialObjectConfigurator configurator = (InitialObjectConfigurator) ce.createExecutableExtension("class");
+					configurators.add(configurator);
+					for (IConfigurationElement parameter: ce.getChildren("parameter")) {
+						configurator.addParameter(parameter.getAttribute("name"), parameter.getAttribute("value"));
+					}
+				} catch (Exception e) {
+					VinciEditorPlugin.INSTANCE.log(e);
+				}
+			}
+		}
 		
 		adapterFactory = VinciEditorPlugin.createVinciAdapterFactory();
 		contentProvider = new ITreeContentProvider() {
@@ -237,8 +261,7 @@ public class InitialObjectCreationPage extends WizardPage {
 				}
 			}
 		});
-		
-		
+				
 		Group grpDescription = new Group(composite, SWT.NONE);
 		grpDescription.setLayout(new FillLayout(SWT.HORIZONTAL));
 		GridData gd_grpDescription = new GridData(SWT.FILL, SWT.FILL, true, false, 1, 1);
@@ -256,7 +279,7 @@ public class InitialObjectCreationPage extends WizardPage {
 		setPageComplete(validatePage());
 		setControl(composite);
 	}
-
+	
 	private void setValue(Object selected) {
 		value = selected;
 		if (value instanceof Palette) {
@@ -276,6 +299,19 @@ public class InitialObjectCreationPage extends WizardPage {
 
 	protected boolean validatePage() {
 		return value instanceof EObject;
+	}
+	
+	@Override
+	public boolean canFlipToNextPage() {
+		return !getValueConfigurators().isEmpty();
+	}
+	
+	public List<InitialObjectConfigurator> getValueConfigurators() {
+		if (value instanceof EObject) {
+			return configurators.stream().filter(c -> c.accept((EObject) value)).sorted((a,b) -> a.getLabel().compareTo(b.getLabel())).collect(Collectors.toList());			
+		}
+		
+		return Collections.emptyList();
 	}
 
 	/**
