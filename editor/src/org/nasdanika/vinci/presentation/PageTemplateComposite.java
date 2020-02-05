@@ -1,6 +1,8 @@
 package org.nasdanika.vinci.presentation;
 
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.events.SelectionListener;
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
@@ -12,10 +14,6 @@ import org.eclipse.swt.widgets.Label;
 import org.nasdanika.common.Util;
 import org.nasdanika.html.bootstrap.Color;
 import org.nasdanika.html.bootstrap.Theme;
-import org.eclipse.swt.events.SelectionAdapter;
-import org.eclipse.swt.events.SelectionListener;
-import java.util.function.Consumer;
-import org.eclipse.swt.events.SelectionEvent;
 
 /**
  * Generates page template from inputs

@@ -8,9 +8,13 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.nasdanika.common.Context;
 import org.nasdanika.common.DefaultConverter;
+import org.nasdanika.common.SupplierFactory;
+import org.nasdanika.ncore.NcoreFactory;
+import org.nasdanika.ncore.Property;
 import org.nasdanika.vinci.app.AppFactory;
 import org.nasdanika.vinci.app.BootstrapContainerApplication;
 import org.nasdanika.vinci.bootstrap.BootstrapPage;
+import org.nasdanika.vinci.html.ContentTag;
 import org.nasdanika.vinci.html.HtmlFactory;
 import org.nasdanika.vinci.html.HtmlPackage;
 import org.nasdanika.vinci.html.Script;
@@ -33,6 +37,7 @@ public class PageConfigurator implements InitialObjectConfigurator {
 		return "Template";
 	}
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
 	public EObject configure(EObject initialModel) {
 		if (pageTemplateComposite.isTemplate()) {
@@ -47,6 +52,22 @@ public class PageConfigurator implements InitialObjectConfigurator {
 			BootstrapContainerApplication bootstrapContainerApplication = AppFactory.eINSTANCE.createBootstrapContainerApplication();
 			page.getBuilders().add(bootstrapContainerApplication);
 			bootstrapContainerApplication.setFluid(pageTemplateComposite.isFluid());
+			
+			ContentTag meta = HtmlFactory.eINSTANCE.createContentTag();
+			
+			Property metaName = NcoreFactory.eINSTANCE.createProperty();
+			metaName.setName("name");
+			metaName.setInterpolate(false);
+			metaName.setValue("generator");
+			meta.getAttributes().add(metaName);
+			
+			Property metaContent = NcoreFactory.eINSTANCE.createProperty();
+			metaContent.setName("content");
+			metaContent.setInterpolate(false);
+			metaContent.setValue("Nasdanika Vinci");
+			meta.getAttributes().add(metaContent);
+			
+			page.getHead().add((SupplierFactory) meta);
 			
 			try {
 				Stylesheet stylesheet = HtmlFactory.eINSTANCE.createStylesheet();
