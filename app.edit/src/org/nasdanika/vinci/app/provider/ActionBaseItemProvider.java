@@ -474,5 +474,5 @@ public class ActionBaseItemProvider extends LabelItemProvider {
 	public String getCreateChildText(Object owner, Object feature, Object child, Collection<?> selection) {
 		return super.getCreateChildText(owner, feature, child, selection);
 	}
-
+	
 }
