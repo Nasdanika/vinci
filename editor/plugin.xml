@@ -53,6 +53,7 @@
    <extension
          point="org.nasdanika.vinci.editor.wizard">
          <configurator class="org.nasdanika.vinci.presentation.PageConfigurator"/>
+         <configurator class="org.nasdanika.vinci.presentation.ActionTemplatePageConfigurator"/>         
    </extension>
    
 </plugin>
