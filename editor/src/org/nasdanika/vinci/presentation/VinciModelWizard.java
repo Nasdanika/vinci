@@ -63,6 +63,8 @@ import org.eclipse.ui.dialogs.WizardNewFileCreationPage;
 import org.eclipse.ui.part.FileEditorInput;
 import org.eclipse.ui.part.ISetSelectionTarget;
 import org.eclipse.ui.wizards.newresource.BasicNewResourceWizard;
+import org.nasdanika.ncore.ModelElement;
+import org.nasdanika.ncore.NamedElement;
 
 
 /**
@@ -71,6 +73,7 @@ import org.eclipse.ui.wizards.newresource.BasicNewResourceWizard;
  * <!-- end-user-doc -->
  * @generated
  */
+@SuppressWarnings("restriction")
 public class VinciModelWizard extends Wizard implements INewWizard {
 	/**
 	 * The supported extensions for created files.
@@ -150,6 +153,10 @@ public class VinciModelWizard extends Wizard implements INewWizard {
 			// Remember the file.
 			//
 			final IFile modelFile = getModelFile();
+			
+            String extension = modelFile.getFileExtension();
+            String name = modelFile.getName();
+            String logicalName = extension == null ? name : name.substring(0, name.length() - extension.length() - 1);
 
 			// Do the work within an operation.
 			//
@@ -173,6 +180,12 @@ public class VinciModelWizard extends Wizard implements INewWizard {
 							// Add the initial model object to the contents.
 							//
 							EObject rootObject = initialObjectConfigurationPage.getInitialModel();
+							// Default name or title.
+							if (rootObject instanceof NamedElement) {
+								((NamedElement) rootObject).setName(logicalName);
+							} else if (rootObject instanceof ModelElement) {
+								((ModelElement) rootObject).setTitle(logicalName);
+							}
 							if (rootObject != null) {
 								resource.getContents().add(rootObject);
 							}
@@ -273,7 +286,7 @@ public class VinciModelWizard extends Wizard implements INewWizard {
 														for (EObject root: res.getContents()) {
 															for (RepresentationDescription representationDescription: DialectManager.INSTANCE.getAvailableRepresentationDescriptions(theSession.getSelectedViewpoints(true), root)) {
 																if ("vinciAdapterFactoryTree".equals(representationDescription.getName())) {
-																	DRepresentation created = DialectManager.INSTANCE.createRepresentation(root.eClass().getName() + " tree", root, representationDescription, theSession, monitor);
+																	DRepresentation created = DialectManager.INSTANCE.createRepresentation(logicalName, root, representationDescription, theSession, monitor);
 																	if (created != null) {
 																		createdRepresentations.add(created);
 																	}
@@ -284,7 +297,6 @@ public class VinciModelWizard extends Wizard implements INewWizard {
 												}
 											}
 										});
-										
 
 										monitor.subTask("link the created models..."); 
 										session.getTransactionalEditingDomain().getCommandStack().execute(cc);
