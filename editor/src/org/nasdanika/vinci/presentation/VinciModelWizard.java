@@ -43,6 +43,7 @@ import org.eclipse.sirius.business.api.modelingproject.ModelingProject;
 import org.eclipse.sirius.business.api.query.ViewpointQuery;
 import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.business.api.session.SessionManager;
+import org.eclipse.sirius.common.ui.tools.api.util.EclipseUIUtil;
 import org.eclipse.sirius.ext.base.Option;
 import org.eclipse.sirius.tools.api.command.semantic.AddSemanticResourceCommand;
 import org.eclipse.sirius.ui.business.api.dialect.DialectUIManager;
@@ -61,6 +62,7 @@ import org.eclipse.ui.actions.WorkspaceModifyOperation;
 import org.eclipse.ui.dialogs.WizardNewFileCreationPage;
 import org.eclipse.ui.part.FileEditorInput;
 import org.eclipse.ui.part.ISetSelectionTarget;
+import org.eclipse.ui.wizards.newresource.BasicNewResourceWizard;
 
 
 /**
@@ -290,13 +292,13 @@ public class VinciModelWizard extends Wizard implements INewWizard {
 
 										session.save(monitor);
 										monitor.worked(10);		
+										
+										BasicNewResourceWizard.selectAndReveal(modelFile, workbench.getActiveWorkbenchWindow());
+										EclipseUIUtil.expand(modelFile, workbench.getActiveWorkbenchWindow());
 																																																	
 										for (DRepresentation created: createdRepresentations) {
 											DialectUIManager.INSTANCE.openEditor(session, created, monitor.split(10));											
 										}						
-										
-										// TODO - reveal selection - the first representation.
-										
 									}									
 									
 								} catch (Exception exception) {
