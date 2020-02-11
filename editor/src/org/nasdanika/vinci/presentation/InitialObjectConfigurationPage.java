@@ -80,6 +80,9 @@ public class InitialObjectConfigurationPage extends WizardPage {
 	};
 
 	public EObject getInitialModel() {
+		if (initialModel == null) {
+			return creationPage.createInitialModel();			
+		}
 		EObject ret = initialModel;
 		if (configurators != null) {
 			for (InitialObjectConfigurator configurator: configurators) {
