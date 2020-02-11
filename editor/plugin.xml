@@ -24,27 +24,27 @@
 
    <extension point="org.eclipse.ui.editors">
       <editor
-            id="org.nasdanika.vinci.app.presentation.VinciSiriusEditorID"
-            name="%_UI_VinciSiriusEditor_label"
-            icon="icons/full/obj16/Vinci.png"
-            extensions="vinci"
-            default="true"
-            class="org.nasdanika.emf.presentation.NasdanikaSiriusEditor"
-            contributorClass="org.nasdanika.vinci.presentation.VinciActionBarContributor">
-      </editor>
-      <editor
             id="org.nasdanika.vinci.presentation.VinciEditorID"
             name="%_UI_VinciEditor_label"
             icon="icons/full/obj16/Vinci.png"
             extensions="vinci"
-            default="false"
+            default="true"
             class="org.nasdanika.vinci.presentation.VinciEditor"
+            contributorClass="org.nasdanika.vinci.presentation.VinciActionBarContributor">
+      </editor>
+      <editor
+            id="org.nasdanika.vinci.app.presentation.VinciSiriusEditorID"
+            name="%_UI_VinciSiriusEditor_label"
+            icon="icons/full/obj16/Vinci.png"
+            extensions="vinci"
+            default="false"
+            class="org.nasdanika.emf.presentation.NasdanikaSiriusEditor"
             contributorClass="org.nasdanika.vinci.presentation.VinciActionBarContributor">
       </editor>
       <editor
             id="org.nasdanika.vinci.presentation.VinciAdapterFactoryTreeEditor.ID"
             name="Vinci Adapter Factory Tree Editor"
-            icon="../org.nasdanika.emf.presentation/icons/full/obj16/AdapterFactoryTree.png"
+            icon="icons/full/obj16/AdapterFactoryTree.png"
             class="org.nasdanika.emf.presentation.AdapterFactoryTreeEditor"
             contributorClass="org.nasdanika.vinci.presentation.VinciActionBarContributor">
       </editor>

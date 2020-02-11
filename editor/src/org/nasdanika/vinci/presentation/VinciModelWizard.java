@@ -4,11 +4,15 @@ package org.nasdanika.vinci.presentation;
 
 
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IFile;
@@ -18,6 +22,8 @@ import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.Path;
+import org.eclipse.core.runtime.SubMonitor;
+import org.eclipse.emf.common.command.CompoundCommand;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -25,11 +31,26 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.XMLResource;
 import org.eclipse.emf.edit.ui.provider.ExtendedImageRegistry;
+import org.eclipse.emf.transaction.RecordingCommand;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.wizard.Wizard;
+import org.eclipse.sirius.business.api.componentization.ViewpointRegistry;
+import org.eclipse.sirius.business.api.dialect.DialectManager;
+import org.eclipse.sirius.business.api.modelingproject.ModelingProject;
+import org.eclipse.sirius.business.api.query.ViewpointQuery;
+import org.eclipse.sirius.business.api.session.Session;
+import org.eclipse.sirius.business.api.session.SessionManager;
+import org.eclipse.sirius.ext.base.Option;
+import org.eclipse.sirius.tools.api.command.semantic.AddSemanticResourceCommand;
+import org.eclipse.sirius.ui.business.api.dialect.DialectUIManager;
+import org.eclipse.sirius.ui.business.api.viewpoint.ViewpointSelectionCallback;
+import org.eclipse.sirius.ui.business.internal.commands.ChangeViewpointSelectionCommand;
+import org.eclipse.sirius.viewpoint.DRepresentation;
+import org.eclipse.sirius.viewpoint.description.RepresentationDescription;
+import org.eclipse.sirius.viewpoint.description.Viewpoint;
 import org.eclipse.ui.INewWizard;
 import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.IWorkbenchPage;
@@ -159,11 +180,10 @@ public class VinciModelWizard extends Wizard implements INewWizard {
 							Map<Object, Object> options = new HashMap<Object, Object>();
 							options.put(XMLResource.OPTION_ENCODING, StandardCharsets.UTF_8.name());
 							resource.save(options);
-						}
-						catch (Exception exception) {
+						} catch (Exception exception) {
+							// TODO - open error dialog.
 							VinciEditorPlugin.INSTANCE.log(exception);
-						}
-						finally {
+						} finally {
 							progressMonitor.done();
 						}
 					}
@@ -187,18 +207,110 @@ public class VinciModelWizard extends Wizard implements INewWizard {
 					 });
 			}
 
-			// Open an editor on the new file.
-			//
-			try {
-				page.openEditor
-					(new FileEditorInput(modelFile),
-					 workbench.getEditorRegistry().getDefaultEditor(modelFile.getFullPath().toString()).getId());					 	 
-			}
-			catch (PartInitException exception) {
-				MessageDialog.openError(workbenchWindow.getShell(), VinciEditorPlugin.INSTANCE.getString("_UI_OpenEditorError_label"), exception.getMessage());
-				return false;
-			}
+			IProject project = modelFile.getProject();			
+			ModelingProject modelingProject = (ModelingProject) project.getNature(ModelingProject.NATURE_ID);
+			if (modelingProject == null) {								
+				// Open an editor on the new file.
+				//
+				try {
+					page.openEditor
+						(new FileEditorInput(modelFile),
+						 workbench.getEditorRegistry().getDefaultEditor(modelFile.getFullPath().toString()).getId());					 	 
+				} catch (PartInitException exception) {
+					MessageDialog.openError(workbenchWindow.getShell(), VinciEditorPlugin.INSTANCE.getString("_UI_OpenEditorError_label"), exception.getMessage());
+					return false;
+				}
+			} else {
+				// Add Vinci viewpoint, create tree representation and open it.
+				WorkspaceModifyOperation createRepresentationOperation =
+						new WorkspaceModifyOperation() {
+							@Override
+							protected void execute(IProgressMonitor progressMonitor) {
+								try {									
+									SubMonitor monitor = SubMonitor.convert(progressMonitor, 100);
+									Session session = modelingProject.getSession();
+									
+									Option<URI> uriOpt = modelingProject.getMainRepresentationsFileURI(monitor.split(10));	
+									URI mainRepresentationFileURI = uriOpt == null ? null : uriOpt.get();
+									if (session == null && mainRepresentationFileURI != null) {
+										session = SessionManager.INSTANCE.getSession(mainRepresentationFileURI, progressMonitor);
+									}
+									
+									if (session != null && mainRepresentationFileURI != null) {
+										// Add semantic resource and viewpoint
+										progressMonitor.subTask("prepare vinci project...");
+										CompoundCommand cc = new CompoundCommand("Prepare Vinci Project");
+										URI modelFileURI = URI.createPlatformResourceURI(modelFile.getFullPath().toString(), true);
+										cc.append(new AddSemanticResourceCommand(session, modelFileURI, monitor.split(10)));
+										
+										Collection<Viewpoint> alreadySelectedViewpoints = session.getSelectedViewpoints(true);
+										Set<Viewpoint> selectedViewpoints = new HashSet<>();
+								        ViewpointRegistry registry = ViewpointRegistry.getInstance();
+								        for (Viewpoint viewpoint: registry.getViewpoints()) {
+						                    if (!alreadySelectedViewpoints.contains(viewpoint) && new ViewpointQuery(viewpoint).handlesSemanticModelExtension("vinci")) {
+						                        selectedViewpoints.add(viewpoint);
+						                    }
+								        }
+										
+										cc.append(new ChangeViewpointSelectionCommand(
+												session, 
+												new ViewpointSelectionCallback(), 
+												selectedViewpoints,
+												Collections.<Viewpoint>emptySet(), 
+												monitor.split(10)));
 
+										Collection<DRepresentation> createdRepresentations = new ArrayList<>();
+										
+										Session theSession = session;
+										cc.append(new RecordingCommand(session.getTransactionalEditingDomain()) {
+											
+											@Override
+											protected void doExecute() {
+												for (Resource res: theSession.getSemanticResources()) {
+													if (res.getURI().equals(modelFileURI)) {
+														for (EObject root: res.getContents()) {
+															for (RepresentationDescription representationDescription: DialectManager.INSTANCE.getAvailableRepresentationDescriptions(theSession.getSelectedViewpoints(true), root)) {
+																if ("vinciAdapterFactoryTree".equals(representationDescription.getName())) {
+																	DRepresentation created = DialectManager.INSTANCE.createRepresentation(root.eClass().getName() + " tree", root, representationDescription, theSession, monitor);
+																	if (created != null) {
+																		createdRepresentations.add(created);
+																	}
+																}
+															}													
+														}
+													}
+												}
+											}
+										});
+										
+
+										monitor.subTask("link the created models..."); 
+										session.getTransactionalEditingDomain().getCommandStack().execute(cc);
+										monitor.worked(10);
+
+										session.save(monitor);
+										monitor.worked(10);		
+																																																	
+										for (DRepresentation created: createdRepresentations) {
+											DialectUIManager.INSTANCE.openEditor(session, created, monitor.split(10));											
+										}						
+										
+										// TODO - reveal selection - the first representation.
+										
+									}									
+									
+								} catch (Exception exception) {
+									// TODO - open error dialog.
+									VinciEditorPlugin.INSTANCE.log(exception);
+								} finally {
+									progressMonitor.done();
+								}
+							}
+						};
+
+					getContainer().run(false, false, createRepresentationOperation);
+			}
+			
 			return true;
 		}
 		catch (Exception exception) {

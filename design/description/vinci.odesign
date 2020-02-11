@@ -1,895 +1,349 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<description:Group
-    xmi:version="2.0"
-    xmlns:xmi="http://www.omg.org/XMI"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:description="http://www.eclipse.org/sirius/description/1.1.0"
-    xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0"
-    xmlns:org.nasdanika.sirius.tree="urn:org.nasdanika.sirius.tree"
-    xmlns:properties="http://www.eclipse.org/sirius/properties/1.0.0"
-    xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0"
-    xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0"
-    xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0"
-    name="vinci"
-    version="12.0.0.2017041100">
-  <ownedViewpoints
-      name="VinciViewPoint"
-      label="Vinci"
-      modelFileExtension="vinci">
-    <ownedRepresentations
-        xsi:type="description_1:DiagramDescription"
-        name="ActionDiagram"
-        label="Action Diagram"
-        domainClass="app::Action"
-        enablePopupBars="true">
-      <metamodel
-          href="urn:org.nasdanika.vinci.app#/"/>
-      <defaultLayer
-          name="Default">
-        <nodeMappings
-            name="RootNode"
-            label="Root Node"
-            labelDirectEdit="//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='EditTitle']"
-            semanticCandidatesExpression="var:self"
-            domainClass="app::Action">
-          <style
-              xsi:type="style:EllipseNodeDescription"
-              labelSize="12"
-              showIcon="false"
-              labelExpression="feature:title"
-              labelPosition="node"
-              resizeKind="NSEW"
-              horizontalDiameterComputationExpression="20"
-              verticalDiameterComputationExpression="15">
-            <borderColor
-                xsi:type="description:SystemColor"
-                href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <labelColor
-                xsi:type="description:SystemColor"
-                href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <color
-                xsi:type="description:SystemColor"
-                href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:org.nasdanika.sirius.tree="urn:org.nasdanika.sirius.tree" xmlns:properties="http://www.eclipse.org/sirius/properties/1.0.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" name="vinci" version="12.0.0.2017041100">
+  <ownedViewpoints name="VinciViewPoint" label="Vinci" modelFileExtension="vinci">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="ActionDiagram" label="Action Diagram" domainClass="app::Action" enablePopupBars="true">
+      <metamodel href="urn:org.nasdanika.vinci.app#/"/>
+      <defaultLayer name="Default">
+        <nodeMappings name="RootNode" label="Root Node" labelDirectEdit="//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='EditTitle']" semanticCandidatesExpression="var:self" domainClass="app::Action">
+          <style xsi:type="style:EllipseNodeDescription" labelSize="12" showIcon="false" labelExpression="feature:title" labelPosition="node" resizeKind="NSEW" horizontalDiameterComputationExpression="20" verticalDiameterComputationExpression="15">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
           </style>
         </nodeMappings>
-        <nodeMappings
-            name="ActionNode"
-            label="Action Node"
-            labelDirectEdit="//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='EditTitle']"
-            semanticCandidatesExpression="feature:elements"
-            doubleClickDescription="//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='NavigateToActionDiagram']"
-            domainClass="app::Action">
-          <style
-              xsi:type="style:SquareDescription"
-              showIcon="false"
-              labelExpression="feature:title"
-              labelPosition="node"
-              resizeKind="NSEW"
-              width="9"
-              height="4">
-            <borderColor
-                xsi:type="description:SystemColor"
-                href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <labelColor
-                xsi:type="description:SystemColor"
-                href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <color
-                xsi:type="description:SystemColor"
-                href="environment:/viewpoint#//@systemColors/@entries[name='light_yellow']"/>
+        <nodeMappings name="ActionNode" label="Action Node" labelDirectEdit="//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='EditTitle']" semanticCandidatesExpression="feature:elements" doubleClickDescription="//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='NavigateToActionDiagram']" domainClass="app::Action">
+          <style xsi:type="style:SquareDescription" showIcon="false" labelExpression="feature:title" labelPosition="node" resizeKind="NSEW" width="9" height="4">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_yellow']"/>
           </style>
         </nodeMappings>
-        <nodeMappings
-            name="ActionCategoryNode"
-            label="Action Category Node"
-            labelDirectEdit="//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='EditTitle']"
-            semanticCandidatesExpression="feature:elements"
-            doubleClickDescription="//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='NavigateToActionCategoryDiagram']"
-            domainClass="app::ActionCategory">
-          <style
-              xsi:type="style:SquareDescription"
-              showIcon="false"
-              labelExpression="feature:title"
-              labelPosition="node"
-              resizeKind="NSEW"
-              width="9"
-              height="4">
-            <borderColor
-                xsi:type="description:SystemColor"
-                href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <labelColor
-                xsi:type="description:SystemColor"
-                href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <color
-                xsi:type="description:SystemColor"
-                href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
+        <nodeMappings name="ActionCategoryNode" label="Action Category Node" labelDirectEdit="//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='EditTitle']" semanticCandidatesExpression="feature:elements" doubleClickDescription="//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='NavigateToActionCategoryDiagram']" domainClass="app::ActionCategory">
+          <style xsi:type="style:SquareDescription" showIcon="false" labelExpression="feature:title" labelPosition="node" resizeKind="NSEW" width="9" height="4">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
           </style>
         </nodeMappings>
-        <nodeMappings
-            name="ActionReferenceNode"
-            label="Action Reference Node"
-            labelDirectEdit="//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='EditTitle']"
-            semanticCandidatesExpression="feature:elements"
-            domainClass="app::ActionReference">
-          <style
-              xsi:type="style:SquareDescription"
-              showIcon="false"
-              labelExpression="feature:title"
-              labelPosition="node"
-              resizeKind="NSEW"
-              width="9"
-              height="4">
-            <borderColor
-                xsi:type="description:SystemColor"
-                href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
-            <labelColor
-                xsi:type="description:SystemColor"
-                href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <color
-                xsi:type="description:SystemColor"
-                href="environment:/viewpoint#//@systemColors/@entries[name='light_yellow']"/>
+        <nodeMappings name="ActionReferenceNode" label="Action Reference Node" labelDirectEdit="//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='EditTitle']" semanticCandidatesExpression="feature:elements" domainClass="app::ActionReference">
+          <style xsi:type="style:SquareDescription" showIcon="false" labelExpression="feature:title" labelPosition="node" resizeKind="NSEW" width="9" height="4">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_yellow']"/>
           </style>
         </nodeMappings>
-        <nodeMappings
-            name="ActionLinkNode"
-            label="Action Link Node"
-            labelDirectEdit="//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='EditTitle']"
-            semanticCandidatesExpression="feature:elements"
-            domainClass="app::ActionLink">
-          <style
-              xsi:type="style:SquareDescription"
-              showIcon="false"
-              labelExpression="feature:title"
-              labelPosition="node"
-              resizeKind="NSEW"
-              width="9"
-              height="4">
-            <borderColor
-                xsi:type="description:SystemColor"
-                href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
-            <labelColor
-                xsi:type="description:SystemColor"
-                href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <color
-                xsi:type="description:SystemColor"
-                href="environment:/viewpoint#//@systemColors/@entries[name='light_yellow']"/>
+        <nodeMappings name="ActionLinkNode" label="Action Link Node" labelDirectEdit="//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='EditTitle']" semanticCandidatesExpression="feature:elements" domainClass="app::ActionLink">
+          <style xsi:type="style:SquareDescription" showIcon="false" labelExpression="feature:title" labelPosition="node" resizeKind="NSEW" width="9" height="4">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_yellow']"/>
           </style>
         </nodeMappings>
-        <edgeMappings
-            name="ChildEdge"
-            label="Child Edge"
-            deletionDescription="//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='DeleteChild']"
-            sourceMapping="//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@nodeMappings[name='RootNode'] //@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@nodeMappings[name='ActionCategoryNode'] //@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@nodeMappings[name='ActionNode'] //@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='CategoryDiagram']/@defaultLayer/@nodeMappings[name='CategoryRootNode']"
-            targetMapping="//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@nodeMappings[name='ActionCategoryNode'] //@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@nodeMappings[name='ActionNode'] //@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@nodeMappings[name='ActionLinkNode'] //@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@nodeMappings[name='ActionReferenceNode']"
-            targetFinderExpression="feature:linkedElements"
-            reconnections="//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='ReconnectChild'] //@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='ReconnectParent']">
-          <style
-              sizeComputationExpression="2">
-            <strokeColor
-                xsi:type="description:SystemColor"
-                href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+        <edgeMappings name="ChildEdge" label="Child Edge" deletionDescription="//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='DeleteChild']" sourceMapping="//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@nodeMappings[name='RootNode'] //@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@nodeMappings[name='ActionCategoryNode'] //@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@nodeMappings[name='ActionNode'] //@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='CategoryDiagram']/@defaultLayer/@nodeMappings[name='CategoryRootNode']" targetMapping="//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@nodeMappings[name='ActionCategoryNode'] //@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@nodeMappings[name='ActionNode'] //@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@nodeMappings[name='ActionLinkNode'] //@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@nodeMappings[name='ActionReferenceNode']" targetFinderExpression="feature:linkedElements" reconnections="//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='ReconnectChild'] //@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='ReconnectParent']">
+          <style sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             <centerLabelStyleDescription>
-              <labelColor
-                  xsi:type="description:SystemColor"
-                  href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
-        <edgeMappings
-            name="MappingEdge"
-            label="Mapping Edge"
-            labelDirectEdit="//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='EditAlias']"
-            sourceMapping="//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@nodeMappings[name='ActionLinkNode'] //@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@nodeMappings[name='ActionNode'] //@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@nodeMappings[name='ActionReferenceNode'] //@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@containerMappings[name='Partition'] //@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@nodeMappings[name='RootNode']"
-            targetMapping="//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@nodeMappings[name='ActionLinkNode'] //@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@nodeMappings[name='ActionNode'] //@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@nodeMappings[name='ActionReferenceNode'] //@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@containerMappings[name='Partition'] //@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@nodeMappings[name='RootNode']"
-            targetFinderExpression="feature:target"
-            sourceFinderExpression="feature:eContainer"
-            domainClass="app::ActionMapping"
-            useDomainElement="true"
-            reconnections="//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='ReconnectMappingTarget'] //@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='ReconnectMappingSource']">
-          <style
-              sizeComputationExpression="2">
-            <strokeColor
-                xsi:type="description:SystemColor"
-                href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
-            <centerLabelStyleDescription
-                showIcon="false"
-                labelExpression="feature:alias">
-              <labelColor
-                  xsi:type="description:SystemColor"
-                  href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+        <edgeMappings name="MappingEdge" label="Mapping Edge" labelDirectEdit="//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='EditAlias']" sourceMapping="//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@nodeMappings[name='ActionLinkNode'] //@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@nodeMappings[name='ActionNode'] //@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@nodeMappings[name='ActionReferenceNode'] //@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@containerMappings[name='Partition'] //@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@nodeMappings[name='RootNode']" targetMapping="//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@nodeMappings[name='ActionLinkNode'] //@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@nodeMappings[name='ActionNode'] //@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@nodeMappings[name='ActionReferenceNode'] //@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@containerMappings[name='Partition'] //@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@nodeMappings[name='RootNode']" targetFinderExpression="feature:target" sourceFinderExpression="feature:eContainer" domainClass="app::ActionMapping" useDomainElement="true" reconnections="//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='ReconnectMappingTarget'] //@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='ReconnectMappingSource']">
+          <style sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
+            <centerLabelStyleDescription showIcon="false" labelExpression="feature:alias">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
-        <containerMappings
-            name="Partition"
-            labelDirectEdit="//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='EditTitle']"
-            semanticCandidatesExpression="feature:elements"
-            domainClass="app::Partition"
-            reusedNodeMappings="//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@nodeMappings[name='ActionCategoryNode'] //@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@nodeMappings[name='ActionLinkNode'] //@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@nodeMappings[name='ActionNode'] //@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@nodeMappings[name='ActionReferenceNode']"
-            reusedContainerMappings="//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@containerMappings[name='Partition']">
-          <style
-              xsi:type="style:FlatContainerStyleDescription"
-              borderSizeComputationExpression="1"
-              showIcon="false"
-              labelExpression="feature:title"
-              labelAlignment="LEFT">
-            <borderColor
-                xsi:type="description:SystemColor"
-                href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <labelColor
-                xsi:type="description:SystemColor"
-                href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <backgroundColor
-                xsi:type="description:SystemColor"
-                href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
-            <foregroundColor
-                xsi:type="description:SystemColor"
-                href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+        <containerMappings name="Partition" labelDirectEdit="//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='EditTitle']" semanticCandidatesExpression="feature:elements" domainClass="app::Partition" reusedNodeMappings="//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@nodeMappings[name='ActionCategoryNode'] //@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@nodeMappings[name='ActionLinkNode'] //@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@nodeMappings[name='ActionNode'] //@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@nodeMappings[name='ActionReferenceNode']" reusedContainerMappings="//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@containerMappings[name='Partition']">
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" showIcon="false" labelExpression="feature:title" labelAlignment="LEFT">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
           </style>
         </containerMappings>
-        <toolSections
-            name="ActionDiagramTools"
-            label="Tools">
-          <ownedTools
-              xsi:type="tool:NodeCreationDescription"
-              name="ActionCreation"
-              label="Action"
-              nodeMappings="//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@nodeMappings[name='ActionNode']">
-            <variable
-                name="container"/>
-            <viewVariable
-                name="containerView"/>
+        <toolSections name="ActionDiagramTools" label="Tools">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="ActionCreation" label="Action" nodeMappings="//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@nodeMappings[name='ActionNode']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
             <initialOperation>
-              <firstModelOperations
-                  xsi:type="tool_1:ChangeContext"
-                  browseExpression="var:container">
-                <subModelOperations
-                    xsi:type="tool_1:CreateInstance"
-                    typeName="app::Action"
-                    referenceName="elements">
-                  <subModelOperations
-                      xsi:type="tool_1:SetValue"
-                      featureName="title"
-                      valueExpression="aql:'Action-'+container.elements->filter(app::Action)->size()"/>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="app::Action" referenceName="elements">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="title" valueExpression="aql:'Action-'+container.elements->filter(app::Action)->size()"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools
-              xsi:type="tool:ContainerCreationDescription"
-              name="PartitionCreation"
-              label="Partition"
-              containerMappings="//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@containerMappings[name='Partition']">
-            <variable
-                name="container"/>
-            <viewVariable
-                name="containerView"/>
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="PartitionCreation" label="Partition" containerMappings="//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@containerMappings[name='Partition']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
             <initialOperation>
-              <firstModelOperations
-                  xsi:type="tool_1:ChangeContext"
-                  browseExpression="var:container">
-                <subModelOperations
-                    xsi:type="tool_1:CreateInstance"
-                    typeName="app::Partition"
-                    referenceName="elements">
-                  <subModelOperations
-                      xsi:type="tool_1:SetValue"
-                      featureName="title"
-                      valueExpression="aql:'Partition-'+container.elements->filter(app::Partition)->size()"/>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="app::Partition" referenceName="elements">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="title" valueExpression="aql:'Partition-'+container.elements->filter(app::Partition)->size()"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools
-              xsi:type="tool:NodeCreationDescription"
-              name="CategoryCreation"
-              label="Category"
-              nodeMappings="//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@nodeMappings[name='ActionCategoryNode']">
-            <variable
-                name="container"/>
-            <viewVariable
-                name="containerView"/>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="CategoryCreation" label="Category" nodeMappings="//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@nodeMappings[name='ActionCategoryNode']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
             <initialOperation>
-              <firstModelOperations
-                  xsi:type="tool_1:ChangeContext"
-                  browseExpression="var:container">
-                <subModelOperations
-                    xsi:type="tool_1:CreateInstance"
-                    typeName="app::ActionCategory"
-                    referenceName="elements">
-                  <subModelOperations
-                      xsi:type="tool_1:SetValue"
-                      featureName="title"
-                      valueExpression="aql:'Category-'+container.elements->filter(app::ActionCategory)->size()"/>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="app::ActionCategory" referenceName="elements">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="title" valueExpression="aql:'Category-'+container.elements->filter(app::ActionCategory)->size()"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools
-              xsi:type="tool:NodeCreationDescription"
-              name="ActionReferenceCreation"
-              label="Action Reference"
-              nodeMappings="//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@nodeMappings[name='ActionReferenceNode']">
-            <variable
-                name="container"/>
-            <viewVariable
-                name="containerView"/>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="ActionReferenceCreation" label="Action Reference" nodeMappings="//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@nodeMappings[name='ActionReferenceNode']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
             <initialOperation>
-              <firstModelOperations
-                  xsi:type="tool_1:ChangeContext"
-                  browseExpression="var:container">
-                <subModelOperations
-                    xsi:type="tool_1:CreateInstance"
-                    typeName="app::ActionReference"
-                    referenceName="elements">
-                  <subModelOperations
-                      xsi:type="tool_1:SetValue"
-                      featureName="title"
-                      valueExpression="aql:'Action Reference '+container.elements->filter(app::ActionReference)->size()"/>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="app::ActionReference" referenceName="elements">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="title" valueExpression="aql:'Action Reference '+container.elements->filter(app::ActionReference)->size()"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools
-              xsi:type="tool:NodeCreationDescription"
-              name="ActionLinkCreation"
-              label="Action Link"
-              nodeMappings="//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@nodeMappings[name='ActionLinkNode']">
-            <variable
-                name="container"/>
-            <viewVariable
-                name="containerView"/>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="ActionLinkCreation" label="Action Link" nodeMappings="//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@nodeMappings[name='ActionLinkNode']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
             <initialOperation>
-              <firstModelOperations
-                  xsi:type="tool_1:ChangeContext"
-                  browseExpression="var:container">
-                <subModelOperations
-                    xsi:type="tool_1:CreateInstance"
-                    typeName="app::ActionLink"
-                    referenceName="elements">
-                  <subModelOperations
-                      xsi:type="tool_1:SetValue"
-                      featureName="title"
-                      valueExpression="aql:'Action Link '+container.elements->filter(app::ActionLink)->size()"/>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="app::ActionLink" referenceName="elements">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="title" valueExpression="aql:'Action Link '+container.elements->filter(app::ActionLink)->size()"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools
-              xsi:type="tool:EdgeCreationDescription"
-              name="ChildLinkCreation"
-              label="Child"
-              edgeMappings="//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@edgeMappings[name='ChildEdge']">
-            <sourceVariable
-                name="source"/>
-            <targetVariable
-                name="target"/>
-            <sourceViewVariable
-                name="sourceView"/>
-            <targetViewVariable
-                name="targetView"/>
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="ChildLinkCreation" label="Child" edgeMappings="//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@edgeMappings[name='ChildEdge']">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
             <initialOperation>
-              <firstModelOperations
-                  xsi:type="tool_1:ChangeContext"
-                  browseExpression="aql:source">
-                <subModelOperations
-                    xsi:type="tool_1:SetValue"
-                    featureName="linkedElements"
-                    valueExpression="var:target"/>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:source">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="linkedElements" valueExpression="var:target"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools
-              xsi:type="tool:EdgeCreationDescription"
-              name="MappingCreation"
-              label="Mapping"
-              edgeMappings="//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@edgeMappings[name='MappingEdge']">
-            <sourceVariable
-                name="source"/>
-            <targetVariable
-                name="target"/>
-            <sourceViewVariable
-                name="sourceView"/>
-            <targetViewVariable
-                name="targetView"/>
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="MappingCreation" label="Mapping" edgeMappings="//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@edgeMappings[name='MappingEdge']">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
             <initialOperation>
-              <firstModelOperations
-                  xsi:type="tool_1:ChangeContext"
-                  browseExpression="aql:source">
-                <subModelOperations
-                    xsi:type="tool_1:CreateInstance"
-                    typeName="app::ActionMapping"
-                    referenceName="actionMappings">
-                  <subModelOperations
-                      xsi:type="tool_1:SetValue"
-                      featureName="target"
-                      valueExpression="var:target"/>
-                  <subModelOperations
-                      xsi:type="tool_1:SetValue"
-                      featureName="alias"
-                      valueExpression="aql:'Mapping-'+source.actionMappings->filter(app::ActionMapping)->size()"/>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:source">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="app::ActionMapping" referenceName="actionMappings">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="target" valueExpression="var:target"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="alias" valueExpression="aql:'Mapping-'+source.actionMappings->filter(app::ActionMapping)->size()"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools
-              xsi:type="tool:DeleteElementDescription"
-              name="DeleteChild"
-              label="Delete Child">
-            <element
-                name="element"/>
-            <elementView
-                name="elementView"/>
-            <containerView
-                name="containerView"/>
+          <ownedTools xsi:type="tool:DeleteElementDescription" name="DeleteChild" label="Delete Child">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <containerView name="containerView"/>
             <initialOperation>
-              <firstModelOperations
-                  xsi:type="tool_1:ChangeContext"
-                  browseExpression="aql:element">
-                <subModelOperations
-                    xsi:type="tool_1:Unset"
-                    featureName="linkedElements"
-                    elementExpression="aql:elementView.targetNode.target"/>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:element">
+                <subModelOperations xsi:type="tool_1:Unset" featureName="linkedElements" elementExpression="aql:elementView.targetNode.target"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools
-              xsi:type="tool:DirectEditLabel"
-              name="EditTitle"
-              label="Edit Title">
-            <mask
-                mask="{0}"/>
+          <ownedTools xsi:type="tool:DirectEditLabel" name="EditTitle" label="Edit Title">
+            <mask mask="{0}"/>
             <initialOperation>
-              <firstModelOperations
-                  xsi:type="tool_1:SetValue"
-                  featureName="title"
-                  valueExpression="var:0"/>
+              <firstModelOperations xsi:type="tool_1:SetValue" featureName="title" valueExpression="var:0"/>
             </initialOperation>
           </ownedTools>
-          <ownedTools
-              xsi:type="tool:DirectEditLabel"
-              name="EditAlias"
-              label="Edit Alias">
-            <mask
-                mask="{0}"/>
+          <ownedTools xsi:type="tool:DirectEditLabel" name="EditAlias" label="Edit Alias">
+            <mask mask="{0}"/>
             <initialOperation>
-              <firstModelOperations
-                  xsi:type="tool_1:SetValue"
-                  featureName="alias"
-                  valueExpression="var:0"/>
+              <firstModelOperations xsi:type="tool_1:SetValue" featureName="alias" valueExpression="var:0"/>
             </initialOperation>
           </ownedTools>
-          <ownedTools
-              xsi:type="tool:DoubleClickDescription"
-              name="NavigateToActionDiagram"
-              mappings="//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@nodeMappings[name='ActionNode']">
-            <element
-                name="element"/>
-            <elementView
-                name="elementView"/>
+          <ownedTools xsi:type="tool:DoubleClickDescription" name="NavigateToActionDiagram" mappings="//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@nodeMappings[name='ActionNode']">
+            <element name="element"/>
+            <elementView name="elementView"/>
             <initialOperation>
-              <firstModelOperations
-                  xsi:type="tool:Navigation"
-                  createIfNotExistent="true"
-                  diagramDescription="//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']"/>
+              <firstModelOperations xsi:type="tool:Navigation" createIfNotExistent="true" diagramDescription="//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']"/>
             </initialOperation>
           </ownedTools>
-          <ownedTools
-              xsi:type="tool:ReconnectEdgeDescription"
-              name="ReconnectChild"
-              label="Reconnect Child">
-            <source
-                name="source"/>
-            <target
-                name="target"/>
-            <sourceView
-                name="sourceView"/>
-            <targetView
-                name="targetView"/>
-            <element
-                name="element"/>
+          <ownedTools xsi:type="tool:ReconnectEdgeDescription" name="ReconnectChild" label="Reconnect Child">
+            <source name="source"/>
+            <target name="target"/>
+            <sourceView name="sourceView"/>
+            <targetView name="targetView"/>
+            <element name="element"/>
             <initialOperation>
-              <firstModelOperations
-                  xsi:type="tool_1:ChangeContext"
-                  browseExpression="aql:element">
-                <subModelOperations
-                    xsi:type="tool_1:Unset"
-                    featureName="linkedElements"
-                    elementExpression="aql:source"/>
-                <subModelOperations
-                    xsi:type="tool_1:SetValue"
-                    featureName="linkedElements"
-                    valueExpression="aql:target"/>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:element">
+                <subModelOperations xsi:type="tool_1:Unset" featureName="linkedElements" elementExpression="aql:source"/>
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="linkedElements" valueExpression="aql:target"/>
               </firstModelOperations>
             </initialOperation>
-            <edgeView
-                name="edgeView"/>
+            <edgeView name="edgeView"/>
           </ownedTools>
-          <ownedTools
-              xsi:type="tool:ReconnectEdgeDescription"
-              name="ReconnectParent"
-              label="Reconnect Parent"
-              reconnectionKind="RECONNECT_SOURCE">
-            <source
-                name="source"/>
-            <target
-                name="target"/>
-            <sourceView
-                name="sourceView"/>
-            <targetView
-                name="targetView"/>
-            <element
-                name="element"/>
+          <ownedTools xsi:type="tool:ReconnectEdgeDescription" name="ReconnectParent" label="Reconnect Parent" reconnectionKind="RECONNECT_SOURCE">
+            <source name="source"/>
+            <target name="target"/>
+            <sourceView name="sourceView"/>
+            <targetView name="targetView"/>
+            <element name="element"/>
             <initialOperation>
-              <firstModelOperations
-                  xsi:type="tool_1:ChangeContext"
-                  browseExpression="aql:source">
-                <subModelOperations
-                    xsi:type="tool_1:Unset"
-                    featureName="linkedElements"
-                    elementExpression="aql:edgeView.targetNode.target"/>
-                <subModelOperations
-                    xsi:type="tool_1:ChangeContext"
-                    browseExpression="var:target">
-                  <subModelOperations
-                      xsi:type="tool_1:SetValue"
-                      featureName="linkedElements"
-                      valueExpression="aql:edgeView.targetNode.target"/>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:source">
+                <subModelOperations xsi:type="tool_1:Unset" featureName="linkedElements" elementExpression="aql:edgeView.targetNode.target"/>
+                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:target">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="linkedElements" valueExpression="aql:edgeView.targetNode.target"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
-            <edgeView
-                name="edgeView"/>
+            <edgeView name="edgeView"/>
           </ownedTools>
-          <ownedTools
-              xsi:type="tool:ReconnectEdgeDescription"
-              name="ReconnectMappingTarget">
-            <source
-                name="source"/>
-            <target
-                name="target"/>
-            <sourceView
-                name="sourceView"/>
-            <targetView
-                name="targetView"/>
-            <element
-                name="element"/>
+          <ownedTools xsi:type="tool:ReconnectEdgeDescription" name="ReconnectMappingTarget">
+            <source name="source"/>
+            <target name="target"/>
+            <sourceView name="sourceView"/>
+            <targetView name="targetView"/>
+            <element name="element"/>
             <initialOperation>
-              <firstModelOperations
-                  xsi:type="tool_1:SetValue"
-                  featureName="target"
-                  valueExpression="var:target"/>
+              <firstModelOperations xsi:type="tool_1:SetValue" featureName="target" valueExpression="var:target"/>
             </initialOperation>
-            <edgeView
-                name="edgeView"/>
+            <edgeView name="edgeView"/>
           </ownedTools>
-          <ownedTools
-              xsi:type="tool:ReconnectEdgeDescription"
-              name="ReconnectMappingSource"
-              reconnectionKind="RECONNECT_SOURCE">
-            <source
-                name="source"/>
-            <target
-                name="target"/>
-            <sourceView
-                name="sourceView"/>
-            <targetView
-                name="targetView"/>
-            <element
-                name="element"/>
+          <ownedTools xsi:type="tool:ReconnectEdgeDescription" name="ReconnectMappingSource" reconnectionKind="RECONNECT_SOURCE">
+            <source name="source"/>
+            <target name="target"/>
+            <sourceView name="sourceView"/>
+            <targetView name="targetView"/>
+            <element name="element"/>
             <initialOperation>
-              <firstModelOperations
-                  xsi:type="tool_1:MoveElement"
-                  newContainerExpression="var:target"
-                  featureName="actionMappings"/>
+              <firstModelOperations xsi:type="tool_1:MoveElement" newContainerExpression="var:target" featureName="actionMappings"/>
             </initialOperation>
-            <edgeView
-                name="edgeView"/>
+            <edgeView name="edgeView"/>
           </ownedTools>
-          <ownedTools
-              xsi:type="tool:DoubleClickDescription"
-              name="NavigateToActionCategoryDiagram"
-              mappings="//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@nodeMappings[name='ActionCategoryNode']">
-            <element
-                name="element"/>
-            <elementView
-                name="elementView"/>
+          <ownedTools xsi:type="tool:DoubleClickDescription" name="NavigateToActionCategoryDiagram" mappings="//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@nodeMappings[name='ActionCategoryNode']">
+            <element name="element"/>
+            <elementView name="elementView"/>
             <initialOperation>
-              <firstModelOperations
-                  xsi:type="tool:Navigation"
-                  createIfNotExistent="true"
-                  diagramDescription="//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='CategoryDiagram']"/>
+              <firstModelOperations xsi:type="tool:Navigation" createIfNotExistent="true" diagramDescription="//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='CategoryDiagram']"/>
             </initialOperation>
           </ownedTools>
-          <ownedTools
-              xsi:type="tool_1:ExternalJavaAction"
-              name="generateApplicationExternalJavaAction"
-              label="Generate Application"
-              id="org.nasdanika.vinci.design.generateApplicationExternalJavaAction"/>
+          <ownedTools xsi:type="tool_1:ExternalJavaAction" name="generateApplicationExternalJavaAction" label="Generate Application" id="org.nasdanika.vinci.design.generateApplicationExternalJavaAction"/>
         </toolSections>
       </defaultLayer>
     </ownedRepresentations>
-    <ownedRepresentations
-        xsi:type="description_1:DiagramDescription"
-        name="CategoryDiagram"
-        label="Category Diagram"
-        domainClass="app::ActionCategory"
-        enablePopupBars="true">
-      <metamodel
-          href="urn:org.nasdanika.vinci.app#/"/>
-      <defaultLayer
-          name="Default"
-          reusedMappings="//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@nodeMappings[name='ActionCategoryNode'] //@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@nodeMappings[name='ActionLinkNode'] //@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@nodeMappings[name='ActionNode'] //@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@nodeMappings[name='ActionReferenceNode'] //@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@edgeMappings[name='ChildEdge'] //@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@edgeMappings[name='MappingEdge'] //@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@containerMappings[name='Partition']"
-          reusedTools="//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='ActionCreation'] //@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='ActionLinkCreation'] //@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='ActionReferenceCreation'] //@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='CategoryCreation'] //@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='ChildLinkCreation'] //@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='DeleteChild'] //@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='EditAlias'] //@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='EditTitle'] //@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='MappingCreation'] //@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='NavigateToActionDiagram'] //@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='PartitionCreation'] //@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='ReconnectChild'] //@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='ReconnectParent'] //@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='ReconnectMappingSource'] //@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='ReconnectMappingTarget'] //@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='NavigateToActionCategoryDiagram']">
-        <nodeMappings
-            name="CategoryRootNode"
-            label="Category Root Node"
-            labelDirectEdit="//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='EditTitle']"
-            semanticCandidatesExpression="var:self"
-            domainClass="app::ActionCategory">
-          <style
-              xsi:type="style:EllipseNodeDescription"
-              labelSize="12"
-              showIcon="false"
-              labelExpression="feature:title"
-              labelPosition="node"
-              resizeKind="NSEW"
-              horizontalDiameterComputationExpression="20"
-              verticalDiameterComputationExpression="15">
-            <borderColor
-                xsi:type="description:SystemColor"
-                href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <labelColor
-                xsi:type="description:SystemColor"
-                href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <color
-                xsi:type="description:SystemColor"
-                href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="CategoryDiagram" label="Category Diagram" domainClass="app::ActionCategory" enablePopupBars="true">
+      <metamodel href="urn:org.nasdanika.vinci.app#/"/>
+      <defaultLayer name="Default" reusedMappings="//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@nodeMappings[name='ActionCategoryNode'] //@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@nodeMappings[name='ActionLinkNode'] //@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@nodeMappings[name='ActionNode'] //@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@nodeMappings[name='ActionReferenceNode'] //@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@edgeMappings[name='ChildEdge'] //@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@edgeMappings[name='MappingEdge'] //@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@containerMappings[name='Partition']" reusedTools="//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='ActionCreation'] //@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='ActionLinkCreation'] //@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='ActionReferenceCreation'] //@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='CategoryCreation'] //@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='ChildLinkCreation'] //@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='DeleteChild'] //@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='EditAlias'] //@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='EditTitle'] //@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='MappingCreation'] //@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='NavigateToActionDiagram'] //@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='PartitionCreation'] //@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='ReconnectChild'] //@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='ReconnectParent'] //@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='ReconnectMappingSource'] //@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='ReconnectMappingTarget'] //@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='NavigateToActionCategoryDiagram']">
+        <nodeMappings name="CategoryRootNode" label="Category Root Node" labelDirectEdit="//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='EditTitle']" semanticCandidatesExpression="var:self" domainClass="app::ActionCategory">
+          <style xsi:type="style:EllipseNodeDescription" labelSize="12" showIcon="false" labelExpression="feature:title" labelPosition="node" resizeKind="NSEW" horizontalDiameterComputationExpression="20" verticalDiameterComputationExpression="15">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
           </style>
         </nodeMappings>
-        <toolSections
-            name="CategoryDiagramTools"
-            label="Tools"
-            reusedTools="//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='ActionCreation'] //@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='ActionLinkCreation'] //@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='ActionReferenceCreation'] //@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='CategoryCreation'] //@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='ChildLinkCreation'] //@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='DeleteChild'] //@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='EditAlias'] //@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='EditTitle'] //@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='MappingCreation'] //@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='NavigateToActionDiagram'] //@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='PartitionCreation'] //@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='ReconnectChild'] //@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='ReconnectParent'] //@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='ReconnectMappingSource'] //@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='ReconnectMappingTarget'] //@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='NavigateToActionCategoryDiagram']"/>
+        <toolSections name="CategoryDiagramTools" label="Tools" reusedTools="//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='ActionCreation'] //@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='ActionLinkCreation'] //@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='ActionReferenceCreation'] //@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='CategoryCreation'] //@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='ChildLinkCreation'] //@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='DeleteChild'] //@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='EditAlias'] //@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='EditTitle'] //@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='MappingCreation'] //@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='NavigateToActionDiagram'] //@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='PartitionCreation'] //@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='ReconnectChild'] //@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='ReconnectParent'] //@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='ReconnectMappingSource'] //@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='ReconnectMappingTarget'] //@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='NavigateToActionCategoryDiagram']"/>
       </defaultLayer>
     </ownedRepresentations>
-    <ownedRepresentations
-        xsi:type="org.nasdanika.sirius.tree:AdapterFactoryTreeDescription"
-        documentation="Representation which uses Adapter Factory Tree Content Provider to represent model element content as a tree."
-        name="vinciAdapterFactoryTree"
-        label="Vinci Adapter Factory Tree"
-        editorId="org.nasdanika.vinci.presentation.VinciAdapterFactoryTreeEditor.ID">
-      <metamodel
-          href="urn:org.nasdanika.ncore#/"/>
-      <metamodel
-          href="urn:org.nasdanika.vinci.app#/"/>
-      <metamodel
-          href="urn:org.nasdanika.vinci.bootstrap#/"/>
-      <metamodel
-          href="urn:org.nasdanika.vinci.components#/"/>
-      <metamodel
-          href="urn:org.nasdanika.vinci.html#/"/>
+    <ownedRepresentations xsi:type="org.nasdanika.sirius.tree:AdapterFactoryTreeDescription" documentation="Representation which uses Adapter Factory Tree Content Provider to represent model element content as a tree." name="vinciAdapterFactoryTree" label="Vinci Adapter Factory Tree" initialisation="true" editorId="org.nasdanika.vinci.presentation.VinciAdapterFactoryTreeEditor.ID">
+      <metamodel href="urn:org.nasdanika.ncore#/"/>
+      <metamodel href="urn:org.nasdanika.vinci.app#/"/>
+      <metamodel href="urn:org.nasdanika.vinci.bootstrap#/"/>
+      <metamodel href="urn:org.nasdanika.vinci.components#/"/>
+      <metamodel href="urn:org.nasdanika.vinci.html#/"/>
     </ownedRepresentations>
-    <ownedJavaExtensions
-        qualifiedClassName="org.nasdanika.vinci.design.Services"/>
+    <ownedJavaExtensions qualifiedClassName="org.nasdanika.vinci.design.Services"/>
   </ownedViewpoints>
-  <extensions
-      xsi:type="properties:ViewExtensionDescription"
-      name="vinci_rules_properties">
-    <metamodels
-        href="urn:org.nasdanika.vinci.app#/"/>
-    <categories
-        name="Default">
-      <pages
-          name="vinci_default_rules_defaultpage"
-          labelExpression="aql:input.emfEditServices(self).getTabName()"
-          semanticCandidateExpression="aql:input.getAllSemanticElements()"
-          groups="//@extensions.0/@categories.0/@groups.0"/>
-      <pages
-          name="vinci_default_rules_description_page"
-          labelExpression="Description"
-          semanticCandidateExpression="aql:input.getAllSemanticElements()"
-          preconditionExpression="service:hasDescription()"
-          groups="//@extensions.0/@categories.0/@groups.1"/>
-      <pages
-          name="vinci_default_rules_markdown_page"
-          labelExpression="Markdown"
-          semanticCandidateExpression="aql:input.getAllSemanticElements()"
-          preconditionExpression="service:hasMarkdown()"
-          groups="//@extensions.0/@categories.0/@groups.3"/>
-      <pages
-          name="vinci_default_rules_html_page"
-          labelExpression="HTML"
-          semanticCandidateExpression="aql:input.getAllSemanticElements()"
-          preconditionExpression="service:hasHtml()"
-          groups="//@extensions.0/@categories.0/@groups.2"/>
-      <pages
-          name="vinci_default_rules_code_page"
-          labelExpression="Code"
-          semanticCandidateExpression="aql:input.getAllSemanticElements()"
-          preconditionExpression="service:hasCode()"
-          groups="//@extensions.0/@categories.0/@groups.4"/>
-      <groups
-          name="vinci_default_rules_defaultgroup"
-          labelExpression="Properties"
-          semanticCandidateExpression="var:self"
-          preconditionExpression="">
-        <controls
-            xsi:type="properties:DynamicMappingForDescription"
-            name="sirius_default_rules_structural_features_for"
-            iterator="eStructuralFeature"
-            iterableExpression="aql:input.emfEditServices(self).getEStructuralFeatures()">
-          <ifs
-              name="vinci_rules_mono_string_select_if"
-              predicateExpression="aql:self.isSelect(input.emfEditServices(self),eStructuralFeature) and input.emfEditServices(self).needsTextWidget(eStructuralFeature) and not input.emfEditServices(self).isMultiline(eStructuralFeature)">
-            <widget
-                xsi:type="properties:SelectDescription"
-                name="vinici_rules_mono_string_with_choices_if"
-                labelExpression="aql:input.emfEditServices(self).getText(eStructuralFeature)+':'"
-                helpExpression="aql:input.emfEditServices(self).getDescription(eStructuralFeature)"
-                isEnabledExpression="aql:eStructuralFeature.changeable"
-                valueExpression="aql:self.eGet(eStructuralFeature.name)"
-                candidatesExpression="aql:input.emfEditServices(self).getChoiceOfValues(eStructuralFeature)"
-                candidateDisplayExpression="var:candidate">
+  <extensions xsi:type="properties:ViewExtensionDescription" name="vinci_rules_properties">
+    <metamodels href="urn:org.nasdanika.vinci.app#/"/>
+    <categories name="Default">
+      <pages name="vinci_default_rules_defaultpage" labelExpression="aql:input.emfEditServices(self).getTabName()" semanticCandidateExpression="aql:input.getAllSemanticElements()" groups="//@extensions.0/@categories.0/@groups.0"/>
+      <pages name="vinci_default_rules_description_page" labelExpression="Description" semanticCandidateExpression="aql:input.getAllSemanticElements()" preconditionExpression="service:hasDescription()" groups="//@extensions.0/@categories.0/@groups.1"/>
+      <pages name="vinci_default_rules_markdown_page" labelExpression="Markdown" semanticCandidateExpression="aql:input.getAllSemanticElements()" preconditionExpression="service:hasMarkdown()" groups="//@extensions.0/@categories.0/@groups.3"/>
+      <pages name="vinci_default_rules_html_page" labelExpression="HTML" semanticCandidateExpression="aql:input.getAllSemanticElements()" preconditionExpression="service:hasHtml()" groups="//@extensions.0/@categories.0/@groups.2"/>
+      <pages name="vinci_default_rules_code_page" labelExpression="Code" semanticCandidateExpression="aql:input.getAllSemanticElements()" preconditionExpression="service:hasCode()" groups="//@extensions.0/@categories.0/@groups.4"/>
+      <groups name="vinci_default_rules_defaultgroup" labelExpression="Properties" semanticCandidateExpression="var:self" preconditionExpression="">
+        <controls xsi:type="properties:DynamicMappingForDescription" name="sirius_default_rules_structural_features_for" iterator="eStructuralFeature" iterableExpression="aql:input.emfEditServices(self).getEStructuralFeatures()">
+          <ifs name="vinci_rules_mono_string_select_if" predicateExpression="aql:self.isSelect(input.emfEditServices(self),eStructuralFeature) and input.emfEditServices(self).needsTextWidget(eStructuralFeature) and not input.emfEditServices(self).isMultiline(eStructuralFeature)">
+            <widget xsi:type="properties:SelectDescription" name="vinici_rules_mono_string_with_choices_if" labelExpression="aql:input.emfEditServices(self).getText(eStructuralFeature)+':'" helpExpression="aql:input.emfEditServices(self).getDescription(eStructuralFeature)" isEnabledExpression="aql:eStructuralFeature.changeable" valueExpression="aql:self.eGet(eStructuralFeature.name)" candidatesExpression="aql:input.emfEditServices(self).getChoiceOfValues(eStructuralFeature)" candidateDisplayExpression="var:candidate">
               <initialOperation>
-                <firstModelOperations
-                    xsi:type="tool_1:ChangeContext"
-                    browseExpression="aql:input.emfEditServices(self).setValue(eStructuralFeature, newValue)"/>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:input.emfEditServices(self).setValue(eStructuralFeature, newValue)"/>
               </initialOperation>
-              <conditionalStyles
-                  preconditionExpression="aql:eStructuralFeature.lowerBound==1">
+              <conditionalStyles preconditionExpression="aql:eStructuralFeature.lowerBound==1">
                 <style>
                   <labelFontFormat>bold</labelFontFormat>
                 </style>
               </conditionalStyles>
             </widget>
           </ifs>
-          <ifs
-              name="sirius_default_rules_mono_string_if"
-              predicateExpression="aql:input.emfEditServices(self).needsTextWidget(eStructuralFeature) and not input.emfEditServices(self).isMultiline(eStructuralFeature) and not self.isSelect(input.emfEditServices(self),eStructuralFeature)">
-            <widget
-                xsi:type="properties:TextDescription"
-                name="sirius_default_rules_mono_string"
-                labelExpression="aql:input.emfEditServices(self).getText(eStructuralFeature)+':'"
-                helpExpression="aql:input.emfEditServices(self).getDescription(eStructuralFeature)"
-                isEnabledExpression="aql:eStructuralFeature.changeable"
-                valueExpression="aql:self.eGet(eStructuralFeature.name)">
+          <ifs name="sirius_default_rules_mono_string_if" predicateExpression="aql:input.emfEditServices(self).needsTextWidget(eStructuralFeature) and not input.emfEditServices(self).isMultiline(eStructuralFeature) and not self.isSelect(input.emfEditServices(self),eStructuralFeature)">
+            <widget xsi:type="properties:TextDescription" name="sirius_default_rules_mono_string" labelExpression="aql:input.emfEditServices(self).getText(eStructuralFeature)+':'" helpExpression="aql:input.emfEditServices(self).getDescription(eStructuralFeature)" isEnabledExpression="aql:eStructuralFeature.changeable" valueExpression="aql:self.eGet(eStructuralFeature.name)">
               <initialOperation>
-                <firstModelOperations
-                    xsi:type="tool_1:ChangeContext"
-                    browseExpression="aql:input.emfEditServices(self).setValue(eStructuralFeature, newValue)"/>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:input.emfEditServices(self).setValue(eStructuralFeature, newValue)"/>
               </initialOperation>
-              <conditionalStyles
-                  preconditionExpression="aql:eStructuralFeature.lowerBound==1">
+              <conditionalStyles preconditionExpression="aql:eStructuralFeature.lowerBound==1">
                 <style>
                   <labelFontFormat>bold</labelFontFormat>
                 </style>
               </conditionalStyles>
             </widget>
           </ifs>
-          <ifs
-              name="sirius_default_rules_multi_string_if"
-              predicateExpression="aql:input.emfEditServices(self).needsTextWidget(eStructuralFeature) and input.emfEditServices(self).isMultiline(eStructuralFeature) and not self.hasVinciRule(eStructuralFeature)">
-            <widget
-                xsi:type="properties:TextAreaDescription"
-                name="sirius_default_rules_multi_string"
-                labelExpression="aql:input.emfEditServices(self).getText(eStructuralFeature)+':'"
-                helpExpression="aql:input.emfEditServices(self).getDescription(eStructuralFeature)"
-                isEnabledExpression="aql:eStructuralFeature.changeable"
-                lineCount="10"
-                valueExpression="aql:self.eGet(eStructuralFeature.name)">
+          <ifs name="sirius_default_rules_multi_string_if" predicateExpression="aql:input.emfEditServices(self).needsTextWidget(eStructuralFeature) and input.emfEditServices(self).isMultiline(eStructuralFeature) and not self.hasVinciRule(eStructuralFeature)">
+            <widget xsi:type="properties:TextAreaDescription" name="sirius_default_rules_multi_string" labelExpression="aql:input.emfEditServices(self).getText(eStructuralFeature)+':'" helpExpression="aql:input.emfEditServices(self).getDescription(eStructuralFeature)" isEnabledExpression="aql:eStructuralFeature.changeable" lineCount="10" valueExpression="aql:self.eGet(eStructuralFeature.name)">
               <initialOperation>
-                <firstModelOperations
-                    xsi:type="tool_1:ChangeContext"
-                    browseExpression="aql:input.emfEditServices(self).setValue(eStructuralFeature, newValue)"/>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:input.emfEditServices(self).setValue(eStructuralFeature, newValue)"/>
               </initialOperation>
-              <conditionalStyles
-                  preconditionExpression="aql:eStructuralFeature.lowerBound==1">
+              <conditionalStyles preconditionExpression="aql:eStructuralFeature.lowerBound==1">
                 <style>
                   <labelFontFormat>bold</labelFontFormat>
                 </style>
               </conditionalStyles>
             </widget>
           </ifs>
-          <ifs
-              name="sirius_default_rules_mono_boolean"
-              predicateExpression="aql:input.emfEditServices(self).needsCheckboxWidget(eStructuralFeature)">
-            <widget
-                xsi:type="properties:CheckboxDescription"
-                name="sirius_default_rules_mono_boolean"
-                labelExpression="aql:input.emfEditServices(self).getText(eStructuralFeature)"
-                helpExpression="aql:input.emfEditServices(self).getDescription(eStructuralFeature)"
-                isEnabledExpression="aql:eStructuralFeature.changeable"
-                valueExpression="aql:self.eGet(eStructuralFeature.name)">
+          <ifs name="sirius_default_rules_mono_boolean" predicateExpression="aql:input.emfEditServices(self).needsCheckboxWidget(eStructuralFeature)">
+            <widget xsi:type="properties:CheckboxDescription" name="sirius_default_rules_mono_boolean" labelExpression="aql:input.emfEditServices(self).getText(eStructuralFeature)" helpExpression="aql:input.emfEditServices(self).getDescription(eStructuralFeature)" isEnabledExpression="aql:eStructuralFeature.changeable" valueExpression="aql:self.eGet(eStructuralFeature.name)">
               <initialOperation>
-                <firstModelOperations
-                    xsi:type="tool_1:ChangeContext"
-                    browseExpression="aql:input.emfEditServices(self).setValue(eStructuralFeature, newValue)"/>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:input.emfEditServices(self).setValue(eStructuralFeature, newValue)"/>
               </initialOperation>
-              <conditionalStyles
-                  preconditionExpression="aql:eStructuralFeature.lowerBound==1">
+              <conditionalStyles preconditionExpression="aql:eStructuralFeature.lowerBound==1">
                 <style>
                   <labelFontFormat>bold</labelFontFormat>
                 </style>
               </conditionalStyles>
             </widget>
           </ifs>
-          <ifs
-              name="sirius_default_rules_enum_if"
-              predicateExpression="aql:eStructuralFeature.eType.oclIsKindOf(ecore::EEnum) and not(eStructuralFeature.many)">
-            <widget
-                xsi:type="properties:RadioDescription"
-                name="sirius_default_rules_enum"
-                labelExpression="aql:input.emfEditServices(self).getText(eStructuralFeature)+':'"
-                helpExpression="aql:input.emfEditServices(self).getDescription(eStructuralFeature)"
-                isEnabledExpression="aql:eStructuralFeature.changeable"
-                valueExpression="aql:eStructuralFeature.eType.oclAsType(ecore::EEnum).getEEnumLiteralByLiteral(self.eGet(eStructuralFeature.name).toString())"
-                candidatesExpression="aql:eStructuralFeature.eType.oclAsType(ecore::EEnum).eLiterals"
-                candidateDisplayExpression="aql:candidate.name"
-                numberOfColumns="5">
+          <ifs name="sirius_default_rules_enum_if" predicateExpression="aql:eStructuralFeature.eType.oclIsKindOf(ecore::EEnum) and not(eStructuralFeature.many)">
+            <widget xsi:type="properties:RadioDescription" name="sirius_default_rules_enum" labelExpression="aql:input.emfEditServices(self).getText(eStructuralFeature)+':'" helpExpression="aql:input.emfEditServices(self).getDescription(eStructuralFeature)" isEnabledExpression="aql:eStructuralFeature.changeable" valueExpression="aql:eStructuralFeature.eType.oclAsType(ecore::EEnum).getEEnumLiteralByLiteral(self.eGet(eStructuralFeature.name).toString())" candidatesExpression="aql:eStructuralFeature.eType.oclAsType(ecore::EEnum).eLiterals" candidateDisplayExpression="aql:candidate.name" numberOfColumns="5">
               <initialOperation>
-                <firstModelOperations
-                    xsi:type="tool_1:ChangeContext"
-                    browseExpression="aql:input.emfEditServices(self).setValue(eStructuralFeature, newValue.instance)"/>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:input.emfEditServices(self).setValue(eStructuralFeature, newValue.instance)"/>
               </initialOperation>
-              <conditionalStyles
-                  preconditionExpression="aql:eStructuralFeature.lowerBound==1">
+              <conditionalStyles preconditionExpression="aql:eStructuralFeature.lowerBound==1">
                 <style>
                   <labelFontFormat>bold</labelFontFormat>
                 </style>
               </conditionalStyles>
             </widget>
           </ifs>
-          <ifs
-              name="sirius_default_rules_eattribute_many_if"
-              predicateExpression="aql:eStructuralFeature.oclIsKindOf(ecore::EAttribute) and eStructuralFeature.many">
-            <widget
-                xsi:type="properties:ListDescription"
-                name="sirius_default_rules_eattribute_many"
-                labelExpression="aql:input.emfEditServices(self).getText(eStructuralFeature)+':'"
-                helpExpression="aql:input.emfEditServices(self).getDescription(eStructuralFeature)"
-                isEnabledExpression="aql:eStructuralFeature.changeable"
-                valueExpression="aql:self.eGet(eStructuralFeature.name)"
-                displayExpression="var:value"/>
+          <ifs name="sirius_default_rules_eattribute_many_if" predicateExpression="aql:eStructuralFeature.oclIsKindOf(ecore::EAttribute) and eStructuralFeature.many">
+            <widget xsi:type="properties:ListDescription" name="sirius_default_rules_eattribute_many" labelExpression="aql:input.emfEditServices(self).getText(eStructuralFeature)+':'" helpExpression="aql:input.emfEditServices(self).getDescription(eStructuralFeature)" isEnabledExpression="aql:eStructuralFeature.changeable" valueExpression="aql:self.eGet(eStructuralFeature.name)" displayExpression="var:value"/>
           </ifs>
-          <ifs
-              name="vinci_rules_ereference_if"
-              predicateExpression="aql:eStructuralFeature.oclIsKindOf(ecore::EReference)">
-            <widget
-                xsi:type="properties:CustomDescription"
-                name="nasdanika_reference_widget"
-                labelExpression="aql:input.emfEditServices(self).getText(eStructuralFeature)+':'"
-                helpExpression="aql:input.emfEditServices(self).getDescription(eStructuralFeature)"/>
+          <ifs name="vinci_rules_ereference_if" predicateExpression="aql:eStructuralFeature.oclIsKindOf(ecore::EReference)">
+            <widget xsi:type="properties:CustomDescription" name="nasdanika_reference_widget" labelExpression="aql:input.emfEditServices(self).getText(eStructuralFeature)+':'" helpExpression="aql:input.emfEditServices(self).getDescription(eStructuralFeature)"/>
           </ifs>
         </controls>
       </groups>
-      <groups
-          name="vinci_default_rules_description_group"
-          labelExpression="Description"
-          semanticCandidateExpression="var:self"
-          preconditionExpression="">
-        <controls
-            xsi:type="properties:DynamicMappingForDescription"
-            name="sirius_default_rules_structural_features_for"
-            iterator="eStructuralFeature"
-            iterableExpression="aql:input.emfEditServices(self).getEStructuralFeatures()">
-          <ifs
-              name="vinci_rules_description_if"
-              predicateExpression="aql:input.emfEditServices(self).needsTextWidget(eStructuralFeature) and input.emfEditServices(self).isMultiline(eStructuralFeature) and self.isDescription(eStructuralFeature)">
-            <widget
-                xsi:type="properties:TextAreaDescription"
-                name="vinci_default_rules_description_string"
-                labelExpression="aql:input.emfEditServices(self).getText(eStructuralFeature)+':'"
-                helpExpression="aql:input.emfEditServices(self).getDescription(eStructuralFeature)"
-                isEnabledExpression="aql:eStructuralFeature.changeable"
-                lineCount="40"
-                valueExpression="aql:self.eGet(eStructuralFeature.name)">
+      <groups name="vinci_default_rules_description_group" labelExpression="Description" semanticCandidateExpression="var:self" preconditionExpression="">
+        <controls xsi:type="properties:DynamicMappingForDescription" name="sirius_default_rules_structural_features_for" iterator="eStructuralFeature" iterableExpression="aql:input.emfEditServices(self).getEStructuralFeatures()">
+          <ifs name="vinci_rules_description_if" predicateExpression="aql:input.emfEditServices(self).needsTextWidget(eStructuralFeature) and input.emfEditServices(self).isMultiline(eStructuralFeature) and self.isDescription(eStructuralFeature)">
+            <widget xsi:type="properties:TextAreaDescription" name="vinci_default_rules_description_string" labelExpression="aql:input.emfEditServices(self).getText(eStructuralFeature)+':'" helpExpression="aql:input.emfEditServices(self).getDescription(eStructuralFeature)" isEnabledExpression="aql:eStructuralFeature.changeable" lineCount="40" valueExpression="aql:self.eGet(eStructuralFeature.name)">
               <initialOperation>
-                <firstModelOperations
-                    xsi:type="tool_1:ChangeContext"
-                    browseExpression="aql:input.emfEditServices(self).setValue(eStructuralFeature, newValue)"/>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:input.emfEditServices(self).setValue(eStructuralFeature, newValue)"/>
               </initialOperation>
-              <conditionalStyles
-                  preconditionExpression="aql:eStructuralFeature.lowerBound==1">
+              <conditionalStyles preconditionExpression="aql:eStructuralFeature.lowerBound==1">
                 <style>
                   <labelFontFormat>bold</labelFontFormat>
                 </style>
@@ -898,55 +352,21 @@
           </ifs>
         </controls>
       </groups>
-      <groups
-          name="vinci_default_rules_html_group"
-          labelExpression="HTML Content"
-          semanticCandidateExpression="var:self"
-          preconditionExpression="">
-        <controls
-            xsi:type="properties:DynamicMappingForDescription"
-            name="sirius_default_rules_structural_features_for"
-            iterator="eStructuralFeature"
-            iterableExpression="aql:input.emfEditServices(self).getEStructuralFeatures()">
-          <ifs
-              name="vinci_rules_html_if"
-              predicateExpression="aql:input.emfEditServices(self).needsTextWidget(eStructuralFeature) and input.emfEditServices(self).isMultiline(eStructuralFeature) and self.isHtml(eStructuralFeature)">
-            <widget
-                xsi:type="properties:CustomDescription"
-                name="nasdanika_rich_text_widget"
-                labelExpression="aql:input.emfEditServices(self).getText(eStructuralFeature)+':'"
-                helpExpression="aql:input.emfEditServices(self).getDescription(eStructuralFeature)"/>
+      <groups name="vinci_default_rules_html_group" labelExpression="HTML Content" semanticCandidateExpression="var:self" preconditionExpression="">
+        <controls xsi:type="properties:DynamicMappingForDescription" name="sirius_default_rules_structural_features_for" iterator="eStructuralFeature" iterableExpression="aql:input.emfEditServices(self).getEStructuralFeatures()">
+          <ifs name="vinci_rules_html_if" predicateExpression="aql:input.emfEditServices(self).needsTextWidget(eStructuralFeature) and input.emfEditServices(self).isMultiline(eStructuralFeature) and self.isHtml(eStructuralFeature)">
+            <widget xsi:type="properties:CustomDescription" name="nasdanika_rich_text_widget" labelExpression="aql:input.emfEditServices(self).getText(eStructuralFeature)+':'" helpExpression="aql:input.emfEditServices(self).getDescription(eStructuralFeature)"/>
           </ifs>
         </controls>
       </groups>
-      <groups
-          name="vinci_default_rules_markdown_group"
-          labelExpression="Markdown"
-          semanticCandidateExpression="var:self"
-          preconditionExpression="">
-        <controls
-            xsi:type="properties:DynamicMappingForDescription"
-            name="sirius_default_rules_structural_features_for"
-            iterator="eStructuralFeature"
-            iterableExpression="aql:input.emfEditServices(self).getEStructuralFeatures()">
-          <ifs
-              name="vinci_rules_markdown_if"
-              predicateExpression="aql:input.emfEditServices(self).needsTextWidget(eStructuralFeature) and input.emfEditServices(self).isMultiline(eStructuralFeature) and self.isMarkdown(eStructuralFeature)">
-            <widget
-                xsi:type="properties:TextAreaDescription"
-                name="vinci_default_rules_description_string"
-                labelExpression="aql:input.emfEditServices(self).getText(eStructuralFeature)+':'"
-                helpExpression="aql:input.emfEditServices(self).getDescription(eStructuralFeature)"
-                isEnabledExpression="aql:eStructuralFeature.changeable"
-                lineCount="40"
-                valueExpression="aql:self.eGet(eStructuralFeature.name)">
+      <groups name="vinci_default_rules_markdown_group" labelExpression="Markdown" semanticCandidateExpression="var:self" preconditionExpression="">
+        <controls xsi:type="properties:DynamicMappingForDescription" name="sirius_default_rules_structural_features_for" iterator="eStructuralFeature" iterableExpression="aql:input.emfEditServices(self).getEStructuralFeatures()">
+          <ifs name="vinci_rules_markdown_if" predicateExpression="aql:input.emfEditServices(self).needsTextWidget(eStructuralFeature) and input.emfEditServices(self).isMultiline(eStructuralFeature) and self.isMarkdown(eStructuralFeature)">
+            <widget xsi:type="properties:TextAreaDescription" name="vinci_default_rules_description_string" labelExpression="aql:input.emfEditServices(self).getText(eStructuralFeature)+':'" helpExpression="aql:input.emfEditServices(self).getDescription(eStructuralFeature)" isEnabledExpression="aql:eStructuralFeature.changeable" lineCount="40" valueExpression="aql:self.eGet(eStructuralFeature.name)">
               <initialOperation>
-                <firstModelOperations
-                    xsi:type="tool_1:ChangeContext"
-                    browseExpression="aql:input.emfEditServices(self).setValue(eStructuralFeature, newValue)"/>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:input.emfEditServices(self).setValue(eStructuralFeature, newValue)"/>
               </initialOperation>
-              <conditionalStyles
-                  preconditionExpression="aql:eStructuralFeature.lowerBound==1">
+              <conditionalStyles preconditionExpression="aql:eStructuralFeature.lowerBound==1">
                 <style>
                   <labelFontFormat>bold</labelFontFormat>
                 </style>
@@ -955,34 +375,14 @@
           </ifs>
         </controls>
       </groups>
-      <groups
-          name="vinci_default_rules_code_group"
-          labelExpression="Code"
-          semanticCandidateExpression="var:self"
-          preconditionExpression="">
-        <controls
-            xsi:type="properties:DynamicMappingForDescription"
-            name="sirius_default_rules_structural_features_for"
-            iterator="eStructuralFeature"
-            iterableExpression="aql:input.emfEditServices(self).getEStructuralFeatures()">
-          <ifs
-              name="vinci_rules_code_if"
-              predicateExpression="aql:input.emfEditServices(self).needsTextWidget(eStructuralFeature) and input.emfEditServices(self).isMultiline(eStructuralFeature) and self.isCode(eStructuralFeature)">
-            <widget
-                xsi:type="properties:TextAreaDescription"
-                name="vinci_default_rules_code_string"
-                labelExpression="aql:input.emfEditServices(self).getText(eStructuralFeature)+':'"
-                helpExpression="aql:input.emfEditServices(self).getDescription(eStructuralFeature)"
-                isEnabledExpression="aql:eStructuralFeature.changeable"
-                lineCount="40"
-                valueExpression="aql:self.eGet(eStructuralFeature.name)">
+      <groups name="vinci_default_rules_code_group" labelExpression="Code" semanticCandidateExpression="var:self" preconditionExpression="">
+        <controls xsi:type="properties:DynamicMappingForDescription" name="sirius_default_rules_structural_features_for" iterator="eStructuralFeature" iterableExpression="aql:input.emfEditServices(self).getEStructuralFeatures()">
+          <ifs name="vinci_rules_code_if" predicateExpression="aql:input.emfEditServices(self).needsTextWidget(eStructuralFeature) and input.emfEditServices(self).isMultiline(eStructuralFeature) and self.isCode(eStructuralFeature)">
+            <widget xsi:type="properties:TextAreaDescription" name="vinci_default_rules_code_string" labelExpression="aql:input.emfEditServices(self).getText(eStructuralFeature)+':'" helpExpression="aql:input.emfEditServices(self).getDescription(eStructuralFeature)" isEnabledExpression="aql:eStructuralFeature.changeable" lineCount="40" valueExpression="aql:self.eGet(eStructuralFeature.name)">
               <initialOperation>
-                <firstModelOperations
-                    xsi:type="tool_1:ChangeContext"
-                    browseExpression="aql:input.emfEditServices(self).setValue(eStructuralFeature, newValue)"/>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:input.emfEditServices(self).setValue(eStructuralFeature, newValue)"/>
               </initialOperation>
-              <conditionalStyles
-                  preconditionExpression="aql:eStructuralFeature.lowerBound==1">
+              <conditionalStyles preconditionExpression="aql:eStructuralFeature.lowerBound==1">
                 <style>
                   <labelFontFormat>bold</labelFontFormat>
                 </style>
