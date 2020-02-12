@@ -30,6 +30,7 @@ import org.nasdanika.common.Reference;
 import org.nasdanika.common.Supplier;
 import org.nasdanika.common.SupplierFactory;
 import org.nasdanika.common.Util;
+import org.nasdanika.html.TagName;
 import org.nasdanika.ncore.Configurable;
 import org.nasdanika.ncore.NcorePackage;
 import org.nasdanika.vinci.app.AbstractAction;
@@ -860,7 +861,8 @@ public abstract class ActionBaseImpl extends LabelImpl implements ActionBase {
 		if (!Util.isBlank(markdown)) {
 			SupplierFactory<Object> markdownSupplierFactory = SupplierFactory.from((ctx, progressMonidor) -> {
 				MarkdownHelper markdownHelper = new MarkdownHelper();
-				return ctx.interpolate(markdownHelper.markdownToHtml(markdown).trim());				
+				String html = ctx.interpolate(markdownHelper.markdownToHtml(markdown).trim());
+				return TagName.div.create(html).addClass("markdown-body");
 			},  "Markdown content", 1);
 			content.add(markdownSupplierFactory);
 		}

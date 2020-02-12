@@ -253,12 +253,6 @@ public abstract class MarkdownImpl extends ModelElementImpl implements Markdown 
 				if (isInterpolate()) {
 					html = context.interpolate(html);
 				}
-				// Peeling of <p></p>
-				String pOpen = "<p>";
-				String pClose = "</p>";
-				if (html.startsWith(pOpen) && html.endsWith(pClose)) {
-					html = html.substring(pOpen.length(), html.length() - pClose.length());
-				}
 				
 				if (!isStyle()) {
 					return html;
