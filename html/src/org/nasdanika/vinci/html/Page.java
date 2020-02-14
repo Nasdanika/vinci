@@ -27,8 +27,10 @@ import org.nasdanika.ncore.NamedElement;
  *   <li>{@link org.nasdanika.vinci.html.Page#getBuilders <em>Builders</em>}</li>
  *   <li>{@link org.nasdanika.vinci.html.Page#getLanguage <em>Language</em>}</li>
  *   <li>{@link org.nasdanika.vinci.html.Page#isFontAwesome <em>Font Awesome</em>}</li>
+ *   <li>{@link org.nasdanika.vinci.html.Page#isLineAwesome <em>Line Awesome</em>}</li>
  *   <li>{@link org.nasdanika.vinci.html.Page#isJsTree <em>Js Tree</em>}</li>
  *   <li>{@link org.nasdanika.vinci.html.Page#isGithubMarkdownCss <em>Github Markdown Css</em>}</li>
+ *   <li>{@link org.nasdanika.vinci.html.Page#isHighlightJs <em>Highlight Js</em>}</li>
  * </ul>
  *
  * @see org.nasdanika.vinci.html.HtmlPackage#getPage()
@@ -132,6 +134,31 @@ public interface Page extends NamedElement, SupplierFactory<Object> {
 	void setFontAwesome(boolean value);
 
 	/**
+	 * Returns the value of the '<em><b>Line Awesome</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * If this attribute is set to true [Line Awesome](https://icons8.com/line-awesome/) CDN stylesheet reference is added to the head.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Line Awesome</em>' attribute.
+	 * @see #setLineAwesome(boolean)
+	 * @see org.nasdanika.vinci.html.HtmlPackage#getPage_LineAwesome()
+	 * @model
+	 * @generated
+	 */
+	boolean isLineAwesome();
+
+	/**
+	 * Sets the value of the '{@link org.nasdanika.vinci.html.Page#isLineAwesome <em>Line Awesome</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Line Awesome</em>' attribute.
+	 * @see #isLineAwesome()
+	 * @generated
+	 */
+	void setLineAwesome(boolean value);
+
+	/**
 	 * Returns the value of the '<em><b>Js Tree</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -180,5 +207,30 @@ public interface Page extends NamedElement, SupplierFactory<Object> {
 	 * @generated
 	 */
 	void setGithubMarkdownCss(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Highlight Js</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * If this attribute is set to true [highlight.js](https://highlightjs.org/) CDN script and stylesheet references are added to the head as well as the initialization script in order to provide syntax highlighting in markdown fenced blocks.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Highlight Js</em>' attribute.
+	 * @see #setHighlightJs(boolean)
+	 * @see org.nasdanika.vinci.html.HtmlPackage#getPage_HighlightJs()
+	 * @model
+	 * @generated
+	 */
+	boolean isHighlightJs();
+
+	/**
+	 * Sets the value of the '{@link org.nasdanika.vinci.html.Page#isHighlightJs <em>Highlight Js</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Highlight Js</em>' attribute.
+	 * @see #isHighlightJs()
+	 * @generated
+	 */
+	void setHighlightJs(boolean value);
 
 } // Page

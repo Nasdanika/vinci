@@ -466,13 +466,22 @@ public interface HtmlPackage extends EPackage {
 	int PAGE__FONT_AWESOME = NcorePackage.NAMED_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
+	 * The feature id for the '<em><b>Line Awesome</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PAGE__LINE_AWESOME = NcorePackage.NAMED_ELEMENT_FEATURE_COUNT + 5;
+
+	/**
 	 * The feature id for the '<em><b>Js Tree</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PAGE__JS_TREE = NcorePackage.NAMED_ELEMENT_FEATURE_COUNT + 5;
+	int PAGE__JS_TREE = NcorePackage.NAMED_ELEMENT_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Github Markdown Css</b></em>' attribute.
@@ -481,7 +490,16 @@ public interface HtmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PAGE__GITHUB_MARKDOWN_CSS = NcorePackage.NAMED_ELEMENT_FEATURE_COUNT + 6;
+	int PAGE__GITHUB_MARKDOWN_CSS = NcorePackage.NAMED_ELEMENT_FEATURE_COUNT + 7;
+
+	/**
+	 * The feature id for the '<em><b>Highlight Js</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PAGE__HIGHLIGHT_JS = NcorePackage.NAMED_ELEMENT_FEATURE_COUNT + 8;
 
 	/**
 	 * The number of structural features of the '<em>Page</em>' class.
@@ -490,7 +508,7 @@ public interface HtmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PAGE_FEATURE_COUNT = NcorePackage.NAMED_ELEMENT_FEATURE_COUNT + 7;
+	int PAGE_FEATURE_COUNT = NcorePackage.NAMED_ELEMENT_FEATURE_COUNT + 9;
 
 	/**
 	 * The number of operations of the '<em>Page</em>' class.
@@ -1013,6 +1031,17 @@ public interface HtmlPackage extends EPackage {
 	EAttribute getPage_FontAwesome();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.html.Page#isLineAwesome <em>Line Awesome</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Line Awesome</em>'.
+	 * @see org.nasdanika.vinci.html.Page#isLineAwesome()
+	 * @see #getPage()
+	 * @generated
+	 */
+	EAttribute getPage_LineAwesome();
+
+	/**
 	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.html.Page#isJsTree <em>Js Tree</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1033,6 +1062,17 @@ public interface HtmlPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getPage_GithubMarkdownCss();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.html.Page#isHighlightJs <em>Highlight Js</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Highlight Js</em>'.
+	 * @see org.nasdanika.vinci.html.Page#isHighlightJs()
+	 * @see #getPage()
+	 * @generated
+	 */
+	EAttribute getPage_HighlightJs();
 
 	/**
 	 * Returns the meta object for class '{@link org.nasdanika.vinci.html.Stylesheet <em>Stylesheet</em>}'.
@@ -1334,6 +1374,14 @@ public interface HtmlPackage extends EPackage {
 		EAttribute PAGE__FONT_AWESOME = eINSTANCE.getPage_FontAwesome();
 
 		/**
+		 * The meta object literal for the '<em><b>Line Awesome</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PAGE__LINE_AWESOME = eINSTANCE.getPage_LineAwesome();
+
+		/**
 		 * The meta object literal for the '<em><b>Js Tree</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1348,6 +1396,14 @@ public interface HtmlPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute PAGE__GITHUB_MARKDOWN_CSS = eINSTANCE.getPage_GithubMarkdownCss();
+
+		/**
+		 * The meta object literal for the '<em><b>Highlight Js</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PAGE__HIGHLIGHT_JS = eINSTANCE.getPage_HighlightJs();
 
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.vinci.html.impl.StylesheetImpl <em>Stylesheet</em>}' class.

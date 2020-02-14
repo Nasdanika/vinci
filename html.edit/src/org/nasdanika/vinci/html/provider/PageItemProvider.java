@@ -71,8 +71,10 @@ public class PageItemProvider extends NamedElementItemProvider {
 
 			addLanguagePropertyDescriptor(object);
 			addFontAwesomePropertyDescriptor(object);
+			addLineAwesomePropertyDescriptor(object);
 			addJsTreePropertyDescriptor(object);
 			addGithubMarkdownCssPropertyDescriptor(object);
+			addHighlightJsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -121,6 +123,28 @@ public class PageItemProvider extends NamedElementItemProvider {
 
 
 	/**
+	 * This adds a property descriptor for the Line Awesome feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	protected void addLineAwesomePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor(
+				 getResourceLocator(),
+				 getString("_UI_Page_lineAwesome_feature"),
+				 HtmlPackage.Literals.PAGE__LINE_AWESOME,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null,
+				 null));
+	}
+
+
+	/**
 	 * This adds a property descriptor for the Js Tree feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -146,20 +170,41 @@ public class PageItemProvider extends NamedElementItemProvider {
 	 * This adds a property descriptor for the Github Markdown Css feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void addGithubMarkdownCssPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+			(createItemPropertyDescriptor(
 				 getResourceLocator(),
 				 getString("_UI_Page_githubMarkdownCss_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Page_githubMarkdownCss_feature", "_UI_Page_type"),
 				 HtmlPackage.Literals.PAGE__GITHUB_MARKDOWN_CSS,
 				 true,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null,
+				 null));
+	}
+
+
+	/**
+	 * This adds a property descriptor for the Highlight Js feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	protected void addHighlightJsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor(
+				 getResourceLocator(),
+				 getString("_UI_Page_highlightJs_feature"),
+				 HtmlPackage.Literals.PAGE__HIGHLIGHT_JS,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
 				 null,
 				 null));
 	}
@@ -248,8 +293,10 @@ public class PageItemProvider extends NamedElementItemProvider {
 		switch (notification.getFeatureID(Page.class)) {
 			case HtmlPackage.PAGE__LANGUAGE:
 			case HtmlPackage.PAGE__FONT_AWESOME:
+			case HtmlPackage.PAGE__LINE_AWESOME:
 			case HtmlPackage.PAGE__JS_TREE:
 			case HtmlPackage.PAGE__GITHUB_MARKDOWN_CSS:
+			case HtmlPackage.PAGE__HIGHLIGHT_JS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case HtmlPackage.PAGE__HEAD:

@@ -377,7 +377,7 @@ public class HtmlPackageImpl extends EPackageImpl implements HtmlPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getPage_JsTree() {
+	public EAttribute getPage_LineAwesome() {
 		return (EAttribute)pageEClass.getEStructuralFeatures().get(5);
 	}
 
@@ -387,8 +387,28 @@ public class HtmlPackageImpl extends EPackageImpl implements HtmlPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getPage_GithubMarkdownCss() {
+	public EAttribute getPage_JsTree() {
 		return (EAttribute)pageEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getPage_GithubMarkdownCss() {
+		return (EAttribute)pageEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getPage_HighlightJs() {
+		return (EAttribute)pageEClass.getEStructuralFeatures().get(8);
 	}
 
 	/**
@@ -563,8 +583,10 @@ public class HtmlPackageImpl extends EPackageImpl implements HtmlPackage {
 		createEReference(pageEClass, PAGE__BUILDERS);
 		createEAttribute(pageEClass, PAGE__LANGUAGE);
 		createEAttribute(pageEClass, PAGE__FONT_AWESOME);
+		createEAttribute(pageEClass, PAGE__LINE_AWESOME);
 		createEAttribute(pageEClass, PAGE__JS_TREE);
 		createEAttribute(pageEClass, PAGE__GITHUB_MARKDOWN_CSS);
+		createEAttribute(pageEClass, PAGE__HIGHLIGHT_JS);
 
 		stylesheetEClass = createEClass(STYLESHEET);
 		createEAttribute(stylesheetEClass, STYLESHEET__CODE);
@@ -714,8 +736,10 @@ public class HtmlPackageImpl extends EPackageImpl implements HtmlPackage {
 		initEReference(getPage_Builders(), g1, null, "builders", null, 0, -1, Page.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPage_Language(), ecorePackage.getEString(), "language", null, 0, 1, Page.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPage_FontAwesome(), ecorePackage.getEBoolean(), "fontAwesome", null, 0, 1, Page.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPage_LineAwesome(), ecorePackage.getEBoolean(), "lineAwesome", null, 0, 1, Page.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPage_JsTree(), ecorePackage.getEBoolean(), "jsTree", null, 0, 1, Page.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPage_GithubMarkdownCss(), ecorePackage.getEBoolean(), "githubMarkdownCss", null, 0, 1, Page.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPage_HighlightJs(), ecorePackage.getEBoolean(), "highlightJs", null, 0, 1, Page.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(stylesheetEClass, Stylesheet.class, "Stylesheet", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getStylesheet_Code(), ecorePackage.getEString(), "code", null, 1, 1, Stylesheet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -864,6 +888,12 @@ public class HtmlPackageImpl extends EPackageImpl implements HtmlPackage {
 			   "documentation", "If this attribute is set to true [Font Awesome](https://fontawesome.com/) CDN stylesheet reference is added to the head."
 		   });
 		addAnnotation
+		  (getPage_LineAwesome(),
+		   source,
+		   new String[] {
+			   "documentation", "If this attribute is set to true [Line Awesome](https://icons8.com/line-awesome/) CDN stylesheet reference is added to the head."
+		   });
+		addAnnotation
 		  (getPage_JsTree(),
 		   source,
 		   new String[] {
@@ -874,6 +904,12 @@ public class HtmlPackageImpl extends EPackageImpl implements HtmlPackage {
 		   source,
 		   new String[] {
 			   "documentation", "If this attribute is set to true [GitHub Markdown CSS](https://github.com/sindresorhus/github-markdown-css) CDN stylesheet reference is added to the head."
+		   });
+		addAnnotation
+		  (getPage_HighlightJs(),
+		   source,
+		   new String[] {
+			   "documentation", "If this attribute is set to true [highlight.js](https://highlightjs.org/) CDN script and stylesheet references are added to the head as well as the initialization script in order to provide syntax highlighting in markdown fenced blocks."
 		   });
 		addAnnotation
 		  (stylesheetEClass,

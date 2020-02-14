@@ -21,6 +21,7 @@ import org.nasdanika.common.SupplierFactory;
 import org.nasdanika.common.Util;
 import org.nasdanika.html.HTMLFactory;
 import org.nasdanika.html.HTMLPage;
+import org.nasdanika.html.TagName;
 import org.nasdanika.html.app.ViewBuilder;
 import org.nasdanika.html.app.ViewGenerator;
 import org.nasdanika.html.app.impl.ViewGeneratorImpl;
@@ -43,13 +44,17 @@ import org.nasdanika.vinci.html.Page;
  *   <li>{@link org.nasdanika.vinci.html.impl.PageImpl#getBuilders <em>Builders</em>}</li>
  *   <li>{@link org.nasdanika.vinci.html.impl.PageImpl#getLanguage <em>Language</em>}</li>
  *   <li>{@link org.nasdanika.vinci.html.impl.PageImpl#isFontAwesome <em>Font Awesome</em>}</li>
+ *   <li>{@link org.nasdanika.vinci.html.impl.PageImpl#isLineAwesome <em>Line Awesome</em>}</li>
  *   <li>{@link org.nasdanika.vinci.html.impl.PageImpl#isJsTree <em>Js Tree</em>}</li>
  *   <li>{@link org.nasdanika.vinci.html.impl.PageImpl#isGithubMarkdownCss <em>Github Markdown Css</em>}</li>
+ *   <li>{@link org.nasdanika.vinci.html.impl.PageImpl#isHighlightJs <em>Highlight Js</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class PageImpl extends NamedElementImpl implements Page {
+	private static final String LINE_AWESOME_CSS_CDN = "https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css";
+
 	/**
 	 * The default value of the '{@link #getLanguage() <em>Language</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -71,6 +76,16 @@ public class PageImpl extends NamedElementImpl implements Page {
 	protected static final boolean FONT_AWESOME_EDEFAULT = false;
 
 	/**
+	 * The default value of the '{@link #isLineAwesome() <em>Line Awesome</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isLineAwesome()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean LINE_AWESOME_EDEFAULT = false;
+
+	/**
 	 * The default value of the '{@link #isJsTree() <em>Js Tree</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -89,6 +104,16 @@ public class PageImpl extends NamedElementImpl implements Page {
 	 * @ordered
 	 */
 	protected static final boolean GITHUB_MARKDOWN_CSS_EDEFAULT = false;
+
+	/**
+	 * The default value of the '{@link #isHighlightJs() <em>Highlight Js</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isHighlightJs()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean HIGHLIGHT_JS_EDEFAULT = false;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -188,6 +213,26 @@ public class PageImpl extends NamedElementImpl implements Page {
 	 * @generated
 	 */
 	@Override
+	public boolean isLineAwesome() {
+		return (Boolean)eDynamicGet(HtmlPackage.PAGE__LINE_AWESOME, HtmlPackage.Literals.PAGE__LINE_AWESOME, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setLineAwesome(boolean newLineAwesome) {
+		eDynamicSet(HtmlPackage.PAGE__LINE_AWESOME, HtmlPackage.Literals.PAGE__LINE_AWESOME, newLineAwesome);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public boolean isJsTree() {
 		return (Boolean)eDynamicGet(HtmlPackage.PAGE__JS_TREE, HtmlPackage.Literals.PAGE__JS_TREE, true, true);
 	}
@@ -228,6 +273,26 @@ public class PageImpl extends NamedElementImpl implements Page {
 	 * @generated
 	 */
 	@Override
+	public boolean isHighlightJs() {
+		return (Boolean)eDynamicGet(HtmlPackage.PAGE__HIGHLIGHT_JS, HtmlPackage.Literals.PAGE__HIGHLIGHT_JS, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setHighlightJs(boolean newHighlightJs) {
+		eDynamicSet(HtmlPackage.PAGE__HIGHLIGHT_JS, HtmlPackage.Literals.PAGE__HIGHLIGHT_JS, newHighlightJs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case HtmlPackage.PAGE__HEAD:
@@ -258,10 +323,14 @@ public class PageImpl extends NamedElementImpl implements Page {
 				return getLanguage();
 			case HtmlPackage.PAGE__FONT_AWESOME:
 				return isFontAwesome();
+			case HtmlPackage.PAGE__LINE_AWESOME:
+				return isLineAwesome();
 			case HtmlPackage.PAGE__JS_TREE:
 				return isJsTree();
 			case HtmlPackage.PAGE__GITHUB_MARKDOWN_CSS:
 				return isGithubMarkdownCss();
+			case HtmlPackage.PAGE__HIGHLIGHT_JS:
+				return isHighlightJs();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -293,11 +362,17 @@ public class PageImpl extends NamedElementImpl implements Page {
 			case HtmlPackage.PAGE__FONT_AWESOME:
 				setFontAwesome((Boolean)newValue);
 				return;
+			case HtmlPackage.PAGE__LINE_AWESOME:
+				setLineAwesome((Boolean)newValue);
+				return;
 			case HtmlPackage.PAGE__JS_TREE:
 				setJsTree((Boolean)newValue);
 				return;
 			case HtmlPackage.PAGE__GITHUB_MARKDOWN_CSS:
 				setGithubMarkdownCss((Boolean)newValue);
+				return;
+			case HtmlPackage.PAGE__HIGHLIGHT_JS:
+				setHighlightJs((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -326,11 +401,17 @@ public class PageImpl extends NamedElementImpl implements Page {
 			case HtmlPackage.PAGE__FONT_AWESOME:
 				setFontAwesome(FONT_AWESOME_EDEFAULT);
 				return;
+			case HtmlPackage.PAGE__LINE_AWESOME:
+				setLineAwesome(LINE_AWESOME_EDEFAULT);
+				return;
 			case HtmlPackage.PAGE__JS_TREE:
 				setJsTree(JS_TREE_EDEFAULT);
 				return;
 			case HtmlPackage.PAGE__GITHUB_MARKDOWN_CSS:
 				setGithubMarkdownCss(GITHUB_MARKDOWN_CSS_EDEFAULT);
+				return;
+			case HtmlPackage.PAGE__HIGHLIGHT_JS:
+				setHighlightJs(HIGHLIGHT_JS_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -354,10 +435,14 @@ public class PageImpl extends NamedElementImpl implements Page {
 				return LANGUAGE_EDEFAULT == null ? getLanguage() != null : !LANGUAGE_EDEFAULT.equals(getLanguage());
 			case HtmlPackage.PAGE__FONT_AWESOME:
 				return isFontAwesome() != FONT_AWESOME_EDEFAULT;
+			case HtmlPackage.PAGE__LINE_AWESOME:
+				return isLineAwesome() != LINE_AWESOME_EDEFAULT;
 			case HtmlPackage.PAGE__JS_TREE:
 				return isJsTree() != JS_TREE_EDEFAULT;
 			case HtmlPackage.PAGE__GITHUB_MARKDOWN_CSS:
 				return isGithubMarkdownCss() != GITHUB_MARKDOWN_CSS_EDEFAULT;
+			case HtmlPackage.PAGE__HIGHLIGHT_JS:
+				return isHighlightJs() != HIGHLIGHT_JS_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -414,6 +499,10 @@ public class PageImpl extends NamedElementImpl implements Page {
 					context.get(FontAwesomeFactory.class, FontAwesomeFactory.INSTANCE).cdn(page);
 				}
 				
+				if (isLineAwesome()) {
+					page.stylesheet(LINE_AWESOME_CSS_CDN);
+				}
+				
 				if (isJsTree()) {
 					context.get(JsTreeFactory.class, JsTreeFactory.INSTANCE).cdn(page);
 				}
@@ -421,6 +510,12 @@ public class PageImpl extends NamedElementImpl implements Page {
 				if (isGithubMarkdownCss()) {
 					page.stylesheet(MarkdownHelper.GITHUB_MARKDOWN_CSS_CDN);
 				}
+				
+				if (isHighlightJs()) {
+					page.stylesheet(MarkdownHelper.HIGHLIGHT_JS_CSS_CDN);
+					page.script(MarkdownHelper.HIGHLIGHT_JS_SCRIPT_CDN);
+					page.head(context.get(HTMLFactory.class, HTMLFactory.INSTANCE).tag(TagName.script, MarkdownHelper.HIGHLIGHT_JS_INIT_SCRIPT));
+				}				
 				
 			}
 			
