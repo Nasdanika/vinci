@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<org.nasdanika.vinci.bootstrap:BootstrapPage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.nasdanika.ncore="urn:org.nasdanika.ncore" xmlns:org.nasdanika.vinci.app="urn:org.nasdanika.vinci.app" xmlns:org.nasdanika.vinci.bootstrap="urn:org.nasdanika.vinci.bootstrap" xmlns:org.nasdanika.vinci.html="urn:org.nasdanika.vinci.html" description="Bank of Nasdanika" name="${actions/active/text}" fontAwesome="true" lineAwesome="true" highlightJs="true" jsTree="true" githubMarkdownCss="true" theme="Default">
+<org.nasdanika.vinci.bootstrap:BootstrapPage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.nasdanika.ncore="urn:org.nasdanika.ncore" xmlns:org.nasdanika.vinci.app="urn:org.nasdanika.vinci.app" xmlns:org.nasdanika.vinci.bootstrap="urn:org.nasdanika.vinci.bootstrap" xmlns:org.nasdanika.vinci.html="urn:org.nasdanika.vinci.html" description="Bank of Nasdanika" name="${actions/active/text}" fontAwesome="true" lineAwesome="true" jsTree="true" githubMarkdownCss="true" highlightJs="true" theme="Default">
   <head xsi:type="org.nasdanika.vinci.html:ContentTag" name="meta">
     <attributes xsi:type="org.nasdanika.ncore:Property" value="generator" name="name"/>
     <attributes xsi:type="org.nasdanika.ncore:Property" value="Nasdanika Vinci" name="content"/>
   </head>
+  <head xsi:type="org.nasdanika.vinci.html:Stylesheet" code="@media print {&#xA;  div.nsd-app-navigation-panel {&#xA;    display: none;&#xA;  }&#xA;}"/>
   <builders xsi:type="org.nasdanika.vinci.app:BootstrapContainerApplication" fluid="true">
     <appearance>
       <attributes xsi:type="org.nasdanika.ncore:Object" name="children">
