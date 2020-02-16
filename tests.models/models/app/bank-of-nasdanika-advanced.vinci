@@ -74,7 +74,9 @@
       <elements xsi:type="org.nasdanika.vinci.app:Action" title="Service a.1" id="32f2c454-770b-4627-aacd-8604c022613b" text="Service a.1"/>
       <elements xsi:type="org.nasdanika.vinci.app:Action" title="Service 1.1" id="b8fd4fdb-3db3-470f-8837-f2c54c34ddff" text="Service 1.1"/>
       <elements xsi:type="org.nasdanika.vinci.app:Action" title="Service 1" id="46e48afd-a74a-4121-b53b-7c7bb14fc025" text="Service 1"/>
-      <elements xsi:type="org.nasdanika.vinci.app:Action" title="Service 2" id="0e6d21aa-4d7e-47bc-8b82-d9eb5cfa5ea9" text="Service 2"/>
+      <elements xsi:type="org.nasdanika.vinci.app:Action" title="Service 2" id="0e6d21aa-4d7e-47bc-8b82-d9eb5cfa5ea9" text="Service 2">
+        <actionMappings alias="Mapping-1" target="524984d0-253e-4ac7-b100-3c489d4ccc3a"/>
+      </elements>
       <content xsi:type="org.nasdanika.ncore:Value" value="Lorem ipsum - Bank of Nasdanika Home Page."/>
       <content xsi:type="org.nasdanika.vinci.bootstrap:Container" fluid="true">
         <appearance/>

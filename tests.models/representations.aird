@@ -43,7 +43,7 @@
         <description xmi:type="description_1:DiagramDescription" href="platform:/resource/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']"/>
         <target xmi:type="org.nasdanika.vinci.app:Action" href="models/app/bootstrap-container-action-application.vinci#index"/>
       </ownedRepresentationDescriptors>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_9uBJEQ9HEeqEtJEfHAR34w" name="Bank of Nasdanika Advanced" repPath="#_9tRiMA9HEeqEtJEfHAR34w" changeId="0f3d224a-228f-40d4-927e-7cd34cc440f1">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_9uBJEQ9HEeqEtJEfHAR34w" name="Bank of Nasdanika Advanced" repPath="#_9tRiMA9HEeqEtJEfHAR34w" changeId="145dfb1c-b8a2-4304-b404-bcc532c895a8">
         <description xmi:type="description_1:DiagramDescription" href="platform:/resource/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']"/>
         <target xmi:type="org.nasdanika.vinci.app:Action" href="models/app/bank-of-nasdanika-advanced.vinci#index"/>
       </ownedRepresentationDescriptors>
@@ -1604,6 +1604,21 @@
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_ghRJ4Q9MEeqEtJEfHAR34w" id="(1.0,0.3)"/>
           <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_ghRJ4g9MEeqEtJEfHAR34w" id="(0.0,0.375)"/>
         </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_ZSHm0FD9Eeqqvs2JE16BPA" type="4001" element="_ZRgi0FD9Eeqqvs2JE16BPA" source="_YApy9g9MEeqEtJEfHAR34w" target="_9uUECg9HEeqEtJEfHAR34w">
+          <children xmi:type="notation:Node" xmi:id="_ZSNGYFD9Eeqqvs2JE16BPA" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ZSNGYVD9Eeqqvs2JE16BPA" x="54" y="47"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_ZSNtcFD9Eeqqvs2JE16BPA" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ZSNtcVD9Eeqqvs2JE16BPA" x="-3" y="1"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_ZSO7kFD9Eeqqvs2JE16BPA" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ZSO7kVD9Eeqqvs2JE16BPA" x="6" y="-9"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_ZSHm0VD9Eeqqvs2JE16BPA"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_ZSHm0lD9Eeqqvs2JE16BPA" fontName="Segoe UI" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_ZSHm01D9Eeqqvs2JE16BPA" points="[0, 0, 222, 376]$[45, -333, 267, 43]$[-177, -374, 45, 2]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_ZSRX0FD9Eeqqvs2JE16BPA" id="(0.43333333333333335,0.0)"/>
+        </edges>
       </data>
     </ownedAnnotationEntries>
     <ownedDiagramElements xmi:type="diagram:DNode" uid="_9tkdIA9HEeqEtJEfHAR34w" name="Bank of Nasdanika" outgoingEdges="_9t3YEA9HEeqEtJEfHAR34w _9t3YFQ9HEeqEtJEfHAR34w _9t3YGg9HEeqEtJEfHAR34w __Vs76A9LEeqEtJEfHAR34w" width="20" height="15" resizeKind="NSEW">
@@ -1639,7 +1654,7 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@nodeMappings[name='ActionNode']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNode" uid="_9tuOKA9HEeqEtJEfHAR34w" name="Joe Doe" outgoingEdges="_9t3YLg9HEeqEtJEfHAR34w _9t3YMw9HEeqEtJEfHAR34w _VLNMTg9IEeqEtJEfHAR34w" incomingEdges="_9t3YEA9HEeqEtJEfHAR34w" width="9" height="4" resizeKind="NSEW">
+    <ownedDiagramElements xmi:type="diagram:DNode" uid="_9tuOKA9HEeqEtJEfHAR34w" name="Joe Doe" outgoingEdges="_9t3YLg9HEeqEtJEfHAR34w _9t3YMw9HEeqEtJEfHAR34w _VLNMTg9IEeqEtJEfHAR34w" incomingEdges="_9t3YEA9HEeqEtJEfHAR34w _ZRgi0FD9Eeqqvs2JE16BPA" width="9" height="4" resizeKind="NSEW">
       <target xmi:type="org.nasdanika.vinci.app:Action" href="models/app/bank-of-nasdanika-advanced.vinci#524984d0-253e-4ac7-b100-3c489d4ccc3a"/>
       <semanticElements xmi:type="org.nasdanika.vinci.app:Action" href="models/app/bank-of-nasdanika-advanced.vinci#524984d0-253e-4ac7-b100-3c489d4ccc3a"/>
       <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
@@ -1804,7 +1819,7 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@nodeMappings[name='ActionNode']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNode" uid="_YAgooA9MEeqEtJEfHAR34w" name="Service 2" incomingEdges="_ghRJFA9MEeqEtJEfHAR34w" width="9" height="4" resizeKind="NSEW">
+    <ownedDiagramElements xmi:type="diagram:DNode" uid="_YAgooA9MEeqEtJEfHAR34w" name="Service 2" outgoingEdges="_ZRgi0FD9Eeqqvs2JE16BPA" incomingEdges="_ghRJFA9MEeqEtJEfHAR34w" width="9" height="4" resizeKind="NSEW">
       <target xmi:type="org.nasdanika.vinci.app:Action" href="models/app/bank-of-nasdanika-advanced.vinci#0e6d21aa-4d7e-47bc-8b82-d9eb5cfa5ea9"/>
       <semanticElements xmi:type="org.nasdanika.vinci.app:Action" href="models/app/bank-of-nasdanika-advanced.vinci#0e6d21aa-4d7e-47bc-8b82-d9eb5cfa5ea9"/>
       <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
@@ -1817,73 +1832,73 @@
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_9t3YEA9HEeqEtJEfHAR34w" sourceNode="_9tkdIA9HEeqEtJEfHAR34w" targetNode="_9tuOKA9HEeqEtJEfHAR34w">
       <target xmi:type="org.nasdanika.vinci.app:Action" href="models/app/bank-of-nasdanika-advanced.vinci#index"/>
-      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_byjgEFD5EeqverlLJIcpFQ" size="4" strokeColor="114,159,207">
-        <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@edgeMappings[name='ChildEdge']/@conditionnalStyles.0/@style"/>
-        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_byjgEVD5EeqverlLJIcpFQ"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_AJuwoFD-Eeqqvs2JE16BPA" size="4" strokeColor="114,159,207">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@edgeMappings[name='ChildEdge']/@conditionnalStyles.1/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_AJuwoVD-Eeqqvs2JE16BPA"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/resource/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@edgeMappings[name='ChildEdge']"/>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_9t3YFQ9HEeqEtJEfHAR34w" sourceNode="_9tkdIA9HEeqEtJEfHAR34w" targetNode="_9tuOIg9HEeqEtJEfHAR34w">
       <target xmi:type="org.nasdanika.vinci.app:Action" href="models/app/bank-of-nasdanika-advanced.vinci#index"/>
-      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_YukfwFD7EeqverlLJIcpFQ" size="2" strokeColor="114,159,207">
-        <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@edgeMappings[name='ChildEdge']/@conditionnalStyles.1/@style"/>
-        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_YukfwVD7EeqverlLJIcpFQ"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_AJ03QFD-Eeqqvs2JE16BPA" size="2" strokeColor="114,159,207">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@edgeMappings[name='ChildEdge']/@conditionnalStyles.2/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_AJ03QVD-Eeqqvs2JE16BPA"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/resource/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@edgeMappings[name='ChildEdge']"/>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_9t3YGg9HEeqEtJEfHAR34w" sourceNode="_9tkdIA9HEeqEtJEfHAR34w" targetNode="_9tuOJQ9HEeqEtJEfHAR34w">
       <target xmi:type="org.nasdanika.vinci.app:Action" href="models/app/bank-of-nasdanika-advanced.vinci#index"/>
-      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_nD68FlD4EeqverlLJIcpFQ" size="2">
-        <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@edgeMappings[name='ChildEdge']/@style"/>
-        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_nD68F1D4EeqverlLJIcpFQ"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_RA7-VFD-Eeqqvs2JE16BPA" lineStyle="dash" size="2">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@edgeMappings[name='ChildEdge']/@conditionnalStyles.0/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_RA7-VVD-Eeqqvs2JE16BPA"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/resource/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@edgeMappings[name='ChildEdge']"/>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_9t3YHw9HEeqEtJEfHAR34w" sourceNode="_AkwFoA9IEeqEtJEfHAR34w" targetNode="_9tuOKw9HEeqEtJEfHAR34w">
       <target xmi:type="org.nasdanika.vinci.app:ActionCategory" href="models/app/bank-of-nasdanika-advanced.vinci#fd0a12cd-fd3d-489c-8c86-8684c59b0e73"/>
-      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_Yult6FD7EeqverlLJIcpFQ" size="2" strokeColor="114,159,207">
-        <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@edgeMappings[name='ChildEdge']/@conditionnalStyles.1/@style"/>
-        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_Yult6VD7EeqverlLJIcpFQ"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_AKAdcFD-Eeqqvs2JE16BPA" size="2" strokeColor="114,159,207">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@edgeMappings[name='ChildEdge']/@conditionnalStyles.2/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_AKAdcVD-Eeqqvs2JE16BPA"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/resource/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@edgeMappings[name='ChildEdge']"/>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_9t3YJA9HEeqEtJEfHAR34w" sourceNode="_AkwFoA9IEeqEtJEfHAR34w" targetNode="_9tuOLg9HEeqEtJEfHAR34w">
       <target xmi:type="org.nasdanika.vinci.app:ActionCategory" href="models/app/bank-of-nasdanika-advanced.vinci#fd0a12cd-fd3d-489c-8c86-8684c59b0e73"/>
-      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_Yult7FD7EeqverlLJIcpFQ" size="2" strokeColor="114,159,207">
-        <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@edgeMappings[name='ChildEdge']/@conditionnalStyles.1/@style"/>
-        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_Yult7VD7EeqverlLJIcpFQ"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_AKEH0FD-Eeqqvs2JE16BPA" size="2" strokeColor="114,159,207">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@edgeMappings[name='ChildEdge']/@conditionnalStyles.2/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_AKEH0VD-Eeqqvs2JE16BPA"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/resource/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@edgeMappings[name='ChildEdge']"/>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_9t3YKQ9HEeqEtJEfHAR34w" sourceNode="_AkwFoA9IEeqEtJEfHAR34w" targetNode="_9tuOMQ9HEeqEtJEfHAR34w">
       <target xmi:type="org.nasdanika.vinci.app:ActionCategory" href="models/app/bank-of-nasdanika-advanced.vinci#fd0a12cd-fd3d-489c-8c86-8684c59b0e73"/>
-      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_Yult5FD7EeqverlLJIcpFQ" size="2" strokeColor="114,159,207">
-        <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@edgeMappings[name='ChildEdge']/@conditionnalStyles.1/@style"/>
-        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_Yult5VD7EeqverlLJIcpFQ"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_AJ-oQFD-Eeqqvs2JE16BPA" size="2" strokeColor="114,159,207">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@edgeMappings[name='ChildEdge']/@conditionnalStyles.2/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_AJ-oQVD-Eeqqvs2JE16BPA"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/resource/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@edgeMappings[name='ChildEdge']"/>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_9t3YLg9HEeqEtJEfHAR34w" sourceNode="_9tuOKA9HEeqEtJEfHAR34w" targetNode="_9tuONA9HEeqEtJEfHAR34w">
       <target xmi:type="org.nasdanika.vinci.app:Action" href="models/app/bank-of-nasdanika-advanced.vinci#524984d0-253e-4ac7-b100-3c489d4ccc3a"/>
-      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_nD8KNlD4EeqverlLJIcpFQ" size="2">
-        <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@edgeMappings[name='ChildEdge']/@style"/>
-        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_nD8KN1D4EeqverlLJIcpFQ"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_RA-aplD-Eeqqvs2JE16BPA" lineStyle="dash" size="2">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@edgeMappings[name='ChildEdge']/@conditionnalStyles.0/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_RA-ap1D-Eeqqvs2JE16BPA"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/resource/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@edgeMappings[name='ChildEdge']"/>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_9t3YMw9HEeqEtJEfHAR34w" sourceNode="_9tuOKA9HEeqEtJEfHAR34w" targetNode="_9tuONw9HEeqEtJEfHAR34w">
       <target xmi:type="org.nasdanika.vinci.app:Action" href="models/app/bank-of-nasdanika-advanced.vinci#524984d0-253e-4ac7-b100-3c489d4ccc3a"/>
-      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_nD8KOlD4EeqverlLJIcpFQ" size="2">
-        <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@edgeMappings[name='ChildEdge']/@style"/>
-        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_nD8KO1D4EeqverlLJIcpFQ"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_RA-aqlD-Eeqqvs2JE16BPA" lineStyle="dash" size="2">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@edgeMappings[name='ChildEdge']/@conditionnalStyles.0/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_RA-aq1D-Eeqqvs2JE16BPA"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/resource/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@edgeMappings[name='ChildEdge']"/>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_9t3YOA9HEeqEtJEfHAR34w" sourceNode="_9tuOKw9HEeqEtJEfHAR34w" targetNode="_9tuOOg9HEeqEtJEfHAR34w">
       <target xmi:type="org.nasdanika.vinci.app:Action" href="models/app/bank-of-nasdanika-advanced.vinci#b24142d2-b17a-4357-86ae-9717644db759"/>
-      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_nD8xRFD4EeqverlLJIcpFQ" size="2">
-        <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@edgeMappings[name='ChildEdge']/@style"/>
-        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_nD8xRVD4EeqverlLJIcpFQ"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_RA_BpFD-Eeqqvs2JE16BPA" lineStyle="dash" size="2">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@edgeMappings[name='ChildEdge']/@conditionnalStyles.0/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_RA_BpVD-Eeqqvs2JE16BPA"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/resource/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@edgeMappings[name='ChildEdge']"/>
     </ownedDiagramElements>
@@ -1941,9 +1956,9 @@
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="__Vs76A9LEeqEtJEfHAR34w" sourceNode="_9tkdIA9HEeqEtJEfHAR34w" targetNode="_1vEYsA9LEeqEtJEfHAR34w">
       <target xmi:type="org.nasdanika.vinci.app:Action" href="models/app/bank-of-nasdanika-advanced.vinci#index"/>
-      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_Yult4FD7EeqverlLJIcpFQ" size="2" strokeColor="114,159,207">
-        <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@edgeMappings[name='ChildEdge']/@conditionnalStyles.1/@style"/>
-        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_Yult4VD7EeqverlLJIcpFQ"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_AJ7k8FD-Eeqqvs2JE16BPA" size="2" strokeColor="114,159,207">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@edgeMappings[name='ChildEdge']/@conditionnalStyles.2/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_AJ7k8VD-Eeqqvs2JE16BPA"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/resource/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@edgeMappings[name='ChildEdge']"/>
     </ownedDiagramElements>
@@ -1973,67 +1988,76 @@
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_Zik4iA9MEeqEtJEfHAR34w" sourceNode="_DGhiAA9MEeqEtJEfHAR34w" targetNode="_W7ZasA9MEeqEtJEfHAR34w">
       <target xmi:type="org.nasdanika.vinci.app:ActionCategory" href="models/app/bank-of-nasdanika-advanced.vinci#f5c04d48-ada8-414f-bd37-862ded859c6b"/>
-      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_Yult8FD7EeqverlLJIcpFQ" size="2" strokeColor="114,159,207">
-        <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@edgeMappings[name='ChildEdge']/@conditionnalStyles.1/@style"/>
-        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_Yult8VD7EeqverlLJIcpFQ"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_AKGkEFD-Eeqqvs2JE16BPA" size="2" strokeColor="114,159,207">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@edgeMappings[name='ChildEdge']/@conditionnalStyles.2/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_AKGkEVD-Eeqqvs2JE16BPA"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/resource/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@edgeMappings[name='ChildEdge']"/>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_aH_SvA9MEeqEtJEfHAR34w" sourceNode="_DGhiAA9MEeqEtJEfHAR34w" targetNode="_T1QwMA9MEeqEtJEfHAR34w">
       <target xmi:type="org.nasdanika.vinci.app:ActionCategory" href="models/app/bank-of-nasdanika-advanced.vinci#f5c04d48-ada8-414f-bd37-862ded859c6b"/>
-      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_Yult9FD7EeqverlLJIcpFQ" size="2" strokeColor="114,159,207">
-        <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@edgeMappings[name='ChildEdge']/@conditionnalStyles.1/@style"/>
-        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_Yult9VD7EeqverlLJIcpFQ"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_AKJAUFD-Eeqqvs2JE16BPA" size="2" strokeColor="114,159,207">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@edgeMappings[name='ChildEdge']/@conditionnalStyles.2/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_AKJAUVD-Eeqqvs2JE16BPA"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/resource/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@edgeMappings[name='ChildEdge']"/>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_bbcesA9MEeqEtJEfHAR34w" sourceNode="_D6Yn4A9MEeqEtJEfHAR34w" targetNode="_WS0XwA9MEeqEtJEfHAR34w">
       <target xmi:type="org.nasdanika.vinci.app:ActionCategory" href="models/app/bank-of-nasdanika-advanced.vinci#812d2e74-3c33-4fd2-a2c4-24be0c1ee48f"/>
-      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_YumU8FD7EeqverlLJIcpFQ" size="2" strokeColor="114,159,207">
-        <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@edgeMappings[name='ChildEdge']/@conditionnalStyles.1/@style"/>
-        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_YumU8VD7EeqverlLJIcpFQ"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_AKMqsFD-Eeqqvs2JE16BPA" size="2" strokeColor="114,159,207">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@edgeMappings[name='ChildEdge']/@conditionnalStyles.2/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_AKMqsVD-Eeqqvs2JE16BPA"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/resource/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@edgeMappings[name='ChildEdge']"/>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_cCzZpA9MEeqEtJEfHAR34w" sourceNode="_D6Yn4A9MEeqEtJEfHAR34w" targetNode="_UoZdUA9MEeqEtJEfHAR34w">
       <target xmi:type="org.nasdanika.vinci.app:ActionCategory" href="models/app/bank-of-nasdanika-advanced.vinci#812d2e74-3c33-4fd2-a2c4-24be0c1ee48f"/>
-      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_YumU9FD7EeqverlLJIcpFQ" size="2" strokeColor="114,159,207">
-        <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@edgeMappings[name='ChildEdge']/@conditionnalStyles.1/@style"/>
-        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_YumU9VD7EeqverlLJIcpFQ"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_AKPuAFD-Eeqqvs2JE16BPA" size="2" strokeColor="114,159,207">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@edgeMappings[name='ChildEdge']/@conditionnalStyles.2/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_AKPuAVD-Eeqqvs2JE16BPA"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/resource/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@edgeMappings[name='ChildEdge']"/>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_csFAKA9MEeqEtJEfHAR34w" sourceNode="_EeSmMA9MEeqEtJEfHAR34w" targetNode="_VOGLYA9MEeqEtJEfHAR34w">
       <target xmi:type="org.nasdanika.vinci.app:ActionCategory" href="models/app/bank-of-nasdanika-advanced.vinci#40f42c7f-0dd9-4305-8c36-bef9b2452369"/>
-      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_YumU-FD7EeqverlLJIcpFQ" size="2" strokeColor="114,159,207">
-        <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@edgeMappings[name='ChildEdge']/@conditionnalStyles.1/@style"/>
-        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_YumU-VD7EeqverlLJIcpFQ"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_AKRjMFD-Eeqqvs2JE16BPA" size="2" strokeColor="114,159,207">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@edgeMappings[name='ChildEdge']/@conditionnalStyles.2/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_AKRjMVD-Eeqqvs2JE16BPA"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/resource/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@edgeMappings[name='ChildEdge']"/>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_dSHFbA9MEeqEtJEfHAR34w" sourceNode="_EeSmMA9MEeqEtJEfHAR34w" targetNode="_VukbMA9MEeqEtJEfHAR34w">
       <target xmi:type="org.nasdanika.vinci.app:ActionCategory" href="models/app/bank-of-nasdanika-advanced.vinci#40f42c7f-0dd9-4305-8c36-bef9b2452369"/>
-      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_YumU_FD7EeqverlLJIcpFQ" size="2" strokeColor="114,159,207">
-        <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@edgeMappings[name='ChildEdge']/@conditionnalStyles.1/@style"/>
-        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_YumU_VD7EeqverlLJIcpFQ"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_AKT_cFD-Eeqqvs2JE16BPA" size="2" strokeColor="114,159,207">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@edgeMappings[name='ChildEdge']/@conditionnalStyles.2/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_AKT_cVD-Eeqqvs2JE16BPA"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/resource/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@edgeMappings[name='ChildEdge']"/>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_fuvf8A9MEeqEtJEfHAR34w" sourceNode="_1vEYsA9LEeqEtJEfHAR34w" targetNode="_Xf6dAA9MEeqEtJEfHAR34w">
       <target xmi:type="org.nasdanika.vinci.app:Action" href="models/app/bank-of-nasdanika-advanced.vinci#b5aaeece-2e7c-4676-9cae-4899973bf52e"/>
-      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_u3wkgFD7EeqverlLJIcpFQ" size="2" strokeColor="114,159,207">
-        <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@edgeMappings[name='ChildEdge']/@conditionnalStyles.1/@style"/>
-        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_u3wkgVD7EeqverlLJIcpFQ"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_AKj3EFD-Eeqqvs2JE16BPA" size="2" strokeColor="114,159,207">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@edgeMappings[name='ChildEdge']/@conditionnalStyles.2/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_AKj3EVD-Eeqqvs2JE16BPA"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/resource/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@edgeMappings[name='ChildEdge']"/>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_ghRJFA9MEeqEtJEfHAR34w" sourceNode="_1vEYsA9LEeqEtJEfHAR34w" targetNode="_YAgooA9MEeqEtJEfHAR34w">
       <target xmi:type="org.nasdanika.vinci.app:Action" href="models/app/bank-of-nasdanika-advanced.vinci#b5aaeece-2e7c-4676-9cae-4899973bf52e"/>
-      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_Yup_UFD7EeqverlLJIcpFQ" size="2" strokeColor="114,159,207">
-        <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@edgeMappings[name='ChildEdge']/@conditionnalStyles.1/@style"/>
-        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_Yup_UVD7EeqverlLJIcpFQ"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_AKmTUFD-Eeqqvs2JE16BPA" size="2" strokeColor="114,159,207">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@edgeMappings[name='ChildEdge']/@conditionnalStyles.2/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_AKmTUVD-Eeqqvs2JE16BPA"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/resource/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@edgeMappings[name='ChildEdge']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_ZRgi0FD9Eeqqvs2JE16BPA" name="Mapping-1" sourceNode="_YAgooA9MEeqEtJEfHAR34w" targetNode="_9tuOKA9HEeqEtJEfHAR34w">
+      <target xmi:type="org.nasdanika.vinci.app:ActionMapping" href="models/app/bank-of-nasdanika-advanced.vinci#//@builders.0/@builders.0/@elements.21/@actionMappings.0"/>
+      <semanticElements xmi:type="org.nasdanika.vinci.app:ActionMapping" href="models/app/bank-of-nasdanika-advanced.vinci#//@builders.0/@builders.0/@elements.21/@actionMappings.0"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_ZRhw8FD9Eeqqvs2JE16BPA" size="2" strokeColor="0,0,0">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@edgeMappings[name='MappingEdge']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_ZRhw8VD9Eeqqvs2JE16BPA" showIcon="false"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/resource/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']/@defaultLayer/@edgeMappings[name='MappingEdge']"/>
     </ownedDiagramElements>
     <description xmi:type="description_1:DiagramDescription" href="platform:/resource/org.nasdanika.vinci.design/description/vinci.odesign#//@ownedViewpoints[name='VinciViewPoint']/@ownedRepresentations[name='ActionDiagram']"/>
     <filterVariableHistory xmi:type="diagram:FilterVariableHistory" uid="_9tasIA9HEeqEtJEfHAR34w"/>

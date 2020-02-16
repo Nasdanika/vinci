@@ -13,7 +13,6 @@ import org.nasdanika.ncore.NcorePackage;
 import org.nasdanika.vinci.app.ActionBase;
 import org.nasdanika.vinci.app.ActionElement;
 import org.nasdanika.vinci.app.ActionRole;
-import org.nasdanika.vinci.app.Container;
 
 /**
  * The services class used by VSM.
@@ -112,18 +111,36 @@ public class Services {
     	EdgeTarget targetNode = view.getTargetNode();
     	if (targetNode instanceof DNode) {
     		EList<EObject> semanticElements = ((DNode) targetNode).getSemanticElements();
-    		System.out.println(semanticElements);
 			if (semanticElements.size() == 1) {
     			EObject target = semanticElements.get(0);
     			if (target instanceof ActionBase) {
     				String role = ((ActionBase) target).getRole();
-    				System.out.println(role);
     				return ActionRole.NAVIGATION.label.equals(role);
     			}
 			}
     	}
     	return false;
     }
+    
+	/**
+	 * 
+	 * @param self
+	 * @return true if target role is navigation
+	 */
+	public boolean isContext(EObject self, DEdge view) {
+		EdgeTarget targetNode = view.getTargetNode();
+		if (targetNode instanceof DNode) {
+			EList<EObject> semanticElements = ((DNode) targetNode).getSemanticElements();
+			if (semanticElements.size() == 1) {
+				EObject target = semanticElements.get(0);
+				if (target instanceof ActionBase) {
+					String role = ((ActionBase) target).getRole();
+					return ActionRole.CONTEXT.label.equals(role);
+				}
+			}
+		}
+		return false;
+	}
     
     /**
      * @param self
