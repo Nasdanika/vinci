@@ -15,7 +15,8 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.sirius.properties;bundle-version="6.2.1",
  org.eclipse.sirius.ui;bundle-version="6.2.1",
  org.nasdanika.emf.edit;bundle-version="1.0.0";visibility:=reexport,
- org.nasdanika.vinci.editor;bundle-version="1.0.0"
+ org.nasdanika.vinci.editor;bundle-version="1.0.0",
+ org.eclipse.sirius.diagram;bundle-version="6.3.0"
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-Vendor: %providerName

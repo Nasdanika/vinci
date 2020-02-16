@@ -129,11 +129,11 @@ public class ActionMappingItemProvider
 	 * This returns ActionMapping.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/ActionMapping"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ActionMapping.png"));
 	}
 
 	/**
@@ -155,9 +155,7 @@ public class ActionMappingItemProvider
 	@Override
 	public String getText(Object object) {
 		String label = ((ActionMapping)object).getAlias();
-		return label == null || label.length() == 0 ?
-			getString("_UI_ActionMapping_type") :
-			getString("_UI_ActionMapping_type") + " " + label;
+		return label == null || label.length() == 0 ? getString("_UI_ActionMapping_type") :	label;
 	}
 
 
