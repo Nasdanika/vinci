@@ -155,7 +155,9 @@ public class ActionFacade extends org.nasdanika.html.app.impl.ActionImpl impleme
 				public void decorate(Object target, ViewGenerator viewGenerator) {
 					if (categoryDecoratorSupplier != null) {
 						Object decoratorSelector = viewGenerator.get(Decorator.SELECTOR_KEY);
-						if ("content-panel.breadcrumb".equals(decoratorSelector)) {
+						if (Decorator.NO_DECORATOR.equals(decoratorSelector)) {
+							// NOP
+						} else if ("content-panel.breadcrumb".equals(decoratorSelector)) {
 							// TODO 
 						} else {
 							NullProgressMonitor progressMonitor = new NullProgressMonitor(); // A better way - from the viewGenerator?
@@ -244,7 +246,9 @@ public class ActionFacade extends org.nasdanika.html.app.impl.ActionImpl impleme
 	public void decorate(Object target, ViewGenerator viewGenerator) {
 		if (decoratorSupplier != null) {
 			Object decoratorSelector = viewGenerator.get(Decorator.SELECTOR_KEY);
-			if ("content-panel.title".equals(decoratorSelector)) {
+			if (Decorator.NO_DECORATOR.equals(decoratorSelector)) {
+				// NOP
+			} else if ("content-panel.title".equals(decoratorSelector)) {
 				// TODO
 			} else if ("content-panel.breadcrumb".equals(decoratorSelector)) {
 				// TODO 

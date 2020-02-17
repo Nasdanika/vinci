@@ -308,6 +308,9 @@
       <content xsi:type="org.nasdanika.vinci.components:MarkdownText" markdown="Paragraphs content"/>
     </elements>
     <elements xsi:type="org.nasdanika.vinci.app:ActionCategory" title="Table category" id="4bc25192-69c4-4d93-8bb6-5e2195a5e872" color="Success" text="Table category" icon="fas fa-table">
+      <appearance>
+        <text color="Danger" monospace="true"/>
+      </appearance>
       <elements xsi:type="org.nasdanika.vinci.app:Action" title="Table" id="b8a64e72-e826-4d62-a1e5-95f02d8e8725" text="Table" sectionStyle="Table">
         <elements xsi:type="org.nasdanika.vinci.app:Action" title="Section 1" id="c9b86c77-8144-4f7d-8e76-1d8644f32b8d" text="Section 1" sectionStyle="Card" sectionColumns="1">
           <elements xsi:type="org.nasdanika.vinci.app:Action" title="Context 1.1" id="dae37e9f-1771-4c72-af01-7872adff7098" text="Context 1.1" role="Context" sectionColumns="1">
@@ -494,6 +497,7 @@
         <content xsi:type="org.nasdanika.vinci.components:MarkdownText" markdown="Paragraphs content"/>
       </elements>
     </elements>
+    <content xsi:type="org.nasdanika.vinci.components:ListOfContents" header="List of contents" ordering="Rotate"/>
   </elements>
   <elements xsi:type="org.nasdanika.vinci.app:Action" title="Navigation 2" id="f51b3813-9656-46a2-a2e2-5a3958cd8fa6" text="Nav 2"/>
   <elements xsi:type="org.nasdanika.vinci.app:Action" title="Footer action" id="54010cb6-8d9c-48e6-a2be-4bb49aec3240" text="Footer action" role="Context" markdownContent="My footer action."/>
