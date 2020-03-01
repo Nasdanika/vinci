@@ -20,33 +20,32 @@
 	<repositories>
 		<repository>
 			<id>foundation</id>
-			<url>https://www.nasdanika.org/${env.CIRCLE_BRANCH}/foundation-repository</url>
-			<layout>p2</layout>
-		</repository>
-		<repository>
-			<id>third-party</id>
-			<url>https://www.nasdanika.org/master/products/third-party/repository</url>
-			<layout>p2</layout>
-		</repository>
-		<repository>
-			<id>maven-osgi</id>
-			<url>https://www.nasdanika.org/master/products/maven-osgi/repository</url>
+			<url>https://www.nasdanika.org/builds/${env.RELEASE}/repositories/composite</url>
 			<layout>p2</layout>
 		</repository>
 		<repository>
 			<id>core</id>
-			<url>https://www.nasdanika.org/${env.CIRCLE_BRANCH}/products/core/repository</url>
+			<url>https://www.nasdanika.org/builds/${env.RELEASE}/products/core/repository</url>
 			<layout>p2</layout>
 		</repository>
 		<repository>
 			<id>html</id>
-			<url>https://www.nasdanika.org/${env.CIRCLE_BRANCH}/products/html/repository</url>
+			<url>https://www.nasdanika.org/builds/${env.RELEASE}/products/html/repository</url>
 			<layout>p2</layout>
 		</repository>
 	</repositories>
 	<build>
 		<sourceDirectory>src</sourceDirectory>
 		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+			    <artifactId>maven-site-plugin</artifactId>
+			    <version>3.8.2</version>
+			    <configuration>
+			        <skip>true</skip>
+			        <skipDeploy>true</skipDeploy>
+			    </configuration>
+			</plugin>	
 			  <plugin>
 			    <artifactId>maven-clean-plugin</artifactId>
 			    <version>3.1.0</version>
