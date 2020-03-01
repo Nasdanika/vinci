@@ -2,21 +2,15 @@
 <?pde version="3.8"?>
 <target name="org.nasdanika.vinci.tests.target">
 	<locations>
-		<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
-			<repository location="https://www.nasdanika.org/master/products/third-party/repository"/>
-			<unit id="org.nasdanika.third-party.feature.feature.group" version="2.2020.1.202001050312"/>
-		</location>
 		<location path="${eclipse_home}" type="Profile"/>
 		<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
-			<repository location="https://www.nasdanika.org/master/foundation-repository"/>
+			<repository location="https://www.nasdanika.org/builds/develop/repositories/composite"/>
+			<unit id="org.nasdanika.third-party.feature.feature.group" version="2020.3.0.202002261503"/>
 			<unit id="org.hamcrest.library" version="1.3.0.v20180524-2246"/>
 			<unit id="org.junit" version="4.12.0.v201504281640"/>
 			<unit id="org.eclipse.emf.sdk.feature.group" version="2.20.0.v20191028-0905"/>
-		</location>
-		<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
-			<repository location="https://www.nasdanika.org/master/products/maven-osgi/repository"/>
 			<unit id="json" version="20190722.0.0"/>
-			<unit id="net.sourceforge.plantuml" version="1.2019.9"/>
+			<unit id="net.sourceforge.plantuml" version="1.2020.0"/>
 			<unit id="org.apache.commons.commons-codec" version="1.13.0"/>
 			<unit id="org.apache.commons.commons-text" version="1.8.0"/>
 			<unit id="org.apache.commons.lang3" version="3.9.0"/>

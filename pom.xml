@@ -46,34 +46,6 @@
 	</repositories>
 	<build>
 		<sourceDirectory>src</sourceDirectory>
-		<!-- 
-		<pluginManagement>
-			<plugins>
-				<plugin>
-					<groupId>org.eclipse.tycho.extras</groupId>
-					<artifactId>tycho-document-bundle-plugin</artifactId>
-					<version>${tycho-version}</version>
-					<configuration>
-						<javadocOptions>
-							<ignoreError>true</ignoreError>
-							
-				        	<doclet>ch.raffael.doclets.pegdown.PegdownDoclet</doclet>
-				        	<docletArtifacts>
-					        	<docletArtifact>
-					         		<groupId>ch.raffael.pegdown-doclet</groupId>
-					         		<artifactId>pegdown-doclet</artifactId>
-					        		<version>1.1</version>
-					        	</docletArtifact>
-				        	</docletArtifacts>
-						    <includes>
-						       <include>org.nasdanika.*</include>
-						    </includes>				        	
-						</javadocOptions>					
-					</configuration>
-				</plugin>
-			</plugins>
-		</pluginManagement>
-		-->
 		<plugins>
 			  <plugin>
 			    <artifactId>maven-clean-plugin</artifactId>
@@ -90,29 +62,12 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-javadoc-plugin</artifactId>
-				<version>3.1.0</version>
+				<version>3.1.1</version>
 				<configuration>
 					<linksource>true</linksource>
 					<failOnError>false</failOnError>
 					
-			        	<doclet>ch.raffael.doclets.pegdown.PegdownDoclet</doclet>
-			        	<docletArtifact>
-			         		<groupId>ch.raffael.pegdown-doclet</groupId>
-			         		<artifactId>pegdown-doclet</artifactId>
-			        		<version>1.1</version>
-			        	</docletArtifact>
 			        	<useStandardDocletOptions>true</useStandardDocletOptions>
-					
-					<links>
-						<link>http://download.eclipse.org/modeling/emf/emf/javadoc/2.11</link>
-						<link>http://help.eclipse.org/oxygen/topic/org.eclipse.emf.cdo.doc/javadoc</link>		
-						<link>http://help.eclipse.org/oxygen/topic/org.eclipse.platform.doc.isv/reference/api</link>
-						<link>http://stleary.github.io/JSON-java</link>			
-						<link>https://osgi.org/javadoc/r4v42/</link>
-						<link>https://www.nasdanika.org/products/config/apidocs/model</link>
-						<link>https://www.nasdanika.org/products/config/apidocs/edit</link>
-						<link>https://www.nasdanika.org/products/config/apidocs/editor</link>
-					</links>
 				</configuration>				
 			</plugin>
 			<plugin>
@@ -198,8 +153,6 @@
 	</modules>
 
 	<name>Nasdanika Vinci</name>
-	<!-- For resolution of JavaDoc between modules -->
-	<url>http://www.nasdanika.org/products/vinci/apidocs/</url>
 	<organization>
 		<name>Nasdanika LLC</name>
 		<url>http://www.nasdanika.org</url>
