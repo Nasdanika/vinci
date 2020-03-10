@@ -63,6 +63,7 @@ import org.eclipse.ui.dialogs.WizardNewFileCreationPage;
 import org.eclipse.ui.part.FileEditorInput;
 import org.eclipse.ui.part.ISetSelectionTarget;
 import org.eclipse.ui.wizards.newresource.BasicNewResourceWizard;
+import org.nasdanika.common.Util;
 import org.nasdanika.ncore.ModelElement;
 import org.nasdanika.ncore.NamedElement;
 
@@ -182,9 +183,15 @@ public class VinciModelWizard extends Wizard implements INewWizard {
 							EObject rootObject = initialObjectConfigurationPage.getInitialModel();
 							// Default name or title.
 							if (rootObject instanceof NamedElement) {
-								((NamedElement) rootObject).setName(logicalName);
+								NamedElement namedRoot = (NamedElement) rootObject;
+								if (Util.isBlank(namedRoot.getName())) {
+									namedRoot.setName(logicalName);
+								}
 							} else if (rootObject instanceof ModelElement) {
-								((ModelElement) rootObject).setTitle(logicalName);
+								ModelElement meRoot = (ModelElement) rootObject;
+								if (Util.isBlank(meRoot.getTitle())) {
+									meRoot.setTitle(logicalName);
+								}
 							}
 							if (rootObject != null) {
 								resource.getContents().add(rootObject);
