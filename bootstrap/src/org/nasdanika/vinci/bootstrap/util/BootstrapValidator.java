@@ -379,9 +379,12 @@ public class BootstrapValidator extends EObjectValidator {
 			Set<String> names = new HashSet<>();
 			boolean ret = true;
 			for (org.nasdanika.ncore.Entry<?> attr: appearance.getAttributes()) {
-				if (attr.isEnabled()) {
+				if (attr.isEnabled()) {					
 					DiagnosticHelper helper = new DiagnosticHelper(diagnostics, DIAGNOSTIC_SOURCE, 0, attr);
-					if (!names.add(attr.getName())) {
+					if (Util.isBlank(attr.getName())) {
+						helper.error("Empty attribute name", NcorePackage.Literals.NAMED_ELEMENT__NAME);
+						ret = false;						
+					} else if (!names.add(attr.getName())) {
 						helper.error("Duplicate attribute: "+attr.getName(), NcorePackage.Literals.NAMED_ELEMENT__NAME);
 						ret = false;
 					}
