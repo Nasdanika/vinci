@@ -82,7 +82,6 @@ public class Activator extends AbstractUIPlugin {
 									}
 									generateMenuManager.add(new GenerateContentAction("Content", (EObject) selectedElement, null));		
 								} else if (selectedElement instanceof AbstractAction) {
-									// TODO - multiple templates, categorize.
 									generateMenuManager.add(new GenerateTemplatedApplicationAction("Application", (AbstractAction) selectedElement, null));						
 								} else if (selectedElement instanceof SupplierFactory) {
 									generateMenuManager.add(new GenerateContentAction("Content", (EObject) selectedElement, null));			

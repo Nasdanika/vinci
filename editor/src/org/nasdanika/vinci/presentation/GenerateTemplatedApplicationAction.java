@@ -57,7 +57,7 @@ import org.nasdanika.vinci.bootstrap.BootstrapPage;
 import org.nasdanika.vinci.html.HtmlPackage;
 
 /**
- * Generate an application from a root action using a page template.
+ * Generate an application from the root action using a page template.
  * @author Pavel Vlasov
  *
  */
@@ -154,7 +154,7 @@ public class GenerateTemplatedApplicationAction extends VinciGenerateAction<Abst
 			
 			NavigationActionActivator naa = (NavigationActionActivator) activator;
 			String url = naa.getUrl();
-			if (isValidAndRelative(url)) {
+			if (Util.isValidAndRelative(url)) {
 				List<Action> navChildren = rootAction.getNavigationChildren();
 				Action principalAction = navChildren.isEmpty() ? null : navChildren.get(0); 
 				List<Action> navigationPanelActions = principalAction == null ? Collections.emptyList() : principalAction.getNavigationChildren(); 

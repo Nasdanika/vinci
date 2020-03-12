@@ -54,6 +54,7 @@ public class GenerateApplicationAction<T extends EObject & SupplierFactory<Objec
 		super(name, modelElement, adapterFactory);
 	}
 	
+	@Override
 	protected void execute(IProgressMonitor monitor) throws Exception {	
 		try {
 			IFile modelFile = ResourcesPlugin.getWorkspace().getRoot().getFile(new Path(modelElement.eResource().getURI().toPlatformString(true)));
@@ -139,7 +140,7 @@ public class GenerateApplicationAction<T extends EObject & SupplierFactory<Objec
 					url += "#" + action.getId();
 				}
 			}
-			if (Util.isBlank(url) || isValidAndRelative(url)) {
+			if (Util.isBlank(url) || Util.isValidAndRelative(url)) {
 				int hashIdx = url.indexOf("#");				
 				actionIds.put(action.getId(), hashIdx == -1 ? url : url.substring(0, hashIdx));
 			}
