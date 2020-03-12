@@ -107,8 +107,7 @@ public interface Container extends EObject {
 		String markdown = getMarkdownContent();
 		if (!Util.isBlank(markdown)) {
 			SupplierFactory<ViewPart> markdownSupplierFactory = SupplierFactory.from((context, progressMonidor) -> {
-				MarkdownHelper markdownHelper = new MarkdownHelper();
-				return ViewPart.fromValue(context.interpolate(markdownHelper.markdownToHtml(markdown).trim()));				
+				return ViewPart.fromValue(context.interpolate(MarkdownHelper.INSTANCE.markdownToHtml(markdown).trim()));				
 			},  "Markdown content", 1);
 						
 			contentSupplierFactory.add(markdownSupplierFactory);

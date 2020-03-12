@@ -78,11 +78,10 @@ public class ActionFacade extends org.nasdanika.html.app.impl.ActionImpl impleme
 		String mDescription = target.getDescription();
 		String mTooltip = target.getTooltip();
 		if (!Util.isBlank(mDescription)) {
-			MarkdownHelper mHelper = new MarkdownHelper();
-			setDescription(mHelper.markdownToHtml(mDescription));
+			setDescription(MarkdownHelper.INSTANCE.markdownToHtml(mDescription));
 			if (Util.isBlank(mTooltip)) {
 				String textDoc = Jsoup.parse(getDescription()).text();
-				setTooltip(mHelper.firstSentence(textDoc));
+				setTooltip(MarkdownHelper.INSTANCE.firstSentence(textDoc));
 
 			}
 		}
@@ -193,11 +192,10 @@ public class ActionFacade extends org.nasdanika.html.app.impl.ActionImpl impleme
 			String catDescription = actionCategory.getDescription();
 			String catTooltip = actionCategory.getTooltip();
 			if (!Util.isBlank(catDescription)) {
-				MarkdownHelper catHelper = new MarkdownHelper();
-				cat.setDescription(catHelper.markdownToHtml(catDescription));
+				cat.setDescription(MarkdownHelper.INSTANCE.markdownToHtml(catDescription));
 				if (Util.isBlank(catTooltip)) {
 					String textDoc = Jsoup.parse(cat.getDescription()).text();
-					cat.setTooltip(catHelper.firstSentence(textDoc));
+					cat.setTooltip(MarkdownHelper.INSTANCE.firstSentence(textDoc));
 
 				}
 			}

@@ -1,6 +1,7 @@
 package org.nasdanika.vinci.presentation.cli;
 
 import org.nasdanika.cli.CommandBase;
+import org.nasdanika.cli.Description;
 
 import picocli.CommandLine.Command;
 

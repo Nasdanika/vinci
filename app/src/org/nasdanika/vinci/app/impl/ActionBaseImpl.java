@@ -860,8 +860,7 @@ public abstract class ActionBaseImpl extends LabelImpl implements ActionBase {
 		String markdown = getMarkdownContent();
 		if (!Util.isBlank(markdown)) {
 			SupplierFactory<Object> markdownSupplierFactory = SupplierFactory.from((ctx, progressMonidor) -> {
-				MarkdownHelper markdownHelper = new MarkdownHelper();
-				String html = ctx.interpolate(markdownHelper.markdownToHtml(markdown).trim());
+				String html = ctx.interpolate(MarkdownHelper.INSTANCE.markdownToHtml(markdown).trim());
 				return TagName.div.create(html).addClass("markdown-body");
 			},  "Markdown content", 1);
 			content.add(markdownSupplierFactory);

@@ -248,8 +248,7 @@ public abstract class MarkdownImpl extends ModelElementImpl implements Markdown 
 
 			@Override
 			public Object generate(ViewGenerator viewGenerator, ProgressMonitor progressMonitor) {
-				MarkdownHelper markdownHelper = new MarkdownHelper();
-				String html = markdownHelper.markdownToHtml(markdown).trim();
+				String html = MarkdownHelper.INSTANCE.markdownToHtml(markdown).trim();
 				if (isInterpolate()) {
 					html = context.interpolate(html);
 				}
