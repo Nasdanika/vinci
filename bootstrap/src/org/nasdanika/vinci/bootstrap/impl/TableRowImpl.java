@@ -16,8 +16,10 @@ import org.nasdanika.common.ListCompoundSupplierFactory;
 import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.common.StringMapCompoundSupplier;
 import org.nasdanika.common.Supplier;
+import org.nasdanika.common.Util;
 import org.nasdanika.html.app.ViewBuilder;
 import org.nasdanika.html.app.ViewGenerator;
+import org.nasdanika.html.bootstrap.Color;
 import org.nasdanika.vinci.bootstrap.Appearance;
 import org.nasdanika.vinci.bootstrap.BootstrapPackage;
 import org.nasdanika.vinci.bootstrap.TableCell;
@@ -255,6 +257,13 @@ public class TableRowImpl extends BootstrapElementImpl implements TableRow {
 			
 			public void build(Object target, ViewGenerator viewGenerator, ProgressMonitor progressMonitor) {
 				org.nasdanika.html.bootstrap.RowContainer.Row row = (org.nasdanika.html.bootstrap.RowContainer.Row) target;
+
+				if (!Util.isBlank(getBackground())) {
+					row.background(Color.fromLabel(getBackground()));
+				}
+				if (!Util.isBlank(getColor())) {
+					row.color(Color.fromLabel(getColor()));
+				}
 				
 				ViewBuilder appearanceBuilder = partsMap.get("Appearance");
 				if (appearanceBuilder != null) {

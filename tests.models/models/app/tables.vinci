@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.nasdanika.vinci.app:Action xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.nasdanika.ncore="urn:org.nasdanika.ncore" xmlns:org.nasdanika.vinci.app="urn:org.nasdanika.vinci.app" xmlns:org.nasdanika.vinci.bootstrap="urn:org.nasdanika.vinci.bootstrap" title="tables" id="index" pageTemplate="platform:/plugin/org.nasdanika.vinci.templates/pages/default/primary.vinci">
+  <content xsi:type="org.nasdanika.vinci.bootstrap:Table">
+    <header>
+      <rows>
+        <cells>
+          <content xsi:type="org.nasdanika.ncore:Value" value="Header 1"/>
+        </cells>
+        <cells>
+          <content xsi:type="org.nasdanika.ncore:Value" value="Header 2"/>
+        </cells>
+      </rows>
+    </header>
+    <body>
+      <rows color="Primary" background="">
+        <cells markdownContent="My markdown cell."/>
+        <cells color="Info" background="Dark">
+          <content xsi:type="org.nasdanika.ncore:Value" value="Body 2"/>
+        </cells>
+      </rows>
+    </body>
+    <footer>
+      <rows>
+        <cells>
+          <content xsi:type="org.nasdanika.ncore:Value" value="Footer 1"/>
+        </cells>
+        <cells markdownContent="Footer 2"/>
+      </rows>
+    </footer>
+  </content>
+</org.nasdanika.vinci.app:Action>

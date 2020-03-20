@@ -17,6 +17,7 @@ import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.common.Supplier;
 import org.nasdanika.html.app.ViewBuilder;
 import org.nasdanika.html.app.ViewGenerator;
+import org.nasdanika.html.bootstrap.RowContainer;
 import org.nasdanika.vinci.bootstrap.BootstrapPackage;
 import org.nasdanika.vinci.bootstrap.TableRow;
 import org.nasdanika.vinci.bootstrap.TableRowContainer;
@@ -146,9 +147,9 @@ public abstract class TableRowContainerImpl extends BootstrapElementImpl impleme
 
 			@Override
 			public void build(Object target, ViewGenerator viewGenerator, ProgressMonitor progressMonitor) {
-				org.nasdanika.html.bootstrap.Table table = (org.nasdanika.html.bootstrap.Table) target;
+				RowContainer<?,?> rowContainer = (RowContainer<?,?>) target;
 				for (ViewBuilder rb: rowBuilders) {
-					rb.build(table.row(), viewGenerator, progressMonitor);
+					rb.build(rowContainer.row(), viewGenerator, progressMonitor);
 				}
 			}
 			
