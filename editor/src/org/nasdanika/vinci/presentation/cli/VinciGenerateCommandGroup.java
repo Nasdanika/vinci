@@ -9,7 +9,9 @@ import picocli.CommandLine.Command;
 		name = "generate",
 		versionProvider = VinciBundleVersionProvider.class,
 		subcommands = {
-				GenerateTemplatedApplicationCommand.class
+				GenerateTemplatedApplicationCommand.class,
+				GenerateContentCommand.class,
+				GenerateBootstrapPageCommand.class
 		})
 public class VinciGenerateCommandGroup extends CommandGroup {
 
