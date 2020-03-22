@@ -75,7 +75,7 @@ public class GenerateContentAction<T extends EObject & SupplierFactory<Object>> 
 					try (ProgressMonitor generationMonitor = progressMonitor.split("Generation", size)) {
 						Object result = work.execute(generationMonitor);
 						String outputName = getOutputName(modelFile, generationContext);
-						try (ProgressMonitor wrapMonitor = progressMonitor.split("Wrapping", 1); ProgressMonitor contentMonitor = progressMonitor.split("Writing cotent "+outputName, 1)) {
+						try (ProgressMonitor wrapMonitor = progressMonitor.split("Wrapping", 1); ProgressMonitor contentMonitor = progressMonitor.split("Writing content "+outputName, 1)) {
 							contentContainer.put(outputName, wrap(result, generationContext, wrapMonitor).toString(), contentMonitor);
 						}
 					}
