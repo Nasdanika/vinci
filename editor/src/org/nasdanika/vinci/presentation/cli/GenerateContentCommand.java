@@ -7,7 +7,6 @@ import java.io.FileOutputStream;
 import java.io.InputStream;
 
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.nasdanika.common.Consumer;
 import org.nasdanika.common.ConsumerFactory;
 import org.nasdanika.common.Context;
@@ -68,7 +67,7 @@ public class GenerateContentCommand<T extends EObject & SupplierFactory<Object>>
 		
 			Object content = work.splitAndExecute(monitor);
 			try (ProgressMonitor wrapMonitor = monitor.split("Wrapping", 1)) {
-				content = wrap(content, element.eResource().getResourceSet(), context, wrapMonitor);
+				content = wrap(content, element, context, wrapMonitor);
 			}
 			
 			if (outputFile == null) {
@@ -89,7 +88,7 @@ public class GenerateContentCommand<T extends EObject & SupplierFactory<Object>>
 	 * @param result
 	 * @return
 	 */
-	protected Object wrap(Object result, ResourceSet resourceSet, Context context, ProgressMonitor progressMonitor) throws Exception {
+	protected Object wrap(Object result, T element, Context context, ProgressMonitor progressMonitor) throws Exception {
 		return new ViewGeneratorImpl(context, null, null).processViewPart(result, progressMonitor); 
 	}
 

@@ -66,7 +66,7 @@ public class GenerateTemplatedApplicationCommand extends ModelCommand<AbstractAc
 
 					@Override
 					public String name() {
-						return "Generate application";
+						return "Generate " + GenerateTemplatedApplicationCommand.this.getName();
 					}
 
 					@Override
@@ -77,6 +77,10 @@ public class GenerateTemplatedApplicationCommand extends ModelCommand<AbstractAc
 				};
 			}
 		};
+	}
+	
+	protected String getName() {
+		return getClass().getAnnotation(Command.class).name();
 	}
 	
 	public static BiFunction<String, Object, InputStream> ENCODER = (path, contents) -> {
@@ -108,10 +112,11 @@ public class GenerateTemplatedApplicationCommand extends ModelCommand<AbstractAc
 			Action action = (Action) work.splitAndExecute(monitor);
 			// Page for each action with relative navigation activator - recursive						
 			generatePages(generationContext, resourceSet, action, action, output.stateAdapter().adapt(null, ENCODER), monitor.split("Generating pages", 1, action));
+			
 		}							
 	}
-
-	private void generatePages(
+	
+	protected void generatePages(
 			Context generationContext,
 			ResourceSet resourceSet, 
 			Action rootAction, 
@@ -122,8 +127,7 @@ public class GenerateTemplatedApplicationCommand extends ModelCommand<AbstractAc
 		monitor.setWorkRemaining(1 + activeAction.getChildren().size());
 		
 		ActionActivator activator = activeAction.getActivator();
-		if (activator instanceof NavigationActionActivator) {		
-			
+		if (activator instanceof NavigationActionActivator) {					
 			NavigationActionActivator naa = (NavigationActionActivator) activator;
 			String url = naa.getUrl();
 			if (Util.isValidAndRelative(url)) {
@@ -176,31 +180,51 @@ public class GenerateTemplatedApplicationCommand extends ModelCommand<AbstractAc
 					throw new DiagnosticException(validationResult);
 				}
 				
-				try (Supplier<Object> work = page.create(pageContext)) {
-					try (ProgressMonitor pageMonitor = monitor.split("Generating page", 1)) {
-						pageMonitor.setWorkRemaining(work.size() *2 + 1);						
-
-						org.nasdanika.common.Diagnostic diagnostic = work.splitAndDiagnose(pageMonitor);
-						if (diagnostic.getStatus() == org.nasdanika.common.Status.ERROR) {
-							throw new org.nasdanika.common.DiagnosticException("Page diagnostic failed", diagnostic);
-						}
-					
-						Object result = work.splitAndExecute(pageMonitor);
-						String path = pageContext.interpolate(url);
-						int hashIdx = path.indexOf("#");
-						if (hashIdx != -1) {
-							path = path.substring(0, hashIdx);
-						}
-						try (ProgressMonitor contentMonitor = pageMonitor.split("Writing cotent "+path, 1)) {
-							contentContainer.put(path, result.toString(), contentMonitor);
-						}
-					}
-				}
+				generatePage(activeAction, page, url, contentContainer, pageContext, monitor);
 			}
 		}
 		
 		for (Action child: activeAction.getChildren()) {
 			generatePages(generationContext, resourceSet, rootAction, child, contentContainer, monitor.split("Generating page for "+child.getText(), 1, child));
+		}
+	}
+
+	/**
+	 * Generates action page
+	 * @param page
+	 * @param url
+	 * @param contentContainer
+	 * @param pageContext
+	 * @param monitor
+	 * @throws Exception
+	 */
+	protected void generatePage(
+			Action activeAction, 
+			BootstrapPage page, 
+			String url, 
+			Container<Object> contentContainer, 
+			Context pageContext, 
+			ProgressMonitor monitor) throws Exception {
+		
+		try (Supplier<Object> work = page.create(pageContext)) {
+			try (ProgressMonitor pageMonitor = monitor.split("Generating page", 1)) {
+				pageMonitor.setWorkRemaining(work.size() *2 + 1);						
+
+				org.nasdanika.common.Diagnostic diagnostic = work.splitAndDiagnose(pageMonitor);
+				if (diagnostic.getStatus() == org.nasdanika.common.Status.ERROR) {
+					throw new org.nasdanika.common.DiagnosticException("Page diagnostic failed", diagnostic);
+				}
+			
+				Object result = work.splitAndExecute(pageMonitor);
+				String path = pageContext.interpolate(url);
+				int hashIdx = path.indexOf("#");
+				if (hashIdx != -1) {
+					path = path.substring(0, hashIdx);
+				}
+				try (ProgressMonitor contentMonitor = pageMonitor.split("Writing cotent "+path, 1)) {
+					contentContainer.put(path, result.toString(), contentMonitor);
+				}
+			}
 		}
 	}
 

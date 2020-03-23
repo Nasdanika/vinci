@@ -30,11 +30,16 @@ import picocli.CommandLine.Option;
 public class GenerateBootstrapPageCommand<T extends EObject & SupplierFactory<Object>> extends GenerateContentCommand<T> {
 	
 	@Option(names = {"-t", "--template"}, description = "Page template URL.")
-	private String template;	
+	private String template;
+	
+	@Option(names = {"-T", "--title"}, description = "Page title. Defaults to resource URI")
+	private String title;		
 		
 	@Override
-	protected Object wrap(Object result, ResourceSet resourceSet, Context context, ProgressMonitor progressMonitor) throws Exception {
-		URI templateUri = Util.isBlank(template) ? ActionFacade.DEFAULT_PAGE_TEMPLATE : URI.createURI(template);				
+	protected Object wrap(Object result, T element, Context context, ProgressMonitor progressMonitor) throws Exception {
+		URI templateUri = Util.isBlank(template) ? ActionFacade.DEFAULT_PAGE_TEMPLATE : URI.createURI(template);			
+		Resource eResource = element.eResource();
+		ResourceSet resourceSet = eResource.getResourceSet();
 		Resource templateResource = resourceSet.getResource(templateUri, true);
 		String fragment = templateUri.fragment();				
 		BootstrapPage page = (BootstrapPage) (fragment == null ? templateResource.getContents().get(0) : templateResource.getEObject(fragment));	
@@ -55,6 +60,7 @@ public class GenerateBootstrapPageCommand<T extends EObject & SupplierFactory<Ob
 		}
 		
 		page = EcoreUtil.copy(page);
+		page.setName(Util.isBlank(title) ? uri : title);
 		page.getBuilders().clear(); // Templates contain application builders which we don't need.
 		
 		try (Supplier<Object> work = page.create(context)) {

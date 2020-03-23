@@ -11,7 +11,8 @@ import picocli.CommandLine.Command;
 		subcommands = {
 				GenerateTemplatedApplicationCommand.class,
 				GenerateContentCommand.class,
-				GenerateBootstrapPageCommand.class
+				GenerateBootstrapPageCommand.class,
+				GenerateEclipseHelpCommand.class
 		})
 public class VinciGenerateCommandGroup extends CommandGroup {
 
