@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.nasdanika.vinci.app:Action xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.nasdanika.ncore="urn:org.nasdanika.ncore" xmlns:org.nasdanika.vinci.app="urn:org.nasdanika.vinci.app" xmlns:org.nasdanika.vinci.bootstrap="urn:org.nasdanika.vinci.bootstrap" xmlns:org.nasdanika.vinci.components="urn:org.nasdanika.vinci.components" title="cli-help-action" id="5de8aec2-3b87-4b00-986e-e1738fbfb2e2">
+  <content xsi:type="org.nasdanika.vinci.bootstrap:Table">
+    <appearance>
+      <attributes xsi:type="org.nasdanika.ncore:Object" name="style">
+        <entries xsi:type="org.nasdanika.ncore:Property" value="auto" name="width"/>
+      </attributes>
+    </appearance>
+    <body>
+      <rows>
+        <cells header="true">
+          <content xsi:type="org.nasdanika.ncore:Value" value="Version:"/>
+          <appearance>
+            <attributes xsi:type="org.nasdanika.ncore:Property" value="top" name="valign"/>
+          </appearance>
+        </cells>
+        <cells>
+          <content xsi:type="org.nasdanika.ncore:Value"/>
+        </cells>
+      </rows>
+    </body>
+  </content>
+  <content xsi:type="org.nasdanika.vinci.bootstrap:ContentTag" name="pre">
+    <attributes xsi:type="org.nasdanika.ncore:Object" name="style">
+      <entries xsi:type="org.nasdanika.ncore:Property" value="black" name="background"/>
+      <entries xsi:type="org.nasdanika.ncore:Property" value="white" name="color"/>
+      <entries xsi:type="org.nasdanika.ncore:Property" value="80ch" name="width"/>
+    </attributes>
+    <content xsi:type="org.nasdanika.ncore:Value"/>
+  </content>
+  <content xsi:type="org.nasdanika.vinci.components:MarkdownText" style="true"/>
+</org.nasdanika.vinci.app:Action>

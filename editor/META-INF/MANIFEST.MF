@@ -34,5 +34,6 @@ Require-Bundle: org.eclipse.core.runtime,
  org.jsoup;bundle-version="1.12.1",
  org.eclipse.sirius,
  org.eclipse.sirius.common.ui;bundle-version="6.3.0",
- org.nasdanika.cli;bundle-version="1.0.0"
+ org.nasdanika.cli;bundle-version="1.0.0",
+ org.fusesource.jansi;bundle-version="1.18.0"
 Bundle-ActivationPolicy: lazy
