@@ -152,6 +152,9 @@
 
 		<module>bootstrap</module>
 		<module>bootstrap.edit</module>
+		
+		<module>emf</module>
+		<module>ecore</module>
 
 		<module>app</module>
 		<module>app.edit</module>
