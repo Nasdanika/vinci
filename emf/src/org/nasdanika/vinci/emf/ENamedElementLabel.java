@@ -1,14 +1,18 @@
-package org.nasdanika.html.emf;
+package org.nasdanika.vinci.emf;
 
 import org.apache.commons.lang3.StringUtils;
 import org.eclipse.emf.ecore.ENamedElement;
 import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.jsoup.Jsoup;
+import org.nasdanika.common.Context;
+import org.nasdanika.common.ProgressMonitor;
+import org.nasdanika.common.Supplier;
 import org.nasdanika.emf.AnnotationSource;
+import org.nasdanika.emf.EObjectAdaptable;
 import org.nasdanika.html.HTMLFactory;
-import org.nasdanika.html.app.Label;
 import org.nasdanika.html.app.impl.Util;
 import org.nasdanika.html.bootstrap.Color;
+import org.nasdanika.vinci.app.Label;
+import org.nasdanika.vinci.app.LabelSupplierFactory;
 
 
 /**
@@ -18,26 +22,65 @@ import org.nasdanika.html.bootstrap.Color;
  * @author Pavel Vlasov
  *
  */
-public class ENamedElementLabel<T extends ENamedElement> extends AnnotationSource<T> implements Label {
+public abstract class ENamedElementLabel<T extends ENamedElement, R extends Label> extends AnnotationSource<T> implements LabelSupplierFactory<R> {
+	
+	@Override
+	public Supplier<R> create(Context context) throws Exception {
+		return new Supplier<R>() {
+			
+			@Override
+			public double size() {
+				return 1;
+			}
+			
+			@Override
+			public String name() {
+				return "Label supplier";
+			}
+			
+			@Override
+			public R execute(ProgressMonitor progressMonitor) throws Exception {
+				R ret = create(context, progressMonitor);
+				configure(ret, context, progressMonitor);
+				return ret;
+			}
+		};
+	}
+	
+	/**
+	 * Creates a new instance of Label subtype.
+	 * @param context
+	 * @param monitor
+	 * @return
+	 */
+	protected abstract R create(Context context, ProgressMonitor monitor);
+	
+	protected void configure(R label, Context context, ProgressMonitor monitor) {
+		String text = EObjectAdaptable.getResourceContext(modelElement).getString("label");
+		label.setText(text == null ? nameToLabel() : text);
+		
+		label.setIcon(getAnnotation("icon"));		
+		
+		String markdown = EObjectAdaptable.getResourceContext(modelElement).getString("documentation", EcoreUtil.getDocumentation(modelElement));
+
+		if (!Util.isBlank(markdown)) {
+			label.setDescription(HTMLFactory.INSTANCE.div(markdownToHtml(markdown)).addClass("markdown-body").toString());				
+		}
+
+		label.setTooltip(firstSentence(label.getDescription()));
+
+		String ca = getAnnotation("color");
+		if (ca != null) {
+			label.setColor(Color.valueOf(ca.trim()).label);
+		}
+
+		String outlineAnnotation = getAnnotation("outline");
+		label.setOutline(outlineAnnotation != null && "true".equals(outlineAnnotation.trim()));
+	}
 	
 	public ENamedElementLabel(T eNamedElement) {
 		super(eNamedElement);
 	}	
-
-	@Override
-	public String getIcon() {
-		return getAnnotation("icon");
-	}
-	
-	@Override
-	public String getText() {
-		String text = EObjectAdaptable.getResourceContext(modelElement).getString("label");
-		if (text != null) {
-			return text;
-		}
-				
-		return nameToLabel();
-	}
 
 	/**
 	 * Converts model element name to label text. This implementation breaks the name by camel case,
@@ -51,49 +94,6 @@ public class ENamedElementLabel<T extends ENamedElement> extends AnnotationSourc
 			cca[i] = cca[i].toLowerCase();
 		}
 		return StringUtils.join(cca, " ");
-	}
-
-	@Override
-	public String getTooltip() {
-		String description = getDescription();
-		if (description == null || description.trim().isEmpty()) {
-			return null;
-		}
-		String textDoc = Jsoup.parse(description).text();
-		return firstSentence(textDoc);					
-	}
-
-	@Override
-	public Color getColor() {
-		String ca = getAnnotation("color");
-		return ca == null ? null : Color.valueOf(ca.trim());
-	}
-
-	@Override
-	public boolean isOutline() {
-		String outlineAnnotation = getAnnotation("outline");
-		return outlineAnnotation != null && "true".equals(outlineAnnotation.trim());
-	}
-
-	@Override
-	public String getDescription() {
-		String markdown = EObjectAdaptable.getResourceContext(modelElement).getString("documentation", EcoreUtil.getDocumentation(modelElement));
-
-		if (Util.isBlank(markdown)) {
-			return null;
-		}
-	
-		return HTMLFactory.INSTANCE.div(markdownToHtml(markdown)).addClass("markdown-body").toString();				
-	}
-
-	@Override
-	public Object getId() {
-		return null;
-	}
-
-	@Override
-	public String getNotification() {
-		return null;
 	}
 		
 }
