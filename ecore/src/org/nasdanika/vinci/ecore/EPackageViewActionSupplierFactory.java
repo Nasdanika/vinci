@@ -43,9 +43,8 @@ public class EPackageViewActionSupplierFactory extends ENamedElementViewActionSu
 	static final String PACKAGE_SUMMARY_SUFFIX = "/package-summary";
 	private Action topLevelPackageParent;
 
-	public EPackageViewActionSupplierFactory(EPackage value, Action topLevelPackageParent) {
+	public EPackageViewActionSupplierFactory(EPackage value) {
 		super(value);
-		this.topLevelPackageParent = topLevelPackageParent;
 	}
 	
 //	/**

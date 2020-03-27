@@ -15,24 +15,23 @@ public class ETypeParameterViewActionSupplierFactory extends ENamedElementViewAc
 		super(value);
 	}
 	
-	@Override
-	public String getText() {
-		StringBuilder label = new StringBuilder();
-
-		label.append(super.getText());
-
-		if (!target.getEBounds().isEmpty()) {
-			label.append(" extends ");
-			for (Iterator<EGenericType> j = target.getEBounds().iterator(); j.hasNext();) {
-				EGenericType bound = j.next();
-				label.append(computeLabel(bound));
-				if (j.hasNext()) {
-					label.append(" &amp; ");
-				}
-			}
-		}
-		return label.toString();
-	}
-	
+//	@Override
+//	public String getText() {
+//		StringBuilder label = new StringBuilder();
+//
+//		label.append(super.getText());
+//
+//		if (!target.getEBounds().isEmpty()) {
+//			label.append(" extends ");
+//			for (Iterator<EGenericType> j = target.getEBounds().iterator(); j.hasNext();) {
+//				EGenericType bound = j.next();
+//				label.append(computeLabel(bound));
+//				if (j.hasNext()) {
+//					label.append(" &amp; ");
+//				}
+//			}
+//		}
+//		return label.toString();
+//	}	
 	
 }
