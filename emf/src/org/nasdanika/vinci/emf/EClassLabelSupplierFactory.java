@@ -8,9 +8,9 @@ import org.nasdanika.common.Context;
 import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.vinci.app.Label;
 
-public abstract class EClassLabel extends ENamedElementLabel<EClass, Label> {
+public abstract class EClassLabelSupplierFactory extends ENamedElementLabelSupplierFactory<EClass, Label> {
 
-	public EClassLabel(EClass eNamedElement) {
+	public EClassLabelSupplierFactory(EClass eNamedElement) {
 		super(eNamedElement);
 	}
 	

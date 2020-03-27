@@ -41,7 +41,7 @@ public class EObjectViewActionSupplierFactory<T extends EObject> implements View
 		};
 	}		
 	
-	protected Action create(Context context, ProgressMonitor progressMonitor) {
+	protected Action create(Context context, ProgressMonitor progressMonitor) throws Exception {
 		Action ret = AppFactory.eINSTANCE.createAction();
 		return ret;
 	}

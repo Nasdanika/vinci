@@ -1,4 +1,4 @@
-package org.nasdanika.html.ecore;
+package org.nasdanika.vinci.ecore;
 
 import java.util.ArrayList;
 import java.util.List;

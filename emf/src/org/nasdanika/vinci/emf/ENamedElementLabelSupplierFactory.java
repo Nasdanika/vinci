@@ -22,7 +22,7 @@ import org.nasdanika.vinci.app.LabelSupplierFactory;
  * @author Pavel Vlasov
  *
  */
-public abstract class ENamedElementLabel<T extends ENamedElement, R extends Label> extends AnnotationSource<T> implements LabelSupplierFactory<R> {
+public abstract class ENamedElementLabelSupplierFactory<T extends ENamedElement, R extends Label> extends AnnotationSource<T> implements LabelSupplierFactory<R> {
 	
 	@Override
 	public Supplier<R> create(Context context) throws Exception {
@@ -59,15 +59,17 @@ public abstract class ENamedElementLabel<T extends ENamedElement, R extends Labe
 		String text = EObjectAdaptable.getResourceContext(modelElement).getString("label");
 		label.setText(text == null ? nameToLabel() : text);
 		
-		label.setIcon(getAnnotation("icon"));		
+		String icon = getAnnotation("icon");
+		if (!Util.isBlank(icon)) {
+			label.setIcon(icon);		
+		}
 		
 		String markdown = EObjectAdaptable.getResourceContext(modelElement).getString("documentation", EcoreUtil.getDocumentation(modelElement));
 
 		if (!Util.isBlank(markdown)) {
 			label.setDescription(HTMLFactory.INSTANCE.div(markdownToHtml(markdown)).addClass("markdown-body").toString());				
+			label.setTooltip(firstSentence(label.getDescription()));
 		}
-
-		label.setTooltip(firstSentence(label.getDescription()));
 
 		String ca = getAnnotation("color");
 		if (ca != null) {
@@ -78,7 +80,7 @@ public abstract class ENamedElementLabel<T extends ENamedElement, R extends Labe
 		label.setOutline(outlineAnnotation != null && "true".equals(outlineAnnotation.trim()));
 	}
 	
-	public ENamedElementLabel(T eNamedElement) {
+	public ENamedElementLabelSupplierFactory(T eNamedElement) {
 		super(eNamedElement);
 	}	
 

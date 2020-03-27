@@ -1,4 +1,4 @@
-package org.nasdanika.html.ecore;
+package org.nasdanika.vinci.ecore;
 
 import java.util.Iterator;
 
@@ -9,9 +9,9 @@ import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.html.app.ViewGenerator;
 import org.nasdanika.html.app.impl.Util;
 
-public class ETypeParameterViewAction extends ENamedElementViewAction<ETypeParameter> {
+public class ETypeParameterViewActionSupplierFactory extends ENamedElementViewActionSupplierFactory<ETypeParameter> {
 
-	public ETypeParameterViewAction(ETypeParameter value) {
+	public ETypeParameterViewActionSupplierFactory(ETypeParameter value) {
 		super(value);
 	}
 	

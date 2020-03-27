@@ -1,4 +1,4 @@
-package org.nasdanika.html.ecore;
+package org.nasdanika.vinci.ecore;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;

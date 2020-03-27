@@ -9,9 +9,9 @@ import org.nasdanika.common.Context;
 import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.vinci.app.Label;
 
-public abstract class EStructuralFeatureLabel<T extends EStructuralFeature> extends ENamedElementLabel<T,Label> {
+public abstract class EStructuralFeatureLabelSupplierFactory<T extends EStructuralFeature> extends ENamedElementLabelSupplierFactory<T,Label> {
 
-	public EStructuralFeatureLabel(T eNamedElement) {
+	public EStructuralFeatureLabelSupplierFactory(T eNamedElement) {
 		super(eNamedElement);
 	}
 	

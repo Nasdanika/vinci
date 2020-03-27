@@ -1,4 +1,4 @@
-package org.nasdanika.html.ecore;
+package org.nasdanika.vinci.ecore;
 
 import org.nasdanika.common.MarkdownHelper;
 import org.nasdanika.html.app.impl.BootstrapContainerRouterApplication;

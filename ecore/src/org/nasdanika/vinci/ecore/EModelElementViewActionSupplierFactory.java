@@ -1,13 +1,10 @@
-package org.nasdanika.html.ecore;
+package org.nasdanika.vinci.ecore;
 
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Iterator;
-import java.util.List;
 import java.util.Set;
-import java.util.function.Function;
-import java.util.stream.Collectors;
 
 import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EClass;
@@ -21,53 +18,56 @@ import org.eclipse.emf.ecore.ETypeParameter;
 import org.eclipse.emf.ecore.ETypedElement;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
-import org.nasdanika.html.app.Action;
-import org.nasdanika.html.app.ActionActivator;
-import org.nasdanika.html.app.NavigationActionActivator;
-import org.nasdanika.html.emf.EObjectAdaptable;
-import org.nasdanika.html.emf.EObjectViewAction;
-import org.nasdanika.html.emf.ViewAction;
+import org.nasdanika.common.Context;
+import org.nasdanika.common.ProgressMonitor;
+import org.nasdanika.emf.EObjectAdaptable;
+import org.nasdanika.vinci.app.Action;
+import org.nasdanika.vinci.emf.EObjectViewActionSupplierFactory;
+import org.nasdanika.vinci.emf.ViewActionSupplierFactory;
 
-public class EModelElementViewAction<T extends EModelElement> extends EObjectViewAction<T> {
+public class EModelElementViewActionSupplierFactory<T extends EModelElement> extends EObjectViewActionSupplierFactory<T> {
 	
-	public static final String iconsBase = "https://www.nasdanika.org/resources/images/ecore/";
-	
+	public static final String ICONS_BASE = "https://www.nasdanika.org/resources/images/ecore/";
+		
 	/**
 	 * Descriptions shorter than this value are put on the top of the tabs, longer
 	 * ones end up in their own tab. 
 	 */
 	protected int descriptionTabLengthThreshold = 2500; 
 		
-	protected Function<EClassifier, String> eClassifierLinkResolver = eClassifier -> {
-		ViewAction viewAction = EObjectAdaptable.adaptTo(eClassifier, ViewAction.class);
-		if (viewAction == null) {
-			return null;
-		}
-		
-		ActionActivator activator = viewAction.getActivator();
-		return activator instanceof NavigationActionActivator  ? ((NavigationActionActivator) activator).getUrl() : null;
-	};
-	
-	protected Function<EModelElement, String> eModelElementFirstDocSentenceProvider = eModelElement -> EObjectAdaptable.adaptTo(eModelElement, ViewAction.class).getTooltip();
-		
-	public EModelElementViewAction(T value) {
-		super(value);
-		
+	public EModelElementViewActionSupplierFactory(T value) {
+		super(value);		
 	}
 	
 	@Override
-	public String getIcon() {
-		return iconsBase+target.eClass().getName()+".gif";
+	protected org.nasdanika.vinci.app.Action create(Context context, ProgressMonitor progressMonitor) throws Exception {
+		Action action = super.create(context, progressMonitor);
+		
+		action.setIcon(ICONS_BASE+eObject.eClass().getName()+".gif");
+		// Configuration here
+		
+		return action;
 	}
 	
-
-	/**
-	 * Sorting by text.
-	 */
-	@Override
-	public List<Action> getChildren() {
-		return super.getChildren().stream().sorted((a1,a2) -> a1.getText().compareTo(a2.getText())).collect(Collectors.toList());
-	}
+//	protected Function<EClassifier, String> eClassifierLinkResolver = eClassifier -> {
+//		ViewAction viewAction = EObjectAdaptable.adaptTo(eClassifier, ViewAction.class);
+//		if (viewAction == null) {
+//			return null;
+//		}
+//		
+//		ActionActivator activator = viewAction.getActivator();
+//		return activator instanceof NavigationActionActivator  ? ((NavigationActionActivator) activator).getUrl() : null;
+//	};
+//	
+//	protected Function<EModelElement, String> eModelElementFirstDocSentenceProvider = eModelElement -> EObjectAdaptable.adaptTo(eModelElement, ViewAction.class).getTooltip();
+//
+//	/**
+//	 * Sorting by text.
+//	 */
+//	@Override
+//	public List<Action> getChildren() {
+//		return super.getChildren().stream().sorted((a1,a2) -> a1.getText().compareTo(a2.getText())).collect(Collectors.toList());
+//	}
 		
 	/**
 	 * In situations where classes referencing this class are known this method can be overridden. 
@@ -113,11 +113,11 @@ public class EModelElementViewAction<T extends EModelElement> extends EObjectVie
 	// --- Handling generic types in action text --- 
 	// TODO - a way to provide links in addition to plain text
 
-	protected String computeLabel(EGenericType genericType) {
+	protected String computeLabel(EGenericType genericType, Context context, ProgressMonitor monitor) throws Exception {
 		EObject container = genericType.eContainer();
 		EClassifier rawType = genericType.getERawType();
-		ViewAction rawTypeViewAction = EObjectAdaptable.adaptTo(rawType, ViewAction.class);
-		String rawTypeText = rawTypeViewAction == null ? rawType.getName() : rawTypeViewAction.getText();
+		ViewActionSupplierFactory rawTypeViewActionSupplierFactory = EObjectAdaptable.adaptTo(rawType, ViewActionSupplierFactory.class);
+		String rawTypeText = rawTypeViewActionSupplierFactory == null ? rawType.getName() : rawTypeViewActionSupplierFactory.create(context).execute(monitor).getText();
 		if (container == null || !container.eIsSet(genericType.eContainingFeature())) {
 			return rawTypeText;
 		}
@@ -130,7 +130,7 @@ public class EModelElementViewAction<T extends EModelElement> extends EObjectVie
 				label.append("&lt;");
 				for (Iterator<EGenericType> i = genericType.getETypeArguments().iterator(); i.hasNext();) {
 					EGenericType typeArgument = i.next();
-					label.append(computeLabel(typeArgument));
+					label.append(computeLabel(typeArgument, context, monitor));
 					if (i.hasNext()) {
 						label.append(", ");
 					}
@@ -144,10 +144,10 @@ public class EModelElementViewAction<T extends EModelElement> extends EObjectVie
 
 			if (genericType.getELowerBound() != null) {
 				label.append(" super ");
-				label.append(computeLabel(genericType.getELowerBound()));
+				label.append(computeLabel(genericType.getELowerBound(), context, monitor));
 			} else if (genericType.getEUpperBound() != null) {
 				label.append(" extends ");
-				label.append(computeLabel(genericType.getEUpperBound()));
+				label.append(computeLabel(genericType.getEUpperBound(), context, monitor));
 			}
 		}
 		return label.toString();
