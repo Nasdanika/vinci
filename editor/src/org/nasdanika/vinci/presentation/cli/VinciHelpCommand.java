@@ -128,7 +128,7 @@ public class VinciHelpCommand extends CommandBase {
 			}
 		}
 		
-		for (CommandLine subCommand: commandSpec.subcommands().values()) {
+		for (CommandLine subCommand: commandSpec.subcommands().values().stream().sorted((a,b) -> a.getCommandName().compareTo(b.getCommandName())).collect(Collectors.toList())) {
 			ret.getElements().add(usage(subCommand.getCommandSpec(), template));
 		}
 		
