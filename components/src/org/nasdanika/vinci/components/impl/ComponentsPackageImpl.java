@@ -14,10 +14,12 @@ import org.nasdanika.vinci.bootstrap.BootstrapPackage;
 import org.nasdanika.vinci.components.ActionLink;
 import org.nasdanika.vinci.components.ComponentsFactory;
 import org.nasdanika.vinci.components.ComponentsPackage;
+import org.nasdanika.vinci.components.ListOfActions;
 import org.nasdanika.vinci.components.ListOfContents;
 import org.nasdanika.vinci.components.Markdown;
 import org.nasdanika.vinci.components.MarkdownResource;
 import org.nasdanika.vinci.components.MarkdownText;
+import org.nasdanika.vinci.components.TableOfActions;
 import org.nasdanika.vinci.components.TableOfContents;
 import org.nasdanika.vinci.components.TableOfContentsBase;
 import org.nasdanika.vinci.html.HtmlPackage;
@@ -77,6 +79,20 @@ public class ComponentsPackageImpl extends EPackageImpl implements ComponentsPac
 	 * @generated
 	 */
 	private EClass listOfContentsEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass listOfActionsEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass tableOfActionsEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -361,6 +377,46 @@ public class ComponentsPackageImpl extends EPackageImpl implements ComponentsPac
 	 * @generated
 	 */
 	@Override
+	public EClass getListOfActions() {
+		return listOfActionsEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getListOfActions_Actions() {
+		return (EReference)listOfActionsEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getTableOfActions() {
+		return tableOfActionsEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getTableOfActions_Actions() {
+		return (EReference)tableOfActionsEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public ComponentsFactory getComponentsFactory() {
 		return (ComponentsFactory)getEFactoryInstance();
 	}
@@ -411,6 +467,12 @@ public class ComponentsPackageImpl extends EPackageImpl implements ComponentsPac
 		listOfContentsEClass = createEClass(LIST_OF_CONTENTS);
 		createEAttribute(listOfContentsEClass, LIST_OF_CONTENTS__ORDERING);
 		createEAttribute(listOfContentsEClass, LIST_OF_CONTENTS__TOOLTIPS);
+
+		listOfActionsEClass = createEClass(LIST_OF_ACTIONS);
+		createEReference(listOfActionsEClass, LIST_OF_ACTIONS__ACTIONS);
+
+		tableOfActionsEClass = createEClass(TABLE_OF_ACTIONS);
+		createEReference(tableOfActionsEClass, TABLE_OF_ACTIONS__ACTIONS);
 	}
 
 	/**
@@ -470,6 +532,8 @@ public class ComponentsPackageImpl extends EPackageImpl implements ComponentsPac
 		tableOfContentsEClass.getESuperTypes().add(this.getTableOfContentsBase());
 		tableOfContentsEClass.getESuperTypes().add(theBootstrapPackage.getTableConfiguration());
 		listOfContentsEClass.getESuperTypes().add(this.getTableOfContentsBase());
+		listOfActionsEClass.getESuperTypes().add(this.getListOfContents());
+		tableOfActionsEClass.getESuperTypes().add(this.getTableOfContents());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(markdownEClass, Markdown.class, "Markdown", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -499,6 +563,12 @@ public class ComponentsPackageImpl extends EPackageImpl implements ComponentsPac
 		initEClass(listOfContentsEClass, ListOfContents.class, "ListOfContents", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getListOfContents_Ordering(), ecorePackage.getEString(), "ordering", "", 0, 1, ListOfContents.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getListOfContents_Tooltips(), ecorePackage.getEBoolean(), "tooltips", "false", 0, 1, ListOfContents.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(listOfActionsEClass, ListOfActions.class, "ListOfActions", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getListOfActions_Actions(), theAppPackage.getAbstractAction(), null, "actions", null, 0, -1, ListOfActions.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(tableOfActionsEClass, TableOfActions.class, "TableOfActions", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getTableOfActions_Actions(), theAppPackage.getAbstractAction(), null, "actions", null, 0, -1, TableOfActions.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

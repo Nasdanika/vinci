@@ -67,6 +67,24 @@ public interface ComponentsFactory extends EFactory {
 	ListOfContents createListOfContents();
 
 	/**
+	 * Returns a new object of class '<em>List Of Actions</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>List Of Actions</em>'.
+	 * @generated
+	 */
+	ListOfActions createListOfActions();
+
+	/**
+	 * Returns a new object of class '<em>Table Of Actions</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Table Of Actions</em>'.
+	 * @generated
+	 */
+	TableOfActions createTableOfActions();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

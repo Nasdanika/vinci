@@ -102,6 +102,14 @@ public class ComponentsAdapterFactory extends AdapterFactoryImpl {
 				return createListOfContentsAdapter();
 			}
 			@Override
+			public Adapter caseListOfActions(ListOfActions object) {
+				return createListOfActionsAdapter();
+			}
+			@Override
+			public Adapter caseTableOfActions(TableOfActions object) {
+				return createTableOfActionsAdapter();
+			}
+			@Override
 			public Adapter caseModelElement(ModelElement object) {
 				return createModelElementAdapter();
 			}
@@ -236,6 +244,34 @@ public class ComponentsAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createListOfContentsAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.vinci.components.ListOfActions <em>List Of Actions</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.vinci.components.ListOfActions
+	 * @generated
+	 */
+	public Adapter createListOfActionsAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.vinci.components.TableOfActions <em>Table Of Actions</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.vinci.components.TableOfActions
+	 * @generated
+	 */
+	public Adapter createTableOfActionsAdapter() {
 		return null;
 	}
 

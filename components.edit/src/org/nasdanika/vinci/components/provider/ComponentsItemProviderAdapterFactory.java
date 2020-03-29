@@ -187,6 +187,52 @@ public class ComponentsItemProviderAdapterFactory extends ComponentsAdapterFacto
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.nasdanika.vinci.components.ListOfActions} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ListOfActionsItemProvider listOfActionsItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.nasdanika.vinci.components.ListOfActions}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createListOfActionsAdapter() {
+		if (listOfActionsItemProvider == null) {
+			listOfActionsItemProvider = new ListOfActionsItemProvider(this);
+		}
+
+		return listOfActionsItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.nasdanika.vinci.components.TableOfActions} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected TableOfActionsItemProvider tableOfActionsItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.nasdanika.vinci.components.TableOfActions}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createTableOfActionsAdapter() {
+		if (tableOfActionsItemProvider == null) {
+			tableOfActionsItemProvider = new TableOfActionsItemProvider(this);
+		}
+
+		return tableOfActionsItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -296,6 +342,8 @@ public class ComponentsItemProviderAdapterFactory extends ComponentsAdapterFacto
 		if (actionLinkItemProvider != null) actionLinkItemProvider.dispose();
 		if (tableOfContentsItemProvider != null) tableOfContentsItemProvider.dispose();
 		if (listOfContentsItemProvider != null) listOfContentsItemProvider.dispose();
+		if (listOfActionsItemProvider != null) listOfActionsItemProvider.dispose();
+		if (tableOfActionsItemProvider != null) tableOfActionsItemProvider.dispose();
 	}
 
 }

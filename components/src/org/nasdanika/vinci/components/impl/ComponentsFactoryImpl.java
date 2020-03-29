@@ -62,6 +62,8 @@ public class ComponentsFactoryImpl extends EFactoryImpl implements ComponentsFac
 			case ComponentsPackage.ACTION_LINK: return createActionLink();
 			case ComponentsPackage.TABLE_OF_CONTENTS: return createTableOfContents();
 			case ComponentsPackage.LIST_OF_CONTENTS: return createListOfContents();
+			case ComponentsPackage.LIST_OF_ACTIONS: return createListOfActions();
+			case ComponentsPackage.TABLE_OF_ACTIONS: return createTableOfActions();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -120,6 +122,28 @@ public class ComponentsFactoryImpl extends EFactoryImpl implements ComponentsFac
 	public ListOfContents createListOfContents() {
 		ListOfContentsImpl listOfContents = new ListOfContentsImpl();
 		return listOfContents;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ListOfActions createListOfActions() {
+		ListOfActionsImpl listOfActions = new ListOfActionsImpl();
+		return listOfActions;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public TableOfActions createTableOfActions() {
+		TableOfActionsImpl tableOfActions = new TableOfActionsImpl();
+		return tableOfActions;
 	}
 
 	/**

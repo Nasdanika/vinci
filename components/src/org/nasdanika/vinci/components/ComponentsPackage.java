@@ -730,6 +730,297 @@ public interface ComponentsPackage extends EPackage {
 
 
 	/**
+	 * The meta object id for the '{@link org.nasdanika.vinci.components.impl.ListOfActionsImpl <em>List Of Actions</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.vinci.components.impl.ListOfActionsImpl
+	 * @see org.nasdanika.vinci.components.impl.ComponentsPackageImpl#getListOfActions()
+	 * @generated
+	 */
+	int LIST_OF_ACTIONS = 7;
+
+	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LIST_OF_ACTIONS__TITLE = LIST_OF_CONTENTS__TITLE;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LIST_OF_ACTIONS__DESCRIPTION = LIST_OF_CONTENTS__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Appearance</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LIST_OF_ACTIONS__APPEARANCE = LIST_OF_CONTENTS__APPEARANCE;
+
+	/**
+	 * The feature id for the '<em><b>Header</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LIST_OF_ACTIONS__HEADER = LIST_OF_CONTENTS__HEADER;
+
+	/**
+	 * The feature id for the '<em><b>Role</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LIST_OF_ACTIONS__ROLE = LIST_OF_CONTENTS__ROLE;
+
+	/**
+	 * The feature id for the '<em><b>Depth</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LIST_OF_ACTIONS__DEPTH = LIST_OF_CONTENTS__DEPTH;
+
+	/**
+	 * The feature id for the '<em><b>Ordering</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LIST_OF_ACTIONS__ORDERING = LIST_OF_CONTENTS__ORDERING;
+
+	/**
+	 * The feature id for the '<em><b>Tooltips</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LIST_OF_ACTIONS__TOOLTIPS = LIST_OF_CONTENTS__TOOLTIPS;
+
+	/**
+	 * The feature id for the '<em><b>Actions</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LIST_OF_ACTIONS__ACTIONS = LIST_OF_CONTENTS_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>List Of Actions</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LIST_OF_ACTIONS_FEATURE_COUNT = LIST_OF_CONTENTS_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>As View Builder Supplier</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LIST_OF_ACTIONS___AS_VIEW_BUILDER_SUPPLIER__CONTEXT = LIST_OF_CONTENTS___AS_VIEW_BUILDER_SUPPLIER__CONTEXT;
+
+	/**
+	 * The number of operations of the '<em>List Of Actions</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LIST_OF_ACTIONS_OPERATION_COUNT = LIST_OF_CONTENTS_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.nasdanika.vinci.components.impl.TableOfActionsImpl <em>Table Of Actions</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.vinci.components.impl.TableOfActionsImpl
+	 * @see org.nasdanika.vinci.components.impl.ComponentsPackageImpl#getTableOfActions()
+	 * @generated
+	 */
+	int TABLE_OF_ACTIONS = 8;
+
+	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_OF_ACTIONS__TITLE = TABLE_OF_CONTENTS__TITLE;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_OF_ACTIONS__DESCRIPTION = TABLE_OF_CONTENTS__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Appearance</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_OF_ACTIONS__APPEARANCE = TABLE_OF_CONTENTS__APPEARANCE;
+
+	/**
+	 * The feature id for the '<em><b>Header</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_OF_ACTIONS__HEADER = TABLE_OF_CONTENTS__HEADER;
+
+	/**
+	 * The feature id for the '<em><b>Role</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_OF_ACTIONS__ROLE = TABLE_OF_CONTENTS__ROLE;
+
+	/**
+	 * The feature id for the '<em><b>Depth</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_OF_ACTIONS__DEPTH = TABLE_OF_CONTENTS__DEPTH;
+
+	/**
+	 * The feature id for the '<em><b>Dark</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_OF_ACTIONS__DARK = TABLE_OF_CONTENTS__DARK;
+
+	/**
+	 * The feature id for the '<em><b>Striped</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_OF_ACTIONS__STRIPED = TABLE_OF_CONTENTS__STRIPED;
+
+	/**
+	 * The feature id for the '<em><b>Bordered</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_OF_ACTIONS__BORDERED = TABLE_OF_CONTENTS__BORDERED;
+
+	/**
+	 * The feature id for the '<em><b>Borderless</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_OF_ACTIONS__BORDERLESS = TABLE_OF_CONTENTS__BORDERLESS;
+
+	/**
+	 * The feature id for the '<em><b>Hover</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_OF_ACTIONS__HOVER = TABLE_OF_CONTENTS__HOVER;
+
+	/**
+	 * The feature id for the '<em><b>Small</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_OF_ACTIONS__SMALL = TABLE_OF_CONTENTS__SMALL;
+
+	/**
+	 * The feature id for the '<em><b>Descriptions</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_OF_ACTIONS__DESCRIPTIONS = TABLE_OF_CONTENTS__DESCRIPTIONS;
+
+	/**
+	 * The feature id for the '<em><b>Tooltips</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_OF_ACTIONS__TOOLTIPS = TABLE_OF_CONTENTS__TOOLTIPS;
+
+	/**
+	 * The feature id for the '<em><b>Actions</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_OF_ACTIONS__ACTIONS = TABLE_OF_CONTENTS_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Table Of Actions</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_OF_ACTIONS_FEATURE_COUNT = TABLE_OF_CONTENTS_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>As View Builder Supplier</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_OF_ACTIONS___AS_VIEW_BUILDER_SUPPLIER__CONTEXT = TABLE_OF_CONTENTS___AS_VIEW_BUILDER_SUPPLIER__CONTEXT;
+
+	/**
+	 * The number of operations of the '<em>Table Of Actions</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_OF_ACTIONS_OPERATION_COUNT = TABLE_OF_CONTENTS_OPERATION_COUNT + 0;
+
+
+	/**
 	 * Returns the meta object for class '{@link org.nasdanika.vinci.components.Markdown <em>Markdown</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -954,6 +1245,48 @@ public interface ComponentsPackage extends EPackage {
 	EAttribute getListOfContents_Tooltips();
 
 	/**
+	 * Returns the meta object for class '{@link org.nasdanika.vinci.components.ListOfActions <em>List Of Actions</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>List Of Actions</em>'.
+	 * @see org.nasdanika.vinci.components.ListOfActions
+	 * @generated
+	 */
+	EClass getListOfActions();
+
+	/**
+	 * Returns the meta object for the reference list '{@link org.nasdanika.vinci.components.ListOfActions#getActions <em>Actions</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Actions</em>'.
+	 * @see org.nasdanika.vinci.components.ListOfActions#getActions()
+	 * @see #getListOfActions()
+	 * @generated
+	 */
+	EReference getListOfActions_Actions();
+
+	/**
+	 * Returns the meta object for class '{@link org.nasdanika.vinci.components.TableOfActions <em>Table Of Actions</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Table Of Actions</em>'.
+	 * @see org.nasdanika.vinci.components.TableOfActions
+	 * @generated
+	 */
+	EClass getTableOfActions();
+
+	/**
+	 * Returns the meta object for the reference list '{@link org.nasdanika.vinci.components.TableOfActions#getActions <em>Actions</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Actions</em>'.
+	 * @see org.nasdanika.vinci.components.TableOfActions#getActions()
+	 * @see #getTableOfActions()
+	 * @generated
+	 */
+	EReference getTableOfActions_Actions();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1137,6 +1470,38 @@ public interface ComponentsPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute LIST_OF_CONTENTS__TOOLTIPS = eINSTANCE.getListOfContents_Tooltips();
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.vinci.components.impl.ListOfActionsImpl <em>List Of Actions</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.vinci.components.impl.ListOfActionsImpl
+		 * @see org.nasdanika.vinci.components.impl.ComponentsPackageImpl#getListOfActions()
+		 * @generated
+		 */
+		EClass LIST_OF_ACTIONS = eINSTANCE.getListOfActions();
+		/**
+		 * The meta object literal for the '<em><b>Actions</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference LIST_OF_ACTIONS__ACTIONS = eINSTANCE.getListOfActions_Actions();
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.vinci.components.impl.TableOfActionsImpl <em>Table Of Actions</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.vinci.components.impl.TableOfActionsImpl
+		 * @see org.nasdanika.vinci.components.impl.ComponentsPackageImpl#getTableOfActions()
+		 * @generated
+		 */
+		EClass TABLE_OF_ACTIONS = eINSTANCE.getTableOfActions();
+		/**
+		 * The meta object literal for the '<em><b>Actions</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TABLE_OF_ACTIONS__ACTIONS = eINSTANCE.getTableOfActions_Actions();
 
 	}
 

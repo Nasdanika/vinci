@@ -140,6 +140,31 @@ public class ComponentsSwitch<T1> extends Switch<T1> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case ComponentsPackage.LIST_OF_ACTIONS: {
+				ListOfActions listOfActions = (ListOfActions)theEObject;
+				T1 result = caseListOfActions(listOfActions);
+				if (result == null) result = caseListOfContents(listOfActions);
+				if (result == null) result = caseTableOfContentsBase(listOfActions);
+				if (result == null) result = caseBootstrapElement(listOfActions);
+				if (result == null) result = caseISupplierFactory(listOfActions);
+				if (result == null) result = caseHtmlElement(listOfActions);
+				if (result == null) result = caseModelElement(listOfActions);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ComponentsPackage.TABLE_OF_ACTIONS: {
+				TableOfActions tableOfActions = (TableOfActions)theEObject;
+				T1 result = caseTableOfActions(tableOfActions);
+				if (result == null) result = caseTableOfContents(tableOfActions);
+				if (result == null) result = caseTableOfContentsBase(tableOfActions);
+				if (result == null) result = caseTableConfiguration(tableOfActions);
+				if (result == null) result = caseBootstrapElement(tableOfActions);
+				if (result == null) result = caseISupplierFactory(tableOfActions);
+				if (result == null) result = caseHtmlElement(tableOfActions);
+				if (result == null) result = caseModelElement(tableOfActions);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -246,6 +271,36 @@ public class ComponentsSwitch<T1> extends Switch<T1> {
 	 * @generated
 	 */
 	public T1 caseListOfContents(ListOfContents object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>List Of Actions</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>List Of Actions</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseListOfActions(ListOfActions object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Table Of Actions</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Table Of Actions</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseTableOfActions(TableOfActions object) {
 		return null;
 	}
 
