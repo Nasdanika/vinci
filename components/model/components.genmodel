@@ -31,6 +31,7 @@
     </genClasses>
     <genClasses ecoreClass="components.ecore#//TableOfContents">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute components.ecore#//TableOfContents/descriptions"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute components.ecore#//TableOfContents/tooltips"/>
     </genClasses>
     <genClasses ecoreClass="components.ecore#//ListOfContents">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute components.ecore#//ListOfContents/ordering"/>

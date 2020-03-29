@@ -3,6 +3,7 @@ package org.nasdanika.vinci.ecore;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -12,6 +13,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+import org.apache.commons.codec.binary.Hex;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EClass;
@@ -28,6 +30,7 @@ import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.emf.EObjectAdaptable;
 import org.nasdanika.emf.localization.PropertyKeys;
 import org.nasdanika.vinci.app.Action;
+import org.nasdanika.vinci.emf.ViewActionSupplierFactory;
 import org.nasdanika.emf.PlantUmlTextGenerator.RelationshipDirection;
 
 import net.sourceforge.plantuml.FileFormat;
@@ -43,9 +46,22 @@ public class EClassViewActionSupplierFactory extends EClassifierViewActionSuppli
 	@Override
 	protected Action create(Context context, ProgressMonitor progressMonitor) throws Exception {
 		Action action = super.create(context, progressMonitor);
-		// TODO
+		
+		// TODO content
+		
+		for (EStructuralFeature sf: eObject.getEStructuralFeatures().stream().sorted((a,b) ->  a.getName().compareTo(b.getName())).collect(Collectors.toList())) {
+			ViewActionSupplierFactory sfvasf = EObjectAdaptable.adaptTo(sf, ViewActionSupplierFactory.class);
+			action.getElements().add(sfvasf.create(context).execute(progressMonitor));
+		}
+		
+		for (EOperation eOp: eObject.getEOperations().stream().sorted((a,b) ->  a.getName().compareTo(b.getName())).collect(Collectors.toList())) {
+			ViewActionSupplierFactory eovasf = EObjectAdaptable.adaptTo(eOp, ViewActionSupplierFactory.class);
+			action.getElements().add(eovasf.create(context).execute(progressMonitor));			
+		}
+		
 		return action;
 	}
+	
 	
 //	@SuppressWarnings("unchecked")
 //	@Override

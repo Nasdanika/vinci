@@ -2,13 +2,11 @@ package org.nasdanika.vinci.emf;
 
 import org.apache.commons.lang3.StringUtils;
 import org.eclipse.emf.ecore.ENamedElement;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.nasdanika.common.Context;
 import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.common.Supplier;
 import org.nasdanika.emf.AnnotationSource;
 import org.nasdanika.emf.EObjectAdaptable;
-import org.nasdanika.html.HTMLFactory;
 import org.nasdanika.html.app.impl.Util;
 import org.nasdanika.html.bootstrap.Color;
 import org.nasdanika.vinci.app.Label;
@@ -62,13 +60,6 @@ public abstract class ENamedElementLabelSupplierFactory<T extends ENamedElement,
 		String icon = getAnnotation("icon");
 		if (!Util.isBlank(icon)) {
 			label.setIcon(icon);		
-		}
-		
-		String markdown = EObjectAdaptable.getResourceContext(modelElement).getString("documentation", EcoreUtil.getDocumentation(modelElement));
-
-		if (!Util.isBlank(markdown)) {
-			label.setDescription(HTMLFactory.INSTANCE.div(markdownToHtml(markdown)).addClass("markdown-body").toString());				
-			label.setTooltip(firstSentence(label.getDescription()));
 		}
 
 		String ca = getAnnotation("color");

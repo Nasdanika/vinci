@@ -1,18 +1,53 @@
 package org.nasdanika.vinci.ecore;
 
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
 import java.util.Iterator;
 
+import org.apache.commons.codec.binary.Hex;
 import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EParameter;
 import org.eclipse.emf.ecore.ETypeParameter;
+import org.nasdanika.common.Context;
+import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.emf.EObjectAdaptable;
+import org.nasdanika.vinci.app.Action;
 
 public class EOperationViewActionSupplierFactory extends ETypedElementViewActionSupplierFactory<EOperation> {
 
 	public EOperationViewActionSupplierFactory(EOperation value) {
 		super(value);
 	}
+		
+	@Override
+	protected Action create(Context context, ProgressMonitor progressMonitor) throws Exception {
+		Action action = super.create(context, progressMonitor);
+	
+		StringBuilder idBuilder = new StringBuilder(eObject.eClass().getName())
+				.append("-")
+				.append(Hex.encodeHexString(eObject.getEContainingClass().getEPackage().getNsURI().getBytes(StandardCharsets.UTF_8)))
+				.append("-")
+				.append(eObject.getEContainingClass().getName())
+				.append("-")
+				.append(eObject.getName());
+		
+		if (!eObject.getEParameters().isEmpty()) {
+			// Creating a digest of parameter types to make the id shorter.
+			MessageDigest md = MessageDigest.getInstance("SHA-256");
+			for (EParameter ep: eObject.getEParameters()) {
+				EClassifier type = ep.getEType();
+				String typeStr = type.eClass().getName() + "-" + Hex.encodeHexString(type.getEPackage().getNsURI().getBytes(StandardCharsets.UTF_8)) + "-" + type.getName() + ",";
+				md.update(typeStr.getBytes(StandardCharsets.UTF_8));
+			}
+			idBuilder.append("-").append(Hex.encodeHexString(md.digest()));
+		}
+		
+		action.setId(idBuilder.toString());		
+		
+		return action;
+	}
+	
 	
 	// TODO - parameters.
 	

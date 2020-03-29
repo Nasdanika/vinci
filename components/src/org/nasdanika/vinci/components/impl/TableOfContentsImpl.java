@@ -28,6 +28,7 @@ import org.nasdanika.vinci.components.TableOfContents;
  *   <li>{@link org.nasdanika.vinci.components.impl.TableOfContentsImpl#isHover <em>Hover</em>}</li>
  *   <li>{@link org.nasdanika.vinci.components.impl.TableOfContentsImpl#isSmall <em>Small</em>}</li>
  *   <li>{@link org.nasdanika.vinci.components.impl.TableOfContentsImpl#isDescriptions <em>Descriptions</em>}</li>
+ *   <li>{@link org.nasdanika.vinci.components.impl.TableOfContentsImpl#isTooltips <em>Tooltips</em>}</li>
  * </ul>
  *
  * @generated
@@ -102,6 +103,16 @@ public class TableOfContentsImpl extends TableOfContentsBaseImpl implements Tabl
 	 * @ordered
 	 */
 	protected static final boolean DESCRIPTIONS_EDEFAULT = false;
+
+	/**
+	 * The default value of the '{@link #isTooltips() <em>Tooltips</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isTooltips()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean TOOLTIPS_EDEFAULT = false;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -268,6 +279,26 @@ public class TableOfContentsImpl extends TableOfContentsBaseImpl implements Tabl
 	 * @generated
 	 */
 	@Override
+	public boolean isTooltips() {
+		return (Boolean)eDynamicGet(ComponentsPackage.TABLE_OF_CONTENTS__TOOLTIPS, ComponentsPackage.Literals.TABLE_OF_CONTENTS__TOOLTIPS, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setTooltips(boolean newTooltips) {
+		eDynamicSet(ComponentsPackage.TABLE_OF_CONTENTS__TOOLTIPS, ComponentsPackage.Literals.TABLE_OF_CONTENTS__TOOLTIPS, newTooltips);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case ComponentsPackage.TABLE_OF_CONTENTS__DARK:
@@ -284,6 +315,8 @@ public class TableOfContentsImpl extends TableOfContentsBaseImpl implements Tabl
 				return isSmall();
 			case ComponentsPackage.TABLE_OF_CONTENTS__DESCRIPTIONS:
 				return isDescriptions();
+			case ComponentsPackage.TABLE_OF_CONTENTS__TOOLTIPS:
+				return isTooltips();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -316,6 +349,9 @@ public class TableOfContentsImpl extends TableOfContentsBaseImpl implements Tabl
 				return;
 			case ComponentsPackage.TABLE_OF_CONTENTS__DESCRIPTIONS:
 				setDescriptions((Boolean)newValue);
+				return;
+			case ComponentsPackage.TABLE_OF_CONTENTS__TOOLTIPS:
+				setTooltips((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -350,6 +386,9 @@ public class TableOfContentsImpl extends TableOfContentsBaseImpl implements Tabl
 			case ComponentsPackage.TABLE_OF_CONTENTS__DESCRIPTIONS:
 				setDescriptions(DESCRIPTIONS_EDEFAULT);
 				return;
+			case ComponentsPackage.TABLE_OF_CONTENTS__TOOLTIPS:
+				setTooltips(TOOLTIPS_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -376,6 +415,8 @@ public class TableOfContentsImpl extends TableOfContentsBaseImpl implements Tabl
 				return isSmall() != SMALL_EDEFAULT;
 			case ComponentsPackage.TABLE_OF_CONTENTS__DESCRIPTIONS:
 				return isDescriptions() != DESCRIPTIONS_EDEFAULT;
+			case ComponentsPackage.TABLE_OF_CONTENTS__TOOLTIPS:
+				return isTooltips() != TOOLTIPS_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -428,6 +469,7 @@ public class TableOfContentsImpl extends TableOfContentsBaseImpl implements Tabl
 				"Section".equals(getRole()) ? Action.Role.SECTION : Action.Role.NAVIGATION, 
 				context.interpolate(getHeader()), 
 				isDescriptions(), 
+				isTooltips(),
 				getDepth());
 		
 		tableOfContentsViewPart.setBordered(isBordered());

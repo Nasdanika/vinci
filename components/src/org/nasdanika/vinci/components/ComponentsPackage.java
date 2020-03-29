@@ -584,13 +584,22 @@ public interface ComponentsPackage extends EPackage {
 	int TABLE_OF_CONTENTS__DESCRIPTIONS = TABLE_OF_CONTENTS_BASE_FEATURE_COUNT + 6;
 
 	/**
+	 * The feature id for the '<em><b>Tooltips</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_OF_CONTENTS__TOOLTIPS = TABLE_OF_CONTENTS_BASE_FEATURE_COUNT + 7;
+
+	/**
 	 * The number of structural features of the '<em>Table Of Contents</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE_OF_CONTENTS_FEATURE_COUNT = TABLE_OF_CONTENTS_BASE_FEATURE_COUNT + 7;
+	int TABLE_OF_CONTENTS_FEATURE_COUNT = TABLE_OF_CONTENTS_BASE_FEATURE_COUNT + 8;
 
 	/**
 	 * The operation id for the '<em>As View Builder Supplier</em>' operation.
@@ -902,6 +911,17 @@ public interface ComponentsPackage extends EPackage {
 	EAttribute getTableOfContents_Descriptions();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.components.TableOfContents#isTooltips <em>Tooltips</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Tooltips</em>'.
+	 * @see org.nasdanika.vinci.components.TableOfContents#isTooltips()
+	 * @see #getTableOfContents()
+	 * @generated
+	 */
+	EAttribute getTableOfContents_Tooltips();
+
+	/**
 	 * Returns the meta object for class '{@link org.nasdanika.vinci.components.ListOfContents <em>List Of Contents</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1087,6 +1107,13 @@ public interface ComponentsPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute TABLE_OF_CONTENTS__DESCRIPTIONS = eINSTANCE.getTableOfContents_Descriptions();
+		/**
+		 * The meta object literal for the '<em><b>Tooltips</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TABLE_OF_CONTENTS__TOOLTIPS = eINSTANCE.getTableOfContents_Tooltips();
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.vinci.components.impl.ListOfContentsImpl <em>List Of Contents</em>}' class.
 		 * <!-- begin-user-doc -->

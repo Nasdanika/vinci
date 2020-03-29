@@ -57,7 +57,7 @@ public interface ListOfContents extends TableOfContentsBase {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * If selected, action descriptions are shown in the table of contents.
+	 * If selected, action tooltips are shown in the table of contents.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Tooltips</em>' attribute.
 	 * @see #setTooltips(boolean)

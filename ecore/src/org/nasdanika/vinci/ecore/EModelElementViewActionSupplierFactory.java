@@ -5,6 +5,7 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
+import java.util.function.Function;
 
 import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EClass;
@@ -18,9 +19,14 @@ import org.eclipse.emf.ecore.ETypeParameter;
 import org.eclipse.emf.ecore.ETypedElement;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.nasdanika.common.Context;
+import org.nasdanika.common.MarkdownHelper;
 import org.nasdanika.common.ProgressMonitor;
+import org.nasdanika.common.Status;
+import org.nasdanika.common.SupplierFactory;
 import org.nasdanika.emf.EObjectAdaptable;
+import org.nasdanika.html.app.impl.Util;
 import org.nasdanika.vinci.app.Action;
 import org.nasdanika.vinci.emf.EObjectViewActionSupplierFactory;
 import org.nasdanika.vinci.emf.ViewActionSupplierFactory;
@@ -44,30 +50,49 @@ public class EModelElementViewActionSupplierFactory<T extends EModelElement> ext
 		Action action = super.create(context, progressMonitor);
 		
 		action.setIcon(ICONS_BASE+eObject.eClass().getName()+".gif");
+		
+		String markdown = EObjectAdaptable.getResourceContext(eObject).getString("documentation", EcoreUtil.getDocumentation(eObject));
+		action.setMarkdownContent(markdown);
+		if (!Util.isBlank(markdown)) {
+			action.setTooltip(MarkdownHelper.INSTANCE.firstPlainTextSentence(markdown));
+		}
+		
 		// Configuration here
 		
 		return action;
 	}
 	
-//	protected Function<EClassifier, String> eClassifierLinkResolver = eClassifier -> {
-//		ViewAction viewAction = EObjectAdaptable.adaptTo(eClassifier, ViewAction.class);
-//		if (viewAction == null) {
-//			return null;
-//		}
-//		
-//		ActionActivator activator = viewAction.getActivator();
-//		return activator instanceof NavigationActionActivator  ? ((NavigationActionActivator) activator).getUrl() : null;
-//	};
-//	
-//	protected Function<EModelElement, String> eModelElementFirstDocSentenceProvider = eModelElement -> EObjectAdaptable.adaptTo(eModelElement, ViewAction.class).getTooltip();
-//
-//	/**
-//	 * Sorting by text.
-//	 */
-//	@Override
-//	public List<Action> getChildren() {
-//		return super.getChildren().stream().sorted((a1,a2) -> a1.getText().compareTo(a2.getText())).collect(Collectors.toList());
-//	}
+	protected Function<EClassifier, String> createEClassifierLinkResolver(Context context, ProgressMonitor monitor) {
+		return eClassifier -> {
+			SupplierFactory<Action> asf = EObjectAdaptable.adaptTo(eClassifier, ViewActionSupplierFactory.class);
+			if (asf == null) {
+				return null;
+			}
+			
+			try {
+				return asf.create(context).splitAndExecute(monitor).getId()+".html";
+			} catch (Exception e) {
+				monitor.worked(Status.ERROR, 1, "Exception: " + e, e);
+				return null;
+			}
+		};		
+	}
+	
+	protected Function<EModelElement, String> createEModelElementFirstDocSentenceProvider(Context context, ProgressMonitor monitor) {
+		return eModelElement -> {
+			SupplierFactory<Action> asf = EObjectAdaptable.adaptTo(eModelElement, ViewActionSupplierFactory.class);
+			if (asf == null) {
+				return null;
+			}
+			
+			try {
+				return asf.create(context).splitAndExecute(monitor).getTooltip();
+			} catch (Exception e) {
+				monitor.worked(Status.ERROR, 1, "Exception: " + e, e);
+				return null;
+			}
+		};
+	}
 		
 	/**
 	 * In situations where classes referencing this class are known this method can be overridden. 

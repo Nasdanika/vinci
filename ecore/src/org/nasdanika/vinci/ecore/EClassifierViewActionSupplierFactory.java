@@ -1,9 +1,10 @@
 package org.nasdanika.vinci.ecore;
 
+import java.nio.charset.StandardCharsets;
 import java.util.Iterator;
 
+import org.apache.commons.codec.binary.Hex;
 import org.eclipse.emf.ecore.EClassifier;
-import org.eclipse.emf.ecore.ENamedElement;
 import org.eclipse.emf.ecore.ETypeParameter;
 import org.nasdanika.common.Context;
 import org.nasdanika.common.ProgressMonitor;
@@ -21,7 +22,7 @@ public class EClassifierViewActionSupplierFactory<T extends EClassifier> extends
 	protected Action create(Context context, ProgressMonitor progressMonitor) throws Exception {
 		Action action = super.create(context, progressMonitor);
 		
-		StringBuilder label = new StringBuilder(action.getText());
+		StringBuilder label = new StringBuilder(eObject.getName());
 
 		if (!eObject.getETypeParameters().isEmpty()) {
 			label.append("&lt;");
@@ -37,19 +38,9 @@ public class EClassifierViewActionSupplierFactory<T extends EClassifier> extends
 		}
 		action.setText(label.toString());
 		
-		// TODO - ID.
+		action.setId(eObject.eClass().getName() + "-" + Hex.encodeHexString(eObject.getEPackage().getNsURI().getBytes(StandardCharsets.UTF_8)) + "-" + eObject.getName());
 		
 		return action;
 	}
 	
-//	@Override
-//	public Object getId() {
-//		Object parentId = getParent().getId();
-//		if (parentId instanceof String && ((String) parentId).endsWith(EPackageViewAction.PACKAGE_SUMMARY_SUFFIX)) {
-//			String parentIdStr = (String) parentId;
-//			parentId = parentIdStr.substring(0, parentIdStr.length() - EPackageViewAction.PACKAGE_SUMMARY_SUFFIX.length()); 
-//		}
-//		return parentId+"/"+((ENamedElement) getValue()).getName();
-//	}
-
 }

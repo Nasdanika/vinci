@@ -50,6 +50,7 @@ public class TableOfContentsItemProvider extends TableOfContentsBaseItemProvider
 			addHoverPropertyDescriptor(object);
 			addSmallPropertyDescriptor(object);
 			addDescriptionsPropertyDescriptor(object);
+			addTooltipsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -202,6 +203,27 @@ public class TableOfContentsItemProvider extends TableOfContentsBaseItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Tooltips feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	protected void addTooltipsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor(
+				 getResourceLocator(),
+				 getString("_UI_TableOfContents_tooltips_feature"),
+				 ComponentsPackage.Literals.TABLE_OF_CONTENTS__TOOLTIPS,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This returns TableOfContents.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -246,6 +268,7 @@ public class TableOfContentsItemProvider extends TableOfContentsBaseItemProvider
 			case ComponentsPackage.TABLE_OF_CONTENTS__HOVER:
 			case ComponentsPackage.TABLE_OF_CONTENTS__SMALL:
 			case ComponentsPackage.TABLE_OF_CONTENTS__DESCRIPTIONS:
+			case ComponentsPackage.TABLE_OF_CONTENTS__TOOLTIPS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

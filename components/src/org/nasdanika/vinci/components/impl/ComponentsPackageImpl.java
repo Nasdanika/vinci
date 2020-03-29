@@ -321,6 +321,16 @@ public class ComponentsPackageImpl extends EPackageImpl implements ComponentsPac
 	 * @generated
 	 */
 	@Override
+	public EAttribute getTableOfContents_Tooltips() {
+		return (EAttribute)tableOfContentsEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getListOfContents() {
 		return listOfContentsEClass;
 	}
@@ -396,6 +406,7 @@ public class ComponentsPackageImpl extends EPackageImpl implements ComponentsPac
 
 		tableOfContentsEClass = createEClass(TABLE_OF_CONTENTS);
 		createEAttribute(tableOfContentsEClass, TABLE_OF_CONTENTS__DESCRIPTIONS);
+		createEAttribute(tableOfContentsEClass, TABLE_OF_CONTENTS__TOOLTIPS);
 
 		listOfContentsEClass = createEClass(LIST_OF_CONTENTS);
 		createEAttribute(listOfContentsEClass, LIST_OF_CONTENTS__ORDERING);
@@ -483,6 +494,7 @@ public class ComponentsPackageImpl extends EPackageImpl implements ComponentsPac
 
 		initEClass(tableOfContentsEClass, TableOfContents.class, "TableOfContents", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTableOfContents_Descriptions(), ecorePackage.getEBoolean(), "descriptions", "false", 0, 1, TableOfContents.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTableOfContents_Tooltips(), ecorePackage.getEBoolean(), "tooltips", "false", 0, 1, TableOfContents.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(listOfContentsEClass, ListOfContents.class, "ListOfContents", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getListOfContents_Ordering(), ecorePackage.getEString(), "ordering", "", 0, 1, ListOfContents.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

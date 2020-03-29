@@ -82,7 +82,6 @@ public class ActionFacade extends org.nasdanika.html.app.impl.ActionImpl impleme
 			if (Util.isBlank(mTooltip)) {
 				String textDoc = Jsoup.parse(getDescription()).text();
 				setTooltip(MarkdownHelper.INSTANCE.firstSentence(textDoc));
-
 			}
 		}
 		// tooltip

@@ -112,6 +112,12 @@
         <details key="documentation" value="If selected, action descriptions are shown in the table of contents."/>
       </eAnnotations>
     </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="tooltips" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="If selected and &quot;descriptions&quot; is not selected, action tooltips are shown in the table of contents."/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ListOfContents" eSuperTypes="#//TableOfContentsBase">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -126,7 +132,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="tooltips" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
         defaultValueLiteral="false">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="If selected, action descriptions are shown in the table of contents."/>
+        <details key="documentation" value="If selected, action tooltips are shown in the table of contents."/>
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>

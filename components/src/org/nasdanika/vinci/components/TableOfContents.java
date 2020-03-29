@@ -18,6 +18,7 @@ import org.nasdanika.vinci.bootstrap.TableConfiguration;
  * </p>
  * <ul>
  *   <li>{@link org.nasdanika.vinci.components.TableOfContents#isDescriptions <em>Descriptions</em>}</li>
+ *   <li>{@link org.nasdanika.vinci.components.TableOfContents#isTooltips <em>Tooltips</em>}</li>
  * </ul>
  *
  * @see org.nasdanika.vinci.components.ComponentsPackage#getTableOfContents()
@@ -51,4 +52,30 @@ public interface TableOfContents extends TableOfContentsBase, TableConfiguration
 	 * @generated
 	 */
 	void setDescriptions(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Tooltips</b></em>' attribute.
+	 * The default value is <code>"false"</code>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * If selected and "descriptions" is not selected, action tooltips are shown in the table of contents.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Tooltips</em>' attribute.
+	 * @see #setTooltips(boolean)
+	 * @see org.nasdanika.vinci.components.ComponentsPackage#getTableOfContents_Tooltips()
+	 * @model default="false"
+	 * @generated
+	 */
+	boolean isTooltips();
+
+	/**
+	 * Sets the value of the '{@link org.nasdanika.vinci.components.TableOfContents#isTooltips <em>Tooltips</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Tooltips</em>' attribute.
+	 * @see #isTooltips()
+	 * @generated
+	 */
+	void setTooltips(boolean value);
 } // TableOfContents
