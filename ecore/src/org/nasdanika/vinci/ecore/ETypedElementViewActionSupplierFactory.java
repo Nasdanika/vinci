@@ -16,17 +16,15 @@ public class ETypedElementViewActionSupplierFactory<T extends ETypedElement> ext
 	protected Action create(Context context, ProgressMonitor progressMonitor) throws Exception {
 		Action action = super.create(context, progressMonitor);
 
-		StringBuilder label = new StringBuilder();
+		StringBuilder label = new StringBuilder(eObject.getName());
 		EGenericType genericType = eObject.getEGenericType();
 		if (genericType != null) {
+			label.append(" : ");
 			label.append(computeLabel(genericType, context, progressMonitor));
 			if (eObject.isMany()) {
 				label.append("*");
 			}
-			label.append(" ");
 		}
-		
-		label.append(action.getText());
 
 //		String name = super.getText();
 //		EObject container = target.eContainer();

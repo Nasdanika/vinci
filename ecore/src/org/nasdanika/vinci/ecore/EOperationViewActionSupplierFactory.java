@@ -13,6 +13,7 @@ import org.nasdanika.common.Context;
 import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.emf.EObjectAdaptable;
 import org.nasdanika.vinci.app.Action;
+import org.nasdanika.vinci.app.ActionRole;
 
 public class EOperationViewActionSupplierFactory extends ETypedElementViewActionSupplierFactory<EOperation> {
 
@@ -23,6 +24,7 @@ public class EOperationViewActionSupplierFactory extends ETypedElementViewAction
 	@Override
 	protected Action create(Context context, ProgressMonitor progressMonitor) throws Exception {
 		Action action = super.create(context, progressMonitor);
+		action.setRole(ActionRole.SECTION.label);
 	
 		StringBuilder idBuilder = new StringBuilder(eObject.eClass().getName())
 				.append("-")

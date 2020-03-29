@@ -3,35 +3,39 @@ package org.nasdanika.vinci.ecore;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
-import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
+import java.util.Base64;
 import java.util.Collection;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-import org.apache.commons.codec.binary.Hex;
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EStructuralFeature;
-import org.eclipse.emf.ecore.ETypedElement;
-import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.nasdanika.common.Context;
 import org.nasdanika.common.ProgressMonitor;
+import org.nasdanika.common.SupplierFactory;
 import org.nasdanika.emf.EObjectAdaptable;
-import org.nasdanika.emf.localization.PropertyKeys;
-import org.nasdanika.vinci.app.Action;
-import org.nasdanika.vinci.emf.ViewActionSupplierFactory;
+import org.nasdanika.emf.PlantUmlTextGenerator;
 import org.nasdanika.emf.PlantUmlTextGenerator.RelationshipDirection;
+import org.nasdanika.html.app.SectionStyle;
+import org.nasdanika.ncore.NcoreFactory;
+import org.nasdanika.ncore.Property;
+import org.nasdanika.ncore.Value;
+import org.nasdanika.vinci.app.Action;
+import org.nasdanika.vinci.app.ActionCategory;
+import org.nasdanika.vinci.app.ActionRole;
+import org.nasdanika.vinci.app.AppFactory;
+import org.nasdanika.vinci.components.ComponentsFactory;
+import org.nasdanika.vinci.components.ListOfContents;
+import org.nasdanika.vinci.emf.ViewActionSupplierFactory;
+import org.nasdanika.vinci.html.ContentTag;
+import org.nasdanika.vinci.html.HtmlFactory;
 
 import net.sourceforge.plantuml.FileFormat;
 import net.sourceforge.plantuml.FileFormatOption;
@@ -43,25 +47,160 @@ public class EClassViewActionSupplierFactory extends EClassifierViewActionSuppli
 		super(value);
 	}
 	
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Override
 	protected Action create(Context context, ProgressMonitor progressMonitor) throws Exception {
 		Action action = super.create(context, progressMonitor);
+		action.setSectionStyle(SectionStyle.DEFAULT.label);
+				
+		// Diagram
+		ByteArrayOutputStream baos = new ByteArrayOutputStream();
+		String diagramCMap = generateDiagram(false, null, 1, RelationshipDirection.both, true, true, baos);
+		baos.close();
+		ContentTag imageTag = HtmlFactory.eINSTANCE.createContentTag();
+		imageTag.setName("img");
 		
-		// TODO content
+		Property srcAttribute = NcoreFactory.eINSTANCE.createProperty();
+		srcAttribute.setName("src");
+		srcAttribute.setValue("data:image/png;base64, " + Base64.getEncoder().encodeToString(baos.toByteArray()));
+		imageTag.getAttributes().add(srcAttribute);
 		
-		for (EStructuralFeature sf: eObject.getEStructuralFeatures().stream().sorted((a,b) ->  a.getName().compareTo(b.getName())).collect(Collectors.toList())) {
-			ViewActionSupplierFactory sfvasf = EObjectAdaptable.adaptTo(sf, ViewActionSupplierFactory.class);
-			action.getElements().add(sfvasf.create(context).execute(progressMonitor));
+		Property useMapAttribute = NcoreFactory.eINSTANCE.createProperty();
+		useMapAttribute.setName("usemap");
+		useMapAttribute.setValue("#plantuml_map");
+		imageTag.getAttributes().add(useMapAttribute);
+		
+		action.getContent().add((SupplierFactory) imageTag);
+		
+		Value cMapValue = NcoreFactory.eINSTANCE.createValue();
+		cMapValue.setValue(diagramCMap);
+		action.getContent().add(cMapValue);
+		
+		// Supertypes
+		
+		// Subtypes
+		
+		ListOfContents loc = ComponentsFactory.eINSTANCE.createListOfContents();
+		loc.setDepth(1);
+		loc.setTooltips(true);
+		loc.setHeader("EClassifiers");
+		loc.setRole(ActionRole.SECTION.label);
+		action.getContent().add((SupplierFactory) loc);		
+		
+		if (!eObject.getEAttributes().isEmpty()) {
+			ActionCategory attrsCategory = AppFactory.eINSTANCE.createActionCategory();
+			attrsCategory.setText("Attributes");
+			action.getElements().add(attrsCategory);
+			for (EStructuralFeature sf: eObject.getEAttributes().stream().sorted((a,b) ->  a.getName().compareTo(b.getName())).collect(Collectors.toList())) {
+				ViewActionSupplierFactory sfvasf = EObjectAdaptable.adaptTo(sf, ViewActionSupplierFactory.class);
+				attrsCategory.getElements().add(sfvasf.create(context).execute(progressMonitor));
+			}
 		}
 		
-		for (EOperation eOp: eObject.getEOperations().stream().sorted((a,b) ->  a.getName().compareTo(b.getName())).collect(Collectors.toList())) {
-			ViewActionSupplierFactory eovasf = EObjectAdaptable.adaptTo(eOp, ViewActionSupplierFactory.class);
-			action.getElements().add(eovasf.create(context).execute(progressMonitor));			
+		if (!eObject.getEReferences().isEmpty()) {
+			ActionCategory refsCategory = AppFactory.eINSTANCE.createActionCategory();
+			refsCategory.setText("References");
+			action.getElements().add(refsCategory);
+			for (EStructuralFeature sf: eObject.getEReferences().stream().sorted((a,b) ->  a.getName().compareTo(b.getName())).collect(Collectors.toList())) {
+				ViewActionSupplierFactory sfvasf = EObjectAdaptable.adaptTo(sf, ViewActionSupplierFactory.class);
+				refsCategory.getElements().add(sfvasf.create(context).execute(progressMonitor));
+			}
+		}
+		
+		if (!eObject.getEOperations().isEmpty()) {
+			ActionCategory opsCategory = AppFactory.eINSTANCE.createActionCategory();
+			opsCategory.setText("Operations");
+			action.getElements().add(opsCategory);
+			for (EOperation eOp: eObject.getEOperations().stream().sorted((a,b) ->  a.getName().compareTo(b.getName())).collect(Collectors.toList())) {
+				ViewActionSupplierFactory eovasf = EObjectAdaptable.adaptTo(eOp, ViewActionSupplierFactory.class);
+				opsCategory.getElements().add(eovasf.create(context).execute(progressMonitor));			
+			}
 		}
 		
 		return action;
 	}
 	
+	protected String generateDiagram(
+			boolean leftToRightDirection, 
+			String width, 
+			int depth, 
+			PlantUmlTextGenerator.RelationshipDirection relationshipDirection,
+			boolean appendAttributes,
+			boolean appendOperations,
+			OutputStream out) throws IOException {
+		
+		StringBuilder sb = new StringBuilder();
+		PlantUmlTextGenerator gen = new PlantUmlTextGenerator(sb, ec -> EClassifierViewActionSupplierFactory.id(ec)+".html", EModelElementViewActionSupplierFactory::getEModelElementFirstDocSentence) {
+			
+			@Override
+			protected Collection<EClass> getSubTypes(EClass eClass) {
+				return EClassViewActionSupplierFactory.this.getSubTypes(eClass);
+			}
+			
+			@Override
+			protected Collection<EClass> getReferrers(EClass eClass) {
+				return EClassViewActionSupplierFactory.this.getReferrers(eClass);
+			}
+			
+			@Override
+			protected boolean isAppendAttributes(EClass eClass) {
+				return appendAttributes;
+			}
+			
+			@Override
+			protected boolean isAppendOperations(EClass eClass) {
+				return appendOperations;
+			}
+			
+		};
+		gen.appendStartUml();
+		
+		if (leftToRightDirection) {
+			sb.append("left to right direction").append(System.lineSeparator());
+		}
+		
+		if (width != null) {
+			sb.append("scale ").append(width).append(" width").append(System.lineSeparator());
+		}
+						
+		gen.appendWithRelationships(Collections.singleton(eObject), relationshipDirection, depth);
+		
+		gen.appendEndUml();
+		SourceStringReader reader = new SourceStringReader(sb.toString());
+		
+		FileFormatOption fileFormatOption = new FileFormatOption(FileFormat.PNG);
+		reader.outputImage(out, 0, fileFormatOption);
+		
+		return reader.getCMapData(0, fileFormatOption);
+	}
+		
+	/**
+	 * Override to return a list of sub-types of given EClass. 
+	 * This implementation returns all sub-types found in the resource set. 
+	 * @param eClass
+	 * @return
+	 */
+	protected Collection<EClass> getSubTypes(EClass eClass) {
+		TreeIterator<?> acit;
+		Resource eResource = eClass.eResource();
+		if (eResource == null) {
+			EPackage ePackage = eClass.getEPackage();
+			if (ePackage == null) {
+				return Collections.emptySet();
+			}
+			acit = ePackage.eAllContents();
+		} else {
+			ResourceSet resourceSet = eResource.getResourceSet();
+			acit = resourceSet == null ? eResource.getAllContents() : eResource.getAllContents();
+		}
+		Set<EClass> ret = new HashSet<>();
+		acit.forEachRemaining(obj -> {
+			if (obj instanceof EClass && ((EClass) obj).getESuperTypes().contains(eClass)) {
+				ret.add((EClass) obj);
+			}
+		});
+		return ret;
+	}
 	
 //	@SuppressWarnings("unchecked")
 //	@Override
@@ -198,104 +337,5 @@ public class EClassViewActionSupplierFactory extends EClassifierViewActionSuppli
 //		return ret.stream().sorted(comparator).collect(Collectors.toList());
 //	}
 //
-//	/**
-//	 * Generates PNG diagram.
-//	 * @return
-//	 * @throws IOException 
-//	 */
-//	protected String generateDiagram(
-//			boolean leftToRightDirection, 
-//			String width, 
-//			int depth, 
-//			PlantUmlTextGenerator.RelationshipDirection relationshipDirection,
-//			boolean appendAttributes,
-//			boolean appendOperations,
-//			OutputStream out) throws IOException {
-//		
-//		StringBuilder sb = new StringBuilder();
-//		PlantUmlTextGenerator gen = new PlantUmlTextGenerator(sb, eClassifierLinkResolver, eModelElementFirstDocSentenceProvider) {
-//			
-//			@Override
-//			protected Collection<EClass> getSubTypes(EClass eClass) {
-//				return EClassViewAction.this.getSubTypes(eClass);
-//			}
-//			
-//			@Override
-//			protected Collection<EClass> getReferrers(EClass eClass) {
-//				return EClassViewAction.this.getReferrers(eClass);
-//			}
-//			
-//			@Override
-//			protected boolean isAppendAttributes(EClass eClass) {
-//				return appendAttributes;
-//			}
-//			
-//			@Override
-//			protected boolean isAppendOperations(EClass eClass) {
-//				return appendOperations;
-//			}
-//			
-//		};
-//		gen.appendStartUml();
-//		
-//		if (leftToRightDirection) {
-//			sb.append("left to right direction").append(System.lineSeparator());
-//		}
-//		
-//		if (width != null) {
-//			sb.append("scale ").append(width).append(" width").append(System.lineSeparator());
-//		}
-//						
-//		gen.appendWithRelationships(Collections.singleton(target), relationshipDirection, depth);
-//		
-//		gen.appendEndUml();
-//		SourceStringReader reader = new SourceStringReader(sb.toString());
-//		
-//		FileFormatOption fileFormatOption = new FileFormatOption(FileFormat.PNG);
-//		reader.outputImage(out, 0, fileFormatOption);
-//		
-//		return reader.getCMapData(0, fileFormatOption);
-//	}
-//		
-//	/**
-//	 * Override to return a list of sub-types of given EClass. 
-//	 * This implementation returns all sub-types found in the EClass' current package. 
-//	 * @param eClass
-//	 * @return
-//	 */
-//	protected Collection<EClass> getSubTypes(EClass eClass) {
-//		TreeIterator<?> acit;
-//		Resource eResource = eClass.eResource();
-//		if (eResource == null) {
-//			EPackage ePackage = eClass.getEPackage();
-//			if (ePackage == null) {
-//				return Collections.emptySet();
-//			}
-//			acit = ePackage.eAllContents();
-//		} else {
-//			ResourceSet resourceSet = eResource.getResourceSet();
-//			acit = resourceSet == null ? eResource.getAllContents() : eResource.getAllContents();
-//		}
-//		Set<EClass> ret = new HashSet<>();
-//		acit.forEachRemaining(obj -> {
-//			if (obj instanceof EClass && ((EClass) obj).getESuperTypes().contains(eClass)) {
-//				ret.add((EClass) obj);
-//			}
-//		});
-//		return ret;
-//	}
-//	
-//	@Override
-//	public String getIcon() {
-//		return target.isInterface() ? iconsBase+"EInterface.gif" : super.getIcon();			
-//	}
-//	
-//	@Override
-//	public String getText() {
-//		StringBuilder text = new StringBuilder(super.getText());
-//		// Generic supertypes?
-////		EList<ETypeParameter> typeParameters = target.getETypeParameters();
-//		return text.toString();
-//	}
 
 }

@@ -1,8 +1,6 @@
 package org.nasdanika.vinci.ecore;
 
 import java.io.File;
-import java.io.FileOutputStream;
-import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -10,8 +8,11 @@ import java.util.Set;
 
 import org.eclipse.emf.codegen.ecore.genmodel.GenModel;
 import org.eclipse.emf.codegen.ecore.genmodel.GenPackage;
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMLResourceImpl;
 import org.nasdanika.cli.CommandBase;
 import org.nasdanika.cli.ProgressMonitorMixin;
@@ -107,12 +108,11 @@ public class EcoreDocumentationGeneratorCommand extends CommandBase {
 		
 		Set<String> names = new HashSet<>();
 		
+		ResourceSet outputResourceSet = new ResourceSetImpl();
 		try (ProgressMonitor pm = progressMonitorMixin.createProgressMonitor(suppliers.stream().mapToDouble(Supplier::size).sum())) { 
 			int pos = 0;
 			for (Supplier<Action> supplier: suppliers) {
-				Resource resource = new XMLResourceImpl();
 				Action action = supplier.splitAndExecute(pm);
-				resource.getContents().add(action);		
 				String resourceName = action.getText();
 				if (!names.add(action.getText())) {
 					resourceName += "-" + pos;
@@ -122,11 +122,14 @@ public class EcoreDocumentationGeneratorCommand extends CommandBase {
 					effectiveOutputDir.mkdirs();
 				}
 				File output = new File(effectiveOutputDir, resourceName + ".vinci");
-				try (OutputStream os = new FileOutputStream(output)) {
-					resource.save(os, null);
-				}
 				
+				Resource resource = new XMLResourceImpl(URI.createURI(output.toURI().toString()));
+				resource.getContents().add(action);		
+				outputResourceSet.getResources().add(resource);
 				++pos;
+			}
+			for (Resource resource: outputResourceSet.getResources()) {
+				resource.save(null);
 			}
 		}
 		return 0;

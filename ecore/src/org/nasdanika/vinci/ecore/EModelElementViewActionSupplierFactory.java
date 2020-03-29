@@ -62,36 +62,9 @@ public class EModelElementViewActionSupplierFactory<T extends EModelElement> ext
 		return action;
 	}
 	
-	protected Function<EClassifier, String> createEClassifierLinkResolver(Context context, ProgressMonitor monitor) {
-		return eClassifier -> {
-			SupplierFactory<Action> asf = EObjectAdaptable.adaptTo(eClassifier, ViewActionSupplierFactory.class);
-			if (asf == null) {
-				return null;
-			}
-			
-			try {
-				return asf.create(context).splitAndExecute(monitor).getId()+".html";
-			} catch (Exception e) {
-				monitor.worked(Status.ERROR, 1, "Exception: " + e, e);
-				return null;
-			}
-		};		
-	}
-	
-	protected Function<EModelElement, String> createEModelElementFirstDocSentenceProvider(Context context, ProgressMonitor monitor) {
-		return eModelElement -> {
-			SupplierFactory<Action> asf = EObjectAdaptable.adaptTo(eModelElement, ViewActionSupplierFactory.class);
-			if (asf == null) {
-				return null;
-			}
-			
-			try {
-				return asf.create(context).splitAndExecute(monitor).getTooltip();
-			} catch (Exception e) {
-				monitor.worked(Status.ERROR, 1, "Exception: " + e, e);
-				return null;
-			}
-		};
+	protected static String getEModelElementFirstDocSentence(EModelElement modelElement) {
+		String markdown = EObjectAdaptable.getResourceContext(modelElement).getString("documentation", EcoreUtil.getDocumentation(modelElement));
+		return Util.isBlank(markdown) ? null : MarkdownHelper.INSTANCE.firstPlainTextSentence(markdown);
 	}
 		
 	/**
@@ -141,8 +114,8 @@ public class EModelElementViewActionSupplierFactory<T extends EModelElement> ext
 	protected String computeLabel(EGenericType genericType, Context context, ProgressMonitor monitor) throws Exception {
 		EObject container = genericType.eContainer();
 		EClassifier rawType = genericType.getERawType();
-		ViewActionSupplierFactory rawTypeViewActionSupplierFactory = EObjectAdaptable.adaptTo(rawType, ViewActionSupplierFactory.class);
-		String rawTypeText = rawTypeViewActionSupplierFactory == null ? rawType.getName() : rawTypeViewActionSupplierFactory.create(context).execute(monitor).getText();
+//		ViewActionSupplierFactory rawTypeViewActionSupplierFactory = EObjectAdaptable.adaptTo(rawType, ViewActionSupplierFactory.class);
+		String rawTypeText = rawType.getName(); // rawTypeViewActionSupplierFactory == null ? rawType.getName() : rawTypeViewActionSupplierFactory.create(context).execute(monitor).getText();
 		if (container == null || !container.eIsSet(genericType.eContainingFeature())) {
 			return rawTypeText;
 		}

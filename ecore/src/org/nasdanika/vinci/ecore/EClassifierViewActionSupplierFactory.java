@@ -38,9 +38,18 @@ public class EClassifierViewActionSupplierFactory<T extends EClassifier> extends
 		}
 		action.setText(label.toString());
 		
-		action.setId(eObject.eClass().getName() + "-" + Hex.encodeHexString(eObject.getEPackage().getNsURI().getBytes(StandardCharsets.UTF_8)) + "-" + eObject.getName());
+		action.setId(id(eObject));
 		
 		return action;
+	}
+
+	/**
+	 * Generates {@link EClassifier} ID.
+	 * @param eClassifier
+	 * @return
+	 */
+	public static String id(EClassifier eClassifier) {
+		return eClassifier.eClass().getName() + "-" + Hex.encodeHexString(eClassifier.getEPackage().getNsURI().getBytes(StandardCharsets.UTF_8)) + "-" + eClassifier.getName();
 	}
 	
 }

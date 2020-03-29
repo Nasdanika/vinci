@@ -25,7 +25,6 @@ import org.nasdanika.ncore.Value;
 import org.nasdanika.vinci.app.Action;
 import org.nasdanika.vinci.components.ComponentsFactory;
 import org.nasdanika.vinci.components.ListOfContents;
-import org.nasdanika.vinci.components.TableOfContents;
 import org.nasdanika.vinci.emf.ViewActionSupplierFactory;
 import org.nasdanika.vinci.html.ContentTag;
 import org.nasdanika.vinci.html.HtmlFactory;
@@ -58,7 +57,7 @@ public class EPackageViewActionSupplierFactory extends ENamedElementViewActionSu
 		
 		// Diagram		
 		ByteArrayOutputStream baos = new ByteArrayOutputStream();
-		String diagramCMap = generateDiagram(false, null, 0, RelationshipDirection.both, true, true, context, progressMonitor, baos);
+		String diagramCMap = generateDiagram(false, null, 0, RelationshipDirection.both, true, true, baos);
 		baos.close();
 		ContentTag imageTag = HtmlFactory.eINSTANCE.createContentTag();
 		imageTag.setName("img");
@@ -100,13 +99,11 @@ public class EPackageViewActionSupplierFactory extends ENamedElementViewActionSu
 			PlantUmlTextGenerator.RelationshipDirection relationshipDirection,
 			boolean appendAttributes,
 			boolean appendOperations,
-			Context context,
-			ProgressMonitor monitor,
 			OutputStream out) throws IOException {
 		
 		StringBuilder sb = new StringBuilder();
 		
-		PlantUmlTextGenerator gen = new PlantUmlTextGenerator(sb, createEClassifierLinkResolver(context, monitor), createEModelElementFirstDocSentenceProvider(context, monitor)) {
+		PlantUmlTextGenerator gen = new PlantUmlTextGenerator(sb, ec -> EClassifierViewActionSupplierFactory.id(ec)+".html", EModelElementViewActionSupplierFactory::getEModelElementFirstDocSentence) {
 			
 			@Override
 			protected Collection<EClass> getSubTypes(EClass eClass) {

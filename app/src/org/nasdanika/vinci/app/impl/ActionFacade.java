@@ -104,7 +104,7 @@ public class ActionFacade extends org.nasdanika.html.app.impl.ActionImpl impleme
 		case REFERENCE:
 			if (Util.isBlank(activator) && !Util.isBlank(target.getId())) {
 				activator = target.getId() + ".html";
-				if ("Section".equals(target.getRole())) {
+				if (ActionRole.SECTION.label.equals(target.getRole())) {
 					activator += "#" + target.getId();
 				}
 			}
