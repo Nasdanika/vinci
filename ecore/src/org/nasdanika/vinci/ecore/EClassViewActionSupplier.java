@@ -119,7 +119,6 @@ public class EClassViewActionSupplier extends EClassifierViewActionSupplier<ECla
 		ListOfContents loc = ComponentsFactory.eINSTANCE.createListOfContents();
 		loc.setDepth(1);
 		loc.setTooltips(true);
-		loc.setHeader("EClassifiers");
 		loc.setRole(ActionRole.SECTION.label);
 		action.getContent().add((SupplierFactory) loc);		
 		
