@@ -13,7 +13,6 @@ import org.apache.commons.codec.binary.Hex;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EPackage;
-import org.nasdanika.common.Context;
 import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.common.SupplierFactory;
 import org.nasdanika.emf.EObjectAdaptable;
@@ -25,7 +24,7 @@ import org.nasdanika.ncore.Value;
 import org.nasdanika.vinci.app.Action;
 import org.nasdanika.vinci.components.ComponentsFactory;
 import org.nasdanika.vinci.components.ListOfContents;
-import org.nasdanika.vinci.emf.ViewActionSupplierFactory;
+import org.nasdanika.vinci.emf.ViewActionSupplier;
 import org.nasdanika.vinci.html.ContentTag;
 import org.nasdanika.vinci.html.HtmlFactory;
 
@@ -33,27 +32,34 @@ import net.sourceforge.plantuml.FileFormat;
 import net.sourceforge.plantuml.FileFormatOption;
 import net.sourceforge.plantuml.SourceStringReader;
 
-public class EPackageViewActionSupplierFactory extends ENamedElementViewActionSupplierFactory<EPackage> {
+public class EPackageViewActionSupplier extends ENamedElementViewActionSupplier<EPackage> {
 
-	public EPackageViewActionSupplierFactory(EPackage value) {
+	public EPackageViewActionSupplier(EPackage value) {
 		super(value);
+	}
+	
+	@Override
+	protected Action create(ProgressMonitor progressMonitor) throws Exception {
+		Action action = super.create(progressMonitor);
+		action.setId(eObject.eClass().getName() + "-" + Hex.encodeHexString(eObject.getNsURI().getBytes(StandardCharsets.UTF_8)));
+		
+		for (EPackage subPackage: eObject.getESubpackages().stream().sorted((a,b) ->  a.getName().compareTo(b.getName())).collect(Collectors.toList())) {
+			ViewActionSupplier spvasf = EObjectAdaptable.adaptTo(subPackage, ViewActionSupplier.class);
+			action.getElements().add(spvasf.getAction(progressMonitor));
+		}
+		
+		for (EClassifier eClassifier: eObject.getEClassifiers().stream().sorted((a,b) ->  a.getName().compareTo(b.getName())).collect(Collectors.toList())) {
+			ViewActionSupplier ecvasf = EObjectAdaptable.adaptTo(eClassifier, ViewActionSupplier.class);
+			action.getElements().add(ecvasf.getAction(progressMonitor));			
+		}
+		
+		return action;
 	}
 	
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
-	protected Action create(Context context, ProgressMonitor progressMonitor) throws Exception {
-		Action action = super.create(context, progressMonitor);
-		action.setId(eObject.eClass().getName() + "-" + Hex.encodeHexString(eObject.getNsURI().getBytes(StandardCharsets.UTF_8)));
-		
-		for (EPackage subPackage: eObject.getESubpackages().stream().sorted((a,b) ->  a.getName().compareTo(b.getName())).collect(Collectors.toList())) {
-			ViewActionSupplierFactory spvasf = EObjectAdaptable.adaptTo(subPackage, ViewActionSupplierFactory.class);
-			action.getElements().add(spvasf.create(context).execute(progressMonitor));
-		}
-		
-		for (EClassifier eClassifier: eObject.getEClassifiers().stream().sorted((a,b) ->  a.getName().compareTo(b.getName())).collect(Collectors.toList())) {
-			ViewActionSupplierFactory ecvasf = EObjectAdaptable.adaptTo(eClassifier, ViewActionSupplierFactory.class);
-			action.getElements().add(ecvasf.create(context).execute(progressMonitor));			
-		}
+	protected void configure(ProgressMonitor monitor) throws Exception {
+		super.configure(monitor);
 		
 		// Diagram		
 		ByteArrayOutputStream baos = new ByteArrayOutputStream();
@@ -83,8 +89,6 @@ public class EPackageViewActionSupplierFactory extends ENamedElementViewActionSu
 		loc.setTooltips(true);
 		loc.setHeader("EClassifiers");
 		action.getContent().add((SupplierFactory) loc);		
-		
-		return action;
 	}
 	
 	/**
@@ -103,16 +107,16 @@ public class EPackageViewActionSupplierFactory extends ENamedElementViewActionSu
 		
 		StringBuilder sb = new StringBuilder();
 		
-		PlantUmlTextGenerator gen = new PlantUmlTextGenerator(sb, ec -> EClassifierViewActionSupplierFactory.id(ec)+".html", EModelElementViewActionSupplierFactory::getEModelElementFirstDocSentence) {
+		PlantUmlTextGenerator gen = new PlantUmlTextGenerator(sb, ec -> EClassifierViewActionSupplier.id(ec)+".html", EModelElementViewActionSupplier::getEModelElementFirstDocSentence) {
 			
 			@Override
 			protected Collection<EClass> getSubTypes(EClass eClass) {
-				return EPackageViewActionSupplierFactory.this.getSubTypes(eClass);
+				return EPackageViewActionSupplier.this.getSubTypes(eClass);
 			}
 			
 			@Override
 			protected Collection<EClass> getReferrers(EClass eClass) {
-				return EPackageViewActionSupplierFactory.this.getReferrers(eClass);
+				return EPackageViewActionSupplier.this.getReferrers(eClass);
 			}
 			
 			@Override

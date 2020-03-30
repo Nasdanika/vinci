@@ -6,21 +6,21 @@ import org.nasdanika.common.Context;
 import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.vinci.app.Action;
 
-public class ETypedElementViewActionSupplierFactory<T extends ETypedElement> extends ENamedElementViewActionSupplierFactory<T> {
+public class ETypedElementViewActionSupplier<T extends ETypedElement> extends ENamedElementViewActionSupplier<T> {
 	
-	public ETypedElementViewActionSupplierFactory(T value) {
+	public ETypedElementViewActionSupplier(T value) {
 		super(value);
 	}
 	
 	@Override
-	protected Action create(Context context, ProgressMonitor progressMonitor) throws Exception {
-		Action action = super.create(context, progressMonitor);
+	protected void configure(ProgressMonitor monitor) throws Exception {
+		super.configure(monitor);
 
 		StringBuilder label = new StringBuilder(eObject.getName());
 		EGenericType genericType = eObject.getEGenericType();
 		if (genericType != null) {
 			label.append(" : ");
-			label.append(computeLabel(genericType, context, progressMonitor));
+			label.append(computeLabel(genericType, monitor));
 			if (eObject.isMany()) {
 				label.append("*");
 			}
@@ -35,10 +35,6 @@ public class ETypedElementViewActionSupplierFactory<T extends ETypedElement> ext
 //			label.append(name);
 //		}
 		action.setText(label.toString());
-		
-		// TODO content - properties, description.
-		
-		return action;
 	}
 	
 //	@Override

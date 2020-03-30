@@ -2,15 +2,13 @@ package org.nasdanika.vinci.emf;
 
 import org.apache.commons.lang3.StringUtils;
 import org.eclipse.emf.ecore.ENamedElement;
-import org.nasdanika.common.Context;
 import org.nasdanika.common.ProgressMonitor;
-import org.nasdanika.common.Supplier;
 import org.nasdanika.emf.AnnotationSource;
 import org.nasdanika.emf.EObjectAdaptable;
 import org.nasdanika.html.app.impl.Util;
 import org.nasdanika.html.bootstrap.Color;
 import org.nasdanika.vinci.app.Label;
-import org.nasdanika.vinci.app.LabelSupplierFactory;
+import org.nasdanika.vinci.app.LabelSupplier;
 
 
 /**
@@ -20,29 +18,17 @@ import org.nasdanika.vinci.app.LabelSupplierFactory;
  * @author Pavel Vlasov
  *
  */
-public abstract class ENamedElementLabelSupplierFactory<T extends ENamedElement, R extends Label> extends AnnotationSource<T> implements LabelSupplierFactory<R> {
+public abstract class ENamedElementLabelSupplier<T extends ENamedElement, R extends Label> extends AnnotationSource<T> implements LabelSupplier<R> {
+	
+	protected R label;	
 	
 	@Override
-	public Supplier<R> create(Context context) throws Exception {
-		return new Supplier<R>() {
-			
-			@Override
-			public double size() {
-				return 1;
-			}
-			
-			@Override
-			public String name() {
-				return "Label supplier";
-			}
-			
-			@Override
-			public R execute(ProgressMonitor progressMonitor) throws Exception {
-				R ret = create(context, progressMonitor);
-				configure(ret, context, progressMonitor);
-				return ret;
-			}
-		};
+	public synchronized R getLabel(ProgressMonitor monitor) throws Exception {
+		if (label == null) {
+			label = create(monitor);
+			configure(monitor);
+		}
+		return label;
 	}
 	
 	/**
@@ -51,9 +37,9 @@ public abstract class ENamedElementLabelSupplierFactory<T extends ENamedElement,
 	 * @param monitor
 	 * @return
 	 */
-	protected abstract R create(Context context, ProgressMonitor monitor);
+	protected abstract R create(ProgressMonitor monitor);
 	
-	protected void configure(R label, Context context, ProgressMonitor monitor) {
+	protected void configure(ProgressMonitor monitor) {
 		String text = EObjectAdaptable.getResourceContext(modelElement).getString("label");
 		label.setText(text == null ? nameToLabel() : text);
 		
@@ -71,7 +57,7 @@ public abstract class ENamedElementLabelSupplierFactory<T extends ENamedElement,
 		label.setOutline(outlineAnnotation != null && "true".equals(outlineAnnotation.trim()));
 	}
 	
-	public ENamedElementLabelSupplierFactory(T eNamedElement) {
+	public ENamedElementLabelSupplier(T eNamedElement) {
 		super(eNamedElement);
 	}	
 

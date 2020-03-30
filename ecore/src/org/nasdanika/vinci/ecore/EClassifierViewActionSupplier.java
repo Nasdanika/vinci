@@ -6,21 +6,27 @@ import java.util.Iterator;
 import org.apache.commons.codec.binary.Hex;
 import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.ETypeParameter;
-import org.nasdanika.common.Context;
 import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.emf.EObjectAdaptable;
 import org.nasdanika.vinci.app.Action;
-import org.nasdanika.vinci.emf.ViewActionSupplierFactory;
+import org.nasdanika.vinci.emf.ViewActionSupplier;
 
-public class EClassifierViewActionSupplierFactory<T extends EClassifier> extends ENamedElementViewActionSupplierFactory<T> {
+public class EClassifierViewActionSupplier<T extends EClassifier> extends ENamedElementViewActionSupplier<T> {
 
-	public EClassifierViewActionSupplierFactory(T value) {
+	public EClassifierViewActionSupplier(T value) {
 		super(value);
 	}
 	
 	@Override
-	protected Action create(Context context, ProgressMonitor progressMonitor) throws Exception {
-		Action action = super.create(context, progressMonitor);
+	protected Action create(ProgressMonitor progressMonitor) throws Exception {
+		Action action = super.create(progressMonitor);
+		action.setId(id(eObject));
+		return action;
+	}
+	
+	@Override
+	protected void configure(ProgressMonitor monitor) throws Exception {
+		super.configure(monitor);
 		
 		StringBuilder label = new StringBuilder(eObject.getName());
 
@@ -29,7 +35,7 @@ public class EClassifierViewActionSupplierFactory<T extends EClassifier> extends
 			Iterator<ETypeParameter> tpit = eObject.getETypeParameters().iterator();
 			while (tpit.hasNext()) {
 				ETypeParameter typeParameter = tpit.next();
-				label.append(EObjectAdaptable.adaptTo(typeParameter, ViewActionSupplierFactory.class).create(context).execute(progressMonitor).getText());
+				label.append(EObjectAdaptable.adaptTo(typeParameter, ViewActionSupplier.class).getAction(monitor).getText());
 				if (tpit.hasNext()) {
 					label.append(", ");
 				}
@@ -37,10 +43,6 @@ public class EClassifierViewActionSupplierFactory<T extends EClassifier> extends
 			label.append("&gt;");
 		}
 		action.setText(label.toString());
-		
-		action.setId(id(eObject));
-		
-		return action;
 	}
 
 	/**

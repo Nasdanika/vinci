@@ -17,7 +17,6 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
-import org.nasdanika.common.Context;
 import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.common.SupplierFactory;
 import org.nasdanika.emf.EObjectAdaptable;
@@ -33,7 +32,7 @@ import org.nasdanika.vinci.app.ActionRole;
 import org.nasdanika.vinci.app.AppFactory;
 import org.nasdanika.vinci.components.ComponentsFactory;
 import org.nasdanika.vinci.components.ListOfContents;
-import org.nasdanika.vinci.emf.ViewActionSupplierFactory;
+import org.nasdanika.vinci.emf.ViewActionSupplier;
 import org.nasdanika.vinci.html.ContentTag;
 import org.nasdanika.vinci.html.HtmlFactory;
 
@@ -41,18 +40,55 @@ import net.sourceforge.plantuml.FileFormat;
 import net.sourceforge.plantuml.FileFormatOption;
 import net.sourceforge.plantuml.SourceStringReader;
 
-public class EClassViewActionSupplierFactory extends EClassifierViewActionSupplierFactory<EClass> {
+public class EClassViewActionSupplier extends EClassifierViewActionSupplier<EClass> {
 
-	public EClassViewActionSupplierFactory(EClass value) {
+	public EClassViewActionSupplier(EClass value) {
 		super(value);
+	}
+	
+	@Override
+	protected Action create(ProgressMonitor progressMonitor) throws Exception {
+		Action action = super.create(progressMonitor);
+		action.setSectionStyle(SectionStyle.DEFAULT.label);
+		
+		if (!eObject.getEAttributes().isEmpty()) {
+			ActionCategory attrsCategory = AppFactory.eINSTANCE.createActionCategory();
+			attrsCategory.setText("Attributes");
+			action.getElements().add(attrsCategory);
+			for (EStructuralFeature sf: eObject.getEAttributes().stream().sorted((a,b) ->  a.getName().compareTo(b.getName())).collect(Collectors.toList())) {
+				ViewActionSupplier sfvasf = EObjectAdaptable.adaptTo(sf, ViewActionSupplier.class);
+				attrsCategory.getElements().add(sfvasf.getAction(progressMonitor));
+			}
+		}
+		
+		if (!eObject.getEReferences().isEmpty()) {
+			ActionCategory refsCategory = AppFactory.eINSTANCE.createActionCategory();
+			refsCategory.setText("References");
+			action.getElements().add(refsCategory);
+			for (EStructuralFeature sf: eObject.getEReferences().stream().sorted((a,b) ->  a.getName().compareTo(b.getName())).collect(Collectors.toList())) {
+				ViewActionSupplier sfvasf = EObjectAdaptable.adaptTo(sf, ViewActionSupplier.class);
+				refsCategory.getElements().add(sfvasf.getAction(progressMonitor));
+			}
+		}
+		
+		if (!eObject.getEOperations().isEmpty()) {
+			ActionCategory opsCategory = AppFactory.eINSTANCE.createActionCategory();
+			opsCategory.setText("Operations");
+			action.getElements().add(opsCategory);
+			for (EOperation eOp: eObject.getEOperations().stream().sorted((a,b) ->  a.getName().compareTo(b.getName())).collect(Collectors.toList())) {
+				ViewActionSupplier eovasf = EObjectAdaptable.adaptTo(eOp, ViewActionSupplier.class);
+				opsCategory.getElements().add(eovasf.getAction(progressMonitor));			
+			}
+		}
+		
+		return action;
 	}
 	
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Override
-	protected Action create(Context context, ProgressMonitor progressMonitor) throws Exception {
-		Action action = super.create(context, progressMonitor);
-		action.setSectionStyle(SectionStyle.DEFAULT.label);
-				
+	protected void configure(ProgressMonitor monitor) throws Exception {
+		super.configure(monitor);
+
 		// Diagram
 		ByteArrayOutputStream baos = new ByteArrayOutputStream();
 		String diagramCMap = generateDiagram(false, null, 1, RelationshipDirection.both, true, true, baos);
@@ -75,7 +111,7 @@ public class EClassViewActionSupplierFactory extends EClassifierViewActionSuppli
 		Value cMapValue = NcoreFactory.eINSTANCE.createValue();
 		cMapValue.setValue(diagramCMap);
 		action.getContent().add(cMapValue);
-		
+				
 		// Supertypes
 		
 		// Subtypes
@@ -87,37 +123,6 @@ public class EClassViewActionSupplierFactory extends EClassifierViewActionSuppli
 		loc.setRole(ActionRole.SECTION.label);
 		action.getContent().add((SupplierFactory) loc);		
 		
-		if (!eObject.getEAttributes().isEmpty()) {
-			ActionCategory attrsCategory = AppFactory.eINSTANCE.createActionCategory();
-			attrsCategory.setText("Attributes");
-			action.getElements().add(attrsCategory);
-			for (EStructuralFeature sf: eObject.getEAttributes().stream().sorted((a,b) ->  a.getName().compareTo(b.getName())).collect(Collectors.toList())) {
-				ViewActionSupplierFactory sfvasf = EObjectAdaptable.adaptTo(sf, ViewActionSupplierFactory.class);
-				attrsCategory.getElements().add(sfvasf.create(context).execute(progressMonitor));
-			}
-		}
-		
-		if (!eObject.getEReferences().isEmpty()) {
-			ActionCategory refsCategory = AppFactory.eINSTANCE.createActionCategory();
-			refsCategory.setText("References");
-			action.getElements().add(refsCategory);
-			for (EStructuralFeature sf: eObject.getEReferences().stream().sorted((a,b) ->  a.getName().compareTo(b.getName())).collect(Collectors.toList())) {
-				ViewActionSupplierFactory sfvasf = EObjectAdaptable.adaptTo(sf, ViewActionSupplierFactory.class);
-				refsCategory.getElements().add(sfvasf.create(context).execute(progressMonitor));
-			}
-		}
-		
-		if (!eObject.getEOperations().isEmpty()) {
-			ActionCategory opsCategory = AppFactory.eINSTANCE.createActionCategory();
-			opsCategory.setText("Operations");
-			action.getElements().add(opsCategory);
-			for (EOperation eOp: eObject.getEOperations().stream().sorted((a,b) ->  a.getName().compareTo(b.getName())).collect(Collectors.toList())) {
-				ViewActionSupplierFactory eovasf = EObjectAdaptable.adaptTo(eOp, ViewActionSupplierFactory.class);
-				opsCategory.getElements().add(eovasf.create(context).execute(progressMonitor));			
-			}
-		}
-		
-		return action;
 	}
 	
 	protected String generateDiagram(
@@ -130,16 +135,16 @@ public class EClassViewActionSupplierFactory extends EClassifierViewActionSuppli
 			OutputStream out) throws IOException {
 		
 		StringBuilder sb = new StringBuilder();
-		PlantUmlTextGenerator gen = new PlantUmlTextGenerator(sb, ec -> EClassifierViewActionSupplierFactory.id(ec)+".html", EModelElementViewActionSupplierFactory::getEModelElementFirstDocSentence) {
+		PlantUmlTextGenerator gen = new PlantUmlTextGenerator(sb, ec -> EClassifierViewActionSupplier.id(ec)+".html", EModelElementViewActionSupplier::getEModelElementFirstDocSentence) {
 			
 			@Override
 			protected Collection<EClass> getSubTypes(EClass eClass) {
-				return EClassViewActionSupplierFactory.this.getSubTypes(eClass);
+				return EClassViewActionSupplier.this.getSubTypes(eClass);
 			}
 			
 			@Override
 			protected Collection<EClass> getReferrers(EClass eClass) {
-				return EClassViewActionSupplierFactory.this.getReferrers(eClass);
+				return EClassViewActionSupplier.this.getReferrers(eClass);
 			}
 			
 			@Override

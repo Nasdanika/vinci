@@ -14,7 +14,7 @@ import org.eclipse.emf.ecore.ETypeParameter;
 import org.eclipse.emf.ecore.EcorePackage;
 import org.nasdanika.emf.ComposedAdapterFactory;
 import org.nasdanika.emf.FunctionAdapterFactory;
-import org.nasdanika.vinci.emf.ViewActionSupplierFactory;
+import org.nasdanika.vinci.emf.ViewActionSupplier;
 
 /**
  * Provides adapters for the Ecore types - {@link EPackage}, {@link EClass}, {@link EStructuralFeature}, {@link EOperation}, ...
@@ -26,74 +26,74 @@ public class EcoreViewActionSupplierFactoryAdapterFactory extends ComposedAdapte
 	public EcoreViewActionSupplierFactoryAdapterFactory(/* TODO - configuration, e.g. roles of different things - navigation, section, ... */) {
 		// Registering adapter factories.
 		registerAdapterFactory(
-			new FunctionAdapterFactory<ViewActionSupplierFactory, EPackage>(
+			new FunctionAdapterFactory<ViewActionSupplier, EPackage>(
 				EcorePackage.Literals.EPACKAGE, 
-				ViewActionSupplierFactory.class, 
+				ViewActionSupplier.class, 
 				this.getClass().getClassLoader(), 
-				ePackage -> new EPackageViewActionSupplierFactory(ePackage)));		
+				ePackage -> new EPackageViewActionSupplier(ePackage)));		
 
 		registerAdapterFactory(
-			new FunctionAdapterFactory<ViewActionSupplierFactory, EClass>(
+			new FunctionAdapterFactory<ViewActionSupplier, EClass>(
 				EcorePackage.Literals.ECLASS, 
-				ViewActionSupplierFactory.class, 
+				ViewActionSupplier.class, 
 				this.getClass().getClassLoader(), 
-				EClassViewActionSupplierFactory::new));		
+				EClassViewActionSupplier::new));		
 
 		registerAdapterFactory(
-			new FunctionAdapterFactory<ViewActionSupplierFactory, EDataType>(
+			new FunctionAdapterFactory<ViewActionSupplier, EDataType>(
 				EcorePackage.Literals.EDATA_TYPE, 
-				ViewActionSupplierFactory.class, 
+				ViewActionSupplier.class, 
 				this.getClass().getClassLoader(), 
 				EDataTypeViewActionSupplierFactory::new));		
 
 		registerAdapterFactory(
-			new FunctionAdapterFactory<ViewActionSupplierFactory, EEnum>(
+			new FunctionAdapterFactory<ViewActionSupplier, EEnum>(
 				EcorePackage.Literals.EENUM, 
-				ViewActionSupplierFactory.class, 
+				ViewActionSupplier.class, 
 				this.getClass().getClassLoader(), 
-				EEnumViewActionSupplierFactory::new));		
+				EEnumViewActionSupplier::new));		
 
 		registerAdapterFactory(
-			new FunctionAdapterFactory<ViewActionSupplierFactory, EEnumLiteral>(
+			new FunctionAdapterFactory<ViewActionSupplier, EEnumLiteral>(
 				EcorePackage.Literals.EENUM_LITERAL, 
-				ViewActionSupplierFactory.class, 
+				ViewActionSupplier.class, 
 				this.getClass().getClassLoader(), 
-				EEnumLiteralViewActionSupplierFactory::new));		
+				EEnumLiteralViewActionSupplier::new));		
 
 		registerAdapterFactory(
-			new FunctionAdapterFactory<ViewActionSupplierFactory, EAttribute>(
+			new FunctionAdapterFactory<ViewActionSupplier, EAttribute>(
 				EcorePackage.Literals.EATTRIBUTE, 
-				ViewActionSupplierFactory.class, 
+				ViewActionSupplier.class, 
 				this.getClass().getClassLoader(), 
-				EAttributeViewActionSupplierFactory::new));		
+				EAttributeViewActionSupplier::new));		
 
 		registerAdapterFactory(
-			new FunctionAdapterFactory<ViewActionSupplierFactory, EReference>(
+			new FunctionAdapterFactory<ViewActionSupplier, EReference>(
 				EcorePackage.Literals.EREFERENCE, 
-				ViewActionSupplierFactory.class, 
+				ViewActionSupplier.class, 
 				this.getClass().getClassLoader(), 
-				EReferenceViewActionSupplierFactory::new));		
+				EReferenceViewActionSupplier::new));		
 
 		registerAdapterFactory(
-			new FunctionAdapterFactory<ViewActionSupplierFactory, EOperation>(
+			new FunctionAdapterFactory<ViewActionSupplier, EOperation>(
 				EcorePackage.Literals.EOPERATION, 
-				ViewActionSupplierFactory.class, 
+				ViewActionSupplier.class, 
 				this.getClass().getClassLoader(), 
-				EOperationViewActionSupplierFactory::new));		
+				EOperationViewActionSupplier::new));		
 
 		registerAdapterFactory(
-			new FunctionAdapterFactory<ViewActionSupplierFactory, EParameter>(
+			new FunctionAdapterFactory<ViewActionSupplier, EParameter>(
 				EcorePackage.Literals.EPARAMETER, 
-				ViewActionSupplierFactory.class, 
+				ViewActionSupplier.class, 
 				this.getClass().getClassLoader(), 
-				EParameterViewActionSupplierFactory::new));	
+				EParameterViewActionSupplier::new));	
 		
 		registerAdapterFactory(
-			new FunctionAdapterFactory<ViewActionSupplierFactory, ETypeParameter>(
+			new FunctionAdapterFactory<ViewActionSupplier, ETypeParameter>(
 				EcorePackage.Literals.ETYPE_PARAMETER, 
-				ViewActionSupplierFactory.class, 
+				ViewActionSupplier.class, 
 				this.getClass().getClassLoader(), 
-				ETypeParameterViewActionSupplierFactory::new));	
+				ETypeParameterViewActionSupplier::new));	
 	}
 
 }

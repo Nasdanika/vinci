@@ -5,7 +5,7 @@ import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.html.app.ViewGenerator;
 import org.nasdanika.html.app.impl.Util;
 
-public class EDataTypeViewActionSupplierFactory extends EClassifierViewActionSupplierFactory<EDataType> {
+public class EDataTypeViewActionSupplierFactory extends EClassifierViewActionSupplier<EDataType> {
 
 	public EDataTypeViewActionSupplierFactory(EDataType value) {
 		super(value);

@@ -1,17 +1,10 @@
 package org.nasdanika.vinci.ecore;
 
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
-import org.nasdanika.emf.EObjectAdaptable;
-import org.nasdanika.emf.localization.PropertyKeys;
-import org.nasdanika.html.app.ViewGenerator;
-import org.nasdanika.html.bootstrap.RowContainer.Row;
-import org.nasdanika.html.bootstrap.RowContainer.Row.Cell;
-import org.nasdanika.html.bootstrap.Table;
 
-public class EReferenceViewActionSupplierFactory extends EStructuralFeatureViewActionSupplierFactory<EReference> {
+public class EReferenceViewActionSupplier extends EStructuralFeatureViewActionSupplier<EReference> {
 
-	public EReferenceViewActionSupplierFactory(EReference value) {
+	public EReferenceViewActionSupplier(EReference value) {
 		super(value);
 	}
 	

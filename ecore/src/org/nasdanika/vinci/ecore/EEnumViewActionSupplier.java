@@ -1,37 +1,35 @@
 package org.nasdanika.vinci.ecore;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.stream.Collectors;
-
 import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EEnumLiteral;
-import org.eclipse.emf.ecore.EOperation;
-import org.eclipse.emf.ecore.EStructuralFeature;
-import org.nasdanika.common.Context;
 import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.emf.EObjectAdaptable;
 import org.nasdanika.vinci.app.Action;
-import org.nasdanika.vinci.emf.ViewActionSupplierFactory;
+import org.nasdanika.vinci.emf.ViewActionSupplier;
 
-public class EEnumViewActionSupplierFactory extends EClassifierViewActionSupplierFactory<EEnum> {
+public class EEnumViewActionSupplier extends EClassifierViewActionSupplier<EEnum> {
 
-	public EEnumViewActionSupplierFactory(EEnum value) {
+	public EEnumViewActionSupplier(EEnum value) {
 		super(value);
 	}
 	
 	@Override
-	protected Action create(Context context, ProgressMonitor progressMonitor) throws Exception {
-		Action action = super.create(context, progressMonitor);
-		
-		// TODO (table of) content
+	protected Action create(ProgressMonitor progressMonitor) throws Exception {
+		Action action = super.create(progressMonitor);
 		
 		for (EEnumLiteral literal: eObject.getELiterals()) {
-			ViewActionSupplierFactory elvasf = EObjectAdaptable.adaptTo(literal, ViewActionSupplierFactory.class);
-			action.getElements().add(elvasf.create(context).execute(progressMonitor));
+			ViewActionSupplier elvasf = EObjectAdaptable.adaptTo(literal, ViewActionSupplier.class);
+			action.getElements().add(elvasf.getAction(progressMonitor));
 		}
 		
 		return action;
+	}
+	
+	@Override
+	protected void configure(ProgressMonitor monitor) throws Exception {
+		super.configure(monitor);
+		
+		// TODO (table of) content
 	}
 	
 	

@@ -2,28 +2,24 @@ package org.nasdanika.vinci.ecore;
 
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
-import java.util.Iterator;
 
 import org.apache.commons.codec.binary.Hex;
 import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EParameter;
-import org.eclipse.emf.ecore.ETypeParameter;
-import org.nasdanika.common.Context;
 import org.nasdanika.common.ProgressMonitor;
-import org.nasdanika.emf.EObjectAdaptable;
 import org.nasdanika.vinci.app.Action;
 import org.nasdanika.vinci.app.ActionRole;
 
-public class EOperationViewActionSupplierFactory extends ETypedElementViewActionSupplierFactory<EOperation> {
+public class EOperationViewActionSupplier extends ETypedElementViewActionSupplier<EOperation> {
 
-	public EOperationViewActionSupplierFactory(EOperation value) {
+	public EOperationViewActionSupplier(EOperation value) {
 		super(value);
 	}
 		
 	@Override
-	protected Action create(Context context, ProgressMonitor progressMonitor) throws Exception {
-		Action action = super.create(context, progressMonitor);
+	protected Action create(ProgressMonitor progressMonitor) throws Exception {
+		Action action = super.create(progressMonitor);
 		action.setRole(ActionRole.SECTION.label);
 	
 		StringBuilder idBuilder = new StringBuilder(eObject.eClass().getName())

@@ -5,7 +5,6 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
-import java.util.function.Function;
 
 import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EClass;
@@ -20,18 +19,14 @@ import org.eclipse.emf.ecore.ETypedElement;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.nasdanika.common.Context;
 import org.nasdanika.common.MarkdownHelper;
 import org.nasdanika.common.ProgressMonitor;
-import org.nasdanika.common.Status;
-import org.nasdanika.common.SupplierFactory;
 import org.nasdanika.emf.EObjectAdaptable;
 import org.nasdanika.html.app.impl.Util;
 import org.nasdanika.vinci.app.Action;
-import org.nasdanika.vinci.emf.EObjectViewActionSupplierFactory;
-import org.nasdanika.vinci.emf.ViewActionSupplierFactory;
+import org.nasdanika.vinci.emf.EObjectViewActionSupplier;
 
-public class EModelElementViewActionSupplierFactory<T extends EModelElement> extends EObjectViewActionSupplierFactory<T> {
+public class EModelElementViewActionSupplier<T extends EModelElement> extends EObjectViewActionSupplier<T> {
 	
 	public static final String ICONS_BASE = "https://www.nasdanika.org/resources/images/ecore/";
 		
@@ -41,13 +36,13 @@ public class EModelElementViewActionSupplierFactory<T extends EModelElement> ext
 	 */
 	protected int descriptionTabLengthThreshold = 2500; 
 		
-	public EModelElementViewActionSupplierFactory(T value) {
+	public EModelElementViewActionSupplier(T value) {
 		super(value);		
 	}
 	
 	@Override
-	protected org.nasdanika.vinci.app.Action create(Context context, ProgressMonitor progressMonitor) throws Exception {
-		Action action = super.create(context, progressMonitor);
+	protected Action create(ProgressMonitor progressMonitor) throws Exception {
+		Action action = super.create(progressMonitor);
 		
 		action.setIcon(ICONS_BASE+eObject.eClass().getName()+".gif");
 		
@@ -56,8 +51,6 @@ public class EModelElementViewActionSupplierFactory<T extends EModelElement> ext
 		if (!Util.isBlank(markdown)) {
 			action.setTooltip(MarkdownHelper.INSTANCE.firstPlainTextSentence(markdown));
 		}
-		
-		// Configuration here
 		
 		return action;
 	}
@@ -111,7 +104,7 @@ public class EModelElementViewActionSupplierFactory<T extends EModelElement> ext
 	// --- Handling generic types in action text --- 
 	// TODO - a way to provide links in addition to plain text
 
-	protected String computeLabel(EGenericType genericType, Context context, ProgressMonitor monitor) throws Exception {
+	protected String computeLabel(EGenericType genericType, ProgressMonitor monitor) throws Exception {
 		EObject container = genericType.eContainer();
 		EClassifier rawType = genericType.getERawType();
 //		ViewActionSupplierFactory rawTypeViewActionSupplierFactory = EObjectAdaptable.adaptTo(rawType, ViewActionSupplierFactory.class);
@@ -128,7 +121,7 @@ public class EModelElementViewActionSupplierFactory<T extends EModelElement> ext
 				label.append("&lt;");
 				for (Iterator<EGenericType> i = genericType.getETypeArguments().iterator(); i.hasNext();) {
 					EGenericType typeArgument = i.next();
-					label.append(computeLabel(typeArgument, context, monitor));
+					label.append(computeLabel(typeArgument, monitor));
 					if (i.hasNext()) {
 						label.append(", ");
 					}
@@ -142,10 +135,10 @@ public class EModelElementViewActionSupplierFactory<T extends EModelElement> ext
 
 			if (genericType.getELowerBound() != null) {
 				label.append(" super ");
-				label.append(computeLabel(genericType.getELowerBound(), context, monitor));
+				label.append(computeLabel(genericType.getELowerBound(),  monitor));
 			} else if (genericType.getEUpperBound() != null) {
 				label.append(" extends ");
-				label.append(computeLabel(genericType.getEUpperBound(), context, monitor));
+				label.append(computeLabel(genericType.getEUpperBound(), monitor));
 			}
 		}
 		return label.toString();

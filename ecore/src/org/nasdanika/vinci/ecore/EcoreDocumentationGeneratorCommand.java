@@ -16,12 +16,10 @@ import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMLResourceImpl;
 import org.nasdanika.cli.CommandBase;
 import org.nasdanika.cli.ProgressMonitorMixin;
-import org.nasdanika.common.Context;
 import org.nasdanika.common.ProgressMonitor;
-import org.nasdanika.common.Supplier;
 import org.nasdanika.emf.EObjectAdaptable;
 import org.nasdanika.vinci.app.Action;
-import org.nasdanika.vinci.emf.ViewActionSupplierFactory;
+import org.nasdanika.vinci.emf.ViewActionSupplier;
 
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Mixin;
@@ -76,7 +74,7 @@ public class EcoreDocumentationGeneratorCommand extends CommandBase {
 		return new EcoreViewActionSupplierFactoryAdapterFactory();
 	}
 	
-	public List<ViewActionSupplierFactory> loadGenModel() {
+	public List<ViewActionSupplier> loadGenModel() {
 		List<Resource> resources = new ArrayList<>();
 		for (String nsURI: nsURIs) {
 			Resource genModel = resourceSet.loadGenModel(nsURI);
@@ -85,12 +83,12 @@ public class EcoreDocumentationGeneratorCommand extends CommandBase {
 			}
 			resources.add(genModel);
 		}
-		List<ViewActionSupplierFactory> ret = new ArrayList<>();
+		List<ViewActionSupplier> ret = new ArrayList<>();
 		for (Resource resource: resources) {
 			for (EObject contents: resource.getContents()) {
 				if (contents instanceof GenModel) {
 					for (GenPackage genPackage: ((GenModel) contents).getGenPackages()) {
-						ret.add(EObjectAdaptable.adaptTo(genPackage.getEcorePackage(), ViewActionSupplierFactory.class));
+						ret.add(EObjectAdaptable.adaptTo(genPackage.getEcorePackage(), ViewActionSupplier.class));
 					}
 				}
 			}
@@ -100,19 +98,15 @@ public class EcoreDocumentationGeneratorCommand extends CommandBase {
 
 	@Override
 	public Integer call() throws Exception {
-		Context context = Context.EMPTY_CONTEXT;
-		List<Supplier<Action>> suppliers = new ArrayList<>();
-		for (ViewActionSupplierFactory vasf: loadGenModel()) {
-			suppliers.add(vasf.create(context));
-		}
+		List<ViewActionSupplier> suppliers = loadGenModel();
 		
 		Set<String> names = new HashSet<>();
 		
 		ResourceSet outputResourceSet = new ResourceSetImpl();
-		try (ProgressMonitor pm = progressMonitorMixin.createProgressMonitor(suppliers.stream().mapToDouble(Supplier::size).sum())) { 
+		try (ProgressMonitor pm = progressMonitorMixin.createProgressMonitor(suppliers.size())) { 
 			int pos = 0;
-			for (Supplier<Action> supplier: suppliers) {
-				Action action = supplier.splitAndExecute(pm);
+			for (ViewActionSupplier supplier: suppliers) {
+				Action action = supplier.getAction(pm);
 				String resourceName = action.getText();
 				if (!names.add(action.getText())) {
 					resourceName += "-" + pos;
