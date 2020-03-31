@@ -15,6 +15,8 @@ public class Activator implements BundleActivator {
 				ComponentsPackage.Literals.ACTION_LINK,
 				ComponentsPackage.Literals.MARKDOWN_TEXT,
 				ComponentsPackage.Literals.MARKDOWN_RESOURCE,
+				ComponentsPackage.Literals.LIST_OF_ACTIONS,
+				ComponentsPackage.Literals.TABLE_OF_ACTIONS,	
 				ComponentsPackage.Literals.LIST_OF_CONTENTS,
 				ComponentsPackage.Literals.TABLE_OF_CONTENTS);	
 	}

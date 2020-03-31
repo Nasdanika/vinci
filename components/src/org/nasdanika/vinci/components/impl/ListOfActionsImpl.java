@@ -2,14 +2,20 @@
  */
 package org.nasdanika.vinci.components.impl;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
-
+import org.nasdanika.common.Context;
+import org.nasdanika.common.Supplier;
+import org.nasdanika.common.Util;
+import org.nasdanika.html.OrderedListType;
+import org.nasdanika.html.app.ViewPart;
+import org.nasdanika.html.app.viewparts.ListOfActionsViewPart;
 import org.nasdanika.vinci.app.AbstractAction;
-
+import org.nasdanika.vinci.app.impl.ActionFacade;
 import org.nasdanika.vinci.components.ComponentsPackage;
 import org.nasdanika.vinci.components.ListOfActions;
 
@@ -116,5 +122,23 @@ public class ListOfActionsImpl extends ListOfContentsImpl implements ListOfActio
 		}
 		return super.eIsSet(featureID);
 	}
+		
+	@Override
+	protected Supplier<ViewPart> createTableOfContents(Context context) throws Exception {
+		List<org.nasdanika.html.app.Action> actionFacades = new ArrayList<>();
+		for (AbstractAction action: getActions()) {
+			actionFacades.add(new ActionFacade(context, ActionLinkImpl.unwrap(action)));
+		}
+
+		ListOfActionsViewPart listOfContentsViewPart = new ListOfActionsViewPart(
+				actionFacades,
+				context.interpolate(getHeader()), 
+				isTooltips(), 
+				getDepth(), 
+				Util.isBlank(getOrdering()) ? null : OrderedListType.fromLabel(getOrdering()));
+		
+		return Supplier.from(listOfContentsViewPart, getTitle());
+	}
+	
 
 } //ListOfActionsImpl

@@ -196,7 +196,7 @@ public class ActionLinkImpl extends ModelElementImpl implements ActionLink {
 		return super.eIsSet(featureID);
 	}
 		
-	private ActionBase unwrap(AbstractAction target) {
+	static ActionBase unwrap(AbstractAction target) {
 		if (target instanceof ActionBase) {
 			return (ActionBase) target;
 		}

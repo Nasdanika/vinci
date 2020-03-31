@@ -482,5 +482,4 @@ public class TableOfContentsImpl extends TableOfContentsBaseImpl implements Tabl
 		return Supplier.from(tableOfContentsViewPart, getTitle());
 	}
 	
-
 } //TableOfContentsImpl

@@ -45,6 +45,13 @@ public class ActionFacade extends org.nasdanika.html.app.impl.ActionImpl impleme
 
 	private ActionBase target;
 	
+	/**
+	 * Creates a "lightweight" facade action without content, parent, and children to be used 
+	 * for generating links.
+	 * @param actionContext
+	 * @param target
+	 * @throws Exception
+	 */
 	public ActionFacade(Context actionContext, ActionBase target) throws Exception {
 		this(actionContext, target, null, null, null);
 	}		
