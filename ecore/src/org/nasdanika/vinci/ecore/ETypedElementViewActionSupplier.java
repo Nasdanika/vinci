@@ -2,9 +2,16 @@ package org.nasdanika.vinci.ecore;
 
 import org.eclipse.emf.ecore.EGenericType;
 import org.eclipse.emf.ecore.ETypedElement;
-import org.nasdanika.common.Context;
 import org.nasdanika.common.ProgressMonitor;
-import org.nasdanika.vinci.app.Action;
+import org.nasdanika.common.SupplierFactory;
+import org.nasdanika.ncore.NcoreFactory;
+import org.nasdanika.ncore.Property;
+import org.nasdanika.ncore.Value;
+import org.nasdanika.vinci.bootstrap.Appearance;
+import org.nasdanika.vinci.bootstrap.BootstrapFactory;
+import org.nasdanika.vinci.bootstrap.Table;
+import org.nasdanika.vinci.bootstrap.TableCell;
+import org.nasdanika.vinci.bootstrap.TableRow;
 
 public class ETypedElementViewActionSupplier<T extends ETypedElement> extends ENamedElementViewActionSupplier<T> {
 	
@@ -12,6 +19,7 @@ public class ETypedElementViewActionSupplier<T extends ETypedElement> extends EN
 		super(value);
 	}
 	
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Override
 	protected void configure(ProgressMonitor monitor) throws Exception {
 		super.configure(monitor);
@@ -25,6 +33,8 @@ public class ETypedElementViewActionSupplier<T extends ETypedElement> extends EN
 				label.append("*");
 			}
 		}
+		
+		action.getContent().add((SupplierFactory) propertiesTable(monitor)); 
 
 //		String name = super.getText();
 //		EObject container = target.eContainer();
@@ -56,23 +66,42 @@ public class ETypedElementViewActionSupplier<T extends ETypedElement> extends EN
 //		return contentContainer;
 //	}
 //	
-//	protected Table propertiesTable(ViewGenerator viewGenerator) {
-//		Table table = viewGenerator.get(BootstrapFactory.class).table();
-//		table.toHTMLElement().style().width("auto");
-//		
-//		EClassifier type = target.getEType();
-//		if (type != null) {
+	protected Table propertiesTable(ProgressMonitor monitor) {		
+		Table table = BootstrapFactory.eINSTANCE.createTable();
+		
+		Appearance tableAppearance = BootstrapFactory.eINSTANCE.createAppearance();
+		table.setAppearance(tableAppearance);
+		Property styleAttribute = NcoreFactory.eINSTANCE.createProperty();
+		styleAttribute.setName("style");
+		styleAttribute.setValue("width:auto");
+		tableAppearance.getAttributes().add(styleAttribute);
+		
+		EGenericType genericType = eObject.getEGenericType(); // TODO - generic type
+		if (genericType != null) {
+//			// TODO - generic parameters with links.
 //			ViewAction typeViewAction = EObjectAdaptable.adaptTo(type, ViewAction.class);
 //			Row typeRow = table.row();
 //			typeRow.header(getResourceContext().getString(PropertyKeys.UI_TYPE, "Type"));
 //			typeRow.cell(typeViewAction == null ?  type.getName() : viewGenerator.link(typeViewAction));
-//		}
-//		
-//		Row cardinalityRow = table.row();
-//		cardinalityRow.header(getResourceContext().getString(PropertyKeys.UI_CARDINALITY, "Cardinality"));
-//		cardinalityRow.cell(cardinality(target));
-//		
-//		return table;
-//	}
+		}
+		
+		TableRow cardinalityRow = BootstrapFactory.eINSTANCE.createTableRow();
+		table.getRows().add(cardinalityRow);
+		
+		TableCell cardinalityRowHeader = BootstrapFactory.eINSTANCE.createTableCell();
+		cardinalityRow.getCells().add(cardinalityRowHeader);
+		cardinalityRowHeader.setHeader(true);
+		Value cardinalityHeaderValue = NcoreFactory.eINSTANCE.createValue();
+		cardinalityHeaderValue.setValue("Cardinality");
+		cardinalityRowHeader.getContent().add(cardinalityHeaderValue);
+		
+		TableCell cardinalityRowCell = BootstrapFactory.eINSTANCE.createTableCell();
+		cardinalityRow.getCells().add(cardinalityRowCell);
+		Value cardinalityCellValue = NcoreFactory.eINSTANCE.createValue();
+		cardinalityCellValue.setValue(cardinality(eObject));
+		cardinalityRowCell.getContent().add(cardinalityCellValue);
+		
+		return table;
+	}
 
 }
