@@ -10,6 +10,7 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EOperation;
@@ -31,6 +32,7 @@ import org.nasdanika.vinci.app.ActionCategory;
 import org.nasdanika.vinci.app.ActionRole;
 import org.nasdanika.vinci.app.AppFactory;
 import org.nasdanika.vinci.components.ComponentsFactory;
+import org.nasdanika.vinci.components.ListOfActions;
 import org.nasdanika.vinci.components.ListOfContents;
 import org.nasdanika.vinci.emf.ViewActionSupplier;
 import org.nasdanika.vinci.html.ContentTag;
@@ -66,8 +68,8 @@ public class EClassViewActionSupplier extends EClassifierViewActionSupplier<ECla
 			refsCategory.setText("References");
 			action.getElements().add(refsCategory);
 			for (EStructuralFeature sf: eObject.getEReferences().stream().sorted((a,b) ->  a.getName().compareTo(b.getName())).collect(Collectors.toList())) {
-				ViewActionSupplier sfvasf = EObjectAdaptable.adaptTo(sf, ViewActionSupplier.class);
-				refsCategory.getElements().add(sfvasf.getAction(progressMonitor));
+				ViewActionSupplier sfvas = EObjectAdaptable.adaptTo(sf, ViewActionSupplier.class);
+				refsCategory.getElements().add(sfvas.getAction(progressMonitor));
 			}
 		}
 		
@@ -76,8 +78,8 @@ public class EClassViewActionSupplier extends EClassifierViewActionSupplier<ECla
 			opsCategory.setText("Operations");
 			action.getElements().add(opsCategory);
 			for (EOperation eOp: eObject.getEOperations().stream().sorted((a,b) ->  a.getName().compareTo(b.getName())).collect(Collectors.toList())) {
-				ViewActionSupplier eovasf = EObjectAdaptable.adaptTo(eOp, ViewActionSupplier.class);
-				opsCategory.getElements().add(eovasf.getAction(progressMonitor));			
+				ViewActionSupplier eovas = EObjectAdaptable.adaptTo(eOp, ViewActionSupplier.class);
+				opsCategory.getElements().add(eovas.getAction(progressMonitor));			
 			}
 		}
 		
@@ -113,11 +115,40 @@ public class EClassViewActionSupplier extends EClassifierViewActionSupplier<ECla
 		action.getContent().add(cMapValue);
 				
 		// Supertypes
+		EList<EClass> eSuperTypes = eObject.getESuperTypes();
+		if (!eSuperTypes.isEmpty()) {
+			ListOfActions superTypesList = ComponentsFactory.eINSTANCE.createListOfActions();
+			action.getContent().add((SupplierFactory) superTypesList);
+			superTypesList.setDepth(1);
+			superTypesList.setTooltips(true);
+			superTypesList.setHeader("Supertypes");
+			for (EClass superType: eSuperTypes) {
+				ViewActionSupplier stvas = EObjectAdaptable.adaptTo(superType, ViewActionSupplier.class);
+				if (stvas != null) {
+					superTypesList.getActions().add(stvas.getAction(monitor));
+				}
+			}
+		}
 		
 		// Subtypes
+		Collection<EClass> eSubTypes = getSubTypes(eObject);
+		if (!eSubTypes.isEmpty()) {
+			ListOfActions subTypesList = ComponentsFactory.eINSTANCE.createListOfActions();
+			action.getContent().add((SupplierFactory) subTypesList);
+			subTypesList.setDepth(1);
+			subTypesList.setTooltips(true);
+			subTypesList.setHeader("Subtypes");
+			for (EClass subType: eSubTypes) {
+				ViewActionSupplier stvas = EObjectAdaptable.adaptTo(subType, ViewActionSupplier.class);
+				if (stvas != null) {
+					subTypesList.getActions().add(stvas.getAction(monitor));
+				}
+			}
+		}
 		
 		ListOfContents loc = ComponentsFactory.eINSTANCE.createListOfContents();
 		loc.setDepth(1);
+		loc.setHeader("Members");
 		loc.setTooltips(true);
 		loc.setRole(ActionRole.SECTION.label);
 		action.getContent().add((SupplierFactory) loc);		
