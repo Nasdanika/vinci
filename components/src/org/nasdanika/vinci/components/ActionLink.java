@@ -22,6 +22,7 @@ import org.nasdanika.vinci.bootstrap.Appearance;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link org.nasdanika.vinci.components.ActionLink#getText <em>Text</em>}</li>
  *   <li>{@link org.nasdanika.vinci.components.ActionLink#getTarget <em>Target</em>}</li>
  *   <li>{@link org.nasdanika.vinci.components.ActionLink#getAppearance <em>Appearance</em>}</li>
  * </ul>
@@ -31,6 +32,31 @@ import org.nasdanika.vinci.bootstrap.Appearance;
  * @generated
  */
 public interface ActionLink extends ModelElement, SupplierFactory<ViewPart> {
+
+	/**
+	 * Returns the value of the '<em><b>Text</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Link text. If blank, the action text is used.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Text</em>' attribute.
+	 * @see #setText(String)
+	 * @see org.nasdanika.vinci.components.ComponentsPackage#getActionLink_Text()
+	 * @model
+	 * @generated
+	 */
+	String getText();
+
+	/**
+	 * Sets the value of the '{@link org.nasdanika.vinci.components.ActionLink#getText <em>Text</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Text</em>' attribute.
+	 * @see #getText()
+	 * @generated
+	 */
+	void setText(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Target</b></em>' reference.

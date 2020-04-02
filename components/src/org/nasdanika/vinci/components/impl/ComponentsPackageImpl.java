@@ -257,8 +257,18 @@ public class ComponentsPackageImpl extends EPackageImpl implements ComponentsPac
 	 * @generated
 	 */
 	@Override
+	public EAttribute getActionLink_Text() {
+		return (EAttribute)actionLinkEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EReference getActionLink_Target() {
-		return (EReference)actionLinkEClass.getEStructuralFeatures().get(0);
+		return (EReference)actionLinkEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -268,7 +278,7 @@ public class ComponentsPackageImpl extends EPackageImpl implements ComponentsPac
 	 */
 	@Override
 	public EReference getActionLink_Appearance() {
-		return (EReference)actionLinkEClass.getEStructuralFeatures().get(1);
+		return (EReference)actionLinkEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -452,6 +462,7 @@ public class ComponentsPackageImpl extends EPackageImpl implements ComponentsPac
 		createEAttribute(markdownResourceEClass, MARKDOWN_RESOURCE__LOCATION);
 
 		actionLinkEClass = createEClass(ACTION_LINK);
+		createEAttribute(actionLinkEClass, ACTION_LINK__TEXT);
 		createEReference(actionLinkEClass, ACTION_LINK__TARGET);
 		createEReference(actionLinkEClass, ACTION_LINK__APPEARANCE);
 
@@ -548,6 +559,7 @@ public class ComponentsPackageImpl extends EPackageImpl implements ComponentsPac
 		initEAttribute(getMarkdownResource_Location(), ecorePackage.getEString(), "location", null, 1, 1, MarkdownResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(actionLinkEClass, ActionLink.class, "ActionLink", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getActionLink_Text(), ecorePackage.getEString(), "text", null, 0, 1, ActionLink.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getActionLink_Target(), theAppPackage.getAbstractAction(), null, "target", null, 1, 1, ActionLink.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getActionLink_Appearance(), theBootstrapPackage.getAppearance(), null, "appearance", null, 0, 1, ActionLink.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 

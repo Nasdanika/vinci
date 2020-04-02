@@ -8,6 +8,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.nasdanika.common.Context;
 import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.common.Supplier;
+import org.nasdanika.common.Util;
 import org.nasdanika.html.app.Decorator;
 import org.nasdanika.html.app.ViewGenerator;
 import org.nasdanika.html.app.ViewPart;
@@ -28,6 +29,7 @@ import org.nasdanika.vinci.components.ComponentsPackage;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link org.nasdanika.vinci.components.impl.ActionLinkImpl#getText <em>Text</em>}</li>
  *   <li>{@link org.nasdanika.vinci.components.impl.ActionLinkImpl#getTarget <em>Target</em>}</li>
  *   <li>{@link org.nasdanika.vinci.components.impl.ActionLinkImpl#getAppearance <em>Appearance</em>}</li>
  * </ul>
@@ -35,6 +37,16 @@ import org.nasdanika.vinci.components.ComponentsPackage;
  * @generated
  */
 public class ActionLinkImpl extends ModelElementImpl implements ActionLink {
+	/**
+	 * The default value of the '{@link #getText() <em>Text</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getText()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String TEXT_EDEFAULT = null;
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -52,6 +64,26 @@ public class ActionLinkImpl extends ModelElementImpl implements ActionLink {
 	@Override
 	protected EClass eStaticClass() {
 		return ComponentsPackage.Literals.ACTION_LINK;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getText() {
+		return (String)eDynamicGet(ComponentsPackage.ACTION_LINK__TEXT, ComponentsPackage.Literals.ACTION_LINK__TEXT, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setText(String newText) {
+		eDynamicSet(ComponentsPackage.ACTION_LINK__TEXT, ComponentsPackage.Literals.ACTION_LINK__TEXT, newText);
 	}
 
 	/**
@@ -135,6 +167,8 @@ public class ActionLinkImpl extends ModelElementImpl implements ActionLink {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case ComponentsPackage.ACTION_LINK__TEXT:
+				return getText();
 			case ComponentsPackage.ACTION_LINK__TARGET:
 				if (resolve) return getTarget();
 				return basicGetTarget();
@@ -152,6 +186,9 @@ public class ActionLinkImpl extends ModelElementImpl implements ActionLink {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case ComponentsPackage.ACTION_LINK__TEXT:
+				setText((String)newValue);
+				return;
 			case ComponentsPackage.ACTION_LINK__TARGET:
 				setTarget((AbstractAction)newValue);
 				return;
@@ -170,6 +207,9 @@ public class ActionLinkImpl extends ModelElementImpl implements ActionLink {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case ComponentsPackage.ACTION_LINK__TEXT:
+				setText(TEXT_EDEFAULT);
+				return;
 			case ComponentsPackage.ACTION_LINK__TARGET:
 				setTarget((AbstractAction)null);
 				return;
@@ -188,6 +228,8 @@ public class ActionLinkImpl extends ModelElementImpl implements ActionLink {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case ComponentsPackage.ACTION_LINK__TEXT:
+				return TEXT_EDEFAULT == null ? getText() != null : !TEXT_EDEFAULT.equals(getText());
 			case ComponentsPackage.ACTION_LINK__TARGET:
 				return basicGetTarget() != null;
 			case ComponentsPackage.ACTION_LINK__APPEARANCE:
@@ -210,7 +252,15 @@ public class ActionLinkImpl extends ModelElementImpl implements ActionLink {
 	
 	@Override
 	public Supplier<ViewPart> create(Context context) throws Exception {
-		ActionFacade actionFacade = new ActionFacade(context, unwrap(getTarget()));
+		ActionFacade actionFacade = new ActionFacade(context, unwrap(getTarget())) {
+			
+			@Override
+			public String getText() {
+				String linkText = ActionLinkImpl.this.getText();
+				return Util.isBlank(linkText) ? super.getText() : linkText;
+			}
+			
+		};
 
 		Supplier<ViewPart> ret = Supplier.fromCallable(() -> {
 			return new ViewPart() {
