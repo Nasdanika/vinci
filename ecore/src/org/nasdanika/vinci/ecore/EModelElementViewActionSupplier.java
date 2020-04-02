@@ -4,6 +4,7 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Set;
 
 import org.eclipse.emf.common.util.TreeIterator;
@@ -21,10 +22,16 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.nasdanika.common.MarkdownHelper;
 import org.nasdanika.common.ProgressMonitor;
+import org.nasdanika.common.SupplierFactory;
 import org.nasdanika.emf.EObjectAdaptable;
 import org.nasdanika.html.app.impl.Util;
+import org.nasdanika.ncore.NcoreFactory;
+import org.nasdanika.ncore.Value;
 import org.nasdanika.vinci.app.Action;
+import org.nasdanika.vinci.components.ActionLink;
+import org.nasdanika.vinci.components.ComponentsFactory;
 import org.nasdanika.vinci.emf.EObjectViewActionSupplier;
+import org.nasdanika.vinci.emf.ViewActionSupplier;
 
 public class EModelElementViewActionSupplier<T extends EModelElement> extends EObjectViewActionSupplier<T> {
 	
@@ -102,7 +109,6 @@ public class EModelElementViewActionSupplier<T extends EModelElement> extends EO
 	}
 	
 	// --- Handling generic types in action text --- 
-	// TODO - a way to provide links in addition to plain text
 
 	protected String computeLabel(EGenericType genericType, ProgressMonitor monitor) throws Exception {
 		EObject container = genericType.eContainer();
@@ -143,5 +149,118 @@ public class EModelElementViewActionSupplier<T extends EModelElement> extends EO
 		}
 		return label.toString();
 	}
+	
+	// --- Generics ---
+	
+	/**
+	 * @param eClassifier
+	 * @return Type parameters string.
+	 */
+	protected String typeParameters(EClassifier eClassifier) {
+		if (eClassifier.getETypeParameters().isEmpty()) {
+			return "";
+		}
+		StringBuilder typeParameters = new StringBuilder();
+		for (ETypeParameter typeParameter: eClassifier.getETypeParameters()) {
+			if (typeParameters.length() > 0) {
+				typeParameters.append(",");
+			}
+			typeParameters.append(genericName(typeParameter));
+		}		
+		
+		return "&lt;" + typeParameters +"&gt;";
+	}	
+	
+	protected String genericName(ETypeParameter typeParameter) {
+		StringBuilder ret = new StringBuilder(typeParameter.getName());
+		for (EGenericType bound : typeParameter.getEBounds()) {
+			if (bound.getEUpperBound() != null) {
+				ret.append(" extends ").append(genericName(bound.getEUpperBound()));
+			}
+			if (bound.getELowerBound() != null) {
+				ret.append(" super ").append(genericName(bound.getELowerBound()));
+			}
+		}
+		
+		return ret.toString();
+	}
+	
+	protected String genericName(EGenericType eGenericType) {
+		StringBuilder ret = new StringBuilder();
+		if (eGenericType.getETypeParameter() != null) {
+			ret.append(eGenericType.getETypeParameter().getName());
+		} else if (eGenericType.getEClassifier() != null) {
+			ret.append(eGenericType.getEClassifier().getName());			
+		}
+		ret.append(genericTypeArguments(eGenericType));
+		return ret.toString();
+	}
 
+	protected String genericTypeArguments(EGenericType eGenericType) {
+		StringBuilder ret = new StringBuilder();
+		Iterator<EGenericType> it = eGenericType.getETypeArguments().iterator();
+		if (it.hasNext()) {
+			ret.append("<");
+			while (it.hasNext()) {
+				ret.append(genericName(it.next()));
+				if (it.hasNext()) {
+					ret.append(",");
+				}
+			}
+			ret.append(">");
+		}
+		return ret.toString();
+	}
+	
+	public static Value wrap(String str) {
+		Value ret = NcoreFactory.eINSTANCE.createValue();
+		ret.setValue(str);
+		return ret;		
+	}
+
+	/**
+	 * Generates generic type text with links to classifiers.
+	 * @param eGenericType
+	 * @param accumulator
+	 * @throws Exception 
+	 */
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	protected void genericType(EGenericType eGenericType, List<SupplierFactory<Object>> accumulator, ProgressMonitor monitor) throws Exception {
+		if (eGenericType.getETypeParameter() != null) {
+			accumulator.add(wrap(eGenericType.getETypeParameter().getName()));
+		} else if (eGenericType.getEClassifier() != null) {
+			EClassifier eClassifier = eGenericType.getEClassifier();
+			ViewActionSupplier ecvas = EObjectAdaptable.adaptTo(eClassifier, ViewActionSupplier.class);
+			String tooltip = null;
+			if (ecvas == null) {
+				accumulator.add(wrap(eClassifier.getName()));
+			} else {
+				Action eClassifierAction = ecvas.getAction(monitor);
+				tooltip = eClassifierAction.getTooltip();
+				ActionLink link = ComponentsFactory.eINSTANCE.createActionLink();
+				link.setTarget(eClassifierAction);
+				link.setText(eClassifier.getName());
+				accumulator.add((SupplierFactory) link);
+			}
+			genericTypeArguments(eGenericType, accumulator, monitor);
+			if (!Util.isBlank(tooltip)) {
+				accumulator.add(wrap(" - " + tooltip));				
+			}
+		}		
+	}
+
+	protected void genericTypeArguments(EGenericType eGenericType, List<SupplierFactory<Object>> accumulator, ProgressMonitor monitor) throws Exception {
+		Iterator<EGenericType> it = eGenericType.getETypeArguments().iterator();
+		if (it.hasNext()) {
+			accumulator.add(wrap("&lt;"));
+			while (it.hasNext()) {
+				genericType(it.next(), accumulator, monitor);
+				if (it.hasNext()) {
+					accumulator.add(wrap(","));
+				}
+			}
+			accumulator.add(wrap("&gt;"));
+		}
+	}
+	
 }

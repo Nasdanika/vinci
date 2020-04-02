@@ -7,12 +7,14 @@ import java.util.Base64;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EGenericType;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EStructuralFeature;
@@ -23,20 +25,20 @@ import org.nasdanika.common.SupplierFactory;
 import org.nasdanika.emf.EObjectAdaptable;
 import org.nasdanika.emf.PlantUmlTextGenerator;
 import org.nasdanika.emf.PlantUmlTextGenerator.RelationshipDirection;
+import org.nasdanika.html.TagName;
 import org.nasdanika.html.app.SectionStyle;
 import org.nasdanika.ncore.NcoreFactory;
 import org.nasdanika.ncore.Property;
-import org.nasdanika.ncore.Value;
 import org.nasdanika.vinci.app.Action;
 import org.nasdanika.vinci.app.ActionCategory;
 import org.nasdanika.vinci.app.ActionRole;
 import org.nasdanika.vinci.app.AppFactory;
+import org.nasdanika.vinci.bootstrap.BootstrapFactory;
+import org.nasdanika.vinci.bootstrap.ContentTag;
 import org.nasdanika.vinci.components.ComponentsFactory;
 import org.nasdanika.vinci.components.ListOfActions;
 import org.nasdanika.vinci.components.ListOfContents;
 import org.nasdanika.vinci.emf.ViewActionSupplier;
-import org.nasdanika.vinci.html.ContentTag;
-import org.nasdanika.vinci.html.HtmlFactory;
 
 import net.sourceforge.plantuml.FileFormat;
 import net.sourceforge.plantuml.FileFormatOption;
@@ -95,8 +97,8 @@ public class EClassViewActionSupplier extends EClassifierViewActionSupplier<ECla
 		ByteArrayOutputStream baos = new ByteArrayOutputStream();
 		String diagramCMap = generateDiagram(false, null, 1, RelationshipDirection.both, true, true, baos);
 		baos.close();
-		ContentTag imageTag = HtmlFactory.eINSTANCE.createContentTag();
-		imageTag.setName("img");
+		ContentTag imageTag = BootstrapFactory.eINSTANCE.createContentTag();
+		imageTag.setName(TagName.img.name());
 		
 		Property srcAttribute = NcoreFactory.eINSTANCE.createProperty();
 		srcAttribute.setName("src");
@@ -110,23 +112,25 @@ public class EClassViewActionSupplier extends EClassifierViewActionSupplier<ECla
 		
 		action.getContent().add((SupplierFactory) imageTag);
 		
-		Value cMapValue = NcoreFactory.eINSTANCE.createValue();
-		cMapValue.setValue(diagramCMap);
-		action.getContent().add(cMapValue);
+		action.addContent(diagramCMap);
 				
-		// Supertypes
-		EList<EClass> eSuperTypes = eObject.getESuperTypes();
-		if (!eSuperTypes.isEmpty()) {
-			ListOfActions superTypesList = ComponentsFactory.eINSTANCE.createListOfActions();
-			action.getContent().add((SupplierFactory) superTypesList);
-			superTypesList.setDepth(1);
-			superTypesList.setTooltips(true);
-			superTypesList.setHeader("Supertypes");
-			for (EClass superType: eSuperTypes) {
-				ViewActionSupplier stvas = EObjectAdaptable.adaptTo(superType, ViewActionSupplier.class);
-				if (stvas != null) {
-					superTypesList.getActions().add(stvas.getAction(monitor));
-				}
+		// Generic supertypes
+		EList<EGenericType> eGenericSuperTypes = eObject.getEGenericSuperTypes();
+		if (!eGenericSuperTypes.isEmpty()) {
+			ContentTag header = BootstrapFactory.eINSTANCE.createContentTag();
+			header.setName(TagName.h3.name());
+			header.addContent("Supertypes");
+			action.getContent().add((SupplierFactory) header);
+			
+			ContentTag list = BootstrapFactory.eINSTANCE.createContentTag();
+			list.setName(TagName.ul.name());
+			action.getContent().add((SupplierFactory) list);
+			
+			for (EGenericType superType: eGenericSuperTypes) {
+				ContentTag listItem = BootstrapFactory.eINSTANCE.createContentTag();
+				listItem.setName(TagName.li.name());
+				list.getContent().add((SupplierFactory) listItem);
+				genericType(superType, listItem.getContent(), monitor);
 			}
 		}
 		
@@ -154,7 +158,7 @@ public class EClassViewActionSupplier extends EClassifierViewActionSupplier<ECla
 		action.getContent().add((SupplierFactory) loc);		
 		
 	}
-	
+
 	protected String generateDiagram(
 			boolean leftToRightDirection, 
 			String width, 
@@ -202,6 +206,9 @@ public class EClassViewActionSupplier extends EClassifierViewActionSupplier<ECla
 		
 		gen.appendEndUml();
 		SourceStringReader reader = new SourceStringReader(sb.toString());
+		
+//		System.out.println("==== "+eObject.getName()+" ====");
+//		System.out.println(sb.toString());
 		
 		FileFormatOption fileFormatOption = new FileFormatOption(FileFormat.PNG);
 		reader.outputImage(out, 0, fileFormatOption);

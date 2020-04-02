@@ -14,6 +14,8 @@ import org.nasdanika.common.MarkdownHelper;
 import org.nasdanika.common.SupplierFactory;
 import org.nasdanika.common.Util;
 import org.nasdanika.html.app.ViewPart;
+import org.nasdanika.ncore.NcoreFactory;
+import org.nasdanika.ncore.Value;
 
 /**
  * <!-- begin-user-doc -->
@@ -128,5 +130,17 @@ public interface Container extends EObject {
 		
 		return contentSupplierFactory;
 	}
+	
+	/**
+	 * Convenience method for adding content as {@link Value}
+	 * @param content
+	 */
+	default void addContent(String content) {
+		if (!Util.isBlank(content)) {
+			Value value = NcoreFactory.eINSTANCE.createValue();
+			value.setValue(content);
+			getContent().add(value);
+		}		
+	}	
 
 } // Container

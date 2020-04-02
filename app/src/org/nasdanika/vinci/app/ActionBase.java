@@ -4,6 +4,9 @@ package org.nasdanika.vinci.app;
 
 import org.eclipse.emf.common.util.EList;
 import org.nasdanika.common.SupplierFactory;
+import org.nasdanika.common.Util;
+import org.nasdanika.ncore.NcoreFactory;
+import org.nasdanika.ncore.Value;
 
 /**
  * <!-- begin-user-doc -->
@@ -351,5 +354,17 @@ public interface ActionBase extends Label, AbstractAction, Container<ActionEleme
 	 * @generated
 	 */
 	EList<SupplierFactory<Object>> getContent();
+	
+	/**
+	 * Convenience method for adding content as {@link Value}
+	 * @param content
+	 */
+	default void addContent(String content) {
+		if (!Util.isBlank(content)) {
+			Value value = NcoreFactory.eINSTANCE.createValue();
+			value.setValue(content);
+			getContent().add(value);
+		}		
+	}
 
 } // ActionBase
