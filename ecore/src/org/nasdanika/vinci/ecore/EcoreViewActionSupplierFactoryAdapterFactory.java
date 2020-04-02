@@ -10,7 +10,6 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EParameter;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
-import org.eclipse.emf.ecore.ETypeParameter;
 import org.eclipse.emf.ecore.EcorePackage;
 import org.nasdanika.emf.ComposedAdapterFactory;
 import org.nasdanika.emf.FunctionAdapterFactory;
@@ -87,13 +86,6 @@ public class EcoreViewActionSupplierFactoryAdapterFactory extends ComposedAdapte
 				ViewActionSupplier.class, 
 				this.getClass().getClassLoader(), 
 				EParameterViewActionSupplier::new));	
-		
-		registerAdapterFactory(
-			new FunctionAdapterFactory<ViewActionSupplier, ETypeParameter>(
-				EcorePackage.Literals.ETYPE_PARAMETER, 
-				ViewActionSupplier.class, 
-				this.getClass().getClassLoader(), 
-				ETypeParameterViewActionSupplier::new));	
 	}
 
 }

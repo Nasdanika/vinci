@@ -113,7 +113,6 @@ public class EModelElementViewActionSupplier<T extends EModelElement> extends EO
 	protected String computeLabel(EGenericType genericType, ProgressMonitor monitor) throws Exception {
 		EObject container = genericType.eContainer();
 		EClassifier rawType = genericType.getERawType();
-//		ViewActionSupplierFactory rawTypeViewActionSupplierFactory = EObjectAdaptable.adaptTo(rawType, ViewActionSupplierFactory.class);
 		String rawTypeText = rawType.getName(); // rawTypeViewActionSupplierFactory == null ? rawType.getName() : rawTypeViewActionSupplierFactory.create(context).execute(monitor).getText();
 		if (container == null || !container.eIsSet(genericType.eContainingFeature())) {
 			return rawTypeText;
