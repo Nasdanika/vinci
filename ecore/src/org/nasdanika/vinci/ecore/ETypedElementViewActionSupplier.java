@@ -1,5 +1,7 @@
 package org.nasdanika.vinci.ecore;
 
+import java.util.List;
+
 import org.eclipse.emf.ecore.EGenericType;
 import org.eclipse.emf.ecore.ETypedElement;
 import org.nasdanika.common.ProgressMonitor;
@@ -49,32 +51,32 @@ public class ETypedElementViewActionSupplier<T extends ETypedElement> extends EN
 		
 		EGenericType genericType = eObject.getEGenericType(); 
 		if (genericType != null) {
-			TableRow typeRow = BootstrapFactory.eINSTANCE.createTableRow();
-			table.getRows().add(typeRow);
-			
-			TableCell typeRowHeader = BootstrapFactory.eINSTANCE.createTableCell();
-			typeRow.getCells().add(typeRowHeader);
-			typeRowHeader.setHeader(true);
-			typeRowHeader.getContent().add(wrap("Type"));
-			
-			TableCell typeRowCell = BootstrapFactory.eINSTANCE.createTableCell();
-			typeRow.getCells().add(typeRowCell);
-			genericType(genericType, typeRowCell.getContent(), monitor);
+			genericType(genericType, addRow(table, "Type"), monitor);
 		}
 		
-		TableRow cardinalityRow = BootstrapFactory.eINSTANCE.createTableRow();
-		table.getRows().add(cardinalityRow);
-		
-		TableCell cardinalityRowHeader = BootstrapFactory.eINSTANCE.createTableCell();
-		cardinalityRow.getCells().add(cardinalityRowHeader);
-		cardinalityRowHeader.setHeader(true);
-		cardinalityRowHeader.getContent().add(wrap("Cardinality"));
-		
-		TableCell cardinalityRowCell = BootstrapFactory.eINSTANCE.createTableCell();
-		cardinalityRow.getCells().add(cardinalityRowCell);
-		cardinalityRowCell.getContent().add(wrap(cardinality(eObject)));
+		addRow(table, "Cardinality").add(wrap(cardinality(eObject)));
 		
 		return table;
+	}
+	
+	/**
+	 * Adds a row to the table, returns cell content collection for adding content.
+	 * @param table
+	 * @param header
+	 * @return
+	 */
+	protected static List<SupplierFactory<Object>> addRow(Table table, String header) {
+		TableRow row = BootstrapFactory.eINSTANCE.createTableRow();
+		table.getRows().add(row);
+		
+		TableCell rowHeader = BootstrapFactory.eINSTANCE.createTableCell();
+		row.getCells().add(rowHeader);
+		rowHeader.setHeader(true);
+		rowHeader.getContent().add(wrap(header));
+		
+		TableCell rowCell = BootstrapFactory.eINSTANCE.createTableCell();
+		row.getCells().add(rowCell);
+		return rowCell.getContent();		
 	}
 
 }

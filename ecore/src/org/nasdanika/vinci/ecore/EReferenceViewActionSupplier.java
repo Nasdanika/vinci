@@ -1,6 +1,13 @@
 package org.nasdanika.vinci.ecore;
 
 import org.eclipse.emf.ecore.EReference;
+import org.nasdanika.common.ProgressMonitor;
+import org.nasdanika.common.SupplierFactory;
+import org.nasdanika.emf.EObjectAdaptable;
+import org.nasdanika.vinci.bootstrap.Table;
+import org.nasdanika.vinci.components.ActionLink;
+import org.nasdanika.vinci.components.ComponentsFactory;
+import org.nasdanika.vinci.emf.ViewActionSupplier;
 
 public class EReferenceViewActionSupplier extends EStructuralFeatureViewActionSupplier<EReference> {
 
@@ -8,23 +15,22 @@ public class EReferenceViewActionSupplier extends EStructuralFeatureViewActionSu
 		super(value);
 	}
 	
-//	@Override
-//	protected Table propertiesTable(ViewGenerator viewGenerator) {
-//		Table ret = super.propertiesTable(viewGenerator);
-//		EReference opposite = target.getEOpposite();
-//		if (opposite != null) {
-//			ViewAction oppositeViewAction = EObjectAdaptable.adaptTo(opposite, ViewAction.class);
-//			EObject oppositeContainer = opposite.eContainer();
-//			ViewAction oppositeContainerViewAction = EObjectAdaptable.adaptTo(oppositeContainer, ViewAction.class);
-//			Row typeRow = ret.row();
-//			typeRow.header(getResourceContext().getString(PropertyKeys.UI_OPPOSITE, "Opposite"));
-//			Cell refCell = typeRow.cell();
-//			if (oppositeContainerViewAction != null) {
-//				refCell.toHTMLElement().content(viewGenerator.link(oppositeContainerViewAction), "/");				
-//			}
-//			refCell.toHTMLElement().content(oppositeViewAction == null ?  opposite.getName() : viewGenerator.link(oppositeViewAction));
-//		}
-//		return ret;
-//	}
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	@Override
+	protected Table propertiesTable(ProgressMonitor monitor) throws Exception {
+		Table propertiesTable = super.propertiesTable(monitor);
+		EReference opposite = eObject.getEOpposite();
+		if (opposite != null) {
+			ViewActionSupplier oppositeViewActionSupplier = EObjectAdaptable.adaptTo(opposite, ViewActionSupplier.class);
+			if (oppositeViewActionSupplier == null) {
+				addRow(propertiesTable, "Opposite").add(wrap(opposite.getName()));
+			} else {
+				ActionLink link = ComponentsFactory.eINSTANCE.createActionLink();
+				link.setTarget(oppositeViewActionSupplier.getAction(monitor));
+				addRow(propertiesTable, "Opposite").add((SupplierFactory) link);				
+			}
+		}
+		return propertiesTable;
+	}
 
 }
