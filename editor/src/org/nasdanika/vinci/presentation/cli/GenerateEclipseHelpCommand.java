@@ -153,7 +153,7 @@ public class GenerateEclipseHelpCommand extends GenerateTemplatedApplicationComm
 				if (hashIdx != -1) {
 					path = path.substring(0, hashIdx);
 				}
-				try (ProgressMonitor contentMonitor = pageMonitor.split("Writing cotent "+path, 1)) {
+				try (ProgressMonitor contentMonitor = pageMonitor.split("Writing content "+path, 1)) {
 					contentContainer.put(path, htmlPage.toString(), contentMonitor);
 				}
 			}

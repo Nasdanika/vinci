@@ -232,7 +232,7 @@ public class TestsBase {
 
 	public static void writeFile(BinaryEntityContainer container, String path, ProgressMonitor monitor, Object content) {
 		org.nasdanika.common.resources.Container<Object> contentContainer = container.stateAdapter().adapt(null, ENCODER);
-		try (ProgressMonitor pageMonitor = monitor.split("Writing cotent "+path, 1)) {
+		try (ProgressMonitor pageMonitor = monitor.split("Writing content "+path, 1)) {
 			contentContainer.put(path, content.toString(), pageMonitor);
 		}
 	}

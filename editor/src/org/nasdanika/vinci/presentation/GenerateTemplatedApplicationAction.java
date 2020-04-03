@@ -223,7 +223,7 @@ public class GenerateTemplatedApplicationAction extends VinciGenerateAction<Abst
 							if (hashIdx != -1) {
 								path = path.substring(0, hashIdx);
 							}
-							try (ProgressMonitor contentMonitor = progressMonitor.split("Writing cotent "+path, 1)) {
+							try (ProgressMonitor contentMonitor = progressMonitor.split("Writing content "+path, 1)) {
 								contentContainer.put(path, result.toString(), contentMonitor);
 							}
 						}

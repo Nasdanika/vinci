@@ -95,7 +95,7 @@ public class GenerateApplicationAction<T extends EObject & SupplierFactory<Objec
 						try (ProgressMonitor generationMonitor = progressMonitor.split("Generation", size)) {
 							Object result = work.execute(generationMonitor);
 							String path = actionContext.interpolate(actionEntry.getValue());
-							try (ProgressMonitor contentMonitor = progressMonitor.split("Writing cotent "+path, 1)) {
+							try (ProgressMonitor contentMonitor = progressMonitor.split("Writing content "+path, 1)) {
 								contentContainer.put(path, result.toString(), contentMonitor);
 							}
 						}
