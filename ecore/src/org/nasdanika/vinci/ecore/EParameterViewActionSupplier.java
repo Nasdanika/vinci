@@ -14,7 +14,7 @@ public class EParameterViewActionSupplier extends ETypedElementViewActionSupplie
 	@Override
 	protected Action create(ProgressMonitor progressMonitor) throws Exception {
 		Action ret = super.create(progressMonitor);
-		action.setRole(ActionRole.SECTION.label);
+		ret.setRole(ActionRole.SECTION.label);
 		return ret;
 	}
 
