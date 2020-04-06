@@ -24,6 +24,7 @@ import org.fusesource.jansi.HtmlAnsiOutputStream;
 import org.nasdanika.cli.CommandBase;
 import org.nasdanika.cli.Description;
 import org.nasdanika.common.DefaultConverter;
+import org.nasdanika.common.MarkdownHelper;
 import org.nasdanika.common.SupplierFactory;
 import org.nasdanika.common.Util;
 import org.nasdanika.ncore.Value;
@@ -39,6 +40,7 @@ import picocli.CommandLine;
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Help;
 import picocli.CommandLine.Model.CommandSpec;
+import picocli.CommandLine.Model.UsageMessageSpec;
 import picocli.CommandLine.Option;
 import picocli.CommandLine.Spec;
 
@@ -134,6 +136,14 @@ public class VinciHelpCommand extends CommandBase {
 				if (!Util.isBlank(description.tooltip())) {
 					ret.setTooltip(description.tooltip());
 				}
+			}
+		}
+		
+		// Tooltip from usage
+		if (Util.isBlank(ret.getTooltip())) {
+			UsageMessageSpec usageMessage = commandSpec.usageMessage();
+			if (usageMessage != null && usageMessage.description() != null && usageMessage.description().length > 0) {
+				ret.setTooltip(MarkdownHelper.INSTANCE.firstSentence(usageMessage.description()[0]));
 			}
 		}
 		
