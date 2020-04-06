@@ -24,7 +24,7 @@
     <attributes xsi:type="org.nasdanika.ncore:Object" name="style">
       <entries xsi:type="org.nasdanika.ncore:Property" value="black" name="background"/>
       <entries xsi:type="org.nasdanika.ncore:Property" value="white" name="color"/>
-      <entries xsi:type="org.nasdanika.ncore:Property" value="80ch" name="width"/>
+      <entries xsi:type="org.nasdanika.ncore:Property" value="81ch" name="width"/>
     </attributes>
     <content xsi:type="org.nasdanika.ncore:Value"/>
   </content>
