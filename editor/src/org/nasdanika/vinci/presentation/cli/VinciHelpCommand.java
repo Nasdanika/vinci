@@ -24,12 +24,15 @@ import org.fusesource.jansi.HtmlAnsiOutputStream;
 import org.nasdanika.cli.CommandBase;
 import org.nasdanika.cli.Description;
 import org.nasdanika.common.DefaultConverter;
+import org.nasdanika.common.SupplierFactory;
 import org.nasdanika.common.Util;
 import org.nasdanika.ncore.Value;
 import org.nasdanika.vinci.app.Action;
 import org.nasdanika.vinci.app.ActionRole;
 import org.nasdanika.vinci.bootstrap.ContentTag;
 import org.nasdanika.vinci.bootstrap.Table;
+import org.nasdanika.vinci.components.ComponentsFactory;
+import org.nasdanika.vinci.components.ListOfContents;
 import org.nasdanika.vinci.components.MarkdownText;
 
 import picocli.CommandLine;
@@ -76,6 +79,7 @@ public class VinciHelpCommand extends CommandBase {
 		return  (Action) resourceSet.getResource(HELP_ACTION_TEMPLATE, true).getContents().get(0);
 	}	
 	
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	private Action usage(CommandSpec commandSpec, Action template) throws IOException {		
 		Action ret = EcoreUtil.copy(template);
 		ret.setId(UUID.randomUUID().toString());
@@ -121,15 +125,28 @@ public class VinciHelpCommand extends CommandBase {
 					dResource = clazz.getName().substring(clazz.getName().lastIndexOf('.') + 1) + ".md";						
 				}
 				InputStream dStream = clazz.getResourceAsStream(dResource);
-				if (dStream == null) {
-					throw new IllegalArgumentException("Description resource "+dResource+" not found for command class "+clazz);
+				if (dStream != null) {
+					((MarkdownText) (Object) ret.getContent().get(2)).setMarkdown(DefaultConverter.INSTANCE.toString(dStream));
 				}
-				((MarkdownText) (Object) ret.getContent().get(2)).setMarkdown(DefaultConverter.INSTANCE.toString(dStream));
+				if (!Util.isBlank(description.icon())) {
+					ret.setIcon(description.icon());
+				}
+				if (!Util.isBlank(description.tooltip())) {
+					ret.setTooltip(description.tooltip());
+				}
 			}
 		}
 		
 		for (CommandLine subCommand: commandSpec.subcommands().values().stream().sorted((a,b) -> a.getCommandName().compareTo(b.getCommandName())).collect(Collectors.toList())) {
 			ret.getElements().add(usage(subCommand.getCommandSpec(), template));
+		}
+		
+		if (!ret.getElements().isEmpty()) {
+			ListOfContents loc = ComponentsFactory.eINSTANCE.createListOfContents();
+			loc.setDepth(1);
+			loc.setTooltips(true);
+			loc.setHeader("Subcommands");
+			ret.getContent().add((SupplierFactory) loc);					
 		}
 		
 		return ret;
