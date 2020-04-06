@@ -230,21 +230,16 @@ public class EModelElementViewActionSupplier<T extends EModelElement> extends EO
 		} else if (eGenericType.getEClassifier() != null) {
 			EClassifier eClassifier = eGenericType.getEClassifier();
 			ViewActionSupplier ecvas = EObjectAdaptable.adaptTo(eClassifier, ViewActionSupplier.class);
-			String tooltip = null;
 			if (ecvas == null) {
 				accumulator.add(wrap(eClassifier.getName()));
 			} else {
 				Action eClassifierAction = ecvas.getAction(monitor);
-				tooltip = eClassifierAction.getTooltip();
 				ActionLink link = ComponentsFactory.eINSTANCE.createActionLink();
 				link.setTarget(eClassifierAction);
 				link.setText(eClassifier.getName());
 				accumulator.add((SupplierFactory) link);
 			}
 			genericTypeArguments(eGenericType, accumulator, monitor);
-			if (!Util.isBlank(tooltip)) {
-				accumulator.add(wrap(" - " + tooltip));				
-			}
 		}		
 	}
 
