@@ -102,6 +102,7 @@ public class EcoreDocumentationGeneratorCommand extends CommandBase {
 		
 		Set<String> names = new HashSet<>();
 		
+		List<Resource> resources = new ArrayList<>();
 		ResourceSet outputResourceSet = new ResourceSetImpl();
 		try (ProgressMonitor pm = progressMonitorMixin.createProgressMonitor(suppliers.size())) { 
 			int pos = 0;
@@ -120,9 +121,10 @@ public class EcoreDocumentationGeneratorCommand extends CommandBase {
 				Resource resource = new XMLResourceImpl(URI.createURI(output.toURI().toString()));
 				resource.getContents().add(action);		
 				outputResourceSet.getResources().add(resource);
+				resources.add(resource);
 				++pos;
 			}
-			for (Resource resource: outputResourceSet.getResources()) {
+			for (Resource resource: resources) {
 				resource.save(null);
 			}
 		}
