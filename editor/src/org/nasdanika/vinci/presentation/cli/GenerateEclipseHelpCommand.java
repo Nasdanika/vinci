@@ -30,7 +30,7 @@ import picocli.CommandLine.Command;
 import picocli.CommandLine.Option;
 
 @Command(
-		description = "Generates a web application (Web site) from a Vinci action model",
+		description = "Generates Eclipse help from a Vinci action model",
 		name = "eclipse-help",
 		versionProvider = VinciBundleVersionProvider.class)
 public class GenerateEclipseHelpCommand extends GenerateTemplatedApplicationCommand {
