@@ -131,7 +131,7 @@ public class EClassViewActionSupplier extends EClassifierViewActionSupplier<ECla
 		}
 		
 		// Subtypes
-		Collection<EClass> eSubTypes = getSubTypes(eObject);
+		Collection<EClass> eSubTypes = getSubTypes(eObject).stream().sorted((a,b) -> a.getName().compareTo(b.getName())).collect(Collectors.toList());
 		if (!eSubTypes.isEmpty()) {
 			ListOfActions subTypesList = ComponentsFactory.eINSTANCE.createListOfActions();
 			action.getContent().add((SupplierFactory) subTypesList);
