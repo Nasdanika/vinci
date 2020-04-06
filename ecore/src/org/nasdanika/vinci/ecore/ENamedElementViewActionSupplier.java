@@ -15,6 +15,7 @@ public class ENamedElementViewActionSupplier<T extends ENamedElement> extends EM
 	@Override
 	protected Action create(ProgressMonitor progressMonitor) throws Exception {
 		Action action = super.create(progressMonitor);
+		action.setTitle(eObject.getName());
 		
 		LabelSupplier<Action> labelSupplier = new ENamedElementLabelSupplier<T, Action>(eObject) {
 
