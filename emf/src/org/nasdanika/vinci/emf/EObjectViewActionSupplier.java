@@ -1,7 +1,11 @@
 package org.nasdanika.vinci.emf;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.eclipse.emf.ecore.EObject;
 import org.nasdanika.common.ProgressMonitor;
+import org.nasdanika.emf.EObjectAdaptable;
 import org.nasdanika.vinci.app.Action;
 import org.nasdanika.vinci.app.AppFactory;
 
@@ -13,6 +17,11 @@ import org.nasdanika.vinci.app.AppFactory;
 public class EObjectViewActionSupplier<T extends EObject> implements ViewActionSupplier {
 		
 	protected T eObject;
+	
+	/**
+	 * elements of this list are configured in configure()
+	 */
+	protected List<ViewActionSupplier> children = new ArrayList<>();
 	
 	/**
 	 * Action is created on the first call and then is returned on subsequent calls.
@@ -34,17 +43,26 @@ public class EObjectViewActionSupplier<T extends EObject> implements ViewActionS
 	}
 
 	/**
-	 * Creates and configures an action. In recursive calls it is possible that this method returns an action
-	 * which is not yet configured.
+	 * Creates an action. 
 	 * @return An action, possibly not yet configured.
 	 */
 	@Override
 	public synchronized Action getAction(ProgressMonitor monitor) throws Exception {
 		if (action == null) {
 			action = create(monitor);
-			configure(monitor);
 		}
 		return action;
+	}
+	
+	/**
+	 * Adapts child eObject to {@link ViewActionSupplier} and adds to the list of children to be configured.
+	 * @param child
+	 * @return
+	 */
+	protected ViewActionSupplier adaptChild(EObject child) {
+		ViewActionSupplier ret = EObjectAdaptable.adaptTo(child, ViewActionSupplier.class);
+		children.add(ret);
+		return ret;
 	}
 
 	/**
@@ -52,8 +70,11 @@ public class EObjectViewActionSupplier<T extends EObject> implements ViewActionS
 	 * @param monitor
 	 * @throws Exception
 	 */
-	protected void configure(ProgressMonitor monitor) throws Exception {
-		
+	@Override
+	public void configure(ProgressMonitor monitor) throws Exception {
+		for (ViewActionSupplier child: children) {
+			child.configure(monitor);
+		}
 	}
 	
 }

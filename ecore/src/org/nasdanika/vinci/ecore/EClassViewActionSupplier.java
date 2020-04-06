@@ -59,8 +59,7 @@ public class EClassViewActionSupplier extends EClassifierViewActionSupplier<ECla
 			attrsCategory.setText("Attributes");
 			action.getElements().add(attrsCategory);
 			for (EStructuralFeature sf: eObject.getEAttributes().stream().sorted((a,b) ->  a.getName().compareTo(b.getName())).collect(Collectors.toList())) {
-				ViewActionSupplier sfvasf = EObjectAdaptable.adaptTo(sf, ViewActionSupplier.class);
-				attrsCategory.getElements().add(sfvasf.getAction(progressMonitor));
+				attrsCategory.getElements().add(adaptChild(sf).getAction(progressMonitor));
 			}
 		}
 		
@@ -69,8 +68,7 @@ public class EClassViewActionSupplier extends EClassifierViewActionSupplier<ECla
 			refsCategory.setText("References");
 			action.getElements().add(refsCategory);
 			for (EStructuralFeature sf: eObject.getEReferences().stream().sorted((a,b) ->  a.getName().compareTo(b.getName())).collect(Collectors.toList())) {
-				ViewActionSupplier sfvas = EObjectAdaptable.adaptTo(sf, ViewActionSupplier.class);
-				refsCategory.getElements().add(sfvas.getAction(progressMonitor));
+				refsCategory.getElements().add(adaptChild(sf).getAction(progressMonitor));
 			}
 		}
 		
@@ -79,8 +77,7 @@ public class EClassViewActionSupplier extends EClassifierViewActionSupplier<ECla
 			opsCategory.setText("Operations");
 			action.getElements().add(opsCategory);
 			for (EOperation eOp: eObject.getEOperations().stream().sorted((a,b) ->  a.getName().compareTo(b.getName())).collect(Collectors.toList())) {
-				ViewActionSupplier eovas = EObjectAdaptable.adaptTo(eOp, ViewActionSupplier.class);
-				opsCategory.getElements().add(eovas.getAction(progressMonitor));			
+				opsCategory.getElements().add(adaptChild(eOp).getAction(progressMonitor));			
 			}
 		}
 		
@@ -89,7 +86,7 @@ public class EClassViewActionSupplier extends EClassifierViewActionSupplier<ECla
 	
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Override
-	protected void configure(ProgressMonitor monitor) throws Exception {
+	public void configure(ProgressMonitor monitor) throws Exception {
 		super.configure(monitor);
 
 		// Diagram

@@ -13,7 +13,6 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
-import org.eclipse.emf.ecore.xmi.impl.XMLResourceImpl;
 import org.nasdanika.cli.CommandBase;
 import org.nasdanika.cli.ProgressMonitorMixin;
 import org.nasdanika.common.ProgressMonitor;
@@ -102,12 +101,13 @@ public class EcoreDocumentationGeneratorCommand extends CommandBase {
 		
 		Set<String> names = new HashSet<>();
 		
-		List<Resource> resources = new ArrayList<>();
 		ResourceSet outputResourceSet = new ResourceSetImpl();
 		try (ProgressMonitor pm = progressMonitorMixin.createProgressMonitor(suppliers.size())) { 
 			int pos = 0;
 			for (ViewActionSupplier supplier: suppliers) {
 				Action action = supplier.getAction(pm);
+				supplier.configure(pm);
+				
 				String resourceName = action.getText();
 				if (!names.add(action.getText())) {
 					resourceName += "-" + pos;
@@ -118,13 +118,11 @@ public class EcoreDocumentationGeneratorCommand extends CommandBase {
 				}
 				File output = new File(effectiveOutputDir, resourceName + ".vinci");
 				
-				Resource resource = new XMLResourceImpl(URI.createURI(output.toURI().toString()));
+				Resource resource = outputResourceSet.createResource(URI.createURI(output.toURI().toString()));
 				resource.getContents().add(action);		
-				outputResourceSet.getResources().add(resource);
-				resources.add(resource);
 				++pos;
 			}
-			for (Resource resource: resources) {
+			for (Resource resource: outputResourceSet.getResources()) {
 				resource.save(null);
 			}
 		}

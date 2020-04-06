@@ -15,7 +15,6 @@ import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EPackage;
 import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.common.SupplierFactory;
-import org.nasdanika.emf.EObjectAdaptable;
 import org.nasdanika.emf.PlantUmlTextGenerator;
 import org.nasdanika.emf.PlantUmlTextGenerator.RelationshipDirection;
 import org.nasdanika.ncore.NcoreFactory;
@@ -24,7 +23,6 @@ import org.nasdanika.ncore.Value;
 import org.nasdanika.vinci.app.Action;
 import org.nasdanika.vinci.components.ComponentsFactory;
 import org.nasdanika.vinci.components.ListOfContents;
-import org.nasdanika.vinci.emf.ViewActionSupplier;
 import org.nasdanika.vinci.html.ContentTag;
 import org.nasdanika.vinci.html.HtmlFactory;
 
@@ -44,13 +42,11 @@ public class EPackageViewActionSupplier extends ENamedElementViewActionSupplier<
 		action.setId(eObject.eClass().getName() + "-" + Hex.encodeHexString(eObject.getNsURI().getBytes(StandardCharsets.UTF_8)));
 		
 		for (EPackage subPackage: eObject.getESubpackages().stream().sorted((a,b) ->  a.getName().compareTo(b.getName())).collect(Collectors.toList())) {
-			ViewActionSupplier spvasf = EObjectAdaptable.adaptTo(subPackage, ViewActionSupplier.class);
-			action.getElements().add(spvasf.getAction(progressMonitor));
+			action.getElements().add(adaptChild(subPackage).getAction(progressMonitor));
 		}
 		
 		for (EClassifier eClassifier: eObject.getEClassifiers().stream().sorted((a,b) ->  a.getName().compareTo(b.getName())).collect(Collectors.toList())) {
-			ViewActionSupplier ecvasf = EObjectAdaptable.adaptTo(eClassifier, ViewActionSupplier.class);
-			action.getElements().add(ecvasf.getAction(progressMonitor));			
+			action.getElements().add(adaptChild(eClassifier).getAction(progressMonitor));			
 		}
 		
 		return action;
@@ -58,7 +54,7 @@ public class EPackageViewActionSupplier extends ENamedElementViewActionSupplier<
 	
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
-	protected void configure(ProgressMonitor monitor) throws Exception {
+	public void configure(ProgressMonitor monitor) throws Exception {
 		super.configure(monitor);
 		
 		// Diagram		

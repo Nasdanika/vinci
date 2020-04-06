@@ -21,7 +21,7 @@ public class EClassifierViewActionSupplier<T extends EClassifier> extends ENamed
 	}
 	
 	@Override
-	protected void configure(ProgressMonitor monitor) throws Exception {
+	public void configure(ProgressMonitor monitor) throws Exception {
 		super.configure(monitor);		
 		action.setText(eObject.getName() + typeParameters(eObject));
 	}

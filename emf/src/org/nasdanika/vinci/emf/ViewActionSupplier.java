@@ -1,6 +1,7 @@
 package org.nasdanika.vinci.emf;
 
 import org.eclipse.emf.ecore.EObject;
+import org.nasdanika.common.ProgressMonitor;
 
 /**
  * Supplier of "view" (as opposed to "edit") actions. This interface is used to adapt
@@ -10,6 +11,11 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface ViewActionSupplier extends ActionSupplier  {
 	
-	
+	/**
+	 * Configures action, e.g. establishes cross-references.
+	 * @param monitor
+	 * @throws Exception
+	 */
+	void configure(ProgressMonitor monitor) throws Exception;
 	
 }

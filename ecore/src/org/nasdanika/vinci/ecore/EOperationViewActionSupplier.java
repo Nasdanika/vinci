@@ -11,7 +11,6 @@ import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EParameter;
 import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.common.SupplierFactory;
-import org.nasdanika.emf.EObjectAdaptable;
 import org.nasdanika.html.TagName;
 import org.nasdanika.html.app.SectionStyle;
 import org.nasdanika.vinci.app.Action;
@@ -20,7 +19,6 @@ import org.nasdanika.vinci.app.ActionRole;
 import org.nasdanika.vinci.app.AppFactory;
 import org.nasdanika.vinci.bootstrap.BootstrapFactory;
 import org.nasdanika.vinci.bootstrap.ContentTag;
-import org.nasdanika.vinci.emf.ViewActionSupplier;
 
 public class EOperationViewActionSupplier extends ETypedElementViewActionSupplier<EOperation> {
 
@@ -45,25 +43,22 @@ public class EOperationViewActionSupplier extends ETypedElementViewActionSupplie
 		if (!eObject.getEParameters().isEmpty()) {
 			// Creating a digest of parameter types to make the id shorter.
 			MessageDigest md = MessageDigest.getInstance("SHA-256");
+			
+			ActionCategory parametersCategory = AppFactory.eINSTANCE.createActionCategory();
+			parametersCategory.setText("Parameters");
+			action.getElements().add(parametersCategory);
+			
 			for (EParameter ep: eObject.getEParameters()) {
 				EClassifier type = ep.getEType();
 				String typeStr = type.eClass().getName() + "-" + Hex.encodeHexString(type.getEPackage().getNsURI().getBytes(StandardCharsets.UTF_8)) + "-" + type.getName() + ",";
 				md.update(typeStr.getBytes(StandardCharsets.UTF_8));
+				
+				parametersCategory.getElements().add(adaptChild(ep).getAction(progressMonitor));				
 			}
 			idBuilder.append("-").append(Hex.encodeHexString(md.digest()));
 		}
 		
 		action.setId(idBuilder.toString());		
-		
-		if (!eObject.getEParameters().isEmpty()) {
-			ActionCategory parametersCategory = AppFactory.eINSTANCE.createActionCategory();
-			parametersCategory.setText("Parameters");
-			action.getElements().add(parametersCategory);
-			for (EParameter parameter: eObject.getEParameters()) {
-				ViewActionSupplier sfvasf = EObjectAdaptable.adaptTo(parameter, ViewActionSupplier.class);
-				parametersCategory.getElements().add(sfvasf.getAction(progressMonitor));
-			}
-		}
 		
 		return action;
 	}
@@ -71,7 +66,7 @@ public class EOperationViewActionSupplier extends ETypedElementViewActionSupplie
 	
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Override
-	protected void configure(ProgressMonitor monitor) throws Exception {
+	public void configure(ProgressMonitor monitor) throws Exception {
 		super.configure(monitor);
 		
 		// Exceptions

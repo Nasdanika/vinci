@@ -22,7 +22,7 @@ public class ETypedElementViewActionSupplier<T extends ETypedElement> extends EN
 	
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Override
-	protected void configure(ProgressMonitor monitor) throws Exception {
+	public void configure(ProgressMonitor monitor) throws Exception {
 		super.configure(monitor);
 
 		StringBuilder label = new StringBuilder(eObject.getName());
