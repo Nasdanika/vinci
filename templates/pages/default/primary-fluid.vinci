@@ -4,7 +4,7 @@
     <attributes xsi:type="org.nasdanika.ncore:Property" value="generator" name="name"/>
     <attributes xsi:type="org.nasdanika.ncore:Property" value="Nasdanika Vinci" name="content"/>
   </head>
-  <head xsi:type="org.nasdanika.vinci.html:Stylesheet" code="@media print {&#xA;  div.nsd-app-navigation-panel {&#xA;    display: none;&#xA;  }&#xA;}"/>
+  <head xsi:type="org.nasdanika.vinci.html:Stylesheet" code=".nsd-label-icon {&#xA;    height: 0.8em;&#xA;    margin-bottom: 0.2em;&#xA;    margin-right: 0.1em;&#xA;}&#xA;@media print {&#xA;  div.nsd-app-navigation-panel {&#xA;    display: none;&#xA;  }&#xA;}"/>
   <builders xsi:type="org.nasdanika.vinci.app:BootstrapContainerApplication" fluid="true">
     <appearance>
       <attributes xsi:type="org.nasdanika.ncore:Object" name="children">
