@@ -24,8 +24,8 @@
     <attributes xsi:type="org.nasdanika.ncore:Object" name="style">
       <entries xsi:type="org.nasdanika.ncore:Property" value="black" name="background"/>
       <entries xsi:type="org.nasdanika.ncore:Property" value="white" name="color"/>
-      <entries xsi:type="org.nasdanika.ncore:Property" value="81ch" name="width"/>
-      <entries xsi:type="org.nasdanika.ncore:Property" value="2px" name="padding-left"/>
+      <entries xsi:type="org.nasdanika.ncore:Property" value="max-content" name="width"/>
+      <entries xsi:type="org.nasdanika.ncore:Property" value="5px" name="padding"/>
     </attributes>
     <content xsi:type="org.nasdanika.ncore:Value"/>
   </content>
