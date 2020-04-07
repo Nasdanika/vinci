@@ -10,6 +10,7 @@ import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 
+import org.apache.commons.text.StringEscapeUtils;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.nasdanika.common.Context;
@@ -35,8 +36,8 @@ import picocli.CommandLine.Option;
 		versionProvider = VinciBundleVersionProvider.class)
 public class GenerateEclipseHelpCommand extends GenerateTemplatedApplicationCommand {
 
-	@Option(names = {"-l", "--label"}, description = "TOC label")
-	private String label;
+	@Option(names = {"-l", "--location"}, description = "Content location path in the plug-in.")
+	private String location;
 	
 	@Option(names = {"-L", "--link-to"}, description = "Anchor to link this toc to")
 	private String linkTo;
@@ -64,24 +65,13 @@ public class GenerateEclipseHelpCommand extends GenerateTemplatedApplicationComm
 		DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
 		Document toc = dBuilder.newDocument();
 		
-		Element root = toc.createElement("toc");			
-		toc.appendChild(root);
-		if (!Util.isBlank(label)) {
-			root.setAttribute("label", label);			
-		}
-		if (!Util.isBlank(linkTo)) {
-			root.setAttribute("link_to", linkTo);			
-		}
-		
-		Element actionTopic = createActionTopic(toc, rootAction);
-		if (actionTopic != null) {
-			root.appendChild(actionTopic);
-		}
+		toc.appendChild(createToc(toc, rootAction));
 		
 	    // Use a Transformer for output
 	    TransformerFactory tFactory = TransformerFactory.newInstance();
 	    Transformer transformer = tFactory.newTransformer();
 	    transformer.setOutputProperty(OutputKeys.INDENT, "yes");
+	    transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "4");
 	    
 	    DOMSource source = new DOMSource(toc);
 		ByteArrayOutputStream baos = new ByteArrayOutputStream();
@@ -94,6 +84,31 @@ public class GenerateEclipseHelpCommand extends GenerateTemplatedApplicationComm
 		}
 	}
 	
+	private Element createToc(Document document, Action action) {
+		ActionActivator activator = action.getActivator();
+		if (activator instanceof NavigationActionActivator) {					
+			NavigationActionActivator naa = (NavigationActionActivator) activator;
+			String url = naa.getUrl();
+		
+			Element toc = document.createElement("toc");
+			toc.setAttribute("label", StringEscapeUtils.unescapeHtml3(action.getText()));
+			toc.setAttribute("topic", href(url));
+			
+			if (!Util.isBlank(linkTo)) {
+				toc.setAttribute("link_to", linkTo);			
+			}
+			
+			for (Action child: action.getNavigationChildren()) {
+				Element cTopic = createActionTopic(document, child);
+				if (cTopic != null) {
+					toc.appendChild(cTopic);
+				}
+			}
+			return toc;
+		}
+		return null;
+	}
+	
 	private Element createActionTopic(Document document, Action action) {
 		ActionActivator activator = action.getActivator();
 		if (activator instanceof NavigationActionActivator) {					
@@ -101,8 +116,8 @@ public class GenerateEclipseHelpCommand extends GenerateTemplatedApplicationComm
 			String url = naa.getUrl();
 		
 			Element topic = document.createElement("topic");
-			topic.setAttribute("label", action.getText());
-			topic.setAttribute("href", url);
+			topic.setAttribute("label", StringEscapeUtils.unescapeHtml3(action.getText()));
+			topic.setAttribute("href", href(url));
 			
 			for (Action child: action.getNavigationChildren()) {
 				Element cTopic = createActionTopic(document, child);
@@ -113,6 +128,10 @@ public class GenerateEclipseHelpCommand extends GenerateTemplatedApplicationComm
 			return topic;
 		}
 		return null;
+	}
+
+	protected String href(String url) {
+		return Util.isBlank(location) || url.contains("://") || url.startsWith("/") ? url : location + "/" + url;
 	}
 
 	/**
