@@ -7,12 +7,14 @@ import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Base64;
 import java.util.Collection;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 import org.apache.commons.codec.binary.Hex;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EPackage;
+import org.nasdanika.common.Context;
 import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.common.SupplierFactory;
 import org.nasdanika.emf.PlantUmlTextGenerator;
@@ -32,8 +34,8 @@ import net.sourceforge.plantuml.SourceStringReader;
 
 public class EPackageViewActionSupplier extends ENamedElementViewActionSupplier<EPackage> {
 
-	public EPackageViewActionSupplier(EPackage value) {
-		super(value);
+	public EPackageViewActionSupplier(EPackage value, Context context) {
+		super(value, context);
 	}
 	
 	@Override
@@ -105,7 +107,7 @@ public class EPackageViewActionSupplier extends ENamedElementViewActionSupplier<
 		
 		StringBuilder sb = new StringBuilder();
 		
-		PlantUmlTextGenerator gen = new PlantUmlTextGenerator(sb, ec -> EClassifierViewActionSupplier.id(ec)+".html", EModelElementViewActionSupplier::getEModelElementFirstDocSentence) {
+		PlantUmlTextGenerator gen = new PlantUmlTextGenerator(sb, eClassifierLinkResolver, EModelElementViewActionSupplier::getEModelElementFirstDocSentence) {
 			
 			@Override
 			protected Collection<EClass> getSubTypes(EClass eClass) {
@@ -165,5 +167,14 @@ public class EPackageViewActionSupplier extends ENamedElementViewActionSupplier<
 		}
 		return ret;		
 	}	
-
+		
+	protected Function<EClassifier, String> eClassifierLinkResolver = target -> {
+		String localName = target.getName() + ".html";
+		if (target.getEPackage().getNsURI().equals(eObject.getNsURI())) {
+			return localName;
+		}
+		
+		return "../" + Hex.encodeHexString(target.getEPackage().getNsURI().getBytes(StandardCharsets.UTF_8)) + "/" + localName;
+	};
+	
 }

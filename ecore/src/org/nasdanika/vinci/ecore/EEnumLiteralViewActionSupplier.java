@@ -4,14 +4,15 @@ import java.nio.charset.StandardCharsets;
 
 import org.apache.commons.codec.binary.Hex;
 import org.eclipse.emf.ecore.EEnumLiteral;
+import org.nasdanika.common.Context;
 import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.vinci.app.Action;
 import org.nasdanika.vinci.app.ActionRole;
 
 public class EEnumLiteralViewActionSupplier extends ENamedElementViewActionSupplier<EEnumLiteral> {
 
-	public EEnumLiteralViewActionSupplier(EEnumLiteral value) {
-		super(value);
+	public EEnumLiteralViewActionSupplier(EEnumLiteral value, Context context) {
+		super(value, context);
 	}
 	
 	@Override

@@ -2,14 +2,15 @@ package org.nasdanika.vinci.ecore;
 
 import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EEnumLiteral;
+import org.nasdanika.common.Context;
 import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.html.app.SectionStyle;
 import org.nasdanika.vinci.app.Action;
 
 public class EEnumViewActionSupplier extends EClassifierViewActionSupplier<EEnum> {
 
-	public EEnumViewActionSupplier(EEnum value) {
-		super(value);
+	public EEnumViewActionSupplier(EEnum value, Context context) {
+		super(value, context);
 	}
 	
 	@Override

@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.eclipse.emf.ecore.EGenericType;
 import org.eclipse.emf.ecore.ETypedElement;
+import org.nasdanika.common.Context;
 import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.common.SupplierFactory;
 import org.nasdanika.ncore.NcoreFactory;
@@ -16,8 +17,8 @@ import org.nasdanika.vinci.bootstrap.TableRow;
 
 public class ETypedElementViewActionSupplier<T extends ETypedElement> extends ENamedElementViewActionSupplier<T> {
 	
-	public ETypedElementViewActionSupplier(T value) {
-		super(value);
+	public ETypedElementViewActionSupplier(T value, Context context) {
+		super(value, context);
 	}
 	
 	@SuppressWarnings({ "unchecked", "rawtypes" })

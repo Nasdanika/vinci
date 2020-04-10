@@ -1,6 +1,7 @@
 package org.nasdanika.vinci.app.impl;
 
 import java.util.List;
+import java.util.UUID;
 
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
@@ -108,22 +109,25 @@ public class ActionFacade extends org.nasdanika.html.app.impl.ActionImpl impleme
 			break;
 		case BIND:
 			throw new UnsupportedOperationException("Not implemented yet");
-		case REFERENCE:
-			if (Util.isBlank(activator) && !Util.isBlank(target.getId())) {
-				activator = target.getId() + ".html";
-				if (ActionRole.SECTION.label.equals(target.getRole())) {
-					activator += "#" + target.getId();
-				}
-			}
-			String url = actionContext.interpolate(activator);
-			if (Util.isBlank(url)) {
-				throw new IllegalArgumentException("Activator type is reference and activator URL is blank");
+		case REFERENCE:			
+			URI actionURI = actionContext.get(URI.class);
+			if (actionURI == null) {
+				throw new IllegalArgumentException("Activator type is reference and activator URI is not set");
 			}
 			setActivator(new NavigationActionActivator() {
 
 				@Override
-				public String getUrl() {
-					return url;
+				public String getUrl(String base) {
+					if (Util.isBlank(base)) {
+						return actionURI.toString();
+					}					
+					URI baseURI = URI.createURI(base);
+					URI relative = actionURI.deresolve(baseURI, true, true, true);
+					if (relative.isEmpty()) {
+						// A trick to deresolve action URI to the last segment plus fragment etc. instead of blank string.
+						relative = actionURI.deresolve(URI.createURI("random-" + UUID.randomUUID()+".html").resolve(actionURI), true, true, true);
+					}
+					return relative.toString();
 				}
 
 			});

@@ -167,8 +167,7 @@ public class TestsBase {
 		System.out.println(toString(d));
 	    if (d.getChildren() != null) {
 	    	d.getChildren().forEach(c -> dumpDiagnostic(c, indent + 1));
-	    }
-		
+	    }		
 	}
 	
 	static String toString(Diagnostic d) {

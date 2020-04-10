@@ -20,6 +20,7 @@ import org.nasdanika.common.Context;
 import org.nasdanika.common.DefaultConverter;
 import org.nasdanika.common.MutableContext;
 import org.nasdanika.common.ProgressMonitor;
+import org.nasdanika.common.ServiceComputer;
 import org.nasdanika.common.Supplier;
 import org.nasdanika.common.Util;
 import org.nasdanika.common.resources.BinaryEntityContainer;
@@ -56,7 +57,10 @@ public class GenerateTemplatedApplicationCommand extends ModelCommand<AbstractAc
 			description = "If true (default) section pages are generated", 
 			defaultValue = "true",
 			negatable = true)
-	private boolean sections;		
+	private boolean sections;
+	
+	@Option(names = {"-b", "--base-uri"}, description = "Base URI for resolving and relativizing. Resolved against the output directory URI. Defaults to the output directory URI.")
+	private String baseUri;		
 
 	@Override
 	protected ConsumerFactory<AbstractAction> getConsumerFactory() {
@@ -104,9 +108,18 @@ public class GenerateTemplatedApplicationCommand extends ModelCommand<AbstractAc
 			Context context, 
 			ProgressMonitor monitor) throws Exception {
 		
+		if (outputDir == null) {
+			outputDir = new File(".");
+		}
 		FileSystemContainer output = new FileSystemContainer(outputDir);		
 		ResourceSet resourceSet = rootAction.eResource().getResourceSet();
-		Context generationContext = context.compose(Context.singleton(BinaryEntityContainer.class, output)).compose(Context.singleton(ResourceSet.class, resourceSet)); 		
+		URI outputURI = URI.createFileURI(outputDir.getAbsolutePath() + File.separator);
+		URI baseURI = Util.isBlank(baseUri) ? outputURI : URI.createURI(baseUri).resolve(outputURI);
+		MutableContext generationContext = context.fork();
+		generationContext.register(BinaryEntityContainer.class, output);
+		generationContext.register(ResourceSet.class, resourceSet);
+		generationContext.register(URI.class, baseURI);
+		generationContext.put("base-uri", baseURI);
 		
 		// Generate action tree
 		try (Supplier<Object> work = rootAction.create(generationContext)) {
@@ -118,12 +131,13 @@ public class GenerateTemplatedApplicationCommand extends ModelCommand<AbstractAc
 		
 			Action action = (Action) work.splitAndExecute(monitor);
 			// Page for each action with relative navigation activator - recursive						
-			generatePages(generationContext, resourceSet, action, action, output.stateAdapter().adapt(null, ENCODER), monitor.split("Generating pages", 1, action));
+			generatePages(baseURI, generationContext, resourceSet, action, action, output.stateAdapter().adapt(null, ENCODER), monitor.split("Generating pages", 1, action));
 			
 		}							
 	}
 	
 	protected void generatePages(
+			URI baseURI,
 			Context generationContext,
 			ResourceSet resourceSet, 
 			Action rootAction, 
@@ -136,38 +150,38 @@ public class GenerateTemplatedApplicationCommand extends ModelCommand<AbstractAc
 		ActionActivator activator = activeAction.getActivator();
 		if (activator instanceof NavigationActionActivator && (sections || !activeAction.isInRole(Action.Role.SECTION))) {					
 			NavigationActionActivator naa = (NavigationActionActivator) activator;
-			String url = naa.getUrl();
+			String url = naa.getUrl(generationContext.getString(Context.BASE_URI_PROPERTY)); // Relative to the base URI for writing content to file.
 			if (Util.isValidAndRelative(url)) {
 				List<Action> navChildren = rootAction.getNavigationChildren();
 				Action principalAction = navChildren.isEmpty() ? null : navChildren.get(0); 
-				List<Action> navigationPanelActions = principalAction == null ? Collections.emptyList() : principalAction.getNavigationChildren(); 
+				List<Action> navigationPanelActions = principalAction == null ? Collections.emptyList() : principalAction.getNavigationChildren(); 	
 		
-		
-				MutableContext pageContext = generationContext.fork();
-				pageContext.register(ApplicationBuilder.class, new ActionApplicationBuilder(rootAction, principalAction, navigationPanelActions, activeAction) {
-					
-					@Override
-					protected ViewGenerator createViewGenerator(
-							Application application, 
-							java.util.function.Consumer<?> headContentConsumer, 
-							java.util.function.Consumer<?> bodyContentConsumer) {
-						
-						Context appBuilderContext = generationContext;
-						if (application instanceof DecoratorProvider) {
-							appBuilderContext = generationContext.compose(Context.singleton(DecoratorProvider.class, (DecoratorProvider) application));
-						}
-						return new ViewGeneratorImpl(appBuilderContext, headContentConsumer, bodyContentConsumer);
-					}
-					
-				});
+				MutableContext pageContext = generationContext.fork();			
+
+				// Absolute URI of the action for resolution of relative links.
+				pageContext.put(Context.BASE_URI_PROPERTY, URI.createURI(url).resolve(baseURI).toString());
+				
+				ServiceComputer<ApplicationBuilder> applicationBuilderComputer = (ctx, type) -> createApplicationBuilder(ctx, type, rootAction, principalAction, navigationPanelActions, activeAction);
+				pageContext.register(ApplicationBuilder.class, applicationBuilderComputer);
 				
 				if (activeAction != null) {
-					String text = activeAction.getText();
+					StringBuilder titleBuilder = new StringBuilder();
+					String rootText = rootAction.getText();
+					if (!Util.isBlank(rootText)) {
+						titleBuilder.append(Jsoup.parse(rootText).text());
+					}					
+					String text = activeAction.getText();					
 					if (!Util.isBlank(text)) {
-						pageContext.put("actions/active/text", Jsoup.parse(text).text());
+						if (titleBuilder.length() > 0) {
+							titleBuilder.append(": ");
+						}
+						titleBuilder.append(Jsoup.parse(text).text());
+					}
+					if (titleBuilder.length() > 0) {
+						pageContext.put("actions/active/text", titleBuilder.toString());
 					}
 				}
-				
+
 				URI templateUri = activeAction instanceof ActionFacade ? ((ActionFacade) activeAction).getPageTemplate() : ActionFacade.DEFAULT_PAGE_TEMPLATE;				
 				Resource templateResource = resourceSet.getResource(templateUri, true);
 				String fragment = templateUri.fragment();				
@@ -192,8 +206,34 @@ public class GenerateTemplatedApplicationCommand extends ModelCommand<AbstractAc
 		}
 		
 		for (Action child: activeAction.getChildren()) {
-			generatePages(generationContext, resourceSet, rootAction, child, contentContainer, monitor.split("Generating page for "+child.getText(), 1, child));
+			generatePages(baseURI, generationContext, resourceSet, rootAction, child, contentContainer, monitor.split("Generating page for "+child.getText(), 1, child));
 		}
+	}
+	
+	protected ApplicationBuilder createApplicationBuilder(
+			Context context, 
+			Class<ApplicationBuilder> type, 
+			Action rootAction,
+			Action principalAction,
+			List<Action> navigationPanelActions,
+			Action activeAction) {
+		
+		return new ActionApplicationBuilder(rootAction, principalAction, navigationPanelActions, activeAction) {
+			
+			@Override
+			protected ViewGenerator createViewGenerator(
+					Application application, 
+					java.util.function.Consumer<?> headContentConsumer, 
+					java.util.function.Consumer<?> bodyContentConsumer) {
+				
+				Context appBuilderContext = context;				
+				if (application instanceof DecoratorProvider) {
+					appBuilderContext = context.compose(Context.singleton(DecoratorProvider.class, (DecoratorProvider) application));
+				}
+				return new ViewGeneratorImpl(appBuilderContext, headContentConsumer, bodyContentConsumer);
+			}
+			
+		};		
 	}
 
 	/**

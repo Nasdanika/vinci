@@ -11,6 +11,7 @@ import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 
 import org.apache.commons.text.StringEscapeUtils;
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.nasdanika.common.Context;
@@ -45,6 +46,7 @@ public class GenerateEclipseHelpCommand extends GenerateTemplatedApplicationComm
 	
 	@Override
 	protected void generatePages(
+			URI baseURI,
 			Context generationContext, 
 			ResourceSet resourceSet, 
 			Action rootAction,
@@ -53,11 +55,12 @@ public class GenerateEclipseHelpCommand extends GenerateTemplatedApplicationComm
 			ProgressMonitor monitor) throws Exception {
 		
 		monitor.setWorkRemaining(2);
-		super.generatePages(generationContext, resourceSet, rootAction, activeAction, contentContainer, monitor.split("Generating topics", 1));
-		generateToc(rootAction, contentContainer, monitor.split("Generating toc.xml", 1));		
+		super.generatePages(baseURI, generationContext, resourceSet, rootAction, activeAction, contentContainer, monitor.split("Generating topics", 1));
+		generateToc(baseURI, rootAction, contentContainer, monitor.split("Generating toc.xml", 1));		
 	}
 	
 	protected void generateToc(
+			URI baseURI,
 			Action rootAction,
 			Container<Object> contentContainer, 
 			ProgressMonitor monitor) throws Exception {
@@ -66,7 +69,7 @@ public class GenerateEclipseHelpCommand extends GenerateTemplatedApplicationComm
 		DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
 		Document toc = dBuilder.newDocument();
 		
-		toc.appendChild(createToc(toc, rootAction));
+		toc.appendChild(createToc(baseURI, toc, rootAction));
 		
 	    // Use a Transformer for output
 	    TransformerFactory tFactory = TransformerFactory.newInstance();
@@ -85,11 +88,11 @@ public class GenerateEclipseHelpCommand extends GenerateTemplatedApplicationComm
 		}
 	}
 	
-	private Element createToc(Document document, Action action) {
+	private Element createToc(URI baseURI, Document document, Action action) {
 		ActionActivator activator = action.getActivator();
 		if (activator instanceof NavigationActionActivator) {					
 			NavigationActionActivator naa = (NavigationActionActivator) activator;
-			String url = naa.getUrl();
+			String url = naa.getUrl(baseURI.toString());
 		
 			Element toc = document.createElement("toc");
 			toc.setAttribute("label", StringEscapeUtils.unescapeHtml3(action.getText()));
@@ -114,7 +117,7 @@ public class GenerateEclipseHelpCommand extends GenerateTemplatedApplicationComm
 		ActionActivator activator = action.getActivator();
 		if (activator instanceof NavigationActionActivator) {					
 			NavigationActionActivator naa = (NavigationActionActivator) activator;
-			String url = naa.getUrl();
+			String url = naa.getUrl(null);
 		
 			Element topic = document.createElement("topic");
 			topic.setAttribute("label", StringEscapeUtils.unescapeHtml3(action.getText()));

@@ -10,6 +10,7 @@ import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EGenericType;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EParameter;
+import org.nasdanika.common.Context;
 import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.common.SupplierFactory;
 import org.nasdanika.html.TagName;
@@ -23,8 +24,8 @@ import org.nasdanika.vinci.bootstrap.ContentTag;
 
 public class EOperationViewActionSupplier extends ETypedElementViewActionSupplier<EOperation> {
 
-	public EOperationViewActionSupplier(EOperation value) {
-		super(value);
+	public EOperationViewActionSupplier(EOperation value, Context context) {
+		super(value, context);
 	}
 		
 	@Override

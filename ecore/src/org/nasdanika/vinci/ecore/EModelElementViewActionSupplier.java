@@ -6,6 +6,7 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
+import java.util.function.Function;
 
 import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EClass;
@@ -20,6 +21,7 @@ import org.eclipse.emf.ecore.ETypedElement;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.nasdanika.common.Context;
 import org.nasdanika.common.MarkdownHelper;
 import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.common.SupplierFactory;
@@ -41,10 +43,13 @@ public class EModelElementViewActionSupplier<T extends EModelElement> extends EO
 	 * Descriptions shorter than this value are put on the top of the tabs, longer
 	 * ones end up in their own tab. 
 	 */
-	protected int descriptionTabLengthThreshold = 2500; 
+	protected int descriptionTabLengthThreshold = 2500;
+
+	protected Context context; 
 		
-	public EModelElementViewActionSupplier(T value) {
+	public EModelElementViewActionSupplier(T value, Context context) {
 		super(value);		
+		this.context = context;
 	}
 	
 	@Override

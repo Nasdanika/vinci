@@ -3,22 +3,27 @@ package org.nasdanika.vinci.ecore;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.nio.charset.StandardCharsets;
 import java.util.Base64;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
+import org.apache.commons.codec.binary.Hex;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EGenericType;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.nasdanika.common.Context;
 import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.common.SupplierFactory;
 import org.nasdanika.emf.EObjectAdaptable;
@@ -45,8 +50,8 @@ import net.sourceforge.plantuml.SourceStringReader;
 
 public class EClassViewActionSupplier extends EClassifierViewActionSupplier<EClass> {
 
-	public EClassViewActionSupplier(EClass value) {
-		super(value);
+	public EClassViewActionSupplier(EClass value, Context context) {
+		super(value, context);
 	}
 	
 	@Override
@@ -95,7 +100,7 @@ public class EClassViewActionSupplier extends EClassifierViewActionSupplier<ECla
 
 		// Diagram
 		ByteArrayOutputStream baos = new ByteArrayOutputStream();
-		String diagramCMap = generateDiagram(false, null, 1, RelationshipDirection.both, true, true, baos);
+		String diagramCMap = generateDiagram(false, null, 1, RelationshipDirection.both, true, true, baos, monitor);
 		baos.close();
 		ContentTag imageTag = BootstrapFactory.eINSTANCE.createContentTag();
 		imageTag.setName(TagName.img.name());
@@ -166,10 +171,11 @@ public class EClassViewActionSupplier extends EClassifierViewActionSupplier<ECla
 			PlantUmlTextGenerator.RelationshipDirection relationshipDirection,
 			boolean appendAttributes,
 			boolean appendOperations,
-			OutputStream out) throws IOException {
+			OutputStream out,
+			ProgressMonitor monitor) throws IOException {
 		
 		StringBuilder sb = new StringBuilder();
-		PlantUmlTextGenerator gen = new PlantUmlTextGenerator(sb, ec -> EClassifierViewActionSupplier.id(ec)+".html", EModelElementViewActionSupplier::getEModelElementFirstDocSentence) {
+		PlantUmlTextGenerator gen = new PlantUmlTextGenerator(sb, eClassifierLinkResolver, EModelElementViewActionSupplier::getEModelElementFirstDocSentence) {
 			
 			@Override
 			protected Collection<EClass> getSubTypes(EClass eClass) {
@@ -240,5 +246,14 @@ public class EClassViewActionSupplier extends EClassifierViewActionSupplier<ECla
 		});
 		return ret;
 	}
+	
+	protected Function<EClassifier, String> eClassifierLinkResolver = target -> {
+		String localName = target.getName() + ".html";
+		if (target.getEPackage().getNsURI().equals(eObject.getEPackage().getNsURI())) {
+			return localName;
+		}
+		
+		return "../" + Hex.encodeHexString(target.getEPackage().getNsURI().getBytes(StandardCharsets.UTF_8)) + "/" + localName;
+	};
 
 }

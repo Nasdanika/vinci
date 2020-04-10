@@ -153,7 +153,7 @@ public class GenerateTemplatedApplicationAction extends VinciGenerateAction<Abst
 		if (activator instanceof NavigationActionActivator) {		
 			
 			NavigationActionActivator naa = (NavigationActionActivator) activator;
-			String url = naa.getUrl();
+			String url = naa.getUrl(null); // TODO 
 			if (Util.isValidAndRelative(url)) {
 				List<Action> navChildren = rootAction.getNavigationChildren();
 				Action principalAction = navChildren.isEmpty() ? null : navChildren.get(0); 

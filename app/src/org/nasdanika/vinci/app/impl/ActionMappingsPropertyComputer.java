@@ -78,7 +78,7 @@ public class ActionMappingsPropertyComputer implements PropertyComputer {
 							case "url":
 								ActionActivator activator = actionFacade.getActivator();
 								if (activator instanceof NavigationActionActivator) {
-									return (T) ((NavigationActionActivator) activator).getUrl();
+									return (T) ((NavigationActionActivator) activator).getUrl(context.getString(Context.BASE_URI_PROPERTY));
 								}
 								return null;
 							default:

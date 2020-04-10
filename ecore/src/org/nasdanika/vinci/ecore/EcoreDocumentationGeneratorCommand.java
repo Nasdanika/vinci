@@ -15,7 +15,10 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.nasdanika.cli.CommandBase;
 import org.nasdanika.cli.ProgressMonitorMixin;
+import org.nasdanika.common.Context;
+import org.nasdanika.common.MutableContext;
 import org.nasdanika.common.ProgressMonitor;
+import org.nasdanika.common.Util;
 import org.nasdanika.emf.EObjectAdaptable;
 import org.nasdanika.vinci.app.Action;
 import org.nasdanika.vinci.emf.ViewActionSupplier;
@@ -49,6 +52,9 @@ public class EcoreDocumentationGeneratorCommand extends CommandBase {
 		
 	@Option(names = {"-o", "--output"}, description = "Output directory, defaults to the current directory.")
 	private File outputDir;		
+		
+	@Option(names = {"-b", "--base-uri"}, description = "Base URI for resolving eclasifier references in diagram image maps. Resolved against the output directory URI. Defaults to the output directory URI.")
+	private String baseUri;			
 	
 	// TODO - localizations - enum as they become available.
 
@@ -70,7 +76,16 @@ public class EcoreDocumentationGeneratorCommand extends CommandBase {
 	 * @return
 	 */
 	protected EcoreViewActionSupplierFactoryAdapterFactory createAdapterFactory() {
-		return new EcoreViewActionSupplierFactoryAdapterFactory();
+		if (outputDir == null) {
+			outputDir = new File(".");
+		}
+		URI outputURI = URI.createFileURI(outputDir.getAbsolutePath() + File.separator);
+		URI baseURI = Util.isBlank(baseUri) ? outputURI : URI.createURI(baseUri).resolve(outputURI);
+		MutableContext context = Context.EMPTY_CONTEXT.fork();
+		context.register(URI.class, baseURI);
+		context.put("base-uri", baseURI);
+		
+		return new EcoreViewActionSupplierFactoryAdapterFactory(context);
 	}
 	
 	public List<ViewActionSupplier> loadGenModel() {

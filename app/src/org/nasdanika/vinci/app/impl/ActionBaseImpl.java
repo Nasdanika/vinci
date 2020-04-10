@@ -12,6 +12,7 @@ import java.util.function.BiFunction;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.TreeIterator;
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -38,6 +39,7 @@ import org.nasdanika.vinci.app.ActionBase;
 import org.nasdanika.vinci.app.ActionCategory;
 import org.nasdanika.vinci.app.ActionElement;
 import org.nasdanika.vinci.app.ActionMapping;
+import org.nasdanika.vinci.app.ActionRole;
 import org.nasdanika.vinci.app.ActivatorType;
 import org.nasdanika.vinci.app.AppPackage;
 import org.nasdanika.vinci.app.BootstrapContainerApplicationBuilder;
@@ -892,6 +894,26 @@ public abstract class ActionBaseImpl extends LabelImpl implements ActionBase {
 		};
 				
 		MutableContext actionContext = context.fork();
+		
+		// Context URI service - used by the Action facade and by child elements.
+		if (getActivatorType() == ActivatorType.REFERENCE) {
+			String activator = getActivator();
+			if (Util.isBlank(activator) && !Util.isBlank(getId())) {
+				activator = getId() + ".html";
+				if (ActionRole.SECTION.label.equals(getRole())) {
+					activator += "#" + getId();
+				}
+			}
+			String activatorStr = actionContext.interpolate(activator);
+			if (Util.isBlank(activatorStr)) {
+				throw new IllegalArgumentException("Activator type is reference and activator URL is blank");
+			}
+			
+			URI actionURI = URI.createURI(activatorStr);
+			URI contextURI = context.get(URI.class);
+			actionContext.register(URI.class, contextURI == null ? actionURI : actionURI.resolve(contextURI));
+		}		
+		
 		new ActionMappingsPropertyComputer("action-mappings", getActionMappings()).put(actionContext);
 		
 		return configure(mcs.then(actionFacadeFactory)).create(actionContext);
