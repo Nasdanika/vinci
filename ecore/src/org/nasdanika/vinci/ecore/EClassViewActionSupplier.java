@@ -81,6 +81,10 @@ public class EClassViewActionSupplier extends EClassifierViewActionSupplier<ECla
 			}
 		}
 		
+		if (eObject.isInterface()) {
+			action.setIcon(ICONS_BASE + "EInterface.gif");			
+		}
+		
 		return action;
 	}
 	

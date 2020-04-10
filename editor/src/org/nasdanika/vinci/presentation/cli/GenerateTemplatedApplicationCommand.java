@@ -50,6 +50,13 @@ public class GenerateTemplatedApplicationCommand extends ModelCommand<AbstractAc
 	
 	@Option(names = {"-o", "--output"}, description = "Output directory, defaults to the current directory")
 	private File outputDir;	
+	
+	@Option(
+			names = {"--sections"}, 
+			description = "If true (default) section pages are generated", 
+			defaultValue = "true",
+			negatable = true)
+	private boolean sections;		
 
 	@Override
 	protected ConsumerFactory<AbstractAction> getConsumerFactory() {
@@ -127,7 +134,7 @@ public class GenerateTemplatedApplicationCommand extends ModelCommand<AbstractAc
 		monitor.setWorkRemaining(1 + activeAction.getChildren().size());
 		
 		ActionActivator activator = activeAction.getActivator();
-		if (activator instanceof NavigationActionActivator) {					
+		if (activator instanceof NavigationActionActivator && (sections || !activeAction.isInRole(Action.Role.SECTION))) {					
 			NavigationActionActivator naa = (NavigationActionActivator) activator;
 			String url = naa.getUrl();
 			if (Util.isValidAndRelative(url)) {

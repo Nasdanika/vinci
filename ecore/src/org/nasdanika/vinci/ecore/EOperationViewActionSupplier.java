@@ -5,6 +5,7 @@ import java.security.MessageDigest;
 
 import org.apache.commons.codec.binary.Hex;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EGenericType;
 import org.eclipse.emf.ecore.EOperation;
@@ -32,13 +33,9 @@ public class EOperationViewActionSupplier extends ETypedElementViewActionSupplie
 		action.setRole(ActionRole.SECTION.label);
 		action.setSectionStyle(SectionStyle.DEFAULT.label);
 	
-		StringBuilder idBuilder = new StringBuilder(eObject.eClass().getName())
-				.append("-")
-				.append(Hex.encodeHexString(eObject.getEContainingClass().getEPackage().getNsURI().getBytes(StandardCharsets.UTF_8)))
-				.append("-")
-				.append(eObject.getEContainingClass().getName())
-				.append("-")
-				.append(eObject.getName());
+		EClass eContainingClass = eObject.getEContainingClass();
+		
+		StringBuilder signatureBuilder = new StringBuilder();
 		
 		if (!eObject.getEParameters().isEmpty()) {
 			// Creating a digest of parameter types to make the id shorter.
@@ -55,10 +52,20 @@ public class EOperationViewActionSupplier extends ETypedElementViewActionSupplie
 				
 				parametersCategory.getElements().add(adaptChild(ep).getAction(progressMonitor));				
 			}
-			idBuilder.append("-").append(Hex.encodeHexString(md.digest()));
+			signatureBuilder.append("-").append(Hex.encodeHexString(md.digest()));
 		}
 		
-		action.setId(idBuilder.toString());		
+		StringBuilder idBuilder = new StringBuilder(eObject.eClass().getName())
+		.append("-")
+		.append(Hex.encodeHexString(eContainingClass.getEPackage().getNsURI().getBytes(StandardCharsets.UTF_8)))
+		.append("-")
+		.append(eContainingClass.getName())
+		.append("-")
+		.append(signatureBuilder);
+		
+		action.setId(idBuilder.toString());
+		
+		action.setActivator(eContainingClass.getName() + ".html#" + signatureBuilder);
 		
 		return action;
 	}

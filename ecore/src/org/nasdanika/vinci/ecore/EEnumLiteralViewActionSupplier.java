@@ -20,6 +20,7 @@ public class EEnumLiteralViewActionSupplier extends ENamedElementViewActionSuppl
 		action.setRole(ActionRole.SECTION.label);
 		
 		action.setId(eObject.eClass().getName() + "-" + Hex.encodeHexString(eObject.getEEnum().getEPackage().getNsURI().getBytes(StandardCharsets.UTF_8)) + "-" + eObject.getEEnum().getName() + "-" + eObject.getName());
+		action.setActivator(eObject.getEEnum().getName()+".html#"+eObject.getName());
 		
 		return action;
 	}

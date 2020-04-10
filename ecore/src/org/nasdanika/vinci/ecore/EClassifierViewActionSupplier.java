@@ -17,6 +17,8 @@ public class EClassifierViewActionSupplier<T extends EClassifier> extends ENamed
 	protected Action create(ProgressMonitor progressMonitor) throws Exception {
 		Action action = super.create(progressMonitor);
 		action.setId(id(eObject));
+		action.setActivator(eObject.getName()+".html");
+		
 		return action;
 	}
 	

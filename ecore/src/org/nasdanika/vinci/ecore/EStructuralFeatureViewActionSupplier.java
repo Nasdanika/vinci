@@ -3,6 +3,7 @@ package org.nasdanika.vinci.ecore;
 import java.nio.charset.StandardCharsets;
 
 import org.apache.commons.codec.binary.Hex;
+import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.vinci.app.Action;
@@ -18,7 +19,10 @@ public class EStructuralFeatureViewActionSupplier<T extends EStructuralFeature> 
 	protected Action create(ProgressMonitor progressMonitor) throws Exception {
 		Action action = super.create(progressMonitor);
 		action.setRole(ActionRole.SECTION.label);
-		action.setId(eObject.eClass().getName() + "-" + Hex.encodeHexString(eObject.getEContainingClass().getEPackage().getNsURI().getBytes(StandardCharsets.UTF_8)) + "-" + eObject.getEContainingClass().getName() + "-" + eObject.getName());
+		EClass eContainingClass = eObject.getEContainingClass();
+		action.setId(eObject.eClass().getName() + "-" + Hex.encodeHexString(eContainingClass.getEPackage().getNsURI().getBytes(StandardCharsets.UTF_8)) + "-" + eContainingClass.getName() + "-" + eObject.getName());
+		
+		action.setActivator(eContainingClass.getName() + ".html#" + eObject.eClass().getName() + "-" + eObject.getName());
 		
 		return action;
 	}

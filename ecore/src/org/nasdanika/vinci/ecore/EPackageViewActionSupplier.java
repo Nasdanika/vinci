@@ -39,7 +39,9 @@ public class EPackageViewActionSupplier extends ENamedElementViewActionSupplier<
 	@Override
 	protected Action create(ProgressMonitor progressMonitor) throws Exception {
 		Action action = super.create(progressMonitor);
-		action.setId(eObject.eClass().getName() + "-" + Hex.encodeHexString(eObject.getNsURI().getBytes(StandardCharsets.UTF_8)));
+		String nsUriHex = Hex.encodeHexString(eObject.getNsURI().getBytes(StandardCharsets.UTF_8));
+		action.setId(eObject.eClass().getName() + "-" + nsUriHex);
+		action.setActivator(nsUriHex + "/package-summary.html");
 		
 		for (EPackage subPackage: eObject.getESubpackages().stream().sorted((a,b) ->  a.getName().compareTo(b.getName())).collect(Collectors.toList())) {
 			action.getElements().add(adaptChild(subPackage).getAction(progressMonitor));

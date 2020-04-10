@@ -23,6 +23,7 @@ import org.nasdanika.html.app.Action;
 import org.nasdanika.html.app.ActionActivator;
 import org.nasdanika.html.app.NavigationActionActivator;
 import org.nasdanika.html.app.impl.ViewGeneratorImpl;
+import org.nasdanika.html.app.viewparts.ContentPanelViewPart;
 import org.nasdanika.vinci.bootstrap.BootstrapPage;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -164,8 +165,9 @@ public class GenerateEclipseHelpCommand extends GenerateTemplatedApplicationComm
 					throw new org.nasdanika.common.DiagnosticException("Page diagnostic failed", diagnostic);
 				}
 			
-				org.nasdanika.html.HTMLPage htmlPage = (HTMLPage) pageWork.splitAndExecute(pageMonitor);				
-				htmlPage.body(new ViewGeneratorImpl(context, htmlPage::head, htmlPage::body).processViewPart(action, monitor.split("Generating action content", 1)));
+				org.nasdanika.html.HTMLPage htmlPage = (HTMLPage) pageWork.splitAndExecute(pageMonitor);	
+				ContentPanelViewPart contentPanelViewPart = new ContentPanelViewPart(action);
+				htmlPage.body(new ViewGeneratorImpl(context, htmlPage::head, htmlPage::body).processViewPart(contentPanelViewPart, monitor.split("Generating action content", 1)));
 
 				String path = context.interpolate(url);
 				int hashIdx = path.indexOf("#");
