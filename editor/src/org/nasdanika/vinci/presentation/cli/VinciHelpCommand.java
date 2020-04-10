@@ -88,7 +88,10 @@ public class VinciHelpCommand extends CommandBase {
 		
 		if (section) {
 			ret.setRole(ActionRole.SECTION.label);
-		}		
+		} else {
+			CommandSpec parent = commandSpec.parent();		
+			ret.setActivator((parent == null ? commandSpec.name() : parent.name() + "/" + commandSpec.name()) + ".html");
+		}
 
 		ret.setText(commandSpec.name());
 
