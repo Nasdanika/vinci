@@ -722,7 +722,7 @@ public class BootstrapContainerApplicationImpl extends BootstrapElementImpl impl
 					app = new DecoratingApplication();
 				}
 				
-				ApplicationBuilder contextApplicationBuilder = context.get(ApplicationBuilder.class);				
+				ApplicationBuilder contextApplicationBuilder = context.computingContext().get(ApplicationBuilder.class);				
 				if (contextApplicationBuilder != null) {
 					contextApplicationBuilder.build(app, progressMonitor);
 				}
