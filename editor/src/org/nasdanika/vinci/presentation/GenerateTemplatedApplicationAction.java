@@ -6,9 +6,9 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.function.BiFunction;
-import java.util.function.Consumer;
 
 import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
@@ -33,6 +33,7 @@ import org.nasdanika.common.Context;
 import org.nasdanika.common.DefaultConverter;
 import org.nasdanika.common.MutableContext;
 import org.nasdanika.common.ProgressMonitor;
+import org.nasdanika.common.ServiceComputer;
 import org.nasdanika.common.Supplier;
 import org.nasdanika.common.Util;
 import org.nasdanika.common.resources.BinaryEntityContainer;
@@ -86,7 +87,8 @@ public class GenerateTemplatedApplicationAction extends VinciGenerateAction<Abst
 			// TODO - from config and also other context entries
 			outputName = lastDotIdx == -1 ? outputName + "-site" : outputName.substring(0, lastDotIdx);
 			
-			EclipseContainer output = new EclipseContainer(modelFile.getParent().getFolder(new Path(outputName)));
+			IFolder outputFolder = modelFile.getParent().getFolder(new Path(outputName));
+			EclipseContainer output = new EclipseContainer(outputFolder);
 			
 			SubMonitor subMonitor = SubMonitor.convert(monitor, TOTAL_WORK);
 			
@@ -101,7 +103,13 @@ public class GenerateTemplatedApplicationAction extends VinciGenerateAction<Abst
 			for (EPackage ePackage: ePackages) {
 				resourceSet.getPackageRegistry().put(ePackage.getNsURI(), ePackage);
 			}
-			Context generationContext = Context.singleton(BinaryEntityContainer.class, output).compose(Context.singleton(ResourceSet.class, resourceSet)); 
+			MutableContext generationContext = Context.EMPTY_CONTEXT.fork();
+			generationContext.register(BinaryEntityContainer.class, output);
+			generationContext.register(ResourceSet.class, resourceSet);
+			
+			URI baseURI = URI.createURI(outputFolder.getLocationURI().toString());			
+			generationContext.register(URI.class, baseURI);
+			generationContext.put(Context.BASE_URI_PROPERTY, baseURI);
 			
 			// Generate action tree
 			try (Supplier<Object> work = modelElement.create(generationContext)) {
@@ -124,7 +132,7 @@ public class GenerateTemplatedApplicationAction extends VinciGenerateAction<Abst
 					try (ProgressMonitor generationMonitor = progressMonitor.split("Generation", size)) {
 						Action action = (Action) work.execute(generationMonitor);
 						// Page for each action with relative navigation activator - recursive						
-						generatePages(generationContext, resourceSet, action, action, output.stateAdapter().adapt(null, ENCODER), subMonitor.split(halfWork));
+						generatePages(baseURI, generationContext, resourceSet, action, action, output.stateAdapter().adapt(null, ENCODER), subMonitor.split(halfWork));
 						
 					}
 				}
@@ -139,6 +147,7 @@ public class GenerateTemplatedApplicationAction extends VinciGenerateAction<Abst
 	}
 
 	private void generatePages(
+			URI baseURI,
 			Context generationContext,
 			ResourceSet resourceSet, 
 			Action rootAction, 
@@ -153,31 +162,35 @@ public class GenerateTemplatedApplicationAction extends VinciGenerateAction<Abst
 		if (activator instanceof NavigationActionActivator) {		
 			
 			NavigationActionActivator naa = (NavigationActionActivator) activator;
-			String url = naa.getUrl(null); // TODO 
+			String url = naa.getUrl(baseURI.toString());  
 			if (Util.isValidAndRelative(url)) {
 				List<Action> navChildren = rootAction.getNavigationChildren();
 				Action principalAction = navChildren.isEmpty() ? null : navChildren.get(0); 
 				List<Action> navigationPanelActions = principalAction == null ? Collections.emptyList() : principalAction.getNavigationChildren(); 
-		
-		
+				
 				MutableContext pageContext = generationContext.fork();
-				pageContext.register(ApplicationBuilder.class, new ActionApplicationBuilder(rootAction, principalAction, navigationPanelActions, activeAction) {
-					
-					@Override
-					protected ViewGenerator createViewGenerator(Application application, Consumer<?> headContentConsumer, Consumer<?> bodyContentConsumer) {
-						Context appBuilderContext = generationContext;
-						if (application instanceof DecoratorProvider) {
-							appBuilderContext = generationContext.compose(Context.singleton(DecoratorProvider.class, (DecoratorProvider) application));
-						}
-						return new ViewGeneratorImpl(appBuilderContext, headContentConsumer, bodyContentConsumer);
-					}
-					
-				});
+
+				// Absolute URI of the action for resolution of relative links.
+				pageContext.put(Context.BASE_URI_PROPERTY, URI.createURI(url).resolve(baseURI).toString());
+				
+				ServiceComputer<ApplicationBuilder> applicationBuilderComputer = (ctx, type) -> createApplicationBuilder(ctx, type, rootAction, principalAction, navigationPanelActions, activeAction);
+				pageContext.register(ApplicationBuilder.class, applicationBuilderComputer);
 				
 				if (activeAction != null) {
-					String text = activeAction.getText();
+					StringBuilder titleBuilder = new StringBuilder();
+					String rootText = rootAction.getText();
+					if (!Util.isBlank(rootText)) {
+						titleBuilder.append(Jsoup.parse(rootText).text());
+					}					
+					String text = activeAction.getText();					
 					if (!Util.isBlank(text)) {
-						pageContext.put("actions/active/text", Jsoup.parse(text).text());
+						if (titleBuilder.length() > 0) {
+							titleBuilder.append(": ");
+						}
+						titleBuilder.append(Jsoup.parse(text).text());
+					}
+					if (titleBuilder.length() > 0) {
+						pageContext.put("actions/active/text", titleBuilder.toString());
 					}
 				}
 		
@@ -233,8 +246,35 @@ public class GenerateTemplatedApplicationAction extends VinciGenerateAction<Abst
 		}
 		
 		for (Action child: activeAction.getChildren()) {
-			generatePages(generationContext, resourceSet, rootAction, child, contentContainer, monitor.split(pageWork));
+			generatePages(baseURI, generationContext, resourceSet, rootAction, child, contentContainer, monitor.split(pageWork));
 		}
 	}
+		
+	protected ApplicationBuilder createApplicationBuilder(
+			Context context, 
+			Class<ApplicationBuilder> type, 
+			Action rootAction,
+			Action principalAction,
+			List<Action> navigationPanelActions,
+			Action activeAction) {
+		
+		return new ActionApplicationBuilder(rootAction, principalAction, navigationPanelActions, activeAction) {
+			
+			@Override
+			protected ViewGenerator createViewGenerator(
+					Application application, 
+					java.util.function.Consumer<?> headContentConsumer, 
+					java.util.function.Consumer<?> bodyContentConsumer) {
+				
+				Context appBuilderContext = context;				
+				if (application instanceof DecoratorProvider) {
+					appBuilderContext = context.compose(Context.singleton(DecoratorProvider.class, (DecoratorProvider) application));
+				}
+				return new ViewGeneratorImpl(appBuilderContext, headContentConsumer, bodyContentConsumer);
+			}
+			
+		};		
+	}	
+	
 
 }

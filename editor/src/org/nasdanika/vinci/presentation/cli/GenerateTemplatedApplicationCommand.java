@@ -119,7 +119,7 @@ public class GenerateTemplatedApplicationCommand extends ModelCommand<AbstractAc
 		generationContext.register(BinaryEntityContainer.class, output);
 		generationContext.register(ResourceSet.class, resourceSet);
 		generationContext.register(URI.class, baseURI);
-		generationContext.put("base-uri", baseURI);
+		generationContext.put(Context.BASE_URI_PROPERTY, baseURI);
 		
 		// Generate action tree
 		try (Supplier<Object> work = rootAction.create(generationContext)) {
@@ -150,7 +150,7 @@ public class GenerateTemplatedApplicationCommand extends ModelCommand<AbstractAc
 		ActionActivator activator = activeAction.getActivator();
 		if (activator instanceof NavigationActionActivator && (sections || !activeAction.isInRole(Action.Role.SECTION))) {					
 			NavigationActionActivator naa = (NavigationActionActivator) activator;
-			String url = naa.getUrl(generationContext.getString(Context.BASE_URI_PROPERTY)); // Relative to the base URI for writing content to file.
+			String url = naa.getUrl(baseURI.toString()); // Relative to the base URI for writing content to file.
 			if (Util.isValidAndRelative(url)) {
 				List<Action> navChildren = rootAction.getNavigationChildren();
 				Action principalAction = navChildren.isEmpty() ? null : navChildren.get(0); 
