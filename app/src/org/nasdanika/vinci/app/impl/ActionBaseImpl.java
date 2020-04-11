@@ -911,7 +911,7 @@ public abstract class ActionBaseImpl extends LabelImpl implements ActionBase {
 			
 			URI actionURI = URI.createURI(activatorStr);
 			URI contextURI = context.get(URI.class);
-			actionContext.register(URI.class, contextURI == null ? actionURI : actionURI.resolve(contextURI));
+			actionContext.register(URI.class, contextURI == null || !contextURI.isHierarchical() || contextURI.isRelative() ? actionURI : actionURI.resolve(contextURI));
 		}		
 		
 		new ActionMappingsPropertyComputer("action-mappings", getActionMappings()).put(actionContext);
