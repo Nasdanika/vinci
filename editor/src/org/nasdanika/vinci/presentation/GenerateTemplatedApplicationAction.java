@@ -42,6 +42,7 @@ import org.nasdanika.eclipse.ProgressMonitorAdapter;
 import org.nasdanika.eclipse.resources.EclipseContainer;
 import org.nasdanika.html.app.Action;
 import org.nasdanika.html.app.ActionActivator;
+import org.nasdanika.html.app.ActionRegistry;
 import org.nasdanika.html.app.Application;
 import org.nasdanika.html.app.ApplicationBuilder;
 import org.nasdanika.html.app.DecoratorProvider;
@@ -167,7 +168,7 @@ public class GenerateTemplatedApplicationAction extends VinciGenerateAction<Abst
 				List<Action> navChildren = rootAction.getNavigationChildren();
 				Action principalAction = navChildren.isEmpty() ? null : navChildren.get(0); 
 				List<Action> navigationPanelActions = principalAction == null ? Collections.emptyList() : principalAction.getNavigationChildren(); 
-				
+
 				MutableContext pageContext = generationContext.fork();
 
 				// Absolute URI of the action for resolution of relative links.
@@ -175,7 +176,10 @@ public class GenerateTemplatedApplicationAction extends VinciGenerateAction<Abst
 				
 				ServiceComputer<ApplicationBuilder> applicationBuilderComputer = (ctx, type) -> createApplicationBuilder(ctx, type, rootAction, principalAction, navigationPanelActions, activeAction);
 				pageContext.register(ApplicationBuilder.class, applicationBuilderComputer);
-				
+
+				ActionRegistry actionRegistry = ActionRegistry.fromAction(rootAction);
+				pageContext.register(ActionRegistry.class, actionRegistry);
+				pageContext.put(ViewGenerator.ACTION_REGISTRY_PROPERTY, actionRegistry.asPropertyComputer());
 				if (activeAction != null) {
 					StringBuilder titleBuilder = new StringBuilder();
 					String rootText = rootAction.getText();

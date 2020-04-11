@@ -244,19 +244,24 @@ public abstract class MarkdownImpl extends ModelElementImpl implements Markdown 
 			return Supplier.empty();
 		}
 		
+		String[] html = { MarkdownHelper.INSTANCE.markdownToHtml(markdown).trim() };
+		if (isInterpolate()) {
+			html[0] = context.interpolate(html[0]);
+		}		
+		
 		Supplier<ViewPart> markdownSupplier = Supplier.fromCallable(() -> new ViewPart() {
 
 			@Override
 			public Object generate(ViewGenerator viewGenerator, ProgressMonitor progressMonitor) {
-				String html = MarkdownHelper.INSTANCE.markdownToHtml(markdown).trim();
+				// Double interpolation for mapping expansion
 				if (isInterpolate()) {
-					html = context.interpolate(html);
-				}
+					html[0] = viewGenerator.interpolate(html[0]);
+				}		
 				
 				if (!isStyle()) {
-					return html;
+					return html[0];
 				}
-				return viewGenerator.get(HTMLFactory.class).div(html).addClass("markdown-body");
+				return viewGenerator.get(HTMLFactory.class).div(html[0]).addClass("markdown-body");
 			}
 			
 		}, getTitle(), 1);

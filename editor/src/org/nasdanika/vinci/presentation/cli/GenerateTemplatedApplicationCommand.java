@@ -29,6 +29,7 @@ import org.nasdanika.common.resources.FileSystemContainer;
 import org.nasdanika.emf.ModelCommand;
 import org.nasdanika.html.app.Action;
 import org.nasdanika.html.app.ActionActivator;
+import org.nasdanika.html.app.ActionRegistry;
 import org.nasdanika.html.app.Application;
 import org.nasdanika.html.app.ApplicationBuilder;
 import org.nasdanika.html.app.DecoratorProvider;
@@ -160,6 +161,10 @@ public class GenerateTemplatedApplicationCommand extends ModelCommand<AbstractAc
 
 				// Absolute URI of the action for resolution of relative links.
 				pageContext.put(Context.BASE_URI_PROPERTY, URI.createURI(url).resolve(baseURI).toString());
+
+				ActionRegistry actionRegistry = ActionRegistry.fromAction(rootAction);
+				pageContext.register(ActionRegistry.class, actionRegistry);
+				pageContext.put(ViewGenerator.ACTION_REGISTRY_PROPERTY, actionRegistry.asPropertyComputer());
 				
 				ServiceComputer<ApplicationBuilder> applicationBuilderComputer = (ctx, type) -> createApplicationBuilder(ctx, type, rootAction, principalAction, navigationPanelActions, activeAction);
 				pageContext.register(ApplicationBuilder.class, applicationBuilderComputer);
