@@ -23,6 +23,7 @@ import org.nasdanika.common.Context;
 import org.nasdanika.common.MutableContext;
 import org.nasdanika.common.Supplier;
 import org.nasdanika.common.SupplierFactory;
+import org.nasdanika.common.Util;
 import org.nasdanika.ncore.Configurable;
 import org.nasdanika.ncore.NcorePackage;
 import org.nasdanika.vinci.app.ActionBase;
@@ -44,6 +45,7 @@ import org.nasdanika.vinci.app.AppPackage;
  *   <li>{@link org.nasdanika.vinci.app.impl.ActionLinkImpl#getTitle <em>Title</em>}</li>
  *   <li>{@link org.nasdanika.vinci.app.impl.ActionLinkImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link org.nasdanika.vinci.app.impl.ActionLinkImpl#getRef <em>Ref</em>}</li>
+ *   <li>{@link org.nasdanika.vinci.app.impl.ActionLinkImpl#getPath <em>Path</em>}</li>
  * </ul>
  *
  * @generated
@@ -78,6 +80,16 @@ public class ActionLinkImpl extends MinimalEObjectImpl.Container implements Acti
 	 * @ordered
 	 */
 	protected static final String REF_EDEFAULT = null;
+
+	/**
+	 * The default value of the '{@link #getPath() <em>Path</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPath()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String PATH_EDEFAULT = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -193,6 +205,26 @@ public class ActionLinkImpl extends MinimalEObjectImpl.Container implements Acti
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getPath() {
+		return (String)eDynamicGet(AppPackage.ACTION_LINK__PATH, AppPackage.Literals.ACTION_LINK__PATH, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setPath(String newPath) {
+		eDynamicSet(AppPackage.ACTION_LINK__PATH, AppPackage.Literals.ACTION_LINK__PATH, newPath);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	@Override
@@ -234,6 +266,8 @@ public class ActionLinkImpl extends MinimalEObjectImpl.Container implements Acti
 				return getDescription();
 			case AppPackage.ACTION_LINK__REF:
 				return getRef();
+			case AppPackage.ACTION_LINK__PATH:
+				return getPath();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -264,6 +298,9 @@ public class ActionLinkImpl extends MinimalEObjectImpl.Container implements Acti
 			case AppPackage.ACTION_LINK__REF:
 				setRef((String)newValue);
 				return;
+			case AppPackage.ACTION_LINK__PATH:
+				setPath((String)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -291,6 +328,9 @@ public class ActionLinkImpl extends MinimalEObjectImpl.Container implements Acti
 			case AppPackage.ACTION_LINK__REF:
 				setRef(REF_EDEFAULT);
 				return;
+			case AppPackage.ACTION_LINK__PATH:
+				setPath(PATH_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -313,6 +353,8 @@ public class ActionLinkImpl extends MinimalEObjectImpl.Container implements Acti
 				return DESCRIPTION_EDEFAULT == null ? getDescription() != null : !DESCRIPTION_EDEFAULT.equals(getDescription());
 			case AppPackage.ACTION_LINK__REF:
 				return REF_EDEFAULT == null ? getRef() != null : !REF_EDEFAULT.equals(getRef());
+			case AppPackage.ACTION_LINK__PATH:
+				return PATH_EDEFAULT == null ? getPath() != null : !PATH_EDEFAULT.equals(getPath());
 		}
 		return super.eIsSet(featureID);
 	}
@@ -433,6 +475,17 @@ public class ActionLinkImpl extends MinimalEObjectImpl.Container implements Acti
 		
 		MutableContext actionContext = ctx.fork();
 		new ActionMappingsPropertyComputer("action-mappings", getActionMappings()).put(actionContext);
+		
+		URI uri = ctx.get(URI.class);
+		String path = getPath();
+		if (uri != null && !Util.isBlank(path) && uri.isHierarchical() && !uri.isRelative()) {
+			if (!path.endsWith("/")) {
+				path += "/";
+			}
+			actionContext.register(URI.class, URI.createURI(path).resolve(uri));
+		} else {
+			throw new IllegalArgumentException("Action link path cannot be resolved against the context URI '"+uri+"'");
+		}
 		
 		return configure(sf).create(actionContext);		
 	}

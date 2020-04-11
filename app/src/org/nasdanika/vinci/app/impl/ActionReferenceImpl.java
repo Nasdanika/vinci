@@ -7,6 +7,7 @@ import java.util.Collection;
 
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
@@ -15,6 +16,7 @@ import org.nasdanika.common.Context;
 import org.nasdanika.common.MutableContext;
 import org.nasdanika.common.Supplier;
 import org.nasdanika.common.SupplierFactory;
+import org.nasdanika.common.Util;
 import org.nasdanika.ncore.Configurable;
 import org.nasdanika.ncore.NcorePackage;
 import org.nasdanika.vinci.app.AbstractAction;
@@ -36,6 +38,7 @@ import org.nasdanika.vinci.app.AppPackage;
  *   <li>{@link org.nasdanika.vinci.app.impl.ActionReferenceImpl#getTitle <em>Title</em>}</li>
  *   <li>{@link org.nasdanika.vinci.app.impl.ActionReferenceImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link org.nasdanika.vinci.app.impl.ActionReferenceImpl#getAction <em>Action</em>}</li>
+ *   <li>{@link org.nasdanika.vinci.app.impl.ActionReferenceImpl#getPath <em>Path</em>}</li>
  * </ul>
  *
  * @generated
@@ -59,6 +62,16 @@ public class ActionReferenceImpl extends MinimalEObjectImpl.Container implements
 	 * @ordered
 	 */
 	protected static final String DESCRIPTION_EDEFAULT = null;
+
+	/**
+	 * The default value of the '{@link #getPath() <em>Path</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPath()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String PATH_EDEFAULT = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -183,6 +196,26 @@ public class ActionReferenceImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getPath() {
+		return (String)eDynamicGet(AppPackage.ACTION_REFERENCE__PATH, AppPackage.Literals.ACTION_REFERENCE__PATH, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setPath(String newPath) {
+		eDynamicSet(AppPackage.ACTION_REFERENCE__PATH, AppPackage.Literals.ACTION_REFERENCE__PATH, newPath);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	@Override
@@ -225,6 +258,8 @@ public class ActionReferenceImpl extends MinimalEObjectImpl.Container implements
 			case AppPackage.ACTION_REFERENCE__ACTION:
 				if (resolve) return getAction();
 				return basicGetAction();
+			case AppPackage.ACTION_REFERENCE__PATH:
+				return getPath();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -255,6 +290,9 @@ public class ActionReferenceImpl extends MinimalEObjectImpl.Container implements
 			case AppPackage.ACTION_REFERENCE__ACTION:
 				setAction((AbstractAction)newValue);
 				return;
+			case AppPackage.ACTION_REFERENCE__PATH:
+				setPath((String)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -282,6 +320,9 @@ public class ActionReferenceImpl extends MinimalEObjectImpl.Container implements
 			case AppPackage.ACTION_REFERENCE__ACTION:
 				setAction((AbstractAction)null);
 				return;
+			case AppPackage.ACTION_REFERENCE__PATH:
+				setPath(PATH_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -304,6 +345,8 @@ public class ActionReferenceImpl extends MinimalEObjectImpl.Container implements
 				return DESCRIPTION_EDEFAULT == null ? getDescription() != null : !DESCRIPTION_EDEFAULT.equals(getDescription());
 			case AppPackage.ACTION_REFERENCE__ACTION:
 				return basicGetAction() != null;
+			case AppPackage.ACTION_REFERENCE__PATH:
+				return PATH_EDEFAULT == null ? getPath() != null : !PATH_EDEFAULT.equals(getPath());
 		}
 		return super.eIsSet(featureID);
 	}
@@ -383,6 +426,16 @@ public class ActionReferenceImpl extends MinimalEObjectImpl.Container implements
 	public Supplier<Object> create(Context context) throws Exception {
 		MutableContext actionContext = context.fork();
 		new ActionMappingsPropertyComputer("action-mappings", getActionMappings()).put(actionContext);
+		URI uri = context.get(URI.class);
+		String path = getPath();
+		if (uri != null && !Util.isBlank(path) && uri.isHierarchical() && !uri.isRelative()) {
+			if (!path.endsWith("/")) {
+				path += "/";
+			}
+			actionContext.register(URI.class, URI.createURI(path).resolve(uri));
+		} else {
+			throw new IllegalArgumentException("Action refernce path cannot be resolved against the context URI '"+uri+"'");
+		}
 		return configure(getAction()).create(actionContext);
 	}
 		

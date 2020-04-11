@@ -10,10 +10,10 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.nasdanika.common.Context;
 import org.nasdanika.common.Supplier;
+import org.nasdanika.common.Util;
 import org.nasdanika.html.app.ViewPart;
 import org.nasdanika.html.app.viewparts.TableOfActionsViewPart;
 import org.nasdanika.vinci.app.AbstractAction;
-import org.nasdanika.vinci.app.impl.ActionFacade;
 import org.nasdanika.vinci.components.ComponentsPackage;
 import org.nasdanika.vinci.components.TableOfActions;
 
@@ -123,13 +123,17 @@ public class TableOfActionsImpl extends TableOfContentsImpl implements TableOfAc
 	
 	@Override
 	protected Supplier<ViewPart> createTableOfContents(Context context) throws Exception {
-		List<org.nasdanika.html.app.Action> actionFacades = new ArrayList<>();
+		List<String> actionIds= new ArrayList<>();
 		for (AbstractAction action: getActions()) {
-			actionFacades.add(new ActionFacade(context, ActionLinkImpl.unwrap(action)));
+			String id = ActionLinkImpl.unwrap(action).getId();
+			if (Util.isBlank(id)) {
+				throw new IllegalStateException("Action has no ID. Refernced actions must have unique id's");
+			}
+			actionIds.add(id);
 		}
 		
 		TableOfActionsViewPart tableOfActionsViewPart = new TableOfActionsViewPart(
-				actionFacades, 
+				actionIds, 
 				context.interpolate(getHeader()), 
 				isDescriptions(), 
 				isTooltips(),

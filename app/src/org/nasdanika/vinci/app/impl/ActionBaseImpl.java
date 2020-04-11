@@ -872,6 +872,8 @@ public abstract class ActionBaseImpl extends LabelImpl implements ActionBase {
 		mcs.put(CONTENT_KEY, new ListCompoundSupplierFactory<Object>(CONTENT_KEY, content));
 		
 		mcs.put(ELEMENTS_KEY, elementsFactory);
+				
+		URI navigationActivatorURI = getNavigationActivatorURI(context);		
 		
 		FunctionFactory<Map<String, List<Object>>, Object> actionFacadeFactory = new FunctionFactory<Map<String,List<Object>>, Object>() {
 			
@@ -882,6 +884,7 @@ public abstract class ActionBaseImpl extends LabelImpl implements ActionBase {
 						return new ActionFacade(
 							functionContext, 
 							ActionBaseImpl.this, 
+							navigationActivatorURI,
 							parentRef.get(), 
 							config.get(CONTENT_KEY), 
 							config.get(ELEMENTS_KEY));
@@ -894,9 +897,25 @@ public abstract class ActionBaseImpl extends LabelImpl implements ActionBase {
 		};
 				
 		MutableContext actionContext = context.fork();
+		if (navigationActivatorURI != null) {
+			actionContext.register(URI.class, navigationActivatorURI);
+		}		
 		
+		new ActionMappingsPropertyComputer("action-mappings", getActionMappings()).put(actionContext);
+		
+		return configure(mcs.then(actionFacadeFactory)).create(actionContext);
+	}
+		
+	/**
+	 * If action role is reference resolves its activator to URI. Returns null otherwise.
+	 * @param context
+	 * @return
+	 */
+	private URI getNavigationActivatorURI(Context context) {
 		// Context URI service - used by the Action facade and by child elements.
-		if (getActivatorType() == ActivatorType.REFERENCE) {
+		if (getActivatorType() != ActivatorType.REFERENCE) {
+			return null;
+		}
 			String activator = getActivator();
 			if (Util.isBlank(activator) && !Util.isBlank(getId())) {
 				activator = getId() + ".html";
@@ -904,19 +923,15 @@ public abstract class ActionBaseImpl extends LabelImpl implements ActionBase {
 					activator += "#" + getId();
 				}
 			}
-			String activatorStr = actionContext.interpolate(activator);
+			String activatorStr = context.interpolate(activator);
 			if (Util.isBlank(activatorStr)) {
 				throw new IllegalArgumentException("Activator type is reference and activator URL is blank");
 			}
 			
 			URI actionURI = URI.createURI(activatorStr);
 			URI contextURI = context.get(URI.class);
-			actionContext.register(URI.class, contextURI == null || !contextURI.isHierarchical() || contextURI.isRelative() ? actionURI : actionURI.resolve(contextURI));
-		}		
-		
-		new ActionMappingsPropertyComputer("action-mappings", getActionMappings()).put(actionContext);
-		
-		return configure(mcs.then(actionFacadeFactory)).create(actionContext);
+			return contextURI == null || !contextURI.isHierarchical() || contextURI.isRelative() ? actionURI : actionURI.resolve(contextURI);
 	}
+	
 
 } //ActionBaseImpl

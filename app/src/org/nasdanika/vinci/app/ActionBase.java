@@ -3,6 +3,8 @@
 package org.nasdanika.vinci.app;
 
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.util.URI;
+import org.nasdanika.common.Context;
 import org.nasdanika.common.SupplierFactory;
 import org.nasdanika.common.Util;
 import org.nasdanika.ncore.NcoreFactory;

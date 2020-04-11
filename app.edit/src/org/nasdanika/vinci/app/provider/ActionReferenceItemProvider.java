@@ -58,6 +58,7 @@ public class ActionReferenceItemProvider extends AppItemProviderAdapter implemen
 			addTitlePropertyDescriptor(object);
 			addDescriptionPropertyDescriptor(object);
 			addActionPropertyDescriptor(object);
+			addPathPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -120,6 +121,27 @@ public class ActionReferenceItemProvider extends AppItemProviderAdapter implemen
 				 false,
 				 true,
 				 null,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Path feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	protected void addPathPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor(
+				 getResourceLocator(),
+				 getString("_UI_ActionReference_path_feature"),
+				 AppPackage.Literals.ACTION_REFERENCE__PATH,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null,
 				 null));
@@ -208,6 +230,7 @@ public class ActionReferenceItemProvider extends AppItemProviderAdapter implemen
 		switch (notification.getFeatureID(ActionReference.class)) {
 			case AppPackage.ACTION_REFERENCE__TITLE:
 			case AppPackage.ACTION_REFERENCE__DESCRIPTION:
+			case AppPackage.ACTION_REFERENCE__PATH:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case AppPackage.ACTION_REFERENCE__CONFIGURATION:

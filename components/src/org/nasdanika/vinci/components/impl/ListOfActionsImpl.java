@@ -15,7 +15,6 @@ import org.nasdanika.html.OrderedListType;
 import org.nasdanika.html.app.ViewPart;
 import org.nasdanika.html.app.viewparts.ListOfActionsViewPart;
 import org.nasdanika.vinci.app.AbstractAction;
-import org.nasdanika.vinci.app.impl.ActionFacade;
 import org.nasdanika.vinci.components.ComponentsPackage;
 import org.nasdanika.vinci.components.ListOfActions;
 
@@ -125,13 +124,17 @@ public class ListOfActionsImpl extends ListOfContentsImpl implements ListOfActio
 		
 	@Override
 	protected Supplier<ViewPart> createTableOfContents(Context context) throws Exception {
-		List<org.nasdanika.html.app.Action> actionFacades = new ArrayList<>();
+		List<String> actionIds = new ArrayList<>();
 		for (AbstractAction action: getActions()) {
-			actionFacades.add(new ActionFacade(context, ActionLinkImpl.unwrap(action)));
+			String id = ActionLinkImpl.unwrap(action).getId();
+			if (Util.isBlank(id)) {
+				throw new IllegalStateException("Action has no ID. Referenced actions must have unique id's");
+			}
+			actionIds.add(id);
 		}
 
 		ListOfActionsViewPart listOfContentsViewPart = new ListOfActionsViewPart(
-				actionFacades,
+				actionIds,
 				context.interpolate(getHeader()), 
 				isTooltips(), 
 				getDepth(), 

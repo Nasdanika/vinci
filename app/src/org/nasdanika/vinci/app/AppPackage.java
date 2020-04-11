@@ -1022,13 +1022,22 @@ public interface AppPackage extends EPackage {
 	int ACTION_LINK__REF = ABSTRACT_ACTION_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION_LINK__PATH = ABSTRACT_ACTION_FEATURE_COUNT + 3;
+
+	/**
 	 * The number of structural features of the '<em>Action Link</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION_LINK_FEATURE_COUNT = ABSTRACT_ACTION_FEATURE_COUNT + 3;
+	int ACTION_LINK_FEATURE_COUNT = ABSTRACT_ACTION_FEATURE_COUNT + 4;
 
 	/**
 	 * The operation id for the '<em>Create Application Builder Supplier</em>' operation.
@@ -1094,13 +1103,22 @@ public interface AppPackage extends EPackage {
 	int ACTION_REFERENCE__ACTION = ABSTRACT_ACTION_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION_REFERENCE__PATH = ABSTRACT_ACTION_FEATURE_COUNT + 3;
+
+	/**
 	 * The number of structural features of the '<em>Action Reference</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION_REFERENCE_FEATURE_COUNT = ABSTRACT_ACTION_FEATURE_COUNT + 3;
+	int ACTION_REFERENCE_FEATURE_COUNT = ABSTRACT_ACTION_FEATURE_COUNT + 4;
 
 	/**
 	 * The operation id for the '<em>Create Application Builder Supplier</em>' operation.
@@ -2296,6 +2314,17 @@ public interface AppPackage extends EPackage {
 	EAttribute getActionLink_Ref();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.app.ActionLink#getPath <em>Path</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Path</em>'.
+	 * @see org.nasdanika.vinci.app.ActionLink#getPath()
+	 * @see #getActionLink()
+	 * @generated
+	 */
+	EAttribute getActionLink_Path();
+
+	/**
 	 * Returns the meta object for class '{@link org.nasdanika.vinci.app.ActionReference <em>Action Reference</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2337,6 +2366,17 @@ public interface AppPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getActionReference_Action();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.app.ActionReference#getPath <em>Path</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Path</em>'.
+	 * @see org.nasdanika.vinci.app.ActionReference#getPath()
+	 * @see #getActionReference()
+	 * @generated
+	 */
+	EAttribute getActionReference_Path();
 
 	/**
 	 * Returns the meta object for enum '{@link org.nasdanika.vinci.app.ActivatorType <em>Activator Type</em>}'.
@@ -2860,6 +2900,14 @@ public interface AppPackage extends EPackage {
 		EAttribute ACTION_LINK__REF = eINSTANCE.getActionLink_Ref();
 
 		/**
+		 * The meta object literal for the '<em><b>Path</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ACTION_LINK__PATH = eINSTANCE.getActionLink_Path();
+
+		/**
 		 * The meta object literal for the '{@link org.nasdanika.vinci.app.impl.ActionReferenceImpl <em>Action Reference</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2892,6 +2940,14 @@ public interface AppPackage extends EPackage {
 		 * @generated
 		 */
 		EReference ACTION_REFERENCE__ACTION = eINSTANCE.getActionReference_Action();
+
+		/**
+		 * The meta object literal for the '<em><b>Path</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ACTION_REFERENCE__PATH = eINSTANCE.getActionReference_Path();
 
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.vinci.app.ActivatorType <em>Activator Type</em>}' enum.

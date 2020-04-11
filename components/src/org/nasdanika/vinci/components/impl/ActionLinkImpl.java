@@ -9,6 +9,8 @@ import org.nasdanika.common.Context;
 import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.common.Supplier;
 import org.nasdanika.common.Util;
+import org.nasdanika.html.app.Action;
+import org.nasdanika.html.app.ActionRegistry;
 import org.nasdanika.html.app.Decorator;
 import org.nasdanika.html.app.ViewGenerator;
 import org.nasdanika.html.app.ViewPart;
@@ -16,7 +18,6 @@ import org.nasdanika.ncore.impl.ModelElementImpl;
 import org.nasdanika.vinci.app.AbstractAction;
 import org.nasdanika.vinci.app.ActionBase;
 import org.nasdanika.vinci.app.ActionReference;
-import org.nasdanika.vinci.app.impl.ActionFacade;
 import org.nasdanika.vinci.bootstrap.Appearance;
 import org.nasdanika.vinci.components.ActionLink;
 import org.nasdanika.vinci.components.ComponentsPackage;
@@ -252,24 +253,29 @@ public class ActionLinkImpl extends ModelElementImpl implements ActionLink {
 	
 	@Override
 	public Supplier<ViewPart> create(Context context) throws Exception {
-		ActionFacade actionFacade = new ActionFacade(context, unwrap(getTarget())) {
-			
-			@Override
-			public String getText() {
-				String linkText = ActionLinkImpl.this.getText();
-				return Util.isBlank(linkText) ? super.getText() : linkText;
-			}
-			
-		};
+		String targetId = unwrap(getTarget()).getId();
+		
+		if (Util.isBlank(targetId)) {
+			throw new IllegalStateException("Action has no ID. Linked actions must have unique id's");
+		}
 
 		Supplier<ViewPart> ret = Supplier.fromCallable(() -> {
 			return new ViewPart() {
 				
 				@Override
 				public Object generate(ViewGenerator viewGenerator, ProgressMonitor progressMonitor) {
+					ActionRegistry registry = viewGenerator.get(ActionRegistry.class);
+					if (registry == null) {
+						throw new IllegalStateException("ActionRegistry service is not present in the view generator- cannot find actions by their ids's");
+					}
+					Action action = registry.get(targetId);
+					if (action == null) {
+						throw new IllegalStateException("Action with ID '" + targetId + "' was not found in the action registry");						
+					}
+					
 					ViewGenerator alvg = viewGenerator.fork();
 					alvg.put(Decorator.SELECTOR_KEY, "action-link");
-					return alvg.link(actionFacade);
+					return alvg.link(action);
 				}
 				
 				@Override

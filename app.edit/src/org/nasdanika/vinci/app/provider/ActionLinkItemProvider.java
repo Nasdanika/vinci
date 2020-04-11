@@ -58,6 +58,7 @@ public class ActionLinkItemProvider extends AppItemProviderAdapter implements IE
 			addTitlePropertyDescriptor(object);
 			addDescriptionPropertyDescriptor(object);
 			addRefPropertyDescriptor(object);
+			addPathPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -116,6 +117,27 @@ public class ActionLinkItemProvider extends AppItemProviderAdapter implements IE
 				 getResourceLocator(),
 				 getString("_UI_ActionLink_ref_feature"),
 				 AppPackage.Literals.ACTION_LINK__REF,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Path feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	protected void addPathPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor(
+				 getResourceLocator(),
+				 getString("_UI_ActionLink_path_feature"),
+				 AppPackage.Literals.ACTION_LINK__PATH,
 				 true,
 				 false,
 				 false,
@@ -209,6 +231,7 @@ public class ActionLinkItemProvider extends AppItemProviderAdapter implements IE
 			case AppPackage.ACTION_LINK__TITLE:
 			case AppPackage.ACTION_LINK__DESCRIPTION:
 			case AppPackage.ACTION_LINK__REF:
+			case AppPackage.ACTION_LINK__PATH:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case AppPackage.ACTION_LINK__CONFIGURATION:

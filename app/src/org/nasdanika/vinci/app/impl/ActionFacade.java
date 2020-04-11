@@ -46,20 +46,10 @@ public class ActionFacade extends org.nasdanika.html.app.impl.ActionImpl impleme
 
 	private ActionBase target;
 	
-	/**
-	 * Creates a "lightweight" facade action without content, parent, and children to be used 
-	 * for generating links.
-	 * @param actionContext
-	 * @param target
-	 * @throws Exception
-	 */
-	public ActionFacade(Context actionContext, ActionBase target) throws Exception {
-		this(actionContext, target, null, null, null);
-	}		
-
 	public ActionFacade(
 			Context actionContext, 
-			ActionBase target, 
+			ActionBase target,
+			URI actionURI,
 			EObject parent,
 			List<Object> content,
 			List<Object> elements) throws Exception {
@@ -109,8 +99,8 @@ public class ActionFacade extends org.nasdanika.html.app.impl.ActionImpl impleme
 			break;
 		case BIND:
 			throw new UnsupportedOperationException("Not implemented yet");
-		case REFERENCE:			
-			URI actionURI = actionContext.get(URI.class);
+		case REFERENCE:		
+			
 			if (actionURI == null) {
 				throw new IllegalArgumentException("Activator type is reference and activator URI is not set");
 			}
@@ -126,6 +116,10 @@ public class ActionFacade extends org.nasdanika.html.app.impl.ActionImpl impleme
 					if (relative.isEmpty()) {
 						// A trick to deresolve action URI to the last segment plus fragment etc. instead of blank string.
 						relative = actionURI.deresolve(URI.createURI("random-" + UUID.randomUUID()+".html").resolve(actionURI), true, true, true);
+					}
+					
+					if ("RestOperation".equals(getText()) && "HttpCall.html".equals(baseURI.lastSegment())) {
+						System.out.println("----- " + getText() + ": " + actionURI + " " + baseURI + " ---> " + relative);
 					}
 					return relative.toString();
 				}

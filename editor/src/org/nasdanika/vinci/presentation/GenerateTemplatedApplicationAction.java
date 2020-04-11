@@ -107,7 +107,7 @@ public class GenerateTemplatedApplicationAction extends VinciGenerateAction<Abst
 			generationContext.register(BinaryEntityContainer.class, output);
 			generationContext.register(ResourceSet.class, resourceSet);
 			
-			URI baseURI = URI.createURI(outputFolder.getLocationURI().toString());			
+			URI baseURI = URI.createURI(outputFolder.getLocationURI().toString()+"/");			
 			generationContext.register(URI.class, baseURI);
 			generationContext.put(Context.BASE_URI_PROPERTY, baseURI);
 			
