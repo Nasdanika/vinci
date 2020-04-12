@@ -476,15 +476,23 @@ public class ActionLinkImpl extends MinimalEObjectImpl.Container implements Acti
 		MutableContext actionContext = ctx.fork();
 		new ActionMappingsPropertyComputer("action-mappings", getActionMappings()).put(actionContext);
 		
-		URI uri = ctx.get(URI.class);
 		String path = getPath();
-		if (uri != null && !Util.isBlank(path) && uri.isHierarchical() && !uri.isRelative()) {
-			if (!path.endsWith("/")) {
-				path += "/";
+		if (!Util.isBlank(path)) {
+			URI uri = ctx.get(URI.class);
+			if (uri == null) {
+				actionContext.register(URI.class, URI.createURI(path));				
+			} else if (uri.isHierarchical() && !uri.isRelative()) {
+				if (!path.endsWith("/")) {
+					path += "/";
+				}
+				actionContext.register(URI.class, URI.createURI(path).resolve(uri));
+			} else {
+				// Best attempt ...
+				String uriStr = uri.toString();
+				int idx = uriStr.lastIndexOf('/');
+				actionContext.register(URI.class, URI.createURI(idx == -1 ? path : uriStr.substring(0, idx +1) + path));				
+				
 			}
-			actionContext.register(URI.class, URI.createURI(path).resolve(uri));
-		} else {
-			throw new IllegalArgumentException("Action link path cannot be resolved against the context URI '"+uri+"'");
 		}
 		
 		return configure(sf).create(actionContext);		
