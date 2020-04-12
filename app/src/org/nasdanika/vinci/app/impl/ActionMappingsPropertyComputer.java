@@ -41,33 +41,27 @@ public class ActionMappingsPropertyComputer implements PropertyComputer {
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public <T> T compute(Context context, String key, Class<T> type) {
-		if (registrationKey.equals(key)) {
-			return (T) this;
-		}
-		if (key.startsWith(registrationKey+"/")) {
-			String keyTail = key.substring(registrationKey.length() + 1);
-			for (ActionMapping actionMapping: mappings) {
-				ActionBase target = unwrap(actionMapping.getTarget());
-				if (keyTail.equals(actionMapping.getAlias())) {
-					if (type.isInstance(actionMapping.getTarget())) {
-						return (T) actionMapping.getTarget();
-					}
-					
-					if (type.isAssignableFrom(String.class)) {
-						return (T) ("${" + ViewGenerator.ACTION_REGISTRY_PROPERTY + "/" + target.getId() + "}");
-					}
-					
-					throw new IllegalArgumentException("Cannot convert " + actionMapping.getTarget() + " to " + type);				
+	public <T> T compute(Context context, String key, String path, Class<T> type) {
+		for (ActionMapping actionMapping: mappings) {
+			ActionBase target = unwrap(actionMapping.getTarget());
+			if (path.equals(actionMapping.getAlias())) {
+				if (type.isInstance(actionMapping.getTarget())) {
+					return (T) actionMapping.getTarget();
 				}
 				
-				if (keyTail.startsWith(actionMapping.getAlias()+"/")) {
-					if (type.isAssignableFrom(String.class)) {
-						String subKey = keyTail.substring(actionMapping.getAlias().length());
-						return (T) ("${" + ViewGenerator.ACTION_REGISTRY_PROPERTY + "/" + target.getId() + subKey + "}");
-					}
-					return null;
+				if (type.isAssignableFrom(String.class)) {
+					return (T) ("${" + ViewGenerator.ACTION_REGISTRY_PROPERTY + "/" + target.getId() + "}");
 				}
+				
+				throw new IllegalArgumentException("Cannot convert " + actionMapping.getTarget() + " to " + type);				
+			}
+			
+			if (path.startsWith(actionMapping.getAlias()+"/")) {
+				if (type.isAssignableFrom(String.class)) {
+					String subKey = path.substring(actionMapping.getAlias().length());
+					return (T) ("${" + ViewGenerator.ACTION_REGISTRY_PROPERTY + "/" + target.getId() + subKey + "}");
+				}
+				return null;
 			}
 		}
 		return null;
