@@ -160,11 +160,10 @@ public class GenerateTemplatedApplicationAction extends VinciGenerateAction<Abst
 		int pageWork = TOTAL_WORK / (1 + activeAction.getChildren().size());
 		
 		ActionActivator activator = activeAction.getActivator();
-		if (activator instanceof NavigationActionActivator) {		
-			
+		if (activator instanceof NavigationActionActivator) {					
 			NavigationActionActivator naa = (NavigationActionActivator) activator;
 			String url = naa.getUrl(baseURI.toString());  
-			if (Util.isValidAndRelative(url)) {
+			if (VinciUtil.shallGenerate(activeAction, url)) {				
 				List<Action> navChildren = rootAction.getNavigationChildren();
 				Action principalAction = navChildren.isEmpty() ? null : navChildren.get(0); 
 				List<Action> navigationPanelActions = principalAction == null ? Collections.emptyList() : principalAction.getNavigationChildren(); 
@@ -280,5 +279,4 @@ public class GenerateTemplatedApplicationAction extends VinciGenerateAction<Abst
 		};		
 	}	
 	
-
 }

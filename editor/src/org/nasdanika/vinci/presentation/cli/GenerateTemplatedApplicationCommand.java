@@ -40,6 +40,7 @@ import org.nasdanika.html.app.impl.ViewGeneratorImpl;
 import org.nasdanika.vinci.app.AbstractAction;
 import org.nasdanika.vinci.app.impl.ActionFacade;
 import org.nasdanika.vinci.bootstrap.BootstrapPage;
+import org.nasdanika.vinci.presentation.VinciUtil;
 
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Option;
@@ -152,7 +153,7 @@ public class GenerateTemplatedApplicationCommand extends ModelCommand<AbstractAc
 		if (activator instanceof NavigationActionActivator && (sections || !activeAction.isInRole(Action.Role.SECTION))) {					
 			NavigationActionActivator naa = (NavigationActionActivator) activator;
 			String url = naa.getUrl(baseURI.toString()); // Relative to the base URI for writing content to file.
-			if (Util.isValidAndRelative(url)) {
+			if (VinciUtil.shallGenerate(activeAction, url)) {
 				List<Action> navChildren = rootAction.getNavigationChildren();
 				Action principalAction = navChildren.isEmpty() ? null : navChildren.get(0); 
 				List<Action> navigationPanelActions = principalAction == null ? Collections.emptyList() : principalAction.getNavigationChildren(); 	

@@ -140,7 +140,7 @@ public class GenerateApplicationAction<T extends EObject & SupplierFactory<Objec
 					url += "#" + action.getId();
 				}
 			}
-			if (Util.isBlank(url) || Util.isValidAndRelative(url)) {
+			if (Util.isBlank(url) || VinciUtil.shallGenerate(action, url)) {
 				int hashIdx = url.indexOf("#");				
 				actionIds.put(action.getId(), hashIdx == -1 ? url : url.substring(0, hashIdx));
 			}
