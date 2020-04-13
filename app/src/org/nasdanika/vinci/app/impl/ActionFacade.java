@@ -117,10 +117,6 @@ public class ActionFacade extends org.nasdanika.html.app.impl.ActionImpl impleme
 						// A trick to deresolve action URI to the last segment plus fragment etc. instead of blank string.
 						relative = actionURI.deresolve(URI.createURI("random-" + UUID.randomUUID()+".html").resolve(actionURI), true, true, true);
 					}
-					
-					if ("RestOperation".equals(getText()) && "HttpCall.html".equals(baseURI.lastSegment())) {
-						System.out.println("----- " + getText() + ": " + actionURI + " " + baseURI + " ---> " + relative);
-					}
 					return relative.toString();
 				}
 
