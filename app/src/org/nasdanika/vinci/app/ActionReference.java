@@ -117,6 +117,9 @@ public interface ActionReference extends AbstractAction {
 	 * 
 	 * For example, if the referenced action activator is ``click-me.html`` and the path is blank, then the action will be generated in the same folder as the parent of the action reference. 
 	 * If the path is ``click-me-demo`` then the referenced action content will be generated to ``click-me-demo/click.html``.
+	 * 
+	 * ``${base-uri}`` token can be used to define the uri relative to the base generation URI (output folder) instead of the parent URI. It might be useful it the parent URI is an absolute external URI.
+	 * ``${base-uri}`` ends with a slash, so there is no need to add a slash. E.g. ``${base-uri}click-me-demo``.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Path</em>' attribute.
 	 * @see #setPath(String)

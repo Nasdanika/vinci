@@ -3,8 +3,6 @@
 package org.nasdanika.vinci.app;
 
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.common.util.URI;
-import org.nasdanika.common.Context;
 import org.nasdanika.common.SupplierFactory;
 import org.nasdanika.common.Util;
 import org.nasdanika.ncore.NcoreFactory;
@@ -149,6 +147,9 @@ public interface ActionBase extends Label, AbstractAction, Container<ActionEleme
 	 * 
 	 * The application generator generates a page for an action only In the activator type is Reference and the URL does not contain ``://`` and does not start with ``/`` or ``./``. 
 	 * Using ``./`` is a way to reference externally generated content. For example, create a hierarch/federation of sites.
+	 * 
+	 * ``${base-uri}`` token can be used in the activator to define the uri relative to the base generation URI (output folder) instead of the parent URI. It might be useful it the parent URI is an absolute external URI.
+	 * ``${base-uri}`` ends with a slash, so there is no need to add a slash. E.g. ``${base-uri}index.html``.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Activator</em>' attribute.
 	 * @see #setActivator(String)
