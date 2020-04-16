@@ -32,6 +32,8 @@ import org.nasdanika.common.Supplier;
 import org.nasdanika.common.SupplierFactory;
 import org.nasdanika.common.Util;
 import org.nasdanika.html.TagName;
+import org.nasdanika.html.app.ViewGenerator;
+import org.nasdanika.html.app.ViewPart;
 import org.nasdanika.ncore.Configurable;
 import org.nasdanika.ncore.NcorePackage;
 import org.nasdanika.vinci.app.AbstractAction;
@@ -861,9 +863,14 @@ public abstract class ActionBaseImpl extends LabelImpl implements ActionBase {
 		
 		String markdown = getMarkdownContent();
 		if (!Util.isBlank(markdown)) {
-			SupplierFactory<Object> markdownSupplierFactory = SupplierFactory.from((ctx, progressMonidor) -> {
-				String html = ctx.interpolate(MarkdownHelper.INSTANCE.markdownToHtml(markdown).trim());
-				return TagName.div.create(html).addClass("markdown-body");
+			SupplierFactory<Object> markdownSupplierFactory = SupplierFactory.from((ctx, progressMonidor) -> new ViewPart() {
+
+				@Override
+				public Object generate(ViewGenerator viewGenerator, ProgressMonitor progressMonitor) {
+					String html = ctx.interpolate(MarkdownHelper.INSTANCE.markdownToHtml(markdown).trim());
+					return TagName.div.create(viewGenerator.interpolate(html)).addClass("markdown-body"); // Double interpolation for mapping expansion
+				}
+				
 			},  "Markdown content", 1);
 			content.add(markdownSupplierFactory);
 		}
