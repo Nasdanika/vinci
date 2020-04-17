@@ -9,7 +9,6 @@ import java.io.OutputStream;
 import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.UUID;
 import java.util.stream.Collectors;
 
 import org.eclipse.emf.common.util.URI;
@@ -82,9 +81,9 @@ public class VinciHelpCommand extends CommandBase {
 	}	
 	
 	@SuppressWarnings({ "unchecked", "rawtypes" })
-	private Action usage(CommandSpec commandSpec, Action template) throws IOException {		
+	private Action usage(CommandSpec commandSpec, Action template, Action parentAction) throws IOException {		
 		Action ret = EcoreUtil.copy(template);
-		ret.setId(UUID.randomUUID().toString());
+		ret.setId(parentAction == null ? commandSpec.name() : parentAction.getId() + "--" + commandSpec.name());
 		
 		if (section) {
 			ret.setRole(ActionRole.SECTION.label);
@@ -94,6 +93,7 @@ public class VinciHelpCommand extends CommandBase {
 		}
 
 		ret.setText(commandSpec.name());
+		ret.setTitle(null);
 
 		StringBuilder versionBuilder = new StringBuilder();
 		for (String vs: commandSpec.version()) {
@@ -151,7 +151,7 @@ public class VinciHelpCommand extends CommandBase {
 		}
 		
 		for (CommandLine subCommand: commandSpec.subcommands().values().stream().sorted((a,b) -> a.getCommandName().compareTo(b.getCommandName())).collect(Collectors.toList())) {
-			ret.getElements().add(usage(subCommand.getCommandSpec(), template));
+			ret.getElements().add(usage(subCommand.getCommandSpec(), template, ret));
 		}
 		
 		if (!ret.getElements().isEmpty()) {
@@ -172,7 +172,7 @@ public class VinciHelpCommand extends CommandBase {
 			root = root.parent();
 		}
 		Resource resource = new XMLResourceImpl();
-		resource.getContents().add(usage(root, createActionTemplate()));		
+		resource.getContents().add(usage(root, createActionTemplate(), null));		
 		if (output == null) {
 			resource.save(System.out, null);
 		} else {
