@@ -93,7 +93,7 @@ public class SpacingItemProvider
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null,
-				 Arrays.stream(Size.values()).map((Function<Size, String>) s -> s.code).collect(Collectors.toList())));
+				 Arrays.stream(Size.values()).filter(Size::isSpacing).map((Function<Size, String>) s -> s.code).collect(Collectors.toList())));
 	}
 
 	/**
