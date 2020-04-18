@@ -103,7 +103,7 @@ public class GenerateEclipseHelpCommand extends GenerateTemplatedApplicationComm
 			}
 			
 			for (Action child: action.getNavigationChildren()) {
-				Element cTopic = createActionTopic(document, child);
+				Element cTopic = createActionTopic(baseURI, document, child);
 				if (cTopic != null) {
 					toc.appendChild(cTopic);
 				}
@@ -113,18 +113,18 @@ public class GenerateEclipseHelpCommand extends GenerateTemplatedApplicationComm
 		return null;
 	}
 	
-	private Element createActionTopic(Document document, Action action) {
+	private Element createActionTopic(URI baseURI, Document document, Action action) {
 		ActionActivator activator = action.getActivator();
 		if (activator instanceof NavigationActionActivator) {					
 			NavigationActionActivator naa = (NavigationActionActivator) activator;
-			String url = naa.getUrl(null);
+			String url = naa.getUrl(baseURI.toString());
 		
 			Element topic = document.createElement("topic");
 			topic.setAttribute("label", StringEscapeUtils.unescapeHtml3(action.getText()));
 			topic.setAttribute("href", href(url));
 			
 			for (Action child: action.getNavigationChildren()) {
-				Element cTopic = createActionTopic(document, child);
+				Element cTopic = createActionTopic(baseURI, document, child);
 				if (cTopic != null) {
 					topic.appendChild(cTopic);
 				}
@@ -135,7 +135,7 @@ public class GenerateEclipseHelpCommand extends GenerateTemplatedApplicationComm
 	}
 
 	protected String href(String url) {
-		return Util.isBlank(location) || url.contains("://") || url.startsWith("/") ? url : location + "/" + url;
+		return Util.isBlank(location) || !URI.createURI(url).isRelative() ? url : location + "/" + url;
 	}
 
 	/**
