@@ -16,6 +16,7 @@ import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.util.TreeIterator;
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jface.dialogs.ErrorDialog;
 import org.eclipse.ui.PlatformUI;
@@ -57,19 +58,23 @@ public class GenerateApplicationAction<T extends EObject & SupplierFactory<Objec
 	@Override
 	protected void execute(IProgressMonitor monitor) throws Exception {	
 		try {
-			IFile modelFile = ResourcesPlugin.getWorkspace().getRoot().getFile(new Path(modelElement.eResource().getURI().toPlatformString(true)));
+			URI modelResourceURI = modelElement.eResource().getURI();
+			IFile modelFile = ResourcesPlugin.getWorkspace().getRoot().getFile(new Path(modelResourceURI.toPlatformString(true)));
 			String outputName = modelFile.getName();
 			int lastDotIdx = outputName.lastIndexOf('.');
 			// TODO - from config
 			outputName = lastDotIdx == -1 ? outputName + "-site" : outputName.substring(0, lastDotIdx);
 			
 			EclipseContainer output = new EclipseContainer(modelFile.getParent().getFolder(new Path(outputName)));
-			Context generationContext = Context.singleton(BinaryEntityContainer.class, output);
+			MutableContext generationContext = Context.singleton(BinaryEntityContainer.class, output).fork();
+
+			generationContext.register(URI.class, modelResourceURI);
+			generationContext.put(Context.BASE_URI_PROPERTY, modelResourceURI);
 			
 			org.nasdanika.common.resources.Container<Object> contentContainer = output.stateAdapter().adapt(null, ENCODER);		
 			
 			Map<String,String> actionIds = new HashMap<>();
-			collectActionIds(modelElement, actionIds);
+			collectActionIds(modelResourceURI, modelElement, actionIds);
 
 			SubMonitor subMonitor = SubMonitor.convert(monitor, TOTAL_WORK);
 			int actionWorkSlice = TOTAL_WORK / (actionIds.isEmpty() ? 1 : actionIds.size());
@@ -111,11 +116,11 @@ public class GenerateApplicationAction<T extends EObject & SupplierFactory<Objec
 		}					
 	}
 
-	private void collectActionIds(EObject element, Map<String, String> actionIds) {
+	private void collectActionIds(URI baseURI, EObject element, Map<String, String> actionIds) {
 		if (element instanceof org.nasdanika.vinci.app.ActionBase) {
-			extractId((org.nasdanika.vinci.app.ActionBase) element, actionIds);
+			extractId(baseURI, (org.nasdanika.vinci.app.ActionBase) element, actionIds);
 		} else if (element instanceof ActionReference) {
-			collectActionIds(((ActionReference) element).getAction(), actionIds);
+			collectActionIds(baseURI, ((ActionReference) element).getAction(), actionIds);
 		}					
 		
 		TreeIterator<EObject> cit = element.eAllContents();
@@ -124,25 +129,28 @@ public class GenerateApplicationAction<T extends EObject & SupplierFactory<Objec
 		while (cit.hasNext()) {
 			EObject next = cit.next();
 			if (next instanceof org.nasdanika.vinci.app.ActionBase) {
-				extractId((org.nasdanika.vinci.app.ActionBase) next, actionIds);							
+				extractId(baseURI, (org.nasdanika.vinci.app.ActionBase) next, actionIds);							
 			} else if (next instanceof ActionReference) {
-				collectActionIds(((ActionReference) next).getAction(), actionIds);
+				collectActionIds(baseURI, ((ActionReference) next).getAction(), actionIds);
 			}
 		}
 	}
 
-	private void extractId(org.nasdanika.vinci.app.ActionBase action, Map<String, String> actionIds) {
+	private void extractId(URI baseURI, org.nasdanika.vinci.app.ActionBase action, Map<String, String> actionIds) {
 		if (!Util.isBlank(action.getId()) && action.getActivatorType() == ActivatorType.REFERENCE) {
 			String url = action.getActivator();
-			if (Util.isBlank(url)) {
-				url = action.getId()+".html";
-				if ("Section".equals(action.getRole())) {
-					url += "#" + action.getId();
+			if (Util.isBlank(url) || !url.startsWith("./")) {
+				if (Util.isBlank(url)) {
+					url = action.getId()+".html";
+					if ("Section".equals(action.getRole())) {
+						url += "#" + action.getId();
+					}
 				}
-			}
-			if (Util.isBlank(url) || VinciUtil.shallGenerate(action, url)) {
-				int hashIdx = url.indexOf("#");				
-				actionIds.put(action.getId(), hashIdx == -1 ? url : url.substring(0, hashIdx));
+				
+				if (!Util.isBlank(url)) {
+					int hashIdx = url.indexOf("#");				
+					actionIds.put(action.getId(), hashIdx == -1 ? url : url.substring(0, hashIdx));
+				}
 			}
 		}
 	}

@@ -28,12 +28,10 @@ import org.nasdanika.common.resources.Container;
 import org.nasdanika.common.resources.FileSystemContainer;
 import org.nasdanika.emf.ModelCommand;
 import org.nasdanika.html.app.Action;
-import org.nasdanika.html.app.ActionActivator;
 import org.nasdanika.html.app.ActionRegistry;
 import org.nasdanika.html.app.Application;
 import org.nasdanika.html.app.ApplicationBuilder;
 import org.nasdanika.html.app.DecoratorProvider;
-import org.nasdanika.html.app.NavigationActionActivator;
 import org.nasdanika.html.app.ViewGenerator;
 import org.nasdanika.html.app.impl.ActionApplicationBuilder;
 import org.nasdanika.html.app.impl.ViewGeneratorImpl;
@@ -53,13 +51,6 @@ public class GenerateTemplatedApplicationCommand extends ModelCommand<AbstractAc
 	
 	@Option(names = {"-o", "--output"}, description = "Output directory, defaults to the current directory")
 	private File outputDir;	
-	
-	@Option(
-			names = {"--sections"}, 
-			description = "If true (default) section pages are generated", 
-			defaultValue = "true",
-			negatable = true)
-	private boolean sections;
 	
 	@Option(names = {"-b", "--base-uri"}, description = "Base URI for resolving and relativizing. Resolved against the output directory URI. Defaults to the output directory URI.")
 	private String baseUri;		
@@ -149,66 +140,62 @@ public class GenerateTemplatedApplicationCommand extends ModelCommand<AbstractAc
 		
 		monitor.setWorkRemaining(1 + activeAction.getChildren().size());
 		
-		ActionActivator activator = activeAction.getActivator();
-		if (activator instanceof NavigationActionActivator && (sections || !activeAction.isInRole(Action.Role.SECTION))) {					
-			NavigationActionActivator naa = (NavigationActionActivator) activator;
-			String url = naa.getUrl(baseURI.toString()); // Relative to the base URI for writing content to file.
-			if (VinciUtil.shallGenerate(activeAction, url)) {
-				List<Action> navChildren = rootAction.getNavigationChildren();
-				Action principalAction = navChildren.isEmpty() ? null : navChildren.get(0); 
-				List<Action> navigationPanelActions = principalAction == null ? Collections.emptyList() : principalAction.getNavigationChildren(); 	
-		
-				MutableContext pageContext = generationContext.fork();			
+		String generationPath = VinciUtil.getGenerationPath(activeAction, baseURI);
+		if (generationPath != null) {					
+			List<Action> navChildren = rootAction.getNavigationChildren();
+			Action principalAction = navChildren.isEmpty() ? null : navChildren.get(0); 
+			List<Action> navigationPanelActions = principalAction == null ? Collections.emptyList() : principalAction.getNavigationChildren(); 	
+	
+			MutableContext pageContext = generationContext.fork();			
 
-				// Absolute URI of the action for resolution of relative links.
-				pageContext.put(Context.BASE_URI_PROPERTY, URI.createURI(url).resolve(baseURI).toString());
+			// Absolute URI of the action for resolution of relative links.
+			pageContext.put(Context.BASE_URI_PROPERTY, URI.createURI(generationPath).resolve(baseURI).toString());
 
-				ActionRegistry actionRegistry = ActionRegistry.fromAction(rootAction);
-				pageContext.register(ActionRegistry.class, actionRegistry);
-				pageContext.put(ViewGenerator.ACTION_REGISTRY_PROPERTY, actionRegistry.asPropertyComputer());
-				
-				ServiceComputer<ApplicationBuilder> applicationBuilderComputer = (ctx, type) -> createApplicationBuilder(ctx, type, rootAction, principalAction, navigationPanelActions, activeAction);
-				pageContext.register(ApplicationBuilder.class, applicationBuilderComputer);
-				
-				if (activeAction != null) {
-					StringBuilder titleBuilder = new StringBuilder();
-					String rootText = rootAction.getText();
-					if (!Util.isBlank(rootText)) {
-						titleBuilder.append(Jsoup.parse(rootText).text());
-					}					
-					String text = activeAction.getText();					
-					if (!Util.isBlank(text)) {
-						if (titleBuilder.length() > 0) {
-							titleBuilder.append(": ");
-						}
-						titleBuilder.append(Jsoup.parse(text).text());
-					}
+			ActionRegistry actionRegistry = ActionRegistry.fromAction(rootAction);
+			pageContext.register(ActionRegistry.class, actionRegistry);
+			pageContext.put(ViewGenerator.ACTION_REGISTRY_PROPERTY, actionRegistry.asPropertyComputer());
+			
+			ServiceComputer<ApplicationBuilder> applicationBuilderComputer = (ctx, type) -> createApplicationBuilder(ctx, type, rootAction, principalAction, navigationPanelActions, activeAction);
+			pageContext.register(ApplicationBuilder.class, applicationBuilderComputer);
+			
+			if (activeAction != null) {
+				StringBuilder titleBuilder = new StringBuilder();
+				String rootText = rootAction.getText();
+				if (!Util.isBlank(rootText)) {
+					titleBuilder.append(Jsoup.parse(rootText).text());
+				}					
+				String text = activeAction.getText();					
+				if (!Util.isBlank(text)) {
 					if (titleBuilder.length() > 0) {
-						pageContext.put("actions/active/text", titleBuilder.toString());
+						titleBuilder.append(": ");
 					}
+					titleBuilder.append(Jsoup.parse(text).text());
 				}
-
-				URI templateUri = activeAction instanceof ActionFacade ? ((ActionFacade) activeAction).getPageTemplate() : ActionFacade.DEFAULT_PAGE_TEMPLATE;				
-				Resource templateResource = resourceSet.getResource(templateUri, true);
-				String fragment = templateUri.fragment();				
-				BootstrapPage page = (BootstrapPage) (fragment == null ? templateResource.getContents().get(0) : templateResource.getEObject(fragment));	
-				
-				Diagnostician diagnostician = new Diagnostician() {
-					
-					public Map<Object,Object> createDefaultContext() {
-						Map<Object, Object> ctx = super.createDefaultContext();
-						ctx.put(Context.class, generationContext);
-						return ctx;
-					};
-					
-				};				
-				Diagnostic validationResult = diagnostician.validate(page);
-				if (validationResult.getSeverity() == Diagnostic.ERROR) {
-					throw new DiagnosticException(validationResult);
+				if (titleBuilder.length() > 0) {
+					pageContext.put("actions/active/text", titleBuilder.toString());
 				}
-				
-				generatePage(activeAction, page, url, contentContainer, pageContext, monitor);
 			}
+
+			URI templateUri = activeAction instanceof ActionFacade ? ((ActionFacade) activeAction).getPageTemplate() : ActionFacade.DEFAULT_PAGE_TEMPLATE;				
+			Resource templateResource = resourceSet.getResource(templateUri, true);
+			String fragment = templateUri.fragment();				
+			BootstrapPage page = (BootstrapPage) (fragment == null ? templateResource.getContents().get(0) : templateResource.getEObject(fragment));	
+			
+			Diagnostician diagnostician = new Diagnostician() {
+				
+				public Map<Object,Object> createDefaultContext() {
+					Map<Object, Object> ctx = super.createDefaultContext();
+					ctx.put(Context.class, generationContext);
+					return ctx;
+				};
+				
+			};				
+			Diagnostic validationResult = diagnostician.validate(page);
+			if (validationResult.getSeverity() == Diagnostic.ERROR) {
+				throw new DiagnosticException(validationResult);
+			}
+			
+			generatePage(activeAction, page, generationPath, contentContainer, pageContext, monitor);
 		}
 		
 		for (Action child: activeAction.getChildren()) {
