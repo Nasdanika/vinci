@@ -183,6 +183,10 @@
 		<name>Nasdanika LLC</name>
 		<url>http://www.nasdanika.org</url>
 	</organization>
+
+	<!-- For Javadoc cross-ref resolution -->
+	<url>https://www.nasdanika.org/builds/${env.RELEASE}/products/vinci/bundles</url>
+
 	<scm>
 		<url>https://github.com/Nasdanika/vinci</url>
 	</scm>
