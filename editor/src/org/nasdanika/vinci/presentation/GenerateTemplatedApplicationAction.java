@@ -176,17 +176,17 @@ public class GenerateTemplatedApplicationAction extends VinciGenerateAction<Abst
 			pageContext.put(ViewGenerator.ACTION_REGISTRY_PROPERTY, actionRegistry.asPropertyComputer());
 			if (activeAction != null) {
 				StringBuilder titleBuilder = new StringBuilder();
-				String rootText = rootAction.getText();
-				if (!Util.isBlank(rootText)) {
-					titleBuilder.append(Jsoup.parse(rootText).text());
-				}					
 				String text = activeAction.getText();					
 				if (!Util.isBlank(text)) {
-					if (titleBuilder.length() > 0) {
-						titleBuilder.append(": ");
-					}
 					titleBuilder.append(Jsoup.parse(text).text());
 				}
+				String rootText = rootAction.getText();
+				if (!Util.isBlank(rootText)) {
+					if (titleBuilder.length() > 0) {
+						titleBuilder.append(" - ");
+					}
+					titleBuilder.append(Jsoup.parse(rootText).text());
+				}					
 				if (titleBuilder.length() > 0) {
 					pageContext.put("actions/active/text", titleBuilder.toString());
 				}
