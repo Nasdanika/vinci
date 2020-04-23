@@ -474,7 +474,7 @@ public class ActionLinkImpl extends MinimalEObjectImpl.Container implements Acti
 		};
 		
 		MutableContext actionContext = ctx.fork();
-		new ActionMappingsPropertyComputer("action-mappings", getActionMappings()).put(actionContext);
+		new ActionMappingsPropertyComputer(ctx, "action-mappings", getActionMappings()).put(actionContext);
 		
 		String path = getPath();
 		if (!Util.isBlank(path)) {

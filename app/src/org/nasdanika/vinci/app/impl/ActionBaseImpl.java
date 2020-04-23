@@ -908,7 +908,7 @@ public abstract class ActionBaseImpl extends LabelImpl implements ActionBase {
 			actionContext.register(URI.class, navigationActivatorURI);
 		}		
 		
-		new ActionMappingsPropertyComputer("action-mappings", getActionMappings()).put(actionContext);
+		new ActionMappingsPropertyComputer(context, "action-mappings", getActionMappings()).put(actionContext);
 		
 		return configure(mcs.then(actionFacadeFactory)).create(actionContext);
 	}

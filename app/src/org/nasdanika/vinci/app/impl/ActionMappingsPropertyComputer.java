@@ -21,8 +21,10 @@ public class ActionMappingsPropertyComputer implements PropertyComputer {
 
 	private EList<ActionMapping> mappings;
 	private String registrationKey;
+	private Context chain;
 
-	public ActionMappingsPropertyComputer(String registrationKey, EList<ActionMapping> mappings) {
+	public ActionMappingsPropertyComputer(Context chain, String registrationKey, EList<ActionMapping> mappings) {
+		this.chain = chain;
 		this.registrationKey = registrationKey;
 		this.mappings = mappings;		
 	}
@@ -64,7 +66,14 @@ public class ActionMappingsPropertyComputer implements PropertyComputer {
 				return null;
 			}
 		}
-		return null;
+		if (chain == null) {
+			return null;
+		}
+		Object parent = chain.get(registrationKey);
+		if (parent instanceof ActionMappingsPropertyComputer) {
+			return ((ActionMappingsPropertyComputer) parent).compute(context, key, path, type);
+		}
+		return null;	
 	}
 	
 	public void put(MutableContext context) {

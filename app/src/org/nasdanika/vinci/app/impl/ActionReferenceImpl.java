@@ -425,7 +425,7 @@ public class ActionReferenceImpl extends MinimalEObjectImpl.Container implements
 	@Override
 	public Supplier<Object> create(Context context) throws Exception {
 		MutableContext actionContext = context.fork();
-		new ActionMappingsPropertyComputer("action-mappings", getActionMappings()).put(actionContext);
+		new ActionMappingsPropertyComputer(context, "action-mappings", getActionMappings()).put(actionContext);
 		String path = getPath();
 		if (!Util.isBlank(path)) {
 			URI uri = context.get(URI.class);
