@@ -145,14 +145,14 @@ public interface ActionBase extends Label, AbstractAction, Container<ActionEleme
 	 * <!-- begin-model-doc -->
 	 * Activator is either a URL if the activator type is Reference, or a script if the activator type is Script or Bind.
 	 * 
-	 * The application generator generates a page for an action only if the activator type is Reference and the URL does not contain ``://`` and does not start with ``/`` or ``./``. 
+	 * The application generator generates a page for an action only if the activator type is Reference, the URL does not start with ``./`` and when resolved is relative to the base URI and below it. 
 	 * Using ``./`` is a way to reference externally generated content. For example, create a hierarchy/federation of sites.
 	 * 
 	 * For the reference activator type activator URL is resolved against the first ancestor action which also has reference activator type. If there is no such action, the URL is resolved against the base URI.
 	 * During generation action URL is de-resolved against the base URI to produce a relative resource/file path. 
 	 * 
-	 * ``${{base-uri}}`` token can be used in the activator to define the uri relative to the base generation URI (output folder) instead of the parent URI. It might be useful it the parent URI is an absolute external URI.
-	 * ``${{base-uri}}`` ends with a slash, so there is no need to add a slash. E.g. ``${{base-uri}}index.html``.
+	 * ``${{{base-uri}}}`` token can be used in the activator to define the uri relative to the base generation URI (output folder) instead of the parent URI. It might be useful it the parent URI is an absolute external URI.
+	 * ``${{{base-uri}}}`` ends with a slash, so there is no need to add a slash. E.g. ``${{{base-uri}}}index.html``.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Activator</em>' attribute.
 	 * @see #setActivator(String)
