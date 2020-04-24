@@ -21,7 +21,14 @@ public class EStructuralFeatureViewActionSupplier<T extends EStructuralFeature> 
 		Action action = super.create(progressMonitor);
 		action.setRole(ActionRole.SECTION.label);
 		EClass eContainingClass = eObject.getEContainingClass();
-		action.setId(eObject.eClass().getName() + "-" + Hex.encodeHexString(eContainingClass.getEPackage().getNsURI().getBytes(StandardCharsets.UTF_8)) + "-" + eContainingClass.getName() + "-" + eObject.getName());
+		action.setId(
+				Hex.encodeHexString(eContainingClass.getEPackage().getNsURI().getBytes(StandardCharsets.UTF_8))
+				+ "-"
+				+ eContainingClass.getName()
+				+ "-"
+				+ eObject.eClass().getName()
+				+ "-" 				
+				+ eObject.getName());
 		
 		action.setActivator(eContainingClass.getName() + ".html#" + eObject.eClass().getName() + "-" + eObject.getName());
 		

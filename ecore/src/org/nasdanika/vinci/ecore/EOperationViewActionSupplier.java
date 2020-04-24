@@ -36,7 +36,9 @@ public class EOperationViewActionSupplier extends ETypedElementViewActionSupplie
 	
 		EClass eContainingClass = eObject.getEContainingClass();
 		
-		StringBuilder signatureBuilder = new StringBuilder();
+		StringBuilder signatureBuilder = new StringBuilder(eObject.eClass().getName())
+				.append("-")
+				.append(eObject.getName());
 		
 		if (!eObject.getEParameters().isEmpty()) {
 			// Creating a digest of parameter types to make the id shorter.
@@ -56,9 +58,7 @@ public class EOperationViewActionSupplier extends ETypedElementViewActionSupplie
 			signatureBuilder.append("-").append(Hex.encodeHexString(md.digest()));
 		}
 		
-		StringBuilder idBuilder = new StringBuilder(eObject.eClass().getName())
-		.append("-")
-		.append(Hex.encodeHexString(eContainingClass.getEPackage().getNsURI().getBytes(StandardCharsets.UTF_8)))
+		StringBuilder idBuilder = new StringBuilder(Hex.encodeHexString(eContainingClass.getEPackage().getNsURI().getBytes(StandardCharsets.UTF_8)))
 		.append("-")
 		.append(eContainingClass.getName())
 		.append("-")
