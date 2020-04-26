@@ -51,7 +51,7 @@
         <content xsi:type="org.nasdanika.ncore:Value" value="&amp;gt;"/>
       </content>
     </content>
-    <content xsi:type="org.nasdanika.vinci.components:ListOfActions" header="Subtypes" depth="1" tooltips="true" actions="EClass-75726e3a6f72672e6e617364616e696b612e6e636f7265-List"/>
+    <content xsi:type="org.nasdanika.vinci.components:ListOfActions" header="Subtypes" depth="1" tooltips="true" actions="EClass-75726e3a6f72672e6e617364616e696b612e6e636f7265-Array"/>
     <content xsi:type="org.nasdanika.vinci.components:ListOfContents" header="Members" role="Section" depth="1" tooltips="true"/>
   </elements>
   <elements xsi:type="org.nasdanika.vinci.app:Action" title="Configurable" id="EClass-75726e3a6f72672e6e617364616e696b612e6e636f7265-Configurable" text="Configurable" icon="https://www.nasdanika.org/resources/images/ecore/EInterface.gif" tooltip="Model element which contains configuration entries." sectionStyle="Default" activator="Configurable.html" markdownContent="Model element which contains configuration entries.">
@@ -285,7 +285,7 @@
         <content xsi:type="org.nasdanika.ncore:Value" value="&amp;gt;"/>
       </content>
     </content>
-    <content xsi:type="org.nasdanika.vinci.components:ListOfActions" header="Subtypes" depth="1" tooltips="true" actions="EClass-75726e3a6f72672e6e617364616e696b612e6e636f7265-Function EClass-75726e3a6f72672e6e617364616e696b612e6e636f7265-List EClass-75726e3a6f72672e6e617364616e696b612e6e636f7265-Object EClass-75726e3a6f72672e6e617364616e696b612e6e636f7265-Property EClass-75726e3a6f72672e6e617364616e696b612e6e636f7265-RestFunction EClass-75726e3a6f72672e6e617364616e696b612e6e636f7265-SupplierEntry EClass-75726e3a6f72672e6e617364616e696b612e6e636f7265-TypedEntry"/>
+    <content xsi:type="org.nasdanika.vinci.components:ListOfActions" header="Subtypes" depth="1" tooltips="true" actions="EClass-75726e3a6f72672e6e617364616e696b612e6e636f7265-Function EClass-75726e3a6f72672e6e617364616e696b612e6e636f7265-Array EClass-75726e3a6f72672e6e617364616e696b612e6e636f7265-Object EClass-75726e3a6f72672e6e617364616e696b612e6e636f7265-Property EClass-75726e3a6f72672e6e617364616e696b612e6e636f7265-RestFunction EClass-75726e3a6f72672e6e617364616e696b612e6e636f7265-SupplierEntry EClass-75726e3a6f72672e6e617364616e696b612e6e636f7265-TypedEntry"/>
     <content xsi:type="org.nasdanika.vinci.components:ListOfContents" header="Members" role="Section" depth="1" tooltips="true"/>
   </elements>
   <elements xsi:type="org.nasdanika.vinci.app:Action" title="Exception" id="EDataType-75726e3a6f72672e6e617364616e696b612e6e636f7265-Exception" text="Exception" icon="https://www.nasdanika.org/resources/images/ecore/EDataType.gif" activator="Exception.html"/>
