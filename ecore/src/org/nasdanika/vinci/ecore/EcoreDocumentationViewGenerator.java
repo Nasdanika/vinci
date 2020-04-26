@@ -1,5 +1,6 @@
 package org.nasdanika.vinci.ecore;
 
+import java.util.function.BiFunction;
 import java.util.function.Consumer;
 
 import org.eclipse.emf.ecore.EClass;
@@ -42,10 +43,10 @@ public class EcoreDocumentationViewGenerator extends ViewGeneratorImpl {
 		}
 		
 		@Override
-		public JsTreeNode jsTreeNode(Action action, boolean ajax) {
-			JsTreeNode ret = super.jsTreeNode(action, ajax);
+		public JsTreeNode jsTreeNode(Action action, boolean ajax, BiFunction<Action, JsTreeNode, JsTreeNode> filter) {
+			JsTreeNode ret = super.jsTreeNode(action, ajax, filter);
 			 EClass eClass = action.adaptTo(EClass.class);
-			 if (eClass != null && eClass.isAbstract()) {
+			 if (ret != null && eClass != null && eClass.isAbstract()) {
 				 ret.anchorAttribute("style", "font-style:italic");
 			 }
 			return ret;
