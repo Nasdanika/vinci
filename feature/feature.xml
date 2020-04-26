@@ -106,10 +106,6 @@ This Agreement is governed by the laws of the State of New York and the intellec
       <update label="Nasdanika Vinci" url="https://www.nasdanika.org/products/vinci/repository"/>
    </url>
 
-   <requires>
-      <import feature="org.eclipse.emf.ecp.emfforms.runtime.feature" version="1.21.0.20190603-0953"/>
-   </requires>
-
    <plugin
          id="org.nasdanika.vinci.html"
          download-size="0"
@@ -172,15 +168,6 @@ This Agreement is governed by the laws of the State of New York and the intellec
          install-size="0"
          version="0.0.0"
          unpack="false"/>
-
-	<!--
-   <plugin
-         id="org.nasdanika.vinci.help"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-	-->        
 
    <plugin
          id="org.nasdanika.emf.edit"
