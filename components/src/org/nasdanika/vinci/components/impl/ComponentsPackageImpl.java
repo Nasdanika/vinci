@@ -586,8 +586,182 @@ public class ComponentsPackageImpl extends EPackageImpl implements ComponentsPac
 		createResource(eNS_URI);
 
 		// Create annotations
+		// http://www.eclipse.org/emf/2002/GenModel
+		createGenModelAnnotations();
 		// urn:org.nasdanika
 		createUrnorgAnnotations();
+	}
+
+	/**
+	 * Initializes the annotations for <b>http://www.eclipse.org/emf/2002/GenModel</b>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void createGenModelAnnotations() {
+		String source = "http://www.eclipse.org/emf/2002/GenModel";
+		addAnnotation
+		  (this,
+		   source,
+		   new String[] {
+			   "documentation", "Miscellaneous components."
+		   });
+		addAnnotation
+		  (markdownEClass,
+		   source,
+		   new String[] {
+			   "documentation", "Base class for generation of HTML from [Markdown](https://en.wikipedia.org/wiki/Markdown)."
+		   });
+		addAnnotation
+		  (getMarkdown_Style(),
+		   source,
+		   new String[] {
+			   "documentation", "If this attribute is set to true the generated markdown is placed in a ``div`` with ``markdown-body`` class in order to be styled by the GitHub Markdown CSS. For this the page shall have \"Github Markdown CSS\" attribute set to true or add a stylesheet explicitly."
+		   });
+		addAnnotation
+		  (getMarkdown_Interpolate(),
+		   source,
+		   new String[] {
+			   "documentation", "If true, HTML generated from the markdown is interpolated."
+		   });
+		addAnnotation
+		  (getMarkdown_Appearance(),
+		   source,
+		   new String[] {
+			   "documentation", "Appearance to apply to the generated HTML."
+		   });
+		addAnnotation
+		  (markdownTextEClass,
+		   source,
+		   new String[] {
+			   "documentation", "Generates HTML from [Markdown](https://en.wikipedia.org/wiki/Markdown) text."
+		   });
+		addAnnotation
+		  (getMarkdownText_Markdown(),
+		   source,
+		   new String[] {
+			   "documentation", "Markdown text."
+		   });
+		addAnnotation
+		  (markdownResourceEClass,
+		   source,
+		   new String[] {
+			   "documentation", "Generates HTML from [Markdown](https://en.wikipedia.org/wiki/Markdown) resource."
+		   });
+		addAnnotation
+		  (getMarkdownResource_Location(),
+		   source,
+		   new String[] {
+			   "documentation", "Markdown resource location. The resource location is resolved relative to the model resource."
+		   });
+		addAnnotation
+		  (actionLinkEClass,
+		   source,
+		   new String[] {
+			   "documentation", "Generates a link to the target action."
+		   });
+		addAnnotation
+		  (getActionLink_Text(),
+		   source,
+		   new String[] {
+			   "documentation", "Link text. If blank, the action text is used."
+		   });
+		addAnnotation
+		  (getActionLink_Target(),
+		   source,
+		   new String[] {
+			   "documentation", "Action to link to."
+		   });
+		addAnnotation
+		  (getActionLink_Appearance(),
+		   source,
+		   new String[] {
+			   "documentation", "Appearance to apply to the generated HTML."
+		   });
+		addAnnotation
+		  (tableOfContentsBaseEClass,
+		   source,
+		   new String[] {
+			   "documentation", "Base class for tables of content."
+		   });
+		addAnnotation
+		  (getTableOfContentsBase_Header(),
+		   source,
+		   new String[] {
+			   "documentation", "Table of contents header"
+		   });
+		addAnnotation
+		  (getTableOfContentsBase_Role(),
+		   source,
+		   new String[] {
+			   "documentation", "Table of contents includes action children in the specified role - navigation or section."
+		   });
+		addAnnotation
+		  (getTableOfContentsBase_Depth(),
+		   source,
+		   new String[] {
+			   "documentation", "Table of contents depth."
+		   });
+		addAnnotation
+		  (tableOfContentsEClass,
+		   source,
+		   new String[] {
+			   "documentation", "Containing action content rendered in a table."
+		   });
+		addAnnotation
+		  (getTableOfContents_Descriptions(),
+		   source,
+		   new String[] {
+			   "documentation", "If selected, action descriptions are shown in the table of contents."
+		   });
+		addAnnotation
+		  (getTableOfContents_Tooltips(),
+		   source,
+		   new String[] {
+			   "documentation", "If selected and \"descriptions\" is not selected, action tooltips are shown in the table of contents."
+		   });
+		addAnnotation
+		  (listOfContentsEClass,
+		   source,
+		   new String[] {
+			   "documentation", "Containing action content rendered in a list."
+		   });
+		addAnnotation
+		  (getListOfContents_Ordering(),
+		   source,
+		   new String[] {
+			   "documentation", "Ordering style. \n\"Auto\" means starting with numbers and going over all available styles with each additional level."
+		   });
+		addAnnotation
+		  (getListOfContents_Tooltips(),
+		   source,
+		   new String[] {
+			   "documentation", "If selected, action tooltips are shown in the list."
+		   });
+		addAnnotation
+		  (listOfActionsEClass,
+		   source,
+		   new String[] {
+			   "documentation", "Renders referenced actions as a list."
+		   });
+		addAnnotation
+		  (getListOfActions_Actions(),
+		   source,
+		   new String[] {
+			   "documentation", "Root actions to include in the list."
+		   });
+		addAnnotation
+		  (tableOfActionsEClass,
+		   source,
+		   new String[] {
+			   "documentation", "Containing action content rendered in a table."
+		   });
+		addAnnotation
+		  (getTableOfActions_Actions(),
+		   source,
+		   new String[] {
+			   "documentation", "Root actions to include in the list."
+		   });
 	}
 
 	/**
