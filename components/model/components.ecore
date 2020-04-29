@@ -137,7 +137,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="tooltips" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
         defaultValueLiteral="false">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="If selected, action tooltips are shown in the table of contents."/>
+        <details key="documentation" value="If selected, action tooltips are shown in the list."/>
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
