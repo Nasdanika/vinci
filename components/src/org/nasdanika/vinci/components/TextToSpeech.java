@@ -36,7 +36,6 @@ import org.nasdanika.vinci.bootstrap.Appearance;
  *   <li>{@link org.nasdanika.vinci.components.TextToSpeech#getLanguage <em>Language</em>}</li>
  *   <li>{@link org.nasdanika.vinci.components.TextToSpeech#getVoice <em>Voice</em>}</li>
  *   <li>{@link org.nasdanika.vinci.components.TextToSpeech#getFormat <em>Format</em>}</li>
- *   <li>{@link org.nasdanika.vinci.components.TextToSpeech#getText <em>Text</em>}</li>
  *   <li>{@link org.nasdanika.vinci.components.TextToSpeech#isInterpolate <em>Interpolate</em>}</li>
  *   <li>{@link org.nasdanika.vinci.components.TextToSpeech#getAppearance <em>Appearance</em>}</li>
  *   <li>{@link org.nasdanika.vinci.components.TextToSpeech#getPath <em>Path</em>}</li>
@@ -44,7 +43,7 @@ import org.nasdanika.vinci.bootstrap.Appearance;
  * </ul>
  *
  * @see org.nasdanika.vinci.components.ComponentsPackage#getTextToSpeech()
- * @model superTypes="org.nasdanika.ncore.ModelElement org.nasdanika.ncore.ISupplierFactory&lt;org.nasdanika.vinci.html.ViewPart&gt;"
+ * @model abstract="true" superTypes="org.nasdanika.ncore.ModelElement org.nasdanika.ncore.ISupplierFactory&lt;org.nasdanika.vinci.html.ViewPart&gt;"
  * @generated
  */
 public interface TextToSpeech extends ModelElement, SupplierFactory<ViewPart> {
@@ -125,31 +124,6 @@ public interface TextToSpeech extends ModelElement, SupplierFactory<ViewPart> {
 	 * @generated
 	 */
 	void setFormat(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Text</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Text to speak, in case of  [SSML](https://cloud.google.com/text-to-speech/docs/ssml) format ``<speak>`` and  ``</speak>`` opening and closing tags are implied.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Text</em>' attribute.
-	 * @see #setText(String)
-	 * @see org.nasdanika.vinci.components.ComponentsPackage#getTextToSpeech_Text()
-	 * @model
-	 * @generated
-	 */
-	String getText();
-
-	/**
-	 * Sets the value of the '{@link org.nasdanika.vinci.components.TextToSpeech#getText <em>Text</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Text</em>' attribute.
-	 * @see #getText()
-	 * @generated
-	 */
-	void setText(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Interpolate</b></em>' attribute.

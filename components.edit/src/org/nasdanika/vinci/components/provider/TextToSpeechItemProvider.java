@@ -50,7 +50,6 @@ public class TextToSpeechItemProvider extends ModelElementItemProvider {
 			addLanguagePropertyDescriptor(object);
 			addVoicePropertyDescriptor(object);
 			addFormatPropertyDescriptor(object);
-			addTextPropertyDescriptor(object);
 			addInterpolatePropertyDescriptor(object);
 			addPathPropertyDescriptor(object);
 			addEmbedPropertyDescriptor(object);
@@ -119,27 +118,6 @@ public class TextToSpeechItemProvider extends ModelElementItemProvider {
 				 null,
 				 null,
 				 Arrays.asList(new Object[] { "Text", "SSML" })));
-	}
-
-	/**
-	 * This adds a property descriptor for the Text feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	protected void addTextPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor(
-				 getResourceLocator(),
-				 getString("_UI_TextToSpeech_text_feature"),
-				 ComponentsPackage.Literals.TEXT_TO_SPEECH__TEXT,
-				 true,
-				 true,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null,
-				 null));
 	}
 
 	/**
@@ -276,7 +254,6 @@ public class TextToSpeechItemProvider extends ModelElementItemProvider {
 			case ComponentsPackage.TEXT_TO_SPEECH__LANGUAGE:
 			case ComponentsPackage.TEXT_TO_SPEECH__VOICE:
 			case ComponentsPackage.TEXT_TO_SPEECH__FORMAT:
-			case ComponentsPackage.TEXT_TO_SPEECH__TEXT:
 			case ComponentsPackage.TEXT_TO_SPEECH__INTERPOLATE:
 			case ComponentsPackage.TEXT_TO_SPEECH__PATH:
 			case ComponentsPackage.TEXT_TO_SPEECH__EMBED:

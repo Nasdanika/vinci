@@ -233,29 +233,6 @@ public class ComponentsItemProviderAdapterFactory extends ComponentsAdapterFacto
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.nasdanika.vinci.components.TextToSpeech} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected TextToSpeechItemProvider textToSpeechItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link org.nasdanika.vinci.components.TextToSpeech}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createTextToSpeechAdapter() {
-		if (textToSpeechItemProvider == null) {
-			textToSpeechItemProvider = new TextToSpeechItemProvider(this);
-		}
-
-		return textToSpeechItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link org.nasdanika.vinci.components.Image} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -276,6 +253,52 @@ public class ComponentsItemProviderAdapterFactory extends ComponentsAdapterFacto
 		}
 
 		return imageItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.nasdanika.vinci.components.TextToSpeechText} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected TextToSpeechTextItemProvider textToSpeechTextItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.nasdanika.vinci.components.TextToSpeechText}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createTextToSpeechTextAdapter() {
+		if (textToSpeechTextItemProvider == null) {
+			textToSpeechTextItemProvider = new TextToSpeechTextItemProvider(this);
+		}
+
+		return textToSpeechTextItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.nasdanika.vinci.components.TextToSpeechResource} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected TextToSpeechResourceItemProvider textToSpeechResourceItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.nasdanika.vinci.components.TextToSpeechResource}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createTextToSpeechResourceAdapter() {
+		if (textToSpeechResourceItemProvider == null) {
+			textToSpeechResourceItemProvider = new TextToSpeechResourceItemProvider(this);
+		}
+
+		return textToSpeechResourceItemProvider;
 	}
 
 	/**
@@ -390,8 +413,9 @@ public class ComponentsItemProviderAdapterFactory extends ComponentsAdapterFacto
 		if (listOfContentsItemProvider != null) listOfContentsItemProvider.dispose();
 		if (listOfActionsItemProvider != null) listOfActionsItemProvider.dispose();
 		if (tableOfActionsItemProvider != null) tableOfActionsItemProvider.dispose();
-		if (textToSpeechItemProvider != null) textToSpeechItemProvider.dispose();
 		if (imageItemProvider != null) imageItemProvider.dispose();
+		if (textToSpeechTextItemProvider != null) textToSpeechTextItemProvider.dispose();
+		if (textToSpeechResourceItemProvider != null) textToSpeechResourceItemProvider.dispose();
 	}
 
 }

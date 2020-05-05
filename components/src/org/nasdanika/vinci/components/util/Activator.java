@@ -19,7 +19,8 @@ public class Activator implements BundleActivator {
 				ComponentsPackage.Literals.TABLE_OF_ACTIONS,	
 				ComponentsPackage.Literals.LIST_OF_CONTENTS,
 				ComponentsPackage.Literals.TABLE_OF_CONTENTS,
-				ComponentsPackage.Literals.TEXT_TO_SPEECH,
+				ComponentsPackage.Literals.TEXT_TO_SPEECH_TEXT,
+				ComponentsPackage.Literals.TEXT_TO_SPEECH_RESOURCE,
 				ComponentsPackage.Literals.IMAGE);	
 	}
 

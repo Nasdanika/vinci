@@ -1085,22 +1085,13 @@ public interface ComponentsPackage extends EPackage {
 	int TEXT_TO_SPEECH__FORMAT = NcorePackage.MODEL_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Text</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TEXT_TO_SPEECH__TEXT = NcorePackage.MODEL_ELEMENT_FEATURE_COUNT + 3;
-
-	/**
 	 * The feature id for the '<em><b>Interpolate</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_TO_SPEECH__INTERPOLATE = NcorePackage.MODEL_ELEMENT_FEATURE_COUNT + 4;
+	int TEXT_TO_SPEECH__INTERPOLATE = NcorePackage.MODEL_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Appearance</b></em>' containment reference.
@@ -1109,7 +1100,7 @@ public interface ComponentsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_TO_SPEECH__APPEARANCE = NcorePackage.MODEL_ELEMENT_FEATURE_COUNT + 5;
+	int TEXT_TO_SPEECH__APPEARANCE = NcorePackage.MODEL_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Path</b></em>' attribute.
@@ -1118,7 +1109,7 @@ public interface ComponentsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_TO_SPEECH__PATH = NcorePackage.MODEL_ELEMENT_FEATURE_COUNT + 6;
+	int TEXT_TO_SPEECH__PATH = NcorePackage.MODEL_ELEMENT_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Embed</b></em>' attribute.
@@ -1127,7 +1118,7 @@ public interface ComponentsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_TO_SPEECH__EMBED = NcorePackage.MODEL_ELEMENT_FEATURE_COUNT + 7;
+	int TEXT_TO_SPEECH__EMBED = NcorePackage.MODEL_ELEMENT_FEATURE_COUNT + 6;
 
 	/**
 	 * The number of structural features of the '<em>Text To Speech</em>' class.
@@ -1136,7 +1127,7 @@ public interface ComponentsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_TO_SPEECH_FEATURE_COUNT = NcorePackage.MODEL_ELEMENT_FEATURE_COUNT + 8;
+	int TEXT_TO_SPEECH_FEATURE_COUNT = NcorePackage.MODEL_ELEMENT_FEATURE_COUNT + 7;
 
 	/**
 	 * The number of operations of the '<em>Text To Speech</em>' class.
@@ -1237,6 +1228,243 @@ public interface ComponentsPackage extends EPackage {
 	 * @ordered
 	 */
 	int IMAGE_OPERATION_COUNT = NcorePackage.MODEL_ELEMENT_OPERATION_COUNT + 0;
+
+
+	/**
+	 * The meta object id for the '{@link org.nasdanika.vinci.components.impl.TextToSpeechTextImpl <em>Text To Speech Text</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.vinci.components.impl.TextToSpeechTextImpl
+	 * @see org.nasdanika.vinci.components.impl.ComponentsPackageImpl#getTextToSpeechText()
+	 * @generated
+	 */
+	int TEXT_TO_SPEECH_TEXT = 11;
+
+	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_TO_SPEECH_TEXT__TITLE = TEXT_TO_SPEECH__TITLE;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_TO_SPEECH_TEXT__DESCRIPTION = TEXT_TO_SPEECH__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Language</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_TO_SPEECH_TEXT__LANGUAGE = TEXT_TO_SPEECH__LANGUAGE;
+
+	/**
+	 * The feature id for the '<em><b>Voice</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_TO_SPEECH_TEXT__VOICE = TEXT_TO_SPEECH__VOICE;
+
+	/**
+	 * The feature id for the '<em><b>Format</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_TO_SPEECH_TEXT__FORMAT = TEXT_TO_SPEECH__FORMAT;
+
+	/**
+	 * The feature id for the '<em><b>Interpolate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_TO_SPEECH_TEXT__INTERPOLATE = TEXT_TO_SPEECH__INTERPOLATE;
+
+	/**
+	 * The feature id for the '<em><b>Appearance</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_TO_SPEECH_TEXT__APPEARANCE = TEXT_TO_SPEECH__APPEARANCE;
+
+	/**
+	 * The feature id for the '<em><b>Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_TO_SPEECH_TEXT__PATH = TEXT_TO_SPEECH__PATH;
+
+	/**
+	 * The feature id for the '<em><b>Embed</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_TO_SPEECH_TEXT__EMBED = TEXT_TO_SPEECH__EMBED;
+
+	/**
+	 * The feature id for the '<em><b>Text</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_TO_SPEECH_TEXT__TEXT = TEXT_TO_SPEECH_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Text To Speech Text</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_TO_SPEECH_TEXT_FEATURE_COUNT = TEXT_TO_SPEECH_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Text To Speech Text</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_TO_SPEECH_TEXT_OPERATION_COUNT = TEXT_TO_SPEECH_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.nasdanika.vinci.components.impl.TextToSpeechResourceImpl <em>Text To Speech Resource</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.vinci.components.impl.TextToSpeechResourceImpl
+	 * @see org.nasdanika.vinci.components.impl.ComponentsPackageImpl#getTextToSpeechResource()
+	 * @generated
+	 */
+	int TEXT_TO_SPEECH_RESOURCE = 12;
+
+	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_TO_SPEECH_RESOURCE__TITLE = TEXT_TO_SPEECH__TITLE;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_TO_SPEECH_RESOURCE__DESCRIPTION = TEXT_TO_SPEECH__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Language</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_TO_SPEECH_RESOURCE__LANGUAGE = TEXT_TO_SPEECH__LANGUAGE;
+
+	/**
+	 * The feature id for the '<em><b>Voice</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_TO_SPEECH_RESOURCE__VOICE = TEXT_TO_SPEECH__VOICE;
+
+	/**
+	 * The feature id for the '<em><b>Format</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_TO_SPEECH_RESOURCE__FORMAT = TEXT_TO_SPEECH__FORMAT;
+
+	/**
+	 * The feature id for the '<em><b>Interpolate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_TO_SPEECH_RESOURCE__INTERPOLATE = TEXT_TO_SPEECH__INTERPOLATE;
+
+	/**
+	 * The feature id for the '<em><b>Appearance</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_TO_SPEECH_RESOURCE__APPEARANCE = TEXT_TO_SPEECH__APPEARANCE;
+
+	/**
+	 * The feature id for the '<em><b>Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_TO_SPEECH_RESOURCE__PATH = TEXT_TO_SPEECH__PATH;
+
+	/**
+	 * The feature id for the '<em><b>Embed</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_TO_SPEECH_RESOURCE__EMBED = TEXT_TO_SPEECH__EMBED;
+
+	/**
+	 * The feature id for the '<em><b>Location</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_TO_SPEECH_RESOURCE__LOCATION = TEXT_TO_SPEECH_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Text To Speech Resource</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_TO_SPEECH_RESOURCE_FEATURE_COUNT = TEXT_TO_SPEECH_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Text To Speech Resource</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_TO_SPEECH_RESOURCE_OPERATION_COUNT = TEXT_TO_SPEECH_OPERATION_COUNT + 0;
 
 
 	/**
@@ -1560,17 +1788,6 @@ public interface ComponentsPackage extends EPackage {
 	EAttribute getTextToSpeech_Format();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.components.TextToSpeech#getText <em>Text</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Text</em>'.
-	 * @see org.nasdanika.vinci.components.TextToSpeech#getText()
-	 * @see #getTextToSpeech()
-	 * @generated
-	 */
-	EAttribute getTextToSpeech_Text();
-
-	/**
 	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.components.TextToSpeech#isInterpolate <em>Interpolate</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1678,6 +1895,48 @@ public interface ComponentsPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getImage_Target();
+
+	/**
+	 * Returns the meta object for class '{@link org.nasdanika.vinci.components.TextToSpeechText <em>Text To Speech Text</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Text To Speech Text</em>'.
+	 * @see org.nasdanika.vinci.components.TextToSpeechText
+	 * @generated
+	 */
+	EClass getTextToSpeechText();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.components.TextToSpeechText#getText <em>Text</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Text</em>'.
+	 * @see org.nasdanika.vinci.components.TextToSpeechText#getText()
+	 * @see #getTextToSpeechText()
+	 * @generated
+	 */
+	EAttribute getTextToSpeechText_Text();
+
+	/**
+	 * Returns the meta object for class '{@link org.nasdanika.vinci.components.TextToSpeechResource <em>Text To Speech Resource</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Text To Speech Resource</em>'.
+	 * @see org.nasdanika.vinci.components.TextToSpeechResource
+	 * @generated
+	 */
+	EClass getTextToSpeechResource();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.components.TextToSpeechResource#getLocation <em>Location</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Location</em>'.
+	 * @see org.nasdanika.vinci.components.TextToSpeechResource#getLocation()
+	 * @see #getTextToSpeechResource()
+	 * @generated
+	 */
+	EAttribute getTextToSpeechResource_Location();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -1933,13 +2192,6 @@ public interface ComponentsPackage extends EPackage {
 		 */
 		EAttribute TEXT_TO_SPEECH__FORMAT = eINSTANCE.getTextToSpeech_Format();
 		/**
-		 * The meta object literal for the '<em><b>Text</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute TEXT_TO_SPEECH__TEXT = eINSTANCE.getTextToSpeech_Text();
-		/**
 		 * The meta object literal for the '<em><b>Interpolate</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2011,6 +2263,38 @@ public interface ComponentsPackage extends EPackage {
 		 * @generated
 		 */
 		EReference IMAGE__TARGET = eINSTANCE.getImage_Target();
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.vinci.components.impl.TextToSpeechTextImpl <em>Text To Speech Text</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.vinci.components.impl.TextToSpeechTextImpl
+		 * @see org.nasdanika.vinci.components.impl.ComponentsPackageImpl#getTextToSpeechText()
+		 * @generated
+		 */
+		EClass TEXT_TO_SPEECH_TEXT = eINSTANCE.getTextToSpeechText();
+		/**
+		 * The meta object literal for the '<em><b>Text</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TEXT_TO_SPEECH_TEXT__TEXT = eINSTANCE.getTextToSpeechText_Text();
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.vinci.components.impl.TextToSpeechResourceImpl <em>Text To Speech Resource</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.vinci.components.impl.TextToSpeechResourceImpl
+		 * @see org.nasdanika.vinci.components.impl.ComponentsPackageImpl#getTextToSpeechResource()
+		 * @generated
+		 */
+		EClass TEXT_TO_SPEECH_RESOURCE = eINSTANCE.getTextToSpeechResource();
+		/**
+		 * The meta object literal for the '<em><b>Location</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TEXT_TO_SPEECH_RESOURCE__LOCATION = eINSTANCE.getTextToSpeechResource_Location();
 
 	}
 

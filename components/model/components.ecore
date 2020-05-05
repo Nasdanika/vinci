@@ -163,7 +163,7 @@
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="TextToSpeech">
+  <eClassifiers xsi:type="ecore:EClass" name="TextToSpeech" abstract="true">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Uses [Google Text-to-Speech](https://cloud.google.com/text-to-speech) to synthesize &#xA;voice from text or [SSML](https://cloud.google.com/text-to-speech/docs/ssml). &#xA;Voice is output to an mp3 file. File name is defined by the ``path`` attribute if it is not blank. &#xA;In this case path is resolved relative to the containing action. &#xA;If ``path`` attribute is blank then the file name is computed as a digest of the sound bytes.&#xA;&#xA;Generates audio tag which plays the synthesized speech.&#xA;&#xA;Use of text to speech requires ``GOOGLE_APPLICATION_CREDENTIALS`` environment variable to be set to the location of the private key JSON file.&#xA;See https://developers.google.com/accounts/docs/application-default-credentials for more information.&#xA;   "/>
     </eAnnotations>
@@ -181,11 +181,6 @@
         defaultValueLiteral="Text">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Text format - ``Text`` or ``SSML``."/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Text to speak, in case of  [SSML](https://cloud.google.com/text-to-speech/docs/ssml) format ``&lt;speak>`` and  ``&lt;/speak>`` opening and closing tags are implied."/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="interpolate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
@@ -248,5 +243,26 @@
     <eGenericSuperTypes eClassifier="ecore:EClass ../../org.nasdanika.ncore/model/ncore.ecore#//ISupplierFactory">
       <eTypeArguments eClassifier="ecore:EClass ../../org.nasdanika.vinci.html/model/html.ecore#//ViewPart"/>
     </eGenericSuperTypes>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TextToSpeechText" eSuperTypes="#//TextToSpeech">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Speaks ``text`` attribute."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Text to speak, in case of  [SSML](https://cloud.google.com/text-to-speech/docs/ssml) format ``&lt;speak>`` and  ``&lt;/speak>`` opening and closing tags are implied."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TextToSpeechResource" eSuperTypes="#//TextToSpeech">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Speaks resource specified in the ``location`` attribute."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="location" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Markdown resource location. The resource location is resolved relative to the model resource."/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
 </ecore:EPackage>

@@ -64,8 +64,9 @@ public class ComponentsFactoryImpl extends EFactoryImpl implements ComponentsFac
 			case ComponentsPackage.LIST_OF_CONTENTS: return createListOfContents();
 			case ComponentsPackage.LIST_OF_ACTIONS: return createListOfActions();
 			case ComponentsPackage.TABLE_OF_ACTIONS: return createTableOfActions();
-			case ComponentsPackage.TEXT_TO_SPEECH: return createTextToSpeech();
 			case ComponentsPackage.IMAGE: return createImage();
+			case ComponentsPackage.TEXT_TO_SPEECH_TEXT: return createTextToSpeechText();
+			case ComponentsPackage.TEXT_TO_SPEECH_RESOURCE: return createTextToSpeechResource();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -154,9 +155,9 @@ public class ComponentsFactoryImpl extends EFactoryImpl implements ComponentsFac
 	 * @generated
 	 */
 	@Override
-	public TextToSpeech createTextToSpeech() {
-		TextToSpeechImpl textToSpeech = new TextToSpeechImpl();
-		return textToSpeech;
+	public Image createImage() {
+		ImageImpl image = new ImageImpl();
+		return image;
 	}
 
 	/**
@@ -165,9 +166,20 @@ public class ComponentsFactoryImpl extends EFactoryImpl implements ComponentsFac
 	 * @generated
 	 */
 	@Override
-	public Image createImage() {
-		ImageImpl image = new ImageImpl();
-		return image;
+	public TextToSpeechText createTextToSpeechText() {
+		TextToSpeechTextImpl textToSpeechText = new TextToSpeechTextImpl();
+		return textToSpeechText;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public TextToSpeechResource createTextToSpeechResource() {
+		TextToSpeechResourceImpl textToSpeechResource = new TextToSpeechResourceImpl();
+		return textToSpeechResource;
 	}
 
 	/**

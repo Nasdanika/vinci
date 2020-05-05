@@ -45,7 +45,6 @@ import com.google.cloud.texttospeech.v1.VoiceSelectionParams.Builder;
  *   <li>{@link org.nasdanika.vinci.components.impl.TextToSpeechImpl#getLanguage <em>Language</em>}</li>
  *   <li>{@link org.nasdanika.vinci.components.impl.TextToSpeechImpl#getVoice <em>Voice</em>}</li>
  *   <li>{@link org.nasdanika.vinci.components.impl.TextToSpeechImpl#getFormat <em>Format</em>}</li>
- *   <li>{@link org.nasdanika.vinci.components.impl.TextToSpeechImpl#getText <em>Text</em>}</li>
  *   <li>{@link org.nasdanika.vinci.components.impl.TextToSpeechImpl#isInterpolate <em>Interpolate</em>}</li>
  *   <li>{@link org.nasdanika.vinci.components.impl.TextToSpeechImpl#getAppearance <em>Appearance</em>}</li>
  *   <li>{@link org.nasdanika.vinci.components.impl.TextToSpeechImpl#getPath <em>Path</em>}</li>
@@ -54,7 +53,7 @@ import com.google.cloud.texttospeech.v1.VoiceSelectionParams.Builder;
  *
  * @generated
  */
-public class TextToSpeechImpl extends ModelElementImpl implements TextToSpeech {
+public abstract class TextToSpeechImpl extends ModelElementImpl implements TextToSpeech {
 	/**
 	 * The default value of the '{@link #getLanguage() <em>Language</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -84,16 +83,6 @@ public class TextToSpeechImpl extends ModelElementImpl implements TextToSpeech {
 	 * @ordered
 	 */
 	protected static final String FORMAT_EDEFAULT = "Text";
-
-	/**
-	 * The default value of the '{@link #getText() <em>Text</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getText()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String TEXT_EDEFAULT = null;
 
 	/**
 	 * The default value of the '{@link #isInterpolate() <em>Interpolate</em>}' attribute.
@@ -202,26 +191,6 @@ public class TextToSpeechImpl extends ModelElementImpl implements TextToSpeech {
 	@Override
 	public void setFormat(String newFormat) {
 		eDynamicSet(ComponentsPackage.TEXT_TO_SPEECH__FORMAT, ComponentsPackage.Literals.TEXT_TO_SPEECH__FORMAT, newFormat);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String getText() {
-		return (String)eDynamicGet(ComponentsPackage.TEXT_TO_SPEECH__TEXT, ComponentsPackage.Literals.TEXT_TO_SPEECH__TEXT, true, true);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setText(String newText) {
-		eDynamicSet(ComponentsPackage.TEXT_TO_SPEECH__TEXT, ComponentsPackage.Literals.TEXT_TO_SPEECH__TEXT, newText);
 	}
 
 	/**
@@ -342,8 +311,6 @@ public class TextToSpeechImpl extends ModelElementImpl implements TextToSpeech {
 				return getVoice();
 			case ComponentsPackage.TEXT_TO_SPEECH__FORMAT:
 				return getFormat();
-			case ComponentsPackage.TEXT_TO_SPEECH__TEXT:
-				return getText();
 			case ComponentsPackage.TEXT_TO_SPEECH__INTERPOLATE:
 				return isInterpolate();
 			case ComponentsPackage.TEXT_TO_SPEECH__APPEARANCE:
@@ -372,9 +339,6 @@ public class TextToSpeechImpl extends ModelElementImpl implements TextToSpeech {
 				return;
 			case ComponentsPackage.TEXT_TO_SPEECH__FORMAT:
 				setFormat((String)newValue);
-				return;
-			case ComponentsPackage.TEXT_TO_SPEECH__TEXT:
-				setText((String)newValue);
 				return;
 			case ComponentsPackage.TEXT_TO_SPEECH__INTERPOLATE:
 				setInterpolate((Boolean)newValue);
@@ -409,9 +373,6 @@ public class TextToSpeechImpl extends ModelElementImpl implements TextToSpeech {
 			case ComponentsPackage.TEXT_TO_SPEECH__FORMAT:
 				setFormat(FORMAT_EDEFAULT);
 				return;
-			case ComponentsPackage.TEXT_TO_SPEECH__TEXT:
-				setText(TEXT_EDEFAULT);
-				return;
 			case ComponentsPackage.TEXT_TO_SPEECH__INTERPOLATE:
 				setInterpolate(INTERPOLATE_EDEFAULT);
 				return;
@@ -442,8 +403,6 @@ public class TextToSpeechImpl extends ModelElementImpl implements TextToSpeech {
 				return VOICE_EDEFAULT == null ? getVoice() != null : !VOICE_EDEFAULT.equals(getVoice());
 			case ComponentsPackage.TEXT_TO_SPEECH__FORMAT:
 				return FORMAT_EDEFAULT == null ? getFormat() != null : !FORMAT_EDEFAULT.equals(getFormat());
-			case ComponentsPackage.TEXT_TO_SPEECH__TEXT:
-				return TEXT_EDEFAULT == null ? getText() != null : !TEXT_EDEFAULT.equals(getText());
 			case ComponentsPackage.TEXT_TO_SPEECH__INTERPOLATE:
 				return isInterpolate() != INTERPOLATE_EDEFAULT;
 			case ComponentsPackage.TEXT_TO_SPEECH__APPEARANCE:
@@ -455,11 +414,14 @@ public class TextToSpeechImpl extends ModelElementImpl implements TextToSpeech {
 		}
 		return super.eIsSet(featureID);
 	}
+		
+	protected abstract String doGetText(Context context) throws Exception;	
 
 	@Override
 	public Supplier<ViewPart> create(Context context) throws Exception {
 		
-		String text = isInterpolate() ? context.interpolate(getText()) : getText();
+		String theText = doGetText(context);
+		String text = isInterpolate() ? context.interpolate(theText) : theText;
 		
 		Supplier<ViewPart> audioSupplier = new Supplier<ViewPart>() {
 			

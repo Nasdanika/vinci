@@ -181,6 +181,24 @@ public class ComponentsSwitch<T1> extends Switch<T1> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case ComponentsPackage.TEXT_TO_SPEECH_TEXT: {
+				TextToSpeechText textToSpeechText = (TextToSpeechText)theEObject;
+				T1 result = caseTextToSpeechText(textToSpeechText);
+				if (result == null) result = caseTextToSpeech(textToSpeechText);
+				if (result == null) result = caseModelElement(textToSpeechText);
+				if (result == null) result = caseISupplierFactory(textToSpeechText);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ComponentsPackage.TEXT_TO_SPEECH_RESOURCE: {
+				TextToSpeechResource textToSpeechResource = (TextToSpeechResource)theEObject;
+				T1 result = caseTextToSpeechResource(textToSpeechResource);
+				if (result == null) result = caseTextToSpeech(textToSpeechResource);
+				if (result == null) result = caseModelElement(textToSpeechResource);
+				if (result == null) result = caseISupplierFactory(textToSpeechResource);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -347,6 +365,36 @@ public class ComponentsSwitch<T1> extends Switch<T1> {
 	 * @generated
 	 */
 	public T1 caseImage(Image object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Text To Speech Text</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Text To Speech Text</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseTextToSpeechText(TextToSpeechText object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Text To Speech Resource</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Text To Speech Resource</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseTextToSpeechResource(TextToSpeechResource object) {
 		return null;
 	}
 
