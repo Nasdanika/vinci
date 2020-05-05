@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <org.nasdanika.vinci.app:Action xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.nasdanika.vinci.app="urn:org.nasdanika.vinci.app" xmlns:org.nasdanika.vinci.components="urn:org.nasdanika.vinci.components" title="widgets" id="43187128-c1cd-4f74-a6ca-704ebccd3cf1" text="Nasdanika" activator="" activatorType="None" pageTemplate="platform:/plugin/org.nasdanika.vinci.templates/pages/default/primary.vinci">
-  <elements xsi:type="org.nasdanika.vinci.app:Action" id="35e2cdf2-ffd3-49df-8683-c0ae03037645" text="Widgets" activator="index.html">
+  <elements xsi:type="org.nasdanika.vinci.app:Action" id="35e2cdf2-ffd3-49df-8683-c0ae03037645" text="Widgets" activator="index.html" markdownContent="Markdown with inlined widgets&#xD;&#xA;&#xD;&#xA;## Root widget - image&#xD;&#xA;&#xD;&#xA;Some text above&#xD;&#xA;${widgets/root-widget}&#xD;&#xA;Some text below&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;## Principal widget - text-to-speech&#xD;&#xA;&#xD;&#xA;Some text before&#xD;&#xA;${widgets/principal-widget}&#xD;&#xA;Some text after&#xD;&#xA;&#xD;&#xA;">
+    <content xsi:type="org.nasdanika.vinci.components:Image" title="Screenshot of ..."/>
+    <content xsi:type="org.nasdanika.vinci.components:TextToSpeech" title="To be or not to be" language="en-US" voice="en-US-Wavenet-D" format="SSML" text="  &lt;emphasis level=&quot;strong&quot;>To be&lt;/emphasis>&#xD;&#xA;  &lt;break time=&quot;200ms&quot;/> or not to be, &lt;break time=&quot;400ms&quot;/>&#xD;&#xA;  &lt;emphasis level=&quot;moderate&quot;>that&lt;/emphasis>&#xD;&#xA;  is the question.&lt;break time=&quot;400ms&quot;/>&#xD;&#xA;  Whether ‘tis nobler in the mind to suffer&#xD;&#xA;  The slings and arrows of outrageous fortune,&lt;break time=&quot;200ms&quot;/>&#xD;&#xA;  Or to take arms against a sea of troubles&#xD;&#xA;  And by opposing end them."/>
     <widgets name="principal-widget">
-      <content xsi:type="org.nasdanika.vinci.components:TextToSpeech" format="Text"/>
+      <content xsi:type="org.nasdanika.vinci.components:TextToSpeech" language="en-US" voice="en-US-Wavenet-D" text="Hello and welcome to the Nasdanika Vinci text-to-speech functionality."/>
     </widgets>
   </elements>
   <widgets name="root-widget">
