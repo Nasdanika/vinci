@@ -233,6 +233,52 @@ public class ComponentsItemProviderAdapterFactory extends ComponentsAdapterFacto
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.nasdanika.vinci.components.TextToSpeech} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected TextToSpeechItemProvider textToSpeechItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.nasdanika.vinci.components.TextToSpeech}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createTextToSpeechAdapter() {
+		if (textToSpeechItemProvider == null) {
+			textToSpeechItemProvider = new TextToSpeechItemProvider(this);
+		}
+
+		return textToSpeechItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.nasdanika.vinci.components.Image} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ImageItemProvider imageItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.nasdanika.vinci.components.Image}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createImageAdapter() {
+		if (imageItemProvider == null) {
+			imageItemProvider = new ImageItemProvider(this);
+		}
+
+		return imageItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -344,6 +390,8 @@ public class ComponentsItemProviderAdapterFactory extends ComponentsAdapterFacto
 		if (listOfContentsItemProvider != null) listOfContentsItemProvider.dispose();
 		if (listOfActionsItemProvider != null) listOfActionsItemProvider.dispose();
 		if (tableOfActionsItemProvider != null) tableOfActionsItemProvider.dispose();
+		if (textToSpeechItemProvider != null) textToSpeechItemProvider.dispose();
+		if (imageItemProvider != null) imageItemProvider.dispose();
 	}
 
 }

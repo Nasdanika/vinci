@@ -1030,6 +1030,198 @@ public interface ComponentsPackage extends EPackage {
 
 
 	/**
+	 * The meta object id for the '{@link org.nasdanika.vinci.components.impl.TextToSpeechImpl <em>Text To Speech</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.vinci.components.impl.TextToSpeechImpl
+	 * @see org.nasdanika.vinci.components.impl.ComponentsPackageImpl#getTextToSpeech()
+	 * @generated
+	 */
+	int TEXT_TO_SPEECH = 9;
+
+	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_TO_SPEECH__TITLE = NcorePackage.MODEL_ELEMENT__TITLE;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_TO_SPEECH__DESCRIPTION = NcorePackage.MODEL_ELEMENT__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Language</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_TO_SPEECH__LANGUAGE = NcorePackage.MODEL_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Voice</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_TO_SPEECH__VOICE = NcorePackage.MODEL_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Format</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_TO_SPEECH__FORMAT = NcorePackage.MODEL_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Text</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_TO_SPEECH__TEXT = NcorePackage.MODEL_ELEMENT_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Interpolate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_TO_SPEECH__INTERPOLATE = NcorePackage.MODEL_ELEMENT_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Appearance</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_TO_SPEECH__APPEARANCE = NcorePackage.MODEL_ELEMENT_FEATURE_COUNT + 5;
+
+	/**
+	 * The number of structural features of the '<em>Text To Speech</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_TO_SPEECH_FEATURE_COUNT = NcorePackage.MODEL_ELEMENT_FEATURE_COUNT + 6;
+
+	/**
+	 * The number of operations of the '<em>Text To Speech</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_TO_SPEECH_OPERATION_COUNT = NcorePackage.MODEL_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.nasdanika.vinci.components.impl.ImageImpl <em>Image</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.vinci.components.impl.ImageImpl
+	 * @see org.nasdanika.vinci.components.impl.ComponentsPackageImpl#getImage()
+	 * @generated
+	 */
+	int IMAGE = 10;
+
+	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IMAGE__TITLE = NcorePackage.MODEL_ELEMENT__TITLE;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IMAGE__DESCRIPTION = NcorePackage.MODEL_ELEMENT__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Format</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IMAGE__FORMAT = NcorePackage.MODEL_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Content</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IMAGE__CONTENT = NcorePackage.MODEL_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Caption</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IMAGE__CAPTION = NcorePackage.MODEL_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Appearance</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IMAGE__APPEARANCE = NcorePackage.MODEL_ELEMENT_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Target</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IMAGE__TARGET = NcorePackage.MODEL_ELEMENT_FEATURE_COUNT + 4;
+
+	/**
+	 * The number of structural features of the '<em>Image</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IMAGE_FEATURE_COUNT = NcorePackage.MODEL_ELEMENT_FEATURE_COUNT + 5;
+
+	/**
+	 * The number of operations of the '<em>Image</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IMAGE_OPERATION_COUNT = NcorePackage.MODEL_ELEMENT_OPERATION_COUNT + 0;
+
+
+	/**
 	 * Returns the meta object for class '{@link org.nasdanika.vinci.components.Markdown <em>Markdown</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1307,6 +1499,147 @@ public interface ComponentsPackage extends EPackage {
 	EReference getTableOfActions_Actions();
 
 	/**
+	 * Returns the meta object for class '{@link org.nasdanika.vinci.components.TextToSpeech <em>Text To Speech</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Text To Speech</em>'.
+	 * @see org.nasdanika.vinci.components.TextToSpeech
+	 * @generated
+	 */
+	EClass getTextToSpeech();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.components.TextToSpeech#isLanguage <em>Language</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Language</em>'.
+	 * @see org.nasdanika.vinci.components.TextToSpeech#isLanguage()
+	 * @see #getTextToSpeech()
+	 * @generated
+	 */
+	EAttribute getTextToSpeech_Language();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.components.TextToSpeech#isVoice <em>Voice</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Voice</em>'.
+	 * @see org.nasdanika.vinci.components.TextToSpeech#isVoice()
+	 * @see #getTextToSpeech()
+	 * @generated
+	 */
+	EAttribute getTextToSpeech_Voice();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.components.TextToSpeech#getFormat <em>Format</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Format</em>'.
+	 * @see org.nasdanika.vinci.components.TextToSpeech#getFormat()
+	 * @see #getTextToSpeech()
+	 * @generated
+	 */
+	EAttribute getTextToSpeech_Format();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.components.TextToSpeech#getText <em>Text</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Text</em>'.
+	 * @see org.nasdanika.vinci.components.TextToSpeech#getText()
+	 * @see #getTextToSpeech()
+	 * @generated
+	 */
+	EAttribute getTextToSpeech_Text();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.components.TextToSpeech#isInterpolate <em>Interpolate</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Interpolate</em>'.
+	 * @see org.nasdanika.vinci.components.TextToSpeech#isInterpolate()
+	 * @see #getTextToSpeech()
+	 * @generated
+	 */
+	EAttribute getTextToSpeech_Interpolate();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.nasdanika.vinci.components.TextToSpeech#getAppearance <em>Appearance</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Appearance</em>'.
+	 * @see org.nasdanika.vinci.components.TextToSpeech#getAppearance()
+	 * @see #getTextToSpeech()
+	 * @generated
+	 */
+	EReference getTextToSpeech_Appearance();
+
+	/**
+	 * Returns the meta object for class '{@link org.nasdanika.vinci.components.Image <em>Image</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Image</em>'.
+	 * @see org.nasdanika.vinci.components.Image
+	 * @generated
+	 */
+	EClass getImage();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.components.Image#getFormat <em>Format</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Format</em>'.
+	 * @see org.nasdanika.vinci.components.Image#getFormat()
+	 * @see #getImage()
+	 * @generated
+	 */
+	EAttribute getImage_Format();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.components.Image#getContent <em>Content</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Content</em>'.
+	 * @see org.nasdanika.vinci.components.Image#getContent()
+	 * @see #getImage()
+	 * @generated
+	 */
+	EAttribute getImage_Content();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.components.Image#getCaption <em>Caption</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Caption</em>'.
+	 * @see org.nasdanika.vinci.components.Image#getCaption()
+	 * @see #getImage()
+	 * @generated
+	 */
+	EAttribute getImage_Caption();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.nasdanika.vinci.components.Image#getAppearance <em>Appearance</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Appearance</em>'.
+	 * @see org.nasdanika.vinci.components.Image#getAppearance()
+	 * @see #getImage()
+	 * @generated
+	 */
+	EReference getImage_Appearance();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.nasdanika.vinci.components.Image#getTarget <em>Target</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Target</em>'.
+	 * @see org.nasdanika.vinci.components.Image#getTarget()
+	 * @see #getImage()
+	 * @generated
+	 */
+	EReference getImage_Target();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1529,6 +1862,101 @@ public interface ComponentsPackage extends EPackage {
 		 * @generated
 		 */
 		EReference TABLE_OF_ACTIONS__ACTIONS = eINSTANCE.getTableOfActions_Actions();
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.vinci.components.impl.TextToSpeechImpl <em>Text To Speech</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.vinci.components.impl.TextToSpeechImpl
+		 * @see org.nasdanika.vinci.components.impl.ComponentsPackageImpl#getTextToSpeech()
+		 * @generated
+		 */
+		EClass TEXT_TO_SPEECH = eINSTANCE.getTextToSpeech();
+		/**
+		 * The meta object literal for the '<em><b>Language</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TEXT_TO_SPEECH__LANGUAGE = eINSTANCE.getTextToSpeech_Language();
+		/**
+		 * The meta object literal for the '<em><b>Voice</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TEXT_TO_SPEECH__VOICE = eINSTANCE.getTextToSpeech_Voice();
+		/**
+		 * The meta object literal for the '<em><b>Format</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TEXT_TO_SPEECH__FORMAT = eINSTANCE.getTextToSpeech_Format();
+		/**
+		 * The meta object literal for the '<em><b>Text</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TEXT_TO_SPEECH__TEXT = eINSTANCE.getTextToSpeech_Text();
+		/**
+		 * The meta object literal for the '<em><b>Interpolate</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TEXT_TO_SPEECH__INTERPOLATE = eINSTANCE.getTextToSpeech_Interpolate();
+		/**
+		 * The meta object literal for the '<em><b>Appearance</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TEXT_TO_SPEECH__APPEARANCE = eINSTANCE.getTextToSpeech_Appearance();
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.vinci.components.impl.ImageImpl <em>Image</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.vinci.components.impl.ImageImpl
+		 * @see org.nasdanika.vinci.components.impl.ComponentsPackageImpl#getImage()
+		 * @generated
+		 */
+		EClass IMAGE = eINSTANCE.getImage();
+		/**
+		 * The meta object literal for the '<em><b>Format</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute IMAGE__FORMAT = eINSTANCE.getImage_Format();
+		/**
+		 * The meta object literal for the '<em><b>Content</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute IMAGE__CONTENT = eINSTANCE.getImage_Content();
+		/**
+		 * The meta object literal for the '<em><b>Caption</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute IMAGE__CAPTION = eINSTANCE.getImage_Caption();
+		/**
+		 * The meta object literal for the '<em><b>Appearance</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference IMAGE__APPEARANCE = eINSTANCE.getImage_Appearance();
+		/**
+		 * The meta object literal for the '<em><b>Target</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference IMAGE__TARGET = eINSTANCE.getImage_Target();
 
 	}
 

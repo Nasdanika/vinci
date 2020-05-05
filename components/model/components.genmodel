@@ -44,5 +44,20 @@
     <genClasses ecoreClass="components.ecore#//TableOfActions">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference components.ecore#//TableOfActions/actions"/>
     </genClasses>
+    <genClasses ecoreClass="components.ecore#//TextToSpeech">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute components.ecore#//TextToSpeech/language"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute components.ecore#//TextToSpeech/voice"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute components.ecore#//TextToSpeech/format"/>
+      <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute components.ecore#//TextToSpeech/text"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute components.ecore#//TextToSpeech/interpolate"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference components.ecore#//TextToSpeech/appearance"/>
+    </genClasses>
+    <genClasses ecoreClass="components.ecore#//Image">
+      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute components.ecore#//Image/format"/>
+      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute components.ecore#//Image/content"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute components.ecore#//Image/caption"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference components.ecore#//Image/appearance"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference components.ecore#//Image/target"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>

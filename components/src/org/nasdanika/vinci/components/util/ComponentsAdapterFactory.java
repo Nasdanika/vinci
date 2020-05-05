@@ -110,6 +110,14 @@ public class ComponentsAdapterFactory extends AdapterFactoryImpl {
 				return createTableOfActionsAdapter();
 			}
 			@Override
+			public Adapter caseTextToSpeech(TextToSpeech object) {
+				return createTextToSpeechAdapter();
+			}
+			@Override
+			public Adapter caseImage(Image object) {
+				return createImageAdapter();
+			}
+			@Override
 			public Adapter caseModelElement(ModelElement object) {
 				return createModelElementAdapter();
 			}
@@ -272,6 +280,34 @@ public class ComponentsAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createTableOfActionsAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.vinci.components.TextToSpeech <em>Text To Speech</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.vinci.components.TextToSpeech
+	 * @generated
+	 */
+	public Adapter createTextToSpeechAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.vinci.components.Image <em>Image</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.vinci.components.Image
+	 * @generated
+	 */
+	public Adapter createImageAdapter() {
 		return null;
 	}
 

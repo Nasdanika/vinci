@@ -14,6 +14,7 @@ import org.nasdanika.vinci.bootstrap.BootstrapPackage;
 import org.nasdanika.vinci.components.ActionLink;
 import org.nasdanika.vinci.components.ComponentsFactory;
 import org.nasdanika.vinci.components.ComponentsPackage;
+import org.nasdanika.vinci.components.Image;
 import org.nasdanika.vinci.components.ListOfActions;
 import org.nasdanika.vinci.components.ListOfContents;
 import org.nasdanika.vinci.components.Markdown;
@@ -22,6 +23,7 @@ import org.nasdanika.vinci.components.MarkdownText;
 import org.nasdanika.vinci.components.TableOfActions;
 import org.nasdanika.vinci.components.TableOfContents;
 import org.nasdanika.vinci.components.TableOfContentsBase;
+import org.nasdanika.vinci.components.TextToSpeech;
 import org.nasdanika.vinci.html.HtmlPackage;
 
 /**
@@ -93,6 +95,20 @@ public class ComponentsPackageImpl extends EPackageImpl implements ComponentsPac
 	 * @generated
 	 */
 	private EClass tableOfActionsEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass textToSpeechEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass imageEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -427,6 +443,136 @@ public class ComponentsPackageImpl extends EPackageImpl implements ComponentsPac
 	 * @generated
 	 */
 	@Override
+	public EClass getTextToSpeech() {
+		return textToSpeechEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getTextToSpeech_Language() {
+		return (EAttribute)textToSpeechEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getTextToSpeech_Voice() {
+		return (EAttribute)textToSpeechEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getTextToSpeech_Format() {
+		return (EAttribute)textToSpeechEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getTextToSpeech_Text() {
+		return (EAttribute)textToSpeechEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getTextToSpeech_Interpolate() {
+		return (EAttribute)textToSpeechEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getTextToSpeech_Appearance() {
+		return (EReference)textToSpeechEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getImage() {
+		return imageEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getImage_Format() {
+		return (EAttribute)imageEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getImage_Content() {
+		return (EAttribute)imageEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getImage_Caption() {
+		return (EAttribute)imageEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getImage_Appearance() {
+		return (EReference)imageEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getImage_Target() {
+		return (EReference)imageEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public ComponentsFactory getComponentsFactory() {
 		return (ComponentsFactory)getEFactoryInstance();
 	}
@@ -484,6 +630,21 @@ public class ComponentsPackageImpl extends EPackageImpl implements ComponentsPac
 
 		tableOfActionsEClass = createEClass(TABLE_OF_ACTIONS);
 		createEReference(tableOfActionsEClass, TABLE_OF_ACTIONS__ACTIONS);
+
+		textToSpeechEClass = createEClass(TEXT_TO_SPEECH);
+		createEAttribute(textToSpeechEClass, TEXT_TO_SPEECH__LANGUAGE);
+		createEAttribute(textToSpeechEClass, TEXT_TO_SPEECH__VOICE);
+		createEAttribute(textToSpeechEClass, TEXT_TO_SPEECH__FORMAT);
+		createEAttribute(textToSpeechEClass, TEXT_TO_SPEECH__TEXT);
+		createEAttribute(textToSpeechEClass, TEXT_TO_SPEECH__INTERPOLATE);
+		createEReference(textToSpeechEClass, TEXT_TO_SPEECH__APPEARANCE);
+
+		imageEClass = createEClass(IMAGE);
+		createEAttribute(imageEClass, IMAGE__FORMAT);
+		createEAttribute(imageEClass, IMAGE__CONTENT);
+		createEAttribute(imageEClass, IMAGE__CAPTION);
+		createEReference(imageEClass, IMAGE__APPEARANCE);
+		createEReference(imageEClass, IMAGE__TARGET);
 	}
 
 	/**
@@ -545,6 +706,18 @@ public class ComponentsPackageImpl extends EPackageImpl implements ComponentsPac
 		listOfContentsEClass.getESuperTypes().add(this.getTableOfContentsBase());
 		listOfActionsEClass.getESuperTypes().add(this.getListOfContents());
 		tableOfActionsEClass.getESuperTypes().add(this.getTableOfContents());
+		g1 = createEGenericType(theNcorePackage.getModelElement());
+		textToSpeechEClass.getEGenericSuperTypes().add(g1);
+		g1 = createEGenericType(theNcorePackage.getISupplierFactory());
+		g2 = createEGenericType(theHtmlPackage.getViewPart());
+		g1.getETypeArguments().add(g2);
+		textToSpeechEClass.getEGenericSuperTypes().add(g1);
+		g1 = createEGenericType(theNcorePackage.getModelElement());
+		imageEClass.getEGenericSuperTypes().add(g1);
+		g1 = createEGenericType(theNcorePackage.getISupplierFactory());
+		g2 = createEGenericType(theHtmlPackage.getViewPart());
+		g1.getETypeArguments().add(g2);
+		imageEClass.getEGenericSuperTypes().add(g1);
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(markdownEClass, Markdown.class, "Markdown", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -581,6 +754,21 @@ public class ComponentsPackageImpl extends EPackageImpl implements ComponentsPac
 
 		initEClass(tableOfActionsEClass, TableOfActions.class, "TableOfActions", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getTableOfActions_Actions(), theAppPackage.getAbstractAction(), null, "actions", null, 0, -1, TableOfActions.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(textToSpeechEClass, TextToSpeech.class, "TextToSpeech", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getTextToSpeech_Language(), ecorePackage.getEBoolean(), "language", null, 0, 1, TextToSpeech.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTextToSpeech_Voice(), ecorePackage.getEBoolean(), "voice", null, 0, 1, TextToSpeech.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTextToSpeech_Format(), ecorePackage.getEString(), "format", null, 0, 1, TextToSpeech.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTextToSpeech_Text(), ecorePackage.getEString(), "text", null, 0, 1, TextToSpeech.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTextToSpeech_Interpolate(), ecorePackage.getEBoolean(), "interpolate", null, 0, 1, TextToSpeech.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTextToSpeech_Appearance(), theBootstrapPackage.getAppearance(), null, "appearance", null, 0, 1, TextToSpeech.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(imageEClass, Image.class, "Image", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getImage_Format(), ecorePackage.getEString(), "format", null, 0, 1, Image.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getImage_Content(), ecorePackage.getEByteArray(), "content", null, 0, 1, Image.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getImage_Caption(), ecorePackage.getEString(), "caption", null, 0, 1, Image.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getImage_Appearance(), theBootstrapPackage.getAppearance(), null, "appearance", null, 0, 1, Image.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getImage_Target(), theAppPackage.getAbstractAction(), null, "target", null, 0, 1, Image.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);
@@ -761,6 +949,84 @@ public class ComponentsPackageImpl extends EPackageImpl implements ComponentsPac
 		   source,
 		   new String[] {
 			   "documentation", "Root actions to include in the list."
+		   });
+		addAnnotation
+		  (textToSpeechEClass,
+		   source,
+		   new String[] {
+			   "documentation", "Uses [Google Text-to-Speech](https://cloud.google.com/text-to-speech) to synthesize \nvoice from text or [SSML](https://cloud.google.com/text-to-speech/docs/ssml). \nVoice is output to an mp3 file. File name is defined by the ``path`` attribute if it is not blank. \nIn this case path is resolved relative to the containing action. \nIf ``path`` attribute is blank then the file name as a digest of language, voice, format, and text.\n\nGenerates audio tag which plays the synthesized speech.\n\nUse of text to speech requires ``GOOGLE_APPLICATION_CREDENTIALS`` environment variable to be set to the location of the private key JSON file\nas explained in [Google Cloud Getting Started with Authentication](https://cloud.google.com/docs/authentication/getting-started).\n\n   "
+		   });
+		addAnnotation
+		  (getTextToSpeech_Language(),
+		   source,
+		   new String[] {
+			   "documentation", "Language and locale code, e.g. ``en-US``. If blank, then the contextual language and locale are used - hardcoded in the UI and configurable in the CLI. \nSee [Supported voices and languages](https://cloud.google.com/text-to-speech/docs/voices) for a list of locales and voices."
+		   });
+		addAnnotation
+		  (getTextToSpeech_Voice(),
+		   source,
+		   new String[] {
+			   "documentation", "Voice name, e.g. ``en-US-Wavenet-D``. If blank, then the contextual voice is used - hardcoded in the UI and configurable in the CLI. \nSee [Supported voices and languages](https://cloud.google.com/text-to-speech/docs/voices) for a list of locales and voices."
+		   });
+		addAnnotation
+		  (getTextToSpeech_Format(),
+		   source,
+		   new String[] {
+			   "documentation", "Text format - ``Text`` or ``SSML``."
+		   });
+		addAnnotation
+		  (getTextToSpeech_Text(),
+		   source,
+		   new String[] {
+			   "documentation", "Text to speak, in case of  [SSML](https://cloud.google.com/text-to-speech/docs/ssml) format ``<speak>`` and  ``</speak>`` opening and closing tags are implied."
+		   });
+		addAnnotation
+		  (getTextToSpeech_Interpolate(),
+		   source,
+		   new String[] {
+			   "documentation", "If true, text/ssml is interpolated before speech generation."
+		   });
+		addAnnotation
+		  (getTextToSpeech_Appearance(),
+		   source,
+		   new String[] {
+			   "documentation", "Appearance to apply to the generated audio tag."
+		   });
+		addAnnotation
+		  (imageEClass,
+		   source,
+		   new String[] {
+			   "documentation", "Embedded image which can be loaded from a file or taken as a screenshot."
+		   });
+		addAnnotation
+		  (getImage_Format(),
+		   source,
+		   new String[] {
+			   "documentation", "Image format. "
+		   });
+		addAnnotation
+		  (getImage_Content(),
+		   source,
+		   new String[] {
+			   "documentation", "Image bytes."
+		   });
+		addAnnotation
+		  (getImage_Caption(),
+		   source,
+		   new String[] {
+			   "documentation", "If not blank, image caption is shown below the image."
+		   });
+		addAnnotation
+		  (getImage_Appearance(),
+		   source,
+		   new String[] {
+			   "documentation", "Appearance to apply to the image. E.g. border or float."
+		   });
+		addAnnotation
+		  (getImage_Target(),
+		   source,
+		   new String[] {
+			   "documentation", "If target is set, then click on the image activates the target action. For example, a click on a screensot may open a dialog with a screen recording positioned at the time the screenshot was taken."
 		   });
 	}
 

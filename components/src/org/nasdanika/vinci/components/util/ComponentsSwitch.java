@@ -165,6 +165,22 @@ public class ComponentsSwitch<T1> extends Switch<T1> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case ComponentsPackage.TEXT_TO_SPEECH: {
+				TextToSpeech textToSpeech = (TextToSpeech)theEObject;
+				T1 result = caseTextToSpeech(textToSpeech);
+				if (result == null) result = caseModelElement(textToSpeech);
+				if (result == null) result = caseISupplierFactory(textToSpeech);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ComponentsPackage.IMAGE: {
+				Image image = (Image)theEObject;
+				T1 result = caseImage(image);
+				if (result == null) result = caseModelElement(image);
+				if (result == null) result = caseISupplierFactory(image);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -301,6 +317,36 @@ public class ComponentsSwitch<T1> extends Switch<T1> {
 	 * @generated
 	 */
 	public T1 caseTableOfActions(TableOfActions object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Text To Speech</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Text To Speech</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseTextToSpeech(TextToSpeech object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Image</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Image</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseImage(Image object) {
 		return null;
 	}
 
