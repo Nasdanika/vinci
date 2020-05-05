@@ -306,6 +306,7 @@ public class ActionBaseItemProvider extends LabelItemProvider {
 			children.add(new EReferenceItemProvider(this, (EObject) object, AppPackage.Literals.CONTAINER__LINKED_ELEMENTS));
 			children.add(new EReferenceItemProvider(this, (EObject) object, AppPackage.Literals.ACTION_BASE__CONTENT)); 
 			children.add(new EReferenceItemProvider(this, (EObject) object, AppPackage.Literals.ABSTRACT_ACTION__ACTION_MAPPINGS)); 
+			children.add(new EReferenceItemProvider(this, (EObject) object, AppPackage.Literals.ACTION_BASE__WIDGETS)); 
 			children.add(new EReferenceItemProvider(this, (EObject) object, NcorePackage.Literals.CONFIGURABLE__CONFIGURATION)); 
 		}
 		Collection<Object> ret = new ArrayList<>(children);
@@ -401,6 +402,7 @@ public class ActionBaseItemProvider extends LabelItemProvider {
 			case AppPackage.ACTION_BASE__ACTION_MAPPINGS:
 			case AppPackage.ACTION_BASE__ELEMENTS:
 			case AppPackage.ACTION_BASE__CONTENT:
+			case AppPackage.ACTION_BASE__WIDGETS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}

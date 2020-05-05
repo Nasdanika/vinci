@@ -33,6 +33,7 @@ import org.nasdanika.ncore.Value;
  *   <li>{@link org.nasdanika.vinci.app.ActionBase#getMarkdownContent <em>Markdown Content</em>}</li>
  *   <li>{@link org.nasdanika.vinci.app.ActionBase#getPageTemplate <em>Page Template</em>}</li>
  *   <li>{@link org.nasdanika.vinci.app.ActionBase#getContent <em>Content</em>}</li>
+ *   <li>{@link org.nasdanika.vinci.app.ActionBase#getWidgets <em>Widgets</em>}</li>
  * </ul>
  *
  * @see org.nasdanika.vinci.app.AppPackage#getActionBase()
@@ -361,6 +362,21 @@ public interface ActionBase extends Label, AbstractAction, Container<ActionEleme
 	 */
 	EList<SupplierFactory<Object>> getContent();
 	
+	/**
+	 * Returns the value of the '<em><b>Widgets</b></em>' containment reference list.
+	 * The list contents are of type {@link org.nasdanika.vinci.app.Widget}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Action widgets. Widgets are inherited by action children.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Widgets</em>' containment reference list.
+	 * @see org.nasdanika.vinci.app.AppPackage#getActionBase_Widgets()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<Widget> getWidgets();
+
 	/**
 	 * Convenience method for adding content as {@link Value}
 	 * @param content

@@ -895,13 +895,22 @@ public interface AppPackage extends EPackage {
 	int ACTION_BASE__CONTENT = LABEL_FEATURE_COUNT + 14;
 
 	/**
+	 * The feature id for the '<em><b>Widgets</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION_BASE__WIDGETS = LABEL_FEATURE_COUNT + 15;
+
+	/**
 	 * The number of structural features of the '<em>Action Base</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION_BASE_FEATURE_COUNT = LABEL_FEATURE_COUNT + 15;
+	int ACTION_BASE_FEATURE_COUNT = LABEL_FEATURE_COUNT + 16;
 
 	/**
 	 * The operation id for the '<em>Create Application Builder Supplier</em>' operation.
@@ -1364,6 +1373,15 @@ public interface AppPackage extends EPackage {
 	int ACTION__CONTENT = ACTION_BASE__CONTENT;
 
 	/**
+	 * The feature id for the '<em><b>Widgets</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION__WIDGETS = ACTION_BASE__WIDGETS;
+
+	/**
 	 * The number of structural features of the '<em>Action</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1614,6 +1632,15 @@ public interface AppPackage extends EPackage {
 	 * @ordered
 	 */
 	int PARTITION__CONTENT = ACTION_BASE__CONTENT;
+
+	/**
+	 * The feature id for the '<em><b>Widgets</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARTITION__WIDGETS = ACTION_BASE__WIDGETS;
 
 	/**
 	 * The number of structural features of the '<em>Partition</em>' class.
@@ -1952,6 +1979,70 @@ public interface AppPackage extends EPackage {
 	int BOOTSTRAP_CONTAINER_APPLICATION_PANEL_OPERATION_COUNT = BOOTSTRAP_CONTAINER_APPLICATION_SECTION_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link org.nasdanika.vinci.app.impl.WidgetImpl <em>Widget</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.vinci.app.impl.WidgetImpl
+	 * @see org.nasdanika.vinci.app.impl.AppPackageImpl#getWidget()
+	 * @generated
+	 */
+	int WIDGET = 16;
+
+	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WIDGET__TITLE = NcorePackage.NAMED_ELEMENT__TITLE;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WIDGET__DESCRIPTION = NcorePackage.NAMED_ELEMENT__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WIDGET__NAME = NcorePackage.NAMED_ELEMENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Content</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WIDGET__CONTENT = NcorePackage.NAMED_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Widget</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WIDGET_FEATURE_COUNT = NcorePackage.NAMED_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Widget</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WIDGET_OPERATION_COUNT = NcorePackage.NAMED_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link org.nasdanika.vinci.app.ActivatorType <em>Activator Type</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1959,7 +2050,7 @@ public interface AppPackage extends EPackage {
 	 * @see org.nasdanika.vinci.app.impl.AppPackageImpl#getActivatorType()
 	 * @generated
 	 */
-	int ACTIVATOR_TYPE = 16;
+	int ACTIVATOR_TYPE = 17;
 
 	/**
 	 * Returns the meta object for class '{@link org.nasdanika.vinci.app.Label <em>Label</em>}'.
@@ -2226,6 +2317,27 @@ public interface AppPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getBootstrapContainerApplicationBuilder__CreateApplicationBuilderSupplier__Context();
+
+	/**
+	 * Returns the meta object for class '{@link org.nasdanika.vinci.app.Widget <em>Widget</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Widget</em>'.
+	 * @see org.nasdanika.vinci.app.Widget
+	 * @generated
+	 */
+	EClass getWidget();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.nasdanika.vinci.app.Widget#getContent <em>Content</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Content</em>'.
+	 * @see org.nasdanika.vinci.app.Widget#getContent()
+	 * @see #getWidget()
+	 * @generated
+	 */
+	EReference getWidget_Content();
 
 	/**
 	 * Returns the meta object for class '{@link org.nasdanika.vinci.app.ActionMapping <em>Action Mapping</em>}'.
@@ -2561,6 +2673,17 @@ public interface AppPackage extends EPackage {
 	EReference getActionBase_Content();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link org.nasdanika.vinci.app.ActionBase#getWidgets <em>Widgets</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Widgets</em>'.
+	 * @see org.nasdanika.vinci.app.ActionBase#getWidgets()
+	 * @see #getActionBase()
+	 * @generated
+	 */
+	EReference getActionBase_Widgets();
+
+	/**
 	 * Returns the meta object for class '{@link org.nasdanika.vinci.app.Container <em>Container</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2832,6 +2955,24 @@ public interface AppPackage extends EPackage {
 		EOperation BOOTSTRAP_CONTAINER_APPLICATION_BUILDER___CREATE_APPLICATION_BUILDER_SUPPLIER__CONTEXT = eINSTANCE.getBootstrapContainerApplicationBuilder__CreateApplicationBuilderSupplier__Context();
 
 		/**
+		 * The meta object literal for the '{@link org.nasdanika.vinci.app.impl.WidgetImpl <em>Widget</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.vinci.app.impl.WidgetImpl
+		 * @see org.nasdanika.vinci.app.impl.AppPackageImpl#getWidget()
+		 * @generated
+		 */
+		EClass WIDGET = eINSTANCE.getWidget();
+
+		/**
+		 * The meta object literal for the '<em><b>Content</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference WIDGET__CONTENT = eINSTANCE.getWidget_Content();
+
+		/**
 		 * The meta object literal for the '{@link org.nasdanika.vinci.app.impl.ActionMappingImpl <em>Action Mapping</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3094,6 +3235,14 @@ public interface AppPackage extends EPackage {
 		 * @generated
 		 */
 		EReference ACTION_BASE__CONTENT = eINSTANCE.getActionBase_Content();
+
+		/**
+		 * The meta object literal for the '<em><b>Widgets</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ACTION_BASE__WIDGETS = eINSTANCE.getActionBase_Widgets();
 
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.vinci.app.Container <em>Container</em>}' class.

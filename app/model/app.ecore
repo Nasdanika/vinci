@@ -186,6 +186,12 @@
         <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
       </eGenericType>
     </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="widgets" upperBound="-1"
+        eType="#//Widget" containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Action widgets. Widgets are inherited by action children."/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eGenericSuperTypes eClassifier="#//Label"/>
     <eGenericSuperTypes eClassifier="#//AbstractAction"/>
     <eGenericSuperTypes eClassifier="#//Container">
@@ -390,5 +396,19 @@
       </eGenericType>
       <eParameters name="context" eType="ecore:EDataType ../../org.nasdanika.ncore/model/ncore.ecore#//IContext"/>
     </eOperations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Widget" eSuperTypes="../../org.nasdanika.ncore/model/ncore.ecore#//NamedElement">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Named content which is injected into the generated context under ``widgets/&lt;widget name>`` and can be referenced from, say, markdown. This allows to combine the simplicity and ease of use of markdown with advanced functionality of components, e.g. the image component."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="content" upperBound="-1"
+        containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Widget content."/>
+      </eAnnotations>
+      <eGenericType eClassifier="ecore:EClass ../../org.nasdanika.ncore/model/ncore.ecore#//ISupplierFactory">
+        <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+      </eGenericType>
+    </eStructuralFeatures>
   </eClassifiers>
 </ecore:EPackage>

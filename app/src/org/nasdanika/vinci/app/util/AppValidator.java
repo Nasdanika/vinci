@@ -27,6 +27,7 @@ import org.nasdanika.emf.DiagnosticHelper;
 import org.nasdanika.html.app.SectionStyle;
 import org.nasdanika.html.bootstrap.Color;
 import org.nasdanika.ncore.ModelElement;
+import org.nasdanika.vinci.app.*;
 import org.nasdanika.vinci.app.AbstractAction;
 import org.nasdanika.vinci.app.Action;
 import org.nasdanika.vinci.app.ActionBase;
@@ -150,6 +151,8 @@ public class AppValidator extends EObjectValidator {
 				return validateBootstrapContainerApplicationPanel((BootstrapContainerApplicationPanel)value, diagnostics, context);
 			case AppPackage.BOOTSTRAP_CONTAINER_APPLICATION_BUILDER:
 				return validateBootstrapContainerApplicationBuilder((BootstrapContainerApplicationBuilder)value, diagnostics, context);
+			case AppPackage.WIDGET:
+				return validateWidget((Widget)value, diagnostics, context);
 			case AppPackage.ACTIVATOR_TYPE:
 				return validateActivatorType((ActivatorType)value, diagnostics, context);
 			default:
@@ -519,6 +522,15 @@ public class AppValidator extends EObjectValidator {
 	 */
 	public boolean validateBootstrapContainerApplicationBuilder(BootstrapContainerApplicationBuilder bootstrapContainerApplicationBuilder, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(bootstrapContainerApplicationBuilder, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateWidget(Widget widget, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(widget, diagnostics, context);
 	}
 
 	/**

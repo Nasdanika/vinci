@@ -45,6 +45,7 @@ import org.nasdanika.vinci.app.ActionRole;
 import org.nasdanika.vinci.app.ActivatorType;
 import org.nasdanika.vinci.app.AppPackage;
 import org.nasdanika.vinci.app.BootstrapContainerApplicationBuilder;
+import org.nasdanika.vinci.app.Widget;
 
 /**
  * <!-- begin-user-doc -->
@@ -69,6 +70,7 @@ import org.nasdanika.vinci.app.BootstrapContainerApplicationBuilder;
  *   <li>{@link org.nasdanika.vinci.app.impl.ActionBaseImpl#getMarkdownContent <em>Markdown Content</em>}</li>
  *   <li>{@link org.nasdanika.vinci.app.impl.ActionBaseImpl#getPageTemplate <em>Page Template</em>}</li>
  *   <li>{@link org.nasdanika.vinci.app.impl.ActionBaseImpl#getContent <em>Content</em>}</li>
+ *   <li>{@link org.nasdanika.vinci.app.impl.ActionBaseImpl#getWidgets <em>Widgets</em>}</li>
  * </ul>
  *
  * @generated
@@ -452,6 +454,17 @@ public abstract class ActionBaseImpl extends LabelImpl implements ActionBase {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public EList<Widget> getWidgets() {
+		return (EList<Widget>)eDynamicGet(AppPackage.ACTION_BASE__WIDGETS, AppPackage.Literals.ACTION_BASE__WIDGETS, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	@Override
@@ -475,6 +488,8 @@ public abstract class ActionBaseImpl extends LabelImpl implements ActionBase {
 				return ((InternalEList<?>)getElements()).basicRemove(otherEnd, msgs);
 			case AppPackage.ACTION_BASE__CONTENT:
 				return ((InternalEList<?>)getContent()).basicRemove(otherEnd, msgs);
+			case AppPackage.ACTION_BASE__WIDGETS:
+				return ((InternalEList<?>)getWidgets()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -517,6 +532,8 @@ public abstract class ActionBaseImpl extends LabelImpl implements ActionBase {
 				return getPageTemplate();
 			case AppPackage.ACTION_BASE__CONTENT:
 				return getContent();
+			case AppPackage.ACTION_BASE__WIDGETS:
+				return getWidgets();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -580,6 +597,10 @@ public abstract class ActionBaseImpl extends LabelImpl implements ActionBase {
 				getContent().clear();
 				getContent().addAll((Collection<? extends SupplierFactory<Object>>)newValue);
 				return;
+			case AppPackage.ACTION_BASE__WIDGETS:
+				getWidgets().clear();
+				getWidgets().addAll((Collection<? extends Widget>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -637,6 +658,9 @@ public abstract class ActionBaseImpl extends LabelImpl implements ActionBase {
 			case AppPackage.ACTION_BASE__CONTENT:
 				getContent().clear();
 				return;
+			case AppPackage.ACTION_BASE__WIDGETS:
+				getWidgets().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -679,6 +703,8 @@ public abstract class ActionBaseImpl extends LabelImpl implements ActionBase {
 				return PAGE_TEMPLATE_EDEFAULT == null ? getPageTemplate() != null : !PAGE_TEMPLATE_EDEFAULT.equals(getPageTemplate());
 			case AppPackage.ACTION_BASE__CONTENT:
 				return !getContent().isEmpty();
+			case AppPackage.ACTION_BASE__WIDGETS:
+				return !getWidgets().isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

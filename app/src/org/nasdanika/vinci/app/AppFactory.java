@@ -76,6 +76,15 @@ public interface AppFactory extends EFactory {
 	BootstrapContainerApplicationPanel createBootstrapContainerApplicationPanel();
 
 	/**
+	 * Returns a new object of class '<em>Widget</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Widget</em>'.
+	 * @generated
+	 */
+	Widget createWidget();
+
+	/**
 	 * Returns a new object of class '<em>Action Mapping</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

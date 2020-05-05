@@ -50,6 +50,7 @@
       <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute app.ecore#//ActionBase/markdownContent"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute app.ecore#//ActionBase/pageTemplate"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference app.ecore#//ActionBase/content"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference app.ecore#//ActionBase/widgets"/>
     </genClasses>
     <genClasses ecoreClass="app.ecore#//ActionMapping">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute app.ecore#//ActionMapping/alias"/>
@@ -88,6 +89,9 @@
       <genOperations ecoreOperation="app.ecore#//BootstrapContainerApplicationBuilder/createApplicationBuilderSupplier">
         <genParameters ecoreParameter="app.ecore#//BootstrapContainerApplicationBuilder/createApplicationBuilderSupplier/context"/>
       </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="app.ecore#//Widget">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference app.ecore#//Widget/content"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

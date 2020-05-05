@@ -208,6 +208,29 @@ public class AppItemProviderAdapterFactory extends AppAdapterFactory implements 
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.nasdanika.vinci.app.Widget} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected WidgetItemProvider widgetItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.nasdanika.vinci.app.Widget}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createWidgetAdapter() {
+		if (widgetItemProvider == null) {
+			widgetItemProvider = new WidgetItemProvider(this);
+		}
+
+		return widgetItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link org.nasdanika.vinci.app.ActionMapping} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -390,6 +413,7 @@ public class AppItemProviderAdapterFactory extends AppAdapterFactory implements 
 		if (bootstrapContainerApplicationItemProvider != null) bootstrapContainerApplicationItemProvider.dispose();
 		if (bootstrapContainerApplicationSectionItemProvider != null) bootstrapContainerApplicationSectionItemProvider.dispose();
 		if (bootstrapContainerApplicationPanelItemProvider != null) bootstrapContainerApplicationPanelItemProvider.dispose();
+		if (widgetItemProvider != null) widgetItemProvider.dispose();
 	}
 
 }
