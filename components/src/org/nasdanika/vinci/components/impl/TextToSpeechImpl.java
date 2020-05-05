@@ -2,19 +2,37 @@
  */
 package org.nasdanika.vinci.components.impl;
 
-import org.eclipse.emf.common.notify.NotificationChain;
+import java.io.ByteArrayInputStream;
+import java.security.MessageDigest;
+import java.util.Base64;
+import java.util.Locale;
 
+import org.apache.commons.codec.binary.Hex;
+import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.nasdanika.common.Context;
+import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.common.Supplier;
+import org.nasdanika.common.Util;
+import org.nasdanika.common.resources.BinaryEntityContainer;
+import org.nasdanika.html.Tag;
+import org.nasdanika.html.TagName;
+import org.nasdanika.html.app.ViewGenerator;
 import org.nasdanika.html.app.ViewPart;
 import org.nasdanika.ncore.impl.ModelElementImpl;
-
 import org.nasdanika.vinci.bootstrap.Appearance;
-
 import org.nasdanika.vinci.components.ComponentsPackage;
 import org.nasdanika.vinci.components.TextToSpeech;
+
+import com.google.cloud.texttospeech.v1.AudioConfig;
+import com.google.cloud.texttospeech.v1.AudioEncoding;
+import com.google.cloud.texttospeech.v1.SynthesisInput;
+import com.google.cloud.texttospeech.v1.SynthesizeSpeechResponse;
+import com.google.cloud.texttospeech.v1.TextToSpeechClient;
+import com.google.cloud.texttospeech.v1.VoiceSelectionParams;
+import com.google.cloud.texttospeech.v1.VoiceSelectionParams.Builder;
 
 /**
  * <!-- begin-user-doc -->
@@ -30,6 +48,8 @@ import org.nasdanika.vinci.components.TextToSpeech;
  *   <li>{@link org.nasdanika.vinci.components.impl.TextToSpeechImpl#getText <em>Text</em>}</li>
  *   <li>{@link org.nasdanika.vinci.components.impl.TextToSpeechImpl#isInterpolate <em>Interpolate</em>}</li>
  *   <li>{@link org.nasdanika.vinci.components.impl.TextToSpeechImpl#getAppearance <em>Appearance</em>}</li>
+ *   <li>{@link org.nasdanika.vinci.components.impl.TextToSpeechImpl#getPath <em>Path</em>}</li>
+ *   <li>{@link org.nasdanika.vinci.components.impl.TextToSpeechImpl#isEmbed <em>Embed</em>}</li>
  * </ul>
  *
  * @generated
@@ -84,6 +104,26 @@ public class TextToSpeechImpl extends ModelElementImpl implements TextToSpeech {
 	 * @ordered
 	 */
 	protected static final boolean INTERPOLATE_EDEFAULT = false;
+
+	/**
+	 * The default value of the '{@link #getPath() <em>Path</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPath()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String PATH_EDEFAULT = null;
+
+	/**
+	 * The default value of the '{@link #isEmbed() <em>Embed</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isEmbed()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean EMBED_EDEFAULT = false;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -240,6 +280,46 @@ public class TextToSpeechImpl extends ModelElementImpl implements TextToSpeech {
 	 * @generated
 	 */
 	@Override
+	public String getPath() {
+		return (String)eDynamicGet(ComponentsPackage.TEXT_TO_SPEECH__PATH, ComponentsPackage.Literals.TEXT_TO_SPEECH__PATH, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setPath(String newPath) {
+		eDynamicSet(ComponentsPackage.TEXT_TO_SPEECH__PATH, ComponentsPackage.Literals.TEXT_TO_SPEECH__PATH, newPath);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean isEmbed() {
+		return (Boolean)eDynamicGet(ComponentsPackage.TEXT_TO_SPEECH__EMBED, ComponentsPackage.Literals.TEXT_TO_SPEECH__EMBED, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setEmbed(boolean newEmbed) {
+		eDynamicSet(ComponentsPackage.TEXT_TO_SPEECH__EMBED, ComponentsPackage.Literals.TEXT_TO_SPEECH__EMBED, newEmbed);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case ComponentsPackage.TEXT_TO_SPEECH__APPEARANCE:
@@ -268,6 +348,10 @@ public class TextToSpeechImpl extends ModelElementImpl implements TextToSpeech {
 				return isInterpolate();
 			case ComponentsPackage.TEXT_TO_SPEECH__APPEARANCE:
 				return getAppearance();
+			case ComponentsPackage.TEXT_TO_SPEECH__PATH:
+				return getPath();
+			case ComponentsPackage.TEXT_TO_SPEECH__EMBED:
+				return isEmbed();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -297,6 +381,12 @@ public class TextToSpeechImpl extends ModelElementImpl implements TextToSpeech {
 				return;
 			case ComponentsPackage.TEXT_TO_SPEECH__APPEARANCE:
 				setAppearance((Appearance)newValue);
+				return;
+			case ComponentsPackage.TEXT_TO_SPEECH__PATH:
+				setPath((String)newValue);
+				return;
+			case ComponentsPackage.TEXT_TO_SPEECH__EMBED:
+				setEmbed((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -328,6 +418,12 @@ public class TextToSpeechImpl extends ModelElementImpl implements TextToSpeech {
 			case ComponentsPackage.TEXT_TO_SPEECH__APPEARANCE:
 				setAppearance((Appearance)null);
 				return;
+			case ComponentsPackage.TEXT_TO_SPEECH__PATH:
+				setPath(PATH_EDEFAULT);
+				return;
+			case ComponentsPackage.TEXT_TO_SPEECH__EMBED:
+				setEmbed(EMBED_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -352,13 +448,104 @@ public class TextToSpeechImpl extends ModelElementImpl implements TextToSpeech {
 				return isInterpolate() != INTERPOLATE_EDEFAULT;
 			case ComponentsPackage.TEXT_TO_SPEECH__APPEARANCE:
 				return getAppearance() != null;
+			case ComponentsPackage.TEXT_TO_SPEECH__PATH:
+				return PATH_EDEFAULT == null ? getPath() != null : !PATH_EDEFAULT.equals(getPath());
+			case ComponentsPackage.TEXT_TO_SPEECH__EMBED:
+				return isEmbed() != EMBED_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
 
 	@Override
-	public Supplier<ViewPart> create(Context arg) throws Exception {
-		throw new UnsupportedOperationException();
+	public Supplier<ViewPart> create(Context context) throws Exception {
+		
+		String text = isInterpolate() ? context.interpolate(getText()) : getText();
+		
+		Supplier<ViewPart> audioSupplier = new Supplier<ViewPart>() {
+			
+			@Override
+			public double size() {
+				return 1;
+			}
+			
+			@Override
+			public String name() {
+				return getTitle();
+			}
+			
+			@Override
+			public ViewPart execute(ProgressMonitor progressMonitor) throws Exception {
+				try (TextToSpeechClient textToSpeechClient = TextToSpeechClient.create()) {
+					com.google.cloud.texttospeech.v1.SynthesisInput.Builder inputBuilder = SynthesisInput.newBuilder();
+					if ("SSML".equals(getFormat())) {
+						inputBuilder.setSsml("<speak>" + text + "</speak>");
+					} else {
+						inputBuilder.setText(text);
+					}
+					// Build the voice request; languageCode = "en_us"
+					Builder voiceBuilder = VoiceSelectionParams.newBuilder();
+					voiceBuilder.setLanguageCode(Util.isBlank(getLanguage()) ? Locale.getDefault().toLanguageTag() : getLanguage());
+					if (!Util.isBlank(getVoice())) {
+						voiceBuilder.setName(getVoice());
+					}
+					SynthesizeSpeechResponse response = textToSpeechClient.synthesizeSpeech(
+							inputBuilder.build(), 
+							voiceBuilder.build(), 
+							AudioConfig.newBuilder().setAudioEncoding(AudioEncoding.MP3).build());
+
+					byte[] audioContents = response.getAudioContent().toByteArray();
+					
+					String path = context.interpolate(getPath());
+					String audioLocation = isEmbed() ? null : Util.isBlank(path) ? Hex.encodeHexString(MessageDigest.getInstance("SHA-256").digest(audioContents)) + ".mp3" : path;
+
+					if (audioLocation != null) {
+						URI baseURI = context.get(Context.BASE_URI_PROPERTY, URI.class);
+						URI contextURI = context.get(URI.class);
+						String audioPath = URI.createURI(audioLocation).resolve(contextURI).deresolve(baseURI).toString();						
+						
+						BinaryEntityContainer resourceContainer = context.get(BinaryEntityContainer.class);
+						resourceContainer.get(audioPath, progressMonitor).setState(new ByteArrayInputStream(audioContents), progressMonitor);
+					}
+					
+					
+					
+					// TODO Auto-generated method stub
+					return new ViewPart() {
+
+						@Override
+						public Object generate(ViewGenerator viewGenerator, ProgressMonitor progressMonitor) {
+							Tag sourceTag = TagName.source.create();
+							
+							if (audioLocation == null) {
+								sourceTag.attribute("src", "data:audio/mpeg;base64, " + Base64.getEncoder().encodeToString(audioContents));
+							} else {
+								sourceTag.attribute("type", "audio/mpeg");
+								sourceTag.attribute("src", audioLocation);
+							}
+							
+							return TagName.audio.create(sourceTag, "Your browser does not support the audio element").attribute("controls", true);
+						}
+						
+					};
+					
+				}
+			}
+		}; 
+				
+		Appearance appearance = getAppearance();
+		if (appearance == null) {
+			return audioSupplier;
+		}
+		
+		return audioSupplier.then(appearance.create(context).asFunction()).then(bs -> new ViewPart() {
+
+			@Override
+			public Object generate(ViewGenerator viewGenerator, ProgressMonitor progressMonitor) {
+				return bs.getFirst().then(bs.getSecond());
+			}
+			
+		});
 	}
+	
 
 } //TextToSpeechImpl

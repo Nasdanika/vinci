@@ -20,7 +20,7 @@ import org.nasdanika.vinci.bootstrap.Appearance;
  * voice from text or [SSML](https://cloud.google.com/text-to-speech/docs/ssml). 
  * Voice is output to an mp3 file. File name is defined by the ``path`` attribute if it is not blank. 
  * In this case path is resolved relative to the containing action. 
- * If ``path`` attribute is blank then the file name as a digest of language, voice, format, and text.
+ * If ``path`` attribute is blank then the file name is computed as a digest of the sound bytes.
  * 
  * Generates audio tag which plays the synthesized speech.
  * 
@@ -39,6 +39,8 @@ import org.nasdanika.vinci.bootstrap.Appearance;
  *   <li>{@link org.nasdanika.vinci.components.TextToSpeech#getText <em>Text</em>}</li>
  *   <li>{@link org.nasdanika.vinci.components.TextToSpeech#isInterpolate <em>Interpolate</em>}</li>
  *   <li>{@link org.nasdanika.vinci.components.TextToSpeech#getAppearance <em>Appearance</em>}</li>
+ *   <li>{@link org.nasdanika.vinci.components.TextToSpeech#getPath <em>Path</em>}</li>
+ *   <li>{@link org.nasdanika.vinci.components.TextToSpeech#isEmbed <em>Embed</em>}</li>
  * </ul>
  *
  * @see org.nasdanika.vinci.components.ComponentsPackage#getTextToSpeech()
@@ -198,5 +200,56 @@ public interface TextToSpeech extends ModelElement, SupplierFactory<ViewPart> {
 	 * @generated
 	 */
 	void setAppearance(Appearance value);
+
+	/**
+	 * Returns the value of the '<em><b>Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * MP3 resource location (file name) relative to the containing action context URI.
+	 * If this attribute is blank then the file name is computed as a digest of the sound bytes.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Path</em>' attribute.
+	 * @see #setPath(String)
+	 * @see org.nasdanika.vinci.components.ComponentsPackage#getTextToSpeech_Path()
+	 * @model
+	 * @generated
+	 */
+	String getPath();
+
+	/**
+	 * Sets the value of the '{@link org.nasdanika.vinci.components.TextToSpeech#getPath <em>Path</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Path</em>' attribute.
+	 * @see #getPath()
+	 * @generated
+	 */
+	void setPath(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Embed</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * If true, audio data is not stored to a file, but is embedded into the page using ``data:`` URI.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Embed</em>' attribute.
+	 * @see #setEmbed(boolean)
+	 * @see org.nasdanika.vinci.components.ComponentsPackage#getTextToSpeech_Embed()
+	 * @model
+	 * @generated
+	 */
+	boolean isEmbed();
+
+	/**
+	 * Sets the value of the '{@link org.nasdanika.vinci.components.TextToSpeech#isEmbed <em>Embed</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Embed</em>' attribute.
+	 * @see #isEmbed()
+	 * @generated
+	 */
+	void setEmbed(boolean value);
 
 } // TextToSpeech

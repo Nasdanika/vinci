@@ -52,6 +52,8 @@ public class TextToSpeechItemProvider extends ModelElementItemProvider {
 			addFormatPropertyDescriptor(object);
 			addTextPropertyDescriptor(object);
 			addInterpolatePropertyDescriptor(object);
+			addPathPropertyDescriptor(object);
+			addEmbedPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -162,6 +164,48 @@ public class TextToSpeechItemProvider extends ModelElementItemProvider {
 	}
 
 	/**
+	 * This adds a property descriptor for the Path feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	protected void addPathPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor(
+				 getResourceLocator(),
+				 getString("_UI_TextToSpeech_path_feature"),
+				 ComponentsPackage.Literals.TEXT_TO_SPEECH__PATH,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Embed feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	protected void addEmbedPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor(
+				 getResourceLocator(),
+				 getString("_UI_TextToSpeech_embed_feature"),
+				 ComponentsPackage.Literals.TEXT_TO_SPEECH__EMBED,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -234,6 +278,8 @@ public class TextToSpeechItemProvider extends ModelElementItemProvider {
 			case ComponentsPackage.TEXT_TO_SPEECH__FORMAT:
 			case ComponentsPackage.TEXT_TO_SPEECH__TEXT:
 			case ComponentsPackage.TEXT_TO_SPEECH__INTERPOLATE:
+			case ComponentsPackage.TEXT_TO_SPEECH__PATH:
+			case ComponentsPackage.TEXT_TO_SPEECH__EMBED:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case ComponentsPackage.TEXT_TO_SPEECH__APPEARANCE:

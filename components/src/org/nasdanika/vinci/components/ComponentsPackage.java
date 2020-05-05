@@ -1112,13 +1112,31 @@ public interface ComponentsPackage extends EPackage {
 	int TEXT_TO_SPEECH__APPEARANCE = NcorePackage.MODEL_ELEMENT_FEATURE_COUNT + 5;
 
 	/**
+	 * The feature id for the '<em><b>Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_TO_SPEECH__PATH = NcorePackage.MODEL_ELEMENT_FEATURE_COUNT + 6;
+
+	/**
+	 * The feature id for the '<em><b>Embed</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_TO_SPEECH__EMBED = NcorePackage.MODEL_ELEMENT_FEATURE_COUNT + 7;
+
+	/**
 	 * The number of structural features of the '<em>Text To Speech</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_TO_SPEECH_FEATURE_COUNT = NcorePackage.MODEL_ELEMENT_FEATURE_COUNT + 6;
+	int TEXT_TO_SPEECH_FEATURE_COUNT = NcorePackage.MODEL_ELEMENT_FEATURE_COUNT + 8;
 
 	/**
 	 * The number of operations of the '<em>Text To Speech</em>' class.
@@ -1575,6 +1593,28 @@ public interface ComponentsPackage extends EPackage {
 	EReference getTextToSpeech_Appearance();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.components.TextToSpeech#getPath <em>Path</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Path</em>'.
+	 * @see org.nasdanika.vinci.components.TextToSpeech#getPath()
+	 * @see #getTextToSpeech()
+	 * @generated
+	 */
+	EAttribute getTextToSpeech_Path();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.components.TextToSpeech#isEmbed <em>Embed</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Embed</em>'.
+	 * @see org.nasdanika.vinci.components.TextToSpeech#isEmbed()
+	 * @see #getTextToSpeech()
+	 * @generated
+	 */
+	EAttribute getTextToSpeech_Embed();
+
+	/**
 	 * Returns the meta object for class '{@link org.nasdanika.vinci.components.Image <em>Image</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1913,6 +1953,20 @@ public interface ComponentsPackage extends EPackage {
 		 * @generated
 		 */
 		EReference TEXT_TO_SPEECH__APPEARANCE = eINSTANCE.getTextToSpeech_Appearance();
+		/**
+		 * The meta object literal for the '<em><b>Path</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TEXT_TO_SPEECH__PATH = eINSTANCE.getTextToSpeech_Path();
+		/**
+		 * The meta object literal for the '<em><b>Embed</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TEXT_TO_SPEECH__EMBED = eINSTANCE.getTextToSpeech_Embed();
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.vinci.components.impl.ImageImpl <em>Image</em>}' class.
 		 * <!-- begin-user-doc -->

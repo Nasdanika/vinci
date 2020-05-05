@@ -51,6 +51,8 @@
       <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute components.ecore#//TextToSpeech/text"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute components.ecore#//TextToSpeech/interpolate"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference components.ecore#//TextToSpeech/appearance"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute components.ecore#//TextToSpeech/path"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute components.ecore#//TextToSpeech/embed"/>
     </genClasses>
     <genClasses ecoreClass="components.ecore#//Image">
       <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute components.ecore#//Image/format"/>

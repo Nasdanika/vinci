@@ -513,6 +513,26 @@ public class ComponentsPackageImpl extends EPackageImpl implements ComponentsPac
 	 * @generated
 	 */
 	@Override
+	public EAttribute getTextToSpeech_Path() {
+		return (EAttribute)textToSpeechEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getTextToSpeech_Embed() {
+		return (EAttribute)textToSpeechEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getImage() {
 		return imageEClass;
 	}
@@ -638,6 +658,8 @@ public class ComponentsPackageImpl extends EPackageImpl implements ComponentsPac
 		createEAttribute(textToSpeechEClass, TEXT_TO_SPEECH__TEXT);
 		createEAttribute(textToSpeechEClass, TEXT_TO_SPEECH__INTERPOLATE);
 		createEReference(textToSpeechEClass, TEXT_TO_SPEECH__APPEARANCE);
+		createEAttribute(textToSpeechEClass, TEXT_TO_SPEECH__PATH);
+		createEAttribute(textToSpeechEClass, TEXT_TO_SPEECH__EMBED);
 
 		imageEClass = createEClass(IMAGE);
 		createEAttribute(imageEClass, IMAGE__FORMAT);
@@ -762,6 +784,8 @@ public class ComponentsPackageImpl extends EPackageImpl implements ComponentsPac
 		initEAttribute(getTextToSpeech_Text(), ecorePackage.getEString(), "text", null, 0, 1, TextToSpeech.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTextToSpeech_Interpolate(), ecorePackage.getEBoolean(), "interpolate", null, 0, 1, TextToSpeech.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTextToSpeech_Appearance(), theBootstrapPackage.getAppearance(), null, "appearance", null, 0, 1, TextToSpeech.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTextToSpeech_Path(), ecorePackage.getEString(), "path", null, 0, 1, TextToSpeech.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTextToSpeech_Embed(), ecorePackage.getEBoolean(), "embed", null, 0, 1, TextToSpeech.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(imageEClass, Image.class, "Image", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getImage_Format(), ecorePackage.getEString(), "format", null, 0, 1, Image.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -954,7 +978,7 @@ public class ComponentsPackageImpl extends EPackageImpl implements ComponentsPac
 		  (textToSpeechEClass,
 		   source,
 		   new String[] {
-			   "documentation", "Uses [Google Text-to-Speech](https://cloud.google.com/text-to-speech) to synthesize \nvoice from text or [SSML](https://cloud.google.com/text-to-speech/docs/ssml). \nVoice is output to an mp3 file. File name is defined by the ``path`` attribute if it is not blank. \nIn this case path is resolved relative to the containing action. \nIf ``path`` attribute is blank then the file name as a digest of language, voice, format, and text.\n\nGenerates audio tag which plays the synthesized speech.\n\nUse of text to speech requires ``GOOGLE_APPLICATION_CREDENTIALS`` environment variable to be set to the location of the private key JSON file.\nSee https://developers.google.com/accounts/docs/application-default-credentials for more information.\n   "
+			   "documentation", "Uses [Google Text-to-Speech](https://cloud.google.com/text-to-speech) to synthesize \nvoice from text or [SSML](https://cloud.google.com/text-to-speech/docs/ssml). \nVoice is output to an mp3 file. File name is defined by the ``path`` attribute if it is not blank. \nIn this case path is resolved relative to the containing action. \nIf ``path`` attribute is blank then the file name is computed as a digest of the sound bytes.\n\nGenerates audio tag which plays the synthesized speech.\n\nUse of text to speech requires ``GOOGLE_APPLICATION_CREDENTIALS`` environment variable to be set to the location of the private key JSON file.\nSee https://developers.google.com/accounts/docs/application-default-credentials for more information.\n   "
 		   });
 		addAnnotation
 		  (getTextToSpeech_Language(),
@@ -991,6 +1015,18 @@ public class ComponentsPackageImpl extends EPackageImpl implements ComponentsPac
 		   source,
 		   new String[] {
 			   "documentation", "Appearance to apply to the generated audio tag."
+		   });
+		addAnnotation
+		  (getTextToSpeech_Path(),
+		   source,
+		   new String[] {
+			   "documentation", "MP3 resource location (file name) relative to the containing action context URI.\nIf this attribute is blank then the file name is computed as a digest of the sound bytes."
+		   });
+		addAnnotation
+		  (getTextToSpeech_Embed(),
+		   source,
+		   new String[] {
+			   "documentation", "If true, audio data is not stored to a file, but is embedded into the page using ``data:`` URI."
 		   });
 		addAnnotation
 		  (imageEClass,

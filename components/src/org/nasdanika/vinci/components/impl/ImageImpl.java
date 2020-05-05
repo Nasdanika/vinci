@@ -2,19 +2,22 @@
  */
 package org.nasdanika.vinci.components.impl;
 
-import org.eclipse.emf.common.notify.NotificationChain;
+import java.util.Base64;
 
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.nasdanika.common.Context;
+import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.common.Supplier;
+import org.nasdanika.common.Util;
+import org.nasdanika.html.Tag;
+import org.nasdanika.html.TagName;
+import org.nasdanika.html.app.ViewGenerator;
 import org.nasdanika.html.app.ViewPart;
 import org.nasdanika.ncore.impl.ModelElementImpl;
-
 import org.nasdanika.vinci.app.AbstractAction;
-
 import org.nasdanika.vinci.bootstrap.Appearance;
-
 import org.nasdanika.vinci.components.ComponentsPackage;
 import org.nasdanika.vinci.components.Image;
 
@@ -318,8 +321,45 @@ public class ImageImpl extends ModelElementImpl implements Image {
 	}
 
 	@Override
-	public Supplier<ViewPart> create(Context arg) throws Exception {
-		throw new UnsupportedOperationException();
+	public Supplier<ViewPart> create(Context context) throws Exception {
+		
+		String caption = context.interpolate(getCaption());
+		
+		Supplier<ViewPart> imageSupplier = Supplier.fromCallable(() -> new ViewPart() {
+
+			@Override
+			public Object generate(ViewGenerator viewGenerator, ProgressMonitor progressMonitor) {
+				Tag imageTag = TagName.img.create();
+				
+				byte[] content = getContent();
+				if (content != null) {
+					imageTag.attribute("src", "data:image/" + getFormat() + ";base64, " + Base64.getEncoder().encodeToString(content));
+				}
+												
+				// TODO - image map support.
+				
+				if (Util.isBlank(caption)) {				
+					return imageTag;
+				}
+				
+				return TagName.figure.create(imageTag, TagName.figcaption.create(caption));
+			}
+			
+		}, getTitle(), 1);
+		
+		Appearance appearance = getAppearance();
+		if (appearance == null) {
+			return imageSupplier;
+		}
+		
+		return imageSupplier.then(appearance.create(context).asFunction()).then(bs -> new ViewPart() {
+
+			@Override
+			public Object generate(ViewGenerator viewGenerator, ProgressMonitor progressMonitor) {
+				return bs.getFirst().then(bs.getSecond());
+			}
+			
+		});
 	}
 
 } //ImageImpl
