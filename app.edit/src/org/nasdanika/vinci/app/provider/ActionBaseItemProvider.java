@@ -464,6 +464,14 @@ public class ActionBaseItemProvider extends LabelItemProvider {
 			(createChildParameter
 				(AppPackage.Literals.CONTAINER__ELEMENTS,
 				 AppFactory.eINSTANCE.createPartition()));
+		
+		// --- Widgets ---
+
+		newChildDescriptors.add
+			(createChildParameter
+				(AppPackage.Literals.ACTION_BASE__WIDGETS,
+				 AppFactory.eINSTANCE.createWidget()));
+		
 	}
 
 	/**

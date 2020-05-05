@@ -24,8 +24,8 @@ import org.nasdanika.vinci.components.TextToSpeech;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.nasdanika.vinci.components.impl.TextToSpeechImpl#isLanguage <em>Language</em>}</li>
- *   <li>{@link org.nasdanika.vinci.components.impl.TextToSpeechImpl#isVoice <em>Voice</em>}</li>
+ *   <li>{@link org.nasdanika.vinci.components.impl.TextToSpeechImpl#getLanguage <em>Language</em>}</li>
+ *   <li>{@link org.nasdanika.vinci.components.impl.TextToSpeechImpl#getVoice <em>Voice</em>}</li>
  *   <li>{@link org.nasdanika.vinci.components.impl.TextToSpeechImpl#getFormat <em>Format</em>}</li>
  *   <li>{@link org.nasdanika.vinci.components.impl.TextToSpeechImpl#getText <em>Text</em>}</li>
  *   <li>{@link org.nasdanika.vinci.components.impl.TextToSpeechImpl#isInterpolate <em>Interpolate</em>}</li>
@@ -36,24 +36,24 @@ import org.nasdanika.vinci.components.TextToSpeech;
  */
 public class TextToSpeechImpl extends ModelElementImpl implements TextToSpeech {
 	/**
-	 * The default value of the '{@link #isLanguage() <em>Language</em>}' attribute.
+	 * The default value of the '{@link #getLanguage() <em>Language</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isLanguage()
+	 * @see #getLanguage()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final boolean LANGUAGE_EDEFAULT = false;
+	protected static final String LANGUAGE_EDEFAULT = null;
 
 	/**
-	 * The default value of the '{@link #isVoice() <em>Voice</em>}' attribute.
+	 * The default value of the '{@link #getVoice() <em>Voice</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isVoice()
+	 * @see #getVoice()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final boolean VOICE_EDEFAULT = false;
+	protected static final String VOICE_EDEFAULT = null;
 
 	/**
 	 * The default value of the '{@link #getFormat() <em>Format</em>}' attribute.
@@ -63,7 +63,7 @@ public class TextToSpeechImpl extends ModelElementImpl implements TextToSpeech {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String FORMAT_EDEFAULT = null;
+	protected static final String FORMAT_EDEFAULT = "Text";
 
 	/**
 	 * The default value of the '{@link #getText() <em>Text</em>}' attribute.
@@ -110,8 +110,8 @@ public class TextToSpeechImpl extends ModelElementImpl implements TextToSpeech {
 	 * @generated
 	 */
 	@Override
-	public boolean isLanguage() {
-		return (Boolean)eDynamicGet(ComponentsPackage.TEXT_TO_SPEECH__LANGUAGE, ComponentsPackage.Literals.TEXT_TO_SPEECH__LANGUAGE, true, true);
+	public String getLanguage() {
+		return (String)eDynamicGet(ComponentsPackage.TEXT_TO_SPEECH__LANGUAGE, ComponentsPackage.Literals.TEXT_TO_SPEECH__LANGUAGE, true, true);
 	}
 
 	/**
@@ -120,7 +120,7 @@ public class TextToSpeechImpl extends ModelElementImpl implements TextToSpeech {
 	 * @generated
 	 */
 	@Override
-	public void setLanguage(boolean newLanguage) {
+	public void setLanguage(String newLanguage) {
 		eDynamicSet(ComponentsPackage.TEXT_TO_SPEECH__LANGUAGE, ComponentsPackage.Literals.TEXT_TO_SPEECH__LANGUAGE, newLanguage);
 	}
 
@@ -130,8 +130,8 @@ public class TextToSpeechImpl extends ModelElementImpl implements TextToSpeech {
 	 * @generated
 	 */
 	@Override
-	public boolean isVoice() {
-		return (Boolean)eDynamicGet(ComponentsPackage.TEXT_TO_SPEECH__VOICE, ComponentsPackage.Literals.TEXT_TO_SPEECH__VOICE, true, true);
+	public String getVoice() {
+		return (String)eDynamicGet(ComponentsPackage.TEXT_TO_SPEECH__VOICE, ComponentsPackage.Literals.TEXT_TO_SPEECH__VOICE, true, true);
 	}
 
 	/**
@@ -140,7 +140,7 @@ public class TextToSpeechImpl extends ModelElementImpl implements TextToSpeech {
 	 * @generated
 	 */
 	@Override
-	public void setVoice(boolean newVoice) {
+	public void setVoice(String newVoice) {
 		eDynamicSet(ComponentsPackage.TEXT_TO_SPEECH__VOICE, ComponentsPackage.Literals.TEXT_TO_SPEECH__VOICE, newVoice);
 	}
 
@@ -257,9 +257,9 @@ public class TextToSpeechImpl extends ModelElementImpl implements TextToSpeech {
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case ComponentsPackage.TEXT_TO_SPEECH__LANGUAGE:
-				return isLanguage();
+				return getLanguage();
 			case ComponentsPackage.TEXT_TO_SPEECH__VOICE:
-				return isVoice();
+				return getVoice();
 			case ComponentsPackage.TEXT_TO_SPEECH__FORMAT:
 				return getFormat();
 			case ComponentsPackage.TEXT_TO_SPEECH__TEXT:
@@ -281,10 +281,10 @@ public class TextToSpeechImpl extends ModelElementImpl implements TextToSpeech {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case ComponentsPackage.TEXT_TO_SPEECH__LANGUAGE:
-				setLanguage((Boolean)newValue);
+				setLanguage((String)newValue);
 				return;
 			case ComponentsPackage.TEXT_TO_SPEECH__VOICE:
-				setVoice((Boolean)newValue);
+				setVoice((String)newValue);
 				return;
 			case ComponentsPackage.TEXT_TO_SPEECH__FORMAT:
 				setFormat((String)newValue);
@@ -341,9 +341,9 @@ public class TextToSpeechImpl extends ModelElementImpl implements TextToSpeech {
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case ComponentsPackage.TEXT_TO_SPEECH__LANGUAGE:
-				return isLanguage() != LANGUAGE_EDEFAULT;
+				return LANGUAGE_EDEFAULT == null ? getLanguage() != null : !LANGUAGE_EDEFAULT.equals(getLanguage());
 			case ComponentsPackage.TEXT_TO_SPEECH__VOICE:
-				return isVoice() != VOICE_EDEFAULT;
+				return VOICE_EDEFAULT == null ? getVoice() != null : !VOICE_EDEFAULT.equals(getVoice());
 			case ComponentsPackage.TEXT_TO_SPEECH__FORMAT:
 				return FORMAT_EDEFAULT == null ? getFormat() != null : !FORMAT_EDEFAULT.equals(getFormat());
 			case ComponentsPackage.TEXT_TO_SPEECH__TEXT:

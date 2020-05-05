@@ -1509,22 +1509,22 @@ public interface ComponentsPackage extends EPackage {
 	EClass getTextToSpeech();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.components.TextToSpeech#isLanguage <em>Language</em>}'.
+	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.components.TextToSpeech#getLanguage <em>Language</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Language</em>'.
-	 * @see org.nasdanika.vinci.components.TextToSpeech#isLanguage()
+	 * @see org.nasdanika.vinci.components.TextToSpeech#getLanguage()
 	 * @see #getTextToSpeech()
 	 * @generated
 	 */
 	EAttribute getTextToSpeech_Language();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.components.TextToSpeech#isVoice <em>Voice</em>}'.
+	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.components.TextToSpeech#getVoice <em>Voice</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Voice</em>'.
-	 * @see org.nasdanika.vinci.components.TextToSpeech#isVoice()
+	 * @see org.nasdanika.vinci.components.TextToSpeech#getVoice()
 	 * @see #getTextToSpeech()
 	 * @generated
 	 */

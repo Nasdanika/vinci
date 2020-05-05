@@ -24,9 +24,8 @@ import org.nasdanika.vinci.bootstrap.Appearance;
  * 
  * Generates audio tag which plays the synthesized speech.
  * 
- * Use of text to speech requires ``GOOGLE_APPLICATION_CREDENTIALS`` environment variable to be set to the location of the private key JSON file
- * as explained in [Google Cloud Getting Started with Authentication](https://cloud.google.com/docs/authentication/getting-started).
- * 
+ * Use of text to speech requires ``GOOGLE_APPLICATION_CREDENTIALS`` environment variable to be set to the location of the private key JSON file.
+ * See https://developers.google.com/accounts/docs/application-default-credentials for more information.
  *    
  * <!-- end-model-doc -->
  *
@@ -34,8 +33,8 @@ import org.nasdanika.vinci.bootstrap.Appearance;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.nasdanika.vinci.components.TextToSpeech#isLanguage <em>Language</em>}</li>
- *   <li>{@link org.nasdanika.vinci.components.TextToSpeech#isVoice <em>Voice</em>}</li>
+ *   <li>{@link org.nasdanika.vinci.components.TextToSpeech#getLanguage <em>Language</em>}</li>
+ *   <li>{@link org.nasdanika.vinci.components.TextToSpeech#getVoice <em>Voice</em>}</li>
  *   <li>{@link org.nasdanika.vinci.components.TextToSpeech#getFormat <em>Format</em>}</li>
  *   <li>{@link org.nasdanika.vinci.components.TextToSpeech#getText <em>Text</em>}</li>
  *   <li>{@link org.nasdanika.vinci.components.TextToSpeech#isInterpolate <em>Interpolate</em>}</li>
@@ -56,22 +55,22 @@ public interface TextToSpeech extends ModelElement, SupplierFactory<ViewPart> {
 	 * See [Supported voices and languages](https://cloud.google.com/text-to-speech/docs/voices) for a list of locales and voices.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Language</em>' attribute.
-	 * @see #setLanguage(boolean)
+	 * @see #setLanguage(String)
 	 * @see org.nasdanika.vinci.components.ComponentsPackage#getTextToSpeech_Language()
 	 * @model
 	 * @generated
 	 */
-	boolean isLanguage();
+	String getLanguage();
 
 	/**
-	 * Sets the value of the '{@link org.nasdanika.vinci.components.TextToSpeech#isLanguage <em>Language</em>}' attribute.
+	 * Sets the value of the '{@link org.nasdanika.vinci.components.TextToSpeech#getLanguage <em>Language</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Language</em>' attribute.
-	 * @see #isLanguage()
+	 * @see #getLanguage()
 	 * @generated
 	 */
-	void setLanguage(boolean value);
+	void setLanguage(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Voice</b></em>' attribute.
@@ -82,25 +81,26 @@ public interface TextToSpeech extends ModelElement, SupplierFactory<ViewPart> {
 	 * See [Supported voices and languages](https://cloud.google.com/text-to-speech/docs/voices) for a list of locales and voices.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Voice</em>' attribute.
-	 * @see #setVoice(boolean)
+	 * @see #setVoice(String)
 	 * @see org.nasdanika.vinci.components.ComponentsPackage#getTextToSpeech_Voice()
 	 * @model
 	 * @generated
 	 */
-	boolean isVoice();
+	String getVoice();
 
 	/**
-	 * Sets the value of the '{@link org.nasdanika.vinci.components.TextToSpeech#isVoice <em>Voice</em>}' attribute.
+	 * Sets the value of the '{@link org.nasdanika.vinci.components.TextToSpeech#getVoice <em>Voice</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Voice</em>' attribute.
-	 * @see #isVoice()
+	 * @see #getVoice()
 	 * @generated
 	 */
-	void setVoice(boolean value);
+	void setVoice(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Format</b></em>' attribute.
+	 * The default value is <code>"Text"</code>.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
@@ -109,7 +109,7 @@ public interface TextToSpeech extends ModelElement, SupplierFactory<ViewPart> {
 	 * @return the value of the '<em>Format</em>' attribute.
 	 * @see #setFormat(String)
 	 * @see org.nasdanika.vinci.components.ComponentsPackage#getTextToSpeech_Format()
-	 * @model
+	 * @model default="Text"
 	 * @generated
 	 */
 	String getFormat();

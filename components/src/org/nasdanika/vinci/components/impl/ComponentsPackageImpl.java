@@ -756,9 +756,9 @@ public class ComponentsPackageImpl extends EPackageImpl implements ComponentsPac
 		initEReference(getTableOfActions_Actions(), theAppPackage.getAbstractAction(), null, "actions", null, 0, -1, TableOfActions.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(textToSpeechEClass, TextToSpeech.class, "TextToSpeech", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getTextToSpeech_Language(), ecorePackage.getEBoolean(), "language", null, 0, 1, TextToSpeech.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getTextToSpeech_Voice(), ecorePackage.getEBoolean(), "voice", null, 0, 1, TextToSpeech.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getTextToSpeech_Format(), ecorePackage.getEString(), "format", null, 0, 1, TextToSpeech.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTextToSpeech_Language(), ecorePackage.getEString(), "language", null, 0, 1, TextToSpeech.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTextToSpeech_Voice(), ecorePackage.getEString(), "voice", null, 0, 1, TextToSpeech.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTextToSpeech_Format(), ecorePackage.getEString(), "format", "Text", 0, 1, TextToSpeech.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTextToSpeech_Text(), ecorePackage.getEString(), "text", null, 0, 1, TextToSpeech.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTextToSpeech_Interpolate(), ecorePackage.getEBoolean(), "interpolate", null, 0, 1, TextToSpeech.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTextToSpeech_Appearance(), theBootstrapPackage.getAppearance(), null, "appearance", null, 0, 1, TextToSpeech.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -954,7 +954,7 @@ public class ComponentsPackageImpl extends EPackageImpl implements ComponentsPac
 		  (textToSpeechEClass,
 		   source,
 		   new String[] {
-			   "documentation", "Uses [Google Text-to-Speech](https://cloud.google.com/text-to-speech) to synthesize \nvoice from text or [SSML](https://cloud.google.com/text-to-speech/docs/ssml). \nVoice is output to an mp3 file. File name is defined by the ``path`` attribute if it is not blank. \nIn this case path is resolved relative to the containing action. \nIf ``path`` attribute is blank then the file name as a digest of language, voice, format, and text.\n\nGenerates audio tag which plays the synthesized speech.\n\nUse of text to speech requires ``GOOGLE_APPLICATION_CREDENTIALS`` environment variable to be set to the location of the private key JSON file\nas explained in [Google Cloud Getting Started with Authentication](https://cloud.google.com/docs/authentication/getting-started).\n\n   "
+			   "documentation", "Uses [Google Text-to-Speech](https://cloud.google.com/text-to-speech) to synthesize \nvoice from text or [SSML](https://cloud.google.com/text-to-speech/docs/ssml). \nVoice is output to an mp3 file. File name is defined by the ``path`` attribute if it is not blank. \nIn this case path is resolved relative to the containing action. \nIf ``path`` attribute is blank then the file name as a digest of language, voice, format, and text.\n\nGenerates audio tag which plays the synthesized speech.\n\nUse of text to speech requires ``GOOGLE_APPLICATION_CREDENTIALS`` environment variable to be set to the location of the private key JSON file.\nSee https://developers.google.com/accounts/docs/application-default-credentials for more information.\n   "
 		   });
 		addAnnotation
 		  (getTextToSpeech_Language(),
