@@ -2025,13 +2025,22 @@ public interface AppPackage extends EPackage {
 	int WIDGET__CONTENT = NcorePackage.NAMED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Markdown Content</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WIDGET__MARKDOWN_CONTENT = NcorePackage.NAMED_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Widget</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int WIDGET_FEATURE_COUNT = NcorePackage.NAMED_ELEMENT_FEATURE_COUNT + 1;
+	int WIDGET_FEATURE_COUNT = NcorePackage.NAMED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Widget</em>' class.
@@ -2327,17 +2336,6 @@ public interface AppPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getWidget();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link org.nasdanika.vinci.app.Widget#getContent <em>Content</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Content</em>'.
-	 * @see org.nasdanika.vinci.app.Widget#getContent()
-	 * @see #getWidget()
-	 * @generated
-	 */
-	EReference getWidget_Content();
 
 	/**
 	 * Returns the meta object for class '{@link org.nasdanika.vinci.app.ActionMapping <em>Action Mapping</em>}'.
@@ -2963,14 +2961,6 @@ public interface AppPackage extends EPackage {
 		 * @generated
 		 */
 		EClass WIDGET = eINSTANCE.getWidget();
-
-		/**
-		 * The meta object literal for the '<em><b>Content</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference WIDGET__CONTENT = eINSTANCE.getWidget_Content();
 
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.vinci.app.impl.ActionMappingImpl <em>Action Mapping</em>}' class.

@@ -259,6 +259,8 @@ public class AppSwitch<T1> extends Switch<T1> {
 				Widget widget = (Widget)theEObject;
 				T1 result = caseWidget(widget);
 				if (result == null) result = caseNamedElement(widget);
+				if (result == null) result = caseHtml_Container(widget);
+				if (result == null) result = caseISupplierFactory(widget);
 				if (result == null) result = caseModelElement(widget);
 				if (result == null) result = defaultCase(theEObject);
 				return result;

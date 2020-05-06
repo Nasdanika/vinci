@@ -387,6 +387,6 @@ public interface ActionBase extends Label, AbstractAction, Container<ActionEleme
 			value.setValue(content);
 			getContent().add(value);
 		}		
-	}
+	}	
 
 } // ActionBase

@@ -513,16 +513,6 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getWidget_Content() {
-		return (EReference)widgetEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EClass getActionMapping() {
 		return actionMappingEClass;
 	}
@@ -972,7 +962,6 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 		createEOperation(bootstrapContainerApplicationBuilderEClass, BOOTSTRAP_CONTAINER_APPLICATION_BUILDER___CREATE_APPLICATION_BUILDER_SUPPLIER__CONTEXT);
 
 		widgetEClass = createEClass(WIDGET);
-		createEReference(widgetEClass, WIDGET__CONTENT);
 
 		// Create enums
 		activatorTypeEEnum = createEEnum(ACTIVATOR_TYPE);
@@ -1062,7 +1051,14 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 		bootstrapContainerApplicationSectionEClass.getESuperTypes().add(theBootstrapPackage.getBootstrapElement());
 		bootstrapContainerApplicationSectionEClass.getESuperTypes().add(theHtmlPackage.getContainer());
 		bootstrapContainerApplicationPanelEClass.getESuperTypes().add(this.getBootstrapContainerApplicationSection());
-		widgetEClass.getESuperTypes().add(theNcorePackage.getNamedElement());
+		g1 = createEGenericType(theNcorePackage.getNamedElement());
+		widgetEClass.getEGenericSuperTypes().add(g1);
+		g1 = createEGenericType(theHtmlPackage.getContainer());
+		widgetEClass.getEGenericSuperTypes().add(g1);
+		g1 = createEGenericType(theNcorePackage.getISupplierFactory());
+		g2 = createEGenericType(theHtmlPackage.getViewPart());
+		g1.getETypeArguments().add(g2);
+		widgetEClass.getEGenericSuperTypes().add(g1);
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(containerEClass, org.nasdanika.vinci.app.Container.class, "Container", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1153,10 +1149,6 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 		initEOperation(op, g1);
 
 		initEClass(widgetEClass, Widget.class, "Widget", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		g1 = createEGenericType(theNcorePackage.getISupplierFactory());
-		g2 = createEGenericType(ecorePackage.getEJavaObject());
-		g1.getETypeArguments().add(g2);
-		initEReference(getWidget_Content(), g1, null, "content", null, 0, -1, Widget.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(activatorTypeEEnum, ActivatorType.class, "ActivatorType");
@@ -1580,12 +1572,6 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 		   source,
 		   new String[] {
 			   "documentation", "Named content which is injected into the generated context under ``widgets/<widget name>`` and can be referenced from, say, markdown. This allows to combine the simplicity and ease of use of markdown with advanced functionality of components, e.g. the image component."
-		   });
-		addAnnotation
-		  (getWidget_Content(),
-		   source,
-		   new String[] {
-			   "documentation", "Widget content."
 		   });
 	}
 

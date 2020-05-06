@@ -842,11 +842,13 @@ public abstract class ActionBaseImpl extends LabelImpl implements ActionBase {
 		return super.eInvoke(operationID, arguments);
 	}
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
 	public Supplier<Object> create(Context context) throws Exception {
 		
 		String ELEMENTS_KEY = "Elements";		
-		String CONTENT_KEY = "Content";			
+		String CONTENT_KEY = "Content";	
+		String WIDGETS_KEY = "Widgets";
 		
 		// Effective parent.
 		Resource resource = eResource();	
@@ -883,7 +885,12 @@ public abstract class ActionBaseImpl extends LabelImpl implements ActionBase {
 			}
 		}
 		
-		MapCompoundSupplierFactory<String, List<Object>> mcs = new MapCompoundSupplierFactory<>("Action");		
+		MapCompoundSupplierFactory<String, ViewPart> widgetsFactory = new MapCompoundSupplierFactory<String, ViewPart>(WIDGETS_KEY);
+		for (Widget widget: getWidgets()) {
+			widgetsFactory.put(widget.getName(), widget);
+		}
+		
+		MapCompoundSupplierFactory<String, Object> mcs = new MapCompoundSupplierFactory<>("Action");		
 		
 		List<SupplierFactory<Object>> content = new ArrayList<>();		
 		
@@ -902,25 +909,26 @@ public abstract class ActionBaseImpl extends LabelImpl implements ActionBase {
 		}
 				
 		content.addAll(getContent());		
-		mcs.put(CONTENT_KEY, new ListCompoundSupplierFactory<Object>(CONTENT_KEY, content));
-		
-		mcs.put(ELEMENTS_KEY, elementsFactory);
+		mcs.put(CONTENT_KEY, (SupplierFactory) new ListCompoundSupplierFactory<Object>(CONTENT_KEY, content));
+		mcs.put(ELEMENTS_KEY, (SupplierFactory) elementsFactory);
+		mcs.put(WIDGETS_KEY, (SupplierFactory) widgetsFactory);
 				
 		URI navigationActivatorURI = getNavigationActivatorURI(context);		
 		
-		FunctionFactory<Map<String, List<Object>>, Object> actionFacadeFactory = new FunctionFactory<Map<String,List<Object>>, Object>() {
+		FunctionFactory<Map<String, Object>, Object> actionFacadeFactory = new FunctionFactory<Map<String,Object>, Object>() {
 			
 			@Override
-			public org.nasdanika.common.Function<Map<String, List<Object>>, Object> create(Context functionContext) throws Exception {
-					BiFunction<Map<String, List<Object>>, ProgressMonitor, Object> ret = (config, progressMonitor) -> {
+			public org.nasdanika.common.Function<Map<String, Object>, Object> create(Context functionContext) throws Exception {
+					BiFunction<Map<String, Object>, ProgressMonitor, Object> ret = (config, progressMonitor) -> {
 					try { 
 						return new ActionFacade(
 							functionContext, 
 							ActionBaseImpl.this, 
 							navigationActivatorURI,
 							parentRef.get(), 
-							config.get(CONTENT_KEY), 
-							config.get(ELEMENTS_KEY));
+							(List<Object>) config.get(CONTENT_KEY), 
+							(List<Object>) config.get(ELEMENTS_KEY),
+							(Map<String, ViewPart>) config.get(WIDGETS_KEY));
 					} catch (Exception e) {
 						throw new NasdanikaException(e);
 					}

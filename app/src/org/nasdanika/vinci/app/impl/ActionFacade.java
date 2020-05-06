@@ -1,6 +1,8 @@
 package org.nasdanika.vinci.app.impl;
 
 import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
 import java.util.UUID;
 
 import org.eclipse.emf.common.util.URI;
@@ -24,6 +26,7 @@ import org.nasdanika.html.app.ScriptActionActivator;
 import org.nasdanika.html.app.SectionStyle;
 import org.nasdanika.html.app.ViewBuilder;
 import org.nasdanika.html.app.ViewGenerator;
+import org.nasdanika.html.app.ViewPart;
 import org.nasdanika.html.app.impl.ActionImpl;
 import org.nasdanika.html.bootstrap.BootstrapElement;
 import org.nasdanika.html.bootstrap.BootstrapFactory;
@@ -45,6 +48,8 @@ public class ActionFacade extends org.nasdanika.html.app.impl.ActionImpl impleme
 	private Context actionContext; 
 
 	private ActionBase target;
+
+	private Map<String, ViewPart> widgets;
 	
 	public ActionFacade(
 			Context actionContext, 
@@ -52,7 +57,8 @@ public class ActionFacade extends org.nasdanika.html.app.impl.ActionImpl impleme
 			URI actionURI,
 			EObject parent,
 			List<Object> content,
-			List<Object> elements) throws Exception {
+			List<Object> elements,
+			Map<String, ViewPart> widgets) throws Exception {
 
 		this.actionContext = actionContext;
 		this.target = target;
@@ -215,6 +221,7 @@ public class ActionFacade extends org.nasdanika.html.app.impl.ActionImpl impleme
 		}
 
 		this.content = content;
+		this.widgets = widgets;
 		
 		if (elements != null) {
 			for (Object child : elements) {
@@ -232,6 +239,10 @@ public class ActionFacade extends org.nasdanika.html.app.impl.ActionImpl impleme
 		}
 		ViewGenerator viewGenerator = viewGen.fork();
 		viewGenerator.register(Action.class, this);
+		
+		for (Entry<String, ViewPart> widget: widgets.entrySet()) {
+			viewGenerator.put("widgets/" + widget.getKey(), viewGenerator.processViewPart(widget.getValue(), progressMonitor));
+		}
 		
 		Fragment ret = viewGenerator.get(HTMLFactory.class, HTMLFactory.INSTANCE).fragment();
 		for (Object ce: content) {
