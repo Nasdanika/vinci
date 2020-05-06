@@ -590,6 +590,26 @@ public class ComponentsPackageImpl extends EPackageImpl implements ComponentsPac
 	 * @generated
 	 */
 	@Override
+	public EAttribute getImage_Height() {
+		return (EAttribute)imageEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getImage_Width() {
+		return (EAttribute)imageEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EOperation getImage__CaptureScreen() {
 		return imageEClass.getEOperations().get(0);
 	}
@@ -712,6 +732,8 @@ public class ComponentsPackageImpl extends EPackageImpl implements ComponentsPac
 		createEAttribute(imageEClass, IMAGE__CAPTION);
 		createEReference(imageEClass, IMAGE__APPEARANCE);
 		createEReference(imageEClass, IMAGE__TARGET);
+		createEAttribute(imageEClass, IMAGE__HEIGHT);
+		createEAttribute(imageEClass, IMAGE__WIDTH);
 		createEOperation(imageEClass, IMAGE___CAPTURE_SCREEN);
 
 		textToSpeechTextEClass = createEClass(TEXT_TO_SPEECH_TEXT);
@@ -845,6 +867,8 @@ public class ComponentsPackageImpl extends EPackageImpl implements ComponentsPac
 		initEAttribute(getImage_Caption(), ecorePackage.getEString(), "caption", null, 0, 1, Image.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getImage_Appearance(), theBootstrapPackage.getAppearance(), null, "appearance", null, 0, 1, Image.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getImage_Target(), theAppPackage.getAbstractAction(), null, "target", null, 0, 1, Image.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getImage_Height(), ecorePackage.getEString(), "height", null, 0, 1, Image.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getImage_Width(), ecorePackage.getEString(), "width", null, 0, 1, Image.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getImage__CaptureScreen(), null, "captureScreen", 0, 1, IS_UNIQUE, IS_ORDERED);
 
@@ -1117,6 +1141,18 @@ public class ComponentsPackageImpl extends EPackageImpl implements ComponentsPac
 		   source,
 		   new String[] {
 			   "documentation", "If target is set, then click on the image activates the target action. For example, a click on a screensot may open a dialog with a screen recording positioned at the time the screenshot was taken."
+		   });
+		addAnnotation
+		  (getImage_Height(),
+		   source,
+		   new String[] {
+			   "documentation", "Image height"
+		   });
+		addAnnotation
+		  (getImage_Width(),
+		   source,
+		   new String[] {
+			   "documentation", "Image width"
 		   });
 		addAnnotation
 		  (textToSpeechTextEClass,

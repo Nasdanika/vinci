@@ -1204,13 +1204,31 @@ public interface ComponentsPackage extends EPackage {
 	int IMAGE__TARGET = NcorePackage.MODEL_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Height</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IMAGE__HEIGHT = NcorePackage.MODEL_ELEMENT_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Width</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IMAGE__WIDTH = NcorePackage.MODEL_ELEMENT_FEATURE_COUNT + 5;
+
+	/**
 	 * The number of structural features of the '<em>Image</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int IMAGE_FEATURE_COUNT = NcorePackage.MODEL_ELEMENT_FEATURE_COUNT + 4;
+	int IMAGE_FEATURE_COUNT = NcorePackage.MODEL_ELEMENT_FEATURE_COUNT + 6;
 
 	/**
 	 * The operation id for the '<em>Capture Screen</em>' operation.
@@ -1887,6 +1905,28 @@ public interface ComponentsPackage extends EPackage {
 	EReference getImage_Target();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.components.Image#getHeight <em>Height</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Height</em>'.
+	 * @see org.nasdanika.vinci.components.Image#getHeight()
+	 * @see #getImage()
+	 * @generated
+	 */
+	EAttribute getImage_Height();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.components.Image#getWidth <em>Width</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Width</em>'.
+	 * @see org.nasdanika.vinci.components.Image#getWidth()
+	 * @see #getImage()
+	 * @generated
+	 */
+	EAttribute getImage_Width();
+
+	/**
 	 * Returns the meta object for the '{@link org.nasdanika.vinci.components.Image#captureScreen() <em>Capture Screen</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2256,6 +2296,20 @@ public interface ComponentsPackage extends EPackage {
 		 * @generated
 		 */
 		EReference IMAGE__TARGET = eINSTANCE.getImage_Target();
+		/**
+		 * The meta object literal for the '<em><b>Height</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute IMAGE__HEIGHT = eINSTANCE.getImage_Height();
+		/**
+		 * The meta object literal for the '<em><b>Width</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute IMAGE__WIDTH = eINSTANCE.getImage_Width();
 		/**
 		 * The meta object literal for the '<em><b>Capture Screen</b></em>' operation.
 		 * <!-- begin-user-doc -->

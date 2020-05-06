@@ -29,6 +29,8 @@ import org.nasdanika.vinci.bootstrap.Appearance;
  *   <li>{@link org.nasdanika.vinci.components.Image#getCaption <em>Caption</em>}</li>
  *   <li>{@link org.nasdanika.vinci.components.Image#getAppearance <em>Appearance</em>}</li>
  *   <li>{@link org.nasdanika.vinci.components.Image#getTarget <em>Target</em>}</li>
+ *   <li>{@link org.nasdanika.vinci.components.Image#getHeight <em>Height</em>}</li>
+ *   <li>{@link org.nasdanika.vinci.components.Image#getWidth <em>Width</em>}</li>
  * </ul>
  *
  * @see org.nasdanika.vinci.components.ComponentsPackage#getImage()
@@ -135,6 +137,56 @@ public interface Image extends ModelElement, SupplierFactory<ViewPart> {
 	 * @generated
 	 */
 	void setTarget(AbstractAction value);
+
+	/**
+	 * Returns the value of the '<em><b>Height</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Image height
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Height</em>' attribute.
+	 * @see #setHeight(String)
+	 * @see org.nasdanika.vinci.components.ComponentsPackage#getImage_Height()
+	 * @model
+	 * @generated
+	 */
+	String getHeight();
+
+	/**
+	 * Sets the value of the '{@link org.nasdanika.vinci.components.Image#getHeight <em>Height</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Height</em>' attribute.
+	 * @see #getHeight()
+	 * @generated
+	 */
+	void setHeight(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Width</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Image width
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Width</em>' attribute.
+	 * @see #setWidth(String)
+	 * @see org.nasdanika.vinci.components.ComponentsPackage#getImage_Width()
+	 * @model
+	 * @generated
+	 */
+	String getWidth();
+
+	/**
+	 * Sets the value of the '{@link org.nasdanika.vinci.components.Image#getWidth <em>Width</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Width</em>' attribute.
+	 * @see #getWidth()
+	 * @generated
+	 */
+	void setWidth(String value);
 
 	/**
 	 * <!-- begin-user-doc -->

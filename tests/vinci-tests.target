@@ -5,7 +5,7 @@
 		<location path="${eclipse_home}" type="Profile"/>
 		<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
 			<repository location="https://www.nasdanika.org/builds/develop/repositories/composite"/>
-			<unit id="org.nasdanika.third-party.feature.feature.group" version="2020.6.0.202005050649"/>
+			<unit id="org.nasdanika.third-party.feature.feature.group" version="2020.6.0.202005052230"/>
 			<unit id="org.hamcrest.library" version="1.3.0.v20180524-2246"/>
 			<unit id="org.junit" version="4.13.0.v20200204-1500"/>
 			<unit id="org.eclipse.emf.sdk.feature.group" version="2.21.0.v20200205-0529"/>

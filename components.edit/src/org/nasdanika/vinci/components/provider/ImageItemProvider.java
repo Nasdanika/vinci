@@ -48,6 +48,8 @@ public class ImageItemProvider extends ModelElementItemProvider {
 
 			addCaptionPropertyDescriptor(object);
 			addTargetPropertyDescriptor(object);
+			addHeightPropertyDescriptor(object);
+			addWidthPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -89,6 +91,48 @@ public class ImageItemProvider extends ModelElementItemProvider {
 				 false,
 				 true,
 				 null,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Height feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	protected void addHeightPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor(
+				 getResourceLocator(),
+				 getString("_UI_Image_height_feature"),
+				 ComponentsPackage.Literals.IMAGE__HEIGHT,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Width feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	protected void addWidthPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor(
+				 getResourceLocator(),
+				 getString("_UI_Image_width_feature"),
+				 ComponentsPackage.Literals.IMAGE__WIDTH,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null,
 				 null));
@@ -164,6 +208,8 @@ public class ImageItemProvider extends ModelElementItemProvider {
 		switch (notification.getFeatureID(Image.class)) {
 			case ComponentsPackage.IMAGE__CONTENT:
 			case ComponentsPackage.IMAGE__CAPTION:
+			case ComponentsPackage.IMAGE__HEIGHT:
+			case ComponentsPackage.IMAGE__WIDTH:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case ComponentsPackage.IMAGE__APPEARANCE:

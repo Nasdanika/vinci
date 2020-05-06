@@ -35,6 +35,8 @@ import org.nasdanika.vinci.components.Image;
  *   <li>{@link org.nasdanika.vinci.components.impl.ImageImpl#getCaption <em>Caption</em>}</li>
  *   <li>{@link org.nasdanika.vinci.components.impl.ImageImpl#getAppearance <em>Appearance</em>}</li>
  *   <li>{@link org.nasdanika.vinci.components.impl.ImageImpl#getTarget <em>Target</em>}</li>
+ *   <li>{@link org.nasdanika.vinci.components.impl.ImageImpl#getHeight <em>Height</em>}</li>
+ *   <li>{@link org.nasdanika.vinci.components.impl.ImageImpl#getWidth <em>Width</em>}</li>
  * </ul>
  *
  * @generated
@@ -59,6 +61,26 @@ public class ImageImpl extends ModelElementImpl implements Image {
 	 * @ordered
 	 */
 	protected static final String CAPTION_EDEFAULT = null;
+
+	/**
+	 * The default value of the '{@link #getHeight() <em>Height</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getHeight()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String HEIGHT_EDEFAULT = null;
+
+	/**
+	 * The default value of the '{@link #getWidth() <em>Width</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getWidth()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String WIDTH_EDEFAULT = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -184,6 +206,46 @@ public class ImageImpl extends ModelElementImpl implements Image {
 	 * @generated
 	 */
 	@Override
+	public String getHeight() {
+		return (String)eDynamicGet(ComponentsPackage.IMAGE__HEIGHT, ComponentsPackage.Literals.IMAGE__HEIGHT, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setHeight(String newHeight) {
+		eDynamicSet(ComponentsPackage.IMAGE__HEIGHT, ComponentsPackage.Literals.IMAGE__HEIGHT, newHeight);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getWidth() {
+		return (String)eDynamicGet(ComponentsPackage.IMAGE__WIDTH, ComponentsPackage.Literals.IMAGE__WIDTH, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setWidth(String newWidth) {
+		eDynamicSet(ComponentsPackage.IMAGE__WIDTH, ComponentsPackage.Literals.IMAGE__WIDTH, newWidth);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public void captureScreen() {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
@@ -221,6 +283,10 @@ public class ImageImpl extends ModelElementImpl implements Image {
 			case ComponentsPackage.IMAGE__TARGET:
 				if (resolve) return getTarget();
 				return basicGetTarget();
+			case ComponentsPackage.IMAGE__HEIGHT:
+				return getHeight();
+			case ComponentsPackage.IMAGE__WIDTH:
+				return getWidth();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -244,6 +310,12 @@ public class ImageImpl extends ModelElementImpl implements Image {
 				return;
 			case ComponentsPackage.IMAGE__TARGET:
 				setTarget((AbstractAction)newValue);
+				return;
+			case ComponentsPackage.IMAGE__HEIGHT:
+				setHeight((String)newValue);
+				return;
+			case ComponentsPackage.IMAGE__WIDTH:
+				setWidth((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -269,6 +341,12 @@ public class ImageImpl extends ModelElementImpl implements Image {
 			case ComponentsPackage.IMAGE__TARGET:
 				setTarget((AbstractAction)null);
 				return;
+			case ComponentsPackage.IMAGE__HEIGHT:
+				setHeight(HEIGHT_EDEFAULT);
+				return;
+			case ComponentsPackage.IMAGE__WIDTH:
+				setWidth(WIDTH_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -289,6 +367,10 @@ public class ImageImpl extends ModelElementImpl implements Image {
 				return getAppearance() != null;
 			case ComponentsPackage.IMAGE__TARGET:
 				return basicGetTarget() != null;
+			case ComponentsPackage.IMAGE__HEIGHT:
+				return HEIGHT_EDEFAULT == null ? getHeight() != null : !HEIGHT_EDEFAULT.equals(getHeight());
+			case ComponentsPackage.IMAGE__WIDTH:
+				return WIDTH_EDEFAULT == null ? getWidth() != null : !WIDTH_EDEFAULT.equals(getWidth());
 		}
 		return super.eIsSet(featureID);
 	}
@@ -323,8 +405,18 @@ public class ImageImpl extends ModelElementImpl implements Image {
 				if (content != null) {
 					imageTag.attribute("src", "data:image/png;base64, " + Base64.getEncoder().encodeToString(content));
 				}
+				
+				String height = context.interpolate(getHeight());
+				if (!Util.isBlank(height)) {
+					imageTag.attribute("height", height);
+				}
+				
+				String width = context.interpolate(getWidth());
+				if (!Util.isBlank(width)) {
+					imageTag.attribute("width", width);
+				}
 												
-				// TODO - image map support.
+				// TODO - image map support and navigation to target.
 				
 				if (Util.isBlank(caption)) {				
 					return imageTag;
