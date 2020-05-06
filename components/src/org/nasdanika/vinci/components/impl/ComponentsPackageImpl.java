@@ -5,6 +5,7 @@ package org.nasdanika.vinci.components.impl;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EGenericType;
+import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
@@ -549,7 +550,7 @@ public class ComponentsPackageImpl extends EPackageImpl implements ComponentsPac
 	 * @generated
 	 */
 	@Override
-	public EAttribute getImage_Format() {
+	public EAttribute getImage_Content() {
 		return (EAttribute)imageEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -559,7 +560,7 @@ public class ComponentsPackageImpl extends EPackageImpl implements ComponentsPac
 	 * @generated
 	 */
 	@Override
-	public EAttribute getImage_Content() {
+	public EAttribute getImage_Caption() {
 		return (EAttribute)imageEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -569,18 +570,8 @@ public class ComponentsPackageImpl extends EPackageImpl implements ComponentsPac
 	 * @generated
 	 */
 	@Override
-	public EAttribute getImage_Caption() {
-		return (EAttribute)imageEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EReference getImage_Appearance() {
-		return (EReference)imageEClass.getEStructuralFeatures().get(3);
+		return (EReference)imageEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -590,7 +581,17 @@ public class ComponentsPackageImpl extends EPackageImpl implements ComponentsPac
 	 */
 	@Override
 	public EReference getImage_Target() {
-		return (EReference)imageEClass.getEStructuralFeatures().get(4);
+		return (EReference)imageEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getImage__CaptureScreen() {
+		return imageEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -707,11 +708,11 @@ public class ComponentsPackageImpl extends EPackageImpl implements ComponentsPac
 		createEAttribute(textToSpeechEClass, TEXT_TO_SPEECH__EMBED);
 
 		imageEClass = createEClass(IMAGE);
-		createEAttribute(imageEClass, IMAGE__FORMAT);
 		createEAttribute(imageEClass, IMAGE__CONTENT);
 		createEAttribute(imageEClass, IMAGE__CAPTION);
 		createEReference(imageEClass, IMAGE__APPEARANCE);
 		createEReference(imageEClass, IMAGE__TARGET);
+		createEOperation(imageEClass, IMAGE___CAPTURE_SCREEN);
 
 		textToSpeechTextEClass = createEClass(TEXT_TO_SPEECH_TEXT);
 		createEAttribute(textToSpeechTextEClass, TEXT_TO_SPEECH_TEXT__TEXT);
@@ -840,11 +841,12 @@ public class ComponentsPackageImpl extends EPackageImpl implements ComponentsPac
 		initEAttribute(getTextToSpeech_Embed(), ecorePackage.getEBoolean(), "embed", null, 0, 1, TextToSpeech.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(imageEClass, Image.class, "Image", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getImage_Format(), ecorePackage.getEString(), "format", null, 0, 1, Image.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getImage_Content(), ecorePackage.getEByteArray(), "content", null, 0, 1, Image.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getImage_Caption(), ecorePackage.getEString(), "caption", null, 0, 1, Image.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getImage_Appearance(), theBootstrapPackage.getAppearance(), null, "appearance", null, 0, 1, Image.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getImage_Target(), theAppPackage.getAbstractAction(), null, "target", null, 0, 1, Image.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEOperation(getImage__CaptureScreen(), null, "captureScreen", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(textToSpeechTextEClass, TextToSpeechText.class, "TextToSpeechText", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTextToSpeechText_Text(), ecorePackage.getEString(), "text", null, 1, 1, TextToSpeechText.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1087,10 +1089,10 @@ public class ComponentsPackageImpl extends EPackageImpl implements ComponentsPac
 			   "documentation", "Embedded image which can be loaded from a file or taken as a screenshot."
 		   });
 		addAnnotation
-		  (getImage_Format(),
+		  (getImage__CaptureScreen(),
 		   source,
 		   new String[] {
-			   "documentation", "Image format. "
+			   "documentation", "Opens a window for taking a screenshot."
 		   });
 		addAnnotation
 		  (getImage_Content(),
@@ -1155,6 +1157,12 @@ public class ComponentsPackageImpl extends EPackageImpl implements ComponentsPac
 		   source,
 		   new String[] {
 			   "content-type", "text/markdown"
+		   });
+		addAnnotation
+		  (getImage_Content(),
+		   source,
+		   new String[] {
+			   "content-type", "image/png"
 		   });
 	}
 

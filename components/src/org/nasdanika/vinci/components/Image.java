@@ -25,7 +25,6 @@ import org.nasdanika.vinci.bootstrap.Appearance;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.nasdanika.vinci.components.Image#getFormat <em>Format</em>}</li>
  *   <li>{@link org.nasdanika.vinci.components.Image#getContent <em>Content</em>}</li>
  *   <li>{@link org.nasdanika.vinci.components.Image#getCaption <em>Caption</em>}</li>
  *   <li>{@link org.nasdanika.vinci.components.Image#getAppearance <em>Appearance</em>}</li>
@@ -38,31 +37,6 @@ import org.nasdanika.vinci.bootstrap.Appearance;
  */
 public interface Image extends ModelElement, SupplierFactory<ViewPart> {
 	/**
-	 * Returns the value of the '<em><b>Format</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Image format. 
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Format</em>' attribute.
-	 * @see #setFormat(String)
-	 * @see org.nasdanika.vinci.components.ComponentsPackage#getImage_Format()
-	 * @model
-	 * @generated
-	 */
-	String getFormat();
-
-	/**
-	 * Sets the value of the '{@link org.nasdanika.vinci.components.Image#getFormat <em>Format</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Format</em>' attribute.
-	 * @see #getFormat()
-	 * @generated
-	 */
-	void setFormat(String value);
-
-	/**
 	 * Returns the value of the '<em><b>Content</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -72,7 +46,7 @@ public interface Image extends ModelElement, SupplierFactory<ViewPart> {
 	 * @return the value of the '<em>Content</em>' attribute.
 	 * @see #setContent(byte[])
 	 * @see org.nasdanika.vinci.components.ComponentsPackage#getImage_Content()
-	 * @model
+	 * @model annotation="urn:org.nasdanika content-type='image/png'"
 	 * @generated
 	 */
 	byte[] getContent();
@@ -161,5 +135,16 @@ public interface Image extends ModelElement, SupplierFactory<ViewPart> {
 	 * @generated
 	 */
 	void setTarget(AbstractAction value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Opens a window for taking a screenshot.
+	 * <!-- end-model-doc -->
+	 * @model
+	 * @generated
+	 */
+	void captureScreen();
 
 } // Image

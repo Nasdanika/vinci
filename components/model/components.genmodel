@@ -54,11 +54,11 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute components.ecore#//TextToSpeech/embed"/>
     </genClasses>
     <genClasses ecoreClass="components.ecore#//Image">
-      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute components.ecore#//Image/format"/>
       <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute components.ecore#//Image/content"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute components.ecore#//Image/caption"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference components.ecore#//Image/appearance"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference components.ecore#//Image/target"/>
+      <genOperations ecoreOperation="components.ecore#//Image/captureScreen"/>
     </genClasses>
     <genClasses ecoreClass="components.ecore#//TextToSpeechText">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute components.ecore#//TextToSpeechText/text"/>

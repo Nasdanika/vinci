@@ -213,14 +213,17 @@
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Embedded image which can be loaded from a file or taken as a screenshot."/>
     </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="format" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+    <eOperations name="captureScreen">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Image format. "/>
+        <details key="documentation" value="Opens a window for taking a screenshot."/>
       </eAnnotations>
-    </eStructuralFeatures>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="content" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EByteArray">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Image bytes."/>
+      </eAnnotations>
+      <eAnnotations source="urn:org.nasdanika">
+        <details key="content-type" value="image/png"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="caption" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">

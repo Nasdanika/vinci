@@ -4,6 +4,7 @@ package org.nasdanika.vinci.components;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.nasdanika.ncore.NcorePackage;
@@ -1167,22 +1168,13 @@ public interface ComponentsPackage extends EPackage {
 	int IMAGE__DESCRIPTION = NcorePackage.MODEL_ELEMENT__DESCRIPTION;
 
 	/**
-	 * The feature id for the '<em><b>Format</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int IMAGE__FORMAT = NcorePackage.MODEL_ELEMENT_FEATURE_COUNT + 0;
-
-	/**
 	 * The feature id for the '<em><b>Content</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int IMAGE__CONTENT = NcorePackage.MODEL_ELEMENT_FEATURE_COUNT + 1;
+	int IMAGE__CONTENT = NcorePackage.MODEL_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Caption</b></em>' attribute.
@@ -1191,7 +1183,7 @@ public interface ComponentsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IMAGE__CAPTION = NcorePackage.MODEL_ELEMENT_FEATURE_COUNT + 2;
+	int IMAGE__CAPTION = NcorePackage.MODEL_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Appearance</b></em>' containment reference.
@@ -1200,7 +1192,7 @@ public interface ComponentsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IMAGE__APPEARANCE = NcorePackage.MODEL_ELEMENT_FEATURE_COUNT + 3;
+	int IMAGE__APPEARANCE = NcorePackage.MODEL_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Target</b></em>' reference.
@@ -1209,7 +1201,7 @@ public interface ComponentsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IMAGE__TARGET = NcorePackage.MODEL_ELEMENT_FEATURE_COUNT + 4;
+	int IMAGE__TARGET = NcorePackage.MODEL_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Image</em>' class.
@@ -1218,7 +1210,16 @@ public interface ComponentsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IMAGE_FEATURE_COUNT = NcorePackage.MODEL_ELEMENT_FEATURE_COUNT + 5;
+	int IMAGE_FEATURE_COUNT = NcorePackage.MODEL_ELEMENT_FEATURE_COUNT + 4;
+
+	/**
+	 * The operation id for the '<em>Capture Screen</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IMAGE___CAPTURE_SCREEN = NcorePackage.MODEL_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Image</em>' class.
@@ -1227,7 +1228,7 @@ public interface ComponentsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IMAGE_OPERATION_COUNT = NcorePackage.MODEL_ELEMENT_OPERATION_COUNT + 0;
+	int IMAGE_OPERATION_COUNT = NcorePackage.MODEL_ELEMENT_OPERATION_COUNT + 1;
 
 
 	/**
@@ -1842,17 +1843,6 @@ public interface ComponentsPackage extends EPackage {
 	EClass getImage();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.components.Image#getFormat <em>Format</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Format</em>'.
-	 * @see org.nasdanika.vinci.components.Image#getFormat()
-	 * @see #getImage()
-	 * @generated
-	 */
-	EAttribute getImage_Format();
-
-	/**
 	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.components.Image#getContent <em>Content</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1895,6 +1885,16 @@ public interface ComponentsPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getImage_Target();
+
+	/**
+	 * Returns the meta object for the '{@link org.nasdanika.vinci.components.Image#captureScreen() <em>Capture Screen</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Capture Screen</em>' operation.
+	 * @see org.nasdanika.vinci.components.Image#captureScreen()
+	 * @generated
+	 */
+	EOperation getImage__CaptureScreen();
 
 	/**
 	 * Returns the meta object for class '{@link org.nasdanika.vinci.components.TextToSpeechText <em>Text To Speech Text</em>}'.
@@ -2229,13 +2229,6 @@ public interface ComponentsPackage extends EPackage {
 		 */
 		EClass IMAGE = eINSTANCE.getImage();
 		/**
-		 * The meta object literal for the '<em><b>Format</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute IMAGE__FORMAT = eINSTANCE.getImage_Format();
-		/**
 		 * The meta object literal for the '<em><b>Content</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2263,6 +2256,13 @@ public interface ComponentsPackage extends EPackage {
 		 * @generated
 		 */
 		EReference IMAGE__TARGET = eINSTANCE.getImage_Target();
+		/**
+		 * The meta object literal for the '<em><b>Capture Screen</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation IMAGE___CAPTURE_SCREEN = eINSTANCE.getImage__CaptureScreen();
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.vinci.components.impl.TextToSpeechTextImpl <em>Text To Speech Text</em>}' class.
 		 * <!-- begin-user-doc -->

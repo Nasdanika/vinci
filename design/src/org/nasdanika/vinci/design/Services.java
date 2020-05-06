@@ -36,6 +36,15 @@ public class Services {
     	String contentType = nann.getDetails().get("content-type");
     	return !Util.isBlank(contentType) && "text/html".equalsIgnoreCase(contentType.trim());
     }
+    
+    public boolean isImage(EObject self, EStructuralFeature feature) {
+    	EAnnotation nann = feature.getEAnnotation("urn:org.nasdanika");
+    	if (nann == null) {
+    		return false;    	
+    	}
+    	String contentType = nann.getDetails().get("content-type");
+    	return !Util.isBlank(contentType) && contentType.trim().startsWith("image/");
+    }
         
     public boolean isMarkdown(EObject self, EStructuralFeature feature) {
     	EAnnotation nann = feature.getEAnnotation("urn:org.nasdanika");
@@ -74,6 +83,15 @@ public class Services {
     	}
     	return false;
     }
+    
+	public boolean hasImage(EObject self) {
+		for (EStructuralFeature f: self.eClass().getEAllStructuralFeatures()) {
+			if (isImage(self,f)) {
+				return true;
+			}
+		}
+		return false;
+	}
         
     public boolean hasMarkdown(EObject self) {
     	for (EStructuralFeature f: self.eClass().getEAllStructuralFeatures()) {

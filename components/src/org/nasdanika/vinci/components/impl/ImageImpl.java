@@ -2,9 +2,11 @@
  */
 package org.nasdanika.vinci.components.impl;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.Base64;
 
 import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.nasdanika.common.Context;
@@ -29,7 +31,6 @@ import org.nasdanika.vinci.components.Image;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.nasdanika.vinci.components.impl.ImageImpl#getFormat <em>Format</em>}</li>
  *   <li>{@link org.nasdanika.vinci.components.impl.ImageImpl#getContent <em>Content</em>}</li>
  *   <li>{@link org.nasdanika.vinci.components.impl.ImageImpl#getCaption <em>Caption</em>}</li>
  *   <li>{@link org.nasdanika.vinci.components.impl.ImageImpl#getAppearance <em>Appearance</em>}</li>
@@ -39,16 +40,6 @@ import org.nasdanika.vinci.components.Image;
  * @generated
  */
 public class ImageImpl extends ModelElementImpl implements Image {
-	/**
-	 * The default value of the '{@link #getFormat() <em>Format</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getFormat()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String FORMAT_EDEFAULT = null;
-
 	/**
 	 * The default value of the '{@link #getContent() <em>Content</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -86,26 +77,6 @@ public class ImageImpl extends ModelElementImpl implements Image {
 	@Override
 	protected EClass eStaticClass() {
 		return ComponentsPackage.Literals.IMAGE;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String getFormat() {
-		return (String)eDynamicGet(ComponentsPackage.IMAGE__FORMAT, ComponentsPackage.Literals.IMAGE__FORMAT, true, true);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setFormat(String newFormat) {
-		eDynamicSet(ComponentsPackage.IMAGE__FORMAT, ComponentsPackage.Literals.IMAGE__FORMAT, newFormat);
 	}
 
 	/**
@@ -213,6 +184,18 @@ public class ImageImpl extends ModelElementImpl implements Image {
 	 * @generated
 	 */
 	@Override
+	public void captureScreen() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case ComponentsPackage.IMAGE__APPEARANCE:
@@ -229,8 +212,6 @@ public class ImageImpl extends ModelElementImpl implements Image {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ComponentsPackage.IMAGE__FORMAT:
-				return getFormat();
 			case ComponentsPackage.IMAGE__CONTENT:
 				return getContent();
 			case ComponentsPackage.IMAGE__CAPTION:
@@ -252,9 +233,6 @@ public class ImageImpl extends ModelElementImpl implements Image {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ComponentsPackage.IMAGE__FORMAT:
-				setFormat((String)newValue);
-				return;
 			case ComponentsPackage.IMAGE__CONTENT:
 				setContent((byte[])newValue);
 				return;
@@ -279,9 +257,6 @@ public class ImageImpl extends ModelElementImpl implements Image {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ComponentsPackage.IMAGE__FORMAT:
-				setFormat(FORMAT_EDEFAULT);
-				return;
 			case ComponentsPackage.IMAGE__CONTENT:
 				setContent(CONTENT_EDEFAULT);
 				return;
@@ -306,8 +281,6 @@ public class ImageImpl extends ModelElementImpl implements Image {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ComponentsPackage.IMAGE__FORMAT:
-				return FORMAT_EDEFAULT == null ? getFormat() != null : !FORMAT_EDEFAULT.equals(getFormat());
 			case ComponentsPackage.IMAGE__CONTENT:
 				return CONTENT_EDEFAULT == null ? getContent() != null : !CONTENT_EDEFAULT.equals(getContent());
 			case ComponentsPackage.IMAGE__CAPTION:
@@ -318,6 +291,21 @@ public class ImageImpl extends ModelElementImpl implements Image {
 				return basicGetTarget() != null;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case ComponentsPackage.IMAGE___CAPTURE_SCREEN:
+				captureScreen();
+				return null;
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 	@Override
@@ -333,7 +321,7 @@ public class ImageImpl extends ModelElementImpl implements Image {
 				
 				byte[] content = getContent();
 				if (content != null) {
-					imageTag.attribute("src", "data:image/" + getFormat() + ";base64, " + Base64.getEncoder().encodeToString(content));
+					imageTag.attribute("src", "data:image/png;base64, " + Base64.getEncoder().encodeToString(content));
 				}
 												
 				// TODO - image map support.

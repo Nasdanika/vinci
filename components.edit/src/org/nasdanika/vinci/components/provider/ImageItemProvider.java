@@ -162,7 +162,6 @@ public class ImageItemProvider extends ModelElementItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Image.class)) {
-			case ComponentsPackage.IMAGE__FORMAT:
 			case ComponentsPackage.IMAGE__CONTENT:
 			case ComponentsPackage.IMAGE__CAPTION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
