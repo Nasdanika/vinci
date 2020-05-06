@@ -28,12 +28,14 @@ import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 import org.eclipse.jface.dialogs.ErrorDialog;
 import org.eclipse.ui.PlatformUI;
 import org.jsoup.Jsoup;
+import org.nasdanika.common.CachingSpeechSynthesizer;
 import org.nasdanika.common.Context;
 //import org.nasdanika.codegen.util.JavaProjectClassLoader;
 import org.nasdanika.common.DefaultConverter;
 import org.nasdanika.common.MutableContext;
 import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.common.ServiceComputer;
+import org.nasdanika.common.SpeechSynthesizer;
 import org.nasdanika.common.Supplier;
 import org.nasdanika.common.Util;
 import org.nasdanika.common.resources.BinaryEntityContainer;
@@ -55,6 +57,7 @@ import org.nasdanika.vinci.app.impl.ActionFacade;
 import org.nasdanika.vinci.bootstrap.BootstrapPackage;
 import org.nasdanika.vinci.bootstrap.BootstrapPage;
 import org.nasdanika.vinci.html.HtmlPackage;
+import org.nasdanika.vinci.presentation.cli.GoogleCloudTextToSpeechSynthesizer;
 
 /**
  * Generate an application from the root action using a page template.
@@ -105,6 +108,8 @@ public class GenerateTemplatedApplicationAction extends VinciGenerateAction<Abst
 			MutableContext generationContext = Context.EMPTY_CONTEXT.fork();
 			generationContext.register(BinaryEntityContainer.class, output);
 			generationContext.register(ResourceSet.class, resourceSet);
+			
+			generationContext.register(SpeechSynthesizer.class, new CachingSpeechSynthesizer(new GoogleCloudTextToSpeechSynthesizer()));			
 			
 			URI baseURI = URI.createURI(outputFolder.getLocationURI().toString()+"/");			
 			generationContext.register(URI.class, baseURI);

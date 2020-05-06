@@ -2,10 +2,10 @@
  */
 package org.nasdanika.vinci.components.impl;
 
-import java.io.ByteArrayInputStream;
+import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.util.Base64;
-import java.util.Locale;
 
 import org.apache.commons.codec.binary.Hex;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -13,7 +13,9 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.nasdanika.common.Context;
+import org.nasdanika.common.DefaultConverter;
 import org.nasdanika.common.ProgressMonitor;
+import org.nasdanika.common.SpeechSynthesizer;
 import org.nasdanika.common.Supplier;
 import org.nasdanika.common.Util;
 import org.nasdanika.common.resources.BinaryEntityContainer;
@@ -25,14 +27,6 @@ import org.nasdanika.ncore.impl.ModelElementImpl;
 import org.nasdanika.vinci.bootstrap.Appearance;
 import org.nasdanika.vinci.components.ComponentsPackage;
 import org.nasdanika.vinci.components.TextToSpeech;
-
-import com.google.cloud.texttospeech.v1.AudioConfig;
-import com.google.cloud.texttospeech.v1.AudioEncoding;
-import com.google.cloud.texttospeech.v1.SynthesisInput;
-import com.google.cloud.texttospeech.v1.SynthesizeSpeechResponse;
-import com.google.cloud.texttospeech.v1.TextToSpeechClient;
-import com.google.cloud.texttospeech.v1.VoiceSelectionParams;
-import com.google.cloud.texttospeech.v1.VoiceSelectionParams.Builder;
 
 /**
  * <!-- begin-user-doc -->
@@ -437,61 +431,43 @@ public abstract class TextToSpeechImpl extends ModelElementImpl implements TextT
 			
 			@Override
 			public ViewPart execute(ProgressMonitor progressMonitor) throws Exception {
-				try (TextToSpeechClient textToSpeechClient = TextToSpeechClient.create()) {
-					com.google.cloud.texttospeech.v1.SynthesisInput.Builder inputBuilder = SynthesisInput.newBuilder();
-					if ("SSML".equals(getFormat())) {
-						inputBuilder.setSsml("<speak>" + text + "</speak>");
-					} else {
-						inputBuilder.setText(text);
-					}
-					// Build the voice request; languageCode = "en_us"
-					Builder voiceBuilder = VoiceSelectionParams.newBuilder();
-					voiceBuilder.setLanguageCode(Util.isBlank(getLanguage()) ? Locale.getDefault().toLanguageTag() : getLanguage());
-					if (!Util.isBlank(getVoice())) {
-						voiceBuilder.setName(getVoice());
-					}
-					SynthesizeSpeechResponse response = textToSpeechClient.synthesizeSpeech(
-							inputBuilder.build(), 
-							voiceBuilder.build(), 
-							AudioConfig.newBuilder().setAudioEncoding(AudioEncoding.MP3).build());
-
-					byte[] audioContents = response.getAudioContent().toByteArray();
-					
-					String path = context.interpolate(getPath());
-					String audioLocation = isEmbed() ? null : Util.isBlank(path) ? Hex.encodeHexString(MessageDigest.getInstance("SHA-256").digest(audioContents)) + ".mp3" : path;
-
-					if (audioLocation != null) {
-						URI baseURI = context.get(Context.BASE_URI_PROPERTY, URI.class);
-						URI contextURI = context.get(URI.class);
-						String audioPath = URI.createURI(audioLocation).resolve(contextURI).deresolve(baseURI).toString();						
+				SpeechSynthesizer synthesizer = context.get(SpeechSynthesizer.class);
+				boolean ssml = "SSML".equals(getFormat());
+				
+				InputStream audio = synthesizer.synthesizeSpeech(getLanguage(), getVoice(), ssml, ssml ? "<speak>" + text + "</speak>" : text, progressMonitor);
 						
-						BinaryEntityContainer resourceContainer = context.get(BinaryEntityContainer.class);
-						resourceContainer.get(audioPath, progressMonitor).setState(new ByteArrayInputStream(audioContents), progressMonitor);
-					}
+				String path = context.interpolate(getPath());
+				String audioLocation = isEmbed() ? null : Util.isBlank(path) ? (ssml ? "S" : "T") + Hex.encodeHexString(MessageDigest.getInstance("SHA-256").digest(text.getBytes(StandardCharsets.UTF_8))) + ".mp3" : path;				
+				String encodedAudio = isEmbed() ? "data:audio/mpeg;base64, " + Base64.getEncoder().encodeToString(DefaultConverter.INSTANCE.toByteArray(audio)) : null;
+				if (audioLocation != null) {
+					URI baseURI = context.get(Context.BASE_URI_PROPERTY, URI.class);
+					URI contextURI = context.get(URI.class);
+					String audioPath = URI.createURI(audioLocation).resolve(contextURI).deresolve(baseURI).toString();						
 					
-					
-					
-					// TODO Auto-generated method stub
-					return new ViewPart() {
+					BinaryEntityContainer resourceContainer = context.get(BinaryEntityContainer.class);
+					resourceContainer.stateAdapter().put(audioPath, audio, progressMonitor);
+				}
+				
+				// TODO Auto-generated method stub
+				return new ViewPart() {
 
-						@Override
-						public Object generate(ViewGenerator viewGenerator, ProgressMonitor progressMonitor) {
-							Tag sourceTag = TagName.source.create();
-							
-							if (audioLocation == null) {
-								sourceTag.attribute("src", "data:audio/mpeg;base64, " + Base64.getEncoder().encodeToString(audioContents));
-							} else {
-								sourceTag.attribute("type", "audio/mpeg");
-								sourceTag.attribute("src", audioLocation);
-							}
-							
-							return TagName.audio.create(sourceTag, "Your browser does not support the audio element").attribute("controls", true);
+					@Override
+					public Object generate(ViewGenerator viewGenerator, ProgressMonitor progressMonitor) {
+						Tag sourceTag = TagName.source.create();
+						
+						if (isEmbed()) {
+							sourceTag.attribute("src", encodedAudio);
+						} else {
+							sourceTag.attribute("type", "audio/mpeg");
+							sourceTag.attribute("src", audioLocation);
 						}
 						
-					};
+						return TagName.audio.create(sourceTag, "Your browser does not support the audio element").attribute("controls", true);
+					}
 					
-				}
+				};
 			}
+			
 		}; 
 				
 		Appearance appearance = getAppearance();

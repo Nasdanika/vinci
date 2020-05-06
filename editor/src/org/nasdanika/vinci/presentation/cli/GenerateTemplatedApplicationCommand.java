@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.util.Diagnostician;
 import org.jsoup.Jsoup;
+import org.nasdanika.common.CachingSpeechSynthesizer;
 import org.nasdanika.common.Consumer;
 import org.nasdanika.common.ConsumerFactory;
 import org.nasdanika.common.Context;
@@ -21,6 +22,7 @@ import org.nasdanika.common.DefaultConverter;
 import org.nasdanika.common.MutableContext;
 import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.common.ServiceComputer;
+import org.nasdanika.common.SpeechSynthesizer;
 import org.nasdanika.common.Supplier;
 import org.nasdanika.common.Util;
 import org.nasdanika.common.resources.BinaryEntityContainer;
@@ -113,6 +115,8 @@ public class GenerateTemplatedApplicationCommand extends ModelCommand<AbstractAc
 		generationContext.register(ResourceSet.class, resourceSet);
 		generationContext.register(URI.class, baseURI);
 		generationContext.put(Context.BASE_URI_PROPERTY, baseURI);
+		
+		generationContext.register(SpeechSynthesizer.class, new CachingSpeechSynthesizer(new GoogleCloudTextToSpeechSynthesizer()));
 		
 		// Generate action tree
 		try (Supplier<Object> work = rootAction.create(generationContext)) {
