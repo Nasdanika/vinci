@@ -2,11 +2,9 @@
  */
 package org.nasdanika.vinci.components.impl;
 
-import java.lang.reflect.InvocationTargetException;
 import java.util.Base64;
 
 import org.eclipse.emf.common.notify.NotificationChain;
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.nasdanika.common.Context;
@@ -246,18 +244,6 @@ public class ImageImpl extends ModelElementImpl implements Image {
 	 * @generated
 	 */
 	@Override
-	public void captureScreen() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case ComponentsPackage.IMAGE__APPEARANCE:
@@ -373,21 +359,6 @@ public class ImageImpl extends ModelElementImpl implements Image {
 				return WIDTH_EDEFAULT == null ? getWidth() != null : !WIDTH_EDEFAULT.equals(getWidth());
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
-		switch (operationID) {
-			case ComponentsPackage.IMAGE___CAPTURE_SCREEN:
-				captureScreen();
-				return null;
-		}
-		return super.eInvoke(operationID, arguments);
 	}
 
 	@Override

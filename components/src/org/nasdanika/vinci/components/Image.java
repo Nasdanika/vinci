@@ -188,15 +188,4 @@ public interface Image extends ModelElement, SupplierFactory<ViewPart> {
 	 */
 	void setWidth(String value);
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Opens a window for taking a screenshot.
-	 * <!-- end-model-doc -->
-	 * @model
-	 * @generated
-	 */
-	void captureScreen();
-
 } // Image

@@ -60,7 +60,6 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference components.ecore#//Image/target"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute components.ecore#//Image/height"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute components.ecore#//Image/width"/>
-      <genOperations ecoreOperation="components.ecore#//Image/captureScreen"/>
     </genClasses>
     <genClasses ecoreClass="components.ecore#//TextToSpeechText">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute components.ecore#//TextToSpeechText/text"/>

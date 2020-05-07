@@ -4,7 +4,6 @@ package org.nasdanika.vinci.components;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.nasdanika.ncore.NcorePackage;
@@ -1231,22 +1230,13 @@ public interface ComponentsPackage extends EPackage {
 	int IMAGE_FEATURE_COUNT = NcorePackage.MODEL_ELEMENT_FEATURE_COUNT + 6;
 
 	/**
-	 * The operation id for the '<em>Capture Screen</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int IMAGE___CAPTURE_SCREEN = NcorePackage.MODEL_ELEMENT_OPERATION_COUNT + 0;
-
-	/**
 	 * The number of operations of the '<em>Image</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int IMAGE_OPERATION_COUNT = NcorePackage.MODEL_ELEMENT_OPERATION_COUNT + 1;
+	int IMAGE_OPERATION_COUNT = NcorePackage.MODEL_ELEMENT_OPERATION_COUNT + 0;
 
 
 	/**
@@ -1927,16 +1917,6 @@ public interface ComponentsPackage extends EPackage {
 	EAttribute getImage_Width();
 
 	/**
-	 * Returns the meta object for the '{@link org.nasdanika.vinci.components.Image#captureScreen() <em>Capture Screen</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Capture Screen</em>' operation.
-	 * @see org.nasdanika.vinci.components.Image#captureScreen()
-	 * @generated
-	 */
-	EOperation getImage__CaptureScreen();
-
-	/**
 	 * Returns the meta object for class '{@link org.nasdanika.vinci.components.TextToSpeechText <em>Text To Speech Text</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2310,13 +2290,6 @@ public interface ComponentsPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute IMAGE__WIDTH = eINSTANCE.getImage_Width();
-		/**
-		 * The meta object literal for the '<em><b>Capture Screen</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation IMAGE___CAPTURE_SCREEN = eINSTANCE.getImage__CaptureScreen();
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.vinci.components.impl.TextToSpeechTextImpl <em>Text To Speech Text</em>}' class.
 		 * <!-- begin-user-doc -->
