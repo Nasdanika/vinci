@@ -14,6 +14,7 @@
       <genEnumLiterals ecoreEnumLiteral="app.ecore#//ActivatorType/Reference"/>
       <genEnumLiterals ecoreEnumLiteral="app.ecore#//ActivatorType/Script"/>
       <genEnumLiterals ecoreEnumLiteral="app.ecore#//ActivatorType/Bind"/>
+      <genEnumLiterals ecoreEnumLiteral="app.ecore#//ActivatorType/Inline"/>
       <genEnumLiterals ecoreEnumLiteral="app.ecore#//ActivatorType/None"/>
     </genEnums>
     <genClasses image="false" ecoreClass="app.ecore#//Container">
@@ -46,7 +47,6 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute app.ecore#//ActionBase/activatorType"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute app.ecore#//ActionBase/confirmation"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute app.ecore#//ActionBase/disabled"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute app.ecore#//ActionBase/embedded"/>
       <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute app.ecore#//ActionBase/markdownContent"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute app.ecore#//ActionBase/pageTemplate"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference app.ecore#//ActionBase/content"/>

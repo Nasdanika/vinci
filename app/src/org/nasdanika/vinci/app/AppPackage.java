@@ -859,22 +859,13 @@ public interface AppPackage extends EPackage {
 	int ACTION_BASE__DISABLED = LABEL_FEATURE_COUNT + 10;
 
 	/**
-	 * The feature id for the '<em><b>Embedded</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTION_BASE__EMBEDDED = LABEL_FEATURE_COUNT + 11;
-
-	/**
 	 * The feature id for the '<em><b>Markdown Content</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION_BASE__MARKDOWN_CONTENT = LABEL_FEATURE_COUNT + 12;
+	int ACTION_BASE__MARKDOWN_CONTENT = LABEL_FEATURE_COUNT + 11;
 
 	/**
 	 * The feature id for the '<em><b>Page Template</b></em>' attribute.
@@ -883,7 +874,7 @@ public interface AppPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION_BASE__PAGE_TEMPLATE = LABEL_FEATURE_COUNT + 13;
+	int ACTION_BASE__PAGE_TEMPLATE = LABEL_FEATURE_COUNT + 12;
 
 	/**
 	 * The feature id for the '<em><b>Content</b></em>' containment reference list.
@@ -892,7 +883,7 @@ public interface AppPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION_BASE__CONTENT = LABEL_FEATURE_COUNT + 14;
+	int ACTION_BASE__CONTENT = LABEL_FEATURE_COUNT + 13;
 
 	/**
 	 * The feature id for the '<em><b>Widgets</b></em>' containment reference list.
@@ -901,7 +892,7 @@ public interface AppPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION_BASE__WIDGETS = LABEL_FEATURE_COUNT + 15;
+	int ACTION_BASE__WIDGETS = LABEL_FEATURE_COUNT + 14;
 
 	/**
 	 * The number of structural features of the '<em>Action Base</em>' class.
@@ -910,7 +901,7 @@ public interface AppPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION_BASE_FEATURE_COUNT = LABEL_FEATURE_COUNT + 16;
+	int ACTION_BASE_FEATURE_COUNT = LABEL_FEATURE_COUNT + 15;
 
 	/**
 	 * The operation id for the '<em>Create Application Builder Supplier</em>' operation.
@@ -1337,15 +1328,6 @@ public interface AppPackage extends EPackage {
 	int ACTION__DISABLED = ACTION_BASE__DISABLED;
 
 	/**
-	 * The feature id for the '<em><b>Embedded</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTION__EMBEDDED = ACTION_BASE__EMBEDDED;
-
-	/**
 	 * The feature id for the '<em><b>Markdown Content</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1596,15 +1578,6 @@ public interface AppPackage extends EPackage {
 	 * @ordered
 	 */
 	int PARTITION__DISABLED = ACTION_BASE__DISABLED;
-
-	/**
-	 * The feature id for the '<em><b>Embedded</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PARTITION__EMBEDDED = ACTION_BASE__EMBEDDED;
 
 	/**
 	 * The feature id for the '<em><b>Markdown Content</b></em>' attribute.
@@ -2627,17 +2600,6 @@ public interface AppPackage extends EPackage {
 	EAttribute getActionBase_Disabled();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.app.ActionBase#isEmbedded <em>Embedded</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Embedded</em>'.
-	 * @see org.nasdanika.vinci.app.ActionBase#isEmbedded()
-	 * @see #getActionBase()
-	 * @generated
-	 */
-	EAttribute getActionBase_Embedded();
-
-	/**
 	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.app.ActionBase#getMarkdownContent <em>Markdown Content</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3193,14 +3155,6 @@ public interface AppPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute ACTION_BASE__DISABLED = eINSTANCE.getActionBase_Disabled();
-
-		/**
-		 * The meta object literal for the '<em><b>Embedded</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute ACTION_BASE__EMBEDDED = eINSTANCE.getActionBase_Embedded();
 
 		/**
 		 * The meta object literal for the '<em><b>Markdown Content</b></em>' attribute feature.

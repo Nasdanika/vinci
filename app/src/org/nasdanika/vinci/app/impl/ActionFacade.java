@@ -34,6 +34,7 @@ import org.nasdanika.html.bootstrap.Color;
 import org.nasdanika.vinci.app.ActionBase;
 import org.nasdanika.vinci.app.ActionCategory;
 import org.nasdanika.vinci.app.ActionRole;
+import org.nasdanika.vinci.app.ActivatorType;
 import org.nasdanika.vinci.bootstrap.Appearance;
 
 public class ActionFacade extends org.nasdanika.html.app.impl.ActionImpl implements Decorator {
@@ -105,6 +106,7 @@ public class ActionFacade extends org.nasdanika.html.app.impl.ActionImpl impleme
 			break;
 		case BIND:
 			throw new UnsupportedOperationException("Not implemented yet");
+		case INLINE: 
 		case REFERENCE:		
 			
 			if (actionURI == null) {
@@ -124,6 +126,11 @@ public class ActionFacade extends org.nasdanika.html.app.impl.ActionImpl impleme
 						relative = actionURI.deresolve(URI.createURI("random-" + UUID.randomUUID()+".html").resolve(actionURI), true, true, true);
 					}
 					return relative.toString();
+				}
+				
+				@Override
+				public boolean inline() {
+					return target.getActivatorType() == ActivatorType.INLINE;
 				}
 
 			});

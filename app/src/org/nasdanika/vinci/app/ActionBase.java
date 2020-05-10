@@ -29,7 +29,6 @@ import org.nasdanika.ncore.Value;
  *   <li>{@link org.nasdanika.vinci.app.ActionBase#getActivatorType <em>Activator Type</em>}</li>
  *   <li>{@link org.nasdanika.vinci.app.ActionBase#getConfirmation <em>Confirmation</em>}</li>
  *   <li>{@link org.nasdanika.vinci.app.ActionBase#isDisabled <em>Disabled</em>}</li>
- *   <li>{@link org.nasdanika.vinci.app.ActionBase#isEmbedded <em>Embedded</em>}</li>
  *   <li>{@link org.nasdanika.vinci.app.ActionBase#getMarkdownContent <em>Markdown Content</em>}</li>
  *   <li>{@link org.nasdanika.vinci.app.ActionBase#getPageTemplate <em>Page Template</em>}</li>
  *   <li>{@link org.nasdanika.vinci.app.ActionBase#getContent <em>Content</em>}</li>
@@ -250,31 +249,6 @@ public interface ActionBase extends Label, AbstractAction, Container<ActionEleme
 	 * @generated
 	 */
 	void setDisabled(boolean value);
-
-	/**
-	 * Returns the value of the '<em><b>Embedded</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * If true, then action content is displayed instead of the action label. For example, a login form action or a search action can be embedded into a navbar.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Embedded</em>' attribute.
-	 * @see #setEmbedded(boolean)
-	 * @see org.nasdanika.vinci.app.AppPackage#getActionBase_Embedded()
-	 * @model
-	 * @generated
-	 */
-	boolean isEmbedded();
-
-	/**
-	 * Sets the value of the '{@link org.nasdanika.vinci.app.ActionBase#isEmbedded <em>Embedded</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Embedded</em>' attribute.
-	 * @see #isEmbedded()
-	 * @generated
-	 */
-	void setEmbedded(boolean value);
 
 	/**
 	 * Returns the value of the '<em><b>Markdown Content</b></em>' attribute.

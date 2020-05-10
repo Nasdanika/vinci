@@ -60,7 +60,7 @@ public class TextToSpeechTextItemProvider extends TextToSpeechItemProvider {
 				 getString("_UI_TextToSpeechText_text_feature"),
 				 ComponentsPackage.Literals.TEXT_TO_SPEECH_TEXT__TEXT,
 				 true,
-				 false,
+				 true,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,

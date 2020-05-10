@@ -59,6 +59,22 @@ public enum ActivatorType implements Enumerator {
 	 * @ordered
 	 */
 	BIND(2, "Bind", "Bind"), /**
+	 * The '<em><b>Inline</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Content of actions with inline activator type is displayed instead of the action text and icon - the action is "activated" by inlining its content where it is possible. 
+	 * In this case activator value is ignored. 
+	 * When content inlining is not possible the action is considered to have a Reference activator, i.e. a click on the action navigates to a page with action content.
+	 * 
+	 * An example of inline action would be a search or log-in form. Such a form can be displayed in a card, drop-down, or navbar. 
+	 * However, it cannot be displayed in a tree - in this case it would be treated as having Reference activator type.
+	 * <!-- end-model-doc -->
+	 * @see #INLINE_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	INLINE(3, "Inline", "Inline"), /**
 	 * The '<em><b>None</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -69,7 +85,7 @@ public enum ActivatorType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	NONE(3, "None", "None");
+	NONE(4, "None", "None");
 
 	/**
 	 * The '<em><b>Reference</b></em>' literal value.
@@ -114,6 +130,25 @@ public enum ActivatorType implements Enumerator {
 	public static final int BIND_VALUE = 2;
 
 	/**
+	 * The '<em><b>Inline</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Content of actions with inline activator type is displayed instead of the action text and icon - the action is "activated" by inlining its content where it is possible. 
+	 * In this case activator value is ignored. 
+	 * When content inlining is not possible the action is considered to have a Reference activator, i.e. a click on the action navigates to a page with action content.
+	 * 
+	 * An example of inline action would be a search or log-in form. Such a form can be displayed in a card, drop-down, or navbar. 
+	 * However, it cannot be displayed in a tree - in this case it would be treated as having Reference activator type.
+	 * <!-- end-model-doc -->
+	 * @see #INLINE
+	 * @model name="Inline"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int INLINE_VALUE = 3;
+
+	/**
 	 * The '<em><b>None</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -125,7 +160,7 @@ public enum ActivatorType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int NONE_VALUE = 3;
+	public static final int NONE_VALUE = 4;
 
 	/**
 	 * An array of all the '<em><b>Activator Type</b></em>' enumerators.
@@ -138,6 +173,7 @@ public enum ActivatorType implements Enumerator {
 			REFERENCE,
 			SCRIPT,
 			BIND,
+			INLINE,
 			NONE,
 		};
 
@@ -198,6 +234,7 @@ public enum ActivatorType implements Enumerator {
 			case REFERENCE_VALUE: return REFERENCE;
 			case SCRIPT_VALUE: return SCRIPT;
 			case BIND_VALUE: return BIND;
+			case INLINE_VALUE: return INLINE;
 			case NONE_VALUE: return NONE;
 		}
 		return null;

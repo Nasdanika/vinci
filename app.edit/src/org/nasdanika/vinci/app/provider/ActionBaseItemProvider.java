@@ -58,7 +58,6 @@ public class ActionBaseItemProvider extends LabelItemProvider {
 			addActivatorTypePropertyDescriptor(object);
 			addConfirmationPropertyDescriptor(object);
 			addDisabledPropertyDescriptor(object);
-			addEmbeddedPropertyDescriptor(object);
 			addMarkdownContentPropertyDescriptor(object);
 			addPageTemplatePropertyDescriptor(object);
 		}
@@ -232,27 +231,6 @@ public class ActionBaseItemProvider extends LabelItemProvider {
 				 null,
 				 null));
 	}
-
-	/**
-	 * This adds a property descriptor for the Embedded feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	protected void addEmbeddedPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor(
-				 getResourceLocator(),
-				 getString("_UI_ActionBase_embedded_feature"),
-				 AppPackage.Literals.ACTION_BASE__EMBEDDED,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 null,
-				 null,
-				 null));
-	}
 	
 	/**
 	 * This adds a property descriptor for the Markdown Content feature.
@@ -393,7 +371,6 @@ public class ActionBaseItemProvider extends LabelItemProvider {
 			case AppPackage.ACTION_BASE__ACTIVATOR_TYPE:
 			case AppPackage.ACTION_BASE__CONFIRMATION:
 			case AppPackage.ACTION_BASE__DISABLED:
-			case AppPackage.ACTION_BASE__EMBEDDED:
 			case AppPackage.ACTION_BASE__MARKDOWN_CONTENT:
 			case AppPackage.ACTION_BASE__PAGE_TEMPLATE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));

@@ -159,11 +159,6 @@
         <details key="documentation" value="If true, then action is displayed as disabled. "/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="embedded" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="If true, then action content is displayed instead of the action label. For example, a login form action or a search action can be embedded into a navbar."/>
-      </eAnnotations>
-    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="markdownContent" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="[Markdown](https://en.wikipedia.org/wiki/Markdown) text. If this attribute contains text, the text is converted to HTML, interpolated and used as the first content element.&#xA;The primary purpose of this attribute is rapid development/prototyping of web applications/sites. "/>
@@ -292,7 +287,12 @@
         <details key="documentation" value="Activator is a script executed to bind action to its activator, e.g. set knockoutjs data-bind attribute."/>
       </eAnnotations>
     </eLiterals>
-    <eLiterals name="None" value="3">
+    <eLiterals name="Inline" value="3">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Content of actions with inline activator type is displayed instead of the action text and icon - the action is &quot;activated&quot; by inlining its content where it is possible. &#xA;In this case activator value is ignored. &#xA;When content inlining is not possible the action is considered to have a Reference activator, i.e. a click on the action navigates to a page with action content.&#xA;&#xA;An example of inline action would be a search or log-in form. Such a form can be displayed in a card, drop-down, or navbar. &#xA;However, it cannot be displayed in a tree - in this case it would be treated as having Reference activator type."/>
+      </eAnnotations>
+    </eLiterals>
+    <eLiterals name="None" value="4">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="No activator, e.g. for a grouping action."/>
       </eAnnotations>

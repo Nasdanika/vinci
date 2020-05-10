@@ -66,7 +66,6 @@ import org.nasdanika.vinci.app.Widget;
  *   <li>{@link org.nasdanika.vinci.app.impl.ActionBaseImpl#getActivatorType <em>Activator Type</em>}</li>
  *   <li>{@link org.nasdanika.vinci.app.impl.ActionBaseImpl#getConfirmation <em>Confirmation</em>}</li>
  *   <li>{@link org.nasdanika.vinci.app.impl.ActionBaseImpl#isDisabled <em>Disabled</em>}</li>
- *   <li>{@link org.nasdanika.vinci.app.impl.ActionBaseImpl#isEmbedded <em>Embedded</em>}</li>
  *   <li>{@link org.nasdanika.vinci.app.impl.ActionBaseImpl#getMarkdownContent <em>Markdown Content</em>}</li>
  *   <li>{@link org.nasdanika.vinci.app.impl.ActionBaseImpl#getPageTemplate <em>Page Template</em>}</li>
  *   <li>{@link org.nasdanika.vinci.app.impl.ActionBaseImpl#getContent <em>Content</em>}</li>
@@ -146,16 +145,6 @@ public abstract class ActionBaseImpl extends LabelImpl implements ActionBase {
 	 * @ordered
 	 */
 	protected static final boolean DISABLED_EDEFAULT = false;
-
-	/**
-	 * The default value of the '{@link #isEmbedded() <em>Embedded</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isEmbedded()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final boolean EMBEDDED_EDEFAULT = false;
 
 	/**
 	 * The default value of the '{@link #getMarkdownContent() <em>Markdown Content</em>}' attribute.
@@ -386,26 +375,6 @@ public abstract class ActionBaseImpl extends LabelImpl implements ActionBase {
 	 * @generated
 	 */
 	@Override
-	public boolean isEmbedded() {
-		return (Boolean)eDynamicGet(AppPackage.ACTION_BASE__EMBEDDED, AppPackage.Literals.ACTION_BASE__EMBEDDED, true, true);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setEmbedded(boolean newEmbedded) {
-		eDynamicSet(AppPackage.ACTION_BASE__EMBEDDED, AppPackage.Literals.ACTION_BASE__EMBEDDED, newEmbedded);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public String getMarkdownContent() {
 		return (String)eDynamicGet(AppPackage.ACTION_BASE__MARKDOWN_CONTENT, AppPackage.Literals.ACTION_BASE__MARKDOWN_CONTENT, true, true);
 	}
@@ -524,8 +493,6 @@ public abstract class ActionBaseImpl extends LabelImpl implements ActionBase {
 				return getConfirmation();
 			case AppPackage.ACTION_BASE__DISABLED:
 				return isDisabled();
-			case AppPackage.ACTION_BASE__EMBEDDED:
-				return isEmbedded();
 			case AppPackage.ACTION_BASE__MARKDOWN_CONTENT:
 				return getMarkdownContent();
 			case AppPackage.ACTION_BASE__PAGE_TEMPLATE:
@@ -583,9 +550,6 @@ public abstract class ActionBaseImpl extends LabelImpl implements ActionBase {
 				return;
 			case AppPackage.ACTION_BASE__DISABLED:
 				setDisabled((Boolean)newValue);
-				return;
-			case AppPackage.ACTION_BASE__EMBEDDED:
-				setEmbedded((Boolean)newValue);
 				return;
 			case AppPackage.ACTION_BASE__MARKDOWN_CONTENT:
 				setMarkdownContent((String)newValue);
@@ -646,9 +610,6 @@ public abstract class ActionBaseImpl extends LabelImpl implements ActionBase {
 			case AppPackage.ACTION_BASE__DISABLED:
 				setDisabled(DISABLED_EDEFAULT);
 				return;
-			case AppPackage.ACTION_BASE__EMBEDDED:
-				setEmbedded(EMBEDDED_EDEFAULT);
-				return;
 			case AppPackage.ACTION_BASE__MARKDOWN_CONTENT:
 				setMarkdownContent(MARKDOWN_CONTENT_EDEFAULT);
 				return;
@@ -695,8 +656,6 @@ public abstract class ActionBaseImpl extends LabelImpl implements ActionBase {
 				return CONFIRMATION_EDEFAULT == null ? getConfirmation() != null : !CONFIRMATION_EDEFAULT.equals(getConfirmation());
 			case AppPackage.ACTION_BASE__DISABLED:
 				return isDisabled() != DISABLED_EDEFAULT;
-			case AppPackage.ACTION_BASE__EMBEDDED:
-				return isEmbedded() != EMBEDDED_EDEFAULT;
 			case AppPackage.ACTION_BASE__MARKDOWN_CONTENT:
 				return MARKDOWN_CONTENT_EDEFAULT == null ? getMarkdownContent() != null : !MARKDOWN_CONTENT_EDEFAULT.equals(getMarkdownContent());
 			case AppPackage.ACTION_BASE__PAGE_TEMPLATE:
@@ -954,9 +913,7 @@ public abstract class ActionBaseImpl extends LabelImpl implements ActionBase {
 	 */
 	private URI getNavigationActivatorURI(Context context) {
 		// Context URI service - used by the Action facade and by child elements.
-		if (getActivatorType() != ActivatorType.REFERENCE) {
-			return null;
-		}
+		if (getActivatorType() == ActivatorType.REFERENCE || getActivatorType() == ActivatorType.INLINE) {
 			String activator = getActivator();
 			if (Util.isBlank(activator) && !Util.isBlank(getId())) {
 				activator = getId() + ".html";
@@ -972,6 +929,8 @@ public abstract class ActionBaseImpl extends LabelImpl implements ActionBase {
 			URI actionURI = URI.createURI(activatorStr);
 			URI contextURI = context.get(URI.class);
 			return contextURI == null || !contextURI.isHierarchical() || contextURI.isRelative() ? actionURI : actionURI.resolve(contextURI);
+		}
+		return null;
 	}
 	
 
