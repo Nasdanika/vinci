@@ -37,5 +37,5 @@ Require-Bundle: org.eclipse.core.runtime,
  org.nasdanika.cli;bundle-version="1.0.0",
  org.fusesource.jansi;bundle-version="1.18.0",
  org.apache.commons.commons-text;bundle-version="1.8.0",
- com.google.cloud.texttospeech;bundle-version="1.0.2"
+ org.nasdanika.texttospeech;bundle-version="1.0.0"
 Bundle-ActivationPolicy: lazy

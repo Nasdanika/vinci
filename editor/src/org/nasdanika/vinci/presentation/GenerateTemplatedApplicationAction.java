@@ -28,14 +28,12 @@ import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 import org.eclipse.jface.dialogs.ErrorDialog;
 import org.eclipse.ui.PlatformUI;
 import org.jsoup.Jsoup;
-import org.nasdanika.common.CachingSpeechSynthesizer;
 import org.nasdanika.common.Context;
 //import org.nasdanika.codegen.util.JavaProjectClassLoader;
 import org.nasdanika.common.DefaultConverter;
 import org.nasdanika.common.MutableContext;
 import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.common.ServiceComputer;
-import org.nasdanika.common.SpeechSynthesizer;
 import org.nasdanika.common.Supplier;
 import org.nasdanika.common.Util;
 import org.nasdanika.common.resources.BinaryEntityContainer;
@@ -51,13 +49,15 @@ import org.nasdanika.html.app.ViewGenerator;
 import org.nasdanika.html.app.impl.ActionApplicationBuilder;
 import org.nasdanika.html.app.impl.ViewGeneratorImpl;
 import org.nasdanika.ncore.NcorePackage;
+import org.nasdanika.texttospeech.CachingSpeechSynthesizer;
+import org.nasdanika.texttospeech.GoogleCloudTextToSpeechSynthesizer;
+import org.nasdanika.texttospeech.SpeechSynthesizer;
 import org.nasdanika.vinci.app.AbstractAction;
 import org.nasdanika.vinci.app.AppPackage;
 import org.nasdanika.vinci.app.impl.ActionFacade;
 import org.nasdanika.vinci.bootstrap.BootstrapPackage;
 import org.nasdanika.vinci.bootstrap.BootstrapPage;
 import org.nasdanika.vinci.html.HtmlPackage;
-import org.nasdanika.vinci.presentation.cli.GoogleCloudTextToSpeechSynthesizer;
 
 /**
  * Generate an application from the root action using a page template.

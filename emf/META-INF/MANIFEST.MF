@@ -11,6 +11,6 @@ Require-Bundle: org.nasdanika.emf;bundle-version="1.0.0";visibility:=reexport,
  org.nasdanika.vinci.app;bundle-version="0.1.0";visibility:=reexport,
  org.apache.commons.lang3;bundle-version="3.7.0",
  org.jsoup;bundle-version="1.12.1",
- org.apache.commons.commons-codec;bundle-version="1.13.0"
+ org.apache.commons.codec;bundle-version="1.13.0"
 Automatic-Module-Name: org.nasdanika.vinci.emf
 
