@@ -29,7 +29,7 @@ import picocli.CommandLine.Option;
 		versionProvider = VinciBundleVersionProvider.class)
 public class GenerateBootstrapPageCommand<T extends EObject & SupplierFactory<Object>> extends GenerateContentCommand<T> {
 	
-	@Option(names = {"-t", "--template"}, description = "Page template URL.")
+	@Option(names = {"-m", "--template"}, description = "Page template URL.")
 	private String template;
 	
 	@Option(names = {"-T", "--title"}, description = "Page title. Defaults to resource URI")
