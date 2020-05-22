@@ -466,8 +466,7 @@ public abstract class TextToSpeechImpl extends ModelElementImpl implements TextT
 					}
 					
 				};
-			}
-			
+			}			
 		}; 
 				
 		Appearance appearance = getAppearance();
