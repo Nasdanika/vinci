@@ -117,21 +117,22 @@ public class GenerateTemplatedApplicationCommand extends ModelCommand<AbstractAc
 		generationContext.register(URI.class, baseURI);
 		generationContext.put(Context.BASE_URI_PROPERTY, baseURI);
 		
-		generationContext.register(SpeechSynthesizer.class, new CachingSpeechSynthesizer(new GoogleCloudTextToSpeechSynthesizer()));
+		try (SpeechSynthesizer speechSynthesizer = new CachingSpeechSynthesizer(new GoogleCloudTextToSpeechSynthesizer())) {
+			generationContext.register(SpeechSynthesizer.class, speechSynthesizer);
 		
-		// Generate action tree
-		try (Supplier<Object> work = rootAction.create(generationContext)) {
-			monitor.setWorkRemaining(work.size() * 2 + 1);
-			org.nasdanika.common.Diagnostic diagnostic = work.splitAndDiagnose(monitor);
-			if (diagnostic.getStatus() == org.nasdanika.common.Status.ERROR) {
-				throw new org.nasdanika.common.DiagnosticException("Action diagnostic failed", diagnostic);
-			}
-		
-			Action action = (Action) work.splitAndExecute(monitor);
-			// Page for each action with relative navigation activator - recursive						
-			generatePages(baseURI, generationContext, resourceSet, action, action, output.stateAdapter().adapt(null, ENCODER), monitor.split("Generating pages", 1, action));
+			// Generate action tree
+			try (Supplier<Object> work = rootAction.create(generationContext)) {
+				monitor.setWorkRemaining(work.size() * 2 + 1);
+				org.nasdanika.common.Diagnostic diagnostic = work.splitAndDiagnose(monitor);
+				if (diagnostic.getStatus() == org.nasdanika.common.Status.ERROR) {
+					throw new org.nasdanika.common.DiagnosticException("Action diagnostic failed", diagnostic);
+				}
 			
-		}							
+				Action action = (Action) work.splitAndExecute(monitor);
+				// Page for each action with relative navigation activator - recursive						
+				generatePages(baseURI, generationContext, resourceSet, action, action, output.stateAdapter().adapt(null, ENCODER), monitor.split("Generating pages", 1, action));				
+			}
+		}
 	}
 	
 	protected void generatePages(

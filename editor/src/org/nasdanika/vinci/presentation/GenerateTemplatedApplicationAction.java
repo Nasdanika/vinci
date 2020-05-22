@@ -109,38 +109,40 @@ public class GenerateTemplatedApplicationAction extends VinciGenerateAction<Abst
 			generationContext.register(BinaryEntityContainer.class, output);
 			generationContext.register(ResourceSet.class, resourceSet);
 			
-			generationContext.register(SpeechSynthesizer.class, new CachingSpeechSynthesizer(new GoogleCloudTextToSpeechSynthesizer()));			
-			
-			URI baseURI = URI.createURI(outputFolder.getLocationURI().toString()+"/");			
-			generationContext.register(URI.class, baseURI);
-			generationContext.put(Context.BASE_URI_PROPERTY, baseURI);
-			
-			// Generate action tree
-			try (Supplier<Object> work = modelElement.create(generationContext)) {
-				double size = work.size() * 2 + 1;
-				int halfWork = TOTAL_WORK/2;
-				SubMonitor actionMonitor = subMonitor.split(halfWork);
-				double scale = halfWork / (size == 0 ? 1.0 : size);
-				try (ProgressMonitor progressMonitor = new ProgressMonitorAdapter(actionMonitor, scale)) {
-					try (ProgressMonitor diagnosticMonitor = progressMonitor.split("Diagnostic", size)) {
-						org.nasdanika.common.Diagnostic diagnostic = work.diagnose(diagnosticMonitor);
-						if (diagnostic.getStatus() == org.nasdanika.common.Status.ERROR) {
-//							diagnostic.dump(System.out, 0);
-				            MultiStatus status = createMultiStatus(diagnostic);
-				    		ErrorDialog.openError(PlatformUI.getWorkbench().getModalDialogShellProvider().getShell(), "Diagnostic error", diagnostic.getMessage(), status);
-							VinciEditorPlugin.getPlugin().getLog().log(status);
-							return;
+			try (SpeechSynthesizer speechSynthesizer = new CachingSpeechSynthesizer(new GoogleCloudTextToSpeechSynthesizer())) {
+				generationContext.register(SpeechSynthesizer.class, speechSynthesizer);			
+				
+				URI baseURI = URI.createURI(outputFolder.getLocationURI().toString()+"/");			
+				generationContext.register(URI.class, baseURI);
+				generationContext.put(Context.BASE_URI_PROPERTY, baseURI);
+				
+				// Generate action tree
+				try (Supplier<Object> work = modelElement.create(generationContext)) {
+					double size = work.size() * 2 + 1;
+					int halfWork = TOTAL_WORK/2;
+					SubMonitor actionMonitor = subMonitor.split(halfWork);
+					double scale = halfWork / (size == 0 ? 1.0 : size);
+					try (ProgressMonitor progressMonitor = new ProgressMonitorAdapter(actionMonitor, scale)) {
+						try (ProgressMonitor diagnosticMonitor = progressMonitor.split("Diagnostic", size)) {
+							org.nasdanika.common.Diagnostic diagnostic = work.diagnose(diagnosticMonitor);
+							if (diagnostic.getStatus() == org.nasdanika.common.Status.ERROR) {
+	//							diagnostic.dump(System.out, 0);
+					            MultiStatus status = createMultiStatus(diagnostic);
+					    		ErrorDialog.openError(PlatformUI.getWorkbench().getModalDialogShellProvider().getShell(), "Diagnostic error", diagnostic.getMessage(), status);
+								VinciEditorPlugin.getPlugin().getLog().log(status);
+								return;
+							}
+						}
+					
+						try (ProgressMonitor generationMonitor = progressMonitor.split("Generation", size)) {
+							Action action = (Action) work.execute(generationMonitor);
+							// Page for each action with relative navigation activator - recursive						
+							generatePages(baseURI, generationContext, resourceSet, action, action, output.stateAdapter().adapt(null, ENCODER), subMonitor.split(halfWork));
+							
 						}
 					}
-				
-					try (ProgressMonitor generationMonitor = progressMonitor.split("Generation", size)) {
-						Action action = (Action) work.execute(generationMonitor);
-						// Page for each action with relative navigation activator - recursive						
-						generatePages(baseURI, generationContext, resourceSet, action, action, output.stateAdapter().adapt(null, ENCODER), subMonitor.split(halfWork));
-						
-					}
 				}
-			}							
+			}
 		} catch (CoreException | InvocationTargetException | InterruptedException | RuntimeException e) {
 			throw e;
 		} catch (Exception e) {
