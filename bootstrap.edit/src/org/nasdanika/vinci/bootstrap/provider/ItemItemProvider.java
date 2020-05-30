@@ -12,6 +12,7 @@ import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+import org.nasdanika.html.bootstrap.Color;
 import org.nasdanika.ncore.provider.ModelElementItemProvider;
 import org.nasdanika.vinci.bootstrap.BootstrapPackage;
 import org.nasdanika.vinci.bootstrap.Item;
@@ -111,7 +112,7 @@ public class ItemItemProvider extends ModelElementItemProvider {
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null,
-				 enumChoices(org.nasdanika.html.bootstrap.Color.class, true, c -> c.label)));
+				 Color.Applicability.BACKGROUND.colorLabels()));
 	}
 
 	/**

@@ -22,6 +22,7 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.nasdanika.emf.edit.EReferenceItemProvider;
 import org.nasdanika.emf.edit.NasdanikaItemProviderAdapter;
+import org.nasdanika.html.bootstrap.Color;
 import org.nasdanika.vinci.bootstrap.Appearance;
 import org.nasdanika.vinci.bootstrap.BootstrapFactory;
 import org.nasdanika.vinci.bootstrap.BootstrapPackage;
@@ -84,7 +85,7 @@ public class AppearanceItemProvider
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null,
-				 enumChoices(org.nasdanika.html.bootstrap.Color.class, true, c -> c.label)));
+				 Color.Applicability.BACKGROUND.colorLabels()));
 	}
 		
 	@Override

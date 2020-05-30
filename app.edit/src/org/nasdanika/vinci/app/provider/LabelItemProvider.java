@@ -13,6 +13,7 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+import org.nasdanika.html.bootstrap.Color;
 import org.nasdanika.ncore.provider.EntityItemProvider;
 import org.nasdanika.vinci.app.AppPackage;
 import org.nasdanika.vinci.app.Label;
@@ -75,7 +76,7 @@ public class LabelItemProvider
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null,
-				 enumChoices(org.nasdanika.html.bootstrap.Color.class, true, c -> c.label)));
+				 Color.Applicability.BORDER.colorLabels()));
 	}
 
 	/**

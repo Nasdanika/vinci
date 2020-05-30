@@ -19,6 +19,7 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.nasdanika.common.Util;
 import org.nasdanika.emf.edit.NasdanikaItemProviderAdapter;
+import org.nasdanika.html.bootstrap.Color;
 import org.nasdanika.vinci.bootstrap.BootstrapPackage;
 import org.nasdanika.vinci.bootstrap.Border;
 
@@ -84,7 +85,7 @@ public class BorderItemProvider
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null,
-				 enumChoices(org.nasdanika.html.bootstrap.Color.class, true, c -> c.label)));
+				 Color.Applicability.BORDER.colorLabels()));
 	}
 
 	/**
