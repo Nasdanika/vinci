@@ -52,10 +52,16 @@ import picocli.CommandLine.Option;
 		versionProvider = VinciBundleVersionProvider.class)
 public class GenerateTemplatedApplicationCommand extends ModelCommand<AbstractAction> {
 	
-	@Option(names = {"-o", "--output"}, description = "Output directory, defaults to the current directory")
+	@Option(
+			names = {"-o", "--output"}, 
+			description = "Output directory, defaults to the current directory")
 	private File outputDir;	
 	
-	@Option(names = {"-b", "--base-uri"}, description = "Base URI for resolving and relativizing. Resolved against the output directory URI. Defaults to the output directory URI.")
+	@Option(
+			names = {"-b", "--base-uri"}, 
+			description = "Base URI for resolving and relativizing. "
+					+ "Resolved against the output directory URI. "
+					+ "Defaults to the output directory URI.")
 	private String baseUri;		
 
 	@Override
