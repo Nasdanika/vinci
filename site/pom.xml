@@ -98,32 +98,16 @@
 						</configuration>
 					</execution>
 					<execution>
-						<id>copy-app-model-javadoc</id>
+						<id>copy-app-edit-icons</id>
 						<phase>pre-site</phase>
 						<goals>
 							<goal>copy-resources</goal>
 						</goals>
 						<configuration>
-							<outputDirectory>${basedir}/target/site/bundles/org.nasdanika.vinci.app/apidocs</outputDirectory>
+							<outputDirectory>${basedir}/target/site/icons/app</outputDirectory>
 							<resources>
 								<resource>
-									<directory>${basedir}/../app/target/site/apidocs</directory>
-									<filtering>false</filtering>
-								</resource>								
-							</resources>
-						</configuration>
-					</execution>
-					<execution>
-						<id>copy-app-edit-javadoc</id>
-						<phase>pre-site</phase>
-						<goals>
-							<goal>copy-resources</goal>
-						</goals>
-						<configuration>
-							<outputDirectory>${basedir}/target/site/bunldes/org.nasdanika.vinci.app.edit/apidocs</outputDirectory>
-							<resources>
-								<resource>
-									<directory>${basedir}/../app.edit/target/site/apidocs</directory>
+									<directory>${basedir}/../app.edit/icons/full/obj16</directory>
 									<filtering>false</filtering>
 								</resource>								
 							</resources>
@@ -290,22 +274,7 @@
 						</configuration>
 					</execution>
 					
-					<execution>
-						<id>copy-app-edit-icons</id>
-						<phase>pre-site</phase>
-						<goals>
-							<goal>copy-resources</goal>
-						</goals>
-						<configuration>
-							<outputDirectory>${basedir}/target/site/icons/app</outputDirectory>
-							<resources>
-								<resource>
-									<directory>${basedir}/../app.edit/icons/full/obj16</directory>
-									<filtering>false</filtering>
-								</resource>								
-							</resources>
-						</configuration>
-					</execution>
+					
 					<execution>
 						<id>copy-model-doc</id>
 						<phase>pre-site</phase>
