@@ -72,7 +72,7 @@
 							<goal>copy-resources</goal>
 						</goals>
 						<configuration>
-							<outputDirectory>${basedir}/target/site/apidocs/org.nasdanika.vinci.app</outputDirectory>
+							<outputDirectory>${basedir}/target/site/bundles/org.nasdanika.vinci.app/apidocs</outputDirectory>
 							<resources>
 								<resource>
 									<directory>${basedir}/../app/target/site/apidocs</directory>
@@ -88,7 +88,7 @@
 							<goal>copy-resources</goal>
 						</goals>
 						<configuration>
-							<outputDirectory>${basedir}/target/site/apidocs/org.nasdanika.vinci.app.edit</outputDirectory>
+							<outputDirectory>${basedir}/target/site/bunldes/org.nasdanika.vinci.app.edit/apidocs</outputDirectory>
 							<resources>
 								<resource>
 									<directory>${basedir}/../app.edit/target/site/apidocs</directory>
@@ -97,6 +97,199 @@
 							</resources>
 						</configuration>
 					</execution>
+					<execution>
+						<id>copy-app-model-javadoc</id>
+						<phase>pre-site</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${basedir}/target/site/bundles/org.nasdanika.vinci.app/apidocs</outputDirectory>
+							<resources>
+								<resource>
+									<directory>${basedir}/../app/target/site/apidocs</directory>
+									<filtering>false</filtering>
+								</resource>								
+							</resources>
+						</configuration>
+					</execution>
+					<execution>
+						<id>copy-app-edit-javadoc</id>
+						<phase>pre-site</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${basedir}/target/site/bunldes/org.nasdanika.vinci.app.edit/apidocs</outputDirectory>
+							<resources>
+								<resource>
+									<directory>${basedir}/../app.edit/target/site/apidocs</directory>
+									<filtering>false</filtering>
+								</resource>								
+							</resources>
+						</configuration>
+					</execution>
+					<execution>
+						<id>copy-bootstrap-model-javadoc</id>
+						<phase>pre-site</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${basedir}/target/site/bundles/org.nasdanika.vinci.bootstrap/apidocs</outputDirectory>
+							<resources>
+								<resource>
+									<directory>${basedir}/../bootstrap/target/site/apidocs</directory>
+									<filtering>false</filtering>
+								</resource>								
+							</resources>
+						</configuration>
+					</execution>
+					<execution>
+						<id>copy-bootstrap-edit-javadoc</id>
+						<phase>pre-site</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${basedir}/target/site/bunldes/org.nasdanika.vinci.bootstrap.edit/apidocs</outputDirectory>
+							<resources>
+								<resource>
+									<directory>${basedir}/../bootstrap.edit/target/site/apidocs</directory>
+									<filtering>false</filtering>
+								</resource>								
+							</resources>
+						</configuration>
+					</execution>
+					<execution>
+						<id>copy-components-model-javadoc</id>
+						<phase>pre-site</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${basedir}/target/site/bundles/org.nasdanika.vinci.components/apidocs</outputDirectory>
+							<resources>
+								<resource>
+									<directory>${basedir}/../components/target/site/apidocs</directory>
+									<filtering>false</filtering>
+								</resource>								
+							</resources>
+						</configuration>
+					</execution>
+					<execution>
+						<id>copy-components-edit-javadoc</id>
+						<phase>pre-site</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${basedir}/target/site/bunldes/org.nasdanika.vinci.components.edit/apidocs</outputDirectory>
+							<resources>
+								<resource>
+									<directory>${basedir}/../components.edit/target/site/apidocs</directory>
+									<filtering>false</filtering>
+								</resource>								
+							</resources>
+						</configuration>
+					</execution>
+					<execution>
+						<id>copy-design-javadoc</id>
+						<phase>pre-site</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${basedir}/target/site/bunldes/org.nasdanika.vinci.design/apidocs</outputDirectory>
+							<resources>
+								<resource>
+									<directory>${basedir}/../design/target/site/apidocs</directory>
+									<filtering>false</filtering>
+								</resource>								
+							</resources>
+						</configuration>
+					</execution>
+					<execution>
+						<id>copy-ecore-javadoc</id>
+						<phase>pre-site</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${basedir}/target/site/bundles/org.nasdanika.vinci.ecore/apidocs</outputDirectory>
+							<resources>
+								<resource>
+									<directory>${basedir}/../ecore/target/site/apidocs</directory>
+									<filtering>false</filtering>
+								</resource>								
+							</resources>
+						</configuration>
+					</execution>
+					<execution>
+						<id>copy-editor-javadoc</id>
+						<phase>pre-site</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${basedir}/target/site/bundles/org.nasdanika.vinci.editor/apidocs</outputDirectory>
+							<resources>
+								<resource>
+									<directory>${basedir}/../editor/target/site/apidocs</directory>
+									<filtering>false</filtering>
+								</resource>								
+							</resources>
+						</configuration>
+					</execution>
+					<execution>
+						<id>copy-emf-javadoc</id>
+						<phase>pre-site</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${basedir}/target/site/bunldes/org.nasdanika.vinci.emf/apidocs</outputDirectory>
+							<resources>
+								<resource>
+									<directory>${basedir}/../emf/target/site/apidocs</directory>
+									<filtering>false</filtering>
+								</resource>								
+							</resources>
+						</configuration>
+					</execution>
+					<execution>
+						<id>copy-html-model-javadoc</id>
+						<phase>pre-site</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${basedir}/target/site/bundles/org.nasdanika.vinci.html/apidocs</outputDirectory>
+							<resources>
+								<resource>
+									<directory>${basedir}/../html/target/site/apidocs</directory>
+									<filtering>false</filtering>
+								</resource>								
+							</resources>
+						</configuration>
+					</execution>
+					<execution>
+						<id>copy-html-edit-javadoc</id>
+						<phase>pre-site</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${basedir}/target/site/bunldes/org.nasdanika.vinci.html.edit/apidocs</outputDirectory>
+							<resources>
+								<resource>
+									<directory>${basedir}/../html.edit/target/site/apidocs</directory>
+									<filtering>false</filtering>
+								</resource>								
+							</resources>
+						</configuration>
+					</execution>
+					
 					<execution>
 						<id>copy-app-edit-icons</id>
 						<phase>pre-site</phase>
@@ -114,29 +307,13 @@
 						</configuration>
 					</execution>
 					<execution>
-						<id>copy-editor-javadoc</id>
-						<phase>pre-site</phase>
-						<goals>
-							<goal>copy-resources</goal>
-						</goals>
-						<configuration>
-							<outputDirectory>${basedir}/target/site/apidocs/org.nasdanika.vinci.editor</outputDirectory>
-							<resources>
-								<resource>
-									<directory>${basedir}/../editor/target/site/apidocs</directory>
-									<filtering>false</filtering>
-								</resource>								
-							</resources>
-						</configuration>
-					</execution>
-					<execution>
 						<id>copy-model-doc</id>
 						<phase>pre-site</phase>
 						<goals>
 							<goal>copy-resources</goal>
 						</goals>
 						<configuration>
-							<outputDirectory>${basedir}/target//model-doc</outputDirectory>
+							<outputDirectory>${basedir}/target/model-doc</outputDirectory>
 							<resources>
 								<resource>
 									<directory>${basedir}/target/products/org.nasdanika.vinci.tests.product/linux/gtk/x86_64/target/model-doc</directory>
