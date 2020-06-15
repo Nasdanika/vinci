@@ -52,6 +52,7 @@ import org.nasdanika.ncore.NcorePackage;
 import org.nasdanika.texttospeech.CachingSpeechSynthesizer;
 import org.nasdanika.texttospeech.GoogleCloudTextToSpeechSynthesizer;
 import org.nasdanika.texttospeech.SpeechSynthesizer;
+import org.nasdanika.texttospeech.SpeechSynthesizerProxy;
 import org.nasdanika.vinci.app.AbstractAction;
 import org.nasdanika.vinci.app.AppPackage;
 import org.nasdanika.vinci.app.impl.ActionFacade;
@@ -109,7 +110,7 @@ public class GenerateTemplatedApplicationAction extends VinciGenerateAction<Abst
 			generationContext.register(BinaryEntityContainer.class, output);
 			generationContext.register(ResourceSet.class, resourceSet);
 			
-			try (SpeechSynthesizer speechSynthesizer = new CachingSpeechSynthesizer(new GoogleCloudTextToSpeechSynthesizer())) {
+			try (SpeechSynthesizer speechSynthesizer = new CachingSpeechSynthesizer(new SpeechSynthesizerProxy(GoogleCloudTextToSpeechSynthesizer::new))) {
 				generationContext.register(SpeechSynthesizer.class, speechSynthesizer);			
 				
 				URI baseURI = URI.createURI(outputFolder.getLocationURI().toString()+"/");			

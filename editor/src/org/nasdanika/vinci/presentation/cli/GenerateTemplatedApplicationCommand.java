@@ -38,6 +38,7 @@ import org.nasdanika.html.app.impl.ViewGeneratorImpl;
 import org.nasdanika.texttospeech.CachingSpeechSynthesizer;
 import org.nasdanika.texttospeech.GoogleCloudTextToSpeechSynthesizer;
 import org.nasdanika.texttospeech.SpeechSynthesizer;
+import org.nasdanika.texttospeech.SpeechSynthesizerProxy;
 import org.nasdanika.vinci.app.AbstractAction;
 import org.nasdanika.vinci.app.impl.ActionFacade;
 import org.nasdanika.vinci.bootstrap.BootstrapPage;
@@ -123,7 +124,7 @@ public class GenerateTemplatedApplicationCommand extends ModelCommand<AbstractAc
 		generationContext.register(URI.class, baseURI);
 		generationContext.put(Context.BASE_URI_PROPERTY, baseURI);
 		
-		try (SpeechSynthesizer speechSynthesizer = new CachingSpeechSynthesizer(new GoogleCloudTextToSpeechSynthesizer())) {
+		try (SpeechSynthesizer speechSynthesizer = new CachingSpeechSynthesizer(new SpeechSynthesizerProxy(GoogleCloudTextToSpeechSynthesizer::new))) {
 			generationContext.register(SpeechSynthesizer.class, speechSynthesizer);
 		
 			// Generate action tree
