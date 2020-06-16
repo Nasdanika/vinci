@@ -88,7 +88,7 @@
 							<goal>copy-resources</goal>
 						</goals>
 						<configuration>
-							<outputDirectory>${basedir}/target/site/bunldes/org.nasdanika.vinci.app.edit/apidocs</outputDirectory>
+							<outputDirectory>${basedir}/target/site/bundles/org.nasdanika.vinci.app.edit/apidocs</outputDirectory>
 							<resources>
 								<resource>
 									<directory>${basedir}/../app.edit/target/site/apidocs</directory>
@@ -136,7 +136,7 @@
 							<goal>copy-resources</goal>
 						</goals>
 						<configuration>
-							<outputDirectory>${basedir}/target/site/bunldes/org.nasdanika.vinci.bootstrap.edit/apidocs</outputDirectory>
+							<outputDirectory>${basedir}/target/site/bundles/org.nasdanika.vinci.bootstrap.edit/apidocs</outputDirectory>
 							<resources>
 								<resource>
 									<directory>${basedir}/../bootstrap.edit/target/site/apidocs</directory>
@@ -168,7 +168,7 @@
 							<goal>copy-resources</goal>
 						</goals>
 						<configuration>
-							<outputDirectory>${basedir}/target/site/bunldes/org.nasdanika.vinci.components.edit/apidocs</outputDirectory>
+							<outputDirectory>${basedir}/target/site/bundles/org.nasdanika.vinci.components.edit/apidocs</outputDirectory>
 							<resources>
 								<resource>
 									<directory>${basedir}/../components.edit/target/site/apidocs</directory>
@@ -184,7 +184,7 @@
 							<goal>copy-resources</goal>
 						</goals>
 						<configuration>
-							<outputDirectory>${basedir}/target/site/bunldes/org.nasdanika.vinci.design/apidocs</outputDirectory>
+							<outputDirectory>${basedir}/target/site/bundles/org.nasdanika.vinci.design/apidocs</outputDirectory>
 							<resources>
 								<resource>
 									<directory>${basedir}/../design/target/site/apidocs</directory>
@@ -232,7 +232,7 @@
 							<goal>copy-resources</goal>
 						</goals>
 						<configuration>
-							<outputDirectory>${basedir}/target/site/bunldes/org.nasdanika.vinci.emf/apidocs</outputDirectory>
+							<outputDirectory>${basedir}/target/site/bundles/org.nasdanika.vinci.emf/apidocs</outputDirectory>
 							<resources>
 								<resource>
 									<directory>${basedir}/../emf/target/site/apidocs</directory>
@@ -264,7 +264,7 @@
 							<goal>copy-resources</goal>
 						</goals>
 						<configuration>
-							<outputDirectory>${basedir}/target/site/bunldes/org.nasdanika.vinci.html.edit/apidocs</outputDirectory>
+							<outputDirectory>${basedir}/target/site/bundles/org.nasdanika.vinci.html.edit/apidocs</outputDirectory>
 							<resources>
 								<resource>
 									<directory>${basedir}/../html.edit/target/site/apidocs</directory>
