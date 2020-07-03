@@ -1,4 +1,4 @@
-package org.nasdanika.vinci.presentation.cli;
+package org.nasdanika.vinci.cli;
 
 import java.io.File;
 import java.io.InputStream;
@@ -42,7 +42,7 @@ import org.nasdanika.texttospeech.SpeechSynthesizerProxy;
 import org.nasdanika.vinci.app.AbstractAction;
 import org.nasdanika.vinci.app.impl.ActionFacade;
 import org.nasdanika.vinci.bootstrap.BootstrapPage;
-import org.nasdanika.vinci.presentation.VinciUtil;
+import org.nasdanika.vinci.app.util.AppUtil;
 
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Option;
@@ -153,7 +153,7 @@ public class GenerateTemplatedApplicationCommand extends ModelCommand<AbstractAc
 		
 		monitor.setWorkRemaining(1 + activeAction.getChildren().size());
 		
-		String generationPath = VinciUtil.getGenerationPath(activeAction, baseURI);
+		String generationPath = AppUtil.getGenerationPath(activeAction, baseURI);
 		if (generationPath != null) {					
 			List<Action> navChildren = rootAction.getNavigationChildren();
 			Action principalAction = navChildren.isEmpty() ? null : navChildren.get(0); 

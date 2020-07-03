@@ -1,4 +1,4 @@
-package org.nasdanika.vinci.presentation.cli;
+package org.nasdanika.vinci.cli;
 
 import java.io.ByteArrayOutputStream;
 

@@ -56,6 +56,7 @@ import org.nasdanika.texttospeech.SpeechSynthesizerProxy;
 import org.nasdanika.vinci.app.AbstractAction;
 import org.nasdanika.vinci.app.AppPackage;
 import org.nasdanika.vinci.app.impl.ActionFacade;
+import org.nasdanika.vinci.app.util.AppUtil;
 import org.nasdanika.vinci.bootstrap.BootstrapPackage;
 import org.nasdanika.vinci.bootstrap.BootstrapPage;
 import org.nasdanika.vinci.html.HtmlPackage;
@@ -165,7 +166,7 @@ public class GenerateTemplatedApplicationAction extends VinciGenerateAction<Abst
 		monitor.setWorkRemaining(TOTAL_WORK);
 		int pageWork = TOTAL_WORK / (1 + activeAction.getChildren().size());
 		
-		String generationPath = VinciUtil.getGenerationPath(activeAction, baseURI);
+		String generationPath = AppUtil.getGenerationPath(activeAction, baseURI);
 		if (generationPath != null) {					
 			List<Action> navChildren = rootAction.getNavigationChildren();
 			Action principalAction = navChildren.isEmpty() ? null : navChildren.get(0); 

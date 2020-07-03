@@ -187,6 +187,8 @@
 		<module>emf</module>
 		<module>ecore</module>
 
+		<module>cli</module>
+
 		<module>app</module>
 		<module>app.edit</module>
 

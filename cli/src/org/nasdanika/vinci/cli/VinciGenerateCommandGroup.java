@@ -1,4 +1,4 @@
-package org.nasdanika.vinci.presentation.cli;
+package org.nasdanika.vinci.cli;
 
 import org.nasdanika.cli.CommandGroup;
 
@@ -12,8 +12,7 @@ import picocli.CommandLine.Command;
 				GenerateTemplatedApplicationCommand.class,
 				GenerateContentCommand.class,
 				GenerateBootstrapPageCommand.class,
-				GenerateEclipseHelpCommand.class, 
-				VinciHelpCommand.class
+				GenerateEclipseHelpCommand.class
 		})
 public class VinciGenerateCommandGroup extends CommandGroup {
 

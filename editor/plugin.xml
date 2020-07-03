@@ -55,17 +55,5 @@
          <configurator class="org.nasdanika.vinci.presentation.PageConfigurator"/>
          <configurator class="org.nasdanika.vinci.presentation.ActionTemplatePageConfigurator"/>         
    </extension>
-   <extension
-         point="org.nasdanika.cli.command">
-      <command
-            class="org.nasdanika.vinci.presentation.cli.VinciCommandGroup"
-            id="vinci-command-group">
-      </command>
-      <command
-            class="org.nasdanika.vinci.presentation.cli.VinciGenerateCommandGroup"
-            id="vinci-generate-command-group"
-            parent="org.nasdanika.vinci.editor#vinci-command-group">
-      </command>
-   </extension>
    
 </plugin>

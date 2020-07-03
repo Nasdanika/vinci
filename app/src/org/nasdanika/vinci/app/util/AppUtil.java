@@ -1,4 +1,4 @@
-package org.nasdanika.vinci.presentation;
+package org.nasdanika.vinci.app.util;
 
 import org.eclipse.emf.common.util.URI;
 import org.nasdanika.html.app.Action;
@@ -8,10 +8,10 @@ import org.nasdanika.vinci.app.ActionBase;
 import org.nasdanika.vinci.app.ActivatorType;
 import org.nasdanika.vinci.app.impl.ActionFacade;
 
-public class VinciUtil {
+public class AppUtil {
 	
 	// Utility.
-	private VinciUtil() {
+	private AppUtil() {
 		
 	}
 

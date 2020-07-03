@@ -1,4 +1,4 @@
-package org.nasdanika.vinci.presentation.cli;
+package org.nasdanika.vinci.cli;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -44,10 +44,10 @@ import picocli.CommandLine.Option;
 import picocli.CommandLine.Spec;
 
 @Command(
-		description = "Outputs usage for all registred commands to console or file as a Vinci model",
-		name = "help",
+		description = "Outputs usage for all registred CLI commands to console or file as a Vinci model",
+		name = "cli",
 		versionProvider = VinciBundleVersionProvider.class)
-public class VinciHelpCommand extends CommandBase {
+public class VinciGenerateCliDocumentationCommand extends CommandBase {
 	
 	private static final URI HELP_ACTION_TEMPLATE = URI.createPlatformPluginURI("/org.nasdanika.vinci.templates/cli-help-action.vinci", true);	
 	

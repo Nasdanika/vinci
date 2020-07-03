@@ -1,0 +1,21 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Nasdanika Vinci CLI contributions - commands to generate Vinci models from different sources and to generate HTML and Eclipse help from Vinci models.
+Bundle-SymbolicName: org.nasdanika.vinci.cli;singleton:=true
+Bundle-Version: 0.1.0.qualifier
+Bundle-Vendor: Nasdanika
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Require-Bundle: org.eclipse.core.runtime,
+ org.nasdanika.cli;bundle-version="1.0.0",
+ org.fusesource.jansi;bundle-version="1.18.0",
+ org.eclipse.emf;bundle-version="2.8.0",
+ org.eclipse.core.resources;visibility:=reexport,
+ org.eclipse.emf.ecore.xmi;visibility:=reexport,
+ org.eclipse.sirius.ext.base;bundle-version="6.2.1",
+ org.nasdanika.eclipse;bundle-version="1.0.0",
+ org.nasdanika.vinci.components;bundle-version="0.1.0",
+ org.apache.commons.commons-text;bundle-version="1.8.0",
+ org.jsoup;bundle-version="1.12.1",  
+ org.nasdanika.texttospeech;bundle-version="1.0.0"
+Export-Package: org.nasdanika.vinci.cli
+Automatic-Module-Name: org.nasdanika.vinci.cli

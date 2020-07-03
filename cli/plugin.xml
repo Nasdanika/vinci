@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.nasdanika.cli.cli">
+      <command
+            class="org.nasdanika.vinci.ecore.EcoreDocumentationGeneratorCommand"
+            parent="org.nasdanika.vinci.cli#vinci-generate-command-group">
+      </command>
+      <command
+            class="org.nasdanika.vinci.cli.VinciCommandGroup"
+            id="vinci-command-group">
+      </command>
+      <command
+            class="org.nasdanika.vinci.cli.VinciGenerateCommandGroup"
+            id="vinci-generate-command-group"
+            parent="org.nasdanika.vinci.cli#vinci-command-group">
+      </command>
+      <command
+            class="org.nasdanika.vinci.cli.VinciGenerateDocumentationCommandGroup"
+            id="vinci-generate-documentation-command-group"
+            parent="org.nasdanika.vinci.cli#vinci-generate-command-group">
+      </command>
+   </extension>
+
+</plugin>
