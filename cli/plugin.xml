@@ -17,6 +17,10 @@
             id="vinci-generate-documentation-command-group"
             parent="org.nasdanika.vinci.cli#vinci-generate-command-group">
       </command>
+      <context-builder
+            class="org.nasdanika.vinci.cli.JavadocContextBuilder"
+            description="Resolves fully qualified class names to links to class Javadoc."
+            id="javadoc-context-builder"></context-builder>
    </extension>
 
 </plugin>
