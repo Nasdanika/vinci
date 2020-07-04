@@ -69,11 +69,7 @@ public class ActionFacade extends org.nasdanika.html.app.impl.ActionImpl impleme
 		
 		setText(actionContext.interpolate(target.getText()));
 		setId(actionContext.interpolate(target.getId()));
-		String icon = actionContext.interpolate(target.getIcon());
-		if (Util.isBlank(icon) && elements.isEmpty()) {
-			icon = "las la-file-alt"; // Default leaf icon.
-		}
-		setIcon(icon);
+		setIcon(actionContext.interpolate(target.getIcon()));
 		String color = target.getColor();
 		if (!Util.isBlank(color)) {
 			setColor(Color.fromLabel(color));
