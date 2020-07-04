@@ -915,6 +915,9 @@ public abstract class ActionBaseImpl extends LabelImpl implements ActionBase {
 		// Context URI service - used by the Action facade and by child elements.
 		if (getActivatorType() == ActivatorType.REFERENCE || getActivatorType() == ActivatorType.INLINE) {
 			String activator = getActivator();
+			if (activator != null && activator.startsWith("./")) {
+				activator = activator.substring(2); // Removing ./ which is used to indicate that action content generation is not required.
+			}
 			if (Util.isBlank(activator) && !Util.isBlank(getId())) {
 				activator = getId() + ".html";
 				if (ActionRole.SECTION.label.equals(getRole())) {
