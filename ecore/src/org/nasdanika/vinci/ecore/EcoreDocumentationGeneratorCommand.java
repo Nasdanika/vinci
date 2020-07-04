@@ -34,8 +34,8 @@ import picocli.CommandLine.Parameters;
  *
  */
 @Command(
-		description = "Generates Ecore model documentation as Vinci action tree",
-		name = "ecore-doc",
+		description = "Generates Ecore model documentation as a Vinci action tree",
+		name = "ecore",
 		versionProvider = BundleVersionProvider.class)
 public class EcoreDocumentationGeneratorCommand extends CommandBase {
 	
