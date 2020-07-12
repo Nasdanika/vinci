@@ -13,6 +13,7 @@ import org.nasdanika.cli.ContextBuilder;
 import org.nasdanika.common.Context;
 import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.common.Status;
+import org.nasdanika.common.Util;
 
 /**
  * 
@@ -31,23 +32,25 @@ public class JavadocContextBuilder implements ContextBuilder {
 		Collection<String> links = (Collection<String>) config;
 		progressMonitor.setWorkRemaining(links.size());
 		for (String link: links) {
-			String normalizedLocation = context.interpolate(link);
-			if (!normalizedLocation.endsWith("/")) {
-				normalizedLocation += "/";
-			}
-			try {
-				URL packageListURL = new URL(normalizedLocation+"package-list");
-				try (BufferedReader br = new BufferedReader(new InputStreamReader(packageListURL.openStream()))) {
-					String line;
-					while ((line = br.readLine()) != null) {
-						packageMap.put(line.trim(), normalizedLocation);
-					}
-					progressMonitor.worked(Status.SUCCESS, 1, "Loaded package list from " + link);
-				} catch (Exception e) {
-					progressMonitor.worked(Status.ERROR, 1, "Could not download package list from " + link + " - " + e);
+			if (!Util.isBlank(link)) {
+				String normalizedLocation = context.interpolate(link.trim());
+				if (!normalizedLocation.endsWith("/")) {
+					normalizedLocation += "/";
 				}
-			} catch (MalformedURLException e) {
-				progressMonitor.worked(Status.ERROR, 1, "Invalid JavaDoc URL: " + link + " - " + e);
+				try {
+					URL packageListURL = new URL(normalizedLocation+"package-list");
+					try (BufferedReader br = new BufferedReader(new InputStreamReader(packageListURL.openStream()))) {
+						String line;
+						while ((line = br.readLine()) != null) {
+							packageMap.put(line.trim(), normalizedLocation);
+						}
+						progressMonitor.worked(Status.SUCCESS, 1, "Loaded package list from " + link);
+					} catch (Exception e) {
+						progressMonitor.worked(Status.ERROR, 1, "Could not download package list from " + link + " - " + e);
+					}
+				} catch (MalformedURLException e) {
+					progressMonitor.worked(Status.ERROR, 1, "Invalid JavaDoc URL: " + link + " - " + e);
+				}
 			}
 		}
 		
