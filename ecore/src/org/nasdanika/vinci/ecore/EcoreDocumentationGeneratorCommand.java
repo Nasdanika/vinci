@@ -10,6 +10,7 @@ import org.eclipse.emf.codegen.ecore.genmodel.GenModel;
 import org.eclipse.emf.codegen.ecore.genmodel.GenPackage;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
@@ -39,6 +40,8 @@ import picocli.CommandLine.Parameters;
 		versionProvider = BundleVersionProvider.class)
 public class EcoreDocumentationGeneratorCommand extends CommandBase {
 	
+	static final String JAVADOC_CONTEXT_BUILDER_MOUNT = "javadoc-context-builder-mount";
+
 	@Parameters(
 			paramLabel = "NS-URI", 
 			arity = "1..*",
@@ -54,22 +57,20 @@ public class EcoreDocumentationGeneratorCommand extends CommandBase {
 	private File outputDir;		
 		
 	@Option(names = {"-b", "--base-uri"}, description = "Base URI for resolving eclasifier references in diagram image maps. Resolved against the output directory URI. Defaults to the output directory URI.")
-	private String baseUri;			
+	private String baseUri;
+	
+	@Option(
+			names = {"-J", "--javadoc-context-builder-mount"}, 
+			arity = "0..1",
+			fallbackValue = "javadoc/",
+			description = "If specified model instance class names are output as tokens for expansion to links to JavaDoc. If specified without parameter option value is ${FALLBACK-VALUE}")
+	private String javaDocContextBuilderMount;			
+	
 	
 	// TODO - localizations - enum as they become available.
 
 	protected GenModelResourceSet resourceSet;
 	// protected ResourceLocator resourceLocator;
-
-	/**
-	 * Generates documentation
-	 * @param resourceLocator Locator of localized resources.
-	 */
-	public EcoreDocumentationGeneratorCommand() {
-		resourceSet = new GenModelResourceSet();		
-		resourceSet.getAdapterFactories().add(createAdapterFactory());
-		// this.resourceLocator = resourceLocator;
-	}
 
 	/**
 	 * Override to customize the adapter factory.
@@ -84,11 +85,17 @@ public class EcoreDocumentationGeneratorCommand extends CommandBase {
 		MutableContext context = Context.EMPTY_CONTEXT.fork();
 		context.register(URI.class, baseURI);
 		context.put("base-uri", baseURI);
+		if (!Util.isBlank(javaDocContextBuilderMount)) {
+			context.put(JAVADOC_CONTEXT_BUILDER_MOUNT, javaDocContextBuilderMount);
+		}
 		
 		return new EcoreViewActionSupplierFactoryAdapterFactory(context);
 	}
 	
 	public List<ViewActionSupplier> loadGenModel() {
+		resourceSet = new GenModelResourceSet();		
+		resourceSet.getAdapterFactories().add(createAdapterFactory());
+		
 		List<Resource> resources = new ArrayList<>();
 		for (String nsURI: nsURIs) {
 			Resource genModel = resourceSet.loadGenModel(nsURI);
@@ -102,7 +109,8 @@ public class EcoreDocumentationGeneratorCommand extends CommandBase {
 			for (EObject contents: resource.getContents()) {
 				if (contents instanceof GenModel) {
 					for (GenPackage genPackage: ((GenModel) contents).getGenPackages()) {
-						ret.add(EObjectAdaptable.adaptTo(genPackage.getEcorePackage(), ViewActionSupplier.class));
+						EPackage ecorePackage = genPackage.getEcorePackage();
+						ret.add(EObjectAdaptable.adaptTo(ecorePackage, ViewActionSupplier.class));
 					}
 				}
 			}
