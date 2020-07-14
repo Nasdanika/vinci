@@ -15,7 +15,8 @@ Require-Bundle: org.eclipse.core.runtime,
  org.nasdanika.eclipse;bundle-version="1.0.0",
  org.nasdanika.vinci.components;bundle-version="0.1.0",
  org.apache.commons.commons-text;bundle-version="1.8.0",
- org.jsoup;bundle-version="1.12.1",  
- org.nasdanika.texttospeech;bundle-version="1.0.0"
+ org.jsoup;bundle-version="1.12.1",
+ org.nasdanika.texttospeech;bundle-version="1.0.0",
+ org.apache.commons.codec
 Export-Package: org.nasdanika.vinci.cli
 Automatic-Module-Name: org.nasdanika.vinci.cli

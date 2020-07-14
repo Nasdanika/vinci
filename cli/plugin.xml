@@ -21,6 +21,10 @@
             class="org.nasdanika.vinci.cli.JavadocContextBuilder"
             description="Resolves fully qualified class names to links to class Javadoc."
             id="javadoc-context-builder"></context-builder>
+      <context-builder
+            class="org.nasdanika.vinci.cli.EcoreDocContextBuilder"
+            description="Resolves EPackage alias/EClass name to links to Ecore model documentation."
+            id="ecore-doc-context-builder"></context-builder>
    </extension>
 
 </plugin>

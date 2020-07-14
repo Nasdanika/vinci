@@ -16,7 +16,8 @@ import org.nasdanika.common.Status;
 import org.nasdanika.common.Util;
 
 /**
- * 
+ * Downloads package-list from specified locations and uses package to location mapping for resolving 
+ * fully qualified class names to links to Javadoc.
  * @author Pavel
  *
  */
