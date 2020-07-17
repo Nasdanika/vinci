@@ -24,6 +24,7 @@
       <context-builder
             class="org.nasdanika.vinci.cli.EcoreDocContextBuilder"
             description="Resolves EPackage alias/EClass name to links to Ecore model documentation."
+            documentation="doc/ecore-doc-context-builder.md"
             id="ecore-doc-context-builder"></context-builder>
    </extension>
 

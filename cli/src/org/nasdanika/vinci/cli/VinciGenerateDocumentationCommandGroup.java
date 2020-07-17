@@ -9,7 +9,8 @@ import picocli.CommandLine.Command;
 		name = "documentation",
 		versionProvider = VinciBundleVersionProvider.class,
 		subcommands = {
-				VinciGenerateCliDocumentationCommand.class
+				VinciGenerateCliDocumentationCommand.class,
+				VinciGenerateContextBuildersDocumentationCommand.class
 		})
 public class VinciGenerateDocumentationCommandGroup extends CommandGroup {
 

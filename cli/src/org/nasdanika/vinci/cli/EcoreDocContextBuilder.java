@@ -36,11 +36,11 @@ public class EcoreDocContextBuilder implements ContextBuilder {
 		
 		return new Context() {
 			
-			private String link(String href, String text) {
+			private String link(String href, String text, String defaultText) {
 				return new StringBuilder("<a href='")
 						.append(href)
 						.append("'>")
-						.append(text)
+						.append(text == null ? defaultText : text)
 						.append("</a>").toString();				
 			}
 			
@@ -52,32 +52,42 @@ public class EcoreDocContextBuilder implements ContextBuilder {
 				// . for attributes
 				// : for references
 				
-				int slashIdx = key.indexOf('/');
+				int spaceIdx = key.indexOf(' ');
+				String spec = spaceIdx == -1 ? key : key.substring(0, spaceIdx);
+				String text = spaceIdx == -1 ? null : key.substring(spaceIdx + 1);
+				
+				int slashIdx = spec.indexOf('/');
 				if (slashIdx == -1) {
-					String pkgURL = aliases.get(key);
+					String pkgURL = aliases.get(spec);
 					if (pkgURL == null) {
 						return null;
 					}
-					return link(pkgURL + "package-summary.html", key);
+					return link(pkgURL + "package-summary.html", text, spec);
 				}
 				
-				String alias = key.substring(0, slashIdx);
+				String alias = spec.substring(0, slashIdx);
 				String pkgURL = aliases.get(alias);
 				if (pkgURL == null) {
 					return null;
 				}
-				int dotIdx = key.indexOf('.', slashIdx);
+				int dotIdx = spec.indexOf('.', slashIdx);
 				if (dotIdx != -1) {
 					// EAttribute
-					return link(pkgURL + key.substring(slashIdx + 1, dotIdx) + "#EAttribute-" + key.substring(dotIdx + 1), key.substring(slashIdx + 1));
+					return link(
+							pkgURL + spec.substring(slashIdx + 1, dotIdx) + "#EAttribute-" + spec.substring(dotIdx + 1), 
+							text, 
+							spec.substring(slashIdx + 1));
 				}				
-				int colonIdx = key.indexOf(':', slashIdx);
+				int colonIdx = spec.indexOf(':', slashIdx);
 				if (colonIdx != -1) {
 					// EReference
-					return link(pkgURL + key.substring(slashIdx + 1, colonIdx) + "#EReference-" + key.substring(colonIdx + 1), key.substring(slashIdx + 1, colonIdx) + "." + key.substring(colonIdx + 1));
+					return link(
+							pkgURL + spec.substring(slashIdx + 1, colonIdx) + "#EReference-" + spec.substring(colonIdx + 1), 
+							text, 
+							spec.substring(slashIdx + 1, colonIdx) + "." + spec.substring(colonIdx + 1));
 				}
-				// No fragment or any fragment. No way to specify alternative text yet.
-				return link(pkgURL + key.substring(slashIdx + 1), key.substring(slashIdx + 1));
+				// No fragment or any fragment. 
+				return link(pkgURL + spec.substring(slashIdx + 1), text, spec.substring(slashIdx + 1));
 			}
 
 			@Override

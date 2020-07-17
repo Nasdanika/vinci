@@ -49,7 +49,7 @@ import picocli.CommandLine.Spec;
 		versionProvider = VinciBundleVersionProvider.class)
 public class VinciGenerateCliDocumentationCommand extends CommandBase {
 	
-	private static final URI HELP_ACTION_TEMPLATE = URI.createPlatformPluginURI("/org.nasdanika.vinci.templates/cli-help-action.vinci", true);	
+	private static final URI DOC_ACTION_TEMPLATE = URI.createPlatformPluginURI("/org.nasdanika.vinci.templates/cli-doc-action.vinci", true);	
 	
 	@Spec
 	private CommandSpec spec;
@@ -57,7 +57,7 @@ public class VinciGenerateCliDocumentationCommand extends CommandBase {
 	@Option(names = {"-o", "--output"}, description = "Output file")
 	private File output;
 	
-	@Option(names = {"-s", "--section"}, description = "Use section role for action commands")
+	@Option(names = {"-s", "--section"}, description = "Use section role for command actions")
 	private boolean section;
 	
 	/**
@@ -77,7 +77,7 @@ public class VinciGenerateCliDocumentationCommand extends CommandBase {
 			resourceSet.getPackageRegistry().put(ePackage.getNsURI(), ePackage);
 		}
 
-		return  (Action) resourceSet.getResource(HELP_ACTION_TEMPLATE, true).getContents().get(0);
+		return  (Action) resourceSet.getResource(DOC_ACTION_TEMPLATE, true).getContents().get(0);
 	}	
 	
 	@SuppressWarnings({ "unchecked", "rawtypes" })
