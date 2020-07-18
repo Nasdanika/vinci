@@ -20,6 +20,7 @@
       <context-builder
             class="org.nasdanika.vinci.cli.JavadocContextBuilder"
             description="Resolves fully qualified class names to links to class Javadoc."
+            documentation="doc/javadoc-doc-context-builder.md"
             id="javadoc-context-builder"></context-builder>
       <context-builder
             class="org.nasdanika.vinci.cli.EcoreDocContextBuilder"

@@ -105,6 +105,16 @@ public class GenerateTemplatedApplicationCommand extends ModelCommand<AbstractAc
 		}
 		return ret;
 	};	
+	
+	@Override
+	protected Context newContext() {
+		Context ret = super.newContext();
+		URI outputURI = URI.createFileURI(outputDir.getAbsolutePath() + File.separator);
+		URI baseURI = Util.isBlank(baseUri) ? outputURI : URI.createURI(baseUri).resolve(outputURI);		
+		ret = ret.compose(Context.singleton(URI.class, baseURI));
+		ret = ret.compose(Context.singleton(Context.BASE_URI_PROPERTY, baseURI));
+		return ret;		
+	}
 		
 	protected void execute(
 			AbstractAction rootAction, 
@@ -116,13 +126,9 @@ public class GenerateTemplatedApplicationCommand extends ModelCommand<AbstractAc
 		}
 		FileSystemContainer output = new FileSystemContainer(outputDir);		
 		ResourceSet resourceSet = rootAction.eResource().getResourceSet();
-		URI outputURI = URI.createFileURI(outputDir.getAbsolutePath() + File.separator);
-		URI baseURI = Util.isBlank(baseUri) ? outputURI : URI.createURI(baseUri).resolve(outputURI);
 		MutableContext generationContext = context.fork();
 		generationContext.register(BinaryEntityContainer.class, output);
 		generationContext.register(ResourceSet.class, resourceSet);
-		generationContext.register(URI.class, baseURI);
-		generationContext.put(Context.BASE_URI_PROPERTY, baseURI);
 		
 		try (SpeechSynthesizer speechSynthesizer = new CachingSpeechSynthesizer(new SpeechSynthesizerProxy(GoogleCloudTextToSpeechSynthesizer::new))) {
 			generationContext.register(SpeechSynthesizer.class, speechSynthesizer);
@@ -137,7 +143,7 @@ public class GenerateTemplatedApplicationCommand extends ModelCommand<AbstractAc
 			
 				Action action = (Action) work.splitAndExecute(monitor);
 				// Page for each action with relative navigation activator - recursive						
-				generatePages(baseURI, generationContext, resourceSet, action, action, output.stateAdapter().adapt(null, ENCODER), monitor.split("Generating pages", 1, action));				
+				generatePages(generationContext.get(URI.class), generationContext, resourceSet, action, action, output.stateAdapter().adapt(null, ENCODER), monitor.split("Generating pages", 1, action));				
 			}
 		}
 	}

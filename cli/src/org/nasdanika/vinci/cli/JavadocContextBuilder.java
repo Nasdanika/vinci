@@ -3,6 +3,7 @@ package org.nasdanika.vinci.cli;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.MalformedURLException;
+import org.eclipse.emf.common.util.URI;
 import java.net.URL;
 import java.util.Collection;
 import java.util.HashMap;
@@ -38,19 +39,22 @@ public class JavadocContextBuilder implements ContextBuilder {
 				if (!normalizedLocation.endsWith("/")) {
 					normalizedLocation += "/";
 				}
-				try {
-					URL packageListURL = new URL(normalizedLocation+"package-list");
-					try (BufferedReader br = new BufferedReader(new InputStreamReader(packageListURL.openStream()))) {
-						String line;
-						while ((line = br.readLine()) != null) {
-							packageMap.put(line.trim(), normalizedLocation);
-						}
-						progressMonitor.worked(Status.SUCCESS, 1, "Loaded package list from " + link);
-					} catch (Exception e) {
-						progressMonitor.worked(Status.ERROR, 1, "Could not download package list from " + link + " - " + e);
+				URI locationURI = URI.createURI(normalizedLocation);
+				URI contextURI = context.get(URI.class);
+				if (contextURI != null) {
+					locationURI = locationURI.resolve(contextURI);
+				}
+				
+				try (BufferedReader br = new BufferedReader(new InputStreamReader(new URL(locationURI.toString()+"package-list").openStream()))) {
+					String line;
+					while ((line = br.readLine()) != null) {
+						packageMap.put(line.trim(), locationURI.toString());
 					}
+					progressMonitor.worked(Status.SUCCESS, 1, "Loaded package list from " + link);
 				} catch (MalformedURLException e) {
 					progressMonitor.worked(Status.ERROR, 1, "Invalid JavaDoc URL: " + link + " - " + e);
+				} catch (Exception e) {
+					progressMonitor.worked(Status.ERROR, 1, "Could not download package list from " + link + " - " + e);
 				}
 			}
 		}
@@ -82,14 +86,22 @@ public class JavadocContextBuilder implements ContextBuilder {
 
 			@Override
 			public Object get(String key) {
-				String href = getRef(key);
-				if (href == null) {
+				if (key == null) {
 					return key;
 				}
 				
-				int hashIdx = key.indexOf("#");
+				int spaceIdx = key.indexOf(' ');
+				String spec = spaceIdx == -1 ? key : key.substring(0, spaceIdx);
+				String text = spaceIdx == -1 ? null : key.substring(spaceIdx + 1);
+				
+				String href = getRef(spec);
+				if (href == null) {
+					return spec;
+				}
+								
+				int hashIdx = spec.indexOf("#");
 				if (hashIdx != -1) {
-					String fragment = key.substring(hashIdx+1);
+					String fragment = spec.substring(hashIdx+1);
 					int firstParenthesisIdx = fragment.indexOf("(");
 					if (firstParenthesisIdx > 0 && fragment.endsWith(")")) {
 						// Convert (type[,type]) to -type-type-						
@@ -115,7 +127,7 @@ public class JavadocContextBuilder implements ContextBuilder {
 				return new StringBuilder("<a href='")
 						.append(href)
 						.append("'>")
-						.append(key.replace('#', '.'))
+						.append(Util.isBlank(text) ? spec.replace('#', '.').replace('$', '.') : text)
 						.append("</a>").toString();
 			}
 
