@@ -9,97 +9,87 @@ In the below examples the ecore documentation context builder was mounted under 
 
 #### EPackage
 
-| Token      | Interpolation |
+| Token       | Interpolation |
 | ----------- | ----------- |
 | ``${{{ecore-doc/ncore}}}`` | ${ecore-doc/ncore} |
 | ``${{{ecore-doc/ncore Ncore}}}`` | ${ecore-doc/ncore Ncore} |
-| ``${{{ecore-doc/non-existent-package|Non existent package with default token value}}}`` | ${ecore-doc/non-existent-package|Non existent package with default token value} |
+| ``${{{ecore-doc/non-existent-package|Non existent package with default token value}}}`` | ``${ecore-doc/non-existent-package|Non existent package with default token value}`` |
     
 #### EClass 
+
+| Token       | Interpolation |
+| ----------- | ----------- |
+| ``${{{ecore-doc/vinci-app/ActionBase}}}`` | ${ecore-doc/vinci-app/ActionBase} |
+| ``${{{ecore-doc/vinci-app/ActionBase Action Base}}}`` | ${ecore-doc/vinci-app/ActionBase Action Base} |
     
-* EClass: 
-    * ${ecore-doc/app/ActionBase} resolves to ${ecore-doc/app/ActionBase}  
-    * ${ecore-doc/app/ActionBase Action Base} resolves to ${ecore-doc/app/ActionBase Action Base} 
-* Attribute: 
-    * ${ecore-doc/app/ActionBase.activator} resolves to ${ecore-doc/app/ActionBase.activator} 
-    * ${ecore-doc/app/ActionBase.activator Action Base activator} resolves to ${ecore-doc/app/ActionBase.activator Action Base activator} 
-* Reference: 
-    * ${ecore-doc/app/ActionBase:content} resolves to 
-    * ${ecore-doc/app/ActionBase:content Action Base content} resolves to 
-* Operation: 
-    * ${ecore-doc/app/BootstrapContainerApplicationBuilder#EOperation-createApplicationBuilderSupplier-978b17ea4dfe41ec4562d0ce7f4eaa16b83bc0a4e3250ba83665d93d4b799507} resolves to 
-    * ${ecore-doc/app/BootstrapContainerApplicationBuilder#EOperation-createApplicationBuilderSupplier-978b17ea4dfe41ec4562d0ce7f4eaa16b83bc0a4e3250ba83665d93d4b799507 createApplicationBuilderSupplier()} resolves to 
+#### EAttribute
 
-
-
-| Token      | Interpolation |
+| Token       | Interpolation |
 | ----------- | ----------- |
-| ``${{{ecore-doc/ncore}}}`` | ${ecore-doc/ncore} |
-|  |  |
+| ``${{{ecore-doc/vinci-app/ActionBase.activator}}}`` | ${ecore-doc/vinci-app/ActionBase.activator} |
+| ``${{{ecore-doc/vinci-app/ActionBase.activator action activator}}}`` | ${ecore-doc/vinci-app/ActionBase.activator action activator} |
 
+#### EReference
 
-| Token      | Interpolation |
+| Token       | Interpolation |
 | ----------- | ----------- |
-| ``${{{ecore-doc/ncore}}}`` | ${ecore-doc/ncore} |
-|  |  |
+| ``${{{ecore-doc/vinci-app/ActionBase:content}}}`` | ${ecore-doc/vinci-app/ActionBase:content} |
+| ``${{{ecore-doc/vinci-app/ActionBase:content action content}}}`` | ${ecore-doc/vinci-app/ActionBase:content action content} |
 
+#### EOperation
 
-| Token      | Interpolation |
+| Token       | Interpolation |
 | ----------- | ----------- |
-| ``${{{ecore-doc/ncore}}}`` | ${ecore-doc/ncore} |
-|  |  |
-
-
-* Package:
-    * ``${{{javadoc/org.nasdankia.common}}}`` is resolved to ${javadoc/org.nasdanika.common}.
-    * ``${{{javadoc/org.nasdankia.common Nasdanika common classes}}}`` is resolved to ${javadoc/org.nasdanika.common Nasanika common classes}.
-* Class:
-    * ``${{{javadoc/org.nasdankia.common.Context}}}`` is resolved to ${javadoc/org.nasdanika.common.Context}.
-    * ``${{{javadoc/org.nasdankia.common.Context Context}}}`` is resolved to ${javadoc/org.nasdanika.common.Context Context}.
-    * ``${{{javadoc/org.nasdankia.no-such-package.MyClass}}}`` is not resolved and is replaced with ${javadoc/org.nasdanika.no-such-package.MyClass}. The Javadoc context builder has no knowledge about classes, only about packages. I.e. ``${{{javadoc/org.nasdankia.common.NoSuchClass}}}`` would be resolved to a broken link because the context builder knows that ``org.nasdanika.common`` package exists, but it doesn't know that ``NoSuchClass`` does not exist in the package. 
-    * ``${{{javadoc/java.util.Map$Entry}}}`` is resolved to ${javadoc/java.util.Map$Entry}.    
-* Field: ``${{{javadoc/org.nasdanika.common.Context#BASE_URI_PROPERTY}}}`` is resolved to ${javadoc/org.nasdanika.common.Context#BASE_URI_PROPERTY}
-* Methods: 
-    * ``${{{javadoc/org.nasdanika.common.Context#fork()}}}`` is resolved to ${javadoc/org.nasdanika.common.Context#fork()}
-    * ``${{{javadoc/org.nasdanika.common.Context#get(java.lang.Class)}}}`` is resolved to ${javadoc/org.nasdanika.common.Context#get(java.lang.Class)}
- 
-Javadoc context builder is configured with a list of URL's of Java API documentation to use in class to URL resolution.
+| ``${{{ecore-doc/vinci-app/BootstrapContainerApplicationBuilder#EOperation-createApplicationBuilderSupplier-978b17ea4dfe41ec4562d0ce7f4eaa16b83bc0a4e3250ba83665d93d4b799507 createApplicationBuilderSupplier()}}}`` | ${ecore-doc/vinci-app/BootstrapContainerApplicationBuilder#EOperation-createApplicationBuilderSupplier-978b17ea4dfe41ec4562d0ce7f4eaa16b83bc0a4e3250ba83665d93d4b799507 createApplicationBuilderSupplier()} |
 
 ### Token specification
 
-As any interpolation token the Javadoc token consists of a key and an optional default value ``${{{<key>[|<default value>]}}}``.
-They key has the following structure: ``[<prefix>]<fully qualified name>[ <alternative text>]``, where:
+As any interpolation token the Ecore documentation token consists of a key and an optional default value ``${{{<key>[|<default value>]}}}``.
+They key has the following structure: ``[<prefix>]<EPackage alias>/<EClassifier name>[<member separator><member spec>][ <alternative text>]``, where:
 
-* prefix - context mount prefix, e.g. ``javadoc/``
-* Fully qualified name - [FQN](https://en.wikipedia.org/wiki/Fully_qualified_name) of a class or member:
-    * For packages - fully qualified package name.
-    * For classes - fully qualified name with dot separator for top-level classes and ``$`` separator for nested classes.
-    * For fields - fully qualified class name, ``#``, field name.
-    * For methods - fully qualified class name, ``#``, method name, ``(``, list of fully qualified names of the formal parameters comma separated, ``)``.
-* Alternative text - any text after a space will be used as a link text. If not specified, then fully qualified name is used as text with ``$`` and ``#`` replaced by ``.`` (dot).
+* prefix - context mount prefix, e.g. ``ecore-doc/``
+* EPackage alias - logical name mapping to the model documentation base URL and EPackage namespace URI. 
+* EClassifier name - name of an EClassifier in the EPackage identified by the EPackage alias.
+* Optional member (EStructuralFeature or EOperation) specification:
+    * Member separators:
+        * ``.`` for EAttributes
+        * ``:`` for EReferences
+        * ``#`` for EOperations
+    * Member spec:
+        * Name for EAttributes and EReferences
+        * Encoded signature for EOperations. It can be obtained from the generated model documentation by copying EOperation link URL from the EClass list of contents and retaining the fragment part. 
+* Alternative text - any text after a space will be used as a link text. If not specified, then EClassifier name is used for EClasses and EClass name dot member spec is used for EClass members. 
 
-In the case of Javadoc context builder the default value is never used because the Javadoc context builder returns a plain text for FQN or alternative text if it can't resolve an FQN to a link.          
+In the case of Ecore documentation context builder the default value is used only when EPackage alias is not found in the context builder configuration.
+Specifying a non-existing EClassifier name will result in a broken link. 
  
 ### Configuration
 
-The context builder is configured with a list of URL's. The URL's are interpolated and then resolved against the context URI.
+The context builder is configured with a map of aliases to a map containing two keys:
+
+* ``base`` - Base URL. The URL's are interpolated and then resolved against the context URI.
+* ``namespace-uri`` - EPackge namespace URI.
 
 Example:
 
 ```yaml
 mounts:
-    javadoc/:
-        id: org.nasdanika.vinci.cli/javadoc-context-builder
+    ecore-doc/:
+        id: org.nasdanika.vinci.cli/ecore-doc-context-builder
         config:
-            # Third-party
-            - https://docs.oracle.com/javase/8/docs/api/
-            - https://download.eclipse.org/modeling/emf/emf/javadoc/2.9.0/
-            - https://picocli.info/apidocs/
-
-            # Core
-            - ../core/bundles/org.nasdanika.cli/apidocs/
-            - https://nasdanika.org/builds/${release}/products/core/bundles/org.nasdanika.common/apidocs/
+            ncore:
+                base: reference/model-doc/
+                ns-uri: urn:org.nasdanika.ncore
+            vinci-html:
+                base: reference/model-doc/
+                ns-uri: urn:org.nasdanika.vinci.html
+            vinci-bootstrap:
+                base: reference/model-doc/
+                ns-uri: urn:org.nasdanika.vinci.bootstrap
+            vinci-app:
+                base: reference/model-doc/
+                ns-uri: urn:org.nasdanika.vinci.app
+            vinci-components:
+                base: reference/model-doc/
+                ns-uri: urn:org.nasdanika.vinci.components
 ```
-
-
----
