@@ -6,6 +6,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 
 import org.apache.commons.codec.binary.Hex;
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EPackage;
 import org.nasdanika.cli.ContextBuilder;
@@ -56,12 +57,17 @@ public class EcoreDocContextBuilder implements ContextBuilder {
 				String spec = spaceIdx == -1 ? key : key.substring(0, spaceIdx);
 				String text = spaceIdx == -1 ? null : key.substring(spaceIdx + 1);
 				
+				URI contextURI = context.get(URI.class);
+				
 				int slashIdx = spec.indexOf('/');
 				if (slashIdx == -1) {
 					String pkgURL = aliases.get(spec);
 					if (pkgURL == null) {
 						return null;
 					}
+					if (contextURI != null) {
+						pkgURL = URI.createURI(pkgURL).resolve(contextURI).toString();
+					}				
 					return link(pkgURL + "package-summary.html", text, spec);
 				}
 				
@@ -70,6 +76,10 @@ public class EcoreDocContextBuilder implements ContextBuilder {
 				if (pkgURL == null) {
 					return null;
 				}
+				if (contextURI != null) {
+					pkgURL = URI.createURI(pkgURL).resolve(contextURI).toString();
+				}				
+				
 				int dotIdx = spec.indexOf('.', slashIdx);
 				if (dotIdx != -1) {
 					// EAttribute

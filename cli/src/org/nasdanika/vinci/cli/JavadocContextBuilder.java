@@ -39,16 +39,15 @@ public class JavadocContextBuilder implements ContextBuilder {
 				if (!normalizedLocation.endsWith("/")) {
 					normalizedLocation += "/";
 				}
-				URI locationURI = URI.createURI(normalizedLocation);
 				URI contextURI = context.get(URI.class);
 				if (contextURI != null) {
-					locationURI = locationURI.resolve(contextURI);
+					normalizedLocation = URI.createURI(normalizedLocation).resolve(contextURI).toString();
 				}
 				
-				try (BufferedReader br = new BufferedReader(new InputStreamReader(new URL(locationURI.toString()+"package-list").openStream()))) {
+				try (BufferedReader br = new BufferedReader(new InputStreamReader(new URL(normalizedLocation+"package-list").openStream()))) {
 					String line;
 					while ((line = br.readLine()) != null) {
-						packageMap.put(line.trim(), locationURI.toString());
+						packageMap.put(line.trim(), normalizedLocation);
 					}
 					progressMonitor.worked(Status.SUCCESS, 1, "Loaded package list from " + link);
 				} catch (MalformedURLException e) {

@@ -1,6 +1,10 @@
 Javadoc context builder resolves fully qualified names of Java packages, classes, fields, and methods to links to Java API documentation.
+Javadoc context builder allows to reference API documentation of Java packages, types, and type members by their fully quialified names instead of URL's.
+It simplifies writing technical documentation and referencing of Javadoc API's from generated content such as [Ecore Model Documentation](${base-uri}reference/model-doc/index.html), e.g. the instance class of ${ecore-doc/vinci-app/ActionBase}. 
 
 ### Examples
+
+In the below examples the Javadoc context builder is mounted under ``javadoc/`` prefix.
 
 * Package:
     * ``${{{javadoc/org.nasdankia.common}}}`` is resolved to ${javadoc/org.nasdanika.common}.
