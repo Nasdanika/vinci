@@ -22,10 +22,10 @@ import org.nasdanika.cli.CommandBase;
 import org.nasdanika.common.SupplierFactory;
 import org.nasdanika.common.Util;
 import org.nasdanika.vinci.app.Action;
-import org.nasdanika.vinci.app.ActionCategory;
 import org.nasdanika.vinci.app.ActionRole;
 import org.nasdanika.vinci.app.AppFactory;
 import org.nasdanika.vinci.components.ComponentsFactory;
+import org.nasdanika.vinci.components.ListOfContents;
 import org.nasdanika.vinci.components.MarkdownResource;
 
 import picocli.CommandLine.Command;
@@ -91,7 +91,7 @@ public class VinciGenerateContextBuildersDocumentationCommand extends CommandBas
 				if (section) {
 					builderAction.setRole(ActionRole.SECTION.label);
 				} else {
-					builderAction.setActivator(bundle + "/" + ceId + ".html");
+					builderAction.setActivator(ceId + ".html");
 				}
 				
 				docActions.computeIfAbsent(bundle, key -> new ArrayList<>()).add(builderAction);
@@ -107,19 +107,32 @@ public class VinciGenerateContextBuildersDocumentationCommand extends CommandBas
 		markdownResource.setInterpolate(true);
 		markdownResource.setStyle(true);
 		root.getContent().add((SupplierFactory) markdownResource);
+		
+		ListOfContents loc = ComponentsFactory.eINSTANCE.createListOfContents();
+		loc.setHeader("Registered Context Builders");
+		loc.setTooltips(true);
+		loc.setRole(ActionRole.NAVIGATION.label);
+		root.getContent().add((SupplierFactory) loc);
+		
 
 		// TODO - list of contents
 		
 		for (Entry<String, List<Action>> be: docActions.entrySet()) {
-			ActionCategory bundleCategory = AppFactory.eINSTANCE.createActionCategory();
-			bundleCategory.setText(be.getKey());
-			root.getElements().add(bundleCategory);
+			Action bundleAction = AppFactory.eINSTANCE.createAction();
+			bundleAction.setText(be.getKey());
+			bundleAction.setActivator(be.getKey() + "/index.html" );
+			root.getElements().add(bundleAction);
 			
 			List<Action> al = be.getValue();
 			al.sort((a,b) -> a.getText().compareTo(b.getText()));
 			for (Action cba: al) {
-				bundleCategory.getElements().add(cba);
+				bundleAction.getElements().add(cba);
 			}
+			
+			ListOfContents bloc = ComponentsFactory.eINSTANCE.createListOfContents();
+			bloc.setRole(ActionRole.NAVIGATION.label);
+			bloc.setTooltips(true);
+			bundleAction.getContent().add((SupplierFactory) bloc);
 		}				
 		
 		Resource resource = new XMLResourceImpl();
@@ -133,5 +146,5 @@ public class VinciGenerateContextBuildersDocumentationCommand extends CommandBas
 		}
 		return 0;
 	}
-
+	
 }
