@@ -80,6 +80,7 @@ public class VinciGenerateContextBuildersDocumentationCommand extends CommandBas
 					MarkdownResource markdownResource = ComponentsFactory.eINSTANCE.createMarkdownResource();
 					markdownResource.setLocation("platform:/plugin/" + bundle + "/" + docResource);
 					markdownResource.setInterpolate(true);
+					markdownResource.setStyle(true);
 					builderAction.getContent().add((SupplierFactory) markdownResource);
 				}
 				String description = ce.getAttribute("description");
@@ -104,6 +105,7 @@ public class VinciGenerateContextBuildersDocumentationCommand extends CommandBas
 		MarkdownResource markdownResource = ComponentsFactory.eINSTANCE.createMarkdownResource();
 		markdownResource.setLocation("platform:/plugin/org.nasdanika.cli/doc/context-builders.md");
 		markdownResource.setInterpolate(true);
+		markdownResource.setStyle(true);
 		root.getContent().add((SupplierFactory) markdownResource);
 
 		// TODO - list of contents

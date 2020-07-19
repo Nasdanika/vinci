@@ -11,13 +11,12 @@ In the below examples the ecore documentation context builder was mounted under 
 
 | Token      | Interpolation |
 | ----------- | ----------- |
-| Header      | Title       |
-| Paragraph   | Text        |
-
-* EPackage: 
-    * ``${{{ecore-doc/ncore}}}`` resolves to ${ecore-doc/ncore}
-    * ``${{{ecore-doc/ncore Ncore}}}`` resolves to ${ecore-doc/ncore Ncore}
-    * ``${{{ecore-doc/non-existent-package|Non existent package with default token value}}}`` resolves to ${ecore-doc/non-existent-package|Non existent package with default token value}
+| ``${{{ecore-doc/ncore}}}`` | ${ecore-doc/ncore} |
+| ``${{{ecore-doc/ncore Ncore}}}`` | ${ecore-doc/ncore Ncore} |
+| ``${{{ecore-doc/non-existent-package|Non existent package with default token value}}}`` | ${ecore-doc/non-existent-package|Non existent package with default token value} |
+    
+#### EClass 
+    
 * EClass: 
     * ${ecore-doc/app/ActionBase} resolves to ${ecore-doc/app/ActionBase}  
     * ${ecore-doc/app/ActionBase Action Base} resolves to ${ecore-doc/app/ActionBase Action Base} 
@@ -30,6 +29,25 @@ In the below examples the ecore documentation context builder was mounted under 
 * Operation: 
     * ${ecore-doc/app/BootstrapContainerApplicationBuilder#EOperation-createApplicationBuilderSupplier-978b17ea4dfe41ec4562d0ce7f4eaa16b83bc0a4e3250ba83665d93d4b799507} resolves to 
     * ${ecore-doc/app/BootstrapContainerApplicationBuilder#EOperation-createApplicationBuilderSupplier-978b17ea4dfe41ec4562d0ce7f4eaa16b83bc0a4e3250ba83665d93d4b799507 createApplicationBuilderSupplier()} resolves to 
+
+
+
+| Token      | Interpolation |
+| ----------- | ----------- |
+| ``${{{ecore-doc/ncore}}}`` | ${ecore-doc/ncore} |
+|  |  |
+
+
+| Token      | Interpolation |
+| ----------- | ----------- |
+| ``${{{ecore-doc/ncore}}}`` | ${ecore-doc/ncore} |
+|  |  |
+
+
+| Token      | Interpolation |
+| ----------- | ----------- |
+| ``${{{ecore-doc/ncore}}}`` | ${ecore-doc/ncore} |
+|  |  |
 
 
 * Package:
