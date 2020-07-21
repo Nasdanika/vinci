@@ -44,15 +44,18 @@ public class ActionMappingsPropertyComputer implements PropertyComputer {
 	@SuppressWarnings("unchecked")
 	@Override
 	public <T> T compute(Context context, String key, String path, Class<T> type) {
+		int spaceIdx = path.indexOf(' ');
+		String spec = spaceIdx == -1 ? path : path.substring(0, spaceIdx); 
+		String tail = spaceIdx == -1 ? "" : path.substring(spaceIdx);
 		for (ActionMapping actionMapping: mappings) {
 			ActionBase target = unwrap(actionMapping.getTarget());
-			if (path.equals(actionMapping.getAlias())) {
+			if (spec.equals(actionMapping.getAlias())) {
 				if (type.isInstance(actionMapping.getTarget())) {
 					return (T) actionMapping.getTarget();
 				}
 				
 				if (type.isAssignableFrom(String.class)) {
-					return (T) ("${" + ViewGenerator.ACTION_REGISTRY_PROPERTY + "/" + target.getId() + "}");
+					return (T) ("${" + ViewGenerator.ACTION_REGISTRY_PROPERTY + "/" + target.getId() + tail + "}");
 				}
 				
 				throw new IllegalArgumentException("Cannot convert " + actionMapping.getTarget() + " to " + type);				
