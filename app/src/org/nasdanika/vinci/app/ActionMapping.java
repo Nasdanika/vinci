@@ -15,6 +15,10 @@ import org.eclipse.emf.ecore.EObject;
  * Action mapping target is injected into the context under ``action-mappings/<mapping name>`` key. When retrieved as a String, e.g. during interpolation, the mapping is converted to a link. 
  * I.e. in ``This is my mapping ${action-mappings/my-mapping}!`` ``${action-mappings/my-mapping}`` will be interpolated into a link to the mapped action.
  * 
+ * In the above case, when aciton mapping is retrieved as a String without a sub-key, it is possible to provide alternative text for the mapping link by separating it from the mapping by a space.
+ * For example, ``${action-mappings/my-mapping alternative text here}`` will be interpolated as a link to the target action with "alternative text here" link text.
+ * As a consequence, action aliases cannot have spaces in them.
+ * 
  * Action mapping also supports ``text``, ``icon``, and ``url`` sub-keys computing to action text and action url for actions with reference activator. 
  * For example:
  * 
