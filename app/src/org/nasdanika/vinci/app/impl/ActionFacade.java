@@ -100,57 +100,72 @@ public class ActionFacade extends org.nasdanika.html.app.impl.ActionImpl impleme
 			setSectionColumns(target.getSectionColumns());
 		}
 
-		switch (target.getActivatorType()) {
-		case NONE:
-			// No activator
-			break;
-		case BIND:
-			throw new UnsupportedOperationException("Not implemented yet");
-		case INLINE: 
-		case REFERENCE:		
-			
-			if (actionURI == null) {
-				throw new IllegalArgumentException("Activator type is reference and activator URI is not set");
-			}
+		if (isDisabled()) {
 			setActivator(new NavigationActionActivator() {
-
+				
 				@Override
 				public String getUrl(String base) {
-					if (Util.isBlank(base)) {
-						return actionURI.toString();
-					}					
-					URI baseURI = URI.createURI(base);
-					URI relative = actionURI.deresolve(baseURI, true, true, true);
-					if (relative.isEmpty()) {
-						// A trick to deresolve action URI to the last segment plus fragment etc. instead of blank string.
-						relative = actionURI.deresolve(URI.createURI("random-" + UUID.randomUUID()+".html").resolve(actionURI), true, true, true);
-					}
-					return relative.toString();
+					return "#";
 				}
 				
 				@Override
 				public boolean inline() {
-					return target.getActivatorType() == ActivatorType.INLINE;
+					return false;
 				}
 
-			});
-			break;
-		case SCRIPT:
-			String code = actionContext.interpolate(activator);
-			if (Util.isBlank(code)) {
-				throw new IllegalArgumentException("Activator type is script and activator code is blank");
+			});			
+		} else {
+			switch (target.getActivatorType()) {
+			case NONE:
+				// No activator
+				break;
+			case BIND:
+				throw new UnsupportedOperationException("Not implemented yet");
+			case INLINE: 
+			case REFERENCE:					
+				if (actionURI == null) {
+					throw new IllegalArgumentException("Activator type is reference and activator URI is not set");
+				}
+				setActivator(new NavigationActionActivator() {
+	
+					@Override
+					public String getUrl(String base) {
+						if (Util.isBlank(base)) {
+							return actionURI.toString();
+						}					
+						URI baseURI = URI.createURI(base);
+						URI relative = actionURI.deresolve(baseURI, true, true, true);
+						if (relative.isEmpty()) {
+							// A trick to deresolve action URI to the last segment plus fragment etc. instead of blank string.
+							relative = actionURI.deresolve(URI.createURI("random-" + UUID.randomUUID()+".html").resolve(actionURI), true, true, true);
+						}
+						return relative.toString();
+					}
+					
+					@Override
+					public boolean inline() {
+						return target.getActivatorType() == ActivatorType.INLINE;
+					}
+	
+				});
+				break;
+			case SCRIPT:
+				String code = actionContext.interpolate(activator);
+				if (Util.isBlank(code)) {
+					throw new IllegalArgumentException("Activator type is script and activator code is blank");
+				}
+				setActivator(new ScriptActionActivator() {
+	
+					@Override
+					public String getCode() {
+						return code;
+					}
+	
+				});
+				break;
+			default:
+				throw new IllegalArgumentException();
 			}
-			setActivator(new ScriptActionActivator() {
-
-				@Override
-				public String getCode() {
-					return code;
-				}
-
-			});
-			break;
-		default:
-			throw new IllegalArgumentException();
 		}
 				
 		// category
