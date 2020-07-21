@@ -26,6 +26,9 @@ public class AppUtil {
 		if (activator instanceof NavigationActionActivator) {
 			NavigationActionActivator naa = (NavigationActionActivator) activator;
 			String url = naa.getUrl(baseURI.toString());  
+			if (url !=null && "#".equals(url.trim())) {
+				return null; // Pseudo-links.
+			}
 			URI actionURI = URI.createURI(url);			
 			if (actionURI.isRelative()) {
 				if (action instanceof ActionFacade) {
