@@ -248,6 +248,16 @@ public class EClassViewActionSupplier extends EClassifierViewActionSupplier<ECla
 	}
 	
 	protected Function<EClassifier, String> eClassifierLinkResolver = target -> {
+		// only from the same resource set
+		Resource targetResource = target.eResource();
+		if (targetResource == null) {
+			return null;
+		}
+		ResourceSet targetResourceSet = targetResource.getResourceSet();
+		if (targetResourceSet != eObject.eResource().getResourceSet()) {
+			return null;
+		}		
+		
 		String localName = target.getName() + ".html";
 		if (target.getEPackage().getNsURI().equals(eObject.getEPackage().getNsURI())) {
 			return localName;
