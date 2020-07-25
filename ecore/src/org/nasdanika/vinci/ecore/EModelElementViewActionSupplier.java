@@ -89,7 +89,7 @@ public class EModelElementViewActionSupplier<T extends EModelElement> extends EO
 			acit = ePackage.eAllContents();
 		} else {
 			ResourceSet resourceSet = eResource.getResourceSet();
-			acit = resourceSet == null ? eResource.getAllContents() : eResource.getAllContents();
+			acit = resourceSet == null ? eResource.getAllContents() : resourceSet.getAllContents();
 		}
 		Set<EClass> ret = new HashSet<>();
 		acit.forEachRemaining(obj -> {
@@ -115,11 +115,11 @@ public class EModelElementViewActionSupplier<T extends EModelElement> extends EO
 			acit = ePackage.eAllContents();
 		} else {
 			ResourceSet resourceSet = eResource.getResourceSet();
-			acit = resourceSet == null ? eResource.getAllContents() : eResource.getAllContents();
+			acit = resourceSet == null ? eResource.getAllContents() : resourceSet.getAllContents();
 		}
 		Set<EClass> ret = new HashSet<>();
 		acit.forEachRemaining(obj -> {
-			if (obj instanceof Class && collectTypeDependencies((EClass) obj).contains(eClassifier)) {
+			if (obj instanceof EClass && (collectTypeDependencies((EClass) obj).contains(eClassifier))) {
 				ret.add((EClass) obj);
 			}
 		});
@@ -132,7 +132,7 @@ public class EModelElementViewActionSupplier<T extends EModelElement> extends EO
 	 * @param eClass
 	 * @return
 	 */
-	protected Collection<EClassifier> collectTypeDependencies(EClass eClass) {
+	protected static Collection<EClassifier> collectTypeDependencies(EClass eClass) {
 		Collection<EClassifier> collector = new HashSet<>();
 		for (EAttribute attr: eClass.getEAttributes()) {
 			collector.add(attr.getEType());

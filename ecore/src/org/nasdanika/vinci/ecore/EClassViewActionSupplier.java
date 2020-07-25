@@ -155,6 +155,38 @@ public class EClassViewActionSupplier extends EClassifierViewActionSupplier<ECla
 			}
 		}
 		
+		// Referrers
+		Collection<EClass> referrers = getReferrers().stream().sorted((a,b) -> a.getName().compareTo(b.getName())).collect(Collectors.toList());
+		if (!referrers.isEmpty()) {
+			ListOfActions referrersList = ComponentsFactory.eINSTANCE.createListOfActions();
+			action.getContent().add((SupplierFactory) referrersList);
+			referrersList.setDepth(1);
+			referrersList.setTooltips(true);
+			referrersList.setHeader("Referrers");
+			for (EClass referrer: referrers) {
+				ViewActionSupplier rvas = EObjectAdaptable.adaptTo(referrer, ViewActionSupplier.class);
+				if (rvas != null) {
+					referrersList.getActions().add(rvas.getAction(monitor));
+				}
+			}
+		}
+		
+		// Uses
+		Collection<EClass> uses = getUses().stream().sorted((a,b) -> a.getName().compareTo(b.getName())).collect(Collectors.toList());
+		if (!uses.isEmpty()) {
+			ListOfActions usesList = ComponentsFactory.eINSTANCE.createListOfActions();
+			action.getContent().add((SupplierFactory) usesList);
+			usesList.setDepth(1);
+			usesList.setTooltips(true);
+			usesList.setHeader("Uses");
+			for (EClass use: uses) {
+				ViewActionSupplier uvas = EObjectAdaptable.adaptTo(use, ViewActionSupplier.class);
+				if (uvas != null) {
+					usesList.getActions().add(uvas.getAction(monitor));
+				}
+			}
+		}
+		
 		ListOfContents loc = ComponentsFactory.eINSTANCE.createListOfContents();
 		loc.setDepth(1);
 		loc.setHeader("Members");
@@ -270,5 +302,12 @@ public class EClassViewActionSupplier extends EClassifierViewActionSupplier<ECla
 		
 		return "../" + Hex.encodeHexString(target.getEPackage().getNsURI().getBytes(StandardCharsets.UTF_8)) + "/" + localName;
 	};
-
+		
+	/**
+	 * @return Referrers to this class
+	 */	
+	protected Collection<EClass> getReferrers() {
+		return getReferrers(eObject);
+	}
+	
 }

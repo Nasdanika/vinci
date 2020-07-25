@@ -1,8 +1,10 @@
 package org.nasdanika.vinci.ecore;
 
 import java.nio.charset.StandardCharsets;
+import java.util.Collection;
 
 import org.apache.commons.codec.binary.Hex;
+import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EPackage;
 import org.nasdanika.common.Context;
@@ -63,5 +65,13 @@ public class EClassifierViewActionSupplier<T extends EClassifier> extends ENamed
 		super.configure(monitor);		
 		action.setText(eObject.getName() + typeParameters(eObject));
 	}
+	
+	/**
+	 * Finds all type uses in the resourceset. 
+	 * @return
+	 */
+	protected Collection<EClass> getUses() {
+		return getUses(eObject);
+	}	
 	
 }
