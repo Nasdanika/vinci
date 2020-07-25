@@ -188,6 +188,11 @@ public class EClassViewActionSupplier extends EClassifierViewActionSupplier<ECla
 			}
 			
 			@Override
+			protected Collection<EClass> getUses(EClassifier eClassifier) {
+				return EClassViewActionSupplier.this.getUses(eClassifier);
+			}
+			
+			@Override
 			protected boolean isAppendAttributes(EClass eClass) {
 				return appendAttributes;
 			}

@@ -6,15 +6,17 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
-import java.util.function.Function;
 
 import org.eclipse.emf.common.util.TreeIterator;
+import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EGenericType;
 import org.eclipse.emf.ecore.EModelElement;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.EParameter;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.ETypeParameter;
 import org.eclipse.emf.ecore.ETypedElement;
@@ -96,6 +98,56 @@ public class EModelElementViewActionSupplier<T extends EModelElement> extends EO
 			}
 		});
 		return ret;
+	}
+	
+	/**
+	 * Finds all type uses in the resourceset. 
+	 * @return
+	 */
+	protected Collection<EClass> getUses(EClassifier eClassifier) {
+		TreeIterator<?> acit;
+		Resource eResource = eClassifier.eResource();
+		if (eResource == null) {
+			EPackage ePackage = eClassifier.getEPackage();
+			if (ePackage == null) {
+				return Collections.emptySet();
+			}
+			acit = ePackage.eAllContents();
+		} else {
+			ResourceSet resourceSet = eResource.getResourceSet();
+			acit = resourceSet == null ? eResource.getAllContents() : eResource.getAllContents();
+		}
+		Set<EClass> ret = new HashSet<>();
+		acit.forEachRemaining(obj -> {
+			if (obj instanceof Class && collectTypeDependencies((EClass) obj).contains(eClassifier)) {
+				ret.add((EClass) obj);
+			}
+		});
+		return ret;
+	}
+	
+	/**
+	 * Collects type dependencies for a given class - attribute types, eoperation return and exception types, eparameter types.
+	 * Does not collect reference types.
+	 * @param eClass
+	 * @return
+	 */
+	protected Collection<EClassifier> collectTypeDependencies(EClass eClass) {
+		Collection<EClassifier> collector = new HashSet<>();
+		for (EAttribute attr: eClass.getEAttributes()) {
+			collector.add(attr.getEType());
+		}					
+		for (EOperation op: eClass.getEOperations()) {
+			EClassifier opType = op.getEType();
+			if (opType != null) {
+				collector.add(opType);
+			}
+			collector.addAll(op.getEExceptions());
+			for (EParameter ep: op.getEParameters()) {
+				collector.add(ep.getEType());
+			}
+		}					
+		return collector;
 	}
 	
 	protected static String cardinality(ETypedElement typedElement) {

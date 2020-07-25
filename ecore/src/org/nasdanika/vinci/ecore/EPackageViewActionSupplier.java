@@ -7,6 +7,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Base64;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
@@ -127,6 +128,11 @@ public class EPackageViewActionSupplier extends ENamedElementViewActionSupplier<
 			@Override
 			protected boolean isAppendOperations(EClass eClass) {
 				return appendOperations;				
+			}
+			
+			@Override
+			protected Collection<EClass> getUses(EClassifier eClassifier) {
+				return Collections.emptySet(); // No usage information on package diagrams - too much.
 			}
 								
 		};
