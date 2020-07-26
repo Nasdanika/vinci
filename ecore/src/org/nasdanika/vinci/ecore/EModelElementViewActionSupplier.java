@@ -116,21 +116,11 @@ public class EModelElementViewActionSupplier<T extends EModelElement> extends EO
 		}
 		Set<EClass> ret = new HashSet<>();
 		acit.forEachRemaining(obj -> {
-			if (obj instanceof EClass && (collectTypeDependencies((EClass) obj).contains(eClassifier))) {
+			if (obj instanceof EClass && (org.nasdanika.emf.Util.collectTypeDependencies((EClass) obj).contains(eClassifier))) {
 				ret.add((EClass) obj);
 			}
 		});
 		return ret;
-	}
-	
-	/**
-	 * Collects type dependencies for a given class - attribute types, eoperation return and exception types, eparameter types.
-	 * Does not collect reference types and supertypes, as they are reported differently, but collects their generic parameter types.
-	 * @param eClass
-	 * @return
-	 */
-	protected Collection<EClassifier> collectTypeDependencies(EClass eClass) {
-		return org.nasdanika.emf.Util.collectTypeDependencies(eClass);
 	}
 		
 	protected static String cardinality(ETypedElement typedElement) {
