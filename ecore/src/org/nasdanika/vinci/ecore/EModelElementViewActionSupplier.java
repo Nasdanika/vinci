@@ -8,15 +8,12 @@ import java.util.List;
 import java.util.Set;
 
 import org.eclipse.emf.common.util.TreeIterator;
-import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EGenericType;
 import org.eclipse.emf.ecore.EModelElement;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
-import org.eclipse.emf.ecore.EParameter;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.ETypeParameter;
 import org.eclipse.emf.ecore.ETypedElement;
@@ -128,28 +125,14 @@ public class EModelElementViewActionSupplier<T extends EModelElement> extends EO
 	
 	/**
 	 * Collects type dependencies for a given class - attribute types, eoperation return and exception types, eparameter types.
-	 * Does not collect reference types.
+	 * Does not collect reference types and supertypes, as they are reported differently, but collects their generic parameter types.
 	 * @param eClass
 	 * @return
 	 */
-	protected static Collection<EClassifier> collectTypeDependencies(EClass eClass) {
-		Collection<EClassifier> collector = new HashSet<>();
-		for (EAttribute attr: eClass.getEAttributes()) {
-			collector.add(attr.getEType());
-		}					
-		for (EOperation op: eClass.getEOperations()) {
-			EClassifier opType = op.getEType();
-			if (opType != null) {
-				collector.add(opType);
-			}
-			collector.addAll(op.getEExceptions());
-			for (EParameter ep: op.getEParameters()) {
-				collector.add(ep.getEType());
-			}
-		}					
-		return collector;
+	protected Collection<EClassifier> collectTypeDependencies(EClass eClass) {
+		return org.nasdanika.emf.Util.collectTypeDependencies(eClass);
 	}
-	
+		
 	protected static String cardinality(ETypedElement typedElement) {
 		int lowerBound = typedElement.getLowerBound();
 		int upperBound = typedElement.getUpperBound();
