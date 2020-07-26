@@ -14,6 +14,7 @@ import org.nasdanika.html.app.ActionRegistry;
 import org.nasdanika.html.app.Decorator;
 import org.nasdanika.html.app.ViewGenerator;
 import org.nasdanika.html.app.ViewPart;
+import org.nasdanika.html.app.impl.ActionFilter;
 import org.nasdanika.ncore.impl.ModelElementImpl;
 import org.nasdanika.vinci.app.AbstractAction;
 import org.nasdanika.vinci.app.ActionBase;
@@ -275,7 +276,14 @@ public class ActionLinkImpl extends ModelElementImpl implements ActionLink {
 					
 					ViewGenerator alvg = viewGenerator.fork();
 					alvg.put(Decorator.SELECTOR_KEY, "action-link");
-					return alvg.link(action);
+					return alvg.link(new ActionFilter<Action>(action) {
+						
+						public String getText() {
+							String linkText = ActionLinkImpl.this.getText();
+							return Util.isBlank(linkText) ? super.getText() : linkText;
+						}
+						
+					});
 				}
 				
 				@Override
