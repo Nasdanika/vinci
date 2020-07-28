@@ -1098,7 +1098,7 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 		initEClass(actionLinkEClass, ActionLink.class, "ActionLink", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getActionLink_Title(), ecorePackage.getEString(), "title", null, 0, 1, ActionLink.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getActionLink_Description(), ecorePackage.getEString(), "description", null, 0, 1, ActionLink.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getActionLink_Ref(), ecorePackage.getEString(), "ref", null, 0, 1, ActionLink.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getActionLink_Ref(), ecorePackage.getEString(), "ref", null, 1, 1, ActionLink.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getActionLink_Path(), ecorePackage.getEString(), "path", null, 0, 1, ActionLink.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(actionReferenceEClass, ActionReference.class, "ActionReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1368,7 +1368,7 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 		  (actionLinkEClass,
 		   source,
 		   new String[] {
-			   "documentation", "A link to an action stored in a resource which is not loaded as part of the editing resource set - it is loaded only during the generation. For example, action link reference may contain interpolation tokens and different actions can be linked based on generation configuration.\n\nThe linked action inherits this action link context. As such the same linked action linked by different action links may behave differently depending\non the action link context/configuration. \nI.e. a link may create a different \"instance\" of linked action. \nIn this case the linked action activator shall also be context dependent - otherwise different instances of the same action will point to the same resource/url."
+			   "documentation", "A link to an action stored in a resource which may or may not be loaded as part of the editing resource set. \nThe model and action specificed in the action link\'s reference (``ref``) is loaded only during the generation. \nThis way it is different [ActionReference](ActionReference.html) which references an action available in the editing resource set - models in the same modeling project or loaded with \"Load resource\" context menu.\nFor example, action link reference may point to a dynamically generated model or may contain interpolation tokens and different actions can be linked based on generation configuration.\n\nThe linked action inherits this action link context. As such the same linked action linked by different action links may behave differently depending\non the action link context/configuration. \nI.e. a link may create a different \"instance\" of linked action. \nIn this case the linked action activator shall also be context dependent - otherwise different instances of the same action will point to the same resource/url."
 		   });
 		addAnnotation
 		  (getActionLink_Title(),
@@ -1386,7 +1386,7 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 		  (getActionLink_Ref(),
 		   source,
 		   new String[] {
-			   "documentation", "Action specification URL interpolated and then relsolved relative to the model location."
+			   "documentation", "Action specification URL interpolated and then relsolved relative to the model location.\nThe URL consists of the target model URL and optional action ID fragment separated from the model URL part by ``#``.\nIn the absence of the fragment part the URL is resolved to the root action of the target model file.\n\n##### Example\n\nIn [Nasdanika Tool Suite Documentation Bundle](https://github.com/Nasdanika/release/tree/master/tool-suite/doc)\n``models/documentation.vinci`` links the root action of ``models/guides/vinci/vinci.vinci``. \n``ref`` value of that link is ``guides/vinci/vinci.vinci`` because the reference is to the root action and therefore there is no action id fragment.\n\nReferencing a non-root action would require a fragment part with action id, e.g. ``guides/vinci/vinci.vinci#860cba03-eca8-4893-8b84-21ae0bfb1bc9``."
 		   });
 		addAnnotation
 		  (getActionLink_Path(),

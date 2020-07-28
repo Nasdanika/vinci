@@ -9,7 +9,10 @@ package org.nasdanika.vinci.app;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * A link to an action stored in a resource which is not loaded as part of the editing resource set - it is loaded only during the generation. For example, action link reference may contain interpolation tokens and different actions can be linked based on generation configuration.
+ * A link to an action stored in a resource which may or may not be loaded as part of the editing resource set. 
+ * The model and action specificed in the action link's reference (``ref``) is loaded only during the generation. 
+ * This way it is different [ActionReference](ActionReference.html) which references an action available in the editing resource set - models in the same modeling project or loaded with "Load resource" context menu.
+ * For example, action link reference may point to a dynamically generated model or may contain interpolation tokens and different actions can be linked based on generation configuration.
  * 
  * The linked action inherits this action link context. As such the same linked action linked by different action links may behave differently depending
  * on the action link context/configuration. 
@@ -88,11 +91,21 @@ public interface ActionLink extends AbstractAction {
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * Action specification URL interpolated and then relsolved relative to the model location.
+	 * The URL consists of the target model URL and optional action ID fragment separated from the model URL part by ``#``.
+	 * In the absence of the fragment part the URL is resolved to the root action of the target model file.
+	 * 
+	 * ##### Example
+	 * 
+	 * In [Nasdanika Tool Suite Documentation Bundle](https://github.com/Nasdanika/release/tree/master/tool-suite/doc)
+	 * ``models/documentation.vinci`` links the root action of ``models/guides/vinci/vinci.vinci``. 
+	 * ``ref`` value of that link is ``guides/vinci/vinci.vinci`` because the reference is to the root action and therefore there is no action id fragment.
+	 * 
+	 * Referencing a non-root action would require a fragment part with action id, e.g. ``guides/vinci/vinci.vinci#860cba03-eca8-4893-8b84-21ae0bfb1bc9``.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Ref</em>' attribute.
 	 * @see #setRef(String)
 	 * @see org.nasdanika.vinci.app.AppPackage#getActionLink_Ref()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
 	String getRef();

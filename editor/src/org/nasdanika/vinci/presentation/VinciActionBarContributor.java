@@ -62,6 +62,7 @@ public class VinciActionBarContributor extends NasdanikaActionBarContributor {
 	protected Collection<IAction> createGenerateActions(Object selection) {
 		Collection<IAction> actions = new ArrayList<IAction>();
 		if (selection instanceof EObject && ((EObject) selection).eContainer() == null) {
+			// --- TODO : Register adapter factories
 			if (selection instanceof BootstrapPage) {
 				BootstrapPage page = (BootstrapPage) selection;
 				if (!page.getBuilders().isEmpty()) {
