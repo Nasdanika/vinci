@@ -2,8 +2,6 @@
  */
 package org.nasdanika.vinci.components;
 
-import org.nasdanika.common.SupplierFactory;
-import org.nasdanika.html.app.ViewPart;
 import org.nasdanika.vinci.bootstrap.BootstrapElement;
 
 /**
@@ -25,10 +23,10 @@ import org.nasdanika.vinci.bootstrap.BootstrapElement;
  * </ul>
  *
  * @see org.nasdanika.vinci.components.ComponentsPackage#getTableOfContentsBase()
- * @model abstract="true" superTypes="org.nasdanika.vinci.bootstrap.BootstrapElement org.nasdanika.ncore.ISupplierFactory&lt;org.nasdanika.vinci.html.ViewPart&gt;"
+ * @model abstract="true"
  * @generated
  */
-public interface TableOfContentsBase extends BootstrapElement, SupplierFactory<ViewPart> {
+public interface TableOfContentsBase extends BootstrapElement {
 	/**
 	 * Returns the value of the '<em><b>Header</b></em>' attribute.
 	 * The default value is <code>""</code>.

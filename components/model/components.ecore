@@ -72,7 +72,8 @@
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="TableOfContentsBase" abstract="true">
+  <eClassifiers xsi:type="ecore:EClass" name="TableOfContentsBase" abstract="true"
+      eSuperTypes="../../org.nasdanika.vinci.bootstrap/model/bootstrap.ecore#//BootstrapElement">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Base class for tables of content."/>
     </eAnnotations>
@@ -94,10 +95,6 @@
         <details key="documentation" value="Table of contents depth."/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eGenericSuperTypes eClassifier="ecore:EClass ../../org.nasdanika.vinci.bootstrap/model/bootstrap.ecore#//BootstrapElement"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass ../../org.nasdanika.ncore/model/ncore.ecore#//ISupplierFactory">
-      <eTypeArguments eClassifier="ecore:EClass ../../org.nasdanika.vinci.html/model/html.ecore#//ViewPart"/>
-    </eGenericSuperTypes>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TableOfContents" eSuperTypes="#//TableOfContentsBase ../../org.nasdanika.vinci.bootstrap/model/bootstrap.ecore#//TableConfiguration">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">

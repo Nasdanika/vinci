@@ -2,17 +2,10 @@
  */
 package org.nasdanika.vinci.components.impl;
 
-import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-import org.nasdanika.common.Context;
-import org.nasdanika.common.Supplier;
-import org.nasdanika.common.Util;
-import org.nasdanika.html.app.ViewPart;
-import org.nasdanika.html.app.viewparts.TableOfActionsViewPart;
 import org.nasdanika.vinci.app.AbstractAction;
 import org.nasdanika.vinci.components.ComponentsPackage;
 import org.nasdanika.vinci.components.TableOfActions;
@@ -119,34 +112,6 @@ public class TableOfActionsImpl extends TableOfContentsImpl implements TableOfAc
 				return !getActions().isEmpty();
 		}
 		return super.eIsSet(featureID);
-	}
-	
-	@Override
-	protected Supplier<ViewPart> createTableOfContents(Context context) throws Exception {
-		List<String> actionIds= new ArrayList<>();
-		for (AbstractAction action: getActions()) {
-			String id = ActionLinkImpl.unwrap(action).getId();
-			if (Util.isBlank(id)) {
-				throw new IllegalStateException("Action has no ID. Refernced actions must have unique id's");
-			}
-			actionIds.add(id);
-		}
-		
-		TableOfActionsViewPart tableOfActionsViewPart = new TableOfActionsViewPart(
-				actionIds, 
-				context.interpolate(getHeader()), 
-				isDescriptions(), 
-				isTooltips(),
-				getDepth());
-		
-		tableOfActionsViewPart.setBordered(isBordered());
-		tableOfActionsViewPart.setBorderless(isBorderless());
-		tableOfActionsViewPart.setDark(isDark());
-		tableOfActionsViewPart.setHover(isHover());
-		tableOfActionsViewPart.setSmall(isSmall());
-		tableOfActionsViewPart.setStriped(isStriped());
-		
-		return Supplier.from(tableOfActionsViewPart, getTitle());
 	}
 
 } //TableOfActionsImpl

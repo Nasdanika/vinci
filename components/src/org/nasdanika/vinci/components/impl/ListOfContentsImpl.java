@@ -3,14 +3,6 @@
 package org.nasdanika.vinci.components.impl;
 
 import org.eclipse.emf.ecore.EClass;
-import org.nasdanika.common.Context;
-import org.nasdanika.common.Supplier;
-import org.nasdanika.common.Util;
-import org.nasdanika.html.OrderedListType;
-import org.nasdanika.html.app.Action;
-import org.nasdanika.html.app.ViewPart;
-import org.nasdanika.html.app.viewparts.ListOfContentsViewPart;
-import org.nasdanika.vinci.app.ActionRole;
 import org.nasdanika.vinci.components.ComponentsPackage;
 import org.nasdanika.vinci.components.ListOfContents;
 
@@ -174,18 +166,6 @@ public class ListOfContentsImpl extends TableOfContentsBaseImpl implements ListO
 				return isTooltips() != TOOLTIPS_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
-	}
-	
-	@Override
-	protected Supplier<ViewPart> createTableOfContents(Context context) throws Exception {
-		ListOfContentsViewPart listOfContentsViewPart = new ListOfContentsViewPart(
-				ActionRole.SECTION.label.equals(getRole()) ? Action.Role.SECTION : Action.Role.NAVIGATION, 
-				context.interpolate(getHeader()), 
-				isTooltips(), 
-				getDepth(), 
-				Util.isBlank(getOrdering()) ? null : OrderedListType.fromLabel(getOrdering()));
-		
-		return Supplier.from(listOfContentsViewPart, getTitle());
 	}
 
 } //ListOfContentsImpl

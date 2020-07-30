@@ -147,12 +147,12 @@ public class ComponentsAdapterFactory extends AdapterFactoryImpl {
 				return createBootstrapElementAdapter();
 			}
 			@Override
-			public <T> Adapter caseISupplierFactory(SupplierFactory<T> object) {
-				return createISupplierFactoryAdapter();
-			}
-			@Override
 			public Adapter caseTableConfiguration(TableConfiguration object) {
 				return createTableConfigurationAdapter();
+			}
+			@Override
+			public <T> Adapter caseISupplierFactory(SupplierFactory<T> object) {
+				return createISupplierFactoryAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {

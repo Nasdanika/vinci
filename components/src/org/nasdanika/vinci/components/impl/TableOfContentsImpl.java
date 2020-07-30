@@ -3,11 +3,6 @@
 package org.nasdanika.vinci.components.impl;
 
 import org.eclipse.emf.ecore.EClass;
-import org.nasdanika.common.Context;
-import org.nasdanika.common.Supplier;
-import org.nasdanika.html.app.Action;
-import org.nasdanika.html.app.ViewPart;
-import org.nasdanika.html.app.viewparts.TableOfContentsViewPart;
 import org.nasdanika.vinci.bootstrap.BootstrapPackage;
 import org.nasdanika.vinci.bootstrap.TableConfiguration;
 import org.nasdanika.vinci.components.ComponentsPackage;
@@ -461,25 +456,6 @@ public class TableOfContentsImpl extends TableOfContentsBaseImpl implements Tabl
 			}
 		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
-	}
-	
-	@Override
-	protected Supplier<ViewPart> createTableOfContents(Context context) throws Exception {
-		TableOfContentsViewPart tableOfContentsViewPart = new TableOfContentsViewPart(
-				"Section".equals(getRole()) ? Action.Role.SECTION : Action.Role.NAVIGATION, 
-				context.interpolate(getHeader()), 
-				isDescriptions(), 
-				isTooltips(),
-				getDepth());
-		
-		tableOfContentsViewPart.setBordered(isBordered());
-		tableOfContentsViewPart.setBorderless(isBorderless());
-		tableOfContentsViewPart.setDark(isDark());
-		tableOfContentsViewPart.setHover(isHover());
-		tableOfContentsViewPart.setSmall(isSmall());
-		tableOfContentsViewPart.setStriped(isStriped());
-		
-		return Supplier.from(tableOfContentsViewPart, getTitle());
 	}
 	
 } //TableOfContentsImpl

@@ -116,7 +116,6 @@ public class ComponentsSwitch<T1> extends Switch<T1> {
 				TableOfContentsBase tableOfContentsBase = (TableOfContentsBase)theEObject;
 				T1 result = caseTableOfContentsBase(tableOfContentsBase);
 				if (result == null) result = caseBootstrapElement(tableOfContentsBase);
-				if (result == null) result = caseISupplierFactory(tableOfContentsBase);
 				if (result == null) result = caseHtmlElement(tableOfContentsBase);
 				if (result == null) result = caseModelElement(tableOfContentsBase);
 				if (result == null) result = defaultCase(theEObject);
@@ -128,7 +127,6 @@ public class ComponentsSwitch<T1> extends Switch<T1> {
 				if (result == null) result = caseTableOfContentsBase(tableOfContents);
 				if (result == null) result = caseTableConfiguration(tableOfContents);
 				if (result == null) result = caseBootstrapElement(tableOfContents);
-				if (result == null) result = caseISupplierFactory(tableOfContents);
 				if (result == null) result = caseHtmlElement(tableOfContents);
 				if (result == null) result = caseModelElement(tableOfContents);
 				if (result == null) result = defaultCase(theEObject);
@@ -139,7 +137,6 @@ public class ComponentsSwitch<T1> extends Switch<T1> {
 				T1 result = caseListOfContents(listOfContents);
 				if (result == null) result = caseTableOfContentsBase(listOfContents);
 				if (result == null) result = caseBootstrapElement(listOfContents);
-				if (result == null) result = caseISupplierFactory(listOfContents);
 				if (result == null) result = caseHtmlElement(listOfContents);
 				if (result == null) result = caseModelElement(listOfContents);
 				if (result == null) result = defaultCase(theEObject);
@@ -151,7 +148,6 @@ public class ComponentsSwitch<T1> extends Switch<T1> {
 				if (result == null) result = caseListOfContents(listOfActions);
 				if (result == null) result = caseTableOfContentsBase(listOfActions);
 				if (result == null) result = caseBootstrapElement(listOfActions);
-				if (result == null) result = caseISupplierFactory(listOfActions);
 				if (result == null) result = caseHtmlElement(listOfActions);
 				if (result == null) result = caseModelElement(listOfActions);
 				if (result == null) result = defaultCase(theEObject);
@@ -164,7 +160,6 @@ public class ComponentsSwitch<T1> extends Switch<T1> {
 				if (result == null) result = caseTableOfContentsBase(tableOfActions);
 				if (result == null) result = caseTableConfiguration(tableOfActions);
 				if (result == null) result = caseBootstrapElement(tableOfActions);
-				if (result == null) result = caseISupplierFactory(tableOfActions);
 				if (result == null) result = caseHtmlElement(tableOfActions);
 				if (result == null) result = caseModelElement(tableOfActions);
 				if (result == null) result = defaultCase(theEObject);

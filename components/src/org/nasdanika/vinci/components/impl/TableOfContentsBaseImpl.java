@@ -3,12 +3,6 @@
 package org.nasdanika.vinci.components.impl;
 
 import org.eclipse.emf.ecore.EClass;
-import org.nasdanika.common.Context;
-import org.nasdanika.common.ProgressMonitor;
-import org.nasdanika.common.Supplier;
-import org.nasdanika.html.app.ViewGenerator;
-import org.nasdanika.html.app.ViewPart;
-import org.nasdanika.vinci.bootstrap.Appearance;
 import org.nasdanika.vinci.bootstrap.impl.BootstrapElementImpl;
 import org.nasdanika.vinci.components.ComponentsPackage;
 import org.nasdanika.vinci.components.TableOfContentsBase;
@@ -215,32 +209,5 @@ public abstract class TableOfContentsBaseImpl extends BootstrapElementImpl imple
 		}
 		return super.eIsSet(featureID);
 	}
-	
-	protected abstract Supplier<ViewPart> createTableOfContents(Context context) throws Exception;	
-	
-	@Override
-	public Supplier<ViewPart> create(Context context) throws Exception {
-		Supplier<ViewPart> ret = createTableOfContents(context);
-				
-		if (ret == null) {
-			return ret;
-		}
-		
-		Appearance appearance = getAppearance();
-		if (appearance == null) {
-			return ret;
-		}
-		
-		return ret.then(appearance.create(context).asFunction()).then(bs -> new ViewPart() {
-
-			@Override
-			public Object generate(ViewGenerator viewGenerator, ProgressMonitor progressMonitor) {				
-				return bs.getFirst().then(bs.getSecond());
-			}
-			
-		});
-		
-	}
-	
 
 } //TableOfContentsBaseImpl

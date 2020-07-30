@@ -78,6 +78,5 @@ public abstract class MarkdownSupplierFactory<T extends Markdown> implements Sup
 			
 		});
 	}
-	
-	
+		
 }

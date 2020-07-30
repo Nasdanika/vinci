@@ -5,8 +5,12 @@ import org.nasdanika.emf.ComposedAdapterFactory;
 import org.nasdanika.emf.FunctionAdapterFactory;
 import org.nasdanika.vinci.components.ActionLink;
 import org.nasdanika.vinci.components.ComponentsPackage;
+import org.nasdanika.vinci.components.ListOfActions;
+import org.nasdanika.vinci.components.ListOfContents;
 import org.nasdanika.vinci.components.MarkdownResource;
 import org.nasdanika.vinci.components.MarkdownText;
+import org.nasdanika.vinci.components.TableOfActions;
+import org.nasdanika.vinci.components.TableOfContents;
 
 /**
  * Generation adapter factory for Vinci components.
@@ -38,6 +42,34 @@ public class ComponentsGenerationAdapterFactory extends ComposedAdapterFactory {
 					SupplierFactory.class, 
 					this.getClass().getClassLoader(),
 					MarkdownTextSupplierFactory::new));
+		
+		registerAdapterFactory(
+				new FunctionAdapterFactory<SupplierFactory, ListOfContents>(
+					ComponentsPackage.Literals.LIST_OF_CONTENTS, 
+					SupplierFactory.class, 
+					this.getClass().getClassLoader(),
+					ListOfContentsSupplierFactory::new));
+		
+		registerAdapterFactory(
+				new FunctionAdapterFactory<SupplierFactory, ListOfActions>(
+					ComponentsPackage.Literals.LIST_OF_ACTIONS, 
+					SupplierFactory.class, 
+					this.getClass().getClassLoader(),
+					ListOfActionsSupplierFactory::new));
+		
+		registerAdapterFactory(
+				new FunctionAdapterFactory<SupplierFactory, TableOfContents>(
+					ComponentsPackage.Literals.TABLE_OF_CONTENTS, 
+					SupplierFactory.class, 
+					this.getClass().getClassLoader(),
+					TableOfContentsSupplierFactory::new));
+		
+		registerAdapterFactory(
+				new FunctionAdapterFactory<SupplierFactory, TableOfActions>(
+					ComponentsPackage.Literals.TABLE_OF_ACTIONS, 
+					SupplierFactory.class, 
+					this.getClass().getClassLoader(),
+					TableOfActionsSupplierFactory::new));
 					
 //		registerAdapterFactory(
 //			new FunctionAdapterFactory<ViewActionSupplier, EPackage>(
