@@ -773,12 +773,7 @@ public class ComponentsPackageImpl extends EPackageImpl implements ComponentsPac
 		markdownEClass.getEGenericSuperTypes().add(g1);
 		markdownTextEClass.getESuperTypes().add(this.getMarkdown());
 		markdownResourceEClass.getESuperTypes().add(this.getMarkdown());
-		g1 = createEGenericType(theNcorePackage.getModelElement());
-		actionLinkEClass.getEGenericSuperTypes().add(g1);
-		g1 = createEGenericType(theNcorePackage.getISupplierFactory());
-		g2 = createEGenericType(theHtmlPackage.getViewPart());
-		g1.getETypeArguments().add(g2);
-		actionLinkEClass.getEGenericSuperTypes().add(g1);
+		actionLinkEClass.getESuperTypes().add(theNcorePackage.getModelElement());
 		g1 = createEGenericType(theBootstrapPackage.getBootstrapElement());
 		tableOfContentsBaseEClass.getEGenericSuperTypes().add(g1);
 		g1 = createEGenericType(theNcorePackage.getISupplierFactory());

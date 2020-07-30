@@ -103,7 +103,6 @@ public class ComponentsSwitch<T1> extends Switch<T1> {
 				ActionLink actionLink = (ActionLink)theEObject;
 				T1 result = caseActionLink(actionLink);
 				if (result == null) result = caseModelElement(actionLink);
-				if (result == null) result = caseISupplierFactory(actionLink);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}

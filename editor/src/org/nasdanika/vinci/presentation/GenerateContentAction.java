@@ -13,6 +13,8 @@ import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.jface.dialogs.ErrorDialog;
 import org.eclipse.ui.PlatformUI;
 import org.nasdanika.common.Context;
@@ -24,6 +26,7 @@ import org.nasdanika.common.SupplierFactory;
 import org.nasdanika.common.resources.BinaryEntityContainer;
 import org.nasdanika.eclipse.ProgressMonitorAdapter;
 import org.nasdanika.eclipse.resources.EclipseContainer;
+import org.nasdanika.emf.ComposedAdapterFactory;
 import org.nasdanika.html.app.impl.ViewGeneratorImpl;
 
 /**
@@ -49,7 +52,11 @@ public class GenerateContentAction<T extends EObject & SupplierFactory<Object>> 
 	
 	protected void execute(IProgressMonitor monitor) throws Exception {	
 		try {
-			IFile modelFile = ResourcesPlugin.getWorkspace().getRoot().getFile(new Path(modelElement.eResource().getURI().toPlatformString(true)));
+			Resource eResource = modelElement.eResource();
+			ResourceSet rs = eResource.getResourceSet();
+			ComposedAdapterFactory.registerGlobalFactory(rs);
+			
+			IFile modelFile = ResourcesPlugin.getWorkspace().getRoot().getFile(new Path(eResource.getURI().toPlatformString(true)));
 			
 			EclipseContainer output = new EclipseContainer(modelFile.getParent());
 			Context generationContext = Context.singleton(BinaryEntityContainer.class, output);

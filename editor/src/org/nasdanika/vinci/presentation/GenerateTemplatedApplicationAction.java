@@ -40,6 +40,7 @@ import org.nasdanika.common.resources.BinaryEntityContainer;
 import org.nasdanika.common.resources.Container;
 import org.nasdanika.eclipse.ProgressMonitorAdapter;
 import org.nasdanika.eclipse.resources.EclipseContainer;
+import org.nasdanika.emf.ComposedAdapterFactory;
 import org.nasdanika.html.app.Action;
 import org.nasdanika.html.app.ActionRegistry;
 import org.nasdanika.html.app.Application;
@@ -97,6 +98,7 @@ public class GenerateTemplatedApplicationAction extends VinciGenerateAction<Abst
 			SubMonitor subMonitor = SubMonitor.convert(monitor, TOTAL_WORK);
 			
 			ResourceSet resourceSet = new ResourceSetImpl();
+			ComposedAdapterFactory.registerGlobalFactory(resourceSet);
 			resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put(Resource.Factory.Registry.DEFAULT_EXTENSION, new XMIResourceFactoryImpl());
 			EPackage[] ePackages = {
 					NcorePackage.eINSTANCE,

@@ -333,6 +333,13 @@ version(s), and exceptions or additional permissions here}.&quot;
          unpack="false"/>
 
    <plugin
+         id="org.nasdanika.vinci.bootstrap.gen"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
          id="org.nasdanika.vinci.app"
          download-size="0"
          install-size="0"
@@ -341,6 +348,13 @@ version(s), and exceptions or additional permissions here}.&quot;
 
    <plugin
          id="org.nasdanika.vinci.app.edit"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.nasdanika.vinci.app.gen"
          download-size="0"
          install-size="0"
          version="0.0.0"
@@ -432,6 +446,13 @@ version(s), and exceptions or additional permissions here}.&quot;
 
    <plugin
          id="org.nasdanika.vinci.components.edit"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.nasdanika.vinci.components.gen"
          download-size="0"
          install-size="0"
          version="0.0.0"

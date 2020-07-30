@@ -18,6 +18,8 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.jface.dialogs.ErrorDialog;
 import org.eclipse.ui.PlatformUI;
 import org.nasdanika.common.Context;
@@ -31,6 +33,7 @@ import org.nasdanika.common.Util;
 import org.nasdanika.common.resources.BinaryEntityContainer;
 import org.nasdanika.eclipse.ProgressMonitorAdapter;
 import org.nasdanika.eclipse.resources.EclipseContainer;
+import org.nasdanika.emf.ComposedAdapterFactory;
 import org.nasdanika.vinci.app.ActionReference;
 import org.nasdanika.vinci.app.ActivatorType;
 
@@ -58,7 +61,11 @@ public class GenerateApplicationAction<T extends EObject & SupplierFactory<Objec
 	@Override
 	protected void execute(IProgressMonitor monitor) throws Exception {	
 		try {
-			URI modelResourceURI = modelElement.eResource().getURI();
+			Resource eResource = modelElement.eResource();
+			ResourceSet rs = eResource.getResourceSet();
+			ComposedAdapterFactory.registerGlobalFactory(rs);
+			
+			URI modelResourceURI = eResource.getURI();
 			IFile modelFile = ResourcesPlugin.getWorkspace().getRoot().getFile(new Path(modelResourceURI.toPlatformString(true)));
 			String outputName = modelFile.getName();
 			int lastDotIdx = outputName.lastIndexOf('.');
@@ -75,7 +82,7 @@ public class GenerateApplicationAction<T extends EObject & SupplierFactory<Objec
 			
 			Map<String,String> actionIds = new HashMap<>();
 			collectActionIds(modelResourceURI, modelElement, actionIds);
-
+			
 			SubMonitor subMonitor = SubMonitor.convert(monitor, TOTAL_WORK);
 			int actionWorkSlice = TOTAL_WORK / (actionIds.isEmpty() ? 1 : actionIds.size());
 			for (Entry<String, String> actionEntry: actionIds.entrySet()) {														

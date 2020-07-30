@@ -181,9 +181,11 @@
 
 		<module>components</module>
 		<module>components.edit</module>
+		<module>components.gen</module>
 
 		<module>bootstrap</module>
 		<module>bootstrap.edit</module>
+		<module>bootstrap.gen</module>
 		
 		<module>emf</module>
 		<module>ecore</module>
@@ -192,6 +194,7 @@
 
 		<module>app</module>
 		<module>app.edit</module>
+		<module>app.gen</module>
 
 		<module>editor</module>
 		

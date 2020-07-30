@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+   <extension
+         point="org.nasdanika.emf.adapterFactories">
+      <factory
+            class="org.nasdanika.vinci.bootstrap.gen.BootstrapGenerationAdapterFactory">
+      </factory>
+   </extension>
+</plugin>
