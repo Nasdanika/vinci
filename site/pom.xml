@@ -46,25 +46,6 @@
 							</resources>
 						</configuration>
 					</execution>
-					<!-- 
-					<execution>
-						<id>copy-sample-model</id>
-						<phase>pre-site</phase>
-						<goals>
-							<goal>copy-resources</goal>
-						</goals>
-						<configuration>
-							<outputDirectory>${basedir}/target/site</outputDirectory>
-							<resources>
-								<resource>
-									<directory>${basedir}/../org.nasdanika.cv</directory>
-									<include>sample.nsdcv</include>
-									<filtering>false</filtering>
-								</resource>								
-							</resources>
-						</configuration>
-					</execution>
-					 -->
 					<execution>
 						<id>copy-app-model-javadoc</id>
 						<phase>pre-site</phase>
@@ -92,6 +73,22 @@
 							<resources>
 								<resource>
 									<directory>${basedir}/../app.edit/target/site/apidocs</directory>
+									<filtering>false</filtering>
+								</resource>								
+							</resources>
+						</configuration>
+					</execution>
+					<execution>
+						<id>copy-app-gen-javadoc</id>
+						<phase>pre-site</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${basedir}/target/site/bundles/org.nasdanika.vinci.app.gen/apidocs</outputDirectory>
+							<resources>
+								<resource>
+									<directory>${basedir}/../app.gen/target/site/apidocs</directory>
 									<filtering>false</filtering>
 								</resource>								
 							</resources>
@@ -146,6 +143,22 @@
 						</configuration>
 					</execution>
 					<execution>
+						<id>copy-bootstrap-gen-javadoc</id>
+						<phase>pre-site</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${basedir}/target/site/bundles/org.nasdanika.vinci.bootstrap.gen/apidocs</outputDirectory>
+							<resources>
+								<resource>
+									<directory>${basedir}/../bootstrap.gen/target/site/apidocs</directory>
+									<filtering>false</filtering>
+								</resource>								
+							</resources>
+						</configuration>
+					</execution>
+					<execution>
 						<id>copy-components-model-javadoc</id>
 						<phase>pre-site</phase>
 						<goals>
@@ -172,6 +185,22 @@
 							<resources>
 								<resource>
 									<directory>${basedir}/../components.edit/target/site/apidocs</directory>
+									<filtering>false</filtering>
+								</resource>								
+							</resources>
+						</configuration>
+					</execution>
+					<execution>
+						<id>copy-components-gen-javadoc</id>
+						<phase>pre-site</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${basedir}/target/site/bundles/org.nasdanika.vinci.components.gen/apidocs</outputDirectory>
+							<resources>
+								<resource>
+									<directory>${basedir}/../components.gen/target/site/apidocs</directory>
 									<filtering>false</filtering>
 								</resource>								
 							</resources>
@@ -268,6 +297,22 @@
 							<resources>
 								<resource>
 									<directory>${basedir}/../html.edit/target/site/apidocs</directory>
+									<filtering>false</filtering>
+								</resource>								
+							</resources>
+						</configuration>
+					</execution>
+					<execution>
+						<id>copy-html-gen-javadoc</id>
+						<phase>pre-site</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${basedir}/target/site/bundles/org.nasdanika.vinci.html.gen/apidocs</outputDirectory>
+							<resources>
+								<resource>
+									<directory>${basedir}/../html.gen/target/site/apidocs</directory>
 									<filtering>false</filtering>
 								</resource>								
 							</resources>
