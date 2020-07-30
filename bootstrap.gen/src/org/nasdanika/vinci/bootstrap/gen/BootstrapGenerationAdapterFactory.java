@@ -1,27 +1,25 @@
-package org.nasdanika.vinci.components.gen;
+package org.nasdanika.vinci.bootstrap.gen;
 
 import org.nasdanika.common.SupplierFactory;
 import org.nasdanika.emf.ComposedAdapterFactory;
 import org.nasdanika.emf.FunctionAdapterFactory;
-import org.nasdanika.vinci.components.ActionLink;
-import org.nasdanika.vinci.components.ComponentsPackage;
 
 /**
  * Generation adapter factory for Vinci components.
  * @author Pavel
  *
  */
-public class ComponentsGenerationAdapterFactory extends ComposedAdapterFactory {
+public class BootstrapGenerationAdapterFactory extends ComposedAdapterFactory {
 	
 	@SuppressWarnings("rawtypes")
-	public ComponentsGenerationAdapterFactory() {
+	public BootstrapGenerationAdapterFactory() {
 		// Registering adapter factories.
-		registerAdapterFactory(
-			new FunctionAdapterFactory<SupplierFactory, ActionLink>(
-				ComponentsPackage.Literals.ACTION_LINK, 
-				SupplierFactory.class, 
-				this.getClass().getClassLoader(),
-				ActionLinkSupplierFactory::new));
+//		registerAdapterFactory(
+//			new FunctionAdapterFactory<SupplierFactory, ActionLink>(
+//				ComponentsPackage.Literals.ACTION_LINK, 
+//				SupplierFactory.class, 
+//				this.getClass().getClassLoader(),
+//				ActionLinkSupplierFactory::new));
 				
 //		registerAdapterFactory(
 //			new FunctionAdapterFactory<ViewActionSupplier, EPackage>(

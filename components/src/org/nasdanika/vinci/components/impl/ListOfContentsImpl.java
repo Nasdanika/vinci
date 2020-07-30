@@ -10,6 +10,7 @@ import org.nasdanika.html.OrderedListType;
 import org.nasdanika.html.app.Action;
 import org.nasdanika.html.app.ViewPart;
 import org.nasdanika.html.app.viewparts.ListOfContentsViewPart;
+import org.nasdanika.vinci.app.ActionRole;
 import org.nasdanika.vinci.components.ComponentsPackage;
 import org.nasdanika.vinci.components.ListOfContents;
 
@@ -178,7 +179,7 @@ public class ListOfContentsImpl extends TableOfContentsBaseImpl implements ListO
 	@Override
 	protected Supplier<ViewPart> createTableOfContents(Context context) throws Exception {
 		ListOfContentsViewPart listOfContentsViewPart = new ListOfContentsViewPart(
-				"Section".equals(getRole()) ? Action.Role.SECTION : Action.Role.NAVIGATION, 
+				ActionRole.SECTION.label.equals(getRole()) ? Action.Role.SECTION : Action.Role.NAVIGATION, 
 				context.interpolate(getHeader()), 
 				isTooltips(), 
 				getDepth(), 
