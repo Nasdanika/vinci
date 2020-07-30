@@ -23,7 +23,6 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.nasdanika.common.Context;
 import org.nasdanika.common.MarkdownHelper;
 import org.nasdanika.common.ProgressMonitor;
-import org.nasdanika.common.SupplierFactory;
 import org.nasdanika.emf.EObjectAdaptable;
 import org.nasdanika.html.app.impl.Util;
 import org.nasdanika.ncore.NcoreFactory;
@@ -253,8 +252,7 @@ public class EModelElementViewActionSupplier<T extends EModelElement> extends EO
 	 * @param accumulator
 	 * @throws Exception 
 	 */
-	@SuppressWarnings({ "rawtypes", "unchecked" })
-	protected void genericType(EGenericType eGenericType, List<SupplierFactory<Object>> accumulator, ProgressMonitor monitor) throws Exception {
+	protected void genericType(EGenericType eGenericType, List<EObject> accumulator, ProgressMonitor monitor) throws Exception {
 		if (eGenericType.getETypeParameter() != null) {
 			accumulator.add(wrap(eGenericType.getETypeParameter().getName()));
 		} else if (eGenericType.getEClassifier() != null) {
@@ -267,13 +265,13 @@ public class EModelElementViewActionSupplier<T extends EModelElement> extends EO
 				ActionLink link = ComponentsFactory.eINSTANCE.createActionLink();
 				link.setTarget(eClassifierAction);
 				link.setText(eClassifier.getName());
-				accumulator.add((SupplierFactory) link);
+				accumulator.add(link);
 			}
 			genericTypeArguments(eGenericType, accumulator, monitor);
 		}		
 	}
 
-	protected void genericTypeArguments(EGenericType eGenericType, List<SupplierFactory<Object>> accumulator, ProgressMonitor monitor) throws Exception {
+	protected void genericTypeArguments(EGenericType eGenericType, List<EObject> accumulator, ProgressMonitor monitor) throws Exception {
 		Iterator<EGenericType> it = eGenericType.getETypeArguments().iterator();
 		if (it.hasNext()) {
 			accumulator.add(wrap("&lt;"));

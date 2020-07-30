@@ -11,8 +11,10 @@ import org.nasdanika.common.Function;
 import org.nasdanika.common.FunctionFactory;
 import org.nasdanika.common.ListCompoundSupplierFactory;
 import org.nasdanika.common.MarkdownHelper;
+import org.nasdanika.common.NasdanikaException;
 import org.nasdanika.common.SupplierFactory;
 import org.nasdanika.common.Util;
+import org.nasdanika.emf.EObjectAdaptable;
 import org.nasdanika.html.app.ViewPart;
 import org.nasdanika.ncore.NcoreFactory;
 import org.nasdanika.ncore.Value;
@@ -41,18 +43,20 @@ import org.nasdanika.ncore.Value;
 public interface Container extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Content</b></em>' containment reference list.
-	 * The list contents are of type {@link org.nasdanika.common.SupplierFactory}<code>&lt;java.lang.Object&gt;</code>.
+	 * The list contents are of type {@link org.eclipse.emf.ecore.EObject}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Container content.
+	 * Container content. 
+	 * 
+	 * Content elements are adapted to ${javadoc/org.nasdanika.common.SupplierFactory} for generation of HTML content.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Content</em>' containment reference list.
 	 * @see org.nasdanika.vinci.html.HtmlPackage#getContainer_Content()
-	 * @model type="org.nasdanika.ncore.ISupplierFactory&lt;org.eclipse.emf.ecore.EJavaObject&gt;" containment="true"
+	 * @model containment="true"
 	 * @generated
 	 */
-	EList<SupplierFactory<Object>> getContent();
+	EList<EObject> getContent();
 
 	/**
 	 * Returns the value of the '<em><b>Markdown Content</b></em>' attribute.
@@ -103,7 +107,8 @@ public interface Container extends EObject {
 	 * Creates a compound supplier factory with markdown content supplier factory first, if markdown content is not blank, and the rest of the content following.
 	 * @return
 	 */
-	default SupplierFactory<List<ViewPart>> createContentSupplierFactory() {
+	@SuppressWarnings("unchecked")
+	default SupplierFactory<List<ViewPart>> createContentSupplierFactory() throws NasdanikaException {
 		ListCompoundSupplierFactory<ViewPart> contentSupplierFactory = new ListCompoundSupplierFactory<>("Content");
 				
 		String markdown = getMarkdownContent();
@@ -124,8 +129,12 @@ public interface Container extends EObject {
 			
 		};
 				
-		for (SupplierFactory<Object> content: getContent()) {
-			contentSupplierFactory.add(content.then(wrapper));
+		for (EObject content: getContent()) {
+			SupplierFactory<Object> sf = EObjectAdaptable.adaptTo(content, SupplierFactory.class);
+			if (sf == null) {
+				throw new NasdanikaException("Cannot adapt " + content + " to " + SupplierFactory.class);
+			}
+			contentSupplierFactory.add(sf.then(wrapper));
 		}
 		
 		return contentSupplierFactory;

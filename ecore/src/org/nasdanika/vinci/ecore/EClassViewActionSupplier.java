@@ -134,7 +134,7 @@ public class EClassViewActionSupplier extends EClassifierViewActionSupplier<ECla
 			for (EGenericType superType: eGenericSuperTypes) {
 				ContentTag listItem = BootstrapFactory.eINSTANCE.createContentTag();
 				listItem.setName(TagName.li.name());
-				list.getContent().add((SupplierFactory) listItem);
+				list.getContent().add(listItem);
 				genericType(superType, listItem.getContent(), monitor);
 			}
 		}

@@ -312,6 +312,13 @@ version(s), and exceptions or additional permissions here}.&quot;
          unpack="false"/>
 
    <plugin
+         id="org.nasdanika.vinci.html.gen"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
          id="org.nasdanika.vinci.bootstrap"
          download-size="0"
          install-size="0"

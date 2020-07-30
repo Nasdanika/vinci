@@ -177,6 +177,7 @@
 
 		<module>html</module>
 		<module>html.edit</module>
+		<module>html.gen</module>
 
 		<module>components</module>
 		<module>components.edit</module>

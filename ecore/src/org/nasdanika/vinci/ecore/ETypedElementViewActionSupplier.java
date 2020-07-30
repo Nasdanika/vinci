@@ -3,6 +3,7 @@ package org.nasdanika.vinci.ecore;
 import java.util.List;
 
 import org.eclipse.emf.ecore.EGenericType;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.ETypedElement;
 import org.nasdanika.common.Context;
 import org.nasdanika.common.ProgressMonitor;
@@ -66,7 +67,7 @@ public class ETypedElementViewActionSupplier<T extends ETypedElement> extends EN
 	 * @param header
 	 * @return
 	 */
-	protected static List<SupplierFactory<Object>> addRow(Table table, String header) {
+	protected static List<EObject> addRow(Table table, String header) {
 		TableRow row = BootstrapFactory.eINSTANCE.createTableRow();
 		table.getRows().add(row);
 		

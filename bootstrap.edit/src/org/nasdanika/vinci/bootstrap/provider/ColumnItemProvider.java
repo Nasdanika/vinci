@@ -219,7 +219,8 @@ public class ColumnItemProvider extends BootstrapElementItemProvider {
 
 		boolean qualify =
 			childFeature == BootstrapPackage.Literals.BOOTSTRAP_ELEMENT__APPEARANCE ||
-			childFeature == HtmlPackage.Literals.CONTAINER__CONTENT;
+			childFeature == HtmlPackage.Literals.CONTAINER__CONTENT ||
+			childFeature == BootstrapPackage.Literals.COLUMN__WIDTH;
 
 		if (qualify) {
 			return getString

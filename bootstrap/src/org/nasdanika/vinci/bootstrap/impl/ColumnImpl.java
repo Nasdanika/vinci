@@ -8,6 +8,7 @@ import java.util.List;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.nasdanika.common.Context;
@@ -80,8 +81,8 @@ public class ColumnImpl extends BootstrapElementImpl implements Column {
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public EList<SupplierFactory<Object>> getContent() {
-		return (EList<SupplierFactory<Object>>)eDynamicGet(BootstrapPackage.COLUMN__CONTENT, HtmlPackage.Literals.CONTAINER__CONTENT, true, true);
+	public EList<EObject> getContent() {
+		return (EList<EObject>)eDynamicGet(BootstrapPackage.COLUMN__CONTENT, HtmlPackage.Literals.CONTAINER__CONTENT, true, true);
 	}
 
 	/**
@@ -160,7 +161,7 @@ public class ColumnImpl extends BootstrapElementImpl implements Column {
 		switch (featureID) {
 			case BootstrapPackage.COLUMN__CONTENT:
 				getContent().clear();
-				getContent().addAll((Collection<? extends SupplierFactory<Object>>)newValue);
+				getContent().addAll((Collection<? extends EObject>)newValue);
 				return;
 			case BootstrapPackage.COLUMN__MARKDOWN_CONTENT:
 				setMarkdownContent((String)newValue);

@@ -7,13 +7,13 @@ import java.util.Collection;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.nasdanika.common.Context;
 import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.common.StringMapCompoundSupplier;
 import org.nasdanika.common.Supplier;
-import org.nasdanika.common.SupplierFactory;
 import org.nasdanika.html.app.ViewGenerator;
 import org.nasdanika.html.app.ViewPart;
 import org.nasdanika.vinci.html.ContentTag;
@@ -70,8 +70,8 @@ public class ContentTagImpl extends TagImpl implements ContentTag {
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public EList<SupplierFactory<Object>> getContent() {
-		return (EList<SupplierFactory<Object>>)eDynamicGet(HtmlPackage.CONTENT_TAG__CONTENT, HtmlPackage.Literals.CONTAINER__CONTENT, true, true);
+	public EList<EObject> getContent() {
+		return (EList<EObject>)eDynamicGet(HtmlPackage.CONTENT_TAG__CONTENT, HtmlPackage.Literals.CONTAINER__CONTENT, true, true);
 	}
 
 	/**
@@ -135,7 +135,7 @@ public class ContentTagImpl extends TagImpl implements ContentTag {
 		switch (featureID) {
 			case HtmlPackage.CONTENT_TAG__CONTENT:
 				getContent().clear();
-				getContent().addAll((Collection<? extends SupplierFactory<Object>>)newValue);
+				getContent().addAll((Collection<? extends EObject>)newValue);
 				return;
 			case HtmlPackage.CONTENT_TAG__MARKDOWN_CONTENT:
 				setMarkdownContent((String)newValue);

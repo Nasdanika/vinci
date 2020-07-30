@@ -185,7 +185,8 @@ public class BootstrapContainerApplicationPanelItemProvider extends BootstrapCon
 
 		boolean qualify =
 			childFeature == BootstrapPackage.Literals.BOOTSTRAP_ELEMENT__APPEARANCE ||
-			childFeature == HtmlPackage.Literals.CONTAINER__CONTENT;
+			childFeature == HtmlPackage.Literals.CONTAINER__CONTENT ||
+			childFeature == AppPackage.Literals.BOOTSTRAP_CONTAINER_APPLICATION_PANEL__WIDTH;
 
 		if (qualify) {
 			return getString

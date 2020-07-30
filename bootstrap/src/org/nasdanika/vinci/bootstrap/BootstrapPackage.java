@@ -258,6 +258,15 @@ public interface BootstrapPackage extends EPackage {
 	int BOOTSTRAP_PAGE__FONT_AWESOME = HtmlPackage.PAGE__FONT_AWESOME;
 
 	/**
+	 * The feature id for the '<em><b>Line Awesome</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOTSTRAP_PAGE__LINE_AWESOME = HtmlPackage.PAGE__LINE_AWESOME;
+
+	/**
 	 * The feature id for the '<em><b>Js Tree</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -274,6 +283,15 @@ public interface BootstrapPackage extends EPackage {
 	 * @ordered
 	 */
 	int BOOTSTRAP_PAGE__GITHUB_MARKDOWN_CSS = HtmlPackage.PAGE__GITHUB_MARKDOWN_CSS;
+
+	/**
+	 * The feature id for the '<em><b>Highlight Js</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOTSTRAP_PAGE__HIGHLIGHT_JS = HtmlPackage.PAGE__HIGHLIGHT_JS;
 
 	/**
 	 * The feature id for the '<em><b>Cdn</b></em>' attribute.

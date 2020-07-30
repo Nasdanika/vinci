@@ -92,7 +92,7 @@ public class EOperationViewActionSupplier extends ETypedElementViewActionSupplie
 			for (EGenericType genericException: eGenericExceptions) {
 				ContentTag listItem = BootstrapFactory.eINSTANCE.createContentTag();
 				listItem.setName(TagName.li.name());
-				list.getContent().add((SupplierFactory) listItem);
+				list.getContent().add(listItem);
 				genericType(genericException, listItem.getContent(), monitor);
 			}
 		}		

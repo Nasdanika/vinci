@@ -3,7 +3,6 @@ package org.nasdanika.vinci.ecore;
 import org.eclipse.emf.ecore.EReference;
 import org.nasdanika.common.Context;
 import org.nasdanika.common.ProgressMonitor;
-import org.nasdanika.common.SupplierFactory;
 import org.nasdanika.emf.EObjectAdaptable;
 import org.nasdanika.vinci.bootstrap.Table;
 import org.nasdanika.vinci.components.ActionLink;
@@ -16,7 +15,6 @@ public class EReferenceViewActionSupplier extends EStructuralFeatureViewActionSu
 		super(value, context);
 	}
 	
-	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
 	protected Table propertiesTable(ProgressMonitor monitor) throws Exception {
 		Table propertiesTable = super.propertiesTable(monitor);
@@ -28,7 +26,7 @@ public class EReferenceViewActionSupplier extends EStructuralFeatureViewActionSu
 			} else {
 				ActionLink link = ComponentsFactory.eINSTANCE.createActionLink();
 				link.setTarget(oppositeViewActionSupplier.getAction(monitor));
-				addRow(propertiesTable, "Opposite").add((SupplierFactory) link);				
+				addRow(propertiesTable, "Opposite").add(link);				
 			}
 		}
 		return propertiesTable;

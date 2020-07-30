@@ -7,6 +7,7 @@ import java.util.Collection;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.nasdanika.common.Context;
@@ -73,8 +74,8 @@ public class WidgetImpl extends NamedElementImpl implements Widget {
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public EList<SupplierFactory<Object>> getContent() {
-		return (EList<SupplierFactory<Object>>)eDynamicGet(AppPackage.WIDGET__CONTENT, HtmlPackage.Literals.CONTAINER__CONTENT, true, true);
+	public EList<EObject> getContent() {
+		return (EList<EObject>)eDynamicGet(AppPackage.WIDGET__CONTENT, HtmlPackage.Literals.CONTAINER__CONTENT, true, true);
 	}
 
 	/**
@@ -138,7 +139,7 @@ public class WidgetImpl extends NamedElementImpl implements Widget {
 		switch (featureID) {
 			case AppPackage.WIDGET__CONTENT:
 				getContent().clear();
-				getContent().addAll((Collection<? extends SupplierFactory<Object>>)newValue);
+				getContent().addAll((Collection<? extends EObject>)newValue);
 				return;
 			case AppPackage.WIDGET__MARKDOWN_CONTENT:
 				setMarkdownContent((String)newValue);
