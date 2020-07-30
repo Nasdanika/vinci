@@ -17,7 +17,6 @@ import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EPackage;
 import org.nasdanika.common.Context;
 import org.nasdanika.common.ProgressMonitor;
-import org.nasdanika.common.SupplierFactory;
 import org.nasdanika.emf.PlantUmlTextGenerator;
 import org.nasdanika.emf.PlantUmlTextGenerator.RelationshipDirection;
 import org.nasdanika.ncore.NcoreFactory;
@@ -57,7 +56,6 @@ public class EPackageViewActionSupplier extends ENamedElementViewActionSupplier<
 		return action;
 	}
 	
-	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
 	public void configure(ProgressMonitor monitor) throws Exception {
 		super.configure(monitor);
@@ -79,7 +77,7 @@ public class EPackageViewActionSupplier extends ENamedElementViewActionSupplier<
 		useMapAttribute.setValue("#plantuml_map");
 		imageTag.getAttributes().add(useMapAttribute);
 		
-		action.getContent().add((SupplierFactory) imageTag);
+		action.getContent().add(imageTag);
 		
 		Value cMapValue = NcoreFactory.eINSTANCE.createValue();
 		cMapValue.setValue(diagramCMap);
@@ -89,7 +87,7 @@ public class EPackageViewActionSupplier extends ENamedElementViewActionSupplier<
 		loc.setDepth(1);
 		loc.setTooltips(true);
 		loc.setHeader("EClassifiers");
-		action.getContent().add((SupplierFactory) loc);		
+		action.getContent().add(loc);		
 	}
 	
 	/**

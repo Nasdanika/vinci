@@ -25,7 +25,6 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.nasdanika.common.Context;
 import org.nasdanika.common.ProgressMonitor;
-import org.nasdanika.common.SupplierFactory;
 import org.nasdanika.emf.EObjectAdaptable;
 import org.nasdanika.emf.PlantUmlTextGenerator;
 import org.nasdanika.emf.PlantUmlTextGenerator.RelationshipDirection;
@@ -93,7 +92,6 @@ public class EClassViewActionSupplier extends EClassifierViewActionSupplier<ECla
 		return action;
 	}
 	
-	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Override
 	public void configure(ProgressMonitor monitor) throws Exception {
 		super.configure(monitor);
@@ -115,7 +113,7 @@ public class EClassViewActionSupplier extends EClassifierViewActionSupplier<ECla
 		useMapAttribute.setValue("#plantuml_map");
 		imageTag.getAttributes().add(useMapAttribute);
 		
-		action.getContent().add((SupplierFactory) imageTag);
+		action.getContent().add(imageTag);
 		
 		action.addContent(diagramCMap);
 				
@@ -125,11 +123,11 @@ public class EClassViewActionSupplier extends EClassifierViewActionSupplier<ECla
 			ContentTag header = BootstrapFactory.eINSTANCE.createContentTag();
 			header.setName(TagName.h3.name());
 			header.addContent("Supertypes");
-			action.getContent().add((SupplierFactory) header);
+			action.getContent().add(header);
 			
 			ContentTag list = BootstrapFactory.eINSTANCE.createContentTag();
 			list.setName(TagName.ul.name());
-			action.getContent().add((SupplierFactory) list);
+			action.getContent().add(list);
 			
 			for (EGenericType superType: eGenericSuperTypes) {
 				ContentTag listItem = BootstrapFactory.eINSTANCE.createContentTag();
@@ -143,7 +141,7 @@ public class EClassViewActionSupplier extends EClassifierViewActionSupplier<ECla
 		Collection<EClass> eSubTypes = getSubTypes(eObject).stream().sorted((a,b) -> a.getName().compareTo(b.getName())).collect(Collectors.toList());
 		if (!eSubTypes.isEmpty()) {
 			ListOfActions subTypesList = ComponentsFactory.eINSTANCE.createListOfActions();
-			action.getContent().add((SupplierFactory) subTypesList);
+			action.getContent().add(subTypesList);
 			subTypesList.setDepth(1);
 			subTypesList.setTooltips(true);
 			subTypesList.setHeader("Subtypes");
@@ -159,7 +157,7 @@ public class EClassViewActionSupplier extends EClassifierViewActionSupplier<ECla
 		Collection<EClass> referrers = getReferrers().stream().sorted((a,b) -> a.getName().compareTo(b.getName())).collect(Collectors.toList());
 		if (!referrers.isEmpty()) {
 			ListOfActions referrersList = ComponentsFactory.eINSTANCE.createListOfActions();
-			action.getContent().add((SupplierFactory) referrersList);
+			action.getContent().add(referrersList);
 			referrersList.setDepth(1);
 			referrersList.setTooltips(true);
 			referrersList.setHeader("Referrers");
@@ -175,7 +173,7 @@ public class EClassViewActionSupplier extends EClassifierViewActionSupplier<ECla
 		Collection<EClass> uses = getUses().stream().sorted((a,b) -> a.getName().compareTo(b.getName())).collect(Collectors.toList());
 		if (!uses.isEmpty()) {
 			ListOfActions usesList = ComponentsFactory.eINSTANCE.createListOfActions();
-			action.getContent().add((SupplierFactory) usesList);
+			action.getContent().add(usesList);
 			usesList.setDepth(1);
 			usesList.setTooltips(true);
 			usesList.setHeader("Uses");
@@ -192,7 +190,7 @@ public class EClassViewActionSupplier extends EClassifierViewActionSupplier<ECla
 		loc.setHeader("Members");
 		loc.setTooltips(true);
 		loc.setRole(ActionRole.SECTION.label);
-		action.getContent().add((SupplierFactory) loc);		
+		action.getContent().add(loc);		
 		
 	}
 

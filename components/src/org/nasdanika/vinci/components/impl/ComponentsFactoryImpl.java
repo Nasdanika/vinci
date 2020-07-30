@@ -7,11 +7,18 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
-import org.nasdanika.vinci.components.*;
+import org.nasdanika.vinci.components.ActionLink;
 import org.nasdanika.vinci.components.ComponentsFactory;
 import org.nasdanika.vinci.components.ComponentsPackage;
+import org.nasdanika.vinci.components.Image;
+import org.nasdanika.vinci.components.ListOfActions;
+import org.nasdanika.vinci.components.ListOfContents;
 import org.nasdanika.vinci.components.MarkdownResource;
 import org.nasdanika.vinci.components.MarkdownText;
+import org.nasdanika.vinci.components.TableOfActions;
+import org.nasdanika.vinci.components.TableOfContents;
+import org.nasdanika.vinci.components.TextToSpeechResource;
+import org.nasdanika.vinci.components.TextToSpeechText;
 
 /**
  * <!-- begin-user-doc -->

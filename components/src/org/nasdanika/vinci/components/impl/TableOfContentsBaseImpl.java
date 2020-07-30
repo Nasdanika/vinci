@@ -10,7 +10,6 @@ import org.nasdanika.html.app.ViewGenerator;
 import org.nasdanika.html.app.ViewPart;
 import org.nasdanika.vinci.bootstrap.Appearance;
 import org.nasdanika.vinci.bootstrap.impl.BootstrapElementImpl;
-
 import org.nasdanika.vinci.components.ComponentsPackage;
 import org.nasdanika.vinci.components.TableOfContentsBase;
 

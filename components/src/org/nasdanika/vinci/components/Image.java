@@ -3,13 +3,9 @@
 package org.nasdanika.vinci.components;
 
 import org.nasdanika.common.SupplierFactory;
-
 import org.nasdanika.html.app.ViewPart;
-
 import org.nasdanika.ncore.ModelElement;
-
 import org.nasdanika.vinci.app.AbstractAction;
-
 import org.nasdanika.vinci.bootstrap.Appearance;
 
 /**

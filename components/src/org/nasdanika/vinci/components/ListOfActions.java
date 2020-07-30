@@ -3,7 +3,6 @@
 package org.nasdanika.vinci.components;
 
 import org.eclipse.emf.common.util.EList;
-
 import org.nasdanika.vinci.app.AbstractAction;
 
 /**

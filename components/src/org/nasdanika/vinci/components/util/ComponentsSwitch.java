@@ -9,12 +9,21 @@ import org.nasdanika.common.SupplierFactory;
 import org.nasdanika.ncore.ModelElement;
 import org.nasdanika.vinci.bootstrap.BootstrapElement;
 import org.nasdanika.vinci.bootstrap.TableConfiguration;
-import org.nasdanika.vinci.components.*;
-import org.nasdanika.vinci.html.HtmlElement;
+import org.nasdanika.vinci.components.ActionLink;
 import org.nasdanika.vinci.components.ComponentsPackage;
+import org.nasdanika.vinci.components.Image;
+import org.nasdanika.vinci.components.ListOfActions;
+import org.nasdanika.vinci.components.ListOfContents;
 import org.nasdanika.vinci.components.Markdown;
 import org.nasdanika.vinci.components.MarkdownResource;
 import org.nasdanika.vinci.components.MarkdownText;
+import org.nasdanika.vinci.components.TableOfActions;
+import org.nasdanika.vinci.components.TableOfContents;
+import org.nasdanika.vinci.components.TableOfContentsBase;
+import org.nasdanika.vinci.components.TextToSpeech;
+import org.nasdanika.vinci.components.TextToSpeechResource;
+import org.nasdanika.vinci.components.TextToSpeechText;
+import org.nasdanika.vinci.html.HtmlElement;
 
 /**
  * <!-- begin-user-doc -->
@@ -77,7 +86,6 @@ public class ComponentsSwitch<T1> extends Switch<T1> {
 				Markdown markdown = (Markdown)theEObject;
 				T1 result = caseMarkdown(markdown);
 				if (result == null) result = caseModelElement(markdown);
-				if (result == null) result = caseISupplierFactory(markdown);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -86,7 +94,6 @@ public class ComponentsSwitch<T1> extends Switch<T1> {
 				T1 result = caseMarkdownText(markdownText);
 				if (result == null) result = caseMarkdown(markdownText);
 				if (result == null) result = caseModelElement(markdownText);
-				if (result == null) result = caseISupplierFactory(markdownText);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -95,7 +102,6 @@ public class ComponentsSwitch<T1> extends Switch<T1> {
 				T1 result = caseMarkdownResource(markdownResource);
 				if (result == null) result = caseMarkdown(markdownResource);
 				if (result == null) result = caseModelElement(markdownResource);
-				if (result == null) result = caseISupplierFactory(markdownResource);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}

@@ -8,7 +8,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.nasdanika.common.Context;
 import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.common.Supplier;
-import org.nasdanika.emf.Util;
+import org.nasdanika.emf.EmfUtil;
 import org.nasdanika.html.HTMLFactory;
 import org.nasdanika.html.TagName;
 import org.nasdanika.html.app.ViewGenerator;
@@ -141,7 +141,7 @@ public class StylesheetResourceImpl extends ModelElementImpl implements Styleshe
 	@Override
 	public Supplier<Object> create(Context context) throws Exception {
 		return Supplier.<Object>fromCallable(() -> {
-			URL url = Util.resolveReference(eResource(), context.interpolate(getLocation()));
+			URL url = EmfUtil.resolveReference(eResource(), context.interpolate(getLocation()));
 			
 			return new ViewPart() {
 				

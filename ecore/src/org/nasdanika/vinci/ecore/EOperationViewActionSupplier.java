@@ -12,7 +12,6 @@ import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EParameter;
 import org.nasdanika.common.Context;
 import org.nasdanika.common.ProgressMonitor;
-import org.nasdanika.common.SupplierFactory;
 import org.nasdanika.html.TagName;
 import org.nasdanika.html.app.SectionStyle;
 import org.nasdanika.vinci.app.Action;
@@ -71,8 +70,6 @@ public class EOperationViewActionSupplier extends ETypedElementViewActionSupplie
 		return action;
 	}
 	
-	
-	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Override
 	public void configure(ProgressMonitor monitor) throws Exception {
 		super.configure(monitor);
@@ -83,11 +80,11 @@ public class EOperationViewActionSupplier extends ETypedElementViewActionSupplie
 			ContentTag header = BootstrapFactory.eINSTANCE.createContentTag();
 			header.setName(TagName.h3.name());
 			header.addContent("Exceptions");
-			action.getContent().add((SupplierFactory) header);
+			action.getContent().add(header);
 			
 			ContentTag list = BootstrapFactory.eINSTANCE.createContentTag();
 			list.setName(TagName.ul.name());
-			action.getContent().add((SupplierFactory) list);
+			action.getContent().add(list);
 			
 			for (EGenericType genericException: eGenericExceptions) {
 				ContentTag listItem = BootstrapFactory.eINSTANCE.createContentTag();

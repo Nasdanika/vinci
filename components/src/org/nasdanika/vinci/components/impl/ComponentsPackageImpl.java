@@ -756,28 +756,23 @@ public class ComponentsPackageImpl extends EPackageImpl implements ComponentsPac
 
 		// Obtain other dependent packages
 		NcorePackage theNcorePackage = (NcorePackage)EPackage.Registry.INSTANCE.getEPackage(NcorePackage.eNS_URI);
-		HtmlPackage theHtmlPackage = (HtmlPackage)EPackage.Registry.INSTANCE.getEPackage(HtmlPackage.eNS_URI);
 		BootstrapPackage theBootstrapPackage = (BootstrapPackage)EPackage.Registry.INSTANCE.getEPackage(BootstrapPackage.eNS_URI);
 		AppPackage theAppPackage = (AppPackage)EPackage.Registry.INSTANCE.getEPackage(AppPackage.eNS_URI);
+		HtmlPackage theHtmlPackage = (HtmlPackage)EPackage.Registry.INSTANCE.getEPackage(HtmlPackage.eNS_URI);
 
 		// Create type parameters
 
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		EGenericType g1 = createEGenericType(theNcorePackage.getModelElement());
-		markdownEClass.getEGenericSuperTypes().add(g1);
-		g1 = createEGenericType(theNcorePackage.getISupplierFactory());
-		EGenericType g2 = createEGenericType(theHtmlPackage.getViewPart());
-		g1.getETypeArguments().add(g2);
-		markdownEClass.getEGenericSuperTypes().add(g1);
+		markdownEClass.getESuperTypes().add(theNcorePackage.getModelElement());
 		markdownTextEClass.getESuperTypes().add(this.getMarkdown());
 		markdownResourceEClass.getESuperTypes().add(this.getMarkdown());
 		actionLinkEClass.getESuperTypes().add(theNcorePackage.getModelElement());
-		g1 = createEGenericType(theBootstrapPackage.getBootstrapElement());
+		EGenericType g1 = createEGenericType(theBootstrapPackage.getBootstrapElement());
 		tableOfContentsBaseEClass.getEGenericSuperTypes().add(g1);
 		g1 = createEGenericType(theNcorePackage.getISupplierFactory());
-		g2 = createEGenericType(theHtmlPackage.getViewPart());
+		EGenericType g2 = createEGenericType(theHtmlPackage.getViewPart());
 		g1.getETypeArguments().add(g2);
 		tableOfContentsBaseEClass.getEGenericSuperTypes().add(g1);
 		tableOfContentsEClass.getESuperTypes().add(this.getTableOfContentsBase());

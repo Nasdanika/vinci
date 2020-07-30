@@ -41,8 +41,8 @@ import org.nasdanika.texttospeech.SpeechSynthesizer;
 import org.nasdanika.texttospeech.SpeechSynthesizerProxy;
 import org.nasdanika.vinci.app.AbstractAction;
 import org.nasdanika.vinci.app.impl.ActionFacade;
-import org.nasdanika.vinci.bootstrap.BootstrapPage;
 import org.nasdanika.vinci.app.util.AppUtil;
+import org.nasdanika.vinci.bootstrap.BootstrapPage;
 
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Option;

@@ -3,13 +3,13 @@ package org.nasdanika.vinci.cli;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.MalformedURLException;
-import org.eclipse.emf.common.util.URI;
 import java.net.URL;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
 
+import org.eclipse.emf.common.util.URI;
 import org.nasdanika.cli.ContextBuilder;
 import org.nasdanika.common.Context;
 import org.nasdanika.common.ProgressMonitor;

@@ -7,7 +7,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.nasdanika.common.Context;
 import org.nasdanika.common.ProgressMonitor;
-import org.nasdanika.common.SupplierFactory;
 import org.nasdanika.emf.EObjectAdaptable;
 import org.nasdanika.vinci.app.Action;
 import org.nasdanika.vinci.components.ComponentsFactory;
@@ -20,7 +19,6 @@ public class EDataTypeViewActionSupplierFactory extends EClassifierViewActionSup
 		super(value, context);
 	}
 	
-	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
 	protected Action create(ProgressMonitor progressMonitor) throws Exception {
 		Action ret = super.create(progressMonitor);
@@ -29,7 +27,7 @@ public class EDataTypeViewActionSupplierFactory extends EClassifierViewActionSup
 		Collection<EClass> uses = getUses().stream().sorted((a,b) -> a.getName().compareTo(b.getName())).collect(Collectors.toList());
 		if (!uses.isEmpty()) {
 			ListOfActions usesList = ComponentsFactory.eINSTANCE.createListOfActions();
-			ret.getContent().add((SupplierFactory) usesList);
+			ret.getContent().add(usesList);
 			usesList.setDepth(1);
 			usesList.setTooltips(true);
 			usesList.setHeader("Uses");

@@ -7,7 +7,6 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.ETypedElement;
 import org.nasdanika.common.Context;
 import org.nasdanika.common.ProgressMonitor;
-import org.nasdanika.common.SupplierFactory;
 import org.nasdanika.ncore.NcoreFactory;
 import org.nasdanika.ncore.Property;
 import org.nasdanika.vinci.bootstrap.Appearance;
@@ -22,7 +21,6 @@ public class ETypedElementViewActionSupplier<T extends ETypedElement> extends EN
 		super(value, context);
 	}
 	
-	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Override
 	public void configure(ProgressMonitor monitor) throws Exception {
 		super.configure(monitor);
@@ -37,7 +35,7 @@ public class ETypedElementViewActionSupplier<T extends ETypedElement> extends EN
 			}
 		}
 		
-		action.getContent().add((SupplierFactory) propertiesTable(monitor)); 
+		action.getContent().add(propertiesTable(monitor)); 
 		action.setText(label.toString());
 	}
 

@@ -4,7 +4,7 @@
   <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
     <details key="documentation" value="Miscellaneous components."/>
   </eAnnotations>
-  <eClassifiers xsi:type="ecore:EClass" name="Markdown" abstract="true">
+  <eClassifiers xsi:type="ecore:EClass" name="Markdown" abstract="true" eSuperTypes="../../org.nasdanika.ncore/model/ncore.ecore#//ModelElement">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Base class for generation of HTML from [Markdown](https://en.wikipedia.org/wiki/Markdown)."/>
     </eAnnotations>
@@ -24,10 +24,6 @@
         <details key="documentation" value="Appearance to apply to the generated HTML."/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eGenericSuperTypes eClassifier="ecore:EClass ../../org.nasdanika.ncore/model/ncore.ecore#//ModelElement"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass ../../org.nasdanika.ncore/model/ncore.ecore#//ISupplierFactory">
-      <eTypeArguments eClassifier="ecore:EClass ../../org.nasdanika.vinci.html/model/html.ecore#//ViewPart"/>
-    </eGenericSuperTypes>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MarkdownText" eSuperTypes="#//Markdown">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">

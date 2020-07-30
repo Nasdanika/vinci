@@ -6,14 +6,6 @@ package org.nasdanika.vinci.components.impl;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-import org.nasdanika.common.Context;
-import org.nasdanika.common.MarkdownHelper;
-import org.nasdanika.common.ProgressMonitor;
-import org.nasdanika.common.Supplier;
-import org.nasdanika.common.Util;
-import org.nasdanika.html.HTMLFactory;
-import org.nasdanika.html.app.ViewGenerator;
-import org.nasdanika.html.app.ViewPart;
 import org.nasdanika.ncore.impl.ModelElementImpl;
 import org.nasdanika.vinci.bootstrap.Appearance;
 import org.nasdanika.vinci.components.ComponentsPackage;
@@ -233,60 +225,5 @@ public abstract class MarkdownImpl extends ModelElementImpl implements Markdown 
 		}
 		return super.eIsSet(featureID);
 	}
-	
-	protected abstract String doGetMarkdown(Context context) throws Exception;
-	
-	@Override
-	public Supplier<ViewPart> create(Context context) throws Exception {
-		
-		String markdown = doGetMarkdown(context);
-		if (Util.isBlank(markdown)) {
-			return Supplier.empty();
-		}
-		
-		String[] html = { MarkdownHelper.INSTANCE.markdownToHtml(markdown).trim() };
-		if (isInterpolate()) {
-			html[0] = context.interpolate(html[0]);
-		}		
-		
-		Supplier<ViewPart> markdownSupplier = Supplier.fromCallable(() -> new ViewPart() {
-
-			@Override
-			public Object generate(ViewGenerator viewGenerator, ProgressMonitor progressMonitor) {
-				// Double interpolation for mapping expansion
-				if (isInterpolate()) {
-					html[0] = viewGenerator.interpolate(html[0]);
-				}		
-				
-				if (!isStyle()) {
-					return html[0];
-				}
-				return viewGenerator.get(HTMLFactory.class).div(html[0]).addClass("markdown-body");
-			}
-			
-		}, getTitle(), 1);
-		
-		Appearance appearance = getAppearance();
-		if (appearance == null) {
-			return markdownSupplier;
-		}
-		
-		return markdownSupplier.then(appearance.create(context).asFunction()).then(bs -> new ViewPart() {
-
-			@Override
-			public Object generate(ViewGenerator viewGenerator, ProgressMonitor progressMonitor) {
-				java.util.function.Function<Object, Object> wrapper = mrkdwn -> {
-					if (mrkdwn instanceof String) {
-						mrkdwn = viewGenerator.get(HTMLFactory.class).div(mrkdwn);
-					}
-					return mrkdwn;
-				};
-				
-				return bs.getFirst().then(bs.getSecond().before(wrapper));
-			}
-			
-		});
-	}
-	
 
 } //MarkdownImpl

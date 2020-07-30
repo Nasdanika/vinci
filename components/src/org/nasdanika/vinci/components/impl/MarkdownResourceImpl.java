@@ -2,13 +2,7 @@
  */
 package org.nasdanika.vinci.components.impl;
 
-import java.net.URL;
-
 import org.eclipse.emf.ecore.EClass;
-import org.nasdanika.common.Context;
-import org.nasdanika.common.Converter;
-import org.nasdanika.common.DefaultConverter;
-import org.nasdanika.emf.Util;
 import org.nasdanika.vinci.components.ComponentsPackage;
 import org.nasdanika.vinci.components.MarkdownResource;
 
@@ -131,16 +125,6 @@ public class MarkdownResourceImpl extends MarkdownImpl implements MarkdownResour
 				return LOCATION_EDEFAULT == null ? getLocation() != null : !LOCATION_EDEFAULT.equals(getLocation());
 		}
 		return super.eIsSet(featureID);
-	}
-	
-	@Override
-	protected String doGetMarkdown(Context context) throws Exception {
-		URL url = Util.resolveReference(eResource(), context.interpolate(getLocation()));
-		if (url == null) {
-			throw new IllegalArgumentException("Resource does not exist");
-		}
-		Converter converter = context.get(Converter.class, DefaultConverter.INSTANCE);
-		return converter.convert(url, String.class);
 	}
 
 } //MarkdownResourceImpl

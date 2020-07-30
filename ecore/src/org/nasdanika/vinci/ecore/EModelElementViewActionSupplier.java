@@ -115,7 +115,7 @@ public class EModelElementViewActionSupplier<T extends EModelElement> extends EO
 		}
 		Set<EClass> ret = new HashSet<>();
 		acit.forEachRemaining(obj -> {
-			if (obj instanceof EClass && (org.nasdanika.emf.Util.collectTypeDependencies((EClass) obj).contains(eClassifier))) {
+			if (obj instanceof EClass && (org.nasdanika.emf.EmfUtil.collectTypeDependencies((EClass) obj).contains(eClassifier))) {
 				ret.add((EClass) obj);
 			}
 		});

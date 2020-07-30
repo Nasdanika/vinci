@@ -8,7 +8,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.nasdanika.common.Context;
 import org.nasdanika.common.Converter;
 import org.nasdanika.common.DefaultConverter;
-import org.nasdanika.emf.Util;
+import org.nasdanika.emf.EmfUtil;
 import org.nasdanika.vinci.components.ComponentsPackage;
 import org.nasdanika.vinci.components.TextToSpeechResource;
 
@@ -135,7 +135,7 @@ public class TextToSpeechResourceImpl extends TextToSpeechImpl implements TextTo
 	
 	@Override
 	protected String doGetText(Context context) throws Exception {
-		URL url = Util.resolveReference(eResource(), context.interpolate(getLocation()));
+		URL url = EmfUtil.resolveReference(eResource(), context.interpolate(getLocation()));
 		if (url == null) {
 			throw new IllegalArgumentException("Resource does not exist");
 		}

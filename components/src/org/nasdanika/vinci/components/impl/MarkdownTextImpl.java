@@ -3,7 +3,6 @@
 package org.nasdanika.vinci.components.impl;
 
 import org.eclipse.emf.ecore.EClass;
-import org.nasdanika.common.Context;
 import org.nasdanika.vinci.components.ComponentsPackage;
 import org.nasdanika.vinci.components.MarkdownText;
 
@@ -126,11 +125,6 @@ public class MarkdownTextImpl extends MarkdownImpl implements MarkdownText {
 				return MARKDOWN_EDEFAULT == null ? getMarkdown() != null : !MARKDOWN_EDEFAULT.equals(getMarkdown());
 		}
 		return super.eIsSet(featureID);
-	}
-	
-	@Override
-	protected String doGetMarkdown(Context context) {
-		return getMarkdown();
 	}
 
 } //MarkdownTextImpl

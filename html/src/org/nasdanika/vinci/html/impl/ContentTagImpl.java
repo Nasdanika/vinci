@@ -215,7 +215,6 @@ public class ContentTagImpl extends TagImpl implements ContentTag {
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Override
 	public Supplier<ViewPart> create(Context context) throws Exception {
-		@SuppressWarnings("resource")
 		StringMapCompoundSupplier<Object> mapSupplier = new StringMapCompoundSupplier<>(getTitle());
 		
 		Supplier<ViewPart> tagViewPartSupplier = super.create(context);

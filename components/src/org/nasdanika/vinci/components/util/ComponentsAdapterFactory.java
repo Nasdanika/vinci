@@ -10,12 +10,21 @@ import org.nasdanika.common.SupplierFactory;
 import org.nasdanika.ncore.ModelElement;
 import org.nasdanika.vinci.bootstrap.BootstrapElement;
 import org.nasdanika.vinci.bootstrap.TableConfiguration;
-import org.nasdanika.vinci.components.*;
-import org.nasdanika.vinci.html.HtmlElement;
+import org.nasdanika.vinci.components.ActionLink;
 import org.nasdanika.vinci.components.ComponentsPackage;
+import org.nasdanika.vinci.components.Image;
+import org.nasdanika.vinci.components.ListOfActions;
+import org.nasdanika.vinci.components.ListOfContents;
 import org.nasdanika.vinci.components.Markdown;
 import org.nasdanika.vinci.components.MarkdownResource;
 import org.nasdanika.vinci.components.MarkdownText;
+import org.nasdanika.vinci.components.TableOfActions;
+import org.nasdanika.vinci.components.TableOfContents;
+import org.nasdanika.vinci.components.TableOfContentsBase;
+import org.nasdanika.vinci.components.TextToSpeech;
+import org.nasdanika.vinci.components.TextToSpeechResource;
+import org.nasdanika.vinci.components.TextToSpeechText;
+import org.nasdanika.vinci.html.HtmlElement;
 
 /**
  * <!-- begin-user-doc -->
@@ -130,16 +139,16 @@ public class ComponentsAdapterFactory extends AdapterFactoryImpl {
 				return createModelElementAdapter();
 			}
 			@Override
-			public <T> Adapter caseISupplierFactory(SupplierFactory<T> object) {
-				return createISupplierFactoryAdapter();
-			}
-			@Override
 			public Adapter caseHtmlElement(HtmlElement object) {
 				return createHtmlElementAdapter();
 			}
 			@Override
 			public Adapter caseBootstrapElement(BootstrapElement object) {
 				return createBootstrapElementAdapter();
+			}
+			@Override
+			public <T> Adapter caseISupplierFactory(SupplierFactory<T> object) {
+				return createISupplierFactoryAdapter();
 			}
 			@Override
 			public Adapter caseTableConfiguration(TableConfiguration object) {

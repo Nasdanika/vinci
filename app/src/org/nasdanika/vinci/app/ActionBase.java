@@ -3,7 +3,7 @@
 package org.nasdanika.vinci.app;
 
 import org.eclipse.emf.common.util.EList;
-import org.nasdanika.common.SupplierFactory;
+import org.eclipse.emf.ecore.EObject;
 import org.nasdanika.common.Util;
 import org.nasdanika.ncore.NcoreFactory;
 import org.nasdanika.ncore.Value;
@@ -323,7 +323,7 @@ public interface ActionBase extends Label, AbstractAction, Container<ActionEleme
 
 	/**
 	 * Returns the value of the '<em><b>Content</b></em>' containment reference list.
-	 * The list contents are of type {@link org.nasdanika.common.SupplierFactory}<code>&lt;java.lang.Object&gt;</code>.
+	 * The list contents are of type {@link org.eclipse.emf.ecore.EObject}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
@@ -331,10 +331,10 @@ public interface ActionBase extends Label, AbstractAction, Container<ActionEleme
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Content</em>' containment reference list.
 	 * @see org.nasdanika.vinci.app.AppPackage#getActionBase_Content()
-	 * @model type="org.nasdanika.ncore.ISupplierFactory&lt;org.eclipse.emf.ecore.EJavaObject&gt;" containment="true"
+	 * @model containment="true"
 	 * @generated
 	 */
-	EList<SupplierFactory<Object>> getContent();
+	EList<EObject> getContent();
 	
 	/**
 	 * Returns the value of the '<em><b>Widgets</b></em>' containment reference list.

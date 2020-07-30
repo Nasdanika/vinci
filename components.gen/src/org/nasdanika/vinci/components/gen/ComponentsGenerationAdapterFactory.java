@@ -5,6 +5,8 @@ import org.nasdanika.emf.ComposedAdapterFactory;
 import org.nasdanika.emf.FunctionAdapterFactory;
 import org.nasdanika.vinci.components.ActionLink;
 import org.nasdanika.vinci.components.ComponentsPackage;
+import org.nasdanika.vinci.components.MarkdownResource;
+import org.nasdanika.vinci.components.MarkdownText;
 
 /**
  * Generation adapter factory for Vinci components.
@@ -23,6 +25,20 @@ public class ComponentsGenerationAdapterFactory extends ComposedAdapterFactory {
 				this.getClass().getClassLoader(),
 				ActionLinkSupplierFactory::new));
 				
+		registerAdapterFactory(
+				new FunctionAdapterFactory<SupplierFactory, MarkdownResource>(
+					ComponentsPackage.Literals.MARKDOWN_RESOURCE, 
+					SupplierFactory.class, 
+					this.getClass().getClassLoader(),
+					MarkdownResourceSupplierFactory::new));
+		
+		registerAdapterFactory(
+				new FunctionAdapterFactory<SupplierFactory, MarkdownText>(
+					ComponentsPackage.Literals.MARKDOWN_TEXT, 
+					SupplierFactory.class, 
+					this.getClass().getClassLoader(),
+					MarkdownTextSupplierFactory::new));
+					
 //		registerAdapterFactory(
 //			new FunctionAdapterFactory<ViewActionSupplier, EPackage>(
 //				EcorePackage.Literals.EPACKAGE, 

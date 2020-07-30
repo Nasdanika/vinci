@@ -24,7 +24,6 @@ import org.nasdanika.cli.CommandBase;
 import org.nasdanika.cli.Description;
 import org.nasdanika.common.DefaultConverter;
 import org.nasdanika.common.MarkdownHelper;
-import org.nasdanika.common.SupplierFactory;
 import org.nasdanika.common.Util;
 import org.nasdanika.ncore.Value;
 import org.nasdanika.vinci.app.Action;
@@ -80,7 +79,6 @@ public class VinciGenerateCliDocumentationCommand extends CommandBase {
 		return  (Action) resourceSet.getResource(DOC_ACTION_TEMPLATE, true).getContents().get(0);
 	}	
 	
-	@SuppressWarnings({ "unchecked", "rawtypes" })
 	private Action usage(CommandSpec commandSpec, Action template, Action parentAction) throws IOException {		
 		Action ret = EcoreUtil.copy(template);
 		ret.setId(parentAction == null ? commandSpec.name() : parentAction.getId() + "--" + commandSpec.name());
@@ -159,7 +157,7 @@ public class VinciGenerateCliDocumentationCommand extends CommandBase {
 			loc.setDepth(1);
 			loc.setTooltips(true);
 			loc.setHeader("Subcommands");
-			ret.getContent().add((SupplierFactory) loc);					
+			ret.getContent().add(loc);					
 		}
 		
 		return ret;

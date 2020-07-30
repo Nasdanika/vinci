@@ -8,7 +8,6 @@ import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EEnumLiteral;
 import org.nasdanika.common.Context;
 import org.nasdanika.common.ProgressMonitor;
-import org.nasdanika.common.SupplierFactory;
 import org.nasdanika.emf.EObjectAdaptable;
 import org.nasdanika.html.app.SectionStyle;
 import org.nasdanika.vinci.app.Action;
@@ -48,7 +47,6 @@ public class EEnumViewActionSupplier extends EClassifierViewActionSupplier<EEnum
 		return literalsAction;
 	}
 		
-	@SuppressWarnings({ "rawtypes", "unchecked" })
 	protected Action createUsesAction(ProgressMonitor progressMonitor) throws Exception {
 		Action usesAction = AppFactory.eINSTANCE.createAction();
 		usesAction.setText("Uses");
@@ -58,7 +56,7 @@ public class EEnumViewActionSupplier extends EClassifierViewActionSupplier<EEnum
 		Collection<EClass> uses = getUses().stream().sorted((a,b) -> a.getName().compareTo(b.getName())).collect(Collectors.toList());
 		if (!uses.isEmpty()) {
 			ListOfActions usesList = ComponentsFactory.eINSTANCE.createListOfActions();
-			usesAction.getContent().add((SupplierFactory) usesList);
+			usesAction.getContent().add(usesList);
 			usesList.setDepth(1);
 			usesList.setTooltips(true);
 			for (EClass use: uses) {

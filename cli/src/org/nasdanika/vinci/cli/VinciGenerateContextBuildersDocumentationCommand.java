@@ -19,7 +19,6 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.xmi.impl.XMLResourceImpl;
 import org.nasdanika.cli.Application;
 import org.nasdanika.cli.CommandBase;
-import org.nasdanika.common.SupplierFactory;
 import org.nasdanika.common.Util;
 import org.nasdanika.vinci.app.Action;
 import org.nasdanika.vinci.app.ActionRole;
@@ -61,7 +60,6 @@ public class VinciGenerateContextBuildersDocumentationCommand extends CommandBas
 		return AppFactory.eINSTANCE.createAction();
 	}
 		
-	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
 	public Integer call() throws Exception {
 		// Context builders node with general help from context builders - markdown reference.
@@ -81,7 +79,7 @@ public class VinciGenerateContextBuildersDocumentationCommand extends CommandBas
 					markdownResource.setLocation("platform:/plugin/" + bundle + "/" + docResource);
 					markdownResource.setInterpolate(true);
 					markdownResource.setStyle(true);
-					builderAction.getContent().add((SupplierFactory) markdownResource);
+					builderAction.getContent().add(markdownResource);
 				}
 				String description = ce.getAttribute("description");
 				if (!Util.isBlank(description)) {
@@ -106,13 +104,13 @@ public class VinciGenerateContextBuildersDocumentationCommand extends CommandBas
 		markdownResource.setLocation("platform:/plugin/org.nasdanika.cli/doc/context-builders.md");
 		markdownResource.setInterpolate(true);
 		markdownResource.setStyle(true);
-		root.getContent().add((SupplierFactory) markdownResource);
+		root.getContent().add(markdownResource);
 		
 		ListOfContents loc = ComponentsFactory.eINSTANCE.createListOfContents();
 		loc.setHeader("Registered Context Builders");
 		loc.setTooltips(true);
 		loc.setRole(ActionRole.NAVIGATION.label);
-		root.getContent().add((SupplierFactory) loc);
+		root.getContent().add(loc);
 		
 
 		// TODO - list of contents
@@ -132,7 +130,7 @@ public class VinciGenerateContextBuildersDocumentationCommand extends CommandBas
 			ListOfContents bloc = ComponentsFactory.eINSTANCE.createListOfContents();
 			bloc.setRole(ActionRole.NAVIGATION.label);
 			bloc.setTooltips(true);
-			bundleAction.getContent().add((SupplierFactory) bloc);
+			bundleAction.getContent().add(bloc);
 		}				
 		
 		Resource resource = new XMLResourceImpl();

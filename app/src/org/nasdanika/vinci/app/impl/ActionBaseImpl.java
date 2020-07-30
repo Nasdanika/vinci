@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.function.BiFunction;
 
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -31,6 +32,7 @@ import org.nasdanika.common.Reference;
 import org.nasdanika.common.Supplier;
 import org.nasdanika.common.SupplierFactory;
 import org.nasdanika.common.Util;
+import org.nasdanika.emf.EObjectAdaptable;
 import org.nasdanika.html.TagName;
 import org.nasdanika.html.app.ViewGenerator;
 import org.nasdanika.html.app.ViewPart;
@@ -416,8 +418,8 @@ public abstract class ActionBaseImpl extends LabelImpl implements ActionBase {
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public EList<SupplierFactory<Object>> getContent() {
-		return (EList<SupplierFactory<Object>>)eDynamicGet(AppPackage.ACTION_BASE__CONTENT, AppPackage.Literals.ACTION_BASE__CONTENT, true, true);
+	public EList<EObject> getContent() {
+		return (EList<EObject>)eDynamicGet(AppPackage.ACTION_BASE__CONTENT, AppPackage.Literals.ACTION_BASE__CONTENT, true, true);
 	}
 
 	/**
@@ -559,7 +561,7 @@ public abstract class ActionBaseImpl extends LabelImpl implements ActionBase {
 				return;
 			case AppPackage.ACTION_BASE__CONTENT:
 				getContent().clear();
-				getContent().addAll((Collection<? extends SupplierFactory<Object>>)newValue);
+				getContent().addAll((Collection<? extends EObject>)newValue);
 				return;
 			case AppPackage.ACTION_BASE__WIDGETS:
 				getWidgets().clear();
@@ -867,7 +869,9 @@ public abstract class ActionBaseImpl extends LabelImpl implements ActionBase {
 			content.add(markdownSupplierFactory);
 		}
 				
-		content.addAll(getContent());		
+		for (EObject ce: getContent()) {
+			content.add((SupplierFactory<Object>) Objects.requireNonNull(EObjectAdaptable.adaptTo(ce, SupplierFactory.class), "Cannot adapt " + ce + " to " + SupplierFactory.class));
+		}
 		mcs.put(CONTENT_KEY, (SupplierFactory) new ListCompoundSupplierFactory<Object>(CONTENT_KEY, content));
 		mcs.put(ELEMENTS_KEY, (SupplierFactory) elementsFactory);
 		mcs.put(WIDGETS_KEY, (SupplierFactory) widgetsFactory);
