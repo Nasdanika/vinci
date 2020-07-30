@@ -2,8 +2,6 @@
  */
 package org.nasdanika.vinci.components;
 
-import org.nasdanika.common.SupplierFactory;
-import org.nasdanika.html.app.ViewPart;
 import org.nasdanika.ncore.ModelElement;
 import org.nasdanika.vinci.app.AbstractAction;
 import org.nasdanika.vinci.bootstrap.Appearance;
@@ -30,10 +28,10 @@ import org.nasdanika.vinci.bootstrap.Appearance;
  * </ul>
  *
  * @see org.nasdanika.vinci.components.ComponentsPackage#getImage()
- * @model superTypes="org.nasdanika.ncore.ModelElement org.nasdanika.ncore.ISupplierFactory&lt;org.nasdanika.vinci.html.ViewPart&gt;"
+ * @model
  * @generated
  */
-public interface Image extends ModelElement, SupplierFactory<ViewPart> {
+public interface Image extends ModelElement {
 	/**
 	 * Returns the value of the '<em><b>Content</b></em>' attribute.
 	 * <!-- begin-user-doc -->

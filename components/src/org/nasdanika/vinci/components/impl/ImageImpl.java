@@ -2,19 +2,9 @@
  */
 package org.nasdanika.vinci.components.impl;
 
-import java.util.Base64;
-
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-import org.nasdanika.common.Context;
-import org.nasdanika.common.ProgressMonitor;
-import org.nasdanika.common.Supplier;
-import org.nasdanika.common.Util;
-import org.nasdanika.html.Tag;
-import org.nasdanika.html.TagName;
-import org.nasdanika.html.app.ViewGenerator;
-import org.nasdanika.html.app.ViewPart;
 import org.nasdanika.ncore.impl.ModelElementImpl;
 import org.nasdanika.vinci.app.AbstractAction;
 import org.nasdanika.vinci.bootstrap.Appearance;
@@ -359,58 +349,6 @@ public class ImageImpl extends ModelElementImpl implements Image {
 				return WIDTH_EDEFAULT == null ? getWidth() != null : !WIDTH_EDEFAULT.equals(getWidth());
 		}
 		return super.eIsSet(featureID);
-	}
-
-	@Override
-	public Supplier<ViewPart> create(Context context) throws Exception {
-		
-		String caption = context.interpolate(getCaption());
-		
-		Supplier<ViewPart> imageSupplier = Supplier.fromCallable(() -> new ViewPart() {
-
-			@Override
-			public Object generate(ViewGenerator viewGenerator, ProgressMonitor progressMonitor) {
-				Tag imageTag = TagName.img.create();
-				
-				byte[] content = getContent();
-				if (content != null) {
-					imageTag.attribute("src", "data:image/png;base64, " + Base64.getEncoder().encodeToString(content));
-				}
-				
-				String height = context.interpolate(getHeight());
-				if (!Util.isBlank(height)) {
-					imageTag.attribute("height", height);
-				}
-				
-				String width = context.interpolate(getWidth());
-				if (!Util.isBlank(width)) {
-					imageTag.attribute("width", width);
-				}
-												
-				// TODO - image map support and navigation to target.
-				
-				if (Util.isBlank(caption)) {				
-					return imageTag;
-				}
-				
-				return TagName.figure.create(imageTag, TagName.figcaption.create(caption));
-			}
-			
-		}, getTitle(), 1);
-		
-		Appearance appearance = getAppearance();
-		if (appearance == null) {
-			return imageSupplier;
-		}
-		
-		return imageSupplier.then(appearance.create(context).asFunction()).then(bs -> new ViewPart() {
-
-			@Override
-			public Object generate(ViewGenerator viewGenerator, ProgressMonitor progressMonitor) {
-				return bs.getFirst().then(bs.getSecond());
-			}
-			
-		});
 	}
 
 } //ImageImpl

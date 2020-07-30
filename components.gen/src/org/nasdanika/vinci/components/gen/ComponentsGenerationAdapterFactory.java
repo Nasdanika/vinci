@@ -11,6 +11,9 @@ import org.nasdanika.vinci.components.MarkdownResource;
 import org.nasdanika.vinci.components.MarkdownText;
 import org.nasdanika.vinci.components.TableOfActions;
 import org.nasdanika.vinci.components.TableOfContents;
+import org.nasdanika.vinci.components.TextToSpeechResource;
+import org.nasdanika.vinci.components.TextToSpeechText;
+import org.nasdanika.vinci.components.Image;
 
 /**
  * Generation adapter factory for Vinci components.
@@ -70,6 +73,27 @@ public class ComponentsGenerationAdapterFactory extends ComposedAdapterFactory {
 					SupplierFactory.class, 
 					this.getClass().getClassLoader(),
 					TableOfActionsSupplierFactory::new));
+		
+		registerAdapterFactory(
+				new FunctionAdapterFactory<SupplierFactory, TextToSpeechResource>(
+					ComponentsPackage.Literals.TEXT_TO_SPEECH_RESOURCE, 
+					SupplierFactory.class, 
+					this.getClass().getClassLoader(),
+					TextToSpeechResourceSupplierFactory::new));
+		
+		registerAdapterFactory(
+				new FunctionAdapterFactory<SupplierFactory, TextToSpeechText>(
+					ComponentsPackage.Literals.TEXT_TO_SPEECH_TEXT, 
+					SupplierFactory.class, 
+					this.getClass().getClassLoader(),
+					TextToSpeechTextSupplierFactory::new));
+		
+		registerAdapterFactory(
+				new FunctionAdapterFactory<SupplierFactory, Image>(
+					ComponentsPackage.Literals.IMAGE, 
+					SupplierFactory.class, 
+					this.getClass().getClassLoader(),
+					ImageSupplierFactory::new));
 					
 //		registerAdapterFactory(
 //			new FunctionAdapterFactory<ViewActionSupplier, EPackage>(

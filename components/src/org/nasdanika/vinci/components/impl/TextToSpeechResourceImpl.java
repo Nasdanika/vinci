@@ -2,13 +2,7 @@
  */
 package org.nasdanika.vinci.components.impl;
 
-import java.net.URL;
-
 import org.eclipse.emf.ecore.EClass;
-import org.nasdanika.common.Context;
-import org.nasdanika.common.Converter;
-import org.nasdanika.common.DefaultConverter;
-import org.nasdanika.emf.EmfUtil;
 import org.nasdanika.vinci.components.ComponentsPackage;
 import org.nasdanika.vinci.components.TextToSpeechResource;
 
@@ -132,15 +126,5 @@ public class TextToSpeechResourceImpl extends TextToSpeechImpl implements TextTo
 		}
 		return super.eIsSet(featureID);
 	}
-	
-	@Override
-	protected String doGetText(Context context) throws Exception {
-		URL url = EmfUtil.resolveReference(eResource(), context.interpolate(getLocation()));
-		if (url == null) {
-			throw new IllegalArgumentException("Resource does not exist");
-		}
-		Converter converter = context.get(Converter.class, DefaultConverter.INSTANCE);
-		return converter.convert(url, String.class);
-	}	
 
 } //TextToSpeechResourceImpl

@@ -3,7 +3,6 @@
 package org.nasdanika.vinci.components.impl;
 
 import org.eclipse.emf.ecore.EClass;
-import org.nasdanika.common.Context;
 import org.nasdanika.vinci.components.ComponentsPackage;
 import org.nasdanika.vinci.components.TextToSpeechText;
 
@@ -126,11 +125,6 @@ public class TextToSpeechTextImpl extends TextToSpeechImpl implements TextToSpee
 				return TEXT_EDEFAULT == null ? getText() != null : !TEXT_EDEFAULT.equals(getText());
 		}
 		return super.eIsSet(featureID);
-	}
-	
-	@Override
-	protected String doGetText(Context context) throws Exception {
-		return getText();
 	}
 
 } //TextToSpeechTextImpl

@@ -98,7 +98,6 @@ public class GenerateTemplatedApplicationAction extends VinciGenerateAction<Abst
 			SubMonitor subMonitor = SubMonitor.convert(monitor, TOTAL_WORK);
 			
 			ResourceSet resourceSet = new ResourceSetImpl();
-			ComposedAdapterFactory.registerGlobalFactory(resourceSet);
 			resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put(Resource.Factory.Registry.DEFAULT_EXTENSION, new XMIResourceFactoryImpl());
 			EPackage[] ePackages = {
 					NcorePackage.eINSTANCE,
@@ -112,6 +111,8 @@ public class GenerateTemplatedApplicationAction extends VinciGenerateAction<Abst
 			MutableContext generationContext = Context.EMPTY_CONTEXT.fork();
 			generationContext.register(BinaryEntityContainer.class, output);
 			generationContext.register(ResourceSet.class, resourceSet);
+			
+			ComposedAdapterFactory.registerGlobalFactory(modelElement.eResource().getResourceSet());
 			
 			try (SpeechSynthesizer speechSynthesizer = new CachingSpeechSynthesizer(new SpeechSynthesizerProxy(GoogleCloudTextToSpeechSynthesizer::new))) {
 				generationContext.register(SpeechSynthesizer.class, speechSynthesizer);			

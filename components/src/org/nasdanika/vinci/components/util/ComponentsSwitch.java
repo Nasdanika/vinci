@@ -5,7 +5,6 @@ package org.nasdanika.vinci.components.util;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
-import org.nasdanika.common.SupplierFactory;
 import org.nasdanika.ncore.ModelElement;
 import org.nasdanika.vinci.bootstrap.BootstrapElement;
 import org.nasdanika.vinci.bootstrap.TableConfiguration;
@@ -38,7 +37,7 @@ import org.nasdanika.vinci.html.HtmlElement;
  * @see org.nasdanika.vinci.components.ComponentsPackage
  * @generated
  */
-public class ComponentsSwitch<T1> extends Switch<T1> {
+public class ComponentsSwitch<T> extends Switch<T> {
 	/**
 	 * The cached model package
 	 * <!-- begin-user-doc -->
@@ -80,18 +79,18 @@ public class ComponentsSwitch<T1> extends Switch<T1> {
 	 * @generated
 	 */
 	@Override
-	protected T1 doSwitch(int classifierID, EObject theEObject) {
+	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
 			case ComponentsPackage.MARKDOWN: {
 				Markdown markdown = (Markdown)theEObject;
-				T1 result = caseMarkdown(markdown);
+				T result = caseMarkdown(markdown);
 				if (result == null) result = caseModelElement(markdown);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case ComponentsPackage.MARKDOWN_TEXT: {
 				MarkdownText markdownText = (MarkdownText)theEObject;
-				T1 result = caseMarkdownText(markdownText);
+				T result = caseMarkdownText(markdownText);
 				if (result == null) result = caseMarkdown(markdownText);
 				if (result == null) result = caseModelElement(markdownText);
 				if (result == null) result = defaultCase(theEObject);
@@ -99,7 +98,7 @@ public class ComponentsSwitch<T1> extends Switch<T1> {
 			}
 			case ComponentsPackage.MARKDOWN_RESOURCE: {
 				MarkdownResource markdownResource = (MarkdownResource)theEObject;
-				T1 result = caseMarkdownResource(markdownResource);
+				T result = caseMarkdownResource(markdownResource);
 				if (result == null) result = caseMarkdown(markdownResource);
 				if (result == null) result = caseModelElement(markdownResource);
 				if (result == null) result = defaultCase(theEObject);
@@ -107,14 +106,14 @@ public class ComponentsSwitch<T1> extends Switch<T1> {
 			}
 			case ComponentsPackage.ACTION_LINK: {
 				ActionLink actionLink = (ActionLink)theEObject;
-				T1 result = caseActionLink(actionLink);
+				T result = caseActionLink(actionLink);
 				if (result == null) result = caseModelElement(actionLink);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case ComponentsPackage.TABLE_OF_CONTENTS_BASE: {
 				TableOfContentsBase tableOfContentsBase = (TableOfContentsBase)theEObject;
-				T1 result = caseTableOfContentsBase(tableOfContentsBase);
+				T result = caseTableOfContentsBase(tableOfContentsBase);
 				if (result == null) result = caseBootstrapElement(tableOfContentsBase);
 				if (result == null) result = caseHtmlElement(tableOfContentsBase);
 				if (result == null) result = caseModelElement(tableOfContentsBase);
@@ -123,7 +122,7 @@ public class ComponentsSwitch<T1> extends Switch<T1> {
 			}
 			case ComponentsPackage.TABLE_OF_CONTENTS: {
 				TableOfContents tableOfContents = (TableOfContents)theEObject;
-				T1 result = caseTableOfContents(tableOfContents);
+				T result = caseTableOfContents(tableOfContents);
 				if (result == null) result = caseTableOfContentsBase(tableOfContents);
 				if (result == null) result = caseTableConfiguration(tableOfContents);
 				if (result == null) result = caseBootstrapElement(tableOfContents);
@@ -134,7 +133,7 @@ public class ComponentsSwitch<T1> extends Switch<T1> {
 			}
 			case ComponentsPackage.LIST_OF_CONTENTS: {
 				ListOfContents listOfContents = (ListOfContents)theEObject;
-				T1 result = caseListOfContents(listOfContents);
+				T result = caseListOfContents(listOfContents);
 				if (result == null) result = caseTableOfContentsBase(listOfContents);
 				if (result == null) result = caseBootstrapElement(listOfContents);
 				if (result == null) result = caseHtmlElement(listOfContents);
@@ -144,7 +143,7 @@ public class ComponentsSwitch<T1> extends Switch<T1> {
 			}
 			case ComponentsPackage.LIST_OF_ACTIONS: {
 				ListOfActions listOfActions = (ListOfActions)theEObject;
-				T1 result = caseListOfActions(listOfActions);
+				T result = caseListOfActions(listOfActions);
 				if (result == null) result = caseListOfContents(listOfActions);
 				if (result == null) result = caseTableOfContentsBase(listOfActions);
 				if (result == null) result = caseBootstrapElement(listOfActions);
@@ -155,7 +154,7 @@ public class ComponentsSwitch<T1> extends Switch<T1> {
 			}
 			case ComponentsPackage.TABLE_OF_ACTIONS: {
 				TableOfActions tableOfActions = (TableOfActions)theEObject;
-				T1 result = caseTableOfActions(tableOfActions);
+				T result = caseTableOfActions(tableOfActions);
 				if (result == null) result = caseTableOfContents(tableOfActions);
 				if (result == null) result = caseTableOfContentsBase(tableOfActions);
 				if (result == null) result = caseTableConfiguration(tableOfActions);
@@ -167,35 +166,31 @@ public class ComponentsSwitch<T1> extends Switch<T1> {
 			}
 			case ComponentsPackage.TEXT_TO_SPEECH: {
 				TextToSpeech textToSpeech = (TextToSpeech)theEObject;
-				T1 result = caseTextToSpeech(textToSpeech);
+				T result = caseTextToSpeech(textToSpeech);
 				if (result == null) result = caseModelElement(textToSpeech);
-				if (result == null) result = caseISupplierFactory(textToSpeech);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case ComponentsPackage.IMAGE: {
 				Image image = (Image)theEObject;
-				T1 result = caseImage(image);
+				T result = caseImage(image);
 				if (result == null) result = caseModelElement(image);
-				if (result == null) result = caseISupplierFactory(image);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case ComponentsPackage.TEXT_TO_SPEECH_TEXT: {
 				TextToSpeechText textToSpeechText = (TextToSpeechText)theEObject;
-				T1 result = caseTextToSpeechText(textToSpeechText);
+				T result = caseTextToSpeechText(textToSpeechText);
 				if (result == null) result = caseTextToSpeech(textToSpeechText);
 				if (result == null) result = caseModelElement(textToSpeechText);
-				if (result == null) result = caseISupplierFactory(textToSpeechText);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case ComponentsPackage.TEXT_TO_SPEECH_RESOURCE: {
 				TextToSpeechResource textToSpeechResource = (TextToSpeechResource)theEObject;
-				T1 result = caseTextToSpeechResource(textToSpeechResource);
+				T result = caseTextToSpeechResource(textToSpeechResource);
 				if (result == null) result = caseTextToSpeech(textToSpeechResource);
 				if (result == null) result = caseModelElement(textToSpeechResource);
-				if (result == null) result = caseISupplierFactory(textToSpeechResource);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -214,7 +209,7 @@ public class ComponentsSwitch<T1> extends Switch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseMarkdown(Markdown object) {
+	public T caseMarkdown(Markdown object) {
 		return null;
 	}
 
@@ -229,7 +224,7 @@ public class ComponentsSwitch<T1> extends Switch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseMarkdownText(MarkdownText object) {
+	public T caseMarkdownText(MarkdownText object) {
 		return null;
 	}
 
@@ -244,7 +239,7 @@ public class ComponentsSwitch<T1> extends Switch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseMarkdownResource(MarkdownResource object) {
+	public T caseMarkdownResource(MarkdownResource object) {
 		return null;
 	}
 
@@ -259,7 +254,7 @@ public class ComponentsSwitch<T1> extends Switch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseActionLink(ActionLink object) {
+	public T caseActionLink(ActionLink object) {
 		return null;
 	}
 
@@ -274,7 +269,7 @@ public class ComponentsSwitch<T1> extends Switch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseTableOfContentsBase(TableOfContentsBase object) {
+	public T caseTableOfContentsBase(TableOfContentsBase object) {
 		return null;
 	}
 
@@ -289,7 +284,7 @@ public class ComponentsSwitch<T1> extends Switch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseTableOfContents(TableOfContents object) {
+	public T caseTableOfContents(TableOfContents object) {
 		return null;
 	}
 
@@ -304,7 +299,7 @@ public class ComponentsSwitch<T1> extends Switch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseListOfContents(ListOfContents object) {
+	public T caseListOfContents(ListOfContents object) {
 		return null;
 	}
 
@@ -319,7 +314,7 @@ public class ComponentsSwitch<T1> extends Switch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseListOfActions(ListOfActions object) {
+	public T caseListOfActions(ListOfActions object) {
 		return null;
 	}
 
@@ -334,7 +329,7 @@ public class ComponentsSwitch<T1> extends Switch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseTableOfActions(TableOfActions object) {
+	public T caseTableOfActions(TableOfActions object) {
 		return null;
 	}
 
@@ -349,7 +344,7 @@ public class ComponentsSwitch<T1> extends Switch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseTextToSpeech(TextToSpeech object) {
+	public T caseTextToSpeech(TextToSpeech object) {
 		return null;
 	}
 
@@ -364,7 +359,7 @@ public class ComponentsSwitch<T1> extends Switch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseImage(Image object) {
+	public T caseImage(Image object) {
 		return null;
 	}
 
@@ -379,7 +374,7 @@ public class ComponentsSwitch<T1> extends Switch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseTextToSpeechText(TextToSpeechText object) {
+	public T caseTextToSpeechText(TextToSpeechText object) {
 		return null;
 	}
 
@@ -394,7 +389,7 @@ public class ComponentsSwitch<T1> extends Switch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseTextToSpeechResource(TextToSpeechResource object) {
+	public T caseTextToSpeechResource(TextToSpeechResource object) {
 		return null;
 	}
 
@@ -409,22 +404,7 @@ public class ComponentsSwitch<T1> extends Switch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseModelElement(ModelElement object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>ISupplier Factory</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>ISupplier Factory</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public <T> T1 caseISupplierFactory(SupplierFactory<T> object) {
+	public T caseModelElement(ModelElement object) {
 		return null;
 	}
 
@@ -439,7 +419,7 @@ public class ComponentsSwitch<T1> extends Switch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseHtmlElement(HtmlElement object) {
+	public T caseHtmlElement(HtmlElement object) {
 		return null;
 	}
 
@@ -454,7 +434,7 @@ public class ComponentsSwitch<T1> extends Switch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseBootstrapElement(BootstrapElement object) {
+	public T caseBootstrapElement(BootstrapElement object) {
 		return null;
 	}
 
@@ -469,7 +449,7 @@ public class ComponentsSwitch<T1> extends Switch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseTableConfiguration(TableConfiguration object) {
+	public T caseTableConfiguration(TableConfiguration object) {
 		return null;
 	}
 
@@ -485,7 +465,7 @@ public class ComponentsSwitch<T1> extends Switch<T1> {
 	 * @generated
 	 */
 	@Override
-	public T1 defaultCase(EObject object) {
+	public T defaultCase(EObject object) {
 		return null;
 	}
 

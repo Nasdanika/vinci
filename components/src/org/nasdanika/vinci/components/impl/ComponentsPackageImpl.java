@@ -4,7 +4,6 @@ package org.nasdanika.vinci.components.impl;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EGenericType;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
@@ -758,7 +757,6 @@ public class ComponentsPackageImpl extends EPackageImpl implements ComponentsPac
 		NcorePackage theNcorePackage = (NcorePackage)EPackage.Registry.INSTANCE.getEPackage(NcorePackage.eNS_URI);
 		BootstrapPackage theBootstrapPackage = (BootstrapPackage)EPackage.Registry.INSTANCE.getEPackage(BootstrapPackage.eNS_URI);
 		AppPackage theAppPackage = (AppPackage)EPackage.Registry.INSTANCE.getEPackage(AppPackage.eNS_URI);
-		HtmlPackage theHtmlPackage = (HtmlPackage)EPackage.Registry.INSTANCE.getEPackage(HtmlPackage.eNS_URI);
 
 		// Create type parameters
 
@@ -775,18 +773,8 @@ public class ComponentsPackageImpl extends EPackageImpl implements ComponentsPac
 		listOfContentsEClass.getESuperTypes().add(this.getTableOfContentsBase());
 		listOfActionsEClass.getESuperTypes().add(this.getListOfContents());
 		tableOfActionsEClass.getESuperTypes().add(this.getTableOfContents());
-		EGenericType g1 = createEGenericType(theNcorePackage.getModelElement());
-		textToSpeechEClass.getEGenericSuperTypes().add(g1);
-		g1 = createEGenericType(theNcorePackage.getISupplierFactory());
-		EGenericType g2 = createEGenericType(theHtmlPackage.getViewPart());
-		g1.getETypeArguments().add(g2);
-		textToSpeechEClass.getEGenericSuperTypes().add(g1);
-		g1 = createEGenericType(theNcorePackage.getModelElement());
-		imageEClass.getEGenericSuperTypes().add(g1);
-		g1 = createEGenericType(theNcorePackage.getISupplierFactory());
-		g2 = createEGenericType(theHtmlPackage.getViewPart());
-		g1.getETypeArguments().add(g2);
-		imageEClass.getEGenericSuperTypes().add(g1);
+		textToSpeechEClass.getESuperTypes().add(theNcorePackage.getModelElement());
+		imageEClass.getESuperTypes().add(theNcorePackage.getModelElement());
 		textToSpeechTextEClass.getESuperTypes().add(this.getTextToSpeech());
 		textToSpeechResourceEClass.getESuperTypes().add(this.getTextToSpeech());
 

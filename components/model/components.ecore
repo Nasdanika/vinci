@@ -152,7 +152,7 @@
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="TextToSpeech" abstract="true">
+  <eClassifiers xsi:type="ecore:EClass" name="TextToSpeech" abstract="true" eSuperTypes="../../org.nasdanika.ncore/model/ncore.ecore#//ModelElement">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Uses [Google Text-to-Speech](https://cloud.google.com/text-to-speech) to synthesize &#xA;voice from text or [SSML](https://cloud.google.com/text-to-speech/docs/ssml). &#xA;Voice is output to an mp3 file. File name is defined by the ``path`` attribute if it is not blank. &#xA;In this case path is resolved relative to the containing action. &#xA;If ``path`` attribute is blank then the file name is computed as a digest of the sound bytes.&#xA;&#xA;Generates audio tag which plays the synthesized speech.&#xA;&#xA;Use of text to speech requires ``GOOGLE_APPLICATION_CREDENTIALS`` environment variable to be set to the location of the private key JSON file.&#xA;See https://developers.google.com/accounts/docs/application-default-credentials for more information.&#xA;   "/>
     </eAnnotations>
@@ -193,12 +193,8 @@
         <details key="documentation" value="If true, audio data is not stored to a file, but is embedded into the page using ``data:`` URI."/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eGenericSuperTypes eClassifier="ecore:EClass ../../org.nasdanika.ncore/model/ncore.ecore#//ModelElement"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass ../../org.nasdanika.ncore/model/ncore.ecore#//ISupplierFactory">
-      <eTypeArguments eClassifier="ecore:EClass ../../org.nasdanika.vinci.html/model/html.ecore#//ViewPart"/>
-    </eGenericSuperTypes>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Image">
+  <eClassifiers xsi:type="ecore:EClass" name="Image" eSuperTypes="../../org.nasdanika.ncore/model/ncore.ecore#//ModelElement">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Embedded image which can be loaded from a file or taken as a screenshot."/>
     </eAnnotations>
@@ -236,10 +232,6 @@
         <details key="documentation" value="Image width"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eGenericSuperTypes eClassifier="ecore:EClass ../../org.nasdanika.ncore/model/ncore.ecore#//ModelElement"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass ../../org.nasdanika.ncore/model/ncore.ecore#//ISupplierFactory">
-      <eTypeArguments eClassifier="ecore:EClass ../../org.nasdanika.vinci.html/model/html.ecore#//ViewPart"/>
-    </eGenericSuperTypes>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TextToSpeechText" eSuperTypes="#//TextToSpeech">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">

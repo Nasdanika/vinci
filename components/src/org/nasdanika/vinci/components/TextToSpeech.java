@@ -2,8 +2,6 @@
  */
 package org.nasdanika.vinci.components;
 
-import org.nasdanika.common.SupplierFactory;
-import org.nasdanika.html.app.ViewPart;
 import org.nasdanika.ncore.ModelElement;
 import org.nasdanika.vinci.bootstrap.Appearance;
 
@@ -40,10 +38,10 @@ import org.nasdanika.vinci.bootstrap.Appearance;
  * </ul>
  *
  * @see org.nasdanika.vinci.components.ComponentsPackage#getTextToSpeech()
- * @model abstract="true" superTypes="org.nasdanika.ncore.ModelElement org.nasdanika.ncore.ISupplierFactory&lt;org.nasdanika.vinci.html.ViewPart&gt;"
+ * @model abstract="true"
  * @generated
  */
-public interface TextToSpeech extends ModelElement, SupplierFactory<ViewPart> {
+public interface TextToSpeech extends ModelElement {
 	/**
 	 * Returns the value of the '<em><b>Language</b></em>' attribute.
 	 * <!-- begin-user-doc -->
