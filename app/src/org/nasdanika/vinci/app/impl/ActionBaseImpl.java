@@ -2,7 +2,6 @@
  */
 package org.nasdanika.vinci.app.impl;
 
-import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -29,7 +28,6 @@ import org.nasdanika.common.MutableContext;
 import org.nasdanika.common.NasdanikaException;
 import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.common.Reference;
-import org.nasdanika.common.Supplier;
 import org.nasdanika.common.SupplierFactory;
 import org.nasdanika.common.Util;
 import org.nasdanika.emf.EObjectAdaptable;
@@ -46,7 +44,6 @@ import org.nasdanika.vinci.app.ActionMapping;
 import org.nasdanika.vinci.app.ActionRole;
 import org.nasdanika.vinci.app.ActivatorType;
 import org.nasdanika.vinci.app.AppPackage;
-import org.nasdanika.vinci.app.BootstrapContainerApplicationBuilder;
 import org.nasdanika.vinci.app.Widget;
 
 /**
@@ -439,7 +436,7 @@ public abstract class ActionBaseImpl extends LabelImpl implements ActionBase {
 	 * @generated NOT
 	 */
 	@Override
-	public Supplier<Object> createApplicationBuilderSupplier(Context context) throws Exception {
+	public org.nasdanika.common.Supplier<Object> createApplicationBuilderSupplier(Context context) throws Exception {
 		return ActionBase.super.createApplicationBuilderSupplier(context);
 	}
 
@@ -677,11 +674,6 @@ public abstract class ActionBaseImpl extends LabelImpl implements ActionBase {
 	 */
 	@Override
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
-		if (baseClass == BootstrapContainerApplicationBuilder.class) {
-			switch (derivedFeatureID) {
-				default: return -1;
-			}
-		}
 		if (baseClass == ActionElement.class) {
 			switch (derivedFeatureID) {
 				default: return -1;
@@ -716,11 +708,6 @@ public abstract class ActionBaseImpl extends LabelImpl implements ActionBase {
 	 */
 	@Override
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
-		if (baseClass == BootstrapContainerApplicationBuilder.class) {
-			switch (baseFeatureID) {
-				default: return -1;
-			}
-		}
 		if (baseClass == ActionElement.class) {
 			switch (baseFeatureID) {
 				default: return -1;
@@ -748,64 +735,9 @@ public abstract class ActionBaseImpl extends LabelImpl implements ActionBase {
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public int eDerivedOperationID(int baseOperationID, Class<?> baseClass) {
-		if (baseClass == BootstrapContainerApplicationBuilder.class) {
-			switch (baseOperationID) {
-				case AppPackage.BOOTSTRAP_CONTAINER_APPLICATION_BUILDER___CREATE_APPLICATION_BUILDER_SUPPLIER__CONTEXT: return AppPackage.ACTION_BASE___CREATE_APPLICATION_BUILDER_SUPPLIER__CONTEXT;
-				default: return -1;
-			}
-		}
-		if (baseClass == ActionElement.class) {
-			switch (baseOperationID) {
-				default: return -1;
-			}
-		}
-		if (baseClass == Configurable.class) {
-			switch (baseOperationID) {
-				default: return -1;
-			}
-		}
-		if (baseClass == AbstractAction.class) {
-			switch (baseOperationID) {
-				default: return -1;
-			}
-		}
-		if (baseClass == org.nasdanika.vinci.app.Container.class) {
-			switch (baseOperationID) {
-				default: return -1;
-			}
-		}
-		return super.eDerivedOperationID(baseOperationID, baseClass);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
-		switch (operationID) {
-			case AppPackage.ACTION_BASE___CREATE_APPLICATION_BUILDER_SUPPLIER__CONTEXT:
-				try {
-					return createApplicationBuilderSupplier((Context)arguments.get(0));
-				}
-				catch (Throwable throwable) {
-					throw new InvocationTargetException(throwable);
-				}
-		}
-		return super.eInvoke(operationID, arguments);
-	}
-
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
-	public Supplier<Object> create(Context context) throws Exception {
+	public org.nasdanika.common.Supplier<Object> create(Context context) throws Exception {
 		
 		String ELEMENTS_KEY = "Elements";		
 		String CONTENT_KEY = "Content";	

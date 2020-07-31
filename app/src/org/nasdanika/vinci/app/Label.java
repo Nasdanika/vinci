@@ -2,7 +2,6 @@
  */
 package org.nasdanika.vinci.app;
 
-import org.nasdanika.common.SupplierFactory;
 import org.nasdanika.ncore.Entity;
 import org.nasdanika.vinci.bootstrap.Appearance;
 
@@ -29,11 +28,11 @@ import org.nasdanika.vinci.bootstrap.Appearance;
  * </ul>
  *
  * @see org.nasdanika.vinci.app.AppPackage#getLabel()
- * @model abstract="true" superTypes="org.nasdanika.ncore.Entity org.nasdanika.ncore.ISupplierFactory&lt;org.eclipse.emf.ecore.EJavaObject&gt;"
+ * @model abstract="true"
  *        annotation="http://www.eclipse.org/emf/2002/Ecore constraints='color'"
  * @generated
  */
-public interface Label extends Entity, SupplierFactory<Object> {
+public interface Label extends Entity {
 	/**
 	 * Returns the value of the '<em><b>Color</b></em>' attribute.
 	 * <!-- begin-user-doc -->

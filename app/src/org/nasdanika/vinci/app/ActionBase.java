@@ -41,6 +41,7 @@ import org.nasdanika.ncore.Value;
  * @generated
  */
 public interface ActionBase extends Label, AbstractAction, Container<ActionElement> {
+		
 	/**
 	 * Returns the value of the '<em><b>Role</b></em>' attribute.
 	 * The default value is <code>"Navigation"</code>.

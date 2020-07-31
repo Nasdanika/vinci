@@ -2,7 +2,6 @@
  */
 package org.nasdanika.vinci.app.impl;
 
-import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -14,13 +13,11 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.nasdanika.common.Context;
 import org.nasdanika.common.MutableContext;
-import org.nasdanika.common.Supplier;
 import org.nasdanika.common.SupplierFactory;
 import org.nasdanika.common.Util;
 import org.nasdanika.ncore.Configurable;
 import org.nasdanika.ncore.NcorePackage;
 import org.nasdanika.vinci.app.AbstractAction;
-import org.nasdanika.vinci.app.ActionElement;
 import org.nasdanika.vinci.app.ActionMapping;
 import org.nasdanika.vinci.app.ActionReference;
 import org.nasdanika.vinci.app.AppPackage;
@@ -219,7 +216,7 @@ public class ActionReferenceImpl extends MinimalEObjectImpl.Container implements
 	 * @generated NOT
 	 */
 	@Override
-	public Supplier<Object> createApplicationBuilderSupplier(Context context) throws Exception {
+	public org.nasdanika.common.Supplier<Object> createApplicationBuilderSupplier(Context context) throws Exception {
 		return ActionReference.super.createApplicationBuilderSupplier(context);
 	}
 
@@ -358,19 +355,9 @@ public class ActionReferenceImpl extends MinimalEObjectImpl.Container implements
 	 */
 	@Override
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
-		if (baseClass == ActionElement.class) {
-			switch (derivedFeatureID) {
-				default: return -1;
-			}
-		}
 		if (baseClass == Configurable.class) {
 			switch (derivedFeatureID) {
 				case AppPackage.ACTION_REFERENCE__CONFIGURATION: return NcorePackage.CONFIGURABLE__CONFIGURATION;
-				default: return -1;
-			}
-		}
-		if (baseClass == SupplierFactory.class) {
-			switch (derivedFeatureID) {
 				default: return -1;
 			}
 		}
@@ -384,46 +371,17 @@ public class ActionReferenceImpl extends MinimalEObjectImpl.Container implements
 	 */
 	@Override
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
-		if (baseClass == ActionElement.class) {
-			switch (baseFeatureID) {
-				default: return -1;
-			}
-		}
 		if (baseClass == Configurable.class) {
 			switch (baseFeatureID) {
 				case NcorePackage.CONFIGURABLE__CONFIGURATION: return AppPackage.ACTION_REFERENCE__CONFIGURATION;
 				default: return -1;
 			}
 		}
-		if (baseClass == SupplierFactory.class) {
-			switch (baseFeatureID) {
-				default: return -1;
-			}
-		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
-	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
-		switch (operationID) {
-			case AppPackage.ACTION_REFERENCE___CREATE_APPLICATION_BUILDER_SUPPLIER__CONTEXT:
-				try {
-					return createApplicationBuilderSupplier((Context)arguments.get(0));
-				}
-				catch (Throwable throwable) {
-					throw new InvocationTargetException(throwable);
-				}
-		}
-		return super.eInvoke(operationID, arguments);
-	}
-
-	@Override
-	public Supplier<Object> create(Context context) throws Exception {
+	public org.nasdanika.common.Supplier<Object> create(Context context) throws Exception {
 		MutableContext actionContext = context.fork();
 		new ActionMappingsPropertyComputer(context, "action-mappings", getActionMappings()).put(actionContext);
 		String path = getPath();

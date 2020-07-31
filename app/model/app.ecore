@@ -23,7 +23,7 @@
       <eGenericType eTypeParameter="#//Container/E"/>
     </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Label" abstract="true">
+  <eClassifiers xsi:type="ecore:EClass" name="Label" abstract="true" eSuperTypes="../../org.nasdanika.ncore/model/ncore.ecore#//Entity">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Label is a base class for actions and categories."/>
     </eAnnotations>
@@ -66,10 +66,6 @@
         <details key="documentation" value="Can be used for cusomization of label appearance in addition to &quot;built-in&quot; label appearance attributes - color and outline."/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eGenericSuperTypes eClassifier="ecore:EClass ../../org.nasdanika.ncore/model/ncore.ecore#//Entity"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass ../../org.nasdanika.ncore/model/ncore.ecore#//ISupplierFactory">
-      <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
-    </eGenericSuperTypes>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Category" abstract="true">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -86,7 +82,8 @@
       <details key="documentation" value="An element which can be contained by an action - action category or abstract action."/>
     </eAnnotations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="AbstractAction" abstract="true" interface="true">
+  <eClassifiers xsi:type="ecore:EClass" name="AbstractAction" abstract="true" interface="true"
+      eSuperTypes="#//ActionElement ../../org.nasdanika.ncore/model/ncore.ecore#//Configurable">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Base class for different types of actions - action, action link, and action reference."/>
     </eAnnotations>
@@ -96,12 +93,6 @@
         <details key="documentation" value="A collection of mappings of action logical names to target actions. Action mappings are inherited by action children."/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eGenericSuperTypes eClassifier="#//BootstrapContainerApplicationBuilder"/>
-    <eGenericSuperTypes eClassifier="#//ActionElement"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass ../../org.nasdanika.ncore/model/ncore.ecore#//Configurable"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass ../../org.nasdanika.ncore/model/ncore.ecore#//ISupplierFactory">
-      <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
-    </eGenericSuperTypes>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ActionCategory">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -305,7 +296,7 @@
       <details key="documentation" value="Concrete action class represented as a container node on a diagram containing actions and other partitions."/>
     </eAnnotations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="BootstrapContainerApplication">
+  <eClassifiers xsi:type="ecore:EClass" name="BootstrapContainerApplication" eSuperTypes="../../org.nasdanika.vinci.bootstrap/model/bootstrap.ecore#//BootstrapElement">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Bootstrap container application is a page builder which structures a page into 5 areas:&#xA;&#xA;* Header&#xA;* Navigation bar&#xA;* Navigation pane&#xA;* Content pane&#xA;* Footer&#xA;&#xA;Page structuring is performed with Bootstrap container, rows and columns. &#xA;&#xA;Appearance of the top-level container can be customized using Appearance child element. Appearance of the row containing navigation and content panels can be customized using ``children/content-row`` attributes section.&#xA;&#xA;E.g. &#xA;&#xA;```yaml&#xA;children:&#xA;    content-row:&#xA;        style:&#xA;            min-height: 15rem&#xA;```&#xA;&#xA;Also application can be customized by providing a stylesheet or script. Script can be used to implement &quot;rules inheritance&quot; which is not supported by CSS. &#xA;Below is a sample script demonstrating the approach:&#xA;&#xA;```&#xA;$(document).ready( function() {&#xA;  $('.nsd-root-action').css(['.display-4']);&#xA;}&#xA;```&#xA;&#xA;[Overview video](https://www.youtube.com/watch?v=W-hGbnM9wNM) in Russian.&#xA;&#xA;&#xA;"/>
     </eAnnotations>
@@ -350,15 +341,11 @@
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="builders" upperBound="-1"
-        eType="#//BootstrapContainerApplicationBuilder" containment="true">
+        eType="#//AbstractAction" containment="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Builders operate on an instance of ``org.nasdanika.html.app.impl.BootstrapContainerApplication`` or ``org.nasdanika.html.app.impl.BootstrapContainerRouterApplication``&#xA;passed to them by this model element during generation."/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eGenericSuperTypes eClassifier="ecore:EClass ../../org.nasdanika.vinci.bootstrap/model/bootstrap.ecore#//BootstrapElement"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass ../../org.nasdanika.ncore/model/ncore.ecore#//ISupplierFactory">
-      <eTypeArguments eClassifier="ecore:EClass ../../org.nasdanika.vinci.html/model/html.ecore#//ViewBuilder"/>
-    </eGenericSuperTypes>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BootstrapContainerApplicationSection"
       eSuperTypes="../../org.nasdanika.vinci.bootstrap/model/bootstrap.ecore#//BootstrapElement ../../org.nasdanika.vinci.html/model/html.ecore#//Container">
@@ -379,29 +366,9 @@
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="BootstrapContainerApplicationBuilder"
-      abstract="true" interface="true">
-    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="Contributes to building BootstrapContainerApplication"/>
-    </eAnnotations>
-    <eOperations name="createApplicationBuilderSupplier" eExceptions="ecore:EDataType ../../org.nasdanika.ncore/model/ncore.ecore#//Exception">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Creates a supplier of ApplicationBuilder used to build the application."/>
-      </eAnnotations>
-      <eGenericType eClassifier="ecore:EClass ../../org.nasdanika.ncore/model/ncore.ecore#//ISupplier">
-        <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
-      </eGenericType>
-      <eParameters name="context" eType="ecore:EDataType ../../org.nasdanika.ncore/model/ncore.ecore#//IContext"/>
-    </eOperations>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Widget">
+  <eClassifiers xsi:type="ecore:EClass" name="Widget" eSuperTypes="../../org.nasdanika.ncore/model/ncore.ecore#//NamedElement ../../org.nasdanika.vinci.html/model/html.ecore#//Container">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Named content which is injected into the generated context under ``widgets/&lt;widget name>`` and can be referenced from, say, markdown. This allows to combine the simplicity and ease of use of markdown with advanced functionality of components, e.g. the image component."/>
     </eAnnotations>
-    <eGenericSuperTypes eClassifier="ecore:EClass ../../org.nasdanika.ncore/model/ncore.ecore#//NamedElement"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass ../../org.nasdanika.vinci.html/model/html.ecore#//Container"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass ../../org.nasdanika.ncore/model/ncore.ecore#//ISupplierFactory">
-      <eTypeArguments eClassifier="ecore:EClass ../../org.nasdanika.vinci.html/model/html.ecore#//ViewPart"/>
-    </eGenericSuperTypes>
   </eClassifiers>
 </ecore:EPackage>

@@ -7,7 +7,6 @@ import java.util.List;
 
 import org.eclipse.emf.common.util.EList;
 import org.nasdanika.common.Context;
-import org.nasdanika.common.Supplier;
 import org.nasdanika.common.SupplierFactory;
 import org.nasdanika.common.Util;
 import org.nasdanika.html.app.Action;
@@ -36,10 +35,28 @@ import org.nasdanika.ncore.Configurable;
  * </ul>
  *
  * @see org.nasdanika.vinci.app.AppPackage#getAbstractAction()
- * @model interface="true" abstract="true" superTypes="org.nasdanika.vinci.app.BootstrapContainerApplicationBuilder org.nasdanika.vinci.app.ActionElement org.nasdanika.ncore.Configurable org.nasdanika.ncore.ISupplierFactory&lt;org.eclipse.emf.ecore.EJavaObject&gt;"
+ * @model interface="true" abstract="true"
  * @generated
  */
-public interface AbstractAction extends BootstrapContainerApplicationBuilder, ActionElement, Configurable, SupplierFactory<Object> {
+public interface AbstractAction extends ActionElement, Configurable {
+	
+	/**
+	 * Binding of org.nasdanika.Supplier to {@link AbstractAction}
+	 * @author Pavel
+	 *
+	 */
+	interface Supplier extends org.nasdanika.common.Supplier<AbstractAction> {
+		
+		/**
+		 * Binding of {@link SupplierFactory} to {@link Supplier}
+		 * @author Pavel
+		 *
+		 */
+		interface Factory extends SupplierFactory<Supplier> {
+			
+		}
+		
+	}			
 
 	/**
 	 * Returns the value of the '<em><b>Action Mappings</b></em>' containment reference list.
@@ -59,7 +76,7 @@ public interface AbstractAction extends BootstrapContainerApplicationBuilder, Ac
 	/**
 	 */
 	@Override
-	default Supplier<Object> createApplicationBuilderSupplier(Context context) throws Exception {
+	default org.nasdanika.common.Supplier<Object> createApplicationBuilderSupplier(Context context) throws Exception {
 		
 		// Returns application builder
 		return create(context).then(action -> {

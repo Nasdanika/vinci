@@ -44,7 +44,7 @@ public class ActionFacade extends org.nasdanika.html.app.impl.ActionImpl impleme
 		
 	private List<Object> content;
 
-	private Supplier<ViewBuilder> decoratorSupplier;
+	private org.nasdanika.common.Supplier<ViewBuilder> decoratorSupplier;
 
 	private Context actionContext; 
 
@@ -174,7 +174,7 @@ public class ActionFacade extends org.nasdanika.html.app.impl.ActionImpl impleme
 			
 			Appearance categoryAappearance = actionCategory.getAppearance();
 			@SuppressWarnings("resource")
-			Supplier<ViewBuilder> categoryDecoratorSupplier = categoryAappearance == null ? null : categoryAappearance.create(actionContext);
+			org.nasdanika.common.Supplier<ViewBuilder> categoryDecoratorSupplier = categoryAappearance == null ? null : categoryAappearance.create(actionContext);
 			
 			class CategoryFacade extends org.nasdanika.html.app.impl.LabelImpl implements Decorator {
 

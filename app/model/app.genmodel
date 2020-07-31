@@ -85,11 +85,6 @@
     <genClasses ecoreClass="app.ecore#//BootstrapContainerApplicationPanel">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference app.ecore#//BootstrapContainerApplicationPanel/width"/>
     </genClasses>
-    <genClasses image="false" ecoreClass="app.ecore#//BootstrapContainerApplicationBuilder">
-      <genOperations ecoreOperation="app.ecore#//BootstrapContainerApplicationBuilder/createApplicationBuilderSupplier">
-        <genParameters ecoreParameter="app.ecore#//BootstrapContainerApplicationBuilder/createApplicationBuilderSupplier/context"/>
-      </genOperations>
-    </genClasses>
     <genClasses ecoreClass="app.ecore#//Widget"/>
   </genPackages>
 </genmodel:GenModel>

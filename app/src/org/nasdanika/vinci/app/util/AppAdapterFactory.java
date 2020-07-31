@@ -6,29 +6,11 @@ import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
-import org.nasdanika.common.SupplierFactory;
 import org.nasdanika.ncore.Configurable;
 import org.nasdanika.ncore.Entity;
 import org.nasdanika.ncore.ModelElement;
 import org.nasdanika.ncore.NamedElement;
 import org.nasdanika.vinci.app.*;
-import org.nasdanika.vinci.app.AbstractAction;
-import org.nasdanika.vinci.app.Action;
-import org.nasdanika.vinci.app.ActionBase;
-import org.nasdanika.vinci.app.ActionCategory;
-import org.nasdanika.vinci.app.ActionElement;
-import org.nasdanika.vinci.app.ActionLink;
-import org.nasdanika.vinci.app.ActionMapping;
-import org.nasdanika.vinci.app.ActionReference;
-import org.nasdanika.vinci.app.AppPackage;
-import org.nasdanika.vinci.app.BootstrapContainerApplication;
-import org.nasdanika.vinci.app.BootstrapContainerApplicationBuilder;
-import org.nasdanika.vinci.app.BootstrapContainerApplicationPanel;
-import org.nasdanika.vinci.app.BootstrapContainerApplicationSection;
-import org.nasdanika.vinci.app.Category;
-import org.nasdanika.vinci.app.Container;
-import org.nasdanika.vinci.app.Label;
-import org.nasdanika.vinci.app.Partition;
 import org.nasdanika.vinci.bootstrap.BootstrapElement;
 import org.nasdanika.vinci.html.HtmlElement;
 
@@ -149,10 +131,6 @@ public class AppAdapterFactory extends AdapterFactoryImpl {
 				return createBootstrapContainerApplicationPanelAdapter();
 			}
 			@Override
-			public Adapter caseBootstrapContainerApplicationBuilder(BootstrapContainerApplicationBuilder object) {
-				return createBootstrapContainerApplicationBuilderAdapter();
-			}
-			@Override
 			public Adapter caseWidget(Widget object) {
 				return createWidgetAdapter();
 			}
@@ -163,10 +141,6 @@ public class AppAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseEntity(Entity object) {
 				return createEntityAdapter();
-			}
-			@Override
-			public <T> Adapter caseISupplierFactory(SupplierFactory<T> object) {
-				return createISupplierFactoryAdapter();
 			}
 			@Override
 			public Adapter caseConfigurable(Configurable object) {
@@ -307,20 +281,6 @@ public class AppAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.nasdanika.vinci.app.BootstrapContainerApplicationBuilder <em>Bootstrap Container Application Builder</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.nasdanika.vinci.app.BootstrapContainerApplicationBuilder
-	 * @generated
-	 */
-	public Adapter createBootstrapContainerApplicationBuilderAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link org.nasdanika.vinci.app.Widget <em>Widget</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -359,20 +319,6 @@ public class AppAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createEntityAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.nasdanika.common.SupplierFactory <em>ISupplier Factory</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.nasdanika.common.SupplierFactory
-	 * @generated
-	 */
-	public Adapter createISupplierFactoryAdapter() {
 		return null;
 	}
 

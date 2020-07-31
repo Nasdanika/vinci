@@ -8,7 +8,6 @@ import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EGenericType;
-import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.ETypeParameter;
@@ -27,7 +26,6 @@ import org.nasdanika.vinci.app.ActivatorType;
 import org.nasdanika.vinci.app.AppFactory;
 import org.nasdanika.vinci.app.AppPackage;
 import org.nasdanika.vinci.app.BootstrapContainerApplication;
-import org.nasdanika.vinci.app.BootstrapContainerApplicationBuilder;
 import org.nasdanika.vinci.app.BootstrapContainerApplicationPanel;
 import org.nasdanika.vinci.app.BootstrapContainerApplicationSection;
 import org.nasdanika.vinci.app.Category;
@@ -93,13 +91,6 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 	 * @generated
 	 */
 	private EClass bootstrapContainerApplicationPanelEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass bootstrapContainerApplicationBuilderEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -475,26 +466,6 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 	@Override
 	public EReference getBootstrapContainerApplicationPanel_Width() {
 		return (EReference)bootstrapContainerApplicationPanelEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EClass getBootstrapContainerApplicationBuilder() {
-		return bootstrapContainerApplicationBuilderEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EOperation getBootstrapContainerApplicationBuilder__CreateApplicationBuilderSupplier__Context() {
-		return bootstrapContainerApplicationBuilderEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -947,9 +918,6 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 		bootstrapContainerApplicationPanelEClass = createEClass(BOOTSTRAP_CONTAINER_APPLICATION_PANEL);
 		createEReference(bootstrapContainerApplicationPanelEClass, BOOTSTRAP_CONTAINER_APPLICATION_PANEL__WIDTH);
 
-		bootstrapContainerApplicationBuilderEClass = createEClass(BOOTSTRAP_CONTAINER_APPLICATION_BUILDER);
-		createEOperation(bootstrapContainerApplicationBuilderEClass, BOOTSTRAP_CONTAINER_APPLICATION_BUILDER___CREATE_APPLICATION_BUILDER_SUPPLIER__CONTEXT);
-
 		widgetEClass = createEClass(WIDGET);
 
 		// Create enums
@@ -991,28 +959,15 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		EGenericType g1 = createEGenericType(theNcorePackage.getEntity());
-		labelEClass.getEGenericSuperTypes().add(g1);
-		g1 = createEGenericType(theNcorePackage.getISupplierFactory());
-		EGenericType g2 = createEGenericType(ecorePackage.getEJavaObject());
-		g1.getETypeArguments().add(g2);
-		labelEClass.getEGenericSuperTypes().add(g1);
-		g1 = createEGenericType(this.getLabel());
+		labelEClass.getESuperTypes().add(theNcorePackage.getEntity());
+		EGenericType g1 = createEGenericType(this.getLabel());
 		categoryEClass.getEGenericSuperTypes().add(g1);
 		g1 = createEGenericType(this.getContainer());
-		g2 = createEGenericType(categoryEClass_E);
+		EGenericType g2 = createEGenericType(categoryEClass_E);
 		g1.getETypeArguments().add(g2);
 		categoryEClass.getEGenericSuperTypes().add(g1);
-		g1 = createEGenericType(this.getBootstrapContainerApplicationBuilder());
-		abstractActionEClass.getEGenericSuperTypes().add(g1);
-		g1 = createEGenericType(this.getActionElement());
-		abstractActionEClass.getEGenericSuperTypes().add(g1);
-		g1 = createEGenericType(theNcorePackage.getConfigurable());
-		abstractActionEClass.getEGenericSuperTypes().add(g1);
-		g1 = createEGenericType(theNcorePackage.getISupplierFactory());
-		g2 = createEGenericType(ecorePackage.getEJavaObject());
-		g1.getETypeArguments().add(g2);
-		abstractActionEClass.getEGenericSuperTypes().add(g1);
+		abstractActionEClass.getESuperTypes().add(this.getActionElement());
+		abstractActionEClass.getESuperTypes().add(theNcorePackage.getConfigurable());
 		g1 = createEGenericType(this.getCategory());
 		g2 = createEGenericType(this.getAbstractAction());
 		g1.getETypeArguments().add(g2);
@@ -1031,23 +986,12 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 		actionReferenceEClass.getESuperTypes().add(this.getAbstractAction());
 		actionEClass.getESuperTypes().add(this.getActionBase());
 		partitionEClass.getESuperTypes().add(this.getActionBase());
-		g1 = createEGenericType(theBootstrapPackage.getBootstrapElement());
-		bootstrapContainerApplicationEClass.getEGenericSuperTypes().add(g1);
-		g1 = createEGenericType(theNcorePackage.getISupplierFactory());
-		g2 = createEGenericType(theHtmlPackage.getViewBuilder());
-		g1.getETypeArguments().add(g2);
-		bootstrapContainerApplicationEClass.getEGenericSuperTypes().add(g1);
+		bootstrapContainerApplicationEClass.getESuperTypes().add(theBootstrapPackage.getBootstrapElement());
 		bootstrapContainerApplicationSectionEClass.getESuperTypes().add(theBootstrapPackage.getBootstrapElement());
 		bootstrapContainerApplicationSectionEClass.getESuperTypes().add(theHtmlPackage.getContainer());
 		bootstrapContainerApplicationPanelEClass.getESuperTypes().add(this.getBootstrapContainerApplicationSection());
-		g1 = createEGenericType(theNcorePackage.getNamedElement());
-		widgetEClass.getEGenericSuperTypes().add(g1);
-		g1 = createEGenericType(theHtmlPackage.getContainer());
-		widgetEClass.getEGenericSuperTypes().add(g1);
-		g1 = createEGenericType(theNcorePackage.getISupplierFactory());
-		g2 = createEGenericType(theHtmlPackage.getViewPart());
-		g1.getETypeArguments().add(g2);
-		widgetEClass.getEGenericSuperTypes().add(g1);
+		widgetEClass.getESuperTypes().add(theNcorePackage.getNamedElement());
+		widgetEClass.getESuperTypes().add(theHtmlPackage.getContainer());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(containerEClass, org.nasdanika.vinci.app.Container.class, "Container", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1116,22 +1060,12 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 		initEReference(getBootstrapContainerApplication_NavigationPanel(), this.getBootstrapContainerApplicationPanel(), null, "navigationPanel", null, 0, 1, BootstrapContainerApplication.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getBootstrapContainerApplication_ContentPanel(), this.getBootstrapContainerApplicationPanel(), null, "contentPanel", null, 0, 1, BootstrapContainerApplication.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getBootstrapContainerApplication_Footer(), this.getBootstrapContainerApplicationSection(), null, "footer", null, 0, 1, BootstrapContainerApplication.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getBootstrapContainerApplication_Builders(), this.getBootstrapContainerApplicationBuilder(), null, "builders", null, 0, -1, BootstrapContainerApplication.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBootstrapContainerApplication_Builders(), this.getAbstractAction(), null, "builders", null, 0, -1, BootstrapContainerApplication.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(bootstrapContainerApplicationSectionEClass, BootstrapContainerApplicationSection.class, "BootstrapContainerApplicationSection", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(bootstrapContainerApplicationPanelEClass, BootstrapContainerApplicationPanel.class, "BootstrapContainerApplicationPanel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getBootstrapContainerApplicationPanel_Width(), theBootstrapPackage.getColumnWidth(), null, "width", null, 0, -1, BootstrapContainerApplicationPanel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(bootstrapContainerApplicationBuilderEClass, BootstrapContainerApplicationBuilder.class, "BootstrapContainerApplicationBuilder", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		EOperation op = initEOperation(getBootstrapContainerApplicationBuilder__CreateApplicationBuilderSupplier__Context(), null, "createApplicationBuilderSupplier", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theNcorePackage.getIContext(), "context", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEException(op, theNcorePackage.getException());
-		g1 = createEGenericType(theNcorePackage.getISupplier());
-		g2 = createEGenericType(ecorePackage.getEJavaObject());
-		g1.getETypeArguments().add(g2);
-		initEOperation(op, g1);
 
 		initEClass(widgetEClass, Widget.class, "Widget", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1540,18 +1474,6 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 		   source,
 		   new String[] {
 			   "documentation", "Columnt widths for different breakpoints."
-		   });
-		addAnnotation
-		  (bootstrapContainerApplicationBuilderEClass,
-		   source,
-		   new String[] {
-			   "documentation", "Contributes to building BootstrapContainerApplication"
-		   });
-		addAnnotation
-		  (getBootstrapContainerApplicationBuilder__CreateApplicationBuilderSupplier__Context(),
-		   source,
-		   new String[] {
-			   "documentation", "Creates a supplier of ApplicationBuilder used to build the application."
 		   });
 		addAnnotation
 		  (widgetEClass,

@@ -2,8 +2,6 @@
  */
 package org.nasdanika.vinci.app;
 
-import org.nasdanika.common.SupplierFactory;
-import org.nasdanika.html.app.ViewPart;
 import org.nasdanika.ncore.NamedElement;
 import org.nasdanika.vinci.html.Container;
 
@@ -18,9 +16,9 @@ import org.nasdanika.vinci.html.Container;
  *
  *
  * @see org.nasdanika.vinci.app.AppPackage#getWidget()
- * @model superTypes="org.nasdanika.ncore.NamedElement org.nasdanika.vinci.html.Container org.nasdanika.ncore.ISupplierFactory&lt;org.nasdanika.vinci.html.ViewPart&gt;"
+ * @model
  * @generated
  */
-public interface Widget extends NamedElement, Container, SupplierFactory<ViewPart> {
+public interface Widget extends NamedElement, Container {
 
 } // Widget

@@ -2,7 +2,6 @@
  */
 package org.nasdanika.vinci.app.impl;
 
-import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 import java.util.Map;
 
@@ -21,13 +20,11 @@ import org.eclipse.emf.ecore.util.Diagnostician;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.nasdanika.common.Context;
 import org.nasdanika.common.MutableContext;
-import org.nasdanika.common.Supplier;
 import org.nasdanika.common.SupplierFactory;
 import org.nasdanika.common.Util;
 import org.nasdanika.ncore.Configurable;
 import org.nasdanika.ncore.NcorePackage;
 import org.nasdanika.vinci.app.ActionBase;
-import org.nasdanika.vinci.app.ActionElement;
 import org.nasdanika.vinci.app.ActionLink;
 import org.nasdanika.vinci.app.ActionMapping;
 import org.nasdanika.vinci.app.AppPackage;
@@ -228,7 +225,7 @@ public class ActionLinkImpl extends MinimalEObjectImpl.Container implements Acti
 	 * @generated NOT
 	 */
 	@Override
-	public Supplier<Object> createApplicationBuilderSupplier(Context context) throws Exception {
+	public org.nasdanika.common.Supplier<Object> createApplicationBuilderSupplier(Context context) throws Exception {
 		return ActionLink.super.createApplicationBuilderSupplier(context);
 	}
 
@@ -366,19 +363,9 @@ public class ActionLinkImpl extends MinimalEObjectImpl.Container implements Acti
 	 */
 	@Override
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
-		if (baseClass == ActionElement.class) {
-			switch (derivedFeatureID) {
-				default: return -1;
-			}
-		}
 		if (baseClass == Configurable.class) {
 			switch (derivedFeatureID) {
 				case AppPackage.ACTION_LINK__CONFIGURATION: return NcorePackage.CONFIGURABLE__CONFIGURATION;
-				default: return -1;
-			}
-		}
-		if (baseClass == SupplierFactory.class) {
-			switch (derivedFeatureID) {
 				default: return -1;
 			}
 		}
@@ -392,46 +379,17 @@ public class ActionLinkImpl extends MinimalEObjectImpl.Container implements Acti
 	 */
 	@Override
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
-		if (baseClass == ActionElement.class) {
-			switch (baseFeatureID) {
-				default: return -1;
-			}
-		}
 		if (baseClass == Configurable.class) {
 			switch (baseFeatureID) {
 				case NcorePackage.CONFIGURABLE__CONFIGURATION: return AppPackage.ACTION_LINK__CONFIGURATION;
 				default: return -1;
 			}
 		}
-		if (baseClass == SupplierFactory.class) {
-			switch (baseFeatureID) {
-				default: return -1;
-			}
-		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
-	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
-		switch (operationID) {
-			case AppPackage.ACTION_LINK___CREATE_APPLICATION_BUILDER_SUPPLIER__CONTEXT:
-				try {
-					return createApplicationBuilderSupplier((Context)arguments.get(0));
-				}
-				catch (Throwable throwable) {
-					throw new InvocationTargetException(throwable);
-				}
-		}
-		return super.eInvoke(operationID, arguments);
-	}
-
-	@Override
-	public Supplier<Object> create(Context ctx) throws Exception {
+	public org.nasdanika.common.Supplier<Object> create(Context ctx) throws Exception {
 		
 		SupplierFactory<Object> sf = context -> {
 			

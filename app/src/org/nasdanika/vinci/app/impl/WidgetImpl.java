@@ -13,7 +13,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import org.nasdanika.common.Context;
 import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.common.Supplier;
-import org.nasdanika.common.SupplierFactory;
 import org.nasdanika.html.Fragment;
 import org.nasdanika.html.HTMLFactory;
 import org.nasdanika.html.app.ViewGenerator;
@@ -196,11 +195,6 @@ public class WidgetImpl extends NamedElementImpl implements Widget {
 				default: return -1;
 			}
 		}
-		if (baseClass == SupplierFactory.class) {
-			switch (derivedFeatureID) {
-				default: return -1;
-			}
-		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
 	}
 
@@ -215,11 +209,6 @@ public class WidgetImpl extends NamedElementImpl implements Widget {
 			switch (baseFeatureID) {
 				case HtmlPackage.CONTAINER__CONTENT: return AppPackage.WIDGET__CONTENT;
 				case HtmlPackage.CONTAINER__MARKDOWN_CONTENT: return AppPackage.WIDGET__MARKDOWN_CONTENT;
-				default: return -1;
-			}
-		}
-		if (baseClass == SupplierFactory.class) {
-			switch (baseFeatureID) {
 				default: return -1;
 			}
 		}

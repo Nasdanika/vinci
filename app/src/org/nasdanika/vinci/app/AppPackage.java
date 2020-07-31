@@ -5,7 +5,6 @@ package org.nasdanika.vinci.app;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
-import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.nasdanika.ncore.NcorePackage;
@@ -452,50 +451,13 @@ public interface AppPackage extends EPackage {
 	int ACTION_ELEMENT_OPERATION_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link org.nasdanika.vinci.app.BootstrapContainerApplicationBuilder <em>Bootstrap Container Application Builder</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.nasdanika.vinci.app.BootstrapContainerApplicationBuilder
-	 * @see org.nasdanika.vinci.app.impl.AppPackageImpl#getBootstrapContainerApplicationBuilder()
-	 * @generated
-	 */
-	int BOOTSTRAP_CONTAINER_APPLICATION_BUILDER = 15;
-
-	/**
-	 * The number of structural features of the '<em>Bootstrap Container Application Builder</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BOOTSTRAP_CONTAINER_APPLICATION_BUILDER_FEATURE_COUNT = 0;
-
-	/**
-	 * The operation id for the '<em>Create Application Builder Supplier</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BOOTSTRAP_CONTAINER_APPLICATION_BUILDER___CREATE_APPLICATION_BUILDER_SUPPLIER__CONTEXT = 0;
-
-	/**
-	 * The number of operations of the '<em>Bootstrap Container Application Builder</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BOOTSTRAP_CONTAINER_APPLICATION_BUILDER_OPERATION_COUNT = 1;
-
-	/**
 	 * The feature id for the '<em><b>Configuration</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ABSTRACT_ACTION__CONFIGURATION = BOOTSTRAP_CONTAINER_APPLICATION_BUILDER_FEATURE_COUNT + 0;
+	int ABSTRACT_ACTION__CONFIGURATION = ACTION_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Action Mappings</b></em>' containment reference list.
@@ -504,7 +466,7 @@ public interface AppPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ABSTRACT_ACTION__ACTION_MAPPINGS = BOOTSTRAP_CONTAINER_APPLICATION_BUILDER_FEATURE_COUNT + 1;
+	int ABSTRACT_ACTION__ACTION_MAPPINGS = ACTION_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Abstract Action</em>' class.
@@ -513,16 +475,7 @@ public interface AppPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ABSTRACT_ACTION_FEATURE_COUNT = BOOTSTRAP_CONTAINER_APPLICATION_BUILDER_FEATURE_COUNT + 2;
-
-	/**
-	 * The operation id for the '<em>Create Application Builder Supplier</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ABSTRACT_ACTION___CREATE_APPLICATION_BUILDER_SUPPLIER__CONTEXT = BOOTSTRAP_CONTAINER_APPLICATION_BUILDER___CREATE_APPLICATION_BUILDER_SUPPLIER__CONTEXT;
+	int ABSTRACT_ACTION_FEATURE_COUNT = ACTION_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Abstract Action</em>' class.
@@ -531,7 +484,7 @@ public interface AppPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ABSTRACT_ACTION_OPERATION_COUNT = BOOTSTRAP_CONTAINER_APPLICATION_BUILDER_OPERATION_COUNT + 0;
+	int ABSTRACT_ACTION_OPERATION_COUNT = ACTION_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Title</b></em>' attribute.
@@ -904,22 +857,13 @@ public interface AppPackage extends EPackage {
 	int ACTION_BASE_FEATURE_COUNT = LABEL_FEATURE_COUNT + 15;
 
 	/**
-	 * The operation id for the '<em>Create Application Builder Supplier</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTION_BASE___CREATE_APPLICATION_BUILDER_SUPPLIER__CONTEXT = LABEL_OPERATION_COUNT + 0;
-
-	/**
 	 * The number of operations of the '<em>Action Base</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION_BASE_OPERATION_COUNT = LABEL_OPERATION_COUNT + 1;
+	int ACTION_BASE_OPERATION_COUNT = LABEL_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.vinci.app.impl.PartitionImpl <em>Partition</em>}' class.
@@ -1040,15 +984,6 @@ public interface AppPackage extends EPackage {
 	int ACTION_LINK_FEATURE_COUNT = ABSTRACT_ACTION_FEATURE_COUNT + 4;
 
 	/**
-	 * The operation id for the '<em>Create Application Builder Supplier</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTION_LINK___CREATE_APPLICATION_BUILDER_SUPPLIER__CONTEXT = ABSTRACT_ACTION___CREATE_APPLICATION_BUILDER_SUPPLIER__CONTEXT;
-
-	/**
 	 * The number of operations of the '<em>Action Link</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1119,15 +1054,6 @@ public interface AppPackage extends EPackage {
 	 * @ordered
 	 */
 	int ACTION_REFERENCE_FEATURE_COUNT = ABSTRACT_ACTION_FEATURE_COUNT + 4;
-
-	/**
-	 * The operation id for the '<em>Create Application Builder Supplier</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTION_REFERENCE___CREATE_APPLICATION_BUILDER_SUPPLIER__CONTEXT = ABSTRACT_ACTION___CREATE_APPLICATION_BUILDER_SUPPLIER__CONTEXT;
 
 	/**
 	 * The number of operations of the '<em>Action Reference</em>' class.
@@ -1373,15 +1299,6 @@ public interface AppPackage extends EPackage {
 	int ACTION_FEATURE_COUNT = ACTION_BASE_FEATURE_COUNT + 0;
 
 	/**
-	 * The operation id for the '<em>Create Application Builder Supplier</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTION___CREATE_APPLICATION_BUILDER_SUPPLIER__CONTEXT = ACTION_BASE___CREATE_APPLICATION_BUILDER_SUPPLIER__CONTEXT;
-
-	/**
 	 * The number of operations of the '<em>Action</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1623,15 +1540,6 @@ public interface AppPackage extends EPackage {
 	 * @ordered
 	 */
 	int PARTITION_FEATURE_COUNT = ACTION_BASE_FEATURE_COUNT + 0;
-
-	/**
-	 * The operation id for the '<em>Create Application Builder Supplier</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PARTITION___CREATE_APPLICATION_BUILDER_SUPPLIER__CONTEXT = ACTION_BASE___CREATE_APPLICATION_BUILDER_SUPPLIER__CONTEXT;
 
 	/**
 	 * The number of operations of the '<em>Partition</em>' class.
@@ -1959,7 +1867,7 @@ public interface AppPackage extends EPackage {
 	 * @see org.nasdanika.vinci.app.impl.AppPackageImpl#getWidget()
 	 * @generated
 	 */
-	int WIDGET = 16;
+	int WIDGET = 15;
 
 	/**
 	 * The feature id for the '<em><b>Title</b></em>' attribute.
@@ -2032,7 +1940,7 @@ public interface AppPackage extends EPackage {
 	 * @see org.nasdanika.vinci.app.impl.AppPackageImpl#getActivatorType()
 	 * @generated
 	 */
-	int ACTIVATOR_TYPE = 17;
+	int ACTIVATOR_TYPE = 16;
 
 	/**
 	 * Returns the meta object for class '{@link org.nasdanika.vinci.app.Label <em>Label</em>}'.
@@ -2279,26 +2187,6 @@ public interface AppPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getBootstrapContainerApplicationPanel_Width();
-
-	/**
-	 * Returns the meta object for class '{@link org.nasdanika.vinci.app.BootstrapContainerApplicationBuilder <em>Bootstrap Container Application Builder</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Bootstrap Container Application Builder</em>'.
-	 * @see org.nasdanika.vinci.app.BootstrapContainerApplicationBuilder
-	 * @generated
-	 */
-	EClass getBootstrapContainerApplicationBuilder();
-
-	/**
-	 * Returns the meta object for the '{@link org.nasdanika.vinci.app.BootstrapContainerApplicationBuilder#createApplicationBuilderSupplier(org.nasdanika.common.Context) <em>Create Application Builder Supplier</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Create Application Builder Supplier</em>' operation.
-	 * @see org.nasdanika.vinci.app.BootstrapContainerApplicationBuilder#createApplicationBuilderSupplier(org.nasdanika.common.Context)
-	 * @generated
-	 */
-	EOperation getBootstrapContainerApplicationBuilder__CreateApplicationBuilderSupplier__Context();
 
 	/**
 	 * Returns the meta object for class '{@link org.nasdanika.vinci.app.Widget <em>Widget</em>}'.
@@ -2895,24 +2783,6 @@ public interface AppPackage extends EPackage {
 		 * @generated
 		 */
 		EReference BOOTSTRAP_CONTAINER_APPLICATION_PANEL__WIDTH = eINSTANCE.getBootstrapContainerApplicationPanel_Width();
-
-		/**
-		 * The meta object literal for the '{@link org.nasdanika.vinci.app.BootstrapContainerApplicationBuilder <em>Bootstrap Container Application Builder</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.nasdanika.vinci.app.BootstrapContainerApplicationBuilder
-		 * @see org.nasdanika.vinci.app.impl.AppPackageImpl#getBootstrapContainerApplicationBuilder()
-		 * @generated
-		 */
-		EClass BOOTSTRAP_CONTAINER_APPLICATION_BUILDER = eINSTANCE.getBootstrapContainerApplicationBuilder();
-
-		/**
-		 * The meta object literal for the '<em><b>Create Application Builder Supplier</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation BOOTSTRAP_CONTAINER_APPLICATION_BUILDER___CREATE_APPLICATION_BUILDER_SUPPLIER__CONTEXT = eINSTANCE.getBootstrapContainerApplicationBuilder__CreateApplicationBuilderSupplier__Context();
 
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.vinci.app.impl.WidgetImpl <em>Widget</em>}' class.

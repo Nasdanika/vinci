@@ -3,8 +3,6 @@
 package org.nasdanika.vinci.app;
 
 import org.eclipse.emf.common.util.EList;
-import org.nasdanika.common.SupplierFactory;
-import org.nasdanika.html.app.ViewBuilder;
 import org.nasdanika.vinci.bootstrap.BootstrapElement;
 
 /**
@@ -64,10 +62,10 @@ import org.nasdanika.vinci.bootstrap.BootstrapElement;
  * </ul>
  *
  * @see org.nasdanika.vinci.app.AppPackage#getBootstrapContainerApplication()
- * @model superTypes="org.nasdanika.vinci.bootstrap.BootstrapElement org.nasdanika.ncore.ISupplierFactory&lt;org.nasdanika.vinci.html.ViewBuilder&gt;"
+ * @model
  * @generated
  */
-public interface BootstrapContainerApplication extends BootstrapElement, SupplierFactory<ViewBuilder> {
+public interface BootstrapContainerApplication extends BootstrapElement {
 
 	/**
 	 * Returns the value of the '<em><b>Fluid</b></em>' attribute.
@@ -281,7 +279,7 @@ public interface BootstrapContainerApplication extends BootstrapElement, Supplie
 
 	/**
 	 * Returns the value of the '<em><b>Builders</b></em>' containment reference list.
-	 * The list contents are of type {@link org.nasdanika.vinci.app.BootstrapContainerApplicationBuilder}.
+	 * The list contents are of type {@link org.nasdanika.vinci.app.AbstractAction}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
@@ -293,5 +291,5 @@ public interface BootstrapContainerApplication extends BootstrapElement, Supplie
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<BootstrapContainerApplicationBuilder> getBuilders();
+	EList<AbstractAction> getBuilders();
 } // BootstrapContainerApplication

@@ -31,6 +31,7 @@ import org.nasdanika.html.bootstrap.BootstrapFactory;
 import org.nasdanika.html.bootstrap.Breakpoint;
 import org.nasdanika.html.bootstrap.Size;
 import org.nasdanika.ncore.Entry;
+import org.nasdanika.vinci.app.AbstractAction;
 import org.nasdanika.vinci.app.AppPackage;
 import org.nasdanika.vinci.app.BootstrapContainerApplication;
 import org.nasdanika.vinci.app.BootstrapContainerApplicationBuilder;
@@ -295,8 +296,8 @@ public class BootstrapContainerApplicationImpl extends BootstrapElementImpl impl
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public EList<BootstrapContainerApplicationBuilder> getBuilders() {
-		return (EList<BootstrapContainerApplicationBuilder>)eDynamicGet(AppPackage.BOOTSTRAP_CONTAINER_APPLICATION__BUILDERS, AppPackage.Literals.BOOTSTRAP_CONTAINER_APPLICATION__BUILDERS, true, true);
+	public EList<AbstractAction> getBuilders() {
+		return (EList<AbstractAction>)eDynamicGet(AppPackage.BOOTSTRAP_CONTAINER_APPLICATION__BUILDERS, AppPackage.Literals.BOOTSTRAP_CONTAINER_APPLICATION__BUILDERS, true, true);
 	}
 
 	/**
@@ -383,7 +384,7 @@ public class BootstrapContainerApplicationImpl extends BootstrapElementImpl impl
 				return;
 			case AppPackage.BOOTSTRAP_CONTAINER_APPLICATION__BUILDERS:
 				getBuilders().clear();
-				getBuilders().addAll((Collection<? extends BootstrapContainerApplicationBuilder>)newValue);
+				getBuilders().addAll((Collection<? extends AbstractAction>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -688,7 +689,6 @@ public class BootstrapContainerApplicationImpl extends BootstrapElementImpl impl
 							}
 						};
 						
-						@SuppressWarnings("unchecked")
 						protected void configureContentRow(org.nasdanika.html.bootstrap.Container.Row contentRow) {
 							Object contentRowAttributes = appearanceChidlrenAttributes.get("content-row");
 							if (contentRowAttributes instanceof Map) {

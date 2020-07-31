@@ -28,24 +28,6 @@ import org.nasdanika.html.app.SectionStyle;
 import org.nasdanika.html.bootstrap.Color;
 import org.nasdanika.ncore.ModelElement;
 import org.nasdanika.vinci.app.*;
-import org.nasdanika.vinci.app.AbstractAction;
-import org.nasdanika.vinci.app.Action;
-import org.nasdanika.vinci.app.ActionBase;
-import org.nasdanika.vinci.app.ActionCategory;
-import org.nasdanika.vinci.app.ActionElement;
-import org.nasdanika.vinci.app.ActionLink;
-import org.nasdanika.vinci.app.ActionMapping;
-import org.nasdanika.vinci.app.ActionReference;
-import org.nasdanika.vinci.app.ActivatorType;
-import org.nasdanika.vinci.app.AppPackage;
-import org.nasdanika.vinci.app.BootstrapContainerApplication;
-import org.nasdanika.vinci.app.BootstrapContainerApplicationBuilder;
-import org.nasdanika.vinci.app.BootstrapContainerApplicationPanel;
-import org.nasdanika.vinci.app.BootstrapContainerApplicationSection;
-import org.nasdanika.vinci.app.Category;
-import org.nasdanika.vinci.app.Container;
-import org.nasdanika.vinci.app.Label;
-import org.nasdanika.vinci.app.Partition;
 
 /**
  * <!-- begin-user-doc -->
@@ -149,8 +131,6 @@ public class AppValidator extends EObjectValidator {
 				return validateBootstrapContainerApplicationSection((BootstrapContainerApplicationSection)value, diagnostics, context);
 			case AppPackage.BOOTSTRAP_CONTAINER_APPLICATION_PANEL:
 				return validateBootstrapContainerApplicationPanel((BootstrapContainerApplicationPanel)value, diagnostics, context);
-			case AppPackage.BOOTSTRAP_CONTAINER_APPLICATION_BUILDER:
-				return validateBootstrapContainerApplicationBuilder((BootstrapContainerApplicationBuilder)value, diagnostics, context);
 			case AppPackage.WIDGET:
 				return validateWidget((Widget)value, diagnostics, context);
 			case AppPackage.ACTIVATOR_TYPE:
@@ -513,15 +493,6 @@ public class AppValidator extends EObjectValidator {
 	 */
 	public boolean validateBootstrapContainerApplicationPanel(BootstrapContainerApplicationPanel bootstrapContainerApplicationPanel, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(bootstrapContainerApplicationPanel, diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateBootstrapContainerApplicationBuilder(BootstrapContainerApplicationBuilder bootstrapContainerApplicationBuilder, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(bootstrapContainerApplicationBuilder, diagnostics, context);
 	}
 
 	/**
