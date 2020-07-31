@@ -2,46 +2,20 @@
  */
 package org.nasdanika.vinci.app.impl;
 
-import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
-import java.util.function.BiFunction;
 
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.common.util.TreeIterator;
-import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.util.InternalEList;
-import org.nasdanika.common.Context;
-import org.nasdanika.common.FunctionFactory;
-import org.nasdanika.common.ListCompoundSupplierFactory;
-import org.nasdanika.common.MapCompoundSupplierFactory;
-import org.nasdanika.common.MarkdownHelper;
-import org.nasdanika.common.MutableContext;
-import org.nasdanika.common.NasdanikaException;
-import org.nasdanika.common.ProgressMonitor;
-import org.nasdanika.common.Reference;
-import org.nasdanika.common.SupplierFactory;
-import org.nasdanika.common.Util;
-import org.nasdanika.emf.EObjectAdaptable;
-import org.nasdanika.html.TagName;
-import org.nasdanika.html.app.ViewGenerator;
-import org.nasdanika.html.app.ViewPart;
 import org.nasdanika.ncore.Configurable;
 import org.nasdanika.ncore.NcorePackage;
 import org.nasdanika.vinci.app.AbstractAction;
 import org.nasdanika.vinci.app.ActionBase;
-import org.nasdanika.vinci.app.ActionCategory;
 import org.nasdanika.vinci.app.ActionElement;
 import org.nasdanika.vinci.app.ActionMapping;
-import org.nasdanika.vinci.app.ActionRole;
 import org.nasdanika.vinci.app.ActivatorType;
 import org.nasdanika.vinci.app.AppPackage;
 import org.nasdanika.vinci.app.Widget;
@@ -191,8 +165,8 @@ public abstract class ActionBaseImpl extends LabelImpl implements ActionBase {
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public EList<SupplierFactory<Object>> getConfiguration() {
-		return (EList<SupplierFactory<Object>>)eDynamicGet(AppPackage.ACTION_BASE__CONFIGURATION, NcorePackage.Literals.CONFIGURABLE__CONFIGURATION, true, true);
+	public EList<EObject> getConfiguration() {
+		return (EList<EObject>)eDynamicGet(AppPackage.ACTION_BASE__CONFIGURATION, NcorePackage.Literals.CONFIGURABLE__CONFIGURATION, true, true);
 	}
 
 	/**
@@ -433,16 +407,6 @@ public abstract class ActionBaseImpl extends LabelImpl implements ActionBase {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	@Override
-	public org.nasdanika.common.Supplier<Object> createApplicationBuilderSupplier(Context context) throws Exception {
-		return ActionBase.super.createApplicationBuilderSupplier(context);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -515,7 +479,7 @@ public abstract class ActionBaseImpl extends LabelImpl implements ActionBase {
 		switch (featureID) {
 			case AppPackage.ACTION_BASE__CONFIGURATION:
 				getConfiguration().clear();
-				getConfiguration().addAll((Collection<? extends SupplierFactory<Object>>)newValue);
+				getConfiguration().addAll((Collection<? extends EObject>)newValue);
 				return;
 			case AppPackage.ACTION_BASE__ACTION_MAPPINGS:
 				getActionMappings().clear();
@@ -734,143 +698,5 @@ public abstract class ActionBaseImpl extends LabelImpl implements ActionBase {
 		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
-	
-	@SuppressWarnings({ "rawtypes", "unchecked" })
-	@Override
-	public org.nasdanika.common.Supplier<Object> create(Context context) throws Exception {
-		
-		String ELEMENTS_KEY = "Elements";		
-		String CONTENT_KEY = "Content";	
-		String WIDGETS_KEY = "Widgets";
-		
-		// Effective parent.
-		Resource resource = eResource();	
-		Reference<EObject> parentRef = new Reference<>(eContainer());
-		if (resource != null) {
-			ResourceSet resourceSet = resource.getResourceSet();
-			TreeIterator<?> cit;
-			if (resourceSet == null) {
-				cit = resource.getAllContents();
-			} else {
-				cit = resourceSet.getAllContents();
-			}
-			while (cit.hasNext()) {
-				Object next = cit.next();
-				if (next instanceof org.nasdanika.vinci.app.Container) {
-					if (((org.nasdanika.vinci.app.Container<?>) next).getLinkedElements().contains(this)) {
-						parentRef.set((EObject) next);
-					}
-				}
-			}
-		}
-		
-		ListCompoundSupplierFactory<Object> elementsFactory = new ListCompoundSupplierFactory<Object>(ELEMENTS_KEY);
-
-		for (ActionElement e: getEffectiveElements()) {
-			if (e instanceof AbstractAction) {
-				elementsFactory.add((AbstractAction) e); 
-			} else { // ActionCategory
-				for (ActionElement ce: ((ActionCategory) e).getEffectiveElements()) {
-					if (ce instanceof AbstractAction) {
-						elementsFactory.add((AbstractAction) ce);
-					}
-				}
-			}
-		}
-		
-		MapCompoundSupplierFactory<String, ViewPart> widgetsFactory = new MapCompoundSupplierFactory<String, ViewPart>(WIDGETS_KEY);
-		for (Widget widget: getWidgets()) {
-			widgetsFactory.put(widget.getName(), widget);
-		}
-		
-		MapCompoundSupplierFactory<String, Object> mcs = new MapCompoundSupplierFactory<>("Action");		
-		
-		List<SupplierFactory<Object>> content = new ArrayList<>();		
-		
-		String markdown = getMarkdownContent();
-		if (!Util.isBlank(markdown)) {
-			SupplierFactory<Object> markdownSupplierFactory = SupplierFactory.from((ctx, progressMonidor) -> new ViewPart() {
-
-				@Override
-				public Object generate(ViewGenerator viewGenerator, ProgressMonitor progressMonitor) {
-					String html = ctx.interpolate(MarkdownHelper.INSTANCE.markdownToHtml(markdown).trim());
-					return TagName.div.create(viewGenerator.interpolate(html)).addClass("markdown-body"); // Double interpolation for mapping expansion
-				}
-				
-			},  "Markdown content", 1);
-			content.add(markdownSupplierFactory);
-		}
-				
-		for (EObject ce: getContent()) {
-			content.add((SupplierFactory<Object>) Objects.requireNonNull(EObjectAdaptable.adaptTo(ce, SupplierFactory.class), "Cannot adapt " + ce + " to " + SupplierFactory.class));
-		}
-		mcs.put(CONTENT_KEY, (SupplierFactory) new ListCompoundSupplierFactory<Object>(CONTENT_KEY, content));
-		mcs.put(ELEMENTS_KEY, (SupplierFactory) elementsFactory);
-		mcs.put(WIDGETS_KEY, (SupplierFactory) widgetsFactory);
-				
-		URI navigationActivatorURI = getNavigationActivatorURI(context);		
-		
-		FunctionFactory<Map<String, Object>, Object> actionFacadeFactory = new FunctionFactory<Map<String,Object>, Object>() {
-			
-			@Override
-			public org.nasdanika.common.Function<Map<String, Object>, Object> create(Context functionContext) throws Exception {
-					BiFunction<Map<String, Object>, ProgressMonitor, Object> ret = (config, progressMonitor) -> {
-					try { 
-						return new ActionFacade(
-							functionContext, 
-							ActionBaseImpl.this, 
-							navigationActivatorURI,
-							parentRef.get(), 
-							(List<Object>) config.get(CONTENT_KEY), 
-							(List<Object>) config.get(ELEMENTS_KEY),
-							(Map<String, ViewPart>) config.get(WIDGETS_KEY));
-					} catch (Exception e) {
-						throw new NasdanikaException(e);
-					}
-				};
-				return org.nasdanika.common.Function.fromBiFunction(ret, "Action facade", 1);
-			}
-		};
-				
-		MutableContext actionContext = context.fork();
-		if (navigationActivatorURI != null) {
-			actionContext.register(URI.class, navigationActivatorURI);
-		}		
-		
-		new ActionMappingsPropertyComputer(context, "action-mappings", getActionMappings()).put(actionContext);
-		
-		return configure(mcs.then(actionFacadeFactory)).create(actionContext);
-	}
-		
-	/**
-	 * If action role is reference resolves its activator to URI. Returns null otherwise.
-	 * @param context
-	 * @return
-	 */
-	private URI getNavigationActivatorURI(Context context) {
-		// Context URI service - used by the Action facade and by child elements.
-		if (getActivatorType() == ActivatorType.REFERENCE || getActivatorType() == ActivatorType.INLINE) {
-			String activator = getActivator();
-			if (activator != null && activator.startsWith("./")) {
-				activator = activator.substring(2); // Removing ./ which is used to indicate that action content generation is not required.
-			}
-			if (Util.isBlank(activator) && !Util.isBlank(getId())) {
-				activator = getId() + ".html";
-				if (ActionRole.SECTION.label.equals(getRole())) {
-					activator += "#" + getId();
-				}
-			}
-			String activatorStr = context.interpolate(activator);
-			if (Util.isBlank(activatorStr)) {
-				throw new IllegalArgumentException("Activator type is reference and activator URL is blank");
-			}
-			
-			URI actionURI = URI.createURI(activatorStr);
-			URI contextURI = context.get(URI.class);
-			return contextURI == null || !contextURI.isHierarchical() || contextURI.isRelative() ? actionURI : actionURI.resolve(contextURI);
-		}
-		return null;
-	}
-	
 
 } //ActionBaseImpl

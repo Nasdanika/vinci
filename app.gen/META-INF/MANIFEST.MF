@@ -8,6 +8,9 @@ Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: org.nasdanika.vinci.app.gen
-Require-Bundle: org.nasdanika.vinci.app
+Require-Bundle: org.nasdanika.vinci.app,
+ org.nasdanika.vinci.html.gen;bundle-version="0.1.0",
+ org.nasdanika.ncore.gen,
+ org.jsoup;bundle-version="1.13.1"
 Bundle-ActivationPolicy: lazy
 Automatic-Module-Name: org.nasdanika.vinci.app.gen

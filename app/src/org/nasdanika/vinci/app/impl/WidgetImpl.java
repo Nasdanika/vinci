@@ -10,13 +10,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.InternalEList;
-import org.nasdanika.common.Context;
-import org.nasdanika.common.ProgressMonitor;
-import org.nasdanika.common.Supplier;
-import org.nasdanika.html.Fragment;
-import org.nasdanika.html.HTMLFactory;
-import org.nasdanika.html.app.ViewGenerator;
-import org.nasdanika.html.app.ViewPart;
 import org.nasdanika.ncore.impl.NamedElementImpl;
 import org.nasdanika.vinci.app.AppPackage;
 import org.nasdanika.vinci.app.Widget;
@@ -213,24 +206,6 @@ public class WidgetImpl extends NamedElementImpl implements Widget {
 			}
 		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
-	}
-
-	@Override
-	public Supplier<ViewPart> create(Context context) throws Exception {
-		return createContentSupplierFactory().create(context).then(content -> {
-			return new ViewPart() {
-
-				@Override
-				public Object generate(ViewGenerator viewGenerator, ProgressMonitor progressMonitor) {
-					 Fragment fragment = viewGenerator.get(HTMLFactory.class).fragment();
-					for (ViewPart viewPart: content) {
-						fragment.accept(viewGenerator.processViewPart(viewPart, progressMonitor));
-					}
-					return fragment;
-				}
-				
-			};
-		});
 	}
 
 } //WidgetImpl

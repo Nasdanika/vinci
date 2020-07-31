@@ -41,6 +41,7 @@ import org.nasdanika.common.resources.Container;
 import org.nasdanika.eclipse.ProgressMonitorAdapter;
 import org.nasdanika.eclipse.resources.EclipseContainer;
 import org.nasdanika.emf.ComposedAdapterFactory;
+import org.nasdanika.emf.EObjectAdaptable;
 import org.nasdanika.html.app.Action;
 import org.nasdanika.html.app.ActionRegistry;
 import org.nasdanika.html.app.Application;
@@ -56,8 +57,8 @@ import org.nasdanika.texttospeech.SpeechSynthesizer;
 import org.nasdanika.texttospeech.SpeechSynthesizerProxy;
 import org.nasdanika.vinci.app.AbstractAction;
 import org.nasdanika.vinci.app.AppPackage;
-import org.nasdanika.vinci.app.impl.ActionFacade;
-import org.nasdanika.vinci.app.util.AppUtil;
+import org.nasdanika.vinci.app.gen.ActionFacade;
+import org.nasdanika.vinci.app.gen.AppUtil;
 import org.nasdanika.vinci.bootstrap.BootstrapPackage;
 import org.nasdanika.vinci.bootstrap.BootstrapPage;
 import org.nasdanika.vinci.html.HtmlPackage;
@@ -122,7 +123,7 @@ public class GenerateTemplatedApplicationAction extends VinciGenerateAction<Abst
 				generationContext.put(Context.BASE_URI_PROPERTY, baseURI);
 				
 				// Generate action tree
-				try (Supplier<Object> work = modelElement.create(generationContext)) {
+				try (Supplier<Object> work = EObjectAdaptable.adaptToSupplierFactory(modelElement, Object.class).create(generationContext)) {
 					double size = work.size() * 2 + 1;
 					int halfWork = TOTAL_WORK/2;
 					SubMonitor actionMonitor = subMonitor.split(halfWork);

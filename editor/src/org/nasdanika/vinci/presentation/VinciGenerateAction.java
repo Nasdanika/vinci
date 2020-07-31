@@ -7,7 +7,6 @@ import org.eclipse.core.runtime.ILog;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.ecore.EObject;
 import org.nasdanika.common.DefaultConverter;
-import org.nasdanika.common.SupplierFactory;
 import org.nasdanika.common.Util;
 import org.nasdanika.emf.presentation.NasdanikaGenerateAction;
 import org.nasdanika.ncore.ModelElement;
@@ -17,7 +16,7 @@ import org.nasdanika.ncore.ModelElement;
  * @author Pavel Vlasov
  *
  */
-public abstract class VinciGenerateAction<T extends EObject & SupplierFactory<Object>> extends NasdanikaGenerateAction<T> {
+public abstract class VinciGenerateAction<T extends EObject> extends NasdanikaGenerateAction<T> {
 
 	public static BiFunction<String, Object, InputStream> ENCODER = (path, contents) -> {
 		InputStream ret = DefaultConverter.INSTANCE.convert(contents, InputStream.class);

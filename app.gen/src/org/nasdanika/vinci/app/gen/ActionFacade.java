@@ -1,4 +1,4 @@
-package org.nasdanika.vinci.app.impl;
+package org.nasdanika.vinci.app.gen;
 
 import java.util.List;
 import java.util.Map;
@@ -14,7 +14,6 @@ import org.nasdanika.common.MarkdownHelper;
 import org.nasdanika.common.NasdanikaException;
 import org.nasdanika.common.NullProgressMonitor;
 import org.nasdanika.common.ProgressMonitor;
-import org.nasdanika.common.Supplier;
 import org.nasdanika.common.Util;
 import org.nasdanika.html.Fragment;
 import org.nasdanika.html.HTMLElement;

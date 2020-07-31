@@ -26,6 +26,7 @@ import org.nasdanika.common.Util;
 import org.nasdanika.common.resources.BinaryEntityContainer;
 import org.nasdanika.common.resources.Container;
 import org.nasdanika.common.resources.FileSystemContainer;
+import org.nasdanika.emf.EObjectAdaptable;
 import org.nasdanika.emf.ModelCommand;
 import org.nasdanika.html.app.Action;
 import org.nasdanika.html.app.ActionRegistry;
@@ -40,8 +41,8 @@ import org.nasdanika.texttospeech.GoogleCloudTextToSpeechSynthesizer;
 import org.nasdanika.texttospeech.SpeechSynthesizer;
 import org.nasdanika.texttospeech.SpeechSynthesizerProxy;
 import org.nasdanika.vinci.app.AbstractAction;
-import org.nasdanika.vinci.app.impl.ActionFacade;
-import org.nasdanika.vinci.app.util.AppUtil;
+import org.nasdanika.vinci.app.gen.ActionFacade;
+import org.nasdanika.vinci.app.gen.AppUtil;
 import org.nasdanika.vinci.bootstrap.BootstrapPage;
 
 import picocli.CommandLine.Command;
@@ -134,7 +135,7 @@ public class GenerateTemplatedApplicationCommand extends ModelCommand<AbstractAc
 			generationContext.register(SpeechSynthesizer.class, speechSynthesizer);
 		
 			// Generate action tree
-			try (Supplier<Object> work = rootAction.create(generationContext)) {
+			try (Supplier<Object> work = EObjectAdaptable.adaptToSupplierFactory(rootAction, Object.class).create(generationContext)) {
 				monitor.setWorkRemaining(work.size() * 2 + 1);
 				org.nasdanika.common.Diagnostic diagnostic = work.splitAndDiagnose(monitor);
 				if (diagnostic.getStatus() == org.nasdanika.common.Status.ERROR) {

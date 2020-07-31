@@ -11,12 +11,12 @@ public class HtmlGenerationAdapterFactory extends ComposedAdapterFactory {
 	@SuppressWarnings("rawtypes")
 	public HtmlGenerationAdapterFactory() {
 		// Registering adapter factories.
-		registerAdapterFactory(
-			new FunctionAdapterFactory<SupplierFactory, Container>(
-				HtmlPackage.Literals.CONTAINER, 
-				SupplierFactory.class, 
-				this.getClass().getClassLoader(),
-				ContainerSupplierFactory::new));
+//		registerAdapterFactory(
+//			new FunctionAdapterFactory<SupplierFactory, Container>(
+//				HtmlPackage.Literals.CONTAINER, 
+//				SupplierFactory.class, 
+//				this.getClass().getClassLoader(),
+//				ContainerSupplierFactory::new));
 				
 //		registerAdapterFactory(
 //			new FunctionAdapterFactory<ViewActionSupplier, EPackage>(

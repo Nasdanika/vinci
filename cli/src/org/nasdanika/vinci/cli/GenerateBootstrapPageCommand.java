@@ -17,7 +17,7 @@ import org.nasdanika.common.SupplierFactory;
 import org.nasdanika.common.Util;
 import org.nasdanika.html.HTMLPage;
 import org.nasdanika.html.app.impl.ViewGeneratorImpl;
-import org.nasdanika.vinci.app.impl.ActionFacade;
+import org.nasdanika.vinci.app.gen.ActionFacade;
 import org.nasdanika.vinci.bootstrap.BootstrapPage;
 
 import picocli.CommandLine.Command;

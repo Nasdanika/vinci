@@ -1,4 +1,4 @@
-package org.nasdanika.vinci.app.util;
+package org.nasdanika.vinci.app.gen;
 
 import org.eclipse.emf.common.util.URI;
 import org.nasdanika.html.app.Action;
@@ -6,7 +6,6 @@ import org.nasdanika.html.app.ActionActivator;
 import org.nasdanika.html.app.NavigationActionActivator;
 import org.nasdanika.vinci.app.ActionBase;
 import org.nasdanika.vinci.app.ActivatorType;
-import org.nasdanika.vinci.app.impl.ActionFacade;
 
 public class AppUtil {
 	

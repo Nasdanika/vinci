@@ -6,15 +6,11 @@ import java.util.Collection;
 
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.InternalEList;
-import org.nasdanika.common.Context;
-import org.nasdanika.common.MutableContext;
-import org.nasdanika.common.SupplierFactory;
-import org.nasdanika.common.Util;
 import org.nasdanika.ncore.Configurable;
 import org.nasdanika.ncore.NcorePackage;
 import org.nasdanika.vinci.app.AbstractAction;
@@ -106,8 +102,8 @@ public class ActionReferenceImpl extends MinimalEObjectImpl.Container implements
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public EList<SupplierFactory<Object>> getConfiguration() {
-		return (EList<SupplierFactory<Object>>)eDynamicGet(AppPackage.ACTION_REFERENCE__CONFIGURATION, NcorePackage.Literals.CONFIGURABLE__CONFIGURATION, true, true);
+	public EList<EObject> getConfiguration() {
+		return (EList<EObject>)eDynamicGet(AppPackage.ACTION_REFERENCE__CONFIGURATION, NcorePackage.Literals.CONFIGURABLE__CONFIGURATION, true, true);
 	}
 
 	/**
@@ -213,16 +209,6 @@ public class ActionReferenceImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	@Override
-	public org.nasdanika.common.Supplier<Object> createApplicationBuilderSupplier(Context context) throws Exception {
-		return ActionReference.super.createApplicationBuilderSupplier(context);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -272,7 +258,7 @@ public class ActionReferenceImpl extends MinimalEObjectImpl.Container implements
 		switch (featureID) {
 			case AppPackage.ACTION_REFERENCE__CONFIGURATION:
 				getConfiguration().clear();
-				getConfiguration().addAll((Collection<? extends SupplierFactory<Object>>)newValue);
+				getConfiguration().addAll((Collection<? extends EObject>)newValue);
 				return;
 			case AppPackage.ACTION_REFERENCE__ACTION_MAPPINGS:
 				getActionMappings().clear();
@@ -378,31 +364,6 @@ public class ActionReferenceImpl extends MinimalEObjectImpl.Container implements
 			}
 		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
-	}
-
-	@Override
-	public org.nasdanika.common.Supplier<Object> create(Context context) throws Exception {
-		MutableContext actionContext = context.fork();
-		new ActionMappingsPropertyComputer(context, "action-mappings", getActionMappings()).put(actionContext);
-		String path = getPath();
-		if (!Util.isBlank(path)) {
-			URI uri = context.get(URI.class);
-			if (uri == null) {
-				actionContext.register(URI.class, URI.createURI(path));				
-			} else if (uri.isHierarchical() && !uri.isRelative()) {
-				if (!path.endsWith("/")) {
-					path += "/";
-				}
-				actionContext.register(URI.class, URI.createURI(path).resolve(uri));
-			} else {
-				// Best attempt ...
-				String uriStr = uri.toString();
-				int idx = uriStr.lastIndexOf('/');
-				actionContext.register(URI.class, URI.createURI(idx == -1 ? path : uriStr.substring(0, idx +1) + path));				
-				
-			}
-		}
-		return configure(getAction()).create(actionContext);
 	}
 		
 } //ActionReferenceImpl
