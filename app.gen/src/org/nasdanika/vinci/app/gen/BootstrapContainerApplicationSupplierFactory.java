@@ -45,6 +45,10 @@ public class BootstrapContainerApplicationSupplierFactory implements SupplierFac
 		Footer
 	}
 	
+	/*
+	 * TODO - Adapt builders to ApplicationBuilder.Supplier.Factory. Create adapter for AbstractAction
+	 */
+	
 	static Supplier<Decorator> getChildDecorator(org.nasdanika.vinci.bootstrap.BootstrapElement bootstrapElement, Context context, String name) throws Exception {
 		Appearance appearance = bootstrapElement.getAppearance();
 		if (appearance == null) {

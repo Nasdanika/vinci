@@ -47,7 +47,7 @@ public class BootstrapElementViewBuilderSupplierFactory implements ViewBuilder.S
 			};
 		}
 		@SuppressWarnings("resource")
-		ListCompoundSupplier<ViewBuilder> viewBuilderSupplier = new ListCompoundSupplier<>(target.getTitle() + " as View Builder", super.asViewBuilderSupplier(context), appearance.create(context));
+		ListCompoundSupplier<ViewBuilder> viewBuilderSupplier = new ListCompoundSupplier<>(target.getTitle() + " as View Builder", super.asViewBuilderSupplier(context) /* Empty not needed */, appearance.create(context) /* Adapt appearance to ViewBuilder */);
 		return viewBuilderSupplier.then(elements -> elements.stream().reduce(ViewBuilder.NOP, (a,b) -> a.compose(b)));
 	}
 	

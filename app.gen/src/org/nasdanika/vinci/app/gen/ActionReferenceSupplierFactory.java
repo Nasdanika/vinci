@@ -14,7 +14,7 @@ import org.nasdanika.vinci.app.impl.ActionMappingsPropertyComputer;
  * @author Pavel
  *
  */
-public class ActionReferenceSupplierFactory extends AbstractActionSupplierFactory<ActionReference> implements SupplierFactory<Object> {
+public class ActionReferenceSupplierFactory extends AbstractActionAdapter<ActionReference> implements SupplierFactory<Object> {
 	
 	public ActionReferenceSupplierFactory(ActionReference target) {
 		super(target);

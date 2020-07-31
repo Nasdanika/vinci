@@ -23,7 +23,7 @@ import org.nasdanika.vinci.app.impl.ActionMappingsPropertyComputer;
  * @author Pavel
  *
  */
-public class ActionLinkSupplierFactory extends AbstractActionSupplierFactory<ActionLink> implements SupplierFactory<Object> {
+public class ActionLinkSupplierFactory extends AbstractActionAdapter<ActionLink> implements SupplierFactory<Object> {
 	
 	public ActionLinkSupplierFactory(ActionLink target) {
 		super(target);

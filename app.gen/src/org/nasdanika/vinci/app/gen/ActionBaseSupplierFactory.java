@@ -40,7 +40,7 @@ import org.nasdanika.vinci.app.impl.ActionMappingsPropertyComputer;
  * @author Pavel
  *
  */
-public class ActionBaseSupplierFactory extends AbstractActionSupplierFactory<ActionBase> implements SupplierFactory<Object> {
+public class ActionBaseSupplierFactory extends AbstractActionAdapter<ActionBase> implements SupplierFactory<Object> {
 	
 	public ActionBaseSupplierFactory(ActionBase target) {
 		super(target);

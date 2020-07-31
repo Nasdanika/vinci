@@ -2,37 +2,41 @@ package org.nasdanika.vinci.app.gen;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.function.Function;
 
 import org.nasdanika.common.Context;
-import org.nasdanika.common.SupplierFactory;
-import org.nasdanika.ncore.gen.ConfigurableAdapter;
-import org.nasdanika.vinci.app.AbstractAction;
-import org.nasdanika.vinci.html.Container;
-
+import org.nasdanika.common.Supplier;
 import org.nasdanika.common.Util;
+import org.nasdanika.emf.EObjectAdaptable;
 import org.nasdanika.html.app.Action;
 import org.nasdanika.html.app.Application;
+import org.nasdanika.html.app.ApplicationBuilder;
 import org.nasdanika.html.app.DecoratorProvider;
 import org.nasdanika.html.app.ViewGenerator;
 import org.nasdanika.html.app.impl.ActionApplicationBuilder;
 import org.nasdanika.html.app.impl.ViewGeneratorImpl;
+import org.nasdanika.vinci.app.AbstractAction;
 
 /**
- * Base class for adapters for subclasses of {@link Container}. 
+ * Adapts {@link AbstractAction} to {@link ApplicationBuilder.Supplier.Factory} 
  * @author Pavel
  *
  * @param <T>
  */
-public abstract class AbstractActionSupplierFactory<T extends AbstractAction> extends ConfigurableAdapter<T> implements SupplierFactory<Object> {
+public class AbstractActionApplicationBuilderSupplierFactory implements ApplicationBuilder.Supplier.Factory {
 	
-	protected AbstractActionSupplierFactory(T target) {
-		super(target);
+	private AbstractAction target;
+
+	public AbstractActionApplicationBuilderSupplierFactory(AbstractAction target) {
+		this.target = target;
 	}
 		
-	protected org.nasdanika.common.Supplier<Object> createApplicationBuilderSupplier(Context context) throws Exception {
+	public ApplicationBuilder.Supplier create(Context context) throws Exception {
+		Supplier<Action> actionSupplier = EObjectAdaptable.adaptToSupplierFactory(target, Action.class).create(context);
+		
 		
 		// Returns application builder
-		return create(context).then(action -> {
+		Function<Action, ApplicationBuilder> actionToBuilder = action -> {
 			
 			Action rootAction = (Action) action;
 			List<Action> navChildren = rootAction.getNavigationChildren();
@@ -65,7 +69,8 @@ public abstract class AbstractActionSupplierFactory<T extends AbstractAction> ex
 				
 			}; 				
 			
-		});
+		};
+		return ApplicationBuilder.Supplier.from(actionSupplier.then(actionToBuilder));
 		
 	}	
 	
