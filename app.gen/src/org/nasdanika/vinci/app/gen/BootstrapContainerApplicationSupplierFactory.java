@@ -12,6 +12,7 @@ import org.nasdanika.common.Reference;
 import org.nasdanika.common.StringMapCompoundSupplier;
 import org.nasdanika.common.Supplier;
 import org.nasdanika.common.SupplierFactory;
+import org.nasdanika.emf.EObjectAdaptable;
 import org.nasdanika.html.HTMLElement;
 import org.nasdanika.html.HTMLPage;
 import org.nasdanika.html.app.ApplicationBuilder;
@@ -27,13 +28,12 @@ import org.nasdanika.ncore.Entry;
 import org.nasdanika.vinci.app.BootstrapContainerApplication;
 import org.nasdanika.vinci.app.BootstrapContainerApplicationSection;
 import org.nasdanika.vinci.bootstrap.Appearance;
+import org.nasdanika.vinci.bootstrap.gen.BootstrapElementViewBuilderSupplierFactory;
 
-public class BootstrapContainerApplicationSupplierFactory implements SupplierFactory<ViewBuilder> {
+public class BootstrapContainerApplicationSupplierFactory extends BootstrapElementViewBuilderSupplierFactory<BootstrapContainerApplication> {
 	
-	private BootstrapContainerApplication target;
-
 	public BootstrapContainerApplicationSupplierFactory(BootstrapContainerApplication target) {
-		this.target = target;
+		super(target);
 	}
 	
 	private enum Section {
@@ -58,8 +58,9 @@ public class BootstrapContainerApplicationSupplierFactory implements SupplierFac
 			if (attr.isEnabled() && "children".equals(attr.getName()) && attr instanceof org.nasdanika.ncore.Object) {	
 				for (Entry childAttribute: ((org.nasdanika.ncore.Object) attr).getEntries()) {
 					if (childAttribute.isEnabled() && name.equals(childAttribute.getName()) && childAttribute instanceof org.nasdanika.ncore.Object) {	
-						return ((org.nasdanika.ncore.Object) childAttribute).create(context).then(childrenAttributes -> new Decorator() {
+						return EObjectAdaptable.adaptToSupplierFactory((org.nasdanika.ncore.Object) childAttribute, Object.class).create(context).then(childrenAttributes -> new Decorator() {
 		
+							@SuppressWarnings("unchecked")
 							@Override
 							public void decorate(Object target, ViewGenerator viewGenerator) {
 								if (target instanceof BootstrapElement) {
@@ -80,8 +81,8 @@ public class BootstrapContainerApplicationSupplierFactory implements SupplierFac
 			
 	@SuppressWarnings({ "resource", "unchecked", "rawtypes" })
 	@Override
-	public Supplier<ViewBuilder> create(Context context) throws Exception {				
-		ElementIdentityMapCompoundSupplier<Object> resultsSupplier = new ElementIdentityMapCompoundSupplier<Object>(getTitle());
+	public ViewBuilder.Supplier create(Context context) throws Exception {				
+		ElementIdentityMapCompoundSupplier<Object> resultsSupplier = new ElementIdentityMapCompoundSupplier<Object>(target.getTitle());
 		
 		Reference<Supplier<Map<String,Object>>> appearanceChildrenAttributesSupplierReference = new Reference<>();
 		
@@ -89,7 +90,7 @@ public class BootstrapContainerApplicationSupplierFactory implements SupplierFac
 		if (appearance != null) {
 			for (Entry attr: appearance.getAttributes()) {
 				if (attr.isEnabled() && "children".equals(attr.getName()) && attr instanceof org.nasdanika.ncore.Object) {
-					Supplier<Map<String, Object>> aSupplier = ((org.nasdanika.ncore.Object) attr).create(context);
+					Supplier<Map<String, Object>> aSupplier = (Supplier) EObjectAdaptable.adaptToSupplierFactory((org.nasdanika.ncore.Object) attr, Map.class).create(context);
 					resultsSupplier.put((Supplier) aSupplier);
 					appearanceChildrenAttributesSupplierReference.set(aSupplier);
 					break;
@@ -100,14 +101,14 @@ public class BootstrapContainerApplicationSupplierFactory implements SupplierFac
 		StringMapCompoundSupplier<Decorator> decoratorsSupplier = new StringMapCompoundSupplier<>("Decorators");		
 		resultsSupplier.put((Supplier) decoratorsSupplier);
 		
-		MapCompoundSupplier<Section, ViewBuilder> sectionBuilderSuppliers = new MapCompoundSupplier<>(getTitle());
+		MapCompoundSupplier<Section, ViewBuilder> sectionBuilderSuppliers = new MapCompoundSupplier<>(target.getTitle());
 		resultsSupplier.put((Supplier) sectionBuilderSuppliers);
 
-		sectionBuilderSuppliers.put(Section.Container, super.asViewBuilderSupplier(context));
+		sectionBuilderSuppliers.put(Section.Container, super.create(context));
 		
 		BootstrapContainerApplicationSection header = target.getHeader();
 		if (header != null) {
-			sectionBuilderSuppliers.put(Section.Header, header.asViewBuilderSupplier(context));
+			sectionBuilderSuppliers.put(Section.Header, EObjectAdaptable.adaptTo(header, ViewBuilder.Supplier.Factory.class).create(context));
 			Supplier<Decorator> titleDecorator = getChildDecorator(header, context, "title");
 			if (titleDecorator != null) {
 				decoratorsSupplier.put("application/header/title", titleDecorator);
@@ -120,12 +121,12 @@ public class BootstrapContainerApplicationSupplierFactory implements SupplierFac
 		
 		BootstrapContainerApplicationSection navBar = target.getNavigationBar();
 		if (navBar != null) {
-			sectionBuilderSuppliers.put(Section.NavigationBar, navBar.asViewBuilderSupplier(context));
+			sectionBuilderSuppliers.put(Section.NavigationBar, EObjectAdaptable.adaptTo(navBar, ViewBuilder.Supplier.Factory.class).create(context));
 		}
 		
 		BootstrapContainerApplicationSection navPanel = target.getNavigationPanel();
 		if (navPanel != null) {
-			sectionBuilderSuppliers.put(Section.NavigationPanel, navPanel.asViewBuilderSupplier(context));
+			sectionBuilderSuppliers.put(Section.NavigationPanel, EObjectAdaptable.adaptTo(navPanel, ViewBuilder.Supplier.Factory.class).create(context));
 		}
 		
 		BootstrapContainerApplicationSection contentPanel = target.getContentPanel();
