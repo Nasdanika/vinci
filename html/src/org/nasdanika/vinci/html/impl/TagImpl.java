@@ -3,18 +3,12 @@
 package org.nasdanika.vinci.html.impl;
 
 import java.util.Collection;
+
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.InternalEList;
-import org.nasdanika.common.Context;
-import org.nasdanika.common.MapCompoundSupplier;
-import org.nasdanika.common.ProgressMonitor;
-import org.nasdanika.common.Supplier;
-import org.nasdanika.html.HTMLFactory;
-import org.nasdanika.html.app.ViewGenerator;
-import org.nasdanika.html.app.ViewPart;
 import org.nasdanika.ncore.Entry;
 import org.nasdanika.vinci.html.HtmlPackage;
 import org.nasdanika.vinci.html.Tag;
@@ -90,8 +84,8 @@ public class TagImpl extends HtmlElementImpl implements Tag {
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public EList<Entry<Object>> getAttributes() {
-		return (EList<Entry<Object>>)eDynamicGet(HtmlPackage.TAG__ATTRIBUTES, HtmlPackage.Literals.TAG__ATTRIBUTES, true, true);
+	public EList<Entry> getAttributes() {
+		return (EList<Entry>)eDynamicGet(HtmlPackage.TAG__ATTRIBUTES, HtmlPackage.Literals.TAG__ATTRIBUTES, true, true);
 	}
 
 	/**
@@ -138,7 +132,7 @@ public class TagImpl extends HtmlElementImpl implements Tag {
 				return;
 			case HtmlPackage.TAG__ATTRIBUTES:
 				getAttributes().clear();
-				getAttributes().addAll((Collection<? extends Entry<Object>>)newValue);
+				getAttributes().addAll((Collection<? extends Entry>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -176,45 +170,6 @@ public class TagImpl extends HtmlElementImpl implements Tag {
 				return !getAttributes().isEmpty();
 		}
 		return super.eIsSet(featureID);
-	}
-	
-	@Override
-	public Supplier<ViewPart> create(Context context) throws Exception {
-		ViewPart tagViewPart = new ViewPart() {
-
-			@Override
-			public Object generate(ViewGenerator viewGenerator, ProgressMonitor progressMonitor) {
-				return viewGenerator.get(HTMLFactory.class, HTMLFactory.INSTANCE).tag(getName());
-			}
-			
-		};
-				
-		Supplier<ViewPart> viewPartSupplier = Supplier.from(tagViewPart, getTitle());
-		
-		if (getAttributes().isEmpty()) {
-			return viewPartSupplier;
-		}
-				
-		@SuppressWarnings("resource")
-		MapCompoundSupplier<String,Object> attrsSupplier = new MapCompoundSupplier<>("Attributes");
-		
-		for (Entry<Object> e: getAttributes()) {
-			if (e.isEnabled()) {
-				attrsSupplier.put(e.getName(), e.create(context));
-			}
-		}
-		
-		return viewPartSupplier.then(attrsSupplier.asFunction()).then(bs -> new ViewPart() {
-
-			@Override
-			public Object generate(ViewGenerator viewGenerator, ProgressMonitor progressMonitor) {
-				org.nasdanika.html.Tag ret = (org.nasdanika.html.Tag) bs.getFirst().generate(viewGenerator, progressMonitor);
-				ret.attributes(bs.getSecond());
-				return ret;
-			}
-			
-		});
-		
 	}
 
 } //TagImpl

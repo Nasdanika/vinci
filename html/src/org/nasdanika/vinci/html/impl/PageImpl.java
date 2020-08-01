@@ -3,30 +3,13 @@
 package org.nasdanika.vinci.html.impl;
 
 import java.util.Collection;
-import java.util.List;
-import java.util.Map;
 
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.InternalEList;
-import org.nasdanika.common.Context;
-import org.nasdanika.common.Function;
-import org.nasdanika.common.ListCompoundSupplierFactory;
-import org.nasdanika.common.MarkdownHelper;
-import org.nasdanika.common.StringMapCompoundSupplier;
-import org.nasdanika.common.Supplier;
-import org.nasdanika.common.SupplierFactory;
-import org.nasdanika.common.Util;
-import org.nasdanika.html.HTMLFactory;
-import org.nasdanika.html.HTMLPage;
-import org.nasdanika.html.TagName;
-import org.nasdanika.html.app.ViewBuilder;
-import org.nasdanika.html.app.ViewGenerator;
-import org.nasdanika.html.app.impl.ViewGeneratorImpl;
-import org.nasdanika.html.fontawesome.FontAwesomeFactory;
-import org.nasdanika.html.jstree.JsTreeFactory;
 import org.nasdanika.ncore.impl.NamedElementImpl;
 import org.nasdanika.vinci.html.HtmlPackage;
 import org.nasdanika.vinci.html.Page;
@@ -53,7 +36,6 @@ import org.nasdanika.vinci.html.Page;
  * @generated
  */
 public class PageImpl extends NamedElementImpl implements Page {
-	private static final String LINE_AWESOME_CSS_CDN = "https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css";
 
 	/**
 	 * The default value of the '{@link #getLanguage() <em>Language</em>}' attribute.
@@ -141,8 +123,8 @@ public class PageImpl extends NamedElementImpl implements Page {
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public EList<SupplierFactory<Object>> getHead() {
-		return (EList<SupplierFactory<Object>>)eDynamicGet(HtmlPackage.PAGE__HEAD, HtmlPackage.Literals.PAGE__HEAD, true, true);
+	public EList<EObject> getHead() {
+		return (EList<EObject>)eDynamicGet(HtmlPackage.PAGE__HEAD, HtmlPackage.Literals.PAGE__HEAD, true, true);
 	}
 
 	/**
@@ -152,8 +134,8 @@ public class PageImpl extends NamedElementImpl implements Page {
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public EList<SupplierFactory<Object>> getBody() {
-		return (EList<SupplierFactory<Object>>)eDynamicGet(HtmlPackage.PAGE__BODY, HtmlPackage.Literals.PAGE__BODY, true, true);
+	public EList<EObject> getBody() {
+		return (EList<EObject>)eDynamicGet(HtmlPackage.PAGE__BODY, HtmlPackage.Literals.PAGE__BODY, true, true);
 	}
 
 	/**
@@ -163,8 +145,8 @@ public class PageImpl extends NamedElementImpl implements Page {
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public EList<SupplierFactory<ViewBuilder>> getBuilders() {
-		return (EList<SupplierFactory<ViewBuilder>>)eDynamicGet(HtmlPackage.PAGE__BUILDERS, HtmlPackage.Literals.PAGE__BUILDERS, true, true);
+	public EList<EObject> getBuilders() {
+		return (EList<EObject>)eDynamicGet(HtmlPackage.PAGE__BUILDERS, HtmlPackage.Literals.PAGE__BUILDERS, true, true);
 	}
 
 	/**
@@ -346,15 +328,15 @@ public class PageImpl extends NamedElementImpl implements Page {
 		switch (featureID) {
 			case HtmlPackage.PAGE__HEAD:
 				getHead().clear();
-				getHead().addAll((Collection<? extends SupplierFactory<Object>>)newValue);
+				getHead().addAll((Collection<? extends EObject>)newValue);
 				return;
 			case HtmlPackage.PAGE__BODY:
 				getBody().clear();
-				getBody().addAll((Collection<? extends SupplierFactory<Object>>)newValue);
+				getBody().addAll((Collection<? extends EObject>)newValue);
 				return;
 			case HtmlPackage.PAGE__BUILDERS:
 				getBuilders().clear();
-				getBuilders().addAll((Collection<? extends SupplierFactory<ViewBuilder>>)newValue);
+				getBuilders().addAll((Collection<? extends EObject>)newValue);
 				return;
 			case HtmlPackage.PAGE__LANGUAGE:
 				setLanguage((String)newValue);
@@ -445,104 +427,6 @@ public class PageImpl extends NamedElementImpl implements Page {
 				return isHighlightJs() != HIGHLIGHT_JS_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
-	}
-	
-	/**
-	 * Override in sub-classes to create a specialized page.
-	 * @param context
-	 * @return
-	 */
-	protected HTMLPage createPage(Context context) {
-		return context.get(HTMLFactory.class, HTMLFactory.INSTANCE).page();
-	}
-	
-	@SuppressWarnings({ "rawtypes", "unchecked" })
-	@Override
-	public Supplier<Object> create(Context context) throws Exception {
-		@SuppressWarnings("resource")
-		StringMapCompoundSupplier<List<Object>> partsSupplier = new StringMapCompoundSupplier<>(getTitle());
-		partsSupplier.put(new ListCompoundSupplierFactory<Object>("Head", getHead()).create(context));
-		partsSupplier.put(new ListCompoundSupplierFactory<Object>("Body", getBody()).create(context));
-		
-		Function<Map<String,List<Object>>,Object[]> pageFactory = Function.fromBiFunction((parts, progressMonitor) -> {
-			HTMLPage page = createPage(context);
-			ViewGenerator viewGenerator = new ViewGeneratorImpl(context, page::head, page::body);
-			
-			List<Object> head = parts.get("Head");
-			if (head != null) {
-				for (Object hp: head) {
-					page.head(viewGenerator.processViewPart(hp, progressMonitor));
-				}
-				
-				for (Object bp: parts.get("Body")) {
-					page.body(viewGenerator.processViewPart(bp, progressMonitor));
-				}
-				
-//				for (String script: getScripts()) {
-//					if (!Util.isBlank(script)) {
-//						page.script(context.interpolate(script));						
-//					}
-//				}
-//
-//				for (String stylesheet: getStylesheets()) {
-//					if (!Util.isBlank(stylesheet)) {
-//						page.stylesheet(context.interpolate(stylesheet));						
-//					}
-//				}
-//
-				String name = context.interpolate(PageImpl.this.getName());
-				if (!Util.isBlank(name)) {
-					page.title(name);
-				}
-				
-				if (isFontAwesome()) {
-					context.get(FontAwesomeFactory.class, FontAwesomeFactory.INSTANCE).cdn(page);
-				}
-				
-				if (isLineAwesome()) {
-					page.stylesheet(LINE_AWESOME_CSS_CDN);
-				}
-				
-				if (isJsTree()) {
-					context.get(JsTreeFactory.class, JsTreeFactory.INSTANCE).cdn(page);
-				}
-				
-				if (isGithubMarkdownCss()) {
-					page.stylesheet(MarkdownHelper.GITHUB_MARKDOWN_CSS_CDN);
-				}
-				
-				if (isHighlightJs()) {
-					page.stylesheet(MarkdownHelper.HIGHLIGHT_JS_CSS_CDN);
-					page.script(MarkdownHelper.HIGHLIGHT_JS_SCRIPT_CDN);
-					page.head(context.get(HTMLFactory.class, HTMLFactory.INSTANCE).tag(TagName.script, MarkdownHelper.HIGHLIGHT_JS_INIT_SCRIPT));
-				}				
-				
-			}
-			
-			return new Object[] {page, viewGenerator};
-			
-		}, "Page builder", 1);
-		
-		Supplier<Object[]> pageSupplier = partsSupplier.then(pageFactory);
-		
-		@SuppressWarnings("resource")
-		StringMapCompoundSupplier<Object> combiner = new StringMapCompoundSupplier<Object>(getTitle());		
-		combiner.put("Page", (Supplier) pageSupplier);
-		
-		Supplier<List<ViewBuilder>> buildersSupplier = new ListCompoundSupplierFactory<ViewBuilder>("Builders", getBuilders()).create(context);
-		combiner.put("Builders", (Supplier) buildersSupplier);
-		
-		Function<Map<String, Object>, Object> pageBuilder = Function.fromBiFunction((map, progressMonitor) -> {
-			
-			Object[] pageAndGenerator = ((Object[]) map.get("Page"));
-			for (ViewBuilder builder: (List<ViewBuilder>) map.get("Builders")) {
-				builder.build(pageAndGenerator[0], (ViewGenerator) pageAndGenerator[1], progressMonitor);
-			}
-			return (HTMLPage) pageAndGenerator[0];
-			
-		}, getTitle(), 1);
-		
-		return combiner.then(pageBuilder);
 	}
 
 } //PageImpl

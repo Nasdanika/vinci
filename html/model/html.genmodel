@@ -10,13 +10,7 @@
   <foreignModel>html.ecore</foreignModel>
   <genPackages prefix="Html" basePackage="org.nasdanika.vinci" disposableProviderFactory="true"
       ecorePackage="html.ecore#/">
-    <genClasses image="false" ecoreClass="html.ecore#//ViewPart"/>
-    <genClasses image="false" ecoreClass="html.ecore#//ViewBuilder"/>
-    <genClasses ecoreClass="html.ecore#//HtmlElement">
-      <genOperations ecoreOperation="html.ecore#//HtmlElement/asViewBuilderSupplier">
-        <genParameters ecoreParameter="html.ecore#//HtmlElement/asViewBuilderSupplier/context"/>
-      </genOperations>
-    </genClasses>
+    <genClasses ecoreClass="html.ecore#//HtmlElement"/>
     <genClasses ecoreClass="html.ecore#//Container">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference html.ecore#//Container/content"/>
       <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute html.ecore#//Container/markdownContent"/>

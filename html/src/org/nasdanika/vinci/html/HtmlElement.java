@@ -2,9 +2,6 @@
  */
 package org.nasdanika.vinci.html;
 
-import org.nasdanika.common.Context;
-import org.nasdanika.common.Supplier;
-import org.nasdanika.html.app.ViewBuilder;
 import org.nasdanika.ncore.ModelElement;
 
 /**
@@ -22,15 +19,4 @@ import org.nasdanika.ncore.ModelElement;
  * @generated
  */
 public interface HtmlElement extends ModelElement {
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Wraps element into a view builder - an existing object can be passed to HTML element's function and it will "build" it by applying styles, attriutes, etc.
-	 * <!-- end-model-doc -->
-	 * @model type="org.nasdanika.ncore.ISupplier&lt;org.nasdanika.vinci.html.ViewBuilder&gt;" exceptions="org.nasdanika.ncore.Exception" contextDataType="org.nasdanika.ncore.IContext"
-	 * @generated
-	 */
-	Supplier<ViewBuilder> asViewBuilderSupplier(Context context) throws Exception;
 } // HtmlElement

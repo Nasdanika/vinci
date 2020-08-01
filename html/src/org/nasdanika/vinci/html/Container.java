@@ -2,20 +2,9 @@
  */
 package org.nasdanika.vinci.html;
 
-import java.util.List;
-
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
-import org.nasdanika.common.Context;
-import org.nasdanika.common.Function;
-import org.nasdanika.common.FunctionFactory;
-import org.nasdanika.common.ListCompoundSupplierFactory;
-import org.nasdanika.common.MarkdownHelper;
-import org.nasdanika.common.NasdanikaException;
-import org.nasdanika.common.SupplierFactory;
 import org.nasdanika.common.Util;
-import org.nasdanika.emf.EObjectAdaptable;
-import org.nasdanika.html.app.ViewPart;
 import org.nasdanika.ncore.NcoreFactory;
 import org.nasdanika.ncore.Value;
 
@@ -82,63 +71,6 @@ public interface Container extends EObject {
 	 * @generated
 	 */
 	void setMarkdownContent(String value);
-	
-	static SupplierFactory<List<ViewPart>> wrap(List<SupplierFactory<Object>> objectsSupplierFactory) {
-		ListCompoundSupplierFactory<ViewPart> contentSupplierFactory = new ListCompoundSupplierFactory<>("Content");
-				
-		FunctionFactory<Object,ViewPart> wrapper = new FunctionFactory<Object, ViewPart>() {
-			
-			@Override
-			public Function<Object, ViewPart> create(Context arg) throws Exception {
-				return Function.fromBiFunction((o,pm) -> ViewPart.fromValue(o), "Wrapper", 1);
-			}
-			
-		};
-				
-		for (SupplierFactory<Object> content: objectsSupplierFactory) {
-			contentSupplierFactory.add(content.then(wrapper));
-		}
-		
-		return contentSupplierFactory;
-		
-	}
-	
-	/**
-	 * Creates a compound supplier factory with markdown content supplier factory first, if markdown content is not blank, and the rest of the content following.
-	 * @return
-	 */
-	@SuppressWarnings("unchecked")
-	default SupplierFactory<List<ViewPart>> createContentSupplierFactory() throws NasdanikaException {
-		ListCompoundSupplierFactory<ViewPart> contentSupplierFactory = new ListCompoundSupplierFactory<>("Content");
-				
-		String markdown = getMarkdownContent();
-		if (!Util.isBlank(markdown)) {
-			SupplierFactory<ViewPart> markdownSupplierFactory = SupplierFactory.from((context, progressMonidor) -> {
-				return ViewPart.fromValue(context.interpolate(MarkdownHelper.INSTANCE.markdownToHtml(markdown).trim()));				
-			},  "Markdown content", 1);
-						
-			contentSupplierFactory.add(markdownSupplierFactory);
-		}
-		
-		FunctionFactory<Object,ViewPart> wrapper = new FunctionFactory<Object, ViewPart>() {
-			
-			@Override
-			public Function<Object, ViewPart> create(Context arg) throws Exception {
-				return Function.fromBiFunction((o,pm) -> ViewPart.fromValue(o), "Wrapper", 1);
-			}
-			
-		};
-				
-		for (EObject content: getContent()) {
-			SupplierFactory<Object> sf = EObjectAdaptable.adaptTo(content, SupplierFactory.class);
-			if (sf == null) {
-				throw new NasdanikaException("Cannot adapt " + content + " to " + SupplierFactory.class);
-			}
-			contentSupplierFactory.add(sf.then(wrapper));
-		}
-		
-		return contentSupplierFactory;
-	}
 	
 	/**
 	 * Convenience method for adding content as {@link Value}

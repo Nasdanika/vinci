@@ -7,12 +7,9 @@ import java.util.Map;
 import java.util.Set;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.ResourceLocator;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.nasdanika.emf.DiagnosticHelper;
-import org.nasdanika.html.app.ViewBuilder;
-import org.nasdanika.html.app.ViewPart;
 import org.nasdanika.ncore.Entry;
 import org.nasdanika.ncore.NcorePackage;
 import org.nasdanika.vinci.html.*;
@@ -95,10 +92,6 @@ public class HtmlValidator extends EObjectValidator {
 	@Override
 	protected boolean validate(int classifierID, Object value, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		switch (classifierID) {
-			case HtmlPackage.VIEW_PART:
-				return validateViewPart((ViewPart)value, diagnostics, context);
-			case HtmlPackage.VIEW_BUILDER:
-				return validateViewBuilder((ViewBuilder)value, diagnostics, context);
 			case HtmlPackage.HTML_ELEMENT:
 				return validateHtmlElement((HtmlElement)value, diagnostics, context);
 			case HtmlPackage.CONTAINER:
@@ -124,24 +117,6 @@ public class HtmlValidator extends EObjectValidator {
 			default:
 				return true;
 		}
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateViewPart(ViewPart viewPart, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint((EObject)viewPart, diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateViewBuilder(ViewBuilder viewBuilder, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint((EObject)viewBuilder, diagnostics, context);
 	}
 
 	/**
@@ -191,7 +166,7 @@ public class HtmlValidator extends EObjectValidator {
 		if (diagnostics != null) {			
 			Set<String> names = new HashSet<>();
 			boolean ret = true;
-			for (Entry<?> attr: tag.getAttributes()) {
+			for (Entry attr: tag.getAttributes()) {
 				if (attr.isEnabled()) {
 					DiagnosticHelper helper = new DiagnosticHelper(diagnostics, DIAGNOSTIC_SOURCE, 0, attr);
 					if (!names.add(attr.getName())) {

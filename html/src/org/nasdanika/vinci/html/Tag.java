@@ -3,8 +3,6 @@
 package org.nasdanika.vinci.html;
 
 import org.eclipse.emf.common.util.EList;
-import org.nasdanika.common.SupplierFactory;
-import org.nasdanika.html.app.ViewPart;
 import org.nasdanika.ncore.Entry;
 
 
@@ -26,11 +24,10 @@ import org.nasdanika.ncore.Entry;
  * </ul>
  *
  * @see org.nasdanika.vinci.html.HtmlPackage#getTag()
- * @model superTypes="org.nasdanika.vinci.html.HtmlElement org.nasdanika.ncore.ISupplierFactory&lt;org.nasdanika.vinci.html.ViewPart&gt;"
- *        annotation="http://www.eclipse.org/emf/2002/Ecore constraints='attributes'"
+ * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='attributes'"
  * @generated
  */
-public interface Tag extends HtmlElement, SupplierFactory<ViewPart> {
+public interface Tag extends HtmlElement {
 
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.
@@ -59,7 +56,7 @@ public interface Tag extends HtmlElement, SupplierFactory<ViewPart> {
 
 	/**
 	 * Returns the value of the '<em><b>Attributes</b></em>' containment reference list.
-	 * The list contents are of type {@link org.nasdanika.ncore.Entry}<code>&lt;java.lang.Object&gt;</code>.
+	 * The list contents are of type {@link org.nasdanika.ncore.Entry}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
@@ -97,8 +94,8 @@ public interface Tag extends HtmlElement, SupplierFactory<ViewPart> {
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Attributes</em>' containment reference list.
 	 * @see org.nasdanika.vinci.html.HtmlPackage#getTag_Attributes()
-	 * @model type="org.nasdanika.ncore.Entry&lt;org.eclipse.emf.ecore.EJavaObject&gt;" containment="true"
+	 * @model containment="true"
 	 * @generated
 	 */
-	EList<Entry<Object>> getAttributes();
+	EList<Entry> getAttributes();
 } // Tag

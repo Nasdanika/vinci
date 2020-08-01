@@ -2,7 +2,6 @@
  */
 package org.nasdanika.vinci.html;
 
-import org.nasdanika.common.SupplierFactory;
 import org.nasdanika.ncore.ModelElement;
 
 /**
@@ -22,10 +21,10 @@ import org.nasdanika.ncore.ModelElement;
  * </ul>
  *
  * @see org.nasdanika.vinci.html.HtmlPackage#getScriptResource()
- * @model superTypes="org.nasdanika.ncore.ModelElement org.nasdanika.ncore.ISupplierFactory&lt;org.eclipse.emf.ecore.EJavaObject&gt;"
+ * @model
  * @generated
  */
-public interface ScriptResource extends ModelElement, SupplierFactory<Object> {
+public interface ScriptResource extends ModelElement {
 	/**
 	 * Returns the value of the '<em><b>Location</b></em>' attribute.
 	 * <!-- begin-user-doc -->

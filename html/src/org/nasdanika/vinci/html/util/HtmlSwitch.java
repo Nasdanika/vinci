@@ -5,9 +5,6 @@ package org.nasdanika.vinci.html.util;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
-import org.nasdanika.common.SupplierFactory;
-import org.nasdanika.html.app.ViewBuilder;
-import org.nasdanika.html.app.ViewPart;
 import org.nasdanika.ncore.ModelElement;
 import org.nasdanika.ncore.NamedElement;
 import org.nasdanika.vinci.html.*;
@@ -31,7 +28,7 @@ import org.nasdanika.vinci.html.Tag;
  * @see org.nasdanika.vinci.html.HtmlPackage
  * @generated
  */
-public class HtmlSwitch<T1> extends Switch<T1> {
+public class HtmlSwitch<T> extends Switch<T> {
 	/**
 	 * The cached model package
 	 * <!-- begin-user-doc -->
@@ -73,142 +70,91 @@ public class HtmlSwitch<T1> extends Switch<T1> {
 	 * @generated
 	 */
 	@Override
-	protected T1 doSwitch(int classifierID, EObject theEObject) {
+	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
-			case HtmlPackage.VIEW_PART: {
-				ViewPart viewPart = (ViewPart)theEObject;
-				T1 result = caseViewPart(viewPart);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case HtmlPackage.VIEW_BUILDER: {
-				ViewBuilder viewBuilder = (ViewBuilder)theEObject;
-				T1 result = caseViewBuilder(viewBuilder);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case HtmlPackage.HTML_ELEMENT: {
 				HtmlElement htmlElement = (HtmlElement)theEObject;
-				T1 result = caseHtmlElement(htmlElement);
+				T result = caseHtmlElement(htmlElement);
 				if (result == null) result = caseModelElement(htmlElement);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case HtmlPackage.CONTAINER: {
 				Container container = (Container)theEObject;
-				T1 result = caseContainer(container);
+				T result = caseContainer(container);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case HtmlPackage.TAG: {
 				Tag tag = (Tag)theEObject;
-				T1 result = caseTag(tag);
+				T result = caseTag(tag);
 				if (result == null) result = caseHtmlElement(tag);
-				if (result == null) result = caseISupplierFactory(tag);
 				if (result == null) result = caseModelElement(tag);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case HtmlPackage.CONTENT_TAG: {
 				ContentTag contentTag = (ContentTag)theEObject;
-				T1 result = caseContentTag(contentTag);
+				T result = caseContentTag(contentTag);
 				if (result == null) result = caseTag(contentTag);
 				if (result == null) result = caseContainer(contentTag);
 				if (result == null) result = caseHtmlElement(contentTag);
-				if (result == null) result = caseISupplierFactory(contentTag);
 				if (result == null) result = caseModelElement(contentTag);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case HtmlPackage.PAGE: {
 				Page page = (Page)theEObject;
-				T1 result = casePage(page);
+				T result = casePage(page);
 				if (result == null) result = caseNamedElement(page);
-				if (result == null) result = caseISupplierFactory(page);
 				if (result == null) result = caseModelElement(page);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case HtmlPackage.STYLESHEET: {
 				Stylesheet stylesheet = (Stylesheet)theEObject;
-				T1 result = caseStylesheet(stylesheet);
+				T result = caseStylesheet(stylesheet);
 				if (result == null) result = caseModelElement(stylesheet);
-				if (result == null) result = caseISupplierFactory(stylesheet);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case HtmlPackage.STYLESHEET_RESOURCE: {
 				StylesheetResource stylesheetResource = (StylesheetResource)theEObject;
-				T1 result = caseStylesheetResource(stylesheetResource);
+				T result = caseStylesheetResource(stylesheetResource);
 				if (result == null) result = caseModelElement(stylesheetResource);
-				if (result == null) result = caseISupplierFactory(stylesheetResource);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case HtmlPackage.STYLESHEET_REFERENCE: {
 				StylesheetReference stylesheetReference = (StylesheetReference)theEObject;
-				T1 result = caseStylesheetReference(stylesheetReference);
+				T result = caseStylesheetReference(stylesheetReference);
 				if (result == null) result = caseModelElement(stylesheetReference);
-				if (result == null) result = caseISupplierFactory(stylesheetReference);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case HtmlPackage.SCRIPT: {
 				Script script = (Script)theEObject;
-				T1 result = caseScript(script);
+				T result = caseScript(script);
 				if (result == null) result = caseModelElement(script);
-				if (result == null) result = caseISupplierFactory(script);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case HtmlPackage.SCRIPT_RESOURCE: {
 				ScriptResource scriptResource = (ScriptResource)theEObject;
-				T1 result = caseScriptResource(scriptResource);
+				T result = caseScriptResource(scriptResource);
 				if (result == null) result = caseModelElement(scriptResource);
-				if (result == null) result = caseISupplierFactory(scriptResource);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case HtmlPackage.SCRIPT_REFERENCE: {
 				ScriptReference scriptReference = (ScriptReference)theEObject;
-				T1 result = caseScriptReference(scriptReference);
+				T result = caseScriptReference(scriptReference);
 				if (result == null) result = caseModelElement(scriptReference);
-				if (result == null) result = caseISupplierFactory(scriptReference);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			default: return defaultCase(theEObject);
 		}
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>View Part</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>View Part</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T1 caseViewPart(ViewPart object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>View Builder</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>View Builder</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T1 caseViewBuilder(ViewBuilder object) {
-		return null;
 	}
 
 	/**
@@ -222,7 +168,7 @@ public class HtmlSwitch<T1> extends Switch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseHtmlElement(HtmlElement object) {
+	public T caseHtmlElement(HtmlElement object) {
 		return null;
 	}
 
@@ -237,7 +183,7 @@ public class HtmlSwitch<T1> extends Switch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseContainer(Container object) {
+	public T caseContainer(Container object) {
 		return null;
 	}
 
@@ -252,7 +198,7 @@ public class HtmlSwitch<T1> extends Switch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseTag(Tag object) {
+	public T caseTag(Tag object) {
 		return null;
 	}
 
@@ -267,7 +213,7 @@ public class HtmlSwitch<T1> extends Switch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseContentTag(ContentTag object) {
+	public T caseContentTag(ContentTag object) {
 		return null;
 	}
 
@@ -282,7 +228,7 @@ public class HtmlSwitch<T1> extends Switch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 casePage(Page object) {
+	public T casePage(Page object) {
 		return null;
 	}
 
@@ -297,7 +243,7 @@ public class HtmlSwitch<T1> extends Switch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseStylesheet(Stylesheet object) {
+	public T caseStylesheet(Stylesheet object) {
 		return null;
 	}
 
@@ -312,7 +258,7 @@ public class HtmlSwitch<T1> extends Switch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseStylesheetResource(StylesheetResource object) {
+	public T caseStylesheetResource(StylesheetResource object) {
 		return null;
 	}
 
@@ -327,7 +273,7 @@ public class HtmlSwitch<T1> extends Switch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseStylesheetReference(StylesheetReference object) {
+	public T caseStylesheetReference(StylesheetReference object) {
 		return null;
 	}
 
@@ -342,7 +288,7 @@ public class HtmlSwitch<T1> extends Switch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseScript(Script object) {
+	public T caseScript(Script object) {
 		return null;
 	}
 
@@ -357,7 +303,7 @@ public class HtmlSwitch<T1> extends Switch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseScriptResource(ScriptResource object) {
+	public T caseScriptResource(ScriptResource object) {
 		return null;
 	}
 
@@ -372,7 +318,7 @@ public class HtmlSwitch<T1> extends Switch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseScriptReference(ScriptReference object) {
+	public T caseScriptReference(ScriptReference object) {
 		return null;
 	}
 
@@ -387,22 +333,7 @@ public class HtmlSwitch<T1> extends Switch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseModelElement(ModelElement object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>ISupplier Factory</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>ISupplier Factory</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public <T> T1 caseISupplierFactory(SupplierFactory<T> object) {
+	public T caseModelElement(ModelElement object) {
 		return null;
 	}
 
@@ -417,7 +348,7 @@ public class HtmlSwitch<T1> extends Switch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseNamedElement(NamedElement object) {
+	public T caseNamedElement(NamedElement object) {
 		return null;
 	}
 
@@ -433,7 +364,7 @@ public class HtmlSwitch<T1> extends Switch<T1> {
 	 * @generated
 	 */
 	@Override
-	public T1 defaultCase(EObject object) {
+	public T defaultCase(EObject object) {
 		return null;
 	}
 

@@ -3,13 +3,6 @@
 package org.nasdanika.vinci.html.impl;
 
 import org.eclipse.emf.ecore.EClass;
-import org.nasdanika.common.Context;
-import org.nasdanika.common.ProgressMonitor;
-import org.nasdanika.common.Supplier;
-import org.nasdanika.html.HTMLFactory;
-import org.nasdanika.html.TagName;
-import org.nasdanika.html.app.ViewGenerator;
-import org.nasdanika.html.app.ViewPart;
 import org.nasdanika.ncore.impl.ModelElementImpl;
 import org.nasdanika.vinci.html.HtmlPackage;
 import org.nasdanika.vinci.html.StylesheetReference;
@@ -133,23 +126,6 @@ public class StylesheetReferenceImpl extends ModelElementImpl implements Stylesh
 				return HREF_EDEFAULT == null ? getHref() != null : !HREF_EDEFAULT.equals(getHref());
 		}
 		return super.eIsSet(featureID);
-	}
-
-	@Override
-	public Supplier<Object> create(Context context) throws Exception {
-		return Supplier.<Object>fromCallable(() -> {
-			return new ViewPart() {
-				
-				@Override
-				public Object generate(ViewGenerator viewGenerator, ProgressMonitor progressMonitor) {
-					return viewGenerator.get(HTMLFactory.class).tag(TagName.link)
-							.attribute("href", context.interpolate(getHref()))
-							.attribute("rel", "stylesheet")
-							.attribute("type", "text/css"); 
-				}
-				
-			};
-		}, getTitle(), 1);
 	}
 
 } //StylesheetReferenceImpl

@@ -4,7 +4,6 @@ package org.nasdanika.vinci.html;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.nasdanika.ncore.NcorePackage;
@@ -62,62 +61,6 @@ public interface HtmlPackage extends EPackage {
 	HtmlPackage eINSTANCE = org.nasdanika.vinci.html.impl.HtmlPackageImpl.init();
 
 	/**
-	 * The meta object id for the '{@link org.nasdanika.html.app.ViewPart <em>View Part</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.nasdanika.html.app.ViewPart
-	 * @see org.nasdanika.vinci.html.impl.HtmlPackageImpl#getViewPart()
-	 * @generated
-	 */
-	int VIEW_PART = 0;
-
-	/**
-	 * The number of structural features of the '<em>View Part</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VIEW_PART_FEATURE_COUNT = 0;
-
-	/**
-	 * The number of operations of the '<em>View Part</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VIEW_PART_OPERATION_COUNT = 0;
-
-	/**
-	 * The meta object id for the '{@link org.nasdanika.html.app.ViewBuilder <em>View Builder</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.nasdanika.html.app.ViewBuilder
-	 * @see org.nasdanika.vinci.html.impl.HtmlPackageImpl#getViewBuilder()
-	 * @generated
-	 */
-	int VIEW_BUILDER = 1;
-
-	/**
-	 * The number of structural features of the '<em>View Builder</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VIEW_BUILDER_FEATURE_COUNT = 0;
-
-	/**
-	 * The number of operations of the '<em>View Builder</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VIEW_BUILDER_OPERATION_COUNT = 0;
-
-	/**
 	 * The meta object id for the '{@link org.nasdanika.vinci.html.impl.HtmlElementImpl <em>Element</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -125,7 +68,7 @@ public interface HtmlPackage extends EPackage {
 	 * @see org.nasdanika.vinci.html.impl.HtmlPackageImpl#getHtmlElement()
 	 * @generated
 	 */
-	int HTML_ELEMENT = 2;
+	int HTML_ELEMENT = 0;
 
 	/**
 	 * The feature id for the '<em><b>Title</b></em>' attribute.
@@ -155,22 +98,13 @@ public interface HtmlPackage extends EPackage {
 	int HTML_ELEMENT_FEATURE_COUNT = NcorePackage.MODEL_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
-	 * The operation id for the '<em>As View Builder Supplier</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int HTML_ELEMENT___AS_VIEW_BUILDER_SUPPLIER__CONTEXT = NcorePackage.MODEL_ELEMENT_OPERATION_COUNT + 0;
-
-	/**
 	 * The number of operations of the '<em>Element</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int HTML_ELEMENT_OPERATION_COUNT = NcorePackage.MODEL_ELEMENT_OPERATION_COUNT + 1;
+	int HTML_ELEMENT_OPERATION_COUNT = NcorePackage.MODEL_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.vinci.html.impl.ContainerImpl <em>Container</em>}' class.
@@ -180,7 +114,7 @@ public interface HtmlPackage extends EPackage {
 	 * @see org.nasdanika.vinci.html.impl.HtmlPackageImpl#getContainer()
 	 * @generated
 	 */
-	int CONTAINER = 3;
+	int CONTAINER = 1;
 
 	/**
 	 * The feature id for the '<em><b>Content</b></em>' containment reference list.
@@ -226,7 +160,7 @@ public interface HtmlPackage extends EPackage {
 	 * @see org.nasdanika.vinci.html.impl.HtmlPackageImpl#getTag()
 	 * @generated
 	 */
-	int TAG = 4;
+	int TAG = 2;
 
 	/**
 	 * The feature id for the '<em><b>Title</b></em>' attribute.
@@ -274,15 +208,6 @@ public interface HtmlPackage extends EPackage {
 	int TAG_FEATURE_COUNT = HTML_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
-	 * The operation id for the '<em>As View Builder Supplier</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TAG___AS_VIEW_BUILDER_SUPPLIER__CONTEXT = HTML_ELEMENT___AS_VIEW_BUILDER_SUPPLIER__CONTEXT;
-
-	/**
 	 * The number of operations of the '<em>Tag</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -300,7 +225,7 @@ public interface HtmlPackage extends EPackage {
 	 * @see org.nasdanika.vinci.html.impl.HtmlPackageImpl#getContentTag()
 	 * @generated
 	 */
-	int CONTENT_TAG = 5;
+	int CONTENT_TAG = 3;
 
 	/**
 	 * The feature id for the '<em><b>Title</b></em>' attribute.
@@ -366,15 +291,6 @@ public interface HtmlPackage extends EPackage {
 	int CONTENT_TAG_FEATURE_COUNT = TAG_FEATURE_COUNT + 2;
 
 	/**
-	 * The operation id for the '<em>As View Builder Supplier</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONTENT_TAG___AS_VIEW_BUILDER_SUPPLIER__CONTEXT = TAG___AS_VIEW_BUILDER_SUPPLIER__CONTEXT;
-
-	/**
 	 * The number of operations of the '<em>Content Tag</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -391,7 +307,7 @@ public interface HtmlPackage extends EPackage {
 	 * @see org.nasdanika.vinci.html.impl.HtmlPackageImpl#getPage()
 	 * @generated
 	 */
-	int PAGE = 6;
+	int PAGE = 4;
 
 	/**
 	 * The feature id for the '<em><b>Title</b></em>' attribute.
@@ -527,7 +443,7 @@ public interface HtmlPackage extends EPackage {
 	 * @see org.nasdanika.vinci.html.impl.HtmlPackageImpl#getStylesheet()
 	 * @generated
 	 */
-	int STYLESHEET = 7;
+	int STYLESHEET = 5;
 
 	/**
 	 * The feature id for the '<em><b>Title</b></em>' attribute.
@@ -582,7 +498,7 @@ public interface HtmlPackage extends EPackage {
 	 * @see org.nasdanika.vinci.html.impl.HtmlPackageImpl#getStylesheetResource()
 	 * @generated
 	 */
-	int STYLESHEET_RESOURCE = 8;
+	int STYLESHEET_RESOURCE = 6;
 
 	/**
 	 * The feature id for the '<em><b>Title</b></em>' attribute.
@@ -637,7 +553,7 @@ public interface HtmlPackage extends EPackage {
 	 * @see org.nasdanika.vinci.html.impl.HtmlPackageImpl#getStylesheetReference()
 	 * @generated
 	 */
-	int STYLESHEET_REFERENCE = 9;
+	int STYLESHEET_REFERENCE = 7;
 
 	/**
 	 * The feature id for the '<em><b>Title</b></em>' attribute.
@@ -692,7 +608,7 @@ public interface HtmlPackage extends EPackage {
 	 * @see org.nasdanika.vinci.html.impl.HtmlPackageImpl#getScript()
 	 * @generated
 	 */
-	int SCRIPT = 10;
+	int SCRIPT = 8;
 
 	/**
 	 * The feature id for the '<em><b>Title</b></em>' attribute.
@@ -747,7 +663,7 @@ public interface HtmlPackage extends EPackage {
 	 * @see org.nasdanika.vinci.html.impl.HtmlPackageImpl#getScriptResource()
 	 * @generated
 	 */
-	int SCRIPT_RESOURCE = 11;
+	int SCRIPT_RESOURCE = 9;
 
 	/**
 	 * The feature id for the '<em><b>Title</b></em>' attribute.
@@ -802,7 +718,7 @@ public interface HtmlPackage extends EPackage {
 	 * @see org.nasdanika.vinci.html.impl.HtmlPackageImpl#getScriptReference()
 	 * @generated
 	 */
-	int SCRIPT_REFERENCE = 12;
+	int SCRIPT_REFERENCE = 10;
 
 	/**
 	 * The feature id for the '<em><b>Title</b></em>' attribute.
@@ -850,28 +766,6 @@ public interface HtmlPackage extends EPackage {
 	int SCRIPT_REFERENCE_OPERATION_COUNT = NcorePackage.MODEL_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
-	 * Returns the meta object for class '{@link org.nasdanika.html.app.ViewPart <em>View Part</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>View Part</em>'.
-	 * @see org.nasdanika.html.app.ViewPart
-	 * @model instanceClass="org.nasdanika.html.app.ViewPart"
-	 * @generated
-	 */
-	EClass getViewPart();
-
-	/**
-	 * Returns the meta object for class '{@link org.nasdanika.html.app.ViewBuilder <em>View Builder</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>View Builder</em>'.
-	 * @see org.nasdanika.html.app.ViewBuilder
-	 * @model instanceClass="org.nasdanika.html.app.ViewBuilder"
-	 * @generated
-	 */
-	EClass getViewBuilder();
-
-	/**
 	 * Returns the meta object for class '{@link org.nasdanika.vinci.html.HtmlElement <em>Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -880,16 +774,6 @@ public interface HtmlPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getHtmlElement();
-
-	/**
-	 * Returns the meta object for the '{@link org.nasdanika.vinci.html.HtmlElement#asViewBuilderSupplier(org.nasdanika.common.Context) <em>As View Builder Supplier</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>As View Builder Supplier</em>' operation.
-	 * @see org.nasdanika.vinci.html.HtmlElement#asViewBuilderSupplier(org.nasdanika.common.Context)
-	 * @generated
-	 */
-	EOperation getHtmlElement__AsViewBuilderSupplier__Context();
 
 	/**
 	 * Returns the meta object for class '{@link org.nasdanika.vinci.html.Container <em>Container</em>}'.
@@ -1224,26 +1108,6 @@ public interface HtmlPackage extends EPackage {
 	 */
 	interface Literals {
 		/**
-		 * The meta object literal for the '{@link org.nasdanika.html.app.ViewPart <em>View Part</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.nasdanika.html.app.ViewPart
-		 * @see org.nasdanika.vinci.html.impl.HtmlPackageImpl#getViewPart()
-		 * @generated
-		 */
-		EClass VIEW_PART = eINSTANCE.getViewPart();
-
-		/**
-		 * The meta object literal for the '{@link org.nasdanika.html.app.ViewBuilder <em>View Builder</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.nasdanika.html.app.ViewBuilder
-		 * @see org.nasdanika.vinci.html.impl.HtmlPackageImpl#getViewBuilder()
-		 * @generated
-		 */
-		EClass VIEW_BUILDER = eINSTANCE.getViewBuilder();
-
-		/**
 		 * The meta object literal for the '{@link org.nasdanika.vinci.html.impl.HtmlElementImpl <em>Element</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1252,14 +1116,6 @@ public interface HtmlPackage extends EPackage {
 		 * @generated
 		 */
 		EClass HTML_ELEMENT = eINSTANCE.getHtmlElement();
-
-		/**
-		 * The meta object literal for the '<em><b>As View Builder Supplier</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation HTML_ELEMENT___AS_VIEW_BUILDER_SUPPLIER__CONTEXT = eINSTANCE.getHtmlElement__AsViewBuilderSupplier__Context();
 
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.vinci.html.impl.ContainerImpl <em>Container</em>}' class.

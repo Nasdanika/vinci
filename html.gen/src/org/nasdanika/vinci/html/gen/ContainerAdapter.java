@@ -21,7 +21,7 @@ import org.nasdanika.vinci.html.Container;
  *
  * @param <T>
  */
-public abstract class ContainerAdapter<T extends Container> {
+public class ContainerAdapter<T extends Container> {
 	
 	protected T target;
 
@@ -34,7 +34,7 @@ public abstract class ContainerAdapter<T extends Container> {
 	 * @return
 	 */
 	@SuppressWarnings("unchecked")
-	protected SupplierFactory<List<ViewPart>> createContentSupplierFactory() throws NasdanikaException {
+	public SupplierFactory<List<ViewPart>> createContentSupplierFactory() throws NasdanikaException {
 		ListCompoundSupplierFactory<ViewPart> contentSupplierFactory = new ListCompoundSupplierFactory<>("Content");
 				
 		String markdown = target.getMarkdownContent();
@@ -65,5 +65,25 @@ public abstract class ContainerAdapter<T extends Container> {
 		
 		return contentSupplierFactory;
 	}
-	
+		
+	public static SupplierFactory<List<ViewPart>> wrap(List<SupplierFactory<Object>> objectsSupplierFactory) {
+		ListCompoundSupplierFactory<ViewPart> contentSupplierFactory = new ListCompoundSupplierFactory<>("Content");
+				
+		FunctionFactory<Object,ViewPart> wrapper = new FunctionFactory<Object, ViewPart>() {
+			
+			@Override
+			public Function<Object, ViewPart> create(Context arg) throws Exception {
+				return Function.fromBiFunction((o,pm) -> ViewPart.fromValue(o), "Wrapper", 1);
+			}
+			
+		};
+				
+		for (SupplierFactory<Object> content: objectsSupplierFactory) {
+			contentSupplierFactory.add(content.then(wrapper));
+		}
+		
+		return contentSupplierFactory;
+		
+	}
+		
 }

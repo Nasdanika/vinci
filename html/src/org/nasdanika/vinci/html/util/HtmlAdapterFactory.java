@@ -6,9 +6,6 @@ import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
-import org.nasdanika.common.SupplierFactory;
-import org.nasdanika.html.app.ViewBuilder;
-import org.nasdanika.html.app.ViewPart;
 import org.nasdanika.ncore.ModelElement;
 import org.nasdanika.ncore.NamedElement;
 import org.nasdanika.vinci.html.*;
@@ -76,14 +73,6 @@ public class HtmlAdapterFactory extends AdapterFactoryImpl {
 	protected HtmlSwitch<Adapter> modelSwitch =
 		new HtmlSwitch<Adapter>() {
 			@Override
-			public Adapter caseViewPart(ViewPart object) {
-				return createViewPartAdapter();
-			}
-			@Override
-			public Adapter caseViewBuilder(ViewBuilder object) {
-				return createViewBuilderAdapter();
-			}
-			@Override
 			public Adapter caseHtmlElement(HtmlElement object) {
 				return createHtmlElementAdapter();
 			}
@@ -132,10 +121,6 @@ public class HtmlAdapterFactory extends AdapterFactoryImpl {
 				return createModelElementAdapter();
 			}
 			@Override
-			public <T> Adapter caseISupplierFactory(SupplierFactory<T> object) {
-				return createISupplierFactoryAdapter();
-			}
-			@Override
 			public Adapter caseNamedElement(NamedElement object) {
 				return createNamedElementAdapter();
 			}
@@ -158,34 +143,6 @@ public class HtmlAdapterFactory extends AdapterFactoryImpl {
 		return modelSwitch.doSwitch((EObject)target);
 	}
 
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.nasdanika.html.app.ViewPart <em>View Part</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.nasdanika.html.app.ViewPart
-	 * @generated
-	 */
-	public Adapter createViewPartAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.nasdanika.html.app.ViewBuilder <em>View Builder</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.nasdanika.html.app.ViewBuilder
-	 * @generated
-	 */
-	public Adapter createViewBuilderAdapter() {
-		return null;
-	}
 
 	/**
 	 * Creates a new adapter for an object of class '{@link org.nasdanika.vinci.html.HtmlElement <em>Element</em>}'.
@@ -352,20 +309,6 @@ public class HtmlAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createModelElementAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.nasdanika.common.SupplierFactory <em>ISupplier Factory</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.nasdanika.common.SupplierFactory
-	 * @generated
-	 */
-	public Adapter createISupplierFactoryAdapter() {
 		return null;
 	}
 

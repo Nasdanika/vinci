@@ -10,12 +10,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.InternalEList;
-import org.nasdanika.common.Context;
-import org.nasdanika.common.ProgressMonitor;
-import org.nasdanika.common.StringMapCompoundSupplier;
-import org.nasdanika.common.Supplier;
-import org.nasdanika.html.app.ViewGenerator;
-import org.nasdanika.html.app.ViewPart;
 import org.nasdanika.vinci.html.ContentTag;
 import org.nasdanika.vinci.html.HtmlPackage;
 
@@ -210,30 +204,6 @@ public class ContentTagImpl extends TagImpl implements ContentTag {
 			}
 		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
-	}
-
-	@SuppressWarnings({ "unchecked", "rawtypes" })
-	@Override
-	public Supplier<ViewPart> create(Context context) throws Exception {
-		StringMapCompoundSupplier<Object> mapSupplier = new StringMapCompoundSupplier<>(getTitle());
-		
-		Supplier<ViewPart> tagViewPartSupplier = super.create(context);
-		mapSupplier.put("Tag", (Supplier) tagViewPartSupplier);		
-		mapSupplier.put((Supplier) createContentSupplierFactory().create(context));
-		return mapSupplier.then(map -> {
-			return new ViewPart() {
-
-				@Override
-				public Object generate(ViewGenerator viewGenerator, ProgressMonitor progressMonitor) {
-					org.nasdanika.html.Tag tag = (org.nasdanika.html.Tag) ((ViewPart) map.get("Tag")).generate(viewGenerator, progressMonitor);
-					for (ViewPart viewPart: ((Collection<ViewPart>) map.get("Content"))) {
-						tag.accept(viewGenerator.processViewPart(viewPart, progressMonitor));
-					}
-					return tag;
-				}
-				
-			};
-		});
 	}
 
 } //ContentTagImpl
