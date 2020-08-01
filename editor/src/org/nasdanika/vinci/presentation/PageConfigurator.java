@@ -36,7 +36,6 @@ public class PageConfigurator implements InitialObjectConfigurator {
 		return "Template";
 	}
 
-	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
 	public EObject configure(EObject initialModel) {
 		if (pageTemplateComposite.isTemplate()) {

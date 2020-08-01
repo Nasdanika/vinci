@@ -2,6 +2,7 @@ package org.nasdanika.vinci.app.gen;
 
 import java.util.Collections;
 import java.util.Map;
+import java.util.function.Function;
 
 import org.nasdanika.common.Context;
 import org.nasdanika.common.ElementIdentityMapCompoundSupplier;
@@ -11,7 +12,6 @@ import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.common.Reference;
 import org.nasdanika.common.StringMapCompoundSupplier;
 import org.nasdanika.common.Supplier;
-import org.nasdanika.common.SupplierFactory;
 import org.nasdanika.emf.EObjectAdaptable;
 import org.nasdanika.html.HTMLElement;
 import org.nasdanika.html.HTMLPage;
@@ -25,6 +25,7 @@ import org.nasdanika.html.bootstrap.BootstrapFactory;
 import org.nasdanika.html.bootstrap.Breakpoint;
 import org.nasdanika.html.bootstrap.Size;
 import org.nasdanika.ncore.Entry;
+import org.nasdanika.vinci.app.AbstractAction;
 import org.nasdanika.vinci.app.BootstrapContainerApplication;
 import org.nasdanika.vinci.app.BootstrapContainerApplicationSection;
 import org.nasdanika.vinci.bootstrap.Appearance;
@@ -131,22 +132,22 @@ public class BootstrapContainerApplicationSupplierFactory extends BootstrapEleme
 		
 		BootstrapContainerApplicationSection contentPanel = target.getContentPanel();
 		if (contentPanel != null) {
-			sectionBuilderSuppliers.put(Section.ContentPanel, contentPanel.asViewBuilderSupplier(context));
+			sectionBuilderSuppliers.put(Section.ContentPanel, EObjectAdaptable.adaptTo(contentPanel, ViewBuilder.Supplier.Factory.class).create(context));
 		}
 		
 		BootstrapContainerApplicationSection footer = target.getFooter();
 		if (footer != null) {
-			sectionBuilderSuppliers.put(Section.Footer, footer.asViewBuilderSupplier(context));
+			sectionBuilderSuppliers.put(Section.Footer, EObjectAdaptable.adaptTo(footer, ViewBuilder.Supplier.Factory.class).create(context));
 		}
 		
 		ListCompoundSupplier<Object> buildersSupplier = new ListCompoundSupplier<>("Builders");
 		resultsSupplier.put((Supplier) buildersSupplier);
 		
-		for (BootstrapContainerApplicationBuilder builder: getBuilders()) {
-			buildersSupplier.add(builder.createApplicationBuilderSupplier(context));
+		for (AbstractAction builder: target.getBuilders()) {			
+			buildersSupplier.add((Supplier) EObjectAdaptable.adaptTo(builder, ApplicationBuilder.Supplier.Factory.class).create(context));
 		}
 						
-		return resultsSupplier.then(results -> new ViewBuilder() {
+		Function<Function<org.nasdanika.common.Supplier<Object>, Object>, ViewBuilder> composer = results -> new ViewBuilder() {
 			
 			/**
 			 * Convenience method for retrieving results.
@@ -154,15 +155,15 @@ public class BootstrapContainerApplicationSupplierFactory extends BootstrapEleme
 			 * @param supplier
 			 * @return
 			 */
-			private <R> R getResult(Supplier<R> supplier) {
-				return (R) results.apply((Supplier) supplier);
+			private <R> R getResult(org.nasdanika.common.Supplier<R> supplier) {
+				return (R) results.apply((org.nasdanika.common.Supplier) supplier);
 			}
 
 			@Override
 			public void build(Object target, ViewGenerator viewGenerator, ProgressMonitor progressMonitor) {
 				Map<Section, ViewBuilder> sectionBuilders = getResult(sectionBuilderSuppliers);
 				Map<String, Decorator> decorators = getResult(decoratorsSupplier);
-				Supplier<Map<String, Object>> aSupplier = appearanceChildrenAttributesSupplierReference.get();
+				org.nasdanika.common.Supplier<Map<String, Object>> aSupplier = appearanceChildrenAttributesSupplierReference.get();
 				Map<String, Object> appearanceChidlrenAttributes = aSupplier == null ? Collections.emptyMap() : getResult(aSupplier);
 				
 				// Takes a page and builds it
@@ -320,7 +321,8 @@ public class BootstrapContainerApplicationSupplierFactory extends BootstrapEleme
 				
 			}
 			
-		});
+		};
+		return ViewBuilder.Supplier.from(resultsSupplier.then(composer));
 		
 	}
 	
