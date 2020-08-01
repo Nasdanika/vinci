@@ -14,8 +14,10 @@ import org.nasdanika.common.Supplier;
 import org.nasdanika.common.SupplierFactory;
 import org.nasdanika.common.Util;
 import org.nasdanika.common.resources.BinaryEntityContainer;
+import org.nasdanika.emf.EObjectAdaptable;
 import org.nasdanika.html.Tag;
 import org.nasdanika.html.TagName;
+import org.nasdanika.html.app.ViewBuilder;
 import org.nasdanika.html.app.ViewGenerator;
 import org.nasdanika.html.app.ViewPart;
 import org.nasdanika.texttospeech.SpeechSynthesizer;
@@ -100,7 +102,7 @@ public abstract class TextToSpeechSupplierFactory<T extends TextToSpeech> implem
 			return audioSupplier;
 		}
 		
-		return audioSupplier.then(appearance.create(context).asFunction()).then(bs -> new ViewPart() {
+		return audioSupplier.then(EObjectAdaptable.adaptToSupplierFactory(appearance,ViewBuilder.class).create(context).asFunction()).then(bs -> new ViewPart() {
 	
 			@Override
 			public Object generate(ViewGenerator viewGenerator, ProgressMonitor progressMonitor) {

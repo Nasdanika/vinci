@@ -15,6 +15,7 @@ import org.nasdanika.common.NasdanikaException;
 import org.nasdanika.common.NullProgressMonitor;
 import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.common.Util;
+import org.nasdanika.emf.EObjectAdaptable;
 import org.nasdanika.html.Fragment;
 import org.nasdanika.html.HTMLElement;
 import org.nasdanika.html.HTMLFactory;
@@ -64,7 +65,7 @@ public class ActionFacade extends org.nasdanika.html.app.impl.ActionImpl impleme
 		this.target = target;
 		
 		Appearance appearance = target.getAppearance();
-		decoratorSupplier = appearance == null ? null : appearance.create(actionContext);				
+		decoratorSupplier = appearance == null ? null : EObjectAdaptable.adaptToSupplierFactory(appearance, ViewBuilder.class).create(actionContext);				
 		
 		setText(actionContext.interpolate(target.getText()));
 		setId(actionContext.interpolate(target.getId()));
@@ -173,7 +174,7 @@ public class ActionFacade extends org.nasdanika.html.app.impl.ActionImpl impleme
 			
 			Appearance categoryAappearance = actionCategory.getAppearance();
 			@SuppressWarnings("resource")
-			org.nasdanika.common.Supplier<ViewBuilder> categoryDecoratorSupplier = categoryAappearance == null ? null : categoryAappearance.create(actionContext);
+			org.nasdanika.common.Supplier<ViewBuilder> categoryDecoratorSupplier = categoryAappearance == null ? null : EObjectAdaptable.adaptToSupplierFactory(categoryAappearance, ViewBuilder.class).create(actionContext);
 			
 			class CategoryFacade extends org.nasdanika.html.app.impl.LabelImpl implements Decorator {
 

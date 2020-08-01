@@ -19,6 +19,7 @@ import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.common.Supplier;
 import org.nasdanika.common.Util;
 import org.nasdanika.common.resources.Container;
+import org.nasdanika.emf.EObjectAdaptable;
 import org.nasdanika.html.HTMLPage;
 import org.nasdanika.html.app.Action;
 import org.nasdanika.html.app.ActionActivator;
@@ -159,7 +160,7 @@ public class GenerateEclipseHelpCommand extends GenerateTemplatedApplicationComm
 		page = EcoreUtil.copy(page);
 		page.getBuilders().clear(); // Templates contain application builders which we don't need.
 		
-		try (Supplier<Object> pageWork = page.create(context)) {
+		try (Supplier<Object> pageWork = EObjectAdaptable.adaptToSupplierFactory(page, Object.class).create(context)) {
 			try (ProgressMonitor pageMonitor = monitor.split("Generating page", 1)) {
 				pageMonitor.setWorkRemaining(pageWork.size() *2 + 2);						
 

@@ -448,15 +448,6 @@ public interface ComponentsPackage extends EPackage {
 	int TABLE_OF_CONTENTS_BASE_FEATURE_COUNT = BootstrapPackage.BOOTSTRAP_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
-	 * The operation id for the '<em>As View Builder Supplier</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TABLE_OF_CONTENTS_BASE___AS_VIEW_BUILDER_SUPPLIER__CONTEXT = BootstrapPackage.BOOTSTRAP_ELEMENT___AS_VIEW_BUILDER_SUPPLIER__CONTEXT;
-
-	/**
 	 * The number of operations of the '<em>Table Of Contents Base</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -611,15 +602,6 @@ public interface ComponentsPackage extends EPackage {
 	int TABLE_OF_CONTENTS_FEATURE_COUNT = TABLE_OF_CONTENTS_BASE_FEATURE_COUNT + 8;
 
 	/**
-	 * The operation id for the '<em>As View Builder Supplier</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TABLE_OF_CONTENTS___AS_VIEW_BUILDER_SUPPLIER__CONTEXT = TABLE_OF_CONTENTS_BASE___AS_VIEW_BUILDER_SUPPLIER__CONTEXT;
-
-	/**
 	 * The number of operations of the '<em>Table Of Contents</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -718,15 +700,6 @@ public interface ComponentsPackage extends EPackage {
 	 * @ordered
 	 */
 	int LIST_OF_CONTENTS_FEATURE_COUNT = TABLE_OF_CONTENTS_BASE_FEATURE_COUNT + 2;
-
-	/**
-	 * The operation id for the '<em>As View Builder Supplier</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LIST_OF_CONTENTS___AS_VIEW_BUILDER_SUPPLIER__CONTEXT = TABLE_OF_CONTENTS_BASE___AS_VIEW_BUILDER_SUPPLIER__CONTEXT;
 
 	/**
 	 * The number of operations of the '<em>List Of Contents</em>' class.
@@ -837,15 +810,6 @@ public interface ComponentsPackage extends EPackage {
 	 * @ordered
 	 */
 	int LIST_OF_ACTIONS_FEATURE_COUNT = LIST_OF_CONTENTS_FEATURE_COUNT + 1;
-
-	/**
-	 * The operation id for the '<em>As View Builder Supplier</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LIST_OF_ACTIONS___AS_VIEW_BUILDER_SUPPLIER__CONTEXT = LIST_OF_CONTENTS___AS_VIEW_BUILDER_SUPPLIER__CONTEXT;
 
 	/**
 	 * The number of operations of the '<em>List Of Actions</em>' class.
@@ -1009,15 +973,6 @@ public interface ComponentsPackage extends EPackage {
 	 * @ordered
 	 */
 	int TABLE_OF_ACTIONS_FEATURE_COUNT = TABLE_OF_CONTENTS_FEATURE_COUNT + 1;
-
-	/**
-	 * The operation id for the '<em>As View Builder Supplier</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TABLE_OF_ACTIONS___AS_VIEW_BUILDER_SUPPLIER__CONTEXT = TABLE_OF_CONTENTS___AS_VIEW_BUILDER_SUPPLIER__CONTEXT;
 
 	/**
 	 * The number of operations of the '<em>Table Of Actions</em>' class.

@@ -4,6 +4,8 @@ import org.nasdanika.common.Context;
 import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.common.Supplier;
 import org.nasdanika.common.SupplierFactory;
+import org.nasdanika.emf.EObjectAdaptable;
+import org.nasdanika.html.app.ViewBuilder;
 import org.nasdanika.html.app.ViewGenerator;
 import org.nasdanika.html.app.ViewPart;
 import org.nasdanika.vinci.bootstrap.Appearance;
@@ -37,7 +39,7 @@ public abstract class TableOfContentsBaseSupplierFactory<T extends TableOfConten
 			return ret;
 		}
 		
-		return ret.then(appearance.create(context).asFunction()).then(bs -> new ViewPart() {
+		return ret.then(EObjectAdaptable.adaptToSupplierFactory(appearance,ViewBuilder.class).create(context).asFunction()).then(bs -> new ViewPart() {
 
 			@Override
 			public Object generate(ViewGenerator viewGenerator, ProgressMonitor progressMonitor) {				

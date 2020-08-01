@@ -266,7 +266,7 @@ public class GenerateTemplatedApplicationCommand extends ModelCommand<AbstractAc
 			Context pageContext, 
 			ProgressMonitor monitor) throws Exception {
 		
-		try (Supplier<Object> work = page.create(pageContext)) {
+		try (Supplier<Object> work = EObjectAdaptable.adaptToSupplierFactory(page, Object.class).create(pageContext)) {
 			try (ProgressMonitor pageMonitor = monitor.split("Generating page", 1)) {
 				pageMonitor.setWorkRemaining(work.size() *2 + 1);						
 

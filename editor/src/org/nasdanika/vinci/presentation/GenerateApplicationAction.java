@@ -34,6 +34,7 @@ import org.nasdanika.common.resources.BinaryEntityContainer;
 import org.nasdanika.eclipse.ProgressMonitorAdapter;
 import org.nasdanika.eclipse.resources.EclipseContainer;
 import org.nasdanika.emf.ComposedAdapterFactory;
+import org.nasdanika.emf.EObjectAdaptable;
 import org.nasdanika.vinci.app.ActionReference;
 import org.nasdanika.vinci.app.ActivatorType;
 
@@ -41,7 +42,7 @@ import org.nasdanika.vinci.app.ActivatorType;
  * @author Pavel Vlasov
  *
  */
-public class GenerateApplicationAction<T extends EObject & SupplierFactory<Object>> extends VinciGenerateAction<T> {
+public class GenerateApplicationAction<T extends EObject> extends VinciGenerateAction<T> {
 		
 	private static final int TOTAL_WORK = 1000;
 
@@ -89,7 +90,7 @@ public class GenerateApplicationAction<T extends EObject & SupplierFactory<Objec
 				SubMonitor actionMonitor = subMonitor.split(actionWorkSlice);
 				MutableContext actionContext = generationContext.fork();
 				actionContext.put("active-action", actionEntry.getKey());
-				try (Supplier<Object> work = modelElement.create(actionContext)) {
+				try (Supplier<Object> work = EObjectAdaptable.adaptToSupplierFactory(modelElement,Object.class).create(actionContext)) {
 					double size = work.size() * 2 + 1;
 					double scale = actionWorkSlice / (size == 0 ? 1.0 : size);
 					try (ProgressMonitor progressMonitor = new ProgressMonitorAdapter(actionMonitor, scale)) {

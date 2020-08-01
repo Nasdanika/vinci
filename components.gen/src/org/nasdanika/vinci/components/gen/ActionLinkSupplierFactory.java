@@ -5,9 +5,11 @@ import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.common.Supplier;
 import org.nasdanika.common.SupplierFactory;
 import org.nasdanika.common.Util;
+import org.nasdanika.emf.EObjectAdaptable;
 import org.nasdanika.html.app.Action;
 import org.nasdanika.html.app.ActionRegistry;
 import org.nasdanika.html.app.Decorator;
+import org.nasdanika.html.app.ViewBuilder;
 import org.nasdanika.html.app.ViewGenerator;
 import org.nasdanika.html.app.ViewPart;
 import org.nasdanika.html.app.impl.ActionFilter;
@@ -89,7 +91,7 @@ public class ActionLinkSupplierFactory implements SupplierFactory<ViewPart> {
 			return ret;
 		}
 		
-		return ret.then(appearance.create(context).asFunction()).then(bs -> new ViewPart() {
+		return ret.then(EObjectAdaptable.adaptToSupplierFactory(appearance, ViewBuilder.class).create(context).asFunction()).then(bs -> new ViewPart() {
 
 			@Override
 			public Object generate(ViewGenerator viewGenerator, ProgressMonitor progressMonitor) {				

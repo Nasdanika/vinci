@@ -10,13 +10,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.InternalEList;
-import org.nasdanika.common.Context;
-import org.nasdanika.common.ProgressMonitor;
-import org.nasdanika.common.Supplier;
-import org.nasdanika.html.app.ViewBuilder;
-import org.nasdanika.html.app.ViewGenerator;
-import org.nasdanika.html.app.ViewPart;
-import org.nasdanika.html.bootstrap.Container.Row.Col;
 import org.nasdanika.vinci.app.AppPackage;
 import org.nasdanika.vinci.app.BootstrapContainerApplicationSection;
 import org.nasdanika.vinci.bootstrap.impl.BootstrapElementImpl;
@@ -213,35 +206,6 @@ public class BootstrapContainerApplicationSectionImpl extends BootstrapElementIm
 			}
 		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
-	}
-	
-	@Override
-	public Supplier<ViewBuilder> asViewBuilderSupplier(Context context) throws Exception {
-		// Content, appearance, combine
-		return createContentSupplierFactory().create(context).then(super.asViewBuilderSupplier(context).asFunction()).then(bs -> new ViewBuilder() {
-			
-			@Override
-			public void build(Object target, ViewGenerator viewGenerator, ProgressMonitor progressMonitor) {
-				org.nasdanika.html.bootstrap.Container.Row.Col col = (org.nasdanika.html.bootstrap.Container.Row.Col) target;
-				configureCol(col);
-				for (ViewPart cvp: bs.getFirst()) {
-					col.content(viewGenerator.processViewPart(cvp, progressMonitor));
-				}
-				ViewBuilder svb = bs.getSecond();
-				if (svb != null) {
-					svb.build(col, viewGenerator, progressMonitor);
-				}
-			}
-			
-		});		
-	}
-
-	/**
-	 * To be overridden by {@link BootstrapContainerApplicationPanelImpl} to configure widths.
-	 * @param col
-	 */
-	protected void configureCol(Col col) {
-		
 	}
 
 } //BootstrapContainerApplicationSectionImpl

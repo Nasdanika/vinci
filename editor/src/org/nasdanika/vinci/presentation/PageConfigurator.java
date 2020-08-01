@@ -8,7 +8,6 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.nasdanika.common.Context;
 import org.nasdanika.common.DefaultConverter;
-import org.nasdanika.common.SupplierFactory;
 import org.nasdanika.ncore.NcoreFactory;
 import org.nasdanika.ncore.Property;
 import org.nasdanika.vinci.app.AppFactory;
@@ -67,7 +66,7 @@ public class PageConfigurator implements InitialObjectConfigurator {
 			metaContent.setValue("Nasdanika Vinci");
 			meta.getAttributes().add(metaContent);
 			
-			page.getHead().add((SupplierFactory) meta);
+			page.getHead().add(meta);
 			
 			try {
 				Stylesheet stylesheet = HtmlFactory.eINSTANCE.createStylesheet();

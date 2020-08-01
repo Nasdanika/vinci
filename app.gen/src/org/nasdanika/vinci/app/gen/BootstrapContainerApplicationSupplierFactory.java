@@ -54,9 +54,9 @@ public class BootstrapContainerApplicationSupplierFactory implements SupplierFac
 		if (appearance == null) {
 			return null;
 		}
-		for (Entry<?> attr: appearance.getAttributes()) {
+		for (Entry attr: appearance.getAttributes()) {
 			if (attr.isEnabled() && "children".equals(attr.getName()) && attr instanceof org.nasdanika.ncore.Object) {	
-				for (Entry<?> childAttribute: ((org.nasdanika.ncore.Object) attr).getEntries()) {
+				for (Entry childAttribute: ((org.nasdanika.ncore.Object) attr).getEntries()) {
 					if (childAttribute.isEnabled() && name.equals(childAttribute.getName()) && childAttribute instanceof org.nasdanika.ncore.Object) {	
 						return ((org.nasdanika.ncore.Object) childAttribute).create(context).then(childrenAttributes -> new Decorator() {
 		
@@ -87,7 +87,7 @@ public class BootstrapContainerApplicationSupplierFactory implements SupplierFac
 		
 		Appearance appearance = target.getAppearance();
 		if (appearance != null) {
-			for (Entry<?> attr: appearance.getAttributes()) {
+			for (Entry attr: appearance.getAttributes()) {
 				if (attr.isEnabled() && "children".equals(attr.getName()) && attr instanceof org.nasdanika.ncore.Object) {
 					Supplier<Map<String, Object>> aSupplier = ((org.nasdanika.ncore.Object) attr).create(context);
 					resultsSupplier.put((Supplier) aSupplier);

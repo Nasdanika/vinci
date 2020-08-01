@@ -8,7 +8,19 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
-import org.nasdanika.vinci.app.*;
+import org.nasdanika.vinci.app.Action;
+import org.nasdanika.vinci.app.ActionCategory;
+import org.nasdanika.vinci.app.ActionLink;
+import org.nasdanika.vinci.app.ActionMapping;
+import org.nasdanika.vinci.app.ActionReference;
+import org.nasdanika.vinci.app.ActivatorType;
+import org.nasdanika.vinci.app.AppFactory;
+import org.nasdanika.vinci.app.AppPackage;
+import org.nasdanika.vinci.app.BootstrapContainerApplication;
+import org.nasdanika.vinci.app.BootstrapContainerApplicationPanel;
+import org.nasdanika.vinci.app.BootstrapContainerApplicationSection;
+import org.nasdanika.vinci.app.Partition;
+import org.nasdanika.vinci.app.Widget;
 
 /**
  * <!-- begin-user-doc -->

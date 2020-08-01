@@ -4,12 +4,15 @@ import org.nasdanika.common.SupplierFactory;
 import org.nasdanika.emf.ComposedAdapterFactory;
 import org.nasdanika.emf.FunctionAdapterFactory;
 import org.nasdanika.html.app.ApplicationBuilder;
+import org.nasdanika.html.app.ViewBuilder;
 import org.nasdanika.vinci.app.AbstractAction;
 import org.nasdanika.vinci.app.ActionBase;
 import org.nasdanika.vinci.app.ActionLink;
 import org.nasdanika.vinci.app.ActionReference;
 import org.nasdanika.vinci.app.AppPackage;
 import org.nasdanika.vinci.app.BootstrapContainerApplication;
+import org.nasdanika.vinci.app.BootstrapContainerApplicationPanel;
+import org.nasdanika.vinci.app.BootstrapContainerApplicationSection;
 import org.nasdanika.vinci.app.Widget;
 
 /**
@@ -70,6 +73,20 @@ public class AppGenerationAdapterFactory extends ComposedAdapterFactory {
 					ApplicationBuilder.Supplier.Factory.class, 
 					this.getClass().getClassLoader(),
 					AbstractActionApplicationBuilderSupplierFactory::new));		
+		
+		registerAdapterFactory(
+				new FunctionAdapterFactory<ViewBuilder.Supplier.Factory, BootstrapContainerApplicationSection>(
+					AppPackage.Literals.BOOTSTRAP_CONTAINER_APPLICATION_SECTION, 
+					ViewBuilder.Supplier.Factory.class, 
+					this.getClass().getClassLoader(),
+					BootstrapContainerApplicationSectionViewBuilderSupplierFactory::new));		
+		
+		registerAdapterFactory(
+				new FunctionAdapterFactory<ViewBuilder.Supplier.Factory, BootstrapContainerApplicationPanel>(
+					AppPackage.Literals.BOOTSTRAP_CONTAINER_APPLICATION_PANEL, 
+					ViewBuilder.Supplier.Factory.class, 
+					this.getClass().getClassLoader(),
+					BootstrapContainerApplicationPanelViewBuilderSupplierFactory::new));		
 		
 	}
 

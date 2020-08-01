@@ -11,6 +11,8 @@ Export-Package: org.nasdanika.vinci.app.gen
 Require-Bundle: org.nasdanika.vinci.app,
  org.nasdanika.vinci.html.gen;bundle-version="0.1.0",
  org.nasdanika.ncore.gen,
- org.jsoup;bundle-version="1.13.1"
+ org.jsoup;bundle-version="1.13.1",
+ org.nasdanika.vinci.bootstrap.gen,
+ org.nasdanika.html.app
 Bundle-ActivationPolicy: lazy
 Automatic-Module-Name: org.nasdanika.vinci.app.gen

@@ -15,6 +15,7 @@ import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.common.Supplier;
 import org.nasdanika.common.SupplierFactory;
 import org.nasdanika.common.Util;
+import org.nasdanika.emf.EObjectAdaptable;
 import org.nasdanika.html.HTMLPage;
 import org.nasdanika.html.app.impl.ViewGeneratorImpl;
 import org.nasdanika.vinci.app.gen.ActionFacade;
@@ -63,7 +64,7 @@ public class GenerateBootstrapPageCommand<T extends EObject & SupplierFactory<Ob
 		page.setName(Util.isBlank(title) ? uri : title);
 		page.getBuilders().clear(); // Templates contain application builders which we don't need.
 		
-		try (Supplier<Object> work = page.create(context)) {
+		try (Supplier<Object> work = EObjectAdaptable.adaptToSupplierFactory(page, Object.class).create(context)) {
 			try (ProgressMonitor pageMonitor = progressMonitor.split("Generating page", 1)) {
 				pageMonitor.setWorkRemaining(work.size() *2 + 1);						
 

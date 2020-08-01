@@ -9,9 +9,6 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.InternalEList;
-import org.nasdanika.common.Context;
-import org.nasdanika.common.Supplier;
-import org.nasdanika.html.app.ViewBuilder;
 import org.nasdanika.vinci.app.AbstractAction;
 import org.nasdanika.vinci.app.AppPackage;
 import org.nasdanika.vinci.app.BootstrapContainerApplication;
@@ -433,9 +430,4 @@ public class BootstrapContainerApplicationImpl extends BootstrapElementImpl impl
 		return super.eIsSet(featureID);
 	}
 
-	@Override
-	public Supplier<ViewBuilder> asViewBuilderSupplier(Context context) throws Exception {
-		// TODO Auto-generated method stub
-		return super.asViewBuilderSupplier(context);
-	}
 } //BootstrapContainerApplicationImpl

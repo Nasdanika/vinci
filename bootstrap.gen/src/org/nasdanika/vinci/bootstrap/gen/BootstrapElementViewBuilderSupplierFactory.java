@@ -9,11 +9,11 @@ import org.nasdanika.html.app.ViewGenerator;
 import org.nasdanika.vinci.bootstrap.Appearance;
 import org.nasdanika.vinci.bootstrap.BootstrapElement;
 
-public class BootstrapElementViewBuilderSupplierFactory implements ViewBuilder.Supplier.Factory {
+public class BootstrapElementViewBuilderSupplierFactory<T extends BootstrapElement> implements ViewBuilder.Supplier.Factory {
 	
-	private BootstrapElement target;
+	protected T target;
 
-	public BootstrapElementViewBuilderSupplierFactory(BootstrapElement target) {
+	public BootstrapElementViewBuilderSupplierFactory(T target) {
 		this.target = target;
 	}	
 	

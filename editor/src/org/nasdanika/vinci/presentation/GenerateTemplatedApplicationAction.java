@@ -226,7 +226,7 @@ public class GenerateTemplatedApplicationAction extends VinciGenerateAction<Abst
 				throw new DiagnosticException(validationResult);
 			}
 			
-			try (Supplier<Object> work = page.create(pageContext)) {
+			try (Supplier<Object> work = EObjectAdaptable.adaptToSupplierFactory(page,Object.class).create(pageContext)) {
 				double size = work.size() * 2 + 1;
 				double scale = pageWork / (size == 0 ? 1.0 : size);
 				try (ProgressMonitor progressMonitor = new ProgressMonitorAdapter(pageMonitor, scale)) {
