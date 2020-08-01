@@ -3,8 +3,6 @@
 package org.nasdanika.vinci.bootstrap;
 
 import org.eclipse.emf.common.util.EList;
-import org.nasdanika.common.SupplierFactory;
-import org.nasdanika.html.app.ViewPart;
 
 /**
  * <!-- begin-user-doc -->
@@ -24,10 +22,10 @@ import org.nasdanika.html.app.ViewPart;
  * </ul>
  *
  * @see org.nasdanika.vinci.bootstrap.BootstrapPackage#getContainer()
- * @model superTypes="org.nasdanika.vinci.bootstrap.BootstrapElement org.nasdanika.ncore.ISupplierFactory&lt;org.nasdanika.vinci.html.ViewPart&gt;"
+ * @model
  * @generated
  */
-public interface Container extends BootstrapElement, SupplierFactory<ViewPart> {
+public interface Container extends BootstrapElement {
 	/**
 	 * Returns the value of the '<em><b>Rows</b></em>' containment reference list.
 	 * The list contents are of type {@link org.nasdanika.vinci.bootstrap.Row}.

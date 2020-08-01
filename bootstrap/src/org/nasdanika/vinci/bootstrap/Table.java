@@ -2,9 +2,6 @@
  */
 package org.nasdanika.vinci.bootstrap;
 
-import org.nasdanika.common.SupplierFactory;
-import org.nasdanika.html.app.ViewPart;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Table</b></em>'.
@@ -24,10 +21,10 @@ import org.nasdanika.html.app.ViewPart;
  * </ul>
  *
  * @see org.nasdanika.vinci.bootstrap.BootstrapPackage#getTable()
- * @model superTypes="org.nasdanika.vinci.bootstrap.TableRowContainer org.nasdanika.ncore.ISupplierFactory&lt;org.nasdanika.vinci.html.ViewPart&gt; org.nasdanika.vinci.bootstrap.TableConfiguration"
+ * @model
  * @generated
  */
-public interface Table extends TableRowContainer, SupplierFactory<ViewPart>, TableConfiguration {
+public interface Table extends TableRowContainer, TableConfiguration {
 
 	/**
 	 * Returns the value of the '<em><b>Header</b></em>' containment reference.

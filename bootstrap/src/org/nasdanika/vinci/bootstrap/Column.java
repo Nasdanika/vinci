@@ -3,8 +3,6 @@
 package org.nasdanika.vinci.bootstrap;
 
 import org.eclipse.emf.common.util.EList;
-import org.nasdanika.common.SupplierFactory;
-import org.nasdanika.html.app.ViewBuilder;
 import org.nasdanika.vinci.html.Container;
 
 
@@ -25,10 +23,10 @@ import org.nasdanika.vinci.html.Container;
  * </ul>
  *
  * @see org.nasdanika.vinci.bootstrap.BootstrapPackage#getColumn()
- * @model superTypes="org.nasdanika.vinci.bootstrap.BootstrapElement org.nasdanika.vinci.html.Container org.nasdanika.ncore.ISupplierFactory&lt;org.nasdanika.vinci.html.ViewBuilder&gt;"
+ * @model
  * @generated
  */
-public interface Column extends BootstrapElement, Container, SupplierFactory<ViewBuilder> {
+public interface Column extends BootstrapElement, Container {
 
 	/**
 	 * Returns the value of the '<em><b>Width</b></em>' containment reference list.

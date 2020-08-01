@@ -9,9 +9,6 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.InternalEList;
-import org.nasdanika.common.Context;
-import org.nasdanika.common.Supplier;
-import org.nasdanika.html.app.ViewPart;
 import org.nasdanika.vinci.bootstrap.BootstrapPackage;
 import org.nasdanika.vinci.bootstrap.Card;
 import org.nasdanika.vinci.bootstrap.Div;
@@ -220,11 +217,6 @@ public class CardImpl extends DivImpl implements Card {
 				return getFooter() != null;
 		}
 		return super.eIsSet(featureID);
-	}
-
-	@Override
-	public Supplier<ViewPart> create(Context context) throws Exception {
-		throw new UnsupportedOperationException();
 	}
 
 } //CardImpl

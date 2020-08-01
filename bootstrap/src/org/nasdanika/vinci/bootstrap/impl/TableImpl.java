@@ -5,16 +5,6 @@ package org.nasdanika.vinci.bootstrap.impl;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-import org.nasdanika.common.Context;
-import org.nasdanika.common.ProgressMonitor;
-import org.nasdanika.common.StringMapCompoundSupplier;
-import org.nasdanika.common.Supplier;
-import org.nasdanika.common.SupplierFactory;
-import org.nasdanika.html.app.ViewBuilder;
-import org.nasdanika.html.app.ViewGenerator;
-import org.nasdanika.html.app.ViewPart;
-import org.nasdanika.html.bootstrap.BootstrapFactory;
-import org.nasdanika.vinci.bootstrap.Appearance;
 import org.nasdanika.vinci.bootstrap.BootstrapPackage;
 import org.nasdanika.vinci.bootstrap.Table;
 import org.nasdanika.vinci.bootstrap.TableConfiguration;
@@ -490,11 +480,6 @@ public class TableImpl extends TableRowContainerImpl implements Table {
 	 */
 	@Override
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
-		if (baseClass == SupplierFactory.class) {
-			switch (derivedFeatureID) {
-				default: return -1;
-			}
-		}
 		if (baseClass == TableConfiguration.class) {
 			switch (derivedFeatureID) {
 				case BootstrapPackage.TABLE__DARK: return BootstrapPackage.TABLE_CONFIGURATION__DARK;
@@ -516,11 +501,6 @@ public class TableImpl extends TableRowContainerImpl implements Table {
 	 */
 	@Override
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
-		if (baseClass == SupplierFactory.class) {
-			switch (baseFeatureID) {
-				default: return -1;
-			}
-		}
 		if (baseClass == TableConfiguration.class) {
 			switch (baseFeatureID) {
 				case BootstrapPackage.TABLE_CONFIGURATION__DARK: return BootstrapPackage.TABLE__DARK;
@@ -533,74 +513,6 @@ public class TableImpl extends TableRowContainerImpl implements Table {
 			}
 		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
-	}
-
-	@SuppressWarnings("resource")
-	@Override
-	public Supplier<ViewPart> create(Context context) throws Exception {		
-		StringMapCompoundSupplier<ViewBuilder> parts = new StringMapCompoundSupplier<>(getTitle());
-		
-		Appearance appearance = getAppearance();
-		if (appearance != null) {
-			parts.put("Appearance", appearance.create(context));
-		}
-		
-		TableHeader header = getHeader();
-		if (header != null) {
-			parts.put("Header", header.create(context));
-		}
-		TableSection body = getBody();
-		if (body != null) {
-			parts.put("Body", body.create(context));
-		}
-		TableSection footer = getFooter();
-		if (footer != null) {
-			parts.put("Footer", footer.create(context));
-		}
-		parts.put("Rows", createRowsBuilderSupplier(context));
-		
-		return parts.then(partsMap -> new ViewPart() {
-
-			@Override
-			public Object generate(ViewGenerator viewGenerator, ProgressMonitor progressMonitor) {
-				org.nasdanika.html.bootstrap.Table table = viewGenerator.get(BootstrapFactory.class).table();
-				table.bordered(isBordered());
-				table.borderless(isBorderless());
-				table.dark(isDark());
-				table.hover(isHover());
-				table.small(isSmall());
-				table.striped(isStriped());
-				
-				ViewBuilder appearanceBuilder = partsMap.get("Appearance");
-				if (appearanceBuilder != null) {
-					appearanceBuilder.build(table, viewGenerator, progressMonitor);
-				}
-				
-				ViewBuilder headerBuilder = partsMap.get("Header");
-				if (headerBuilder != null) {
-					headerBuilder.build(table.header(), viewGenerator, progressMonitor);
-				}
-				
-				ViewBuilder bodyBuilder = partsMap.get("Body");
-				if (bodyBuilder != null) {
-					bodyBuilder.build(table.body(), viewGenerator, progressMonitor);
-				}
-				
-				ViewBuilder footerBuilder = partsMap.get("Footer");
-				if (footerBuilder != null) {
-					footerBuilder.build(table.footer(), viewGenerator, progressMonitor);
-				}
-				
-				ViewBuilder rowsBuilder = partsMap.get("Rows");
-				if (rowsBuilder != null) {
-					rowsBuilder.build(table, viewGenerator, progressMonitor);
-				}
-				
-				return table;
-			}
-			
-		});
-		
 	}
 
 } //TableImpl

@@ -5,7 +5,6 @@ package org.nasdanika.vinci.bootstrap.util;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
-import org.nasdanika.common.SupplierFactory;
 import org.nasdanika.ncore.ModelElement;
 import org.nasdanika.ncore.NamedElement;
 import org.nasdanika.vinci.bootstrap.Accordion;
@@ -68,7 +67,7 @@ import org.nasdanika.vinci.html.Page;
  * @see org.nasdanika.vinci.bootstrap.BootstrapPackage
  * @generated
  */
-public class BootstrapSwitch<T1> extends Switch<T1> {
+public class BootstrapSwitch<T> extends Switch<T> {
 	/**
 	 * The cached model package
 	 * <!-- begin-user-doc -->
@@ -110,11 +109,11 @@ public class BootstrapSwitch<T1> extends Switch<T1> {
 	 * @generated
 	 */
 	@Override
-	protected T1 doSwitch(int classifierID, EObject theEObject) {
+	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
 			case BootstrapPackage.BOOTSTRAP_ELEMENT: {
 				BootstrapElement bootstrapElement = (BootstrapElement)theEObject;
-				T1 result = caseBootstrapElement(bootstrapElement);
+				T result = caseBootstrapElement(bootstrapElement);
 				if (result == null) result = caseHtmlElement(bootstrapElement);
 				if (result == null) result = caseModelElement(bootstrapElement);
 				if (result == null) result = defaultCase(theEObject);
@@ -122,136 +121,126 @@ public class BootstrapSwitch<T1> extends Switch<T1> {
 			}
 			case BootstrapPackage.BOOTSTRAP_PAGE: {
 				BootstrapPage bootstrapPage = (BootstrapPage)theEObject;
-				T1 result = caseBootstrapPage(bootstrapPage);
+				T result = caseBootstrapPage(bootstrapPage);
 				if (result == null) result = casePage(bootstrapPage);
 				if (result == null) result = caseNamedElement(bootstrapPage);
-				if (result == null) result = caseISupplierFactory(bootstrapPage);
 				if (result == null) result = caseModelElement(bootstrapPage);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case BootstrapPackage.APPEARANCE: {
 				Appearance appearance = (Appearance)theEObject;
-				T1 result = caseAppearance(appearance);
-				if (result == null) result = caseISupplierFactory(appearance);
+				T result = caseAppearance(appearance);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case BootstrapPackage.BORDER: {
 				Border border = (Border)theEObject;
-				T1 result = caseBorder(border);
+				T result = caseBorder(border);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case BootstrapPackage.SPACING: {
 				Spacing spacing = (Spacing)theEObject;
-				T1 result = caseSpacing(spacing);
+				T result = caseSpacing(spacing);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case BootstrapPackage.TEXT: {
 				Text text = (Text)theEObject;
-				T1 result = caseText(text);
+				T result = caseText(text);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case BootstrapPackage.FLOAT: {
 				org.nasdanika.vinci.bootstrap.Float float_ = (org.nasdanika.vinci.bootstrap.Float)theEObject;
-				T1 result = caseFloat(float_);
+				T result = caseFloat(float_);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case BootstrapPackage.TAG: {
 				Tag tag = (Tag)theEObject;
-				T1 result = caseTag(tag);
+				T result = caseTag(tag);
 				if (result == null) result = caseHtml_Tag(tag);
 				if (result == null) result = caseBootstrapElement(tag);
 				if (result == null) result = caseHtmlElement(tag);
-				if (result == null) result = caseISupplierFactory(tag);
 				if (result == null) result = caseModelElement(tag);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case BootstrapPackage.CONTENT_TAG: {
 				ContentTag contentTag = (ContentTag)theEObject;
-				T1 result = caseContentTag(contentTag);
+				T result = caseContentTag(contentTag);
 				if (result == null) result = caseHtml_ContentTag(contentTag);
 				if (result == null) result = caseBootstrapElement(contentTag);
 				if (result == null) result = caseHtml_Tag(contentTag);
 				if (result == null) result = caseHtml_Container(contentTag);
 				if (result == null) result = caseHtmlElement(contentTag);
-				if (result == null) result = caseISupplierFactory(contentTag);
 				if (result == null) result = caseModelElement(contentTag);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case BootstrapPackage.DIV: {
 				Div div = (Div)theEObject;
-				T1 result = caseDiv(div);
+				T result = caseDiv(div);
 				if (result == null) result = caseTag(div);
 				if (result == null) result = caseHtml_Tag(div);
 				if (result == null) result = caseBootstrapElement(div);
 				if (result == null) result = caseHtmlElement(div);
-				if (result == null) result = caseISupplierFactory(div);
 				if (result == null) result = caseModelElement(div);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case BootstrapPackage.ITEM: {
 				Item item = (Item)theEObject;
-				T1 result = caseItem(item);
+				T result = caseItem(item);
 				if (result == null) result = caseModelElement(item);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case BootstrapPackage.ACTION_GROUP_ITEM: {
 				ActionGroupItem actionGroupItem = (ActionGroupItem)theEObject;
-				T1 result = caseActionGroupItem(actionGroupItem);
+				T result = caseActionGroupItem(actionGroupItem);
 				if (result == null) result = caseItem(actionGroupItem);
-				if (result == null) result = caseISupplierFactory(actionGroupItem);
 				if (result == null) result = caseModelElement(actionGroupItem);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case BootstrapPackage.LINK_ACTION_GROUP_ITEM: {
 				LinkActionGroupItem linkActionGroupItem = (LinkActionGroupItem)theEObject;
-				T1 result = caseLinkActionGroupItem(linkActionGroupItem);
+				T result = caseLinkActionGroupItem(linkActionGroupItem);
 				if (result == null) result = caseActionGroupItem(linkActionGroupItem);
 				if (result == null) result = caseItem(linkActionGroupItem);
-				if (result == null) result = caseISupplierFactory(linkActionGroupItem);
 				if (result == null) result = caseModelElement(linkActionGroupItem);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case BootstrapPackage.CONTENT_ACTION_GROUP_ITEM: {
 				ContentActionGroupItem contentActionGroupItem = (ContentActionGroupItem)theEObject;
-				T1 result = caseContentActionGroupItem(contentActionGroupItem);
+				T result = caseContentActionGroupItem(contentActionGroupItem);
 				if (result == null) result = caseActionGroupItem(contentActionGroupItem);
 				if (result == null) result = caseHtml_Container(contentActionGroupItem);
 				if (result == null) result = caseItem(contentActionGroupItem);
-				if (result == null) result = caseISupplierFactory(contentActionGroupItem);
 				if (result == null) result = caseModelElement(contentActionGroupItem);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case BootstrapPackage.ACTION_GROUP: {
 				ActionGroup actionGroup = (ActionGroup)theEObject;
-				T1 result = caseActionGroup(actionGroup);
+				T result = caseActionGroup(actionGroup);
 				if (result == null) result = caseDiv(actionGroup);
 				if (result == null) result = caseTag(actionGroup);
 				if (result == null) result = caseHtml_Tag(actionGroup);
 				if (result == null) result = caseBootstrapElement(actionGroup);
 				if (result == null) result = caseHtmlElement(actionGroup);
-				if (result == null) result = caseISupplierFactory(actionGroup);
 				if (result == null) result = caseModelElement(actionGroup);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case BootstrapPackage.CONTAINER: {
 				Container container = (Container)theEObject;
-				T1 result = caseContainer(container);
+				T result = caseContainer(container);
 				if (result == null) result = caseBootstrapElement(container);
-				if (result == null) result = caseISupplierFactory(container);
 				if (result == null) result = caseHtmlElement(container);
 				if (result == null) result = caseModelElement(container);
 				if (result == null) result = defaultCase(theEObject);
@@ -259,9 +248,8 @@ public class BootstrapSwitch<T1> extends Switch<T1> {
 			}
 			case BootstrapPackage.ROW: {
 				Row row = (Row)theEObject;
-				T1 result = caseRow(row);
+				T result = caseRow(row);
 				if (result == null) result = caseBootstrapElement(row);
-				if (result == null) result = caseISupplierFactory(row);
 				if (result == null) result = caseHtmlElement(row);
 				if (result == null) result = caseModelElement(row);
 				if (result == null) result = defaultCase(theEObject);
@@ -269,16 +257,15 @@ public class BootstrapSwitch<T1> extends Switch<T1> {
 			}
 			case BootstrapPackage.COLUMN_WIDTH: {
 				ColumnWidth columnWidth = (ColumnWidth)theEObject;
-				T1 result = caseColumnWidth(columnWidth);
+				T result = caseColumnWidth(columnWidth);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case BootstrapPackage.COLUMN: {
 				Column column = (Column)theEObject;
-				T1 result = caseColumn(column);
+				T result = caseColumn(column);
 				if (result == null) result = caseBootstrapElement(column);
 				if (result == null) result = caseHtml_Container(column);
-				if (result == null) result = caseISupplierFactory(column);
 				if (result == null) result = caseHtmlElement(column);
 				if (result == null) result = caseModelElement(column);
 				if (result == null) result = defaultCase(theEObject);
@@ -286,7 +273,7 @@ public class BootstrapSwitch<T1> extends Switch<T1> {
 			}
 			case BootstrapPackage.TABLE_ROW_CONTAINER: {
 				TableRowContainer tableRowContainer = (TableRowContainer)theEObject;
-				T1 result = caseTableRowContainer(tableRowContainer);
+				T result = caseTableRowContainer(tableRowContainer);
 				if (result == null) result = caseBootstrapElement(tableRowContainer);
 				if (result == null) result = caseHtmlElement(tableRowContainer);
 				if (result == null) result = caseModelElement(tableRowContainer);
@@ -295,9 +282,8 @@ public class BootstrapSwitch<T1> extends Switch<T1> {
 			}
 			case BootstrapPackage.TABLE_SECTION: {
 				TableSection tableSection = (TableSection)theEObject;
-				T1 result = caseTableSection(tableSection);
+				T result = caseTableSection(tableSection);
 				if (result == null) result = caseTableRowContainer(tableSection);
-				if (result == null) result = caseISupplierFactory(tableSection);
 				if (result == null) result = caseBootstrapElement(tableSection);
 				if (result == null) result = caseHtmlElement(tableSection);
 				if (result == null) result = caseModelElement(tableSection);
@@ -306,10 +292,9 @@ public class BootstrapSwitch<T1> extends Switch<T1> {
 			}
 			case BootstrapPackage.TABLE_HEADER: {
 				TableHeader tableHeader = (TableHeader)theEObject;
-				T1 result = caseTableHeader(tableHeader);
+				T result = caseTableHeader(tableHeader);
 				if (result == null) result = caseTableSection(tableHeader);
 				if (result == null) result = caseTableRowContainer(tableHeader);
-				if (result == null) result = caseISupplierFactory(tableHeader);
 				if (result == null) result = caseBootstrapElement(tableHeader);
 				if (result == null) result = caseHtmlElement(tableHeader);
 				if (result == null) result = caseModelElement(tableHeader);
@@ -318,15 +303,14 @@ public class BootstrapSwitch<T1> extends Switch<T1> {
 			}
 			case BootstrapPackage.TABLE_CONFIGURATION: {
 				TableConfiguration tableConfiguration = (TableConfiguration)theEObject;
-				T1 result = caseTableConfiguration(tableConfiguration);
+				T result = caseTableConfiguration(tableConfiguration);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case BootstrapPackage.TABLE: {
 				Table table = (Table)theEObject;
-				T1 result = caseTable(table);
+				T result = caseTable(table);
 				if (result == null) result = caseTableRowContainer(table);
-				if (result == null) result = caseISupplierFactory(table);
 				if (result == null) result = caseTableConfiguration(table);
 				if (result == null) result = caseBootstrapElement(table);
 				if (result == null) result = caseHtmlElement(table);
@@ -336,9 +320,8 @@ public class BootstrapSwitch<T1> extends Switch<T1> {
 			}
 			case BootstrapPackage.TABLE_ROW: {
 				TableRow tableRow = (TableRow)theEObject;
-				T1 result = caseTableRow(tableRow);
+				T result = caseTableRow(tableRow);
 				if (result == null) result = caseBootstrapElement(tableRow);
-				if (result == null) result = caseISupplierFactory(tableRow);
 				if (result == null) result = caseHtmlElement(tableRow);
 				if (result == null) result = caseModelElement(tableRow);
 				if (result == null) result = defaultCase(theEObject);
@@ -346,10 +329,9 @@ public class BootstrapSwitch<T1> extends Switch<T1> {
 			}
 			case BootstrapPackage.TABLE_CELL: {
 				TableCell tableCell = (TableCell)theEObject;
-				T1 result = caseTableCell(tableCell);
+				T result = caseTableCell(tableCell);
 				if (result == null) result = caseHtml_Container(tableCell);
 				if (result == null) result = caseBootstrapElement(tableCell);
-				if (result == null) result = caseISupplierFactory(tableCell);
 				if (result == null) result = caseHtmlElement(tableCell);
 				if (result == null) result = caseModelElement(tableCell);
 				if (result == null) result = defaultCase(theEObject);
@@ -357,137 +339,133 @@ public class BootstrapSwitch<T1> extends Switch<T1> {
 			}
 			case BootstrapPackage.CARD: {
 				Card card = (Card)theEObject;
-				T1 result = caseCard(card);
+				T result = caseCard(card);
 				if (result == null) result = caseDiv(card);
 				if (result == null) result = caseTag(card);
 				if (result == null) result = caseHtml_Tag(card);
 				if (result == null) result = caseBootstrapElement(card);
 				if (result == null) result = caseHtmlElement(card);
-				if (result == null) result = caseISupplierFactory(card);
 				if (result == null) result = caseModelElement(card);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case BootstrapPackage.ALERT: {
 				Alert alert = (Alert)theEObject;
-				T1 result = caseAlert(alert);
+				T result = caseAlert(alert);
 				if (result == null) result = caseDiv(alert);
 				if (result == null) result = caseTag(alert);
 				if (result == null) result = caseHtml_Tag(alert);
 				if (result == null) result = caseBootstrapElement(alert);
 				if (result == null) result = caseHtmlElement(alert);
-				if (result == null) result = caseISupplierFactory(alert);
 				if (result == null) result = caseModelElement(alert);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case BootstrapPackage.BADGE: {
 				Badge badge = (Badge)theEObject;
-				T1 result = caseBadge(badge);
+				T result = caseBadge(badge);
 				if (result == null) result = caseDiv(badge);
 				if (result == null) result = caseTag(badge);
 				if (result == null) result = caseHtml_Tag(badge);
 				if (result == null) result = caseBootstrapElement(badge);
 				if (result == null) result = caseHtmlElement(badge);
-				if (result == null) result = caseISupplierFactory(badge);
 				if (result == null) result = caseModelElement(badge);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case BootstrapPackage.BREADCRUMB: {
 				Breadcrumb breadcrumb = (Breadcrumb)theEObject;
-				T1 result = caseBreadcrumb(breadcrumb);
+				T result = caseBreadcrumb(breadcrumb);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case BootstrapPackage.BUTTON: {
 				Button button = (Button)theEObject;
-				T1 result = caseButton(button);
+				T result = caseButton(button);
 				if (result == null) result = caseDiv(button);
 				if (result == null) result = caseTag(button);
 				if (result == null) result = caseHtml_Tag(button);
 				if (result == null) result = caseBootstrapElement(button);
 				if (result == null) result = caseHtmlElement(button);
-				if (result == null) result = caseISupplierFactory(button);
 				if (result == null) result = caseModelElement(button);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case BootstrapPackage.BUTTON_GROUP: {
 				ButtonGroup buttonGroup = (ButtonGroup)theEObject;
-				T1 result = caseButtonGroup(buttonGroup);
+				T result = caseButtonGroup(buttonGroup);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case BootstrapPackage.BUTTON_TOOLBAR: {
 				ButtonToolbar buttonToolbar = (ButtonToolbar)theEObject;
-				T1 result = caseButtonToolbar(buttonToolbar);
+				T result = caseButtonToolbar(buttonToolbar);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case BootstrapPackage.DROPDOWN: {
 				Dropdown dropdown = (Dropdown)theEObject;
-				T1 result = caseDropdown(dropdown);
+				T result = caseDropdown(dropdown);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case BootstrapPackage.FORM: {
 				Form form = (Form)theEObject;
-				T1 result = caseForm(form);
+				T result = caseForm(form);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case BootstrapPackage.LIST_GROUP: {
 				ListGroup listGroup = (ListGroup)theEObject;
-				T1 result = caseListGroup(listGroup);
+				T result = caseListGroup(listGroup);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case BootstrapPackage.NAVS: {
 				Navs navs = (Navs)theEObject;
-				T1 result = caseNavs(navs);
+				T result = caseNavs(navs);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case BootstrapPackage.NAVBAR: {
 				Navbar navbar = (Navbar)theEObject;
-				T1 result = caseNavbar(navbar);
+				T result = caseNavbar(navbar);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case BootstrapPackage.TOOLTIP: {
 				Tooltip tooltip = (Tooltip)theEObject;
-				T1 result = caseTooltip(tooltip);
+				T result = caseTooltip(tooltip);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case BootstrapPackage.INPUT_GROUP: {
 				InputGroup inputGroup = (InputGroup)theEObject;
-				T1 result = caseInputGroup(inputGroup);
+				T result = caseInputGroup(inputGroup);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case BootstrapPackage.FORM_GROUP: {
 				FormGroup formGroup = (FormGroup)theEObject;
-				T1 result = caseFormGroup(formGroup);
+				T result = caseFormGroup(formGroup);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case BootstrapPackage.COLLAPSE: {
 				Collapse collapse = (Collapse)theEObject;
-				T1 result = caseCollapse(collapse);
+				T result = caseCollapse(collapse);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case BootstrapPackage.MODAL: {
 				Modal modal = (Modal)theEObject;
-				T1 result = caseModal(modal);
+				T result = caseModal(modal);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case BootstrapPackage.ACCORDION: {
 				Accordion accordion = (Accordion)theEObject;
-				T1 result = caseAccordion(accordion);
+				T result = caseAccordion(accordion);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -506,7 +484,7 @@ public class BootstrapSwitch<T1> extends Switch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseBootstrapPage(BootstrapPage object) {
+	public T caseBootstrapPage(BootstrapPage object) {
 		return null;
 	}
 
@@ -521,7 +499,7 @@ public class BootstrapSwitch<T1> extends Switch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseAppearance(Appearance object) {
+	public T caseAppearance(Appearance object) {
 		return null;
 	}
 
@@ -536,7 +514,7 @@ public class BootstrapSwitch<T1> extends Switch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseBorder(Border object) {
+	public T caseBorder(Border object) {
 		return null;
 	}
 
@@ -551,7 +529,7 @@ public class BootstrapSwitch<T1> extends Switch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseSpacing(Spacing object) {
+	public T caseSpacing(Spacing object) {
 		return null;
 	}
 
@@ -566,7 +544,7 @@ public class BootstrapSwitch<T1> extends Switch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseText(Text object) {
+	public T caseText(Text object) {
 		return null;
 	}
 
@@ -581,7 +559,7 @@ public class BootstrapSwitch<T1> extends Switch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseFloat(org.nasdanika.vinci.bootstrap.Float object) {
+	public T caseFloat(org.nasdanika.vinci.bootstrap.Float object) {
 		return null;
 	}
 
@@ -596,7 +574,7 @@ public class BootstrapSwitch<T1> extends Switch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseBootstrapElement(BootstrapElement object) {
+	public T caseBootstrapElement(BootstrapElement object) {
 		return null;
 	}
 
@@ -611,7 +589,7 @@ public class BootstrapSwitch<T1> extends Switch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseContainer(Container object) {
+	public T caseContainer(Container object) {
 		return null;
 	}
 
@@ -626,7 +604,7 @@ public class BootstrapSwitch<T1> extends Switch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseRow(Row object) {
+	public T caseRow(Row object) {
 		return null;
 	}
 
@@ -641,7 +619,7 @@ public class BootstrapSwitch<T1> extends Switch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseColumnWidth(ColumnWidth object) {
+	public T caseColumnWidth(ColumnWidth object) {
 		return null;
 	}
 
@@ -656,7 +634,7 @@ public class BootstrapSwitch<T1> extends Switch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseColumn(Column object) {
+	public T caseColumn(Column object) {
 		return null;
 	}
 
@@ -671,7 +649,7 @@ public class BootstrapSwitch<T1> extends Switch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseCard(Card object) {
+	public T caseCard(Card object) {
 		return null;
 	}
 
@@ -686,7 +664,7 @@ public class BootstrapSwitch<T1> extends Switch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseTag(Tag object) {
+	public T caseTag(Tag object) {
 		return null;
 	}
 
@@ -701,7 +679,7 @@ public class BootstrapSwitch<T1> extends Switch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseContentTag(ContentTag object) {
+	public T caseContentTag(ContentTag object) {
 		return null;
 	}
 
@@ -716,7 +694,7 @@ public class BootstrapSwitch<T1> extends Switch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseDiv(Div object) {
+	public T caseDiv(Div object) {
 		return null;
 	}
 
@@ -731,7 +709,7 @@ public class BootstrapSwitch<T1> extends Switch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseItem(Item object) {
+	public T caseItem(Item object) {
 		return null;
 	}
 
@@ -746,7 +724,7 @@ public class BootstrapSwitch<T1> extends Switch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseActionGroupItem(ActionGroupItem object) {
+	public T caseActionGroupItem(ActionGroupItem object) {
 		return null;
 	}
 
@@ -761,7 +739,7 @@ public class BootstrapSwitch<T1> extends Switch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseLinkActionGroupItem(LinkActionGroupItem object) {
+	public T caseLinkActionGroupItem(LinkActionGroupItem object) {
 		return null;
 	}
 
@@ -776,7 +754,7 @@ public class BootstrapSwitch<T1> extends Switch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseContentActionGroupItem(ContentActionGroupItem object) {
+	public T caseContentActionGroupItem(ContentActionGroupItem object) {
 		return null;
 	}
 
@@ -791,7 +769,7 @@ public class BootstrapSwitch<T1> extends Switch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseAlert(Alert object) {
+	public T caseAlert(Alert object) {
 		return null;
 	}
 
@@ -806,7 +784,7 @@ public class BootstrapSwitch<T1> extends Switch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseBadge(Badge object) {
+	public T caseBadge(Badge object) {
 		return null;
 	}
 
@@ -821,7 +799,7 @@ public class BootstrapSwitch<T1> extends Switch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseBreadcrumb(Breadcrumb object) {
+	public T caseBreadcrumb(Breadcrumb object) {
 		return null;
 	}
 
@@ -836,7 +814,7 @@ public class BootstrapSwitch<T1> extends Switch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseButton(Button object) {
+	public T caseButton(Button object) {
 		return null;
 	}
 
@@ -851,7 +829,7 @@ public class BootstrapSwitch<T1> extends Switch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseButtonGroup(ButtonGroup object) {
+	public T caseButtonGroup(ButtonGroup object) {
 		return null;
 	}
 
@@ -866,7 +844,7 @@ public class BootstrapSwitch<T1> extends Switch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseButtonToolbar(ButtonToolbar object) {
+	public T caseButtonToolbar(ButtonToolbar object) {
 		return null;
 	}
 
@@ -881,7 +859,7 @@ public class BootstrapSwitch<T1> extends Switch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseDropdown(Dropdown object) {
+	public T caseDropdown(Dropdown object) {
 		return null;
 	}
 
@@ -896,7 +874,7 @@ public class BootstrapSwitch<T1> extends Switch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseActionGroup(ActionGroup object) {
+	public T caseActionGroup(ActionGroup object) {
 		return null;
 	}
 
@@ -911,7 +889,7 @@ public class BootstrapSwitch<T1> extends Switch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseForm(Form object) {
+	public T caseForm(Form object) {
 		return null;
 	}
 
@@ -926,7 +904,7 @@ public class BootstrapSwitch<T1> extends Switch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseListGroup(ListGroup object) {
+	public T caseListGroup(ListGroup object) {
 		return null;
 	}
 
@@ -941,7 +919,7 @@ public class BootstrapSwitch<T1> extends Switch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseNavs(Navs object) {
+	public T caseNavs(Navs object) {
 		return null;
 	}
 
@@ -956,7 +934,7 @@ public class BootstrapSwitch<T1> extends Switch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseNavbar(Navbar object) {
+	public T caseNavbar(Navbar object) {
 		return null;
 	}
 
@@ -971,7 +949,7 @@ public class BootstrapSwitch<T1> extends Switch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseTableRowContainer(TableRowContainer object) {
+	public T caseTableRowContainer(TableRowContainer object) {
 		return null;
 	}
 
@@ -986,7 +964,7 @@ public class BootstrapSwitch<T1> extends Switch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseTableSection(TableSection object) {
+	public T caseTableSection(TableSection object) {
 		return null;
 	}
 
@@ -1001,7 +979,7 @@ public class BootstrapSwitch<T1> extends Switch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseTableHeader(TableHeader object) {
+	public T caseTableHeader(TableHeader object) {
 		return null;
 	}
 
@@ -1016,7 +994,7 @@ public class BootstrapSwitch<T1> extends Switch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseTableConfiguration(TableConfiguration object) {
+	public T caseTableConfiguration(TableConfiguration object) {
 		return null;
 	}
 
@@ -1031,7 +1009,7 @@ public class BootstrapSwitch<T1> extends Switch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseTable(Table object) {
+	public T caseTable(Table object) {
 		return null;
 	}
 
@@ -1046,7 +1024,7 @@ public class BootstrapSwitch<T1> extends Switch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseTableRow(TableRow object) {
+	public T caseTableRow(TableRow object) {
 		return null;
 	}
 
@@ -1061,7 +1039,7 @@ public class BootstrapSwitch<T1> extends Switch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseTableCell(TableCell object) {
+	public T caseTableCell(TableCell object) {
 		return null;
 	}
 
@@ -1076,7 +1054,7 @@ public class BootstrapSwitch<T1> extends Switch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseTooltip(Tooltip object) {
+	public T caseTooltip(Tooltip object) {
 		return null;
 	}
 
@@ -1091,7 +1069,7 @@ public class BootstrapSwitch<T1> extends Switch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseInputGroup(InputGroup object) {
+	public T caseInputGroup(InputGroup object) {
 		return null;
 	}
 
@@ -1106,7 +1084,7 @@ public class BootstrapSwitch<T1> extends Switch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseFormGroup(FormGroup object) {
+	public T caseFormGroup(FormGroup object) {
 		return null;
 	}
 
@@ -1121,7 +1099,7 @@ public class BootstrapSwitch<T1> extends Switch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseCollapse(Collapse object) {
+	public T caseCollapse(Collapse object) {
 		return null;
 	}
 
@@ -1136,7 +1114,7 @@ public class BootstrapSwitch<T1> extends Switch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseModal(Modal object) {
+	public T caseModal(Modal object) {
 		return null;
 	}
 
@@ -1151,7 +1129,7 @@ public class BootstrapSwitch<T1> extends Switch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseAccordion(Accordion object) {
+	public T caseAccordion(Accordion object) {
 		return null;
 	}
 
@@ -1166,7 +1144,7 @@ public class BootstrapSwitch<T1> extends Switch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseModelElement(ModelElement object) {
+	public T caseModelElement(ModelElement object) {
 		return null;
 	}
 
@@ -1181,22 +1159,7 @@ public class BootstrapSwitch<T1> extends Switch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseNamedElement(NamedElement object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>ISupplier Factory</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>ISupplier Factory</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public <T> T1 caseISupplierFactory(SupplierFactory<T> object) {
+	public T caseNamedElement(NamedElement object) {
 		return null;
 	}
 
@@ -1211,7 +1174,7 @@ public class BootstrapSwitch<T1> extends Switch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseHtml_Container(org.nasdanika.vinci.html.Container object) {
+	public T caseHtml_Container(org.nasdanika.vinci.html.Container object) {
 		return null;
 	}
 
@@ -1226,7 +1189,7 @@ public class BootstrapSwitch<T1> extends Switch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseHtml_ContentTag(org.nasdanika.vinci.html.ContentTag object) {
+	public T caseHtml_ContentTag(org.nasdanika.vinci.html.ContentTag object) {
 		return null;
 	}
 
@@ -1241,7 +1204,7 @@ public class BootstrapSwitch<T1> extends Switch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseHtml_Tag(org.nasdanika.vinci.html.Tag object) {
+	public T caseHtml_Tag(org.nasdanika.vinci.html.Tag object) {
 		return null;
 	}
 
@@ -1256,7 +1219,7 @@ public class BootstrapSwitch<T1> extends Switch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseHtmlElement(HtmlElement object) {
+	public T caseHtmlElement(HtmlElement object) {
 		return null;
 	}
 
@@ -1271,7 +1234,7 @@ public class BootstrapSwitch<T1> extends Switch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 casePage(Page object) {
+	public T casePage(Page object) {
 		return null;
 	}
 
@@ -1287,7 +1250,7 @@ public class BootstrapSwitch<T1> extends Switch<T1> {
 	 * @generated
 	 */
 	@Override
-	public T1 defaultCase(EObject object) {
+	public T defaultCase(EObject object) {
 		return null;
 	}
 

@@ -2,25 +2,13 @@
  */
 package org.nasdanika.vinci.bootstrap.impl;
 
-import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
 
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.InternalEList;
-import org.nasdanika.common.Context;
-import org.nasdanika.common.ListCompoundSupplierFactory;
-import org.nasdanika.common.ProgressMonitor;
-import org.nasdanika.common.StringMapCompoundSupplier;
-import org.nasdanika.common.Supplier;
-import org.nasdanika.common.Util;
-import org.nasdanika.html.app.ViewBuilder;
-import org.nasdanika.html.app.ViewGenerator;
-import org.nasdanika.html.bootstrap.Color;
-import org.nasdanika.vinci.bootstrap.Appearance;
 import org.nasdanika.vinci.bootstrap.BootstrapPackage;
 import org.nasdanika.vinci.bootstrap.TableCell;
 import org.nasdanika.vinci.bootstrap.TableRow;
@@ -222,62 +210,6 @@ public class TableRowImpl extends BootstrapElementImpl implements TableRow {
 				return BACKGROUND_EDEFAULT == null ? getBackground() != null : !BACKGROUND_EDEFAULT.equals(getBackground());
 		}
 		return super.eIsSet(featureID);
-	}
-		
-	protected Supplier<ViewBuilder> createCellsBuilderSupplier(Context context) throws Exception {
-		Supplier<List<ViewBuilder>> cellBuilderSuppliers = new ListCompoundSupplierFactory<ViewBuilder>("Cells", new ArrayList<>(getCells())).create(context);
-		
-		Supplier<ViewBuilder> cellsBuilderSupplier = cellBuilderSuppliers.then(cellBuilders -> new ViewBuilder() {
-
-			@Override
-			public void build(Object target, ViewGenerator viewGenerator, ProgressMonitor progressMonitor) {
-				org.nasdanika.html.bootstrap.RowContainer.Row row = (org.nasdanika.html.bootstrap.RowContainer.Row) target;
-				for (ViewBuilder cb: cellBuilders) {
-					cb.build(row, viewGenerator, progressMonitor);
-				}
-			}
-			
-		});
-		return cellsBuilderSupplier;
-	}		
-
-
-	@SuppressWarnings("resource")
-	@Override
-	public Supplier<ViewBuilder> create(Context context) throws Exception {		
-		StringMapCompoundSupplier<ViewBuilder> parts = new StringMapCompoundSupplier<>(getTitle());
-		
-		Appearance appearance = getAppearance();
-		if (appearance != null) {
-			parts.put("Appearance", appearance.create(context));
-		}
-		parts.put("Cells", createCellsBuilderSupplier(context));
-		
-		return parts.then(partsMap -> new ViewBuilder() {
-			
-			public void build(Object target, ViewGenerator viewGenerator, ProgressMonitor progressMonitor) {
-				org.nasdanika.html.bootstrap.RowContainer.Row row = (org.nasdanika.html.bootstrap.RowContainer.Row) target;
-
-				if (!Util.isBlank(getBackground())) {
-					row.background(Color.fromLabel(getBackground()));
-				}
-				if (!Util.isBlank(getColor())) {
-					row.color(Color.fromLabel(getColor()));
-				}
-				
-				ViewBuilder appearanceBuilder = partsMap.get("Appearance");
-				if (appearanceBuilder != null) {
-					appearanceBuilder.build(row, viewGenerator, progressMonitor);
-				}
-				
-				ViewBuilder cellsBuilder = partsMap.get("Cells");
-				if (cellsBuilder != null) {
-					cellsBuilder.build(row, viewGenerator, progressMonitor);
-				}
-			}
-
-		});
-		
 	}
 
 } //TableRowImpl

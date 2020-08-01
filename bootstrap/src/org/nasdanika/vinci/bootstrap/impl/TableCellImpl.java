@@ -2,21 +2,9 @@
  */
 package org.nasdanika.vinci.bootstrap.impl;
 
-import java.lang.reflect.InvocationTargetException;
-
 import org.eclipse.emf.common.notify.NotificationChain;
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-import org.nasdanika.common.Context;
-import org.nasdanika.common.ProgressMonitor;
-import org.nasdanika.common.Supplier;
-import org.nasdanika.common.SupplierFactory;
-import org.nasdanika.common.Util;
-import org.nasdanika.html.app.ViewBuilder;
-import org.nasdanika.html.app.ViewGenerator;
-import org.nasdanika.html.app.ViewPart;
-import org.nasdanika.html.bootstrap.Color;
 import org.nasdanika.ncore.ModelElement;
 import org.nasdanika.ncore.NcorePackage;
 import org.nasdanika.vinci.bootstrap.Appearance;
@@ -24,7 +12,6 @@ import org.nasdanika.vinci.bootstrap.BootstrapElement;
 import org.nasdanika.vinci.bootstrap.BootstrapPackage;
 import org.nasdanika.vinci.bootstrap.TableCell;
 import org.nasdanika.vinci.html.HtmlElement;
-import org.nasdanika.vinci.html.HtmlPackage;
 import org.nasdanika.vinci.html.impl.ContainerImpl;
 
 /**
@@ -313,18 +300,6 @@ public class TableCellImpl extends ContainerImpl implements TableCell {
 	 * @generated
 	 */
 	@Override
-	public Supplier<ViewBuilder> asViewBuilderSupplier(Context context) throws Exception {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case BootstrapPackage.TABLE_CELL__APPEARANCE:
@@ -486,11 +461,6 @@ public class TableCellImpl extends ContainerImpl implements TableCell {
 				default: return -1;
 			}
 		}
-		if (baseClass == SupplierFactory.class) {
-			switch (derivedFeatureID) {
-				default: return -1;
-			}
-		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
 	}
 
@@ -519,99 +489,7 @@ public class TableCellImpl extends ContainerImpl implements TableCell {
 				default: return -1;
 			}
 		}
-		if (baseClass == SupplierFactory.class) {
-			switch (baseFeatureID) {
-				default: return -1;
-			}
-		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public int eDerivedOperationID(int baseOperationID, Class<?> baseClass) {
-		if (baseClass == ModelElement.class) {
-			switch (baseOperationID) {
-				default: return -1;
-			}
-		}
-		if (baseClass == HtmlElement.class) {
-			switch (baseOperationID) {
-				case HtmlPackage.HTML_ELEMENT___AS_VIEW_BUILDER_SUPPLIER__CONTEXT: return BootstrapPackage.TABLE_CELL___AS_VIEW_BUILDER_SUPPLIER__CONTEXT;
-				default: return -1;
-			}
-		}
-		if (baseClass == BootstrapElement.class) {
-			switch (baseOperationID) {
-				default: return -1;
-			}
-		}
-		if (baseClass == SupplierFactory.class) {
-			switch (baseOperationID) {
-				default: return -1;
-			}
-		}
-		return super.eDerivedOperationID(baseOperationID, baseClass);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
-		switch (operationID) {
-			case BootstrapPackage.TABLE_CELL___AS_VIEW_BUILDER_SUPPLIER__CONTEXT:
-				try {
-					return asViewBuilderSupplier((Context)arguments.get(0));
-				}
-				catch (Throwable throwable) {
-					throw new InvocationTargetException(throwable);
-				}
-		}
-		return super.eInvoke(operationID, arguments);
-	}
-
-	@Override
-	public Supplier<ViewBuilder> create(Context context) throws Exception {
-		
-		Supplier<ViewBuilder> ret = createContentSupplierFactory().create(context).then(content -> new ViewBuilder() {
-
-			@Override
-			public void build(Object target, ViewGenerator viewGenerator, ProgressMonitor progressMonitor) {
-				org.nasdanika.html.bootstrap.RowContainer.Row row = (org.nasdanika.html.bootstrap.RowContainer.Row) target;
-				org.nasdanika.html.bootstrap.RowContainer.Row.Cell cell = isHeader() ? row.header() : row.cell();
-				if (!Util.isBlank(getBackground())) {
-					cell.background(Color.fromLabel(getBackground()));
-				}
-				if (!Util.isBlank(getColor())) {
-					cell.color(Color.fromLabel(getColor()));
-				}
-				if (getColSpan() > 1) {
-					cell.toHTMLElement().colspan(getColSpan());
-				}
-				if (getRowSpan() > 1) {
-					cell.toHTMLElement().rowspan(getRowSpan());
-				}
-				for (ViewPart cvp: content) {
-					cell.toHTMLElement().accept(viewGenerator.processViewPart(cvp, progressMonitor));
-				}
-				
-			}
-			
-		});
-		
-		Appearance appearance = getAppearance();
-		if (appearance == null) {
-			return ret;
-		}
-		
-		return ret.then(appearance.create(context).asFunction()).then(bs -> bs.getFirst().compose(bs.getSecond()));
 	}
 
 } //TableCellImpl

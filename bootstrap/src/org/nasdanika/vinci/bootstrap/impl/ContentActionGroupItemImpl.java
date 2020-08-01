@@ -2,9 +2,7 @@
  */
 package org.nasdanika.vinci.bootstrap.impl;
 
-import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
 
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
@@ -12,16 +10,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.InternalEList;
-import org.nasdanika.common.Context;
-import org.nasdanika.common.ProgressMonitor;
-import org.nasdanika.common.Supplier;
-import org.nasdanika.html.Fragment;
-import org.nasdanika.html.HTMLFactory;
-import org.nasdanika.html.app.ViewBuilder;
-import org.nasdanika.html.app.ViewGenerator;
-import org.nasdanika.html.app.ViewPart;
-import org.nasdanika.html.bootstrap.ActionGroup;
-import org.nasdanika.html.bootstrap.Color;
 import org.nasdanika.vinci.bootstrap.BootstrapPackage;
 import org.nasdanika.vinci.bootstrap.ContentActionGroupItem;
 import org.nasdanika.vinci.html.HtmlPackage;
@@ -217,39 +205,6 @@ public class ContentActionGroupItemImpl extends ActionGroupItemImpl implements C
 			}
 		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
-	}
-	
-	@Override
-	public Supplier<ViewBuilder> create(Context context) throws Exception {
-		Supplier<List<ViewPart>> nameSupplier = org.nasdanika.vinci.html.Container.wrap(new ArrayList<>(getName())).create(context);
-		Supplier<List<ViewPart>> contentSupplier = createContentSupplierFactory().create(context);
-		
-		return nameSupplier.then(contentSupplier.asFunction()).then(bs -> new ViewBuilder() {
-
-			@Override
-			public void build(Object target, ViewGenerator viewGenerator, ProgressMonitor progressMonitor) {
-				HTMLFactory htmlFactory = viewGenerator.get(HTMLFactory.class);
-
-				Fragment nameFragment = htmlFactory.fragment();
-				for (ViewPart nvp: bs.getFirst()) {
-					nameFragment.content(viewGenerator.processViewPart(nvp, progressMonitor));
-				}
-				
-				Fragment contentFragment = htmlFactory.fragment();
-				for (ViewPart cvp: bs.getSecond()) {
-					contentFragment.content(viewGenerator.processViewPart(cvp, progressMonitor));
-				}
-				
-				((ActionGroup) target).contentAction(
-						nameFragment, 
-						isActive(), 
-						isDisabled(), 
-						org.nasdanika.common.Util.isBlank(getColor()) ? null : Color.fromLabel(getColor()), 
-						null, 
-						contentFragment);
-			}
-		
-		});
 	}
 
 } //ContentActionGroupItemImpl

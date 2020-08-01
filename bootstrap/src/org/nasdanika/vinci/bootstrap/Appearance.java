@@ -4,8 +4,6 @@ package org.nasdanika.vinci.bootstrap;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
-import org.nasdanika.common.SupplierFactory;
-import org.nasdanika.html.app.ViewBuilder;
 import org.nasdanika.ncore.Entry;
 
 /**
@@ -31,11 +29,10 @@ import org.nasdanika.ncore.Entry;
  * </ul>
  *
  * @see org.nasdanika.vinci.bootstrap.BootstrapPackage#getAppearance()
- * @model superTypes="org.nasdanika.ncore.ISupplierFactory&lt;org.nasdanika.vinci.html.ViewBuilder&gt;"
- *        annotation="http://www.eclipse.org/emf/2002/Ecore constraints='border_overlap background attributes'"
+ * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='border_overlap background attributes'"
  * @generated
  */
-public interface Appearance extends EObject, SupplierFactory<ViewBuilder> {
+public interface Appearance extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Background</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -63,7 +60,7 @@ public interface Appearance extends EObject, SupplierFactory<ViewBuilder> {
 
 	/**
 	 * Returns the value of the '<em><b>Attributes</b></em>' containment reference list.
-	 * The list contents are of type {@link org.nasdanika.ncore.Entry}<code>&lt;java.lang.Object&gt;</code>.
+	 * The list contents are of type {@link org.nasdanika.ncore.Entry}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
@@ -101,10 +98,10 @@ public interface Appearance extends EObject, SupplierFactory<ViewBuilder> {
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Attributes</em>' containment reference list.
 	 * @see org.nasdanika.vinci.bootstrap.BootstrapPackage#getAppearance_Attributes()
-	 * @model type="org.nasdanika.ncore.Entry&lt;org.eclipse.emf.ecore.EJavaObject&gt;" containment="true"
+	 * @model containment="true"
 	 * @generated
 	 */
-	EList<Entry<Object>> getAttributes();
+	EList<Entry> getAttributes();
 
 	/**
 	 * Returns the value of the '<em><b>Border</b></em>' containment reference list.

@@ -9,6 +9,8 @@ Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: org.nasdanika.vinci.bootstrap.gen
 Require-Bundle: org.nasdanika.html.bootstrap,
- org.nasdanika.vinci.bootstrap;bundle-version="0.1.0"
+ org.nasdanika.vinci.bootstrap;bundle-version="0.1.0",
+ org.nasdanika.html.app,
+ org.nasdanika.vinci.html.gen;bundle-version="0.1.0"
 Bundle-ActivationPolicy: lazy
 Automatic-Module-Name: org.nasdanika.vinci.bootstrap.gen

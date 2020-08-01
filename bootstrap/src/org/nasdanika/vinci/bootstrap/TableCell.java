@@ -2,8 +2,6 @@
  */
 package org.nasdanika.vinci.bootstrap;
 
-import org.nasdanika.common.SupplierFactory;
-import org.nasdanika.html.app.ViewBuilder;
 import org.nasdanika.vinci.html.Container;
 
 /**
@@ -27,10 +25,10 @@ import org.nasdanika.vinci.html.Container;
  * </ul>
  *
  * @see org.nasdanika.vinci.bootstrap.BootstrapPackage#getTableCell()
- * @model superTypes="org.nasdanika.vinci.html.Container org.nasdanika.vinci.bootstrap.BootstrapElement org.nasdanika.ncore.ISupplierFactory&lt;org.nasdanika.vinci.html.ViewBuilder&gt;"
+ * @model
  * @generated
  */
-public interface TableCell extends Container, BootstrapElement, SupplierFactory<ViewBuilder> {
+public interface TableCell extends Container, BootstrapElement {
 	/**
 	 * Returns the value of the '<em><b>Header</b></em>' attribute.
 	 * <!-- begin-user-doc -->

@@ -25,7 +25,7 @@ public class ContainerAdapter<T extends Container> {
 	
 	protected T target;
 
-	protected ContainerAdapter(T target) {
+	public ContainerAdapter(T target) {
 		this.target = target;
 	}
 		

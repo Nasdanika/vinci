@@ -2,22 +2,13 @@
  */
 package org.nasdanika.vinci.bootstrap.impl;
 
-import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
 
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.InternalEList;
-import org.nasdanika.common.Context;
-import org.nasdanika.common.ListCompoundSupplierFactory;
-import org.nasdanika.common.ProgressMonitor;
-import org.nasdanika.common.Supplier;
-import org.nasdanika.html.app.ViewBuilder;
-import org.nasdanika.html.app.ViewGenerator;
-import org.nasdanika.html.bootstrap.RowContainer;
 import org.nasdanika.vinci.bootstrap.BootstrapPackage;
 import org.nasdanika.vinci.bootstrap.TableRow;
 import org.nasdanika.vinci.bootstrap.TableRowContainer;
@@ -139,22 +130,5 @@ public abstract class TableRowContainerImpl extends BootstrapElementImpl impleme
 		}
 		return super.eIsSet(featureID);
 	}
-	
-	protected Supplier<ViewBuilder> createRowsBuilderSupplier(Context context) throws Exception {
-		Supplier<List<ViewBuilder>> rowBuilderSuppliers = new ListCompoundSupplierFactory<ViewBuilder>("Rows", new ArrayList<>(getRows())).create(context);
-		
-		Supplier<ViewBuilder> rowsBuilderSupplier = rowBuilderSuppliers.then(rowBuilders -> new ViewBuilder() {
-
-			@Override
-			public void build(Object target, ViewGenerator viewGenerator, ProgressMonitor progressMonitor) {
-				RowContainer<?,?> rowContainer = (RowContainer<?,?>) target;
-				for (ViewBuilder rb: rowBuilders) {
-					rb.build(rowContainer.row(), viewGenerator, progressMonitor);
-				}
-			}
-			
-		});
-		return rowsBuilderSupplier;
-	}	
 
 } //TableRowContainerImpl

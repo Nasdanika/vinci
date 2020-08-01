@@ -6,9 +6,9 @@ import java.util.Collection;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.InternalEList;
-import org.nasdanika.common.SupplierFactory;
 import org.nasdanika.vinci.bootstrap.ActionGroupItem;
 import org.nasdanika.vinci.bootstrap.BootstrapPackage;
 
@@ -52,8 +52,8 @@ public abstract class ActionGroupItemImpl extends ItemImpl implements ActionGrou
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public EList<SupplierFactory<Object>> getName() {
-		return (EList<SupplierFactory<Object>>)eDynamicGet(BootstrapPackage.ACTION_GROUP_ITEM__NAME, BootstrapPackage.Literals.ACTION_GROUP_ITEM__NAME, true, true);
+	public EList<EObject> getName() {
+		return (EList<EObject>)eDynamicGet(BootstrapPackage.ACTION_GROUP_ITEM__NAME, BootstrapPackage.Literals.ACTION_GROUP_ITEM__NAME, true, true);
 	}
 
 	/**
@@ -95,7 +95,7 @@ public abstract class ActionGroupItemImpl extends ItemImpl implements ActionGrou
 		switch (featureID) {
 			case BootstrapPackage.ACTION_GROUP_ITEM__NAME:
 				getName().clear();
-				getName().addAll((Collection<? extends SupplierFactory<Object>>)newValue);
+				getName().addAll((Collection<? extends EObject>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

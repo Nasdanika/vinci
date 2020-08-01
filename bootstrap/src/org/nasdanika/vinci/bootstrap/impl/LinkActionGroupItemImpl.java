@@ -2,20 +2,7 @@
  */
 package org.nasdanika.vinci.bootstrap.impl;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.eclipse.emf.ecore.EClass;
-import org.nasdanika.common.Context;
-import org.nasdanika.common.ProgressMonitor;
-import org.nasdanika.common.Supplier;
-import org.nasdanika.html.Fragment;
-import org.nasdanika.html.HTMLFactory;
-import org.nasdanika.html.app.ViewBuilder;
-import org.nasdanika.html.app.ViewGenerator;
-import org.nasdanika.html.app.ViewPart;
-import org.nasdanika.html.bootstrap.ActionGroup;
-import org.nasdanika.html.bootstrap.Color;
 import org.nasdanika.vinci.bootstrap.BootstrapPackage;
 import org.nasdanika.vinci.bootstrap.LinkActionGroupItem;
 
@@ -137,29 +124,6 @@ public class LinkActionGroupItemImpl extends ActionGroupItemImpl implements Link
 				return URL_EDEFAULT == null ? getUrl() != null : !URL_EDEFAULT.equals(getUrl());
 		}
 		return super.eIsSet(featureID);
-	}
-	@Override
-	public Supplier<ViewBuilder> create(Context context) throws Exception {
-		Supplier<List<ViewPart>> nameSupplier = org.nasdanika.vinci.html.Container.wrap(new ArrayList<>(getName())).create(context);
-		return nameSupplier.then(nameViewParts -> new ViewBuilder() {
-
-			@Override
-			public void build(Object target, ViewGenerator viewGenerator, ProgressMonitor progressMonitor) {
-				HTMLFactory htmlFactory = viewGenerator.get(HTMLFactory.class);
-				Fragment nameFragment = htmlFactory.fragment();
-				for (ViewPart nvp: nameViewParts) {
-					nameFragment.content(viewGenerator.processViewPart(nvp, progressMonitor));
-				}
-				
-				((ActionGroup) target).action(
-						isActive(), 
-						isDisabled(), 
-						org.nasdanika.common.Util.isBlank(getColor()) ? null : Color.fromLabel(getColor()),
-						getUrl(),		
-						nameFragment);
-			}
-			
-		});
 	}
 
 } //LinkActionGroupItemImpl

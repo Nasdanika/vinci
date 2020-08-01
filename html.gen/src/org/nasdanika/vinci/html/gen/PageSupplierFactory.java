@@ -24,12 +24,12 @@ import org.nasdanika.html.fontawesome.FontAwesomeFactory;
 import org.nasdanika.html.jstree.JsTreeFactory;
 import org.nasdanika.vinci.html.Page;
 
-public class PageSupplierFactory implements SupplierFactory<Object> {
+public class PageSupplierFactory<T extends Page> implements SupplierFactory<Object> {
 	private static final String LINE_AWESOME_CSS_CDN = "https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css";
 	
-	private Page target;
+	protected T target;
 	
-	public PageSupplierFactory(Page target) {
+	public PageSupplierFactory(T target) {
 		this.target = target;
 	}
 	
@@ -45,7 +45,6 @@ public class PageSupplierFactory implements SupplierFactory<Object> {
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
 	public Supplier<Object> create(Context context) throws Exception {
-		@SuppressWarnings("resource")
 		StringMapCompoundSupplier<List<Object>> partsSupplier = new StringMapCompoundSupplier<>(target.getTitle());
 		partsSupplier.put(new ListCompoundSupplierFactory<Object>("Head", EObjectAdaptable.adaptToSupplierFactory(target.getHead(), Object.class)).create(context));
 		partsSupplier.put(new ListCompoundSupplierFactory<Object>("Body", EObjectAdaptable.adaptToSupplierFactory(target.getBody(), Object.class)).create(context));

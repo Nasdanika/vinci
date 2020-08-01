@@ -3,23 +3,12 @@
 package org.nasdanika.vinci.bootstrap.impl;
 
 import java.util.Collection;
-import java.util.List;
 
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.InternalEList;
-import org.nasdanika.common.Context;
-import org.nasdanika.common.ListCompoundSupplier;
-import org.nasdanika.common.MapCompoundSupplier;
-import org.nasdanika.common.ProgressMonitor;
-import org.nasdanika.common.Supplier;
-import org.nasdanika.html.app.ViewBuilder;
-import org.nasdanika.html.app.ViewGenerator;
-import org.nasdanika.html.app.ViewPart;
-import org.nasdanika.html.bootstrap.BootstrapFactory;
-import org.nasdanika.vinci.bootstrap.Appearance;
 import org.nasdanika.vinci.bootstrap.BootstrapPackage;
 import org.nasdanika.vinci.bootstrap.Row;
 
@@ -180,42 +169,6 @@ public class ContainerImpl extends BootstrapElementImpl implements org.nasdanika
 				return isFluid() != FLUID_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
-	}
-
-	@SuppressWarnings({ "unchecked", "rawtypes" })
-	@Override
-	public Supplier<ViewPart> create(Context context) throws Exception {
-		@SuppressWarnings("resource")
-		MapCompoundSupplier<String,Object> builderSuppliers = new MapCompoundSupplier<>("Builders");
-		Appearance appearance = getAppearance();
-		if (appearance != null) {
-			builderSuppliers.put("Appearance", (Supplier) appearance.create(context));
-		}
-		ListCompoundSupplier<ViewBuilder> rowBuilders = new ListCompoundSupplier<>("Rows");
-		for (Row row: getRows()) {
-			rowBuilders.add(row.create(context));
-		}
-		builderSuppliers.put("Rows", (Supplier) rowBuilders);
-		
-		return builderSuppliers.then(builders -> new ViewPart() {
-				
-			@Override
-			public Object generate(ViewGenerator viewGenerator, ProgressMonitor progressMonitor) {
-				BootstrapFactory bootstrapFactory = viewGenerator.get(BootstrapFactory.class);
-				org.nasdanika.html.bootstrap.Container container = isFluid() ? bootstrapFactory.fluidContainer() : bootstrapFactory.container();
-				Object appearanceBuilder = builders.get("Appearance");
-				if (appearanceBuilder instanceof ViewBuilder) {
-					((ViewBuilder) appearanceBuilder).build(container, viewGenerator, progressMonitor);
-				}
-				
-				for (ViewBuilder rowBuilder: (List<ViewBuilder>) builders.get("Rows")) {
-					rowBuilder.build(container.row(), viewGenerator, progressMonitor);
-				}
-				
-				return container;				
-			}
-				
-		});				
 	}
 
 } //ContainerImpl

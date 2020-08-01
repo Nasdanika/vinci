@@ -3,10 +3,6 @@
 package org.nasdanika.vinci.bootstrap.impl;
 
 import org.eclipse.emf.ecore.EClass;
-import org.nasdanika.common.Context;
-import org.nasdanika.common.Util;
-import org.nasdanika.html.HTMLPage;
-import org.nasdanika.html.bootstrap.Theme;
 import org.nasdanika.vinci.bootstrap.BootstrapPackage;
 import org.nasdanika.vinci.bootstrap.BootstrapPage;
 import org.nasdanika.vinci.html.impl.PageImpl;
@@ -171,18 +167,6 @@ public class BootstrapPageImpl extends PageImpl implements BootstrapPage {
 				return THEME_EDEFAULT == null ? getTheme() != null : !THEME_EDEFAULT.equals(getTheme());
 		}
 		return super.eIsSet(featureID);
-	}
-	
-	@Override
-	protected HTMLPage createPage(Context context) {
-		org.nasdanika.html.bootstrap.BootstrapFactory bootstrapFactory = context.get(org.nasdanika.html.bootstrap.BootstrapFactory.class, org.nasdanika.html.bootstrap.BootstrapFactory.INSTANCE);
-		if (isCdn()) {
-			if (Util.isBlank(getTheme())) {
-				return bootstrapFactory.bootstrapCdnHTMLPage();
-			}
-			return bootstrapFactory.bootstrapCdnHTMLPage(Theme.valueOf(getTheme()));
-		}
-		return bootstrapFactory.bootstrapHTMLPage();
 	}
 
 } //BootstrapPageImpl
