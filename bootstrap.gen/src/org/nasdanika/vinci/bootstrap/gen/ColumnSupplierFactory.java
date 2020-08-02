@@ -8,6 +8,7 @@ import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.common.Supplier;
 import org.nasdanika.common.SupplierFactory;
 import org.nasdanika.common.Util;
+import org.nasdanika.emf.EObjectAdaptable;
 import org.nasdanika.html.app.ViewBuilder;
 import org.nasdanika.html.app.ViewGenerator;
 import org.nasdanika.html.app.ViewPart;
@@ -33,7 +34,8 @@ public class ColumnSupplierFactory implements SupplierFactory<ViewBuilder> {
 		
 		ElementIdentityMapCompoundSupplierFactory<Object> mapSupplierFactory = new ElementIdentityMapCompoundSupplierFactory<>(target.getTitle());
 		Appearance appearance = target.getAppearance();
-		mapSupplierFactory.put((SupplierFactory) appearance);
+		SupplierFactory appearanceSupplierFactory = appearance == null ? null : EObjectAdaptable.adaptToSupplierFactoryNonNull(appearance, ViewBuilder.class);		
+		mapSupplierFactory.put(appearanceSupplierFactory);
 				
 		SupplierFactory contentSupplierFactory = (SupplierFactory) new ContainerAdapter(target).createContentSupplierFactory();
 		mapSupplierFactory.put(contentSupplierFactory);
@@ -49,8 +51,8 @@ public class ColumnSupplierFactory implements SupplierFactory<ViewBuilder> {
 					col.width(breakpoint, width);
 				}
 				
-				ViewBuilder apperanceBuilder = (ViewBuilder) results.apply((SupplierFactory) appearance);
-				if (apperanceBuilder != null) {
+				if (appearanceSupplierFactory != null) {
+					ViewBuilder apperanceBuilder = (ViewBuilder) results.apply((SupplierFactory) appearanceSupplierFactory);
 					apperanceBuilder.build(target, viewGenerator, progressMonitor);
 				}
 				

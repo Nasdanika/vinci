@@ -104,7 +104,7 @@ public class PageSupplierFactory<T extends Page> implements SupplierFactory<Obje
 		
 		ListCompoundSupplierFactory<ViewBuilder> buildersFactory = new ListCompoundSupplierFactory<ViewBuilder>("Builders");
 		for (EObject builder: target.getBuilders()) {
-			Factory bsf = EObjectAdaptable.adaptTo(builder, ViewBuilder.Supplier.Factory.class);
+			Factory bsf = EObjectAdaptable.adaptToNonNull(builder, ViewBuilder.Supplier.Factory.class);
 			buildersFactory.add(bsf);
 		}
 		Supplier<List<ViewBuilder>> buildersSupplier = buildersFactory.create(context);

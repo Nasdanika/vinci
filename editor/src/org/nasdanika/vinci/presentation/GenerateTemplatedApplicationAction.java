@@ -114,6 +114,7 @@ public class GenerateTemplatedApplicationAction extends VinciGenerateAction<Abst
 			generationContext.register(ResourceSet.class, resourceSet);
 			
 			ComposedAdapterFactory.registerGlobalFactory(modelElement.eResource().getResourceSet());
+			ComposedAdapterFactory.registerGlobalFactory(resourceSet);
 			
 			try (SpeechSynthesizer speechSynthesizer = new CachingSpeechSynthesizer(new SpeechSynthesizerProxy(GoogleCloudTextToSpeechSynthesizer::new))) {
 				generationContext.register(SpeechSynthesizer.class, speechSynthesizer);			
@@ -226,7 +227,7 @@ public class GenerateTemplatedApplicationAction extends VinciGenerateAction<Abst
 				throw new DiagnosticException(validationResult);
 			}
 			
-			try (Supplier<Object> work = EObjectAdaptable.adaptToSupplierFactory(page,Object.class).create(pageContext)) {
+			try (Supplier<Object> work = EObjectAdaptable.adaptToSupplierFactoryNonNull(page,Object.class).create(pageContext)) {
 				double size = work.size() * 2 + 1;
 				double scale = pageWork / (size == 0 ? 1.0 : size);
 				try (ProgressMonitor progressMonitor = new ProgressMonitorAdapter(pageMonitor, scale)) {

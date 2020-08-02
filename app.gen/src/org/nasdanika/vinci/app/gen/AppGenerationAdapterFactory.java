@@ -61,11 +61,11 @@ public class AppGenerationAdapterFactory extends ComposedAdapterFactory {
 					ActionReferenceSupplierFactory::new));
 		
 		registerAdapterFactory(
-				new FunctionAdapterFactory<SupplierFactory, BootstrapContainerApplication>(
+				new FunctionAdapterFactory<ViewBuilder.Supplier.Factory, BootstrapContainerApplication>(
 					AppPackage.Literals.BOOTSTRAP_CONTAINER_APPLICATION, 
-					SupplierFactory.class, 
+					ViewBuilder.Supplier.Factory.class, 
 					this.getClass().getClassLoader(),
-					BootstrapContainerApplicationSupplierFactory::new));
+					BootstrapContainerApplicationViewBuilderSupplierFactory::new));
 				
 		registerAdapterFactory(
 				new FunctionAdapterFactory<ApplicationBuilder.Supplier.Factory, AbstractAction>(

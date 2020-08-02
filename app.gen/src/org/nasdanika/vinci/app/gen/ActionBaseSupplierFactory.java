@@ -3,7 +3,6 @@ package org.nasdanika.vinci.app.gen;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import java.util.Objects;
 import java.util.function.BiFunction;
 
 import org.eclipse.emf.common.util.TreeIterator;
@@ -84,7 +83,7 @@ public class ActionBaseSupplierFactory extends AbstractActionAdapter<ActionBase>
 			} else { // ActionCategory
 				for (ActionElement ce: ((ActionCategory) e).getEffectiveElements()) {
 					if (ce instanceof AbstractAction) {
-						elementsFactory.add(EObjectAdaptable.adaptToSupplierFactory(e, Object.class));
+						elementsFactory.add(EObjectAdaptable.adaptToSupplierFactoryNonNull(ce, Object.class));
 					}
 				}
 			}
@@ -92,7 +91,7 @@ public class ActionBaseSupplierFactory extends AbstractActionAdapter<ActionBase>
 		
 		MapCompoundSupplierFactory<String, ViewPart> widgetsFactory = new MapCompoundSupplierFactory<String, ViewPart>(WIDGETS_KEY);
 		for (Widget widget: target.getWidgets()) {
-			widgetsFactory.put(widget.getName(), EObjectAdaptable.adaptToSupplierFactory(widget, ViewPart.class));
+			widgetsFactory.put(widget.getName(), EObjectAdaptable.adaptToSupplierFactoryNonNull(widget, ViewPart.class));
 		}
 		
 		MapCompoundSupplierFactory<String, Object> mcs = new MapCompoundSupplierFactory<>("Action");		
@@ -114,7 +113,7 @@ public class ActionBaseSupplierFactory extends AbstractActionAdapter<ActionBase>
 		}
 				
 		for (EObject ce: target.getContent()) {
-			content.add((SupplierFactory<Object>) Objects.requireNonNull(EObjectAdaptable.adaptTo(ce, SupplierFactory.class), "Cannot adapt " + ce + " to " + SupplierFactory.class));
+			content.add((SupplierFactory<Object>) EObjectAdaptable.adaptToNonNull(ce, SupplierFactory.class));
 		}
 		mcs.put(CONTENT_KEY, (SupplierFactory) new ListCompoundSupplierFactory<Object>(CONTENT_KEY, content));
 		mcs.put(ELEMENTS_KEY, (SupplierFactory) elementsFactory);

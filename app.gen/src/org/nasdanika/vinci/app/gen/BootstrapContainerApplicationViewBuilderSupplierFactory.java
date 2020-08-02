@@ -31,9 +31,9 @@ import org.nasdanika.vinci.app.BootstrapContainerApplicationSection;
 import org.nasdanika.vinci.bootstrap.Appearance;
 import org.nasdanika.vinci.bootstrap.gen.BootstrapElementViewBuilderSupplierFactory;
 
-public class BootstrapContainerApplicationSupplierFactory extends BootstrapElementViewBuilderSupplierFactory<BootstrapContainerApplication> {
+public class BootstrapContainerApplicationViewBuilderSupplierFactory extends BootstrapElementViewBuilderSupplierFactory<BootstrapContainerApplication> {
 	
-	public BootstrapContainerApplicationSupplierFactory(BootstrapContainerApplication target) {
+	public BootstrapContainerApplicationViewBuilderSupplierFactory(BootstrapContainerApplication target) {
 		super(target);
 	}
 	
@@ -169,14 +169,14 @@ public class BootstrapContainerApplicationSupplierFactory extends BootstrapEleme
 				// Takes a page and builds it
 				
 				org.nasdanika.html.app.Application app;
-				if (BootstrapContainerApplicationSupplierFactory.this.target.isRouter()) {
+				if (BootstrapContainerApplicationViewBuilderSupplierFactory.this.target.isRouter()) {
 					
 					class DecoratingRoutingApplication extends org.nasdanika.html.app.impl.BootstrapContainerRouterApplication implements DecoratorProvider {
 						
 						DecoratingRoutingApplication() {
 							super(context.get(BootstrapFactory.class, BootstrapFactory.INSTANCE),
 									(HTMLPage) target,
-									BootstrapContainerApplicationSupplierFactory.this.target.isFluid());
+									BootstrapContainerApplicationViewBuilderSupplierFactory.this.target.isFluid());
 						}
 						
 						protected void configureContainer(org.nasdanika.html.bootstrap.Container container) {
@@ -246,7 +246,7 @@ public class BootstrapContainerApplicationSupplierFactory extends BootstrapEleme
 						public DecoratingApplication() {
 							super(context.get(BootstrapFactory.class, BootstrapFactory.INSTANCE),
 							(HTMLPage) target,
-							BootstrapContainerApplicationSupplierFactory.this.target.isFluid());							
+							BootstrapContainerApplicationViewBuilderSupplierFactory.this.target.isFluid());							
 						}
 
 						@Override

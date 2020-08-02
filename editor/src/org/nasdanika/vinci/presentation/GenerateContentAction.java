@@ -22,18 +22,18 @@ import org.nasdanika.common.Context;
 import org.nasdanika.common.DefaultConverter;
 import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.common.Supplier;
-import org.nasdanika.common.SupplierFactory;
 import org.nasdanika.common.resources.BinaryEntityContainer;
 import org.nasdanika.eclipse.ProgressMonitorAdapter;
 import org.nasdanika.eclipse.resources.EclipseContainer;
 import org.nasdanika.emf.ComposedAdapterFactory;
+import org.nasdanika.emf.EObjectAdaptable;
 import org.nasdanika.html.app.impl.ViewGeneratorImpl;
 
 /**
  * @author Pavel Vlasov
  *
  */
-public class GenerateContentAction<T extends EObject & SupplierFactory<Object>> extends VinciGenerateAction<T> {
+public class GenerateContentAction<T extends EObject> extends VinciGenerateAction<T> {
 		
 	private static final int TOTAL_WORK = 1000;
 
@@ -65,7 +65,7 @@ public class GenerateContentAction<T extends EObject & SupplierFactory<Object>> 
 			
 			SubMonitor subMonitor = SubMonitor.convert(monitor, TOTAL_WORK);
 
-			try (Supplier<Object> work = modelElement.create(generationContext)) {
+			try (Supplier<Object> work = EObjectAdaptable.adaptToSupplierFactoryNonNull(modelElement, Object.class).create(generationContext)) {
 				double size = work.size() * 2 + 2;
 				double scale = TOTAL_WORK / (size == 0 ? 1.0 : size);
 				try (ProgressMonitor progressMonitor = new ProgressMonitorAdapter(subMonitor, scale)) {
