@@ -10,6 +10,7 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
@@ -449,6 +450,17 @@ public class ActionBaseItemProvider extends LabelItemProvider {
 				(AppPackage.Literals.ACTION_BASE__WIDGETS,
 				 AppFactory.eINSTANCE.createWidget()));
 		
+	}
+	
+	/**
+	 * Used to filter reference candidates
+	 */
+	@Override
+	public boolean accept(EObject source, EReference eReference, EObject target, boolean direct) {
+		if (eReference == AppPackage.Literals.ACTION_BASE__CONTENT) {
+			return org.nasdanika.ncore.util.Activator.EXPRESSIONS_PALETTE.accept(source, eReference, target, direct) || org.nasdanika.vinci.html.util.Activator.HTML_CONTENT_PALETTE.accept(source, eReference, target, direct);
+		}		
+		return super.accept(source, eReference, target, direct);
 	}
 
 	/**

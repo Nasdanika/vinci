@@ -19,7 +19,7 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.INotifyChangedListener;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.nasdanika.emf.edit.EReferencePredicate;
+import org.nasdanika.emf.EReferencePredicate;
 import org.nasdanika.vinci.components.util.ComponentsAdapterFactory;
 
 /**

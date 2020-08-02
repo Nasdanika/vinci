@@ -16,7 +16,7 @@
                org.eclipse.emf.edit.provider.ITreeItemContentProvider
                org.eclipse.emf.edit.provider.IItemLabelProvider
                org.eclipse.emf.edit.provider.IItemPropertySource
-               org.nasdanika.emf.edit.EReferencePredicate"/>
+               org.nasdanika.emf.EReferencePredicate"/>
    </extension>
 
 </plugin>
