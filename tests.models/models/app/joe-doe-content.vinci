@@ -3,7 +3,7 @@
   <rows>
     <columns>
       <content xsi:type="org.nasdanika.vinci.components:MarkdownText" markdown="Однажды в студёную зимнюю пору."/>
-      <content xsi:type="org.nasdanika.ncore:SupplierFactoryReference">
+      <content xsi:type="org.nasdanika.ncore:Reference">
         <target xsi:type="org.nasdanika.vinci.components:MarkdownText" href="из-лесу.vinci#/"/>
       </content>
     </columns>

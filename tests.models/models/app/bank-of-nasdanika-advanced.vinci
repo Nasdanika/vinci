@@ -44,7 +44,7 @@
           <elements xsi:type="org.nasdanika.vinci.app:Action" title="Partitioned Action 1" id="ce5e38b4-2e38-4adc-9b0c-80f120b3d7f5-A" text="Partitioned Action 1" notification="1"/>
           <elements xsi:type="org.nasdanika.vinci.app:Action" title="Partitioned Action 2" id="c5deb6f6-c1dc-432c-a1e9-e240a719b8a3-B" text="Partitioned Action 2"/>
         </elements>
-        <content xsi:type="org.nasdanika.ncore:SupplierFactoryReference" title="something" description="alispdgioent s">
+        <content xsi:type="org.nasdanika.ncore:Reference" title="something" description="alispdgioent s">
           <target xsi:type="org.nasdanika.vinci.bootstrap:Container" href="joe-doe-content.vinci#/"/>
         </content>
       </elements>

@@ -7,6 +7,7 @@ import java.util.function.BiFunction;
 
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticException;
+import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.nasdanika.common.Context;
 import org.nasdanika.common.DefaultConverter;
 import org.nasdanika.common.MutableContext;
@@ -18,6 +19,8 @@ import org.nasdanika.common.Status;
 import org.nasdanika.common.Supplier;
 import org.nasdanika.common.resources.BinaryEntityContainer;
 import org.nasdanika.common.resources.FileSystemContainer;
+import org.nasdanika.emf.ComposedAdapterFactory;
+import org.nasdanika.emf.ModelWorkFactory;
 import org.nasdanika.emf.ValidatingModelWorkFactory;
 import org.nasdanika.html.HTMLPage;
 import org.nasdanika.html.Select;
@@ -100,12 +103,14 @@ public class TestsBase {
 	}
 
 	public static <T> ValidatingModelWorkFactory<T> createModelWorkFactory(String path) throws Exception {
-		return new ValidatingModelWorkFactory<T>(
-				TEST_MODELS_BASE_URI+path+".vinci", 
+		ResourceSet rs = ModelWorkFactory.createResourceSet(
 				NcorePackage.eINSTANCE,
 				HtmlPackage.eINSTANCE,
 				BootstrapPackage.eINSTANCE,
 				AppPackage.eINSTANCE);
+		
+		ComposedAdapterFactory.registerGlobalFactory(rs);
+		return new ValidatingModelWorkFactory<T>(rs, TEST_MODELS_BASE_URI+path+".vinci");
 	}			
 	
 	/**
