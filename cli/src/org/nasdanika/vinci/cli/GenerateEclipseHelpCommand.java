@@ -1,6 +1,7 @@
 package org.nasdanika.vinci.cli;
 
 import java.io.ByteArrayOutputStream;
+import java.util.UUID;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -12,6 +13,7 @@ import javax.xml.transform.stream.StreamResult;
 
 import org.apache.commons.text.StringEscapeUtils;
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.nasdanika.common.Context;
@@ -160,7 +162,12 @@ public class GenerateEclipseHelpCommand extends GenerateTemplatedApplicationComm
 		page = EcoreUtil.copy(page);
 		page.getBuilders().clear(); // Templates contain application builders which we don't need.
 		
-		try (Supplier<Object> pageWork = EObjectAdaptable.adaptToSupplierFactory(page, Object.class).create(context)) {
+		// Adding the copied page to a resource set in order to use adapters.
+		ResourceSet rs = createEmptyResourceSet();
+		Resource res = rs.createResource(URI.createFileURI("__"+UUID.randomUUID() + ".vinci")); 
+		res.getContents().add(page);
+		
+		try (Supplier<Object> pageWork = EObjectAdaptable.adaptToSupplierFactoryNonNull(page, Object.class).create(context)) {
 			try (ProgressMonitor pageMonitor = monitor.split("Generating page", 1)) {
 				pageMonitor.setWorkRemaining(pageWork.size() *2 + 2);						
 
