@@ -135,7 +135,7 @@ public class GenerateTemplatedApplicationCommand extends ModelCommand<AbstractAc
 			generationContext.register(SpeechSynthesizer.class, speechSynthesizer);
 		
 			// Generate action tree
-			try (Supplier<Object> work = EObjectAdaptable.adaptToSupplierFactory(rootAction, Object.class).create(generationContext)) {
+			try (Supplier<Object> work = EObjectAdaptable.adaptToSupplierFactoryNonNull(rootAction, Object.class).create(generationContext)) {
 				monitor.setWorkRemaining(work.size() * 2 + 1);
 				org.nasdanika.common.Diagnostic diagnostic = work.splitAndDiagnose(monitor);
 				if (diagnostic.getStatus() == org.nasdanika.common.Status.ERROR) {
@@ -266,7 +266,7 @@ public class GenerateTemplatedApplicationCommand extends ModelCommand<AbstractAc
 			Context pageContext, 
 			ProgressMonitor monitor) throws Exception {
 		
-		try (Supplier<Object> work = EObjectAdaptable.adaptToSupplierFactory(page, Object.class).create(pageContext)) {
+		try (Supplier<Object> work = EObjectAdaptable.adaptToSupplierFactoryNonNull(page, Object.class).create(pageContext)) {
 			try (ProgressMonitor pageMonitor = monitor.split("Generating page", 1)) {
 				pageMonitor.setWorkRemaining(work.size() *2 + 1);						
 
