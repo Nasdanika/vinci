@@ -2,12 +2,14 @@ package org.nasdanika.vinci.ecore;
 
 import java.nio.charset.StandardCharsets;
 import java.util.Collection;
+import java.util.Objects;
 
 import org.apache.commons.codec.binary.Hex;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EPackage;
 import org.nasdanika.common.Context;
+import org.nasdanika.common.NasdanikaException;
 import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.common.Util;
 import org.nasdanika.vinci.app.Action;
@@ -25,7 +27,7 @@ public class EClassifierViewActionSupplier<T extends EClassifier> extends ENamed
 		// Instance class
 		Class<?> instanceClass = eObject.getInstanceClass();
 		if (instanceClass == null) {
-			EPackage registeredPackage = (EPackage) EPackage.Registry.INSTANCE.get(eObject.getEPackage().getNsURI());
+			EPackage registeredPackage = getRegisteredPackage();
 			if (registeredPackage != null) {
 				EClassifier registeredClassifier = registeredPackage.getEClassifier(eObject.getName());
 				if (registeredClassifier != null) {
@@ -58,6 +60,21 @@ public class EClassifierViewActionSupplier<T extends EClassifier> extends ENamed
 		action.setActivator(eObject.getName()+".html");
 		
 		return action;
+	}
+
+	private EPackage getRegisteredPackage() {
+		String nsURI = eObject.getEPackage().getNsURI();
+		Object value = EPackage.Registry.INSTANCE.get(nsURI);
+		if (value instanceof EPackage) {
+			return (EPackage) value;
+		}
+		if (value instanceof EPackage.Descriptor) {
+			return Objects.requireNonNull(((EPackage.Descriptor) value).getEPackage(), "EPackage is null for " + nsURI);  
+		}
+		if (value == null) {
+			throw new NullPointerException("No registry entry for " + nsURI);
+		}
+		throw new NasdanikaException("Unexpected registry value for " + nsURI + ": " + value);
 	}
 	
 	@Override
