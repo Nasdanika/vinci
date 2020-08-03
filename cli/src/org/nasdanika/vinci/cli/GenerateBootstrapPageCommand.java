@@ -1,6 +1,7 @@
 package org.nasdanika.vinci.cli;
 
 import java.util.Map;
+import java.util.UUID;
 
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticException;
@@ -63,8 +64,13 @@ public class GenerateBootstrapPageCommand<T extends EObject & SupplierFactory<Ob
 		page = EcoreUtil.copy(page);
 		page.setName(Util.isBlank(title) ? uri : title);
 		page.getBuilders().clear(); // Templates contain application builders which we don't need.
+				
+		// Adding the copied page to a resource set in order to use adapters.
+		ResourceSet rs = createEmptyResourceSet();
+		Resource res = rs.createResource(URI.createFileURI("__"+UUID.randomUUID() + ".vinci")); 
+		res.getContents().add(page);		
 		
-		try (Supplier<Object> work = EObjectAdaptable.adaptToSupplierFactory(page, Object.class).create(context)) {
+		try (Supplier<Object> work = EObjectAdaptable.adaptToSupplierFactoryNonNull(page, Object.class).create(context)) {
 			try (ProgressMonitor pageMonitor = progressMonitor.split("Generating page", 1)) {
 				pageMonitor.setWorkRemaining(work.size() *2 + 1);						
 
