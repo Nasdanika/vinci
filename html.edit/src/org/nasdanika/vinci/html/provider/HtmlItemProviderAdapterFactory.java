@@ -19,6 +19,7 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.INotifyChangedListener;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.nasdanika.emf.EReferencePredicate;
 import org.nasdanika.vinci.html.util.HtmlAdapterFactory;
 
 /**
@@ -59,7 +60,7 @@ public class HtmlItemProviderAdapterFactory extends HtmlAdapterFactory implement
 	 * This constructs an instance.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public HtmlItemProviderAdapterFactory() {
 		supportedTypes.add(IEditingDomainItemProvider.class);
@@ -67,6 +68,7 @@ public class HtmlItemProviderAdapterFactory extends HtmlAdapterFactory implement
 		supportedTypes.add(ITreeItemContentProvider.class);
 		supportedTypes.add(IItemLabelProvider.class);
 		supportedTypes.add(IItemPropertySource.class);
+		supportedTypes.add(EReferencePredicate.class);		
 	}
 
 	/**
