@@ -317,7 +317,7 @@
               </conditionalStyles>
             </widget>
           </ifs>
-          <ifs name="sirius_default_rules_multi_string_if" predicateExpression="aql:input.emfEditServices(self).needsTextWidget(eStructuralFeature) and input.emfEditServices(self).isMultiline(eStructuralFeature) and not self.hasVinciRule(eStructuralFeature)">
+          <ifs name="sirius_default_rules_multi_string_if" predicateExpression="aql:input.emfEditServices(self).needsTextWidget(eStructuralFeature) and input.emfEditServices(self).isMultiline(eStructuralFeature) and not self.hasNasdanikaRule(eStructuralFeature)">
             <widget xsi:type="properties:TextAreaDescription" name="sirius_default_rules_multi_string" labelExpression="aql:input.emfEditServices(self).getText(eStructuralFeature)+':'" helpExpression="aql:input.emfEditServices(self).getDescription(eStructuralFeature)" isEnabledExpression="aql:eStructuralFeature.changeable" lineCount="10" valueExpression="aql:self.eGet(eStructuralFeature.name)">
               <initialOperation>
                 <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:input.emfEditServices(self).setValue(eStructuralFeature, newValue)"/>
