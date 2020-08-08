@@ -24,7 +24,7 @@ public class ScriptResourceSupplierFactory implements SupplierFactory<ViewPart> 
 	@Override
 	public Supplier<ViewPart> create(Context context) throws Exception {
 		return Supplier.<ViewPart>fromCallable(() -> {
-			URL url = EmfUtil.resolveReference(target.eResource(), context.interpolate(target.getLocation()));
+			URL url = EmfUtil.resolveReference(target.eResource(), context.interpolateToString(target.getLocation()));
 			
 			return new ViewPart() {
 				

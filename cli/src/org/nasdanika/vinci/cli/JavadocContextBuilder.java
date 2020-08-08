@@ -35,7 +35,7 @@ public class JavadocContextBuilder implements ContextBuilder {
 		progressMonitor.setWorkRemaining(links.size());
 		for (String link: links) {
 			if (!Util.isBlank(link)) {
-				String normalizedLocation = context.interpolate(link.trim());
+				String normalizedLocation = context.interpolateToString(link.trim());
 				if (!normalizedLocation.endsWith("/")) {
 					normalizedLocation += "/";
 				}

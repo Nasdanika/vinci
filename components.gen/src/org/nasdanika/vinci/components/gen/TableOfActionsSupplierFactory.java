@@ -37,7 +37,7 @@ public class TableOfActionsSupplierFactory extends TableOfContentsBaseSupplierFa
 		
 		TableOfActionsViewPart tableOfActionsViewPart = new TableOfActionsViewPart(
 				actionIds, 
-				context.interpolate(tableOfContents.getHeader()), 
+				context.interpolateToString(tableOfContents.getHeader()), 
 				tableOfContents.isDescriptions(), 
 				tableOfContents.isTooltips(),
 				tableOfContents.getDepth());

@@ -22,7 +22,7 @@ public class TextToSpeechResourceSupplierFactory extends TextToSpeechSupplierFac
 	
 	@Override
 	protected String getText(Context context) throws Exception {
-		URL url = EmfUtil.resolveReference(textToSpeech.eResource(), context.interpolate(textToSpeech.getLocation()));
+		URL url = EmfUtil.resolveReference(textToSpeech.eResource(), context.interpolateToString(textToSpeech.getLocation()));
 		if (url == null) {
 			throw new IllegalArgumentException("Resource does not exist");
 		}

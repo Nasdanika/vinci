@@ -34,7 +34,7 @@ public class ActionLinkSupplierFactory extends AbstractActionAdapter<ActionLink>
 		
 		SupplierFactory<Object> sf = context -> {
 			
-			URI refUri = URI.createURI(context.interpolate(target.getRef()));
+			URI refUri = URI.createURI(context.interpolateToString(target.getRef()));
 			Resource resource = target.eResource();
 			if (resource != null) {
 				URI resUri = resource.getURI();

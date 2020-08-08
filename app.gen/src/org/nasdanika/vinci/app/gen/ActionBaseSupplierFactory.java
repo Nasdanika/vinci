@@ -104,7 +104,7 @@ public class ActionBaseSupplierFactory extends AbstractActionAdapter<ActionBase>
 
 				@Override
 				public Object generate(ViewGenerator viewGenerator, ProgressMonitor progressMonitor) {
-					String html = ctx.interpolate(MarkdownHelper.INSTANCE.markdownToHtml(markdown).trim());
+					String html = ctx.interpolateToString(MarkdownHelper.INSTANCE.markdownToHtml(markdown).trim());
 					return TagName.div.create(viewGenerator.interpolate(html)).addClass("markdown-body"); // Double interpolation for mapping expansion
 				}
 				
@@ -171,7 +171,7 @@ public class ActionBaseSupplierFactory extends AbstractActionAdapter<ActionBase>
 					activator += "#" + target.getId();
 				}
 			}
-			String activatorStr = context.interpolate(activator);
+			String activatorStr = context.interpolateToString(activator);
 			if (Util.isBlank(activatorStr)) {
 				throw new IllegalArgumentException("Activator type is reference and activator URL is blank");
 			}

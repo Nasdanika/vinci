@@ -107,7 +107,7 @@ public class GenerateApplicationAction<T extends EObject> extends VinciGenerateA
 					
 						try (ProgressMonitor generationMonitor = progressMonitor.split("Generation", size)) {
 							Object result = work.execute(generationMonitor);
-							String path = actionContext.interpolate(actionEntry.getValue());
+							String path = actionContext.interpolateToString(actionEntry.getValue());
 							try (ProgressMonitor contentMonitor = progressMonitor.split("Writing content "+path, 1)) {
 								contentContainer.put(path, result.toString(), contentMonitor);
 							}

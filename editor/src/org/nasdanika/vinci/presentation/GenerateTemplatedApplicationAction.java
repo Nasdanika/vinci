@@ -243,7 +243,7 @@ public class GenerateTemplatedApplicationAction extends VinciGenerateAction<Abst
 				
 					try (ProgressMonitor generationMonitor = progressMonitor.split("Generation", size)) {
 						Object result = work.execute(generationMonitor);
-						String path = pageContext.interpolate(generationPath);
+						String path = pageContext.interpolateToString(generationPath);
 						int hashIdx = path.indexOf("#");
 						if (hashIdx != -1) {
 							path = path.substring(0, hashIdx);

@@ -180,7 +180,7 @@ public class GenerateEclipseHelpCommand extends GenerateTemplatedApplicationComm
 				ContentPanelViewPart contentPanelViewPart = new ContentPanelViewPart(action);
 				htmlPage.body(new ViewGeneratorImpl(context, htmlPage::head, htmlPage::body).processViewPart(contentPanelViewPart, monitor.split("Generating action content", 1)));
 
-				String path = context.interpolate(url);
+				String path = context.interpolateToString(url);
 				int hashIdx = path.indexOf("#");
 				if (hashIdx != -1) {
 					path = path.substring(0, hashIdx);

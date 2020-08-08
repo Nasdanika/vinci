@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:diagram="http://www.eclipse.org/sirius/diagram/1.1.0" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" xsi:schemaLocation="http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/style/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description/style">
-  <viewpoint:DAnalysis uid="_Li-CwPsoEemTooyqQD0cpQ" selectedViews="_N8L84PsoEemTooyqQD0cpQ" version="14.1.0.201810161215">
+  <viewpoint:DAnalysis uid="_Li-CwPsoEemTooyqQD0cpQ" selectedViews="_N8L84PsoEemTooyqQD0cpQ" version="14.3.0.201909031200">
     <semanticResources>model/bootstrap.ecore</semanticResources>
     <semanticResources>platform:/resource/org.nasdanika.vinci.html/model/html.ecore</semanticResources>
     <semanticResources>platform:/resource/org.nasdanika.ncore/model/ncore.ecore</semanticResources>
@@ -8,6 +8,7 @@
     <semanticResources>model/bootstrap.genmodel</semanticResources>
     <semanticResources>platform:/resource/org.nasdanika.vinci.html/model/html.genmodel</semanticResources>
     <semanticResources>platform:/resource/org.nasdanika.ncore/model/ncore.genmodel</semanticResources>
+    <semanticResources>platform:/resource/org.nasdanika.vinci.app/model/app.ecore</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_N8L84PsoEemTooyqQD0cpQ">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>
       <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_OU7NA_soEemTooyqQD0cpQ" name="bootstrap class diagram" repPath="#_OUB1IPsoEemTooyqQD0cpQ">
@@ -16,7 +17,7 @@
       </ownedRepresentationDescriptors>
     </ownedViews>
   </viewpoint:DAnalysis>
-  <diagram:DSemanticDiagram uid="_OUB1IPsoEemTooyqQD0cpQ" name="bootstrap class diagram">
+  <diagram:DSemanticDiagram uid="_OUB1IPsoEemTooyqQD0cpQ">
     <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_OU7NAPsoEemTooyqQD0cpQ" source="DANNOTATION_CUSTOMIZATION_KEY">
       <data xmi:type="diagram:ComputedStyleDescriptionRegistry" uid="_OU7NAfsoEemTooyqQD0cpQ"/>
     </ownedAnnotationEntries>

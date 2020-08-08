@@ -26,7 +26,7 @@ public class ListOfContentsSupplierFactory<T extends ListOfContents> extends Tab
 	protected Supplier<ViewPart> createTableOfContents(Context context) throws Exception {
 		ListOfContentsViewPart listOfContentsViewPart = new ListOfContentsViewPart(
 				ActionRole.SECTION.label.equals(tableOfContents.getRole()) ? Action.Role.SECTION : Action.Role.NAVIGATION, 
-				context.interpolate(tableOfContents.getHeader()), 
+				context.interpolateToString(tableOfContents.getHeader()), 
 				tableOfContents.isTooltips(), 
 				tableOfContents.getDepth(), 
 				Util.isBlank(tableOfContents.getOrdering()) ? null : OrderedListType.fromLabel(tableOfContents.getOrdering()));

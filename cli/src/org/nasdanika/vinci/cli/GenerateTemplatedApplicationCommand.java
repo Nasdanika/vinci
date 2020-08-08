@@ -276,7 +276,7 @@ public class GenerateTemplatedApplicationCommand extends ModelCommand<AbstractAc
 				}
 			
 				Object result = work.splitAndExecute(pageMonitor);
-				String path = pageContext.interpolate(url);
+				String path = pageContext.interpolateToString(url);
 				int hashIdx = path.indexOf("#");
 				if (hashIdx != -1) {
 					path = path.substring(0, hashIdx);

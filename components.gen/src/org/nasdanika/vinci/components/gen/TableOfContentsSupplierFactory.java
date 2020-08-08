@@ -24,7 +24,7 @@ public class TableOfContentsSupplierFactory<T extends TableOfContents> extends T
 	protected Supplier<ViewPart> createTableOfContents(Context context) throws Exception {
 		TableOfContentsViewPart tableOfContentsViewPart = new TableOfContentsViewPart(
 				"Section".equals(tableOfContents.getRole()) ? Action.Role.SECTION : Action.Role.NAVIGATION, 
-				context.interpolate(tableOfContents.getHeader()), 
+				context.interpolateToString(tableOfContents.getHeader()), 
 				tableOfContents.isDescriptions(), 
 				tableOfContents.isTooltips(),
 				tableOfContents.getDepth());

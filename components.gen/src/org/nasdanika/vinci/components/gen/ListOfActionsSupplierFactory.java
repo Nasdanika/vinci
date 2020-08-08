@@ -38,7 +38,7 @@ public class ListOfActionsSupplierFactory extends ListOfContentsSupplierFactory<
 	
 		ListOfActionsViewPart listOfContentsViewPart = new ListOfActionsViewPart(
 				actionIds,
-				context.interpolate(tableOfContents.getHeader()), 
+				context.interpolateToString(tableOfContents.getHeader()), 
 				tableOfContents.isTooltips(), 
 				tableOfContents.getDepth(), 
 				Util.isBlank(tableOfContents.getOrdering()) ? null : OrderedListType.fromLabel(tableOfContents.getOrdering()));

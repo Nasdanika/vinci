@@ -63,7 +63,7 @@ public class PageSupplierFactory<T extends Page> implements SupplierFactory<Obje
 					page.body(viewGenerator.processViewPart(bp, progressMonitor));
 				}
 
-				String name = context.interpolate(target.getName());
+				String name = context.interpolateToString(target.getName());
 				if (!Util.isBlank(name)) {
 					page.title(name);
 				}

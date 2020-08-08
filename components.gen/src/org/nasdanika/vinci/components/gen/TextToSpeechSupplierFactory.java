@@ -43,7 +43,7 @@ public abstract class TextToSpeechSupplierFactory<T extends TextToSpeech> implem
 	public Supplier<ViewPart> create(Context context) throws Exception {
 		
 		String theText = getText(context);
-		String text = textToSpeech.isInterpolate() ? context.interpolate(theText) : theText;
+		String text = textToSpeech.isInterpolate() ? context.interpolateToString(theText) : theText;
 		
 		Supplier<ViewPart> audioSupplier = new Supplier<ViewPart>() {
 			
@@ -64,7 +64,7 @@ public abstract class TextToSpeechSupplierFactory<T extends TextToSpeech> implem
 				
 				InputStream audio = synthesizer.synthesizeSpeech(textToSpeech.getLanguage(), textToSpeech.getVoice(), ssml, ssml ? "<speak>" + text + "</speak>" : text, progressMonitor);
 						
-				String path = context.interpolate(textToSpeech.getPath());
+				String path = context.interpolateToString(textToSpeech.getPath());
 				String audioLocation = textToSpeech.isEmbed() ? null : Util.isBlank(path) ? (ssml ? "S" : "T") + Hex.encodeHexString(MessageDigest.getInstance("SHA-256").digest(text.getBytes(StandardCharsets.UTF_8))) + ".mp3" : path;				
 				String encodedAudio = textToSpeech.isEmbed() ? "data:audio/mpeg;base64, " + Base64.getEncoder().encodeToString(DefaultConverter.INSTANCE.toByteArray(audio)) : null;
 				if (audioLocation != null) {

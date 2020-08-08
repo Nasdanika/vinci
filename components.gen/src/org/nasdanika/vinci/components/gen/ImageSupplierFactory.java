@@ -32,7 +32,7 @@ public class ImageSupplierFactory implements SupplierFactory<ViewPart> {
 	@Override
 	public Supplier<ViewPart> create(Context context) throws Exception {
 		
-		String caption = context.interpolate(image.getCaption());
+		String caption = context.interpolateToString(image.getCaption());
 		
 		Supplier<ViewPart> imageSupplier = Supplier.fromCallable(() -> new ViewPart() {
 
@@ -45,12 +45,12 @@ public class ImageSupplierFactory implements SupplierFactory<ViewPart> {
 					imageTag.attribute("src", "data:image/png;base64, " + Base64.getEncoder().encodeToString(content));
 				}
 				
-				String height = context.interpolate(image.getHeight());
+				String height = context.interpolateToString(image.getHeight());
 				if (!Util.isBlank(height)) {
 					imageTag.attribute("height", height);
 				}
 				
-				String width = context.interpolate(image.getWidth());
+				String width = context.interpolateToString(image.getWidth());
 				if (!Util.isBlank(width)) {
 					imageTag.attribute("width", width);
 				}

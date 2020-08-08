@@ -75,7 +75,7 @@ public class PageConfigurator implements InitialObjectConfigurator {
 				Script script = HtmlFactory.eINSTANCE.createScript();
 				String scriptTemplate = DefaultConverter.INSTANCE.stringContent(getClass().getResource(pageTemplateComposite.isDarkNavbar() ? "page-dark.js" : "page-light.js"));
 				Context context = Context.singleton("header-color", pageTemplateComposite.getHeaderColor().code);			
-				script.setCode(context.interpolate(scriptTemplate));
+				script.setCode(context.interpolateToString(scriptTemplate));
 				page.getHead().add(script);
 			} catch (IOException e) {
 				VinciEditorPlugin.INSTANCE.log(e);

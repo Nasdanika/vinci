@@ -22,7 +22,7 @@ public class MarkdownResourceSupplierFactory extends MarkdownSupplierFactory<Mar
 	
 	@Override
 	protected String getMarkdown(Context context) throws Exception {
-		URL url = EmfUtil.resolveReference(markdownComponent.eResource(), context.interpolate(markdownComponent.getLocation()));
+		URL url = EmfUtil.resolveReference(markdownComponent.eResource(), context.interpolateToString(markdownComponent.getLocation()));
 		if (url == null) {
 			throw new IllegalArgumentException("Resource does not exist");
 		}

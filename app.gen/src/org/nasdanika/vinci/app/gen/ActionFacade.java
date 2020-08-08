@@ -67,17 +67,17 @@ public class ActionFacade extends org.nasdanika.html.app.impl.ActionImpl impleme
 		Appearance appearance = target.getAppearance();
 		decoratorSupplier = appearance == null ? null : EObjectAdaptable.adaptToSupplierFactory(appearance, ViewBuilder.class).create(actionContext);				
 		
-		setText(actionContext.interpolate(target.getText()));
+		setText(actionContext.interpolateToString(target.getText()));
 		setId(actionContext.interpolate(target.getId()));
-		setIcon(actionContext.interpolate(target.getIcon()));
+		setIcon(actionContext.interpolateToString(target.getIcon()));
 		String color = target.getColor();
 		if (!Util.isBlank(color)) {
 			setColor(Color.fromLabel(color));
 		}		
 		setOutline(target.isOutline());
-		setNotification(actionContext.interpolate(target.getNotification()));
+		setNotification(actionContext.interpolateToString(target.getNotification()));
 		setDisabled(target.isDisabled());
-		setConfirmation(actionContext.interpolate(target.getConfirmation()));
+		setConfirmation(actionContext.interpolateToString(target.getConfirmation()));
 //		setFloatRight(target.isFloatRight());
 		// description
 		String mDescription = target.getDescription();
@@ -150,7 +150,7 @@ public class ActionFacade extends org.nasdanika.html.app.impl.ActionImpl impleme
 				});
 				break;
 			case SCRIPT:
-				String code = actionContext.interpolate(activator);
+				String code = actionContext.interpolateToString(activator);
 				if (Util.isBlank(code)) {
 					throw new IllegalArgumentException("Activator type is script and activator code is blank");
 				}
@@ -211,9 +211,9 @@ public class ActionFacade extends org.nasdanika.html.app.impl.ActionImpl impleme
 			if (!Util.isBlank(catColor)) {
 				cat.setColor(Color.fromLabel(catColor));
 			}
-			cat.setIcon(actionContext.interpolate(actionCategory.getIcon()));
-			cat.setNotification(actionContext.interpolate(actionCategory.getNotification()));
-			cat.setText(actionContext.interpolate(actionCategory.getText()));
+			cat.setIcon(actionContext.interpolateToString(actionCategory.getIcon()));
+			cat.setNotification(actionContext.interpolateToString(actionCategory.getNotification()));
+			cat.setText(actionContext.interpolateToString(actionCategory.getText()));
 			cat.setOutline(actionCategory.isOutline());
 			cat.setId(actionCategory.getId());
 			// description
@@ -334,7 +334,7 @@ public class ActionFacade extends org.nasdanika.html.app.impl.ActionImpl impleme
 			}
 			return DEFAULT_PAGE_TEMPLATE;
 		}
-		URI ret = URI.createURI(actionContext.interpolate(pageTemplate));
+		URI ret = URI.createURI(actionContext.interpolateToString(pageTemplate));
 		Resource resource = target.eResource();
 		if (resource == null) {
 			return ret;

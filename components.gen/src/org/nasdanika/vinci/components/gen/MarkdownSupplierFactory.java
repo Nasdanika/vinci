@@ -39,7 +39,7 @@ public abstract class MarkdownSupplierFactory<T extends Markdown> implements Sup
 		
 		String[] html = { MarkdownHelper.INSTANCE.markdownToHtml(markdown).trim() };
 		if (markdownComponent.isInterpolate()) {
-			html[0] = context.interpolate(html[0]);
+			html[0] = context.interpolateToString(html[0]);
 		}		
 		
 		Supplier<ViewPart> markdownSupplier = Supplier.fromCallable(() -> new ViewPart() {
@@ -48,7 +48,7 @@ public abstract class MarkdownSupplierFactory<T extends Markdown> implements Sup
 			public Object generate(ViewGenerator viewGenerator, ProgressMonitor progressMonitor) {
 				// Double interpolation for mapping expansion
 				if (markdownComponent.isInterpolate()) {
-					html[0] = viewGenerator.interpolate(html[0]);
+					html[0] = viewGenerator.interpolateToString(html[0]);
 				}		
 				
 				if (!markdownComponent.isStyle()) {

@@ -27,7 +27,7 @@ public class EcoreDocContextBuilder implements ContextBuilder {
 		// alias -> Base URL/hex encoded NS URI.
 		Map<String,String> aliases = new HashMap<>();		
 		for (Entry<String, Map<String, String>> ce: ((Map<String,Map<String,String>>) config).entrySet()) {
-			String normalizedBase = context.interpolate(ce.getValue().get("base"));
+			String normalizedBase = context.interpolateToString(ce.getValue().get("base"));
 			if (!normalizedBase.endsWith("/")) {
 				normalizedBase += "/";
 			}
