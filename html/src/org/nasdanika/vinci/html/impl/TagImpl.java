@@ -9,7 +9,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.InternalEList;
-import org.nasdanika.ncore.Entry;
+import org.nasdanika.ncore.AbstractEntry;
 import org.nasdanika.vinci.html.HtmlPackage;
 import org.nasdanika.vinci.html.Tag;
 
@@ -84,8 +84,8 @@ public class TagImpl extends HtmlElementImpl implements Tag {
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public EList<Entry> getAttributes() {
-		return (EList<Entry>)eDynamicGet(HtmlPackage.TAG__ATTRIBUTES, HtmlPackage.Literals.TAG__ATTRIBUTES, true, true);
+	public EList<AbstractEntry> getAttributes() {
+		return (EList<AbstractEntry>)eDynamicGet(HtmlPackage.TAG__ATTRIBUTES, HtmlPackage.Literals.TAG__ATTRIBUTES, true, true);
 	}
 
 	/**
@@ -132,7 +132,7 @@ public class TagImpl extends HtmlElementImpl implements Tag {
 				return;
 			case HtmlPackage.TAG__ATTRIBUTES:
 				getAttributes().clear();
-				getAttributes().addAll((Collection<? extends Entry>)newValue);
+				getAttributes().addAll((Collection<? extends AbstractEntry>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

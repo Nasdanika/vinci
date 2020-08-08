@@ -9,7 +9,7 @@ import org.nasdanika.emf.EObjectAdaptable;
 import org.nasdanika.html.HTMLFactory;
 import org.nasdanika.html.app.ViewGenerator;
 import org.nasdanika.html.app.ViewPart;
-import org.nasdanika.ncore.Entry;
+import org.nasdanika.ncore.AbstractEntry;
 import org.nasdanika.vinci.html.Tag;
 
 public class TagSupplierFactory<T extends Tag> implements SupplierFactory<ViewPart> {
@@ -40,7 +40,7 @@ public class TagSupplierFactory<T extends Tag> implements SupplierFactory<ViewPa
 		@SuppressWarnings("resource")
 		MapCompoundSupplier<String,Object> attrsSupplier = new MapCompoundSupplier<>("Attributes");
 		
-		for (Entry e: target.getAttributes()) {
+		for (AbstractEntry e: target.getAttributes()) {
 			if (e.isEnabled()) {
 				attrsSupplier.put(e.getName(), EObjectAdaptable.adaptToSupplierFactory(e, Object.class).create(context));
 			}

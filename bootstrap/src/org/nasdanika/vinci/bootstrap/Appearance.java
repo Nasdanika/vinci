@@ -4,7 +4,7 @@ package org.nasdanika.vinci.bootstrap;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
-import org.nasdanika.ncore.Entry;
+import org.nasdanika.ncore.AbstractEntry;
 
 /**
  * <!-- begin-user-doc -->
@@ -60,7 +60,7 @@ public interface Appearance extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Attributes</b></em>' containment reference list.
-	 * The list contents are of type {@link org.nasdanika.ncore.Entry}.
+	 * The list contents are of type {@link org.nasdanika.ncore.AbstractEntry}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
@@ -101,7 +101,7 @@ public interface Appearance extends EObject {
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<Entry> getAttributes();
+	EList<AbstractEntry> getAttributes();
 
 	/**
 	 * Returns the value of the '<em><b>Border</b></em>' containment reference list.

@@ -378,7 +378,7 @@ public class BootstrapValidator extends EObjectValidator {
 		if (diagnostics != null) {			
 			Set<String> names = new HashSet<>();
 			boolean ret = true;
-			for (org.nasdanika.ncore.Entry attr: appearance.getAttributes()) {
+			for (org.nasdanika.ncore.AbstractEntry attr: appearance.getAttributes()) {
 				if (attr.isEnabled()) {					
 					DiagnosticHelper helper = new DiagnosticHelper(diagnostics, DIAGNOSTIC_SOURCE, 0, attr);
 					if (Util.isBlank(attr.getName())) {

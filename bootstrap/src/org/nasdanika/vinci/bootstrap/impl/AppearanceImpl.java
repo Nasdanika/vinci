@@ -10,7 +10,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.InternalEList;
-import org.nasdanika.ncore.Entry;
+import org.nasdanika.ncore.AbstractEntry;
 import org.nasdanika.vinci.bootstrap.Appearance;
 import org.nasdanika.vinci.bootstrap.BootstrapPackage;
 import org.nasdanika.vinci.bootstrap.Border;
@@ -103,8 +103,8 @@ public class AppearanceImpl extends MinimalEObjectImpl.Container implements Appe
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public EList<Entry> getAttributes() {
-		return (EList<Entry>)eDynamicGet(BootstrapPackage.APPEARANCE__ATTRIBUTES, BootstrapPackage.Literals.APPEARANCE__ATTRIBUTES, true, true);
+	public EList<AbstractEntry> getAttributes() {
+		return (EList<AbstractEntry>)eDynamicGet(BootstrapPackage.APPEARANCE__ATTRIBUTES, BootstrapPackage.Literals.APPEARANCE__ATTRIBUTES, true, true);
 	}
 
 	/**
@@ -246,7 +246,7 @@ public class AppearanceImpl extends MinimalEObjectImpl.Container implements Appe
 				return;
 			case BootstrapPackage.APPEARANCE__ATTRIBUTES:
 				getAttributes().clear();
-				getAttributes().addAll((Collection<? extends Entry>)newValue);
+				getAttributes().addAll((Collection<? extends AbstractEntry>)newValue);
 				return;
 			case BootstrapPackage.APPEARANCE__BORDER:
 				getBorder().clear();

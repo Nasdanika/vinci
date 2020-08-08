@@ -24,7 +24,7 @@ import org.nasdanika.html.bootstrap.BootstrapElement;
 import org.nasdanika.html.bootstrap.BootstrapFactory;
 import org.nasdanika.html.bootstrap.Breakpoint;
 import org.nasdanika.html.bootstrap.Size;
-import org.nasdanika.ncore.Entry;
+import org.nasdanika.ncore.AbstractEntry;
 import org.nasdanika.vinci.app.AbstractAction;
 import org.nasdanika.vinci.app.BootstrapContainerApplication;
 import org.nasdanika.vinci.app.BootstrapContainerApplicationSection;
@@ -55,9 +55,9 @@ public class BootstrapContainerApplicationViewBuilderSupplierFactory extends Boo
 		if (appearance == null) {
 			return null;
 		}
-		for (Entry attr: appearance.getAttributes()) {
+		for (AbstractEntry attr: appearance.getAttributes()) {
 			if (attr.isEnabled() && "children".equals(attr.getName()) && attr instanceof org.nasdanika.ncore.Object) {	
-				for (Entry childAttribute: ((org.nasdanika.ncore.Object) attr).getEntries()) {
+				for (AbstractEntry childAttribute: ((org.nasdanika.ncore.Object) attr).getEntries()) {
 					if (childAttribute.isEnabled() && name.equals(childAttribute.getName()) && childAttribute instanceof org.nasdanika.ncore.Object) {	
 						return EObjectAdaptable.adaptToSupplierFactory((org.nasdanika.ncore.Object) childAttribute, Object.class).create(context).then(childrenAttributes -> new Decorator() {
 		
@@ -89,7 +89,7 @@ public class BootstrapContainerApplicationViewBuilderSupplierFactory extends Boo
 		
 		Appearance appearance = target.getAppearance();
 		if (appearance != null) {
-			for (Entry attr: appearance.getAttributes()) {
+			for (AbstractEntry attr: appearance.getAttributes()) {
 				if (attr.isEnabled() && "children".equals(attr.getName()) && attr instanceof org.nasdanika.ncore.Object) {
 					Supplier<Map<String, Object>> aSupplier = (Supplier) EObjectAdaptable.adaptToSupplierFactory((org.nasdanika.ncore.Object) attr, Map.class).create(context);
 					resultsSupplier.put((Supplier) aSupplier);

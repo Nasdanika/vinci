@@ -16,7 +16,7 @@ import org.nasdanika.html.bootstrap.Breakpoint;
 import org.nasdanika.html.bootstrap.Color;
 import org.nasdanika.html.bootstrap.Placement;
 import org.nasdanika.html.bootstrap.Size;
-import org.nasdanika.ncore.Entry;
+import org.nasdanika.ncore.AbstractEntry;
 import org.nasdanika.vinci.bootstrap.Appearance;
 import org.nasdanika.vinci.bootstrap.Border;
 import org.nasdanika.vinci.bootstrap.Float;
@@ -245,7 +245,7 @@ public class AppearanceSupplierFactory implements SupplierFactory<ViewBuilder> {
 		@SuppressWarnings("resource")
 		MapCompoundSupplier<String,Object> attrsSupplier = new MapCompoundSupplier<>("Attributes");
 		
-		for (Entry e: AppearanceSupplierFactory.this.target.getAttributes()) {
+		for (AbstractEntry e: AppearanceSupplierFactory.this.target.getAttributes()) {
 			if (e.isEnabled()) {
 				attrsSupplier.put(e.getName(), EObjectAdaptable.adaptToSupplierFactory(e, Object.class).create(context));
 			}

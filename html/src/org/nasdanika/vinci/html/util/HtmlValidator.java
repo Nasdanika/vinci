@@ -10,7 +10,7 @@ import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.nasdanika.emf.DiagnosticHelper;
-import org.nasdanika.ncore.Entry;
+import org.nasdanika.ncore.AbstractEntry;
 import org.nasdanika.ncore.NcorePackage;
 import org.nasdanika.vinci.html.*;
 import org.nasdanika.vinci.html.Container;
@@ -166,7 +166,7 @@ public class HtmlValidator extends EObjectValidator {
 		if (diagnostics != null) {			
 			Set<String> names = new HashSet<>();
 			boolean ret = true;
-			for (Entry attr: tag.getAttributes()) {
+			for (AbstractEntry attr: tag.getAttributes()) {
 				if (attr.isEnabled()) {
 					DiagnosticHelper helper = new DiagnosticHelper(diagnostics, DIAGNOSTIC_SOURCE, 0, attr);
 					if (!names.add(attr.getName())) {

@@ -3,7 +3,7 @@
 package org.nasdanika.vinci.html;
 
 import org.eclipse.emf.common.util.EList;
-import org.nasdanika.ncore.Entry;
+import org.nasdanika.ncore.AbstractEntry;
 
 
 /**
@@ -56,7 +56,7 @@ public interface Tag extends HtmlElement {
 
 	/**
 	 * Returns the value of the '<em><b>Attributes</b></em>' containment reference list.
-	 * The list contents are of type {@link org.nasdanika.ncore.Entry}.
+	 * The list contents are of type {@link org.nasdanika.ncore.AbstractEntry}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
@@ -97,5 +97,5 @@ public interface Tag extends HtmlElement {
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<Entry> getAttributes();
+	EList<AbstractEntry> getAttributes();
 } // Tag
