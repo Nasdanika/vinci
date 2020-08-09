@@ -112,6 +112,15 @@ public interface HtmlFactory extends EFactory {
 	ScriptReference createScriptReference();
 
 	/**
+	 * Returns a new object of class '<em>View Part Adapter</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>View Part Adapter</em>'.
+	 * @generated
+	 */
+	ViewPartAdapter createViewPartAdapter();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -6,6 +6,7 @@ import org.nasdanika.emf.FunctionAdapterFactory;
 import org.nasdanika.html.app.ApplicationBuilder;
 import org.nasdanika.html.app.ViewBuilder;
 import org.nasdanika.vinci.app.AbstractAction;
+import org.nasdanika.vinci.app.ActionAdapter;
 import org.nasdanika.vinci.app.ActionBase;
 import org.nasdanika.vinci.app.ActionLink;
 import org.nasdanika.vinci.app.ActionReference;
@@ -52,6 +53,13 @@ public class AppGenerationAdapterFactory extends ComposedAdapterFactory {
 					SupplierFactory.class, 
 					this.getClass().getClassLoader(),
 					ActionLinkSupplierFactory::new));
+		
+		registerAdapterFactory(
+				new FunctionAdapterFactory<SupplierFactory, ActionAdapter>(
+					AppPackage.Literals.ACTION_ADAPTER, 
+					SupplierFactory.class, 
+					this.getClass().getClassLoader(),
+					ActionAdapterSupplierFactory::new));
 		
 		registerAdapterFactory(
 				new FunctionAdapterFactory<SupplierFactory, ActionReference>(

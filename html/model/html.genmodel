@@ -49,5 +49,8 @@
     <genClasses ecoreClass="html.ecore#//ScriptReference">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute html.ecore#//ScriptReference/src"/>
     </genClasses>
+    <genClasses ecoreClass="html.ecore#//ViewPartAdapter">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute html.ecore#//ViewPartAdapter/factory"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>

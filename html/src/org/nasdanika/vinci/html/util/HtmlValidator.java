@@ -114,6 +114,8 @@ public class HtmlValidator extends EObjectValidator {
 				return validateScriptResource((ScriptResource)value, diagnostics, context);
 			case HtmlPackage.SCRIPT_REFERENCE:
 				return validateScriptReference((ScriptReference)value, diagnostics, context);
+			case HtmlPackage.VIEW_PART_ADAPTER:
+				return validateViewPartAdapter((ViewPartAdapter)value, diagnostics, context);
 			default:
 				return true;
 		}
@@ -271,6 +273,15 @@ public class HtmlValidator extends EObjectValidator {
 	 */
 	public boolean validateScriptReference(ScriptReference scriptReference, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(scriptReference, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateViewPartAdapter(ViewPartAdapter viewPartAdapter, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(viewPartAdapter, diagnostics, context);
 	}
 
 	/**

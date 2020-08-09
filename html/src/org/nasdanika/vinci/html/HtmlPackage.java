@@ -766,6 +766,61 @@ public interface HtmlPackage extends EPackage {
 	int SCRIPT_REFERENCE_OPERATION_COUNT = NcorePackage.MODEL_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link org.nasdanika.vinci.html.impl.ViewPartAdapterImpl <em>View Part Adapter</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.vinci.html.impl.ViewPartAdapterImpl
+	 * @see org.nasdanika.vinci.html.impl.HtmlPackageImpl#getViewPartAdapter()
+	 * @generated
+	 */
+	int VIEW_PART_ADAPTER = 11;
+
+	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIEW_PART_ADAPTER__TITLE = HTML_ELEMENT__TITLE;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIEW_PART_ADAPTER__DESCRIPTION = HTML_ELEMENT__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Factory</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIEW_PART_ADAPTER__FACTORY = HTML_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>View Part Adapter</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIEW_PART_ADAPTER_FEATURE_COUNT = HTML_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>View Part Adapter</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIEW_PART_ADAPTER_OPERATION_COUNT = HTML_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
 	 * Returns the meta object for class '{@link org.nasdanika.vinci.html.HtmlElement <em>Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1085,6 +1140,27 @@ public interface HtmlPackage extends EPackage {
 	EAttribute getScriptReference_Src();
 
 	/**
+	 * Returns the meta object for class '{@link org.nasdanika.vinci.html.ViewPartAdapter <em>View Part Adapter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>View Part Adapter</em>'.
+	 * @see org.nasdanika.vinci.html.ViewPartAdapter
+	 * @generated
+	 */
+	EClass getViewPartAdapter();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.html.ViewPartAdapter#getFactory <em>Factory</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Factory</em>'.
+	 * @see org.nasdanika.vinci.html.ViewPartAdapter#getFactory()
+	 * @see #getViewPartAdapter()
+	 * @generated
+	 */
+	EAttribute getViewPartAdapter_Factory();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1368,6 +1444,24 @@ public interface HtmlPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute SCRIPT_REFERENCE__SRC = eINSTANCE.getScriptReference_Src();
+
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.vinci.html.impl.ViewPartAdapterImpl <em>View Part Adapter</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.vinci.html.impl.ViewPartAdapterImpl
+		 * @see org.nasdanika.vinci.html.impl.HtmlPackageImpl#getViewPartAdapter()
+		 * @generated
+		 */
+		EClass VIEW_PART_ADAPTER = eINSTANCE.getViewPartAdapter();
+
+		/**
+		 * The meta object literal for the '<em><b>Factory</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute VIEW_PART_ADAPTER__FACTORY = eINSTANCE.getViewPartAdapter_Factory();
 
 	}
 

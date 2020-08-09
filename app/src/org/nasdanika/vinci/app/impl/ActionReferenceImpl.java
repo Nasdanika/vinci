@@ -12,6 +12,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.nasdanika.ncore.Configurable;
+import org.nasdanika.ncore.ModelElement;
 import org.nasdanika.ncore.NcorePackage;
 import org.nasdanika.vinci.app.AbstractAction;
 import org.nasdanika.vinci.app.ActionMapping;
@@ -26,10 +27,10 @@ import org.nasdanika.vinci.app.AppPackage;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.nasdanika.vinci.app.impl.ActionReferenceImpl#getConfiguration <em>Configuration</em>}</li>
- *   <li>{@link org.nasdanika.vinci.app.impl.ActionReferenceImpl#getActionMappings <em>Action Mappings</em>}</li>
  *   <li>{@link org.nasdanika.vinci.app.impl.ActionReferenceImpl#getTitle <em>Title</em>}</li>
  *   <li>{@link org.nasdanika.vinci.app.impl.ActionReferenceImpl#getDescription <em>Description</em>}</li>
+ *   <li>{@link org.nasdanika.vinci.app.impl.ActionReferenceImpl#getConfiguration <em>Configuration</em>}</li>
+ *   <li>{@link org.nasdanika.vinci.app.impl.ActionReferenceImpl#getActionMappings <em>Action Mappings</em>}</li>
  *   <li>{@link org.nasdanika.vinci.app.impl.ActionReferenceImpl#getAction <em>Action</em>}</li>
  *   <li>{@link org.nasdanika.vinci.app.impl.ActionReferenceImpl#getPath <em>Path</em>}</li>
  * </ul>
@@ -124,7 +125,7 @@ public class ActionReferenceImpl extends MinimalEObjectImpl.Container implements
 	 */
 	@Override
 	public String getTitle() {
-		return (String)eDynamicGet(AppPackage.ACTION_REFERENCE__TITLE, AppPackage.Literals.ACTION_REFERENCE__TITLE, true, true);
+		return (String)eDynamicGet(AppPackage.ACTION_REFERENCE__TITLE, NcorePackage.Literals.MODEL_ELEMENT__TITLE, true, true);
 	}
 
 	/**
@@ -134,7 +135,7 @@ public class ActionReferenceImpl extends MinimalEObjectImpl.Container implements
 	 */
 	@Override
 	public void setTitle(String newTitle) {
-		eDynamicSet(AppPackage.ACTION_REFERENCE__TITLE, AppPackage.Literals.ACTION_REFERENCE__TITLE, newTitle);
+		eDynamicSet(AppPackage.ACTION_REFERENCE__TITLE, NcorePackage.Literals.MODEL_ELEMENT__TITLE, newTitle);
 	}
 
 	/**
@@ -144,7 +145,7 @@ public class ActionReferenceImpl extends MinimalEObjectImpl.Container implements
 	 */
 	@Override
 	public String getDescription() {
-		return (String)eDynamicGet(AppPackage.ACTION_REFERENCE__DESCRIPTION, AppPackage.Literals.ACTION_REFERENCE__DESCRIPTION, true, true);
+		return (String)eDynamicGet(AppPackage.ACTION_REFERENCE__DESCRIPTION, NcorePackage.Literals.MODEL_ELEMENT__DESCRIPTION, true, true);
 	}
 
 	/**
@@ -154,7 +155,7 @@ public class ActionReferenceImpl extends MinimalEObjectImpl.Container implements
 	 */
 	@Override
 	public void setDescription(String newDescription) {
-		eDynamicSet(AppPackage.ACTION_REFERENCE__DESCRIPTION, AppPackage.Literals.ACTION_REFERENCE__DESCRIPTION, newDescription);
+		eDynamicSet(AppPackage.ACTION_REFERENCE__DESCRIPTION, NcorePackage.Literals.MODEL_ELEMENT__DESCRIPTION, newDescription);
 	}
 
 	/**
@@ -230,14 +231,14 @@ public class ActionReferenceImpl extends MinimalEObjectImpl.Container implements
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case AppPackage.ACTION_REFERENCE__CONFIGURATION:
-				return getConfiguration();
-			case AppPackage.ACTION_REFERENCE__ACTION_MAPPINGS:
-				return getActionMappings();
 			case AppPackage.ACTION_REFERENCE__TITLE:
 				return getTitle();
 			case AppPackage.ACTION_REFERENCE__DESCRIPTION:
 				return getDescription();
+			case AppPackage.ACTION_REFERENCE__CONFIGURATION:
+				return getConfiguration();
+			case AppPackage.ACTION_REFERENCE__ACTION_MAPPINGS:
+				return getActionMappings();
 			case AppPackage.ACTION_REFERENCE__ACTION:
 				if (resolve) return getAction();
 				return basicGetAction();
@@ -256,6 +257,12 @@ public class ActionReferenceImpl extends MinimalEObjectImpl.Container implements
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case AppPackage.ACTION_REFERENCE__TITLE:
+				setTitle((String)newValue);
+				return;
+			case AppPackage.ACTION_REFERENCE__DESCRIPTION:
+				setDescription((String)newValue);
+				return;
 			case AppPackage.ACTION_REFERENCE__CONFIGURATION:
 				getConfiguration().clear();
 				getConfiguration().addAll((Collection<? extends EObject>)newValue);
@@ -263,12 +270,6 @@ public class ActionReferenceImpl extends MinimalEObjectImpl.Container implements
 			case AppPackage.ACTION_REFERENCE__ACTION_MAPPINGS:
 				getActionMappings().clear();
 				getActionMappings().addAll((Collection<? extends ActionMapping>)newValue);
-				return;
-			case AppPackage.ACTION_REFERENCE__TITLE:
-				setTitle((String)newValue);
-				return;
-			case AppPackage.ACTION_REFERENCE__DESCRIPTION:
-				setDescription((String)newValue);
 				return;
 			case AppPackage.ACTION_REFERENCE__ACTION:
 				setAction((AbstractAction)newValue);
@@ -288,17 +289,17 @@ public class ActionReferenceImpl extends MinimalEObjectImpl.Container implements
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case AppPackage.ACTION_REFERENCE__CONFIGURATION:
-				getConfiguration().clear();
-				return;
-			case AppPackage.ACTION_REFERENCE__ACTION_MAPPINGS:
-				getActionMappings().clear();
-				return;
 			case AppPackage.ACTION_REFERENCE__TITLE:
 				setTitle(TITLE_EDEFAULT);
 				return;
 			case AppPackage.ACTION_REFERENCE__DESCRIPTION:
 				setDescription(DESCRIPTION_EDEFAULT);
+				return;
+			case AppPackage.ACTION_REFERENCE__CONFIGURATION:
+				getConfiguration().clear();
+				return;
+			case AppPackage.ACTION_REFERENCE__ACTION_MAPPINGS:
+				getActionMappings().clear();
 				return;
 			case AppPackage.ACTION_REFERENCE__ACTION:
 				setAction((AbstractAction)null);
@@ -318,14 +319,14 @@ public class ActionReferenceImpl extends MinimalEObjectImpl.Container implements
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case AppPackage.ACTION_REFERENCE__CONFIGURATION:
-				return !getConfiguration().isEmpty();
-			case AppPackage.ACTION_REFERENCE__ACTION_MAPPINGS:
-				return !getActionMappings().isEmpty();
 			case AppPackage.ACTION_REFERENCE__TITLE:
 				return TITLE_EDEFAULT == null ? getTitle() != null : !TITLE_EDEFAULT.equals(getTitle());
 			case AppPackage.ACTION_REFERENCE__DESCRIPTION:
 				return DESCRIPTION_EDEFAULT == null ? getDescription() != null : !DESCRIPTION_EDEFAULT.equals(getDescription());
+			case AppPackage.ACTION_REFERENCE__CONFIGURATION:
+				return !getConfiguration().isEmpty();
+			case AppPackage.ACTION_REFERENCE__ACTION_MAPPINGS:
+				return !getActionMappings().isEmpty();
 			case AppPackage.ACTION_REFERENCE__ACTION:
 				return basicGetAction() != null;
 			case AppPackage.ACTION_REFERENCE__PATH:
@@ -341,6 +342,13 @@ public class ActionReferenceImpl extends MinimalEObjectImpl.Container implements
 	 */
 	@Override
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
+		if (baseClass == ModelElement.class) {
+			switch (derivedFeatureID) {
+				case AppPackage.ACTION_REFERENCE__TITLE: return NcorePackage.MODEL_ELEMENT__TITLE;
+				case AppPackage.ACTION_REFERENCE__DESCRIPTION: return NcorePackage.MODEL_ELEMENT__DESCRIPTION;
+				default: return -1;
+			}
+		}
 		if (baseClass == Configurable.class) {
 			switch (derivedFeatureID) {
 				case AppPackage.ACTION_REFERENCE__CONFIGURATION: return NcorePackage.CONFIGURABLE__CONFIGURATION;
@@ -357,6 +365,13 @@ public class ActionReferenceImpl extends MinimalEObjectImpl.Container implements
 	 */
 	@Override
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
+		if (baseClass == ModelElement.class) {
+			switch (baseFeatureID) {
+				case NcorePackage.MODEL_ELEMENT__TITLE: return AppPackage.ACTION_REFERENCE__TITLE;
+				case NcorePackage.MODEL_ELEMENT__DESCRIPTION: return AppPackage.ACTION_REFERENCE__DESCRIPTION;
+				default: return -1;
+			}
+		}
 		if (baseClass == Configurable.class) {
 			switch (baseFeatureID) {
 				case NcorePackage.CONFIGURABLE__CONFIGURATION: return AppPackage.ACTION_REFERENCE__CONFIGURATION;

@@ -90,7 +90,7 @@ public interface AppPackage extends EPackage {
 	 * @see org.nasdanika.vinci.app.impl.AppPackageImpl#getAction()
 	 * @generated
 	 */
-	int ACTION = 10;
+	int ACTION = 11;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.vinci.app.impl.ActionMappingImpl <em>Action Mapping</em>}' class.
@@ -451,13 +451,31 @@ public interface AppPackage extends EPackage {
 	int ACTION_ELEMENT_OPERATION_COUNT = 0;
 
 	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_ACTION__TITLE = ACTION_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_ACTION__DESCRIPTION = ACTION_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
 	 * The feature id for the '<em><b>Configuration</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ABSTRACT_ACTION__CONFIGURATION = ACTION_ELEMENT_FEATURE_COUNT + 0;
+	int ABSTRACT_ACTION__CONFIGURATION = ACTION_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Action Mappings</b></em>' containment reference list.
@@ -466,7 +484,7 @@ public interface AppPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ABSTRACT_ACTION__ACTION_MAPPINGS = ACTION_ELEMENT_FEATURE_COUNT + 1;
+	int ABSTRACT_ACTION__ACTION_MAPPINGS = ACTION_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Abstract Action</em>' class.
@@ -475,7 +493,7 @@ public interface AppPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ABSTRACT_ACTION_FEATURE_COUNT = ACTION_ELEMENT_FEATURE_COUNT + 2;
+	int ABSTRACT_ACTION_FEATURE_COUNT = ACTION_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of operations of the '<em>Abstract Action</em>' class.
@@ -873,7 +891,7 @@ public interface AppPackage extends EPackage {
 	 * @see org.nasdanika.vinci.app.impl.AppPackageImpl#getPartition()
 	 * @generated
 	 */
-	int PARTITION = 11;
+	int PARTITION = 12;
 
 	/**
 	 * The feature id for the '<em><b>Alias</b></em>' attribute.
@@ -921,6 +939,24 @@ public interface AppPackage extends EPackage {
 	int ACTION_MAPPING_OPERATION_COUNT = 0;
 
 	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION_LINK__TITLE = ABSTRACT_ACTION__TITLE;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION_LINK__DESCRIPTION = ABSTRACT_ACTION__DESCRIPTION;
+
+	/**
 	 * The feature id for the '<em><b>Configuration</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -939,31 +975,13 @@ public interface AppPackage extends EPackage {
 	int ACTION_LINK__ACTION_MAPPINGS = ABSTRACT_ACTION__ACTION_MAPPINGS;
 
 	/**
-	 * The feature id for the '<em><b>Title</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTION_LINK__TITLE = ABSTRACT_ACTION_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Description</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTION_LINK__DESCRIPTION = ABSTRACT_ACTION_FEATURE_COUNT + 1;
-
-	/**
 	 * The feature id for the '<em><b>Ref</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION_LINK__REF = ABSTRACT_ACTION_FEATURE_COUNT + 2;
+	int ACTION_LINK__REF = ABSTRACT_ACTION_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Path</b></em>' attribute.
@@ -972,7 +990,7 @@ public interface AppPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION_LINK__PATH = ABSTRACT_ACTION_FEATURE_COUNT + 3;
+	int ACTION_LINK__PATH = ABSTRACT_ACTION_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Action Link</em>' class.
@@ -981,7 +999,7 @@ public interface AppPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION_LINK_FEATURE_COUNT = ABSTRACT_ACTION_FEATURE_COUNT + 4;
+	int ACTION_LINK_FEATURE_COUNT = ABSTRACT_ACTION_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Action Link</em>' class.
@@ -991,6 +1009,24 @@ public interface AppPackage extends EPackage {
 	 * @ordered
 	 */
 	int ACTION_LINK_OPERATION_COUNT = ABSTRACT_ACTION_OPERATION_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION_REFERENCE__TITLE = ABSTRACT_ACTION__TITLE;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION_REFERENCE__DESCRIPTION = ABSTRACT_ACTION__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Configuration</b></em>' containment reference list.
@@ -1011,31 +1047,13 @@ public interface AppPackage extends EPackage {
 	int ACTION_REFERENCE__ACTION_MAPPINGS = ABSTRACT_ACTION__ACTION_MAPPINGS;
 
 	/**
-	 * The feature id for the '<em><b>Title</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTION_REFERENCE__TITLE = ABSTRACT_ACTION_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Description</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTION_REFERENCE__DESCRIPTION = ABSTRACT_ACTION_FEATURE_COUNT + 1;
-
-	/**
 	 * The feature id for the '<em><b>Action</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION_REFERENCE__ACTION = ABSTRACT_ACTION_FEATURE_COUNT + 2;
+	int ACTION_REFERENCE__ACTION = ABSTRACT_ACTION_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Path</b></em>' attribute.
@@ -1044,7 +1062,7 @@ public interface AppPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION_REFERENCE__PATH = ABSTRACT_ACTION_FEATURE_COUNT + 3;
+	int ACTION_REFERENCE__PATH = ABSTRACT_ACTION_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Action Reference</em>' class.
@@ -1053,7 +1071,7 @@ public interface AppPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION_REFERENCE_FEATURE_COUNT = ABSTRACT_ACTION_FEATURE_COUNT + 4;
+	int ACTION_REFERENCE_FEATURE_COUNT = ABSTRACT_ACTION_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Action Reference</em>' class.
@@ -1063,6 +1081,88 @@ public interface AppPackage extends EPackage {
 	 * @ordered
 	 */
 	int ACTION_REFERENCE_OPERATION_COUNT = ABSTRACT_ACTION_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.nasdanika.vinci.app.impl.ActionAdapterImpl <em>Action Adapter</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.vinci.app.impl.ActionAdapterImpl
+	 * @see org.nasdanika.vinci.app.impl.AppPackageImpl#getActionAdapter()
+	 * @generated
+	 */
+	int ACTION_ADAPTER = 10;
+
+	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION_ADAPTER__TITLE = ABSTRACT_ACTION__TITLE;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION_ADAPTER__DESCRIPTION = ABSTRACT_ACTION__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Configuration</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION_ADAPTER__CONFIGURATION = ABSTRACT_ACTION__CONFIGURATION;
+
+	/**
+	 * The feature id for the '<em><b>Action Mappings</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION_ADAPTER__ACTION_MAPPINGS = ABSTRACT_ACTION__ACTION_MAPPINGS;
+
+	/**
+	 * The feature id for the '<em><b>Factory</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION_ADAPTER__FACTORY = ABSTRACT_ACTION_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION_ADAPTER__PATH = ABSTRACT_ACTION_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Action Adapter</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION_ADAPTER_FEATURE_COUNT = ABSTRACT_ACTION_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of operations of the '<em>Action Adapter</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION_ADAPTER_OPERATION_COUNT = ABSTRACT_ACTION_OPERATION_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Title</b></em>' attribute.
@@ -1558,7 +1658,7 @@ public interface AppPackage extends EPackage {
 	 * @see org.nasdanika.vinci.app.impl.AppPackageImpl#getBootstrapContainerApplication()
 	 * @generated
 	 */
-	int BOOTSTRAP_CONTAINER_APPLICATION = 12;
+	int BOOTSTRAP_CONTAINER_APPLICATION = 13;
 
 	/**
 	 * The feature id for the '<em><b>Title</b></em>' attribute.
@@ -1685,7 +1785,7 @@ public interface AppPackage extends EPackage {
 	 * @see org.nasdanika.vinci.app.impl.AppPackageImpl#getBootstrapContainerApplicationSection()
 	 * @generated
 	 */
-	int BOOTSTRAP_CONTAINER_APPLICATION_SECTION = 13;
+	int BOOTSTRAP_CONTAINER_APPLICATION_SECTION = 14;
 
 	/**
 	 * The feature id for the '<em><b>Title</b></em>' attribute.
@@ -1758,7 +1858,7 @@ public interface AppPackage extends EPackage {
 	 * @see org.nasdanika.vinci.app.impl.AppPackageImpl#getBootstrapContainerApplicationPanel()
 	 * @generated
 	 */
-	int BOOTSTRAP_CONTAINER_APPLICATION_PANEL = 14;
+	int BOOTSTRAP_CONTAINER_APPLICATION_PANEL = 15;
 
 	/**
 	 * The feature id for the '<em><b>Title</b></em>' attribute.
@@ -1840,7 +1940,7 @@ public interface AppPackage extends EPackage {
 	 * @see org.nasdanika.vinci.app.impl.AppPackageImpl#getWidget()
 	 * @generated
 	 */
-	int WIDGET = 15;
+	int WIDGET = 16;
 
 	/**
 	 * The feature id for the '<em><b>Title</b></em>' attribute.
@@ -1913,7 +2013,7 @@ public interface AppPackage extends EPackage {
 	 * @see org.nasdanika.vinci.app.impl.AppPackageImpl#getActivatorType()
 	 * @generated
 	 */
-	int ACTIVATOR_TYPE = 16;
+	int ACTIVATOR_TYPE = 17;
 
 	/**
 	 * Returns the meta object for class '{@link org.nasdanika.vinci.app.Label <em>Label</em>}'.
@@ -2225,28 +2325,6 @@ public interface AppPackage extends EPackage {
 	EClass getActionLink();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.app.ActionLink#getTitle <em>Title</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Title</em>'.
-	 * @see org.nasdanika.vinci.app.ActionLink#getTitle()
-	 * @see #getActionLink()
-	 * @generated
-	 */
-	EAttribute getActionLink_Title();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.app.ActionLink#getDescription <em>Description</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Description</em>'.
-	 * @see org.nasdanika.vinci.app.ActionLink#getDescription()
-	 * @see #getActionLink()
-	 * @generated
-	 */
-	EAttribute getActionLink_Description();
-
-	/**
 	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.app.ActionLink#getRef <em>Ref</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2279,28 +2357,6 @@ public interface AppPackage extends EPackage {
 	EClass getActionReference();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.app.ActionReference#getTitle <em>Title</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Title</em>'.
-	 * @see org.nasdanika.vinci.app.ActionReference#getTitle()
-	 * @see #getActionReference()
-	 * @generated
-	 */
-	EAttribute getActionReference_Title();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.app.ActionReference#getDescription <em>Description</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Description</em>'.
-	 * @see org.nasdanika.vinci.app.ActionReference#getDescription()
-	 * @see #getActionReference()
-	 * @generated
-	 */
-	EAttribute getActionReference_Description();
-
-	/**
 	 * Returns the meta object for the reference '{@link org.nasdanika.vinci.app.ActionReference#getAction <em>Action</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2321,6 +2377,38 @@ public interface AppPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getActionReference_Path();
+
+	/**
+	 * Returns the meta object for class '{@link org.nasdanika.vinci.app.ActionAdapter <em>Action Adapter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Action Adapter</em>'.
+	 * @see org.nasdanika.vinci.app.ActionAdapter
+	 * @generated
+	 */
+	EClass getActionAdapter();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.app.ActionAdapter#getFactory <em>Factory</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Factory</em>'.
+	 * @see org.nasdanika.vinci.app.ActionAdapter#getFactory()
+	 * @see #getActionAdapter()
+	 * @generated
+	 */
+	EAttribute getActionAdapter_Factory();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.vinci.app.ActionAdapter#getPath <em>Path</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Path</em>'.
+	 * @see org.nasdanika.vinci.app.ActionAdapter#getPath()
+	 * @see #getActionAdapter()
+	 * @generated
+	 */
+	EAttribute getActionAdapter_Path();
 
 	/**
 	 * Returns the meta object for enum '{@link org.nasdanika.vinci.app.ActivatorType <em>Activator Type</em>}'.
@@ -2812,22 +2900,6 @@ public interface AppPackage extends EPackage {
 		EClass ACTION_LINK = eINSTANCE.getActionLink();
 
 		/**
-		 * The meta object literal for the '<em><b>Title</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute ACTION_LINK__TITLE = eINSTANCE.getActionLink_Title();
-
-		/**
-		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute ACTION_LINK__DESCRIPTION = eINSTANCE.getActionLink_Description();
-
-		/**
 		 * The meta object literal for the '<em><b>Ref</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2854,22 +2926,6 @@ public interface AppPackage extends EPackage {
 		EClass ACTION_REFERENCE = eINSTANCE.getActionReference();
 
 		/**
-		 * The meta object literal for the '<em><b>Title</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute ACTION_REFERENCE__TITLE = eINSTANCE.getActionReference_Title();
-
-		/**
-		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute ACTION_REFERENCE__DESCRIPTION = eINSTANCE.getActionReference_Description();
-
-		/**
 		 * The meta object literal for the '<em><b>Action</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2884,6 +2940,32 @@ public interface AppPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute ACTION_REFERENCE__PATH = eINSTANCE.getActionReference_Path();
+
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.vinci.app.impl.ActionAdapterImpl <em>Action Adapter</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.vinci.app.impl.ActionAdapterImpl
+		 * @see org.nasdanika.vinci.app.impl.AppPackageImpl#getActionAdapter()
+		 * @generated
+		 */
+		EClass ACTION_ADAPTER = eINSTANCE.getActionAdapter();
+
+		/**
+		 * The meta object literal for the '<em><b>Factory</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ACTION_ADAPTER__FACTORY = eINSTANCE.getActionAdapter_Factory();
+
+		/**
+		 * The meta object literal for the '<em><b>Path</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ACTION_ADAPTER__PATH = eINSTANCE.getActionAdapter_Path();
 
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.vinci.app.ActivatorType <em>Activator Type</em>}' enum.

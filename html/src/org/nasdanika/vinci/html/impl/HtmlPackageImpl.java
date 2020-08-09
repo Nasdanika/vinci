@@ -23,6 +23,7 @@ import org.nasdanika.vinci.html.Stylesheet;
 import org.nasdanika.vinci.html.StylesheetReference;
 import org.nasdanika.vinci.html.StylesheetResource;
 import org.nasdanika.vinci.html.Tag;
+import org.nasdanika.vinci.html.ViewPartAdapter;
 import org.nasdanika.vinci.html.util.HtmlValidator;
 
 /**
@@ -108,6 +109,13 @@ public class HtmlPackageImpl extends EPackageImpl implements HtmlPackage {
 	 * @generated
 	 */
 	private EClass scriptReferenceEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass viewPartAdapterEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -489,6 +497,26 @@ public class HtmlPackageImpl extends EPackageImpl implements HtmlPackage {
 	 * @generated
 	 */
 	@Override
+	public EClass getViewPartAdapter() {
+		return viewPartAdapterEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getViewPartAdapter_Factory() {
+		return (EAttribute)viewPartAdapterEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public HtmlFactory getHtmlFactory() {
 		return (HtmlFactory)getEFactoryInstance();
 	}
@@ -552,6 +580,9 @@ public class HtmlPackageImpl extends EPackageImpl implements HtmlPackage {
 
 		scriptReferenceEClass = createEClass(SCRIPT_REFERENCE);
 		createEAttribute(scriptReferenceEClass, SCRIPT_REFERENCE__SRC);
+
+		viewPartAdapterEClass = createEClass(VIEW_PART_ADAPTER);
+		createEAttribute(viewPartAdapterEClass, VIEW_PART_ADAPTER__FACTORY);
 	}
 
 	/**
@@ -596,6 +627,7 @@ public class HtmlPackageImpl extends EPackageImpl implements HtmlPackage {
 		scriptEClass.getESuperTypes().add(theNcorePackage.getModelElement());
 		scriptResourceEClass.getESuperTypes().add(theNcorePackage.getModelElement());
 		scriptReferenceEClass.getESuperTypes().add(theNcorePackage.getModelElement());
+		viewPartAdapterEClass.getESuperTypes().add(this.getHtmlElement());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(htmlElementEClass, HtmlElement.class, "HtmlElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -638,6 +670,9 @@ public class HtmlPackageImpl extends EPackageImpl implements HtmlPackage {
 
 		initEClass(scriptReferenceEClass, ScriptReference.class, "ScriptReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getScriptReference_Src(), ecorePackage.getEString(), "src", null, 1, 1, ScriptReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(viewPartAdapterEClass, ViewPartAdapter.class, "ViewPartAdapter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getViewPartAdapter_Factory(), ecorePackage.getEString(), "factory", null, 1, 1, ViewPartAdapter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);
@@ -844,6 +879,18 @@ public class HtmlPackageImpl extends EPackageImpl implements HtmlPackage {
 		   source,
 		   new String[] {
 			   "documentation", "Script URL."
+		   });
+		addAnnotation
+		  (viewPartAdapterEClass,
+		   source,
+		   new String[] {
+			   "documentation", "View part adapter delegates generation of HTML to an adapter created by a named adapter factory.\nThe factory shall be for ${javadoc/org.nasdanika.html.app.ViewPart$Supplier$Factory} type."
+		   });
+		addAnnotation
+		  (getViewPartAdapter_Factory(),
+		   source,
+		   new String[] {
+			   "documentation", "Named adapter factory."
 		   });
 	}
 

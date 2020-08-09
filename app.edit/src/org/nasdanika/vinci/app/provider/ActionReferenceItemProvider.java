@@ -73,8 +73,8 @@ public class ActionReferenceItemProvider extends AppItemProviderAdapter implemen
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor(
 				 getResourceLocator(),
-				 getString("_UI_ActionReference_title_feature"),
-				 AppPackage.Literals.ACTION_REFERENCE__TITLE,
+				 getString("_UI_ModelElement_title_feature"),
+				 NcorePackage.Literals.MODEL_ELEMENT__TITLE,
 				 true,
 				 false,
 				 false,
@@ -94,8 +94,8 @@ public class ActionReferenceItemProvider extends AppItemProviderAdapter implemen
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor(
 				 getResourceLocator(),
-				 getString("_UI_ActionReference_description_feature"),
-				 AppPackage.Literals.ACTION_REFERENCE__DESCRIPTION,
+				 getString("_UI_ModelElement_description_feature"),
+				 NcorePackage.Literals.MODEL_ELEMENT__DESCRIPTION,
 				 true,
 				 true,
 				 false,

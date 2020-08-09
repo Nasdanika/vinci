@@ -302,6 +302,29 @@ public class HtmlItemProviderAdapterFactory extends HtmlAdapterFactory implement
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.nasdanika.vinci.html.ViewPartAdapter} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ViewPartAdapterItemProvider viewPartAdapterItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.nasdanika.vinci.html.ViewPartAdapter}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createViewPartAdapterAdapter() {
+		if (viewPartAdapterItemProvider == null) {
+			viewPartAdapterItemProvider = new ViewPartAdapterItemProvider(this);
+		}
+
+		return viewPartAdapterItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -416,6 +439,7 @@ public class HtmlItemProviderAdapterFactory extends HtmlAdapterFactory implement
 		if (scriptItemProvider != null) scriptItemProvider.dispose();
 		if (scriptResourceItemProvider != null) scriptResourceItemProvider.dispose();
 		if (scriptReferenceItemProvider != null) scriptReferenceItemProvider.dispose();
+		if (viewPartAdapterItemProvider != null) viewPartAdapterItemProvider.dispose();
 	}
 
 }

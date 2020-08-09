@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 import org.nasdanika.ncore.NcorePackage;
 import org.nasdanika.vinci.app.AbstractAction;
 import org.nasdanika.vinci.app.Action;
+import org.nasdanika.vinci.app.ActionAdapter;
 import org.nasdanika.vinci.app.ActionBase;
 import org.nasdanika.vinci.app.ActionCategory;
 import org.nasdanika.vinci.app.ActionElement;
@@ -119,6 +120,13 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 	 * @generated
 	 */
 	private EClass actionReferenceEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass actionAdapterEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -534,7 +542,7 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getActionLink_Title() {
+	public EAttribute getActionLink_Ref() {
 		return (EAttribute)actionLinkEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -544,28 +552,8 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getActionLink_Description() {
-		return (EAttribute)actionLinkEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getActionLink_Ref() {
-		return (EAttribute)actionLinkEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EAttribute getActionLink_Path() {
-		return (EAttribute)actionLinkEClass.getEStructuralFeatures().get(3);
+		return (EAttribute)actionLinkEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -584,28 +572,8 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getActionReference_Title() {
-		return (EAttribute)actionReferenceEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getActionReference_Description() {
-		return (EAttribute)actionReferenceEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EReference getActionReference_Action() {
-		return (EReference)actionReferenceEClass.getEStructuralFeatures().get(2);
+		return (EReference)actionReferenceEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -615,7 +583,37 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 	 */
 	@Override
 	public EAttribute getActionReference_Path() {
-		return (EAttribute)actionReferenceEClass.getEStructuralFeatures().get(3);
+		return (EAttribute)actionReferenceEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getActionAdapter() {
+		return actionAdapterEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getActionAdapter_Factory() {
+		return (EAttribute)actionAdapterEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getActionAdapter_Path() {
+		return (EAttribute)actionAdapterEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -888,16 +886,16 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 		createEAttribute(actionMappingEClass, ACTION_MAPPING__DESCRIPTION);
 
 		actionLinkEClass = createEClass(ACTION_LINK);
-		createEAttribute(actionLinkEClass, ACTION_LINK__TITLE);
-		createEAttribute(actionLinkEClass, ACTION_LINK__DESCRIPTION);
 		createEAttribute(actionLinkEClass, ACTION_LINK__REF);
 		createEAttribute(actionLinkEClass, ACTION_LINK__PATH);
 
 		actionReferenceEClass = createEClass(ACTION_REFERENCE);
-		createEAttribute(actionReferenceEClass, ACTION_REFERENCE__TITLE);
-		createEAttribute(actionReferenceEClass, ACTION_REFERENCE__DESCRIPTION);
 		createEReference(actionReferenceEClass, ACTION_REFERENCE__ACTION);
 		createEAttribute(actionReferenceEClass, ACTION_REFERENCE__PATH);
+
+		actionAdapterEClass = createEClass(ACTION_ADAPTER);
+		createEAttribute(actionAdapterEClass, ACTION_ADAPTER__FACTORY);
+		createEAttribute(actionAdapterEClass, ACTION_ADAPTER__PATH);
 
 		actionEClass = createEClass(ACTION);
 
@@ -967,6 +965,7 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 		g1.getETypeArguments().add(g2);
 		categoryEClass.getEGenericSuperTypes().add(g1);
 		abstractActionEClass.getESuperTypes().add(this.getActionElement());
+		abstractActionEClass.getESuperTypes().add(theNcorePackage.getModelElement());
 		abstractActionEClass.getESuperTypes().add(theNcorePackage.getConfigurable());
 		g1 = createEGenericType(this.getCategory());
 		g2 = createEGenericType(this.getAbstractAction());
@@ -984,6 +983,7 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 		actionBaseEClass.getEGenericSuperTypes().add(g1);
 		actionLinkEClass.getESuperTypes().add(this.getAbstractAction());
 		actionReferenceEClass.getESuperTypes().add(this.getAbstractAction());
+		actionAdapterEClass.getESuperTypes().add(this.getAbstractAction());
 		actionEClass.getESuperTypes().add(this.getActionBase());
 		partitionEClass.getESuperTypes().add(this.getActionBase());
 		bootstrapContainerApplicationEClass.getESuperTypes().add(theBootstrapPackage.getBootstrapElement());
@@ -1037,16 +1037,16 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 		initEAttribute(getActionMapping_Description(), ecorePackage.getEString(), "description", null, 0, 1, ActionMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(actionLinkEClass, ActionLink.class, "ActionLink", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getActionLink_Title(), ecorePackage.getEString(), "title", null, 0, 1, ActionLink.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getActionLink_Description(), ecorePackage.getEString(), "description", null, 0, 1, ActionLink.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getActionLink_Ref(), ecorePackage.getEString(), "ref", null, 1, 1, ActionLink.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getActionLink_Path(), ecorePackage.getEString(), "path", null, 0, 1, ActionLink.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(actionReferenceEClass, ActionReference.class, "ActionReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getActionReference_Title(), ecorePackage.getEString(), "title", null, 0, 1, ActionReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getActionReference_Description(), ecorePackage.getEString(), "description", null, 0, 1, ActionReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getActionReference_Action(), this.getAbstractAction(), null, "action", null, 1, 1, ActionReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getActionReference_Path(), ecorePackage.getEString(), "path", null, 0, 1, ActionReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(actionAdapterEClass, ActionAdapter.class, "ActionAdapter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getActionAdapter_Factory(), ecorePackage.getEString(), "factory", null, 1, 1, ActionAdapter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getActionAdapter_Path(), ecorePackage.getEString(), "path", null, 0, 1, ActionAdapter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(actionEClass, Action.class, "Action", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1302,18 +1302,6 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 			   "documentation", "A link to an action stored in a resource which may or may not be loaded as part of the editing resource set. \nThe model and action specificed in the action link\'s reference (``ref``) is loaded only during the generation. \nThis way it is different [ActionReference](ActionReference.html) which references an action available in the editing resource set - models in the same modeling project or loaded with \"Load resource\" context menu.\nFor example, action link reference may point to a dynamically generated model or may contain interpolation tokens and different actions can be linked based on generation configuration.\n\nThe linked action inherits this action link context. As such the same linked action linked by different action links may behave differently depending\non the action link context/configuration. \nI.e. a link may create a different \"instance\" of linked action. \nIn this case the linked action activator shall also be context dependent - otherwise different instances of the same action will point to the same resource/url."
 		   });
 		addAnnotation
-		  (getActionLink_Title(),
-		   source,
-		   new String[] {
-			   "documentation", "Link title to display in the editor."
-		   });
-		addAnnotation
-		  (getActionLink_Description(),
-		   source,
-		   new String[] {
-			   "documentation", "Link description."
-		   });
-		addAnnotation
 		  (getActionLink_Ref(),
 		   source,
 		   new String[] {
@@ -1332,18 +1320,6 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 			   "documentation", "Action reference allows to \"mount\" an existing action as a child of another action. \nUsing action references a single \"logical\" aciton hierarchy may be assembled from multiple model resources.\n\nThe referenced action inherits this action reference context. As such the same referenced action referenced by different action references may behave differently depending\non the action reference context/configuration. I.e. a reference may create a different \"instance\" of referenced action. \nIn this case the referenced action activator shall also be context dependent - otherwise different instances of the same action will point to the same resource/url."
 		   });
 		addAnnotation
-		  (getActionReference_Title(),
-		   source,
-		   new String[] {
-			   "documentation", "Reference title to display in the editor."
-		   });
-		addAnnotation
-		  (getActionReference_Description(),
-		   source,
-		   new String[] {
-			   "documentation", "Reference description."
-		   });
-		addAnnotation
 		  (getActionReference_Action(),
 		   source,
 		   new String[] {
@@ -1354,6 +1330,24 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 		   source,
 		   new String[] {
 			   "documentation", "If path is not blank then it is resolved against the context URI to produce a new context URI for the referenced action.\nIt can be used to organize generated content into folders in order to avoid name clashes or semantic references, e.g. ``index.html`` generated by one action overwriting ``index.html`` generated by another.\n\nFor example, if the referenced action activator is ``click-me.html`` and the path is blank, then the action will be generated in the same folder as the parent of the action reference. \nIf the path is ``click-me-demo`` then the referenced action content will be generated to ``click-me-demo/click.html``.\n\n``${base-uri}`` token can be used to define the uri relative to the base generation URI (output folder) instead of the parent URI. It might be useful it the parent URI is an absolute external URI.\n``${base-uri}`` ends with a slash, so there is no need to add a slash. E.g. ``${base-uri}click-me-demo``."
+		   });
+		addAnnotation
+		  (actionAdapterEClass,
+		   source,
+		   new String[] {
+			   "documentation", "Action adapter uses a named adapter factory to generate HTML action. \nThe factory shall be for ${javadoc/org.nasdanika.html.app.Action$Supplier$Factory} type.\n"
+		   });
+		addAnnotation
+		  (getActionAdapter_Factory(),
+		   source,
+		   new String[] {
+			   "documentation", "Named adapter factory."
+		   });
+		addAnnotation
+		  (getActionAdapter_Path(),
+		   source,
+		   new String[] {
+			   "documentation", "If path is not blank then it is resolved against the context URI to produce a new context URI for the linked action.\nIt can be used to organize generated content into folders in order to avoid name clashes or semantic references, e.g. ``index.html`` generated by one action overwriting ``index.html`` generated by another.\n\nFor example, if the linked action activator is ``click-me.html`` and the path is blank, then the linked action  will be generated in the same folder as the parent of the action link. \nIf the path is ``click-me-demo`` then the linked action content will be generated to ``click-me-demo/click.html``.\n\n``${base-uri}`` token can be used to define the uri relative to the base generation URI (output folder) instead of the parent URI. It might be useful it the parent URI is an absolute external URI.\n``${base-uri}`` ends with a slash, so there is no need to add a slash. E.g. ``${base-uri}click-me-demo``."
 		   });
 		addAnnotation
 		  (activatorTypeEEnum,

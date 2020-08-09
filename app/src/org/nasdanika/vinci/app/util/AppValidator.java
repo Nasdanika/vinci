@@ -121,6 +121,8 @@ public class AppValidator extends EObjectValidator {
 				return validateActionLink((ActionLink)value, diagnostics, context);
 			case AppPackage.ACTION_REFERENCE:
 				return validateActionReference((ActionReference)value, diagnostics, context);
+			case AppPackage.ACTION_ADAPTER:
+				return validateActionAdapter((ActionAdapter)value, diagnostics, context);
 			case AppPackage.ACTION:
 				return validateAction((Action)value, diagnostics, context);
 			case AppPackage.PARTITION:
@@ -426,6 +428,15 @@ public class AppValidator extends EObjectValidator {
 			return validationResult.getSeverity() != Diagnostic.ERROR;
 		}
 		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateActionAdapter(ActionAdapter actionAdapter, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(actionAdapter, diagnostics, context);
 	}
 
 	/**

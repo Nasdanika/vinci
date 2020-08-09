@@ -8,6 +8,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+import org.nasdanika.vinci.app.*;
 import org.nasdanika.vinci.app.Action;
 import org.nasdanika.vinci.app.ActionCategory;
 import org.nasdanika.vinci.app.ActionLink;
@@ -70,6 +71,7 @@ public class AppFactoryImpl extends EFactoryImpl implements AppFactory {
 			case AppPackage.ACTION_MAPPING: return createActionMapping();
 			case AppPackage.ACTION_LINK: return createActionLink();
 			case AppPackage.ACTION_REFERENCE: return createActionReference();
+			case AppPackage.ACTION_ADAPTER: return createActionAdapter();
 			case AppPackage.ACTION: return createAction();
 			case AppPackage.PARTITION: return createPartition();
 			case AppPackage.BOOTSTRAP_CONTAINER_APPLICATION: return createBootstrapContainerApplication();
@@ -219,6 +221,17 @@ public class AppFactoryImpl extends EFactoryImpl implements AppFactory {
 	public ActionReference createActionReference() {
 		ActionReferenceImpl actionReference = new ActionReferenceImpl();
 		return actionReference;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ActionAdapter createActionAdapter() {
+		ActionAdapterImpl actionAdapter = new ActionAdapterImpl();
+		return actionAdapter;
 	}
 
 	/**

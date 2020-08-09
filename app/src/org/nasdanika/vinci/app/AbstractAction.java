@@ -8,6 +8,7 @@ import org.nasdanika.common.FilterExecutionParticipant;
 import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.common.SupplierFactory;
 import org.nasdanika.ncore.Configurable;
+import org.nasdanika.ncore.ModelElement;
 
 
 /**
@@ -30,7 +31,7 @@ import org.nasdanika.ncore.Configurable;
  * @model interface="true" abstract="true"
  * @generated
  */
-public interface AbstractAction extends ActionElement, Configurable {
+public interface AbstractAction extends ActionElement, ModelElement, Configurable {
 		
 	/**
 	 * Binding of org.nasdanika.Supplier to {@link AbstractAction}

@@ -3,7 +3,6 @@
 package org.nasdanika.vinci.app.provider;
 
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
@@ -12,7 +11,6 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
-import org.eclipse.emf.edit.provider.ComposedImage;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
@@ -21,26 +19,33 @@ import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+import org.nasdanika.common.Util;
 import org.nasdanika.ncore.NcorePackage;
-import org.nasdanika.ncore.provider.NcoreEditPlugin;
-import org.nasdanika.vinci.app.ActionLink;
+import org.nasdanika.vinci.app.ActionAdapter;
 import org.nasdanika.vinci.app.AppFactory;
 import org.nasdanika.vinci.app.AppPackage;
 
 /**
- * This is the item provider adapter for a {@link org.nasdanika.vinci.app.ActionLink} object.
+ * This is the item provider adapter for a {@link org.nasdanika.vinci.app.ActionAdapter} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class ActionLinkItemProvider extends AppItemProviderAdapter implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class ActionAdapterItemProvider 
+	extends AppItemProviderAdapter
+	implements
+		IEditingDomainItemProvider,
+		IStructuredItemContentProvider,
+		ITreeItemContentProvider,
+		IItemLabelProvider,
+		IItemPropertySource {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ActionLinkItemProvider(AdapterFactory adapterFactory) {
+	public ActionAdapterItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -57,7 +62,7 @@ public class ActionLinkItemProvider extends AppItemProviderAdapter implements IE
 
 			addTitlePropertyDescriptor(object);
 			addDescriptionPropertyDescriptor(object);
-			addRefPropertyDescriptor(object);
+			addFactoryPropertyDescriptor(object);
 			addPathPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
@@ -106,17 +111,17 @@ public class ActionLinkItemProvider extends AppItemProviderAdapter implements IE
 	}
 
 	/**
-	 * This adds a property descriptor for the Ref feature.
+	 * This adds a property descriptor for the Factory feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	protected void addRefPropertyDescriptor(Object object) {
+	protected void addFactoryPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor(
 				 getResourceLocator(),
-				 getString("_UI_ActionLink_ref_feature"),
-				 AppPackage.Literals.ACTION_LINK__REF,
+				 getString("_UI_ActionAdapter_factory_feature"),
+				 AppPackage.Literals.ACTION_ADAPTER__FACTORY,
 				 true,
 				 false,
 				 false,
@@ -136,8 +141,8 @@ public class ActionLinkItemProvider extends AppItemProviderAdapter implements IE
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor(
 				 getResourceLocator(),
-				 getString("_UI_ActionLink_path_feature"),
-				 AppPackage.Literals.ACTION_LINK__PATH,
+				 getString("_UI_ActionAdapter_path_feature"),
+				 AppPackage.Literals.ACTION_ADAPTER__PATH,
 				 true,
 				 false,
 				 false,
@@ -179,18 +184,14 @@ public class ActionLinkItemProvider extends AppItemProviderAdapter implements IE
 	}
 
 	/**
-	 * This returns ActionLink.gif.
+	 * This returns ActionAdapter.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	@Override
 	public Object getImage(Object object) {
-		Object image = overlayImage(object, getResourceLocator().getImage("full/obj16/Action.png"));
-		List<Object> images = new ArrayList<Object>(2);
-		images.add(image);
-		images.add(NcoreEditPlugin.INSTANCE.getImage("full/obj16/ReferenceDecorator.png"));
-		return new ComposedImage(images);		
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ActionAdapter.png"));
 	}
 
 	/**
@@ -211,8 +212,11 @@ public class ActionLinkItemProvider extends AppItemProviderAdapter implements IE
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((ActionLink)object).getTitle();
-		return label == null || label.length() == 0 ? getString("_UI_ActionLink_type") : label;
+		String label = ((ActionAdapter)object).getTitle();
+		if (Util.isBlank(label)) {
+			label = ((ActionAdapter)object).getFactory();
+		}
+		return label == null || label.length() == 0 ? getString("_UI_ActionAdapter_type") :	label;
 	}
 
 
@@ -227,15 +231,15 @@ public class ActionLinkItemProvider extends AppItemProviderAdapter implements IE
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(ActionLink.class)) {
-			case AppPackage.ACTION_LINK__TITLE:
-			case AppPackage.ACTION_LINK__DESCRIPTION:
-			case AppPackage.ACTION_LINK__REF:
-			case AppPackage.ACTION_LINK__PATH:
+		switch (notification.getFeatureID(ActionAdapter.class)) {
+			case AppPackage.ACTION_ADAPTER__TITLE:
+			case AppPackage.ACTION_ADAPTER__DESCRIPTION:
+			case AppPackage.ACTION_ADAPTER__FACTORY:
+			case AppPackage.ACTION_ADAPTER__PATH:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case AppPackage.ACTION_LINK__CONFIGURATION:
-			case AppPackage.ACTION_LINK__ACTION_MAPPINGS:
+			case AppPackage.ACTION_ADAPTER__CONFIGURATION:
+			case AppPackage.ACTION_ADAPTER__ACTION_MAPPINGS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}

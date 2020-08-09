@@ -176,7 +176,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ViewPartAdapter" eSuperTypes="#//HtmlElement">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="View part adapter delegates generation of HTML to an adapter created by a named adapter factory."/>
+      <details key="documentation" value="View part adapter delegates generation of HTML to an adapter created by a named adapter factory.&#xA;The factory shall be for ${javadoc/org.nasdanika.html.app.ViewPart$Supplier$Factory} type."/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="factory" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">

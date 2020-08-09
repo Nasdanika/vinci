@@ -302,6 +302,29 @@ public class AppItemProviderAdapterFactory extends AppAdapterFactory implements 
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.nasdanika.vinci.app.ActionAdapter} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ActionAdapterItemProvider actionAdapterItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.nasdanika.vinci.app.ActionAdapter}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createActionAdapterAdapter() {
+		if (actionAdapterItemProvider == null) {
+			actionAdapterItemProvider = new ActionAdapterItemProvider(this);
+		}
+
+		return actionAdapterItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -410,6 +433,7 @@ public class AppItemProviderAdapterFactory extends AppAdapterFactory implements 
 		if (actionMappingItemProvider != null) actionMappingItemProvider.dispose();
 		if (actionLinkItemProvider != null) actionLinkItemProvider.dispose();
 		if (actionReferenceItemProvider != null) actionReferenceItemProvider.dispose();
+		if (actionAdapterItemProvider != null) actionAdapterItemProvider.dispose();
 		if (actionItemProvider != null) actionItemProvider.dispose();
 		if (partitionItemProvider != null) partitionItemProvider.dispose();
 		if (bootstrapContainerApplicationItemProvider != null) bootstrapContainerApplicationItemProvider.dispose();

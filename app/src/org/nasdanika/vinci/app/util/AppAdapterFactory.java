@@ -111,6 +111,10 @@ public class AppAdapterFactory extends AdapterFactoryImpl {
 				return createActionReferenceAdapter();
 			}
 			@Override
+			public Adapter caseActionAdapter(ActionAdapter object) {
+				return createActionAdapterAdapter();
+			}
+			@Override
 			public Adapter caseAction(Action object) {
 				return createActionAdapter();
 			}
@@ -431,6 +435,20 @@ public class AppAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createActionReferenceAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.vinci.app.ActionAdapter <em>Action Adapter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.vinci.app.ActionAdapter
+	 * @generated
+	 */
+	public Adapter createActionAdapterAdapter() {
 		return null;
 	}
 

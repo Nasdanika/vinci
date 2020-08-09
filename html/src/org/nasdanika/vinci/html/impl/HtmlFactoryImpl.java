@@ -68,6 +68,7 @@ public class HtmlFactoryImpl extends EFactoryImpl implements HtmlFactory {
 			case HtmlPackage.SCRIPT: return createScript();
 			case HtmlPackage.SCRIPT_RESOURCE: return createScriptResource();
 			case HtmlPackage.SCRIPT_REFERENCE: return createScriptReference();
+			case HtmlPackage.VIEW_PART_ADAPTER: return createViewPartAdapter();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -181,6 +182,17 @@ public class HtmlFactoryImpl extends EFactoryImpl implements HtmlFactory {
 	public ScriptReference createScriptReference() {
 		ScriptReferenceImpl scriptReference = new ScriptReferenceImpl();
 		return scriptReference;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ViewPartAdapter createViewPartAdapter() {
+		ViewPartAdapterImpl viewPartAdapter = new ViewPartAdapterImpl();
+		return viewPartAdapter;
 	}
 
 	/**

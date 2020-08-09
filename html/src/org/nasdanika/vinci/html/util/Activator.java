@@ -1,6 +1,7 @@
 package org.nasdanika.vinci.html.util;
 
 import org.nasdanika.emf.Palette;
+import org.nasdanika.vinci.html.HtmlPackage;
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
 
@@ -18,6 +19,7 @@ public class Activator implements BundleActivator {
 	@Override
 	public void start(BundleContext context) throws Exception {
 //		HTML_CONTENT_PALETTE.add(HtmlPackage.Literals.TAG);	
+		HTML_CONTENT_PALETTE.add(HtmlPackage.Literals.VIEW_PART_ADAPTER);
 
 		// TODO Input
 	}

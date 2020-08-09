@@ -112,6 +112,15 @@ public interface AppFactory extends EFactory {
 	ActionReference createActionReference();
 
 	/**
+	 * Returns a new object of class '<em>Action Adapter</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Action Adapter</em>'.
+	 * @generated
+	 */
+	ActionAdapter createActionAdapter();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

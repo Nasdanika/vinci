@@ -104,6 +104,7 @@ public class AppSwitch<T> extends Switch<T> {
 				AbstractAction abstractAction = (AbstractAction)theEObject;
 				T result = caseAbstractAction(abstractAction);
 				if (result == null) result = caseActionElement(abstractAction);
+				if (result == null) result = caseModelElement(abstractAction);
 				if (result == null) result = caseConfigurable(abstractAction);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -144,6 +145,7 @@ public class AppSwitch<T> extends Switch<T> {
 				T result = caseActionLink(actionLink);
 				if (result == null) result = caseAbstractAction(actionLink);
 				if (result == null) result = caseActionElement(actionLink);
+				if (result == null) result = caseModelElement(actionLink);
 				if (result == null) result = caseConfigurable(actionLink);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -153,7 +155,18 @@ public class AppSwitch<T> extends Switch<T> {
 				T result = caseActionReference(actionReference);
 				if (result == null) result = caseAbstractAction(actionReference);
 				if (result == null) result = caseActionElement(actionReference);
+				if (result == null) result = caseModelElement(actionReference);
 				if (result == null) result = caseConfigurable(actionReference);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case AppPackage.ACTION_ADAPTER: {
+				ActionAdapter actionAdapter = (ActionAdapter)theEObject;
+				T result = caseActionAdapter(actionAdapter);
+				if (result == null) result = caseAbstractAction(actionAdapter);
+				if (result == null) result = caseActionElement(actionAdapter);
+				if (result == null) result = caseModelElement(actionAdapter);
+				if (result == null) result = caseConfigurable(actionAdapter);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -495,6 +508,21 @@ public class AppSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseActionReference(ActionReference object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Action Adapter</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Action Adapter</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseActionAdapter(ActionAdapter object) {
 		return null;
 	}
 

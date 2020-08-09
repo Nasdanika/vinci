@@ -153,6 +153,14 @@ public class HtmlSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case HtmlPackage.VIEW_PART_ADAPTER: {
+				ViewPartAdapter viewPartAdapter = (ViewPartAdapter)theEObject;
+				T result = caseViewPartAdapter(viewPartAdapter);
+				if (result == null) result = caseHtmlElement(viewPartAdapter);
+				if (result == null) result = caseModelElement(viewPartAdapter);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -319,6 +327,21 @@ public class HtmlSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseScriptReference(ScriptReference object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>View Part Adapter</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>View Part Adapter</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseViewPartAdapter(ViewPartAdapter object) {
 		return null;
 	}
 
