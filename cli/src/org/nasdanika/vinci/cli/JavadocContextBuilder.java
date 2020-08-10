@@ -49,11 +49,11 @@ public class JavadocContextBuilder implements ContextBuilder {
 					while ((line = br.readLine()) != null) {
 						packageMap.put(line.trim(), normalizedLocation);
 					}
-					progressMonitor.worked(Status.SUCCESS, 1, "Loaded package list from " + link);
+					progressMonitor.worked(Status.SUCCESS, 1, "Loaded package list from " + normalizedLocation);
 				} catch (MalformedURLException e) {
-					progressMonitor.worked(Status.ERROR, 1, "Invalid JavaDoc URL: " + link + " - " + e);
+					progressMonitor.worked(Status.ERROR, 1, "Invalid JavaDoc URL: " + normalizedLocation + " - " + e);
 				} catch (Exception e) {
-					progressMonitor.worked(Status.ERROR, 1, "Could not download package list from " + link + " - " + e);
+					progressMonitor.worked(Status.ERROR, 1, "Could not download package list from " + normalizedLocation + " - " + e);
 				}
 			}
 		}
