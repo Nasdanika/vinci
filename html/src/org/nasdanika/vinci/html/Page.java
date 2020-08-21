@@ -12,7 +12,7 @@ import org.nasdanika.ncore.NamedElement;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * HTML page. The name attribute is output as ``<TITLE>`` in the head.
+ * HTML page. The name attribute is output as title tag in the head.
  * 
  * [Overview video](https://www.youtube.com/watch?v=S28UszI-2g8) - in Russian.
  * <!-- end-model-doc -->
