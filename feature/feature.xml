@@ -2,7 +2,7 @@
 <feature
       id="org.nasdanika.vinci.feature"
       label="Nasdanika Vinci"
-      version="0.1.0.qualifier"
+      version="2020.12.0.qualifier"
       provider-name="Nasdanika LLC">
 
    <description url="https://www.nasdanika.org">

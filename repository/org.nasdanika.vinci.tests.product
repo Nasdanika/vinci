@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?pde version="3.5"?>
 
-<product name="Nasdanika Vinci Tests" uid="org.nasdanika.vinci.tests.product" application="org.nasdanika.vinci.tests.TestRunner" version="0.1.0.qualifier" useFeatures="true" includeLaunchers="true">
+<product name="Nasdanika Vinci Tests" uid="org.nasdanika.vinci.tests.product" application="org.nasdanika.vinci.tests.TestRunner" version="2020.12.0.qualifier" useFeatures="true" includeLaunchers="true">
 
    <configIni use="default">
    </configIni>

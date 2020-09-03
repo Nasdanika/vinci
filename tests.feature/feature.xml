@@ -2,7 +2,7 @@
 <feature
       id="org.nasdanika.vinci.tests.feature"
       label="Nasdanika Vinci Tests and model documentation generation"
-      version="0.1.0.qualifier">
+      version="2020.12.0.qualifier">
 
    <description>
       Tests and demos of Nasdanika Vinci functionality.
@@ -17,7 +17,7 @@
    </license>
 
    <requires>
-      <import feature="org.nasdanika.vinci.feature" version="0.1.0.qualifier"/>
+      <import feature="org.nasdanika.vinci.feature" version="2020.12.0.qualifier"/>
       <!-- <import feature="org.nasdanika.equinox.feature" version="1.0.0.qualifier"/> -->
    </requires>
 
