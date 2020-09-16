@@ -24,6 +24,7 @@ import org.nasdanika.common.Context;
 import org.nasdanika.common.MarkdownHelper;
 import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.emf.EObjectAdaptable;
+import org.nasdanika.emf.EmfUtil;
 import org.nasdanika.html.app.impl.Util;
 import org.nasdanika.ncore.NcoreFactory;
 import org.nasdanika.ncore.Value;
@@ -57,6 +58,9 @@ public class EModelElementViewActionSupplier<T extends EModelElement> extends EO
 		action.setIcon(ICONS_BASE+eObject.eClass().getName()+".gif");
 		
 		String markdown = EObjectAdaptable.getResourceContext(eObject).getString("documentation", EcoreUtil.getDocumentation(eObject));
+		if (Util.isBlank(markdown)) {
+			markdown = EmfUtil.getDocumentation(eObject);
+		}
 		action.setMarkdownContent(markdown);
 		if (!Util.isBlank(markdown)) {
 			action.setTooltip(MarkdownHelper.INSTANCE.firstPlainTextSentence(markdown));
@@ -67,6 +71,9 @@ public class EModelElementViewActionSupplier<T extends EModelElement> extends EO
 	
 	protected static String getEModelElementFirstDocSentence(EModelElement modelElement) {
 		String markdown = EObjectAdaptable.getResourceContext(modelElement).getString("documentation", EcoreUtil.getDocumentation(modelElement));
+		if (Util.isBlank(markdown)) {
+			markdown = EmfUtil.getDocumentation(modelElement);
+		}
 		return Util.isBlank(markdown) ? null : MarkdownHelper.INSTANCE.firstPlainTextSentence(markdown);
 	}
 		
