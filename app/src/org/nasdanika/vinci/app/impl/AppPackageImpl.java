@@ -13,7 +13,9 @@ import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.ETypeParameter;
 import org.eclipse.emf.ecore.EValidator;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
+import org.nasdanika.engineering.EngineeringPackage;
 import org.nasdanika.ncore.NcorePackage;
+import org.nasdanika.party.PartyPackage;
 import org.nasdanika.vinci.app.AbstractAction;
 import org.nasdanika.vinci.app.Action;
 import org.nasdanika.vinci.app.ActionAdapter;
@@ -219,8 +221,10 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 
 		// Initialize simple dependencies
 		BootstrapPackage.eINSTANCE.eClass();
+		EngineeringPackage.eINSTANCE.eClass();
 		HtmlPackage.eINSTANCE.eClass();
 		NcorePackage.eINSTANCE.eClass();
+		PartyPackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
 		theAppPackage.createPackageContents();
@@ -948,6 +952,7 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 		// Obtain other dependent packages
 		NcorePackage theNcorePackage = (NcorePackage)EPackage.Registry.INSTANCE.getEPackage(NcorePackage.eNS_URI);
 		BootstrapPackage theBootstrapPackage = (BootstrapPackage)EPackage.Registry.INSTANCE.getEPackage(BootstrapPackage.eNS_URI);
+		EngineeringPackage theEngineeringPackage = (EngineeringPackage)EPackage.Registry.INSTANCE.getEPackage(EngineeringPackage.eNS_URI);
 		HtmlPackage theHtmlPackage = (HtmlPackage)EPackage.Registry.INSTANCE.getEPackage(HtmlPackage.eNS_URI);
 
 		// Create type parameters
@@ -980,6 +985,8 @@ public class AppPackageImpl extends EPackageImpl implements AppPackage {
 		g1 = createEGenericType(this.getContainer());
 		g2 = createEGenericType(this.getActionElement());
 		g1.getETypeArguments().add(g2);
+		actionBaseEClass.getEGenericSuperTypes().add(g1);
+		g1 = createEGenericType(theEngineeringPackage.getAbstractComponent());
 		actionBaseEClass.getEGenericSuperTypes().add(g1);
 		actionLinkEClass.getESuperTypes().add(this.getAbstractAction());
 		actionReferenceEClass.getESuperTypes().add(this.getAbstractAction());

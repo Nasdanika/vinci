@@ -4,7 +4,9 @@ package org.nasdanika.vinci.app.provider;
 
 import org.eclipse.emf.common.EMFPlugin;
 import org.eclipse.emf.common.util.ResourceLocator;
+import org.nasdanika.engineering.provider.EngineeringEditPlugin;
 import org.nasdanika.ncore.provider.NcoreEditPlugin;
+import org.nasdanika.party.provider.PartyEditPlugin;
 import org.nasdanika.vinci.bootstrap.provider.BootstrapEditPlugin;
 import org.nasdanika.vinci.html.provider.HtmlEditPlugin;
 
@@ -41,8 +43,10 @@ public final class AppEditPlugin extends EMFPlugin {
 		super
 		  (new ResourceLocator [] {
 		     BootstrapEditPlugin.INSTANCE,
+		     EngineeringEditPlugin.INSTANCE,
 		     HtmlEditPlugin.INSTANCE,
 		     NcoreEditPlugin.INSTANCE,
+		     PartyEditPlugin.INSTANCE,
 		   });
 	}
 

@@ -5,6 +5,7 @@ package org.nasdanika.vinci.app;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.nasdanika.common.Util;
+import org.nasdanika.engineering.AbstractComponent;
 import org.nasdanika.ncore.NcoreFactory;
 import org.nasdanika.ncore.Value;
 
@@ -40,7 +41,7 @@ import org.nasdanika.ncore.Value;
  *        annotation="http://www.eclipse.org/emf/2002/Ecore constraints='sectionStyle'"
  * @generated
  */
-public interface ActionBase extends Label, AbstractAction, Container<ActionElement> {
+public interface ActionBase extends Label, AbstractAction, Container<ActionElement>, AbstractComponent {
 		
 	/**
 	 * Returns the value of the '<em><b>Role</b></em>' attribute.

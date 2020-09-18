@@ -12,10 +12,12 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.nasdanika.emf.edit.EReferenceItemProvider;
+import org.nasdanika.engineering.EngineeringPackage;
 import org.nasdanika.html.app.SectionStyle;
 import org.nasdanika.ncore.NcorePackage;
 import org.nasdanika.vinci.app.ActionBase;
@@ -52,6 +54,7 @@ public class ActionBaseItemProvider extends LabelItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addLinkedElementsPropertyDescriptor(object);
+			addOwnersPropertyDescriptor(object);
 			addRolePropertyDescriptor(object);
 			addSectionStylePropertyDescriptor(object);
 			addSectionColumnsPropertyDescriptor(object);
@@ -81,6 +84,28 @@ public class ActionBaseItemProvider extends LabelItemProvider {
 				 false,
 				 true,
 				 null,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Owners feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addOwnersPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_AbstractComponent_owners_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_AbstractComponent_owners_feature", "_UI_AbstractComponent_type"),
+				 EngineeringPackage.Literals.ABSTRACT_COMPONENT__OWNERS,
+				 true,
+				 false,
+				 true,
 				 null,
 				 null,
 				 null));
@@ -379,6 +404,7 @@ public class ActionBaseItemProvider extends LabelItemProvider {
 			case AppPackage.ACTION_BASE__CONFIGURATION:
 			case AppPackage.ACTION_BASE__ACTION_MAPPINGS:
 			case AppPackage.ACTION_BASE__ELEMENTS:
+			case AppPackage.ACTION_BASE__ISSUES:
 			case AppPackage.ACTION_BASE__CONTENT:
 			case AppPackage.ACTION_BASE__WIDGETS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));

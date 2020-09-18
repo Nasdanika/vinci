@@ -10,6 +10,10 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.InternalEList;
+import org.nasdanika.engineering.AbstractComponent;
+import org.nasdanika.engineering.Engineer;
+import org.nasdanika.engineering.EngineeringPackage;
+import org.nasdanika.engineering.Issue;
 import org.nasdanika.ncore.Configurable;
 import org.nasdanika.ncore.NcorePackage;
 import org.nasdanika.vinci.app.AbstractAction;
@@ -32,6 +36,8 @@ import org.nasdanika.vinci.app.Widget;
  *   <li>{@link org.nasdanika.vinci.app.impl.ActionBaseImpl#getActionMappings <em>Action Mappings</em>}</li>
  *   <li>{@link org.nasdanika.vinci.app.impl.ActionBaseImpl#getElements <em>Elements</em>}</li>
  *   <li>{@link org.nasdanika.vinci.app.impl.ActionBaseImpl#getLinkedElements <em>Linked Elements</em>}</li>
+ *   <li>{@link org.nasdanika.vinci.app.impl.ActionBaseImpl#getOwners <em>Owners</em>}</li>
+ *   <li>{@link org.nasdanika.vinci.app.impl.ActionBaseImpl#getIssues <em>Issues</em>}</li>
  *   <li>{@link org.nasdanika.vinci.app.impl.ActionBaseImpl#getRole <em>Role</em>}</li>
  *   <li>{@link org.nasdanika.vinci.app.impl.ActionBaseImpl#getSectionStyle <em>Section Style</em>}</li>
  *   <li>{@link org.nasdanika.vinci.app.impl.ActionBaseImpl#getSectionColumns <em>Section Columns</em>}</li>
@@ -189,6 +195,28 @@ public abstract class ActionBaseImpl extends LabelImpl implements ActionBase {
 	@Override
 	public EList<ActionElement> getLinkedElements() {
 		return (EList<ActionElement>)eDynamicGet(AppPackage.ACTION_BASE__LINKED_ELEMENTS, AppPackage.Literals.CONTAINER__LINKED_ELEMENTS, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public EList<Engineer> getOwners() {
+		return (EList<Engineer>)eDynamicGet(AppPackage.ACTION_BASE__OWNERS, EngineeringPackage.Literals.ABSTRACT_COMPONENT__OWNERS, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public EList<Issue> getIssues() {
+		return (EList<Issue>)eDynamicGet(AppPackage.ACTION_BASE__ISSUES, EngineeringPackage.Literals.ABSTRACT_COMPONENT__ISSUES, true, true);
 	}
 
 	/**
@@ -418,6 +446,8 @@ public abstract class ActionBaseImpl extends LabelImpl implements ActionBase {
 				return ((InternalEList<?>)getActionMappings()).basicRemove(otherEnd, msgs);
 			case AppPackage.ACTION_BASE__ELEMENTS:
 				return ((InternalEList<?>)getElements()).basicRemove(otherEnd, msgs);
+			case AppPackage.ACTION_BASE__ISSUES:
+				return ((InternalEList<?>)getIssues()).basicRemove(otherEnd, msgs);
 			case AppPackage.ACTION_BASE__CONTENT:
 				return ((InternalEList<?>)getContent()).basicRemove(otherEnd, msgs);
 			case AppPackage.ACTION_BASE__WIDGETS:
@@ -442,6 +472,10 @@ public abstract class ActionBaseImpl extends LabelImpl implements ActionBase {
 				return getElements();
 			case AppPackage.ACTION_BASE__LINKED_ELEMENTS:
 				return getLinkedElements();
+			case AppPackage.ACTION_BASE__OWNERS:
+				return getOwners();
+			case AppPackage.ACTION_BASE__ISSUES:
+				return getIssues();
 			case AppPackage.ACTION_BASE__ROLE:
 				return getRole();
 			case AppPackage.ACTION_BASE__SECTION_STYLE:
@@ -492,6 +526,14 @@ public abstract class ActionBaseImpl extends LabelImpl implements ActionBase {
 			case AppPackage.ACTION_BASE__LINKED_ELEMENTS:
 				getLinkedElements().clear();
 				getLinkedElements().addAll((Collection<? extends ActionElement>)newValue);
+				return;
+			case AppPackage.ACTION_BASE__OWNERS:
+				getOwners().clear();
+				getOwners().addAll((Collection<? extends Engineer>)newValue);
+				return;
+			case AppPackage.ACTION_BASE__ISSUES:
+				getIssues().clear();
+				getIssues().addAll((Collection<? extends Issue>)newValue);
 				return;
 			case AppPackage.ACTION_BASE__ROLE:
 				setRole((String)newValue);
@@ -552,6 +594,12 @@ public abstract class ActionBaseImpl extends LabelImpl implements ActionBase {
 			case AppPackage.ACTION_BASE__LINKED_ELEMENTS:
 				getLinkedElements().clear();
 				return;
+			case AppPackage.ACTION_BASE__OWNERS:
+				getOwners().clear();
+				return;
+			case AppPackage.ACTION_BASE__ISSUES:
+				getIssues().clear();
+				return;
 			case AppPackage.ACTION_BASE__ROLE:
 				setRole(ROLE_EDEFAULT);
 				return;
@@ -605,6 +653,10 @@ public abstract class ActionBaseImpl extends LabelImpl implements ActionBase {
 				return !getElements().isEmpty();
 			case AppPackage.ACTION_BASE__LINKED_ELEMENTS:
 				return !getLinkedElements().isEmpty();
+			case AppPackage.ACTION_BASE__OWNERS:
+				return !getOwners().isEmpty();
+			case AppPackage.ACTION_BASE__ISSUES:
+				return !getIssues().isEmpty();
 			case AppPackage.ACTION_BASE__ROLE:
 				return ROLE_EDEFAULT == null ? getRole() != null : !ROLE_EDEFAULT.equals(getRole());
 			case AppPackage.ACTION_BASE__SECTION_STYLE:
@@ -662,6 +714,13 @@ public abstract class ActionBaseImpl extends LabelImpl implements ActionBase {
 				default: return -1;
 			}
 		}
+		if (baseClass == AbstractComponent.class) {
+			switch (derivedFeatureID) {
+				case AppPackage.ACTION_BASE__OWNERS: return EngineeringPackage.ABSTRACT_COMPONENT__OWNERS;
+				case AppPackage.ACTION_BASE__ISSUES: return EngineeringPackage.ABSTRACT_COMPONENT__ISSUES;
+				default: return -1;
+			}
+		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
 	}
 
@@ -693,6 +752,13 @@ public abstract class ActionBaseImpl extends LabelImpl implements ActionBase {
 			switch (baseFeatureID) {
 				case AppPackage.CONTAINER__ELEMENTS: return AppPackage.ACTION_BASE__ELEMENTS;
 				case AppPackage.CONTAINER__LINKED_ELEMENTS: return AppPackage.ACTION_BASE__LINKED_ELEMENTS;
+				default: return -1;
+			}
+		}
+		if (baseClass == AbstractComponent.class) {
+			switch (baseFeatureID) {
+				case EngineeringPackage.ABSTRACT_COMPONENT__OWNERS: return AppPackage.ACTION_BASE__OWNERS;
+				case EngineeringPackage.ABSTRACT_COMPONENT__ISSUES: return AppPackage.ACTION_BASE__ISSUES;
 				default: return -1;
 			}
 		}
