@@ -6,6 +6,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
 import org.nasdanika.engineering.AbstractComponent;
+import org.nasdanika.engineering.ComponentCategoryElement;
 import org.nasdanika.ncore.Configurable;
 import org.nasdanika.ncore.Entity;
 import org.nasdanika.ncore.ModelElement;
@@ -132,6 +133,7 @@ public class AppSwitch<T> extends Switch<T> {
 				if (result == null) result = caseEntity(actionBase);
 				if (result == null) result = caseActionElement(actionBase);
 				if (result == null) result = caseConfigurable(actionBase);
+				if (result == null) result = caseComponentCategoryElement(actionBase);
 				if (result == null) result = caseModelElement(actionBase);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -183,6 +185,7 @@ public class AppSwitch<T> extends Switch<T> {
 				if (result == null) result = caseEntity(action);
 				if (result == null) result = caseActionElement(action);
 				if (result == null) result = caseConfigurable(action);
+				if (result == null) result = caseComponentCategoryElement(action);
 				if (result == null) result = caseModelElement(action);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -198,6 +201,7 @@ public class AppSwitch<T> extends Switch<T> {
 				if (result == null) result = caseEntity(partition);
 				if (result == null) result = caseActionElement(partition);
 				if (result == null) result = caseConfigurable(partition);
+				if (result == null) result = caseComponentCategoryElement(partition);
 				if (result == null) result = caseModelElement(partition);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -407,6 +411,21 @@ public class AppSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseConfigurable(Configurable object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Component Category Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Component Category Element</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseComponentCategoryElement(ComponentCategoryElement object) {
 		return null;
 	}
 

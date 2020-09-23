@@ -11,7 +11,8 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.nasdanika.engineering.AbstractComponent;
-import org.nasdanika.engineering.Engineer;
+import org.nasdanika.engineering.AbstractEngineer;
+import org.nasdanika.engineering.ComponentCategoryElement;
 import org.nasdanika.engineering.EngineeringPackage;
 import org.nasdanika.engineering.Issue;
 import org.nasdanika.ncore.Configurable;
@@ -204,8 +205,8 @@ public abstract class ActionBaseImpl extends LabelImpl implements ActionBase {
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public EList<Engineer> getOwners() {
-		return (EList<Engineer>)eDynamicGet(AppPackage.ACTION_BASE__OWNERS, EngineeringPackage.Literals.ABSTRACT_COMPONENT__OWNERS, true, true);
+	public EList<AbstractEngineer> getOwners() {
+		return (EList<AbstractEngineer>)eDynamicGet(AppPackage.ACTION_BASE__OWNERS, EngineeringPackage.Literals.ABSTRACT_COMPONENT__OWNERS, true, true);
 	}
 
 	/**
@@ -529,7 +530,7 @@ public abstract class ActionBaseImpl extends LabelImpl implements ActionBase {
 				return;
 			case AppPackage.ACTION_BASE__OWNERS:
 				getOwners().clear();
-				getOwners().addAll((Collection<? extends Engineer>)newValue);
+				getOwners().addAll((Collection<? extends AbstractEngineer>)newValue);
 				return;
 			case AppPackage.ACTION_BASE__ISSUES:
 				getIssues().clear();
@@ -714,6 +715,11 @@ public abstract class ActionBaseImpl extends LabelImpl implements ActionBase {
 				default: return -1;
 			}
 		}
+		if (baseClass == ComponentCategoryElement.class) {
+			switch (derivedFeatureID) {
+				default: return -1;
+			}
+		}
 		if (baseClass == AbstractComponent.class) {
 			switch (derivedFeatureID) {
 				case AppPackage.ACTION_BASE__OWNERS: return EngineeringPackage.ABSTRACT_COMPONENT__OWNERS;
@@ -752,6 +758,11 @@ public abstract class ActionBaseImpl extends LabelImpl implements ActionBase {
 			switch (baseFeatureID) {
 				case AppPackage.CONTAINER__ELEMENTS: return AppPackage.ACTION_BASE__ELEMENTS;
 				case AppPackage.CONTAINER__LINKED_ELEMENTS: return AppPackage.ACTION_BASE__LINKED_ELEMENTS;
+				default: return -1;
+			}
+		}
+		if (baseClass == ComponentCategoryElement.class) {
+			switch (baseFeatureID) {
 				default: return -1;
 			}
 		}

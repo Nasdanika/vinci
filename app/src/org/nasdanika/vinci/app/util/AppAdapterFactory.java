@@ -7,6 +7,7 @@ import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
 import org.nasdanika.engineering.AbstractComponent;
+import org.nasdanika.engineering.ComponentCategoryElement;
 import org.nasdanika.ncore.Configurable;
 import org.nasdanika.ncore.Entity;
 import org.nasdanika.ncore.ModelElement;
@@ -150,6 +151,10 @@ public class AppAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseConfigurable(Configurable object) {
 				return createConfigurableAdapter();
+			}
+			@Override
+			public Adapter caseComponentCategoryElement(ComponentCategoryElement object) {
+				return createComponentCategoryElementAdapter();
 			}
 			@Override
 			public Adapter caseAbstractComponent(AbstractComponent object) {
@@ -342,6 +347,20 @@ public class AppAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createConfigurableAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.engineering.ComponentCategoryElement <em>Component Category Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.engineering.ComponentCategoryElement
+	 * @generated
+	 */
+	public Adapter createComponentCategoryElementAdapter() {
 		return null;
 	}
 

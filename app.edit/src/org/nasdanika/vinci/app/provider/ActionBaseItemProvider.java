@@ -12,11 +12,11 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.nasdanika.emf.edit.EReferenceItemProvider;
+import org.nasdanika.engineering.EngineeringFactory;
 import org.nasdanika.engineering.EngineeringPackage;
 import org.nasdanika.html.app.SectionStyle;
 import org.nasdanika.ncore.NcorePackage;
@@ -93,19 +93,18 @@ public class ActionBaseItemProvider extends LabelItemProvider {
 	 * This adds a property descriptor for the Owners feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void addOwnersPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+			(createItemPropertyDescriptor(
 				 getResourceLocator(),
 				 getString("_UI_AbstractComponent_owners_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_AbstractComponent_owners_feature", "_UI_AbstractComponent_type"),
 				 EngineeringPackage.Literals.ABSTRACT_COMPONENT__OWNERS,
 				 true,
 				 false,
 				 true,
+				 null,
 				 null,
 				 null,
 				 null));
@@ -312,6 +311,7 @@ public class ActionBaseItemProvider extends LabelItemProvider {
 			children.add(new EReferenceItemProvider(this, (EObject) object, AppPackage.Literals.ABSTRACT_ACTION__ACTION_MAPPINGS)); 
 			children.add(new EReferenceItemProvider(this, (EObject) object, AppPackage.Literals.ACTION_BASE__WIDGETS)); 
 			children.add(new EReferenceItemProvider(this, (EObject) object, NcorePackage.Literals.CONFIGURABLE__CONFIGURATION)); 
+			children.add(new EReferenceItemProvider(this, (EObject) object, EngineeringPackage.Literals.ABSTRACT_COMPONENT__ISSUES)); 
 		}
 		Collection<Object> ret = new ArrayList<>(children);
 		ret.addAll(super.getChildren(object));
@@ -476,6 +476,13 @@ public class ActionBaseItemProvider extends LabelItemProvider {
 				(AppPackage.Literals.ACTION_BASE__WIDGETS,
 				 AppFactory.eINSTANCE.createWidget()));
 		
+		// --- Issues ---
+		
+		newChildDescriptors.add
+		(createChildParameter
+			(EngineeringPackage.Literals.ABSTRACT_COMPONENT__ISSUES,
+			 EngineeringFactory.eINSTANCE.createIssue()));
+	
 	}
 	
 	/**
