@@ -81,5 +81,9 @@ public class Services extends CommonServices {
 		}
 		return false;
 	}
+    
+	public boolean isVinciResource(EObject self) {
+		return isResourceExtension(self, "vinci");
+	}		
 
 }
