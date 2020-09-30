@@ -13,7 +13,8 @@ public class Activator implements BundleActivator {
 	public static final Palette HTML_CONTENT_PALETTE = Palette.Registry.INSTANCE.create(
 			"org.nasdanika.vinci.html:html-content",
 			"HTML Content",
-			"Elements which can be used as HTML content");
+			"Elements which can be used as HTML content", 
+			true);
 	
 
 	@Override

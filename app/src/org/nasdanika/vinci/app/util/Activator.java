@@ -10,7 +10,7 @@ public class Activator implements BundleActivator {
 	public static final Palette ACTIONS_PALETTE = Palette.Registry.INSTANCE.create(
 			"org.nasdanika.vinci.app:actions", 
 			"Actions", 
-			"Elements for building action models");	
+			"Elements for building action models", true);	
 
 	@Override
 	public void start(BundleContext context) throws Exception {

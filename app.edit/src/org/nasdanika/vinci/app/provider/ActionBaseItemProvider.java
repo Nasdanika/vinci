@@ -433,8 +433,8 @@ public class ActionBaseItemProvider extends LabelItemProvider {
 		for (EObject expr: org.nasdanika.ncore.util.Activator.EXPRESSIONS_PALETTE.getElements()) {
 			newChildDescriptors.add(createChildParameter(AppPackage.Literals.ACTION_BASE__CONTENT, expr));						
 		}
-		for (EObject expr: org.nasdanika.vinci.html.util.Activator.HTML_CONTENT_PALETTE.getElements()) {
-			newChildDescriptors.add(createChildParameter(AppPackage.Literals.ACTION_BASE__CONTENT, expr));						
+		for (EObject htmlContent: org.nasdanika.vinci.html.util.Activator.HTML_CONTENT_PALETTE.getElements()) {
+			newChildDescriptors.add(createChildParameter(AppPackage.Literals.ACTION_BASE__CONTENT, htmlContent));						
 		}
 
 		// --- Mappings ---		
