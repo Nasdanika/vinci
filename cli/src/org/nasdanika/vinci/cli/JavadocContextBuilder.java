@@ -25,6 +25,11 @@ import org.nasdanika.common.Util;
 public class JavadocContextBuilder implements ContextBuilder {
 	
 	private final String PACKAGE_SUMMARY_HTML = "package-summary.html";
+	
+	/**
+	 * Java 8 uses package-list, Java 11 uses element-list.
+	 */
+	private final String[] PACKAGE_LIST_LOCATIONS = { "package-list", "element-list" };
 
 	@SuppressWarnings("unchecked")
 	@Override
@@ -44,16 +49,18 @@ public class JavadocContextBuilder implements ContextBuilder {
 					normalizedLocation = URI.createURI(normalizedLocation).resolve(contextURI).toString();
 				}
 				
-				try (BufferedReader br = new BufferedReader(new InputStreamReader(new URL(normalizedLocation+"package-list").openStream()))) {
-					String line;
-					while ((line = br.readLine()) != null) {
-						packageMap.put(line.trim(), normalizedLocation);
+				for (String packageListLocation: PACKAGE_LIST_LOCATIONS) {
+					try (BufferedReader br = new BufferedReader(new InputStreamReader(new URL(normalizedLocation + packageListLocation).openStream()))) {
+						String line;
+						while ((line = br.readLine()) != null) {
+							packageMap.put(line.trim(), normalizedLocation);
+						}
+						progressMonitor.worked(Status.SUCCESS, 1, "Loaded package list from " + normalizedLocation);
+					} catch (MalformedURLException e) {
+						progressMonitor.worked(Status.ERROR, 1, "Invalid JavaDoc URL: " + normalizedLocation + " - " + e);
+					} catch (Exception e) {
+						progressMonitor.worked(Status.ERROR, 1, "Could not download package list from " + normalizedLocation + " - " + e);
 					}
-					progressMonitor.worked(Status.SUCCESS, 1, "Loaded package list from " + normalizedLocation);
-				} catch (MalformedURLException e) {
-					progressMonitor.worked(Status.ERROR, 1, "Invalid JavaDoc URL: " + normalizedLocation + " - " + e);
-				} catch (Exception e) {
-					progressMonitor.worked(Status.ERROR, 1, "Could not download package list from " + normalizedLocation + " - " + e);
 				}
 			}
 		}
