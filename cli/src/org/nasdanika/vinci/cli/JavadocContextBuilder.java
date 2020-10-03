@@ -76,14 +76,11 @@ public class JavadocContextBuilder implements ContextBuilder {
 					String key = location.getKey();
 					String value = location.getValue();
 					if (key.equals(spec)) { // Package
-						return value + "index.html?" + spec.replace('.', '/') + "/" + PACKAGE_SUMMARY_HTML;
+						return value + spec.replace('.', '/') + "/" + PACKAGE_SUMMARY_HTML;
 					}
 					
 					int idx = spec.lastIndexOf('.');
 					if (idx != -1 && spec.substring(0, idx).equals(key)) { // Class
-						if (hashIdx == -1) {
-							value += "index.html?";
-						}
 						return value + spec.replace('.', '/').replace('$', '.') + ".html";				
 					}
 				}
