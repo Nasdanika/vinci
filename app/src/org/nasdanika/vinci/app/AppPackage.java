@@ -785,13 +785,22 @@ public interface AppPackage extends EPackage {
 	int ACTION_BASE__ISSUES = LABEL_FEATURE_COUNT + 5;
 
 	/**
+	 * The feature id for the '<em><b>Releases</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION_BASE__RELEASES = LABEL_FEATURE_COUNT + 6;
+
+	/**
 	 * The feature id for the '<em><b>Role</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION_BASE__ROLE = LABEL_FEATURE_COUNT + 6;
+	int ACTION_BASE__ROLE = LABEL_FEATURE_COUNT + 7;
 
 	/**
 	 * The feature id for the '<em><b>Section Style</b></em>' attribute.
@@ -800,7 +809,7 @@ public interface AppPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION_BASE__SECTION_STYLE = LABEL_FEATURE_COUNT + 7;
+	int ACTION_BASE__SECTION_STYLE = LABEL_FEATURE_COUNT + 8;
 
 	/**
 	 * The feature id for the '<em><b>Section Columns</b></em>' attribute.
@@ -809,7 +818,7 @@ public interface AppPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION_BASE__SECTION_COLUMNS = LABEL_FEATURE_COUNT + 8;
+	int ACTION_BASE__SECTION_COLUMNS = LABEL_FEATURE_COUNT + 9;
 
 	/**
 	 * The feature id for the '<em><b>Activator</b></em>' attribute.
@@ -818,7 +827,7 @@ public interface AppPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION_BASE__ACTIVATOR = LABEL_FEATURE_COUNT + 9;
+	int ACTION_BASE__ACTIVATOR = LABEL_FEATURE_COUNT + 10;
 
 	/**
 	 * The feature id for the '<em><b>Activator Type</b></em>' attribute.
@@ -827,7 +836,7 @@ public interface AppPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION_BASE__ACTIVATOR_TYPE = LABEL_FEATURE_COUNT + 10;
+	int ACTION_BASE__ACTIVATOR_TYPE = LABEL_FEATURE_COUNT + 11;
 
 	/**
 	 * The feature id for the '<em><b>Confirmation</b></em>' attribute.
@@ -836,7 +845,7 @@ public interface AppPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION_BASE__CONFIRMATION = LABEL_FEATURE_COUNT + 11;
+	int ACTION_BASE__CONFIRMATION = LABEL_FEATURE_COUNT + 12;
 
 	/**
 	 * The feature id for the '<em><b>Disabled</b></em>' attribute.
@@ -845,7 +854,7 @@ public interface AppPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION_BASE__DISABLED = LABEL_FEATURE_COUNT + 12;
+	int ACTION_BASE__DISABLED = LABEL_FEATURE_COUNT + 13;
 
 	/**
 	 * The feature id for the '<em><b>Markdown Content</b></em>' attribute.
@@ -854,7 +863,7 @@ public interface AppPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION_BASE__MARKDOWN_CONTENT = LABEL_FEATURE_COUNT + 13;
+	int ACTION_BASE__MARKDOWN_CONTENT = LABEL_FEATURE_COUNT + 14;
 
 	/**
 	 * The feature id for the '<em><b>Page Template</b></em>' attribute.
@@ -863,7 +872,7 @@ public interface AppPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION_BASE__PAGE_TEMPLATE = LABEL_FEATURE_COUNT + 14;
+	int ACTION_BASE__PAGE_TEMPLATE = LABEL_FEATURE_COUNT + 15;
 
 	/**
 	 * The feature id for the '<em><b>Content</b></em>' containment reference list.
@@ -872,7 +881,7 @@ public interface AppPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION_BASE__CONTENT = LABEL_FEATURE_COUNT + 15;
+	int ACTION_BASE__CONTENT = LABEL_FEATURE_COUNT + 16;
 
 	/**
 	 * The feature id for the '<em><b>Widgets</b></em>' containment reference list.
@@ -881,7 +890,7 @@ public interface AppPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION_BASE__WIDGETS = LABEL_FEATURE_COUNT + 16;
+	int ACTION_BASE__WIDGETS = LABEL_FEATURE_COUNT + 17;
 
 	/**
 	 * The number of structural features of the '<em>Action Base</em>' class.
@@ -890,7 +899,7 @@ public interface AppPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION_BASE_FEATURE_COUNT = LABEL_FEATURE_COUNT + 17;
+	int ACTION_BASE_FEATURE_COUNT = LABEL_FEATURE_COUNT + 18;
 
 	/**
 	 * The number of operations of the '<em>Action Base</em>' class.
@@ -1327,6 +1336,15 @@ public interface AppPackage extends EPackage {
 	int ACTION__ISSUES = ACTION_BASE__ISSUES;
 
 	/**
+	 * The feature id for the '<em><b>Releases</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION__RELEASES = ACTION_BASE__RELEASES;
+
+	/**
 	 * The feature id for the '<em><b>Role</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1586,6 +1604,15 @@ public interface AppPackage extends EPackage {
 	 * @ordered
 	 */
 	int PARTITION__ISSUES = ACTION_BASE__ISSUES;
+
+	/**
+	 * The feature id for the '<em><b>Releases</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARTITION__RELEASES = ACTION_BASE__RELEASES;
 
 	/**
 	 * The feature id for the '<em><b>Role</b></em>' attribute.

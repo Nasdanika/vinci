@@ -405,6 +405,7 @@ public class ActionBaseItemProvider extends LabelItemProvider {
 			case AppPackage.ACTION_BASE__ACTION_MAPPINGS:
 			case AppPackage.ACTION_BASE__ELEMENTS:
 			case AppPackage.ACTION_BASE__ISSUES:
+			case AppPackage.ACTION_BASE__RELEASES:
 			case AppPackage.ACTION_BASE__CONTENT:
 			case AppPackage.ACTION_BASE__WIDGETS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
