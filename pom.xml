@@ -197,6 +197,11 @@
 		<module>app.edit</module>
 		<module>app.gen</module>
 
+		<!--
+		<module>engineering.gen</module>
+		<module>party.gen</module>
+		-->
+
 		<module>editor</module>
 		
 		<module>demo</module>
