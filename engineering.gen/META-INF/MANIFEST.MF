@@ -1,0 +1,20 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Nasdanika Vinci action generation adapters for the engineering model elements
+Bundle-SymbolicName: org.nasdanika.vinci.engineering.gen;singleton:=true
+Bundle-Version: 2020.12.0.qualifier
+Bundle-Vendor: Nasdanika
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Require-Bundle: org.eclipse.emf.ecore,
+ net.sourceforge.plantuml,
+ org.eclipse.emf.codegen;bundle-version="2.15.0";visibility:=reexport,
+ org.eclipse.emf.codegen.ecore;bundle-version="2.17.0";visibility:=reexport,
+ org.eclipse.core.runtime,
+ org.eclipse.emf.ecore.xmi;bundle-version="2.15.0",
+ org.nasdanika.emf,
+ org.apache.commons.codec;bundle-version="1.13.0",
+ org.nasdanika.vinci.emf;bundle-version="0.1.0",
+ org.nasdanika.vinci.components;bundle-version="0.1.0",
+ org.jsoup;bundle-version="1.12.1"
+Export-Package: org.nasdanika.vinci.ecore
+Automatic-Module-Name: org.nasdanika.cv.gen
