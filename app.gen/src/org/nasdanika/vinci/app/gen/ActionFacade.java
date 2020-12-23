@@ -342,5 +342,10 @@ public class ActionFacade extends org.nasdanika.html.app.impl.ActionImpl impleme
 		URI resUri = resource.getURI();
 		return ret.resolve(resUri);
 	}
+	
+	@Override
+	public boolean isEmpty() {
+		return content == null || content.isEmpty();
+	}
 
 };
