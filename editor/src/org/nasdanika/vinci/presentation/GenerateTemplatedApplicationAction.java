@@ -208,7 +208,7 @@ public class GenerateTemplatedApplicationAction extends VinciGenerateAction<Abst
 	
 			SubMonitor pageMonitor = monitor.split(pageWork);
 			
-			URI templateUri = activeAction instanceof ActionFacade ? ((ActionFacade) activeAction).getPageTemplate() : ActionFacade.DEFAULT_PAGE_TEMPLATE;				
+			URI templateUri = getTemplateURI(activeAction);				
 			Resource templateResource = resourceSet.getResource(templateUri, true);
 			String fragment = templateUri.fragment();				
 			BootstrapPage page = (BootstrapPage) (fragment == null ? templateResource.getContents().get(0) : templateResource.getEObject(fragment));	
@@ -262,16 +262,28 @@ public class GenerateTemplatedApplicationAction extends VinciGenerateAction<Abst
 			generatePages(baseURI, generationContext, resourceSet, rootAction, child, contentContainer, monitor.split(pageWork));
 		}
 	}
+
+	private URI getTemplateURI(Action action) {
+		if (action == null) {
+			return ActionFacade.DEFAULT_PAGE_TEMPLATE;
+		}
+		
+		if (action instanceof ActionFacade) {
+			return ((ActionFacade) action).getPageTemplate(); 
+		}
+		
+		return getTemplateURI(action.getParent());
+	}
 		
 	protected ApplicationBuilder createApplicationBuilder(
-			Context context, 
+			Context ctx, 
 			Class<ApplicationBuilder> type, 
 			Action rootAction,
 			Action principalAction,
 			List<Action> navigationPanelActions,
 			Action activeAction) {
 		
-		return new ActionApplicationBuilder(rootAction, principalAction, navigationPanelActions, activeAction) {
+		return new ActionApplicationBuilder(ctx, rootAction, principalAction, navigationPanelActions, activeAction) {
 			
 			@Override
 			protected ViewGenerator createViewGenerator(

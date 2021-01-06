@@ -196,7 +196,7 @@ public class GenerateTemplatedApplicationCommand extends ModelCommand<AbstractAc
 				}
 			}
 
-			URI templateUri = activeAction instanceof ActionFacade ? ((ActionFacade) activeAction).getPageTemplate() : ActionFacade.DEFAULT_PAGE_TEMPLATE;				
+			URI templateUri = getTemplateURI(activeAction);				
 			Resource templateResource = resourceSet.getResource(templateUri, true);
 			String fragment = templateUri.fragment();				
 			BootstrapPage page = (BootstrapPage) (fragment == null ? templateResource.getContents().get(0) : templateResource.getEObject(fragment));	
@@ -221,6 +221,18 @@ public class GenerateTemplatedApplicationCommand extends ModelCommand<AbstractAc
 		for (Action child: activeAction.getChildren()) {
 			generatePages(baseURI, generationContext, resourceSet, rootAction, child, contentContainer, monitor.split("Generating page for "+child.getText(), 1, child));
 		}
+	}
+
+	private URI getTemplateURI(Action action) {
+		if (action == null) {
+			return ActionFacade.DEFAULT_PAGE_TEMPLATE;
+		}
+		
+		if (action instanceof ActionFacade) {
+			return ((ActionFacade) action).getPageTemplate(); 
+		}
+		
+		return getTemplateURI(action.getParent());
 	}
 	
 	protected ApplicationBuilder createApplicationBuilder(

@@ -59,7 +59,7 @@ public class ActionLinkSupplierFactory implements SupplierFactory<ViewPart> {
 				public Object generate(ViewGenerator viewGenerator, ProgressMonitor progressMonitor) {
 					ActionRegistry registry = viewGenerator.get(ActionRegistry.class);
 					if (registry == null) {
-						throw new IllegalStateException("ActionRegistry service is not present in the view generator- cannot find actions by their ids's");
+						throw new IllegalStateException("ActionRegistry service is not present in the view generator - cannot find actions by their ids's");
 					}
 					Action action = registry.get(targetId);
 					if (action == null) {

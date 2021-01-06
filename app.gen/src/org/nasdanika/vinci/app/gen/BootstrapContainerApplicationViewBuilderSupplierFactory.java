@@ -174,13 +174,15 @@ public class BootstrapContainerApplicationViewBuilderSupplierFactory extends Boo
 					class DecoratingRoutingApplication extends org.nasdanika.html.app.impl.BootstrapContainerRouterApplication implements DecoratorProvider {
 						
 						DecoratingRoutingApplication() {
-							super(context.get(BootstrapFactory.class, BootstrapFactory.INSTANCE),
+							super(
+									context.get(BootstrapFactory.class, BootstrapFactory.INSTANCE),
 									(HTMLPage) target,
-									BootstrapContainerApplicationViewBuilderSupplierFactory.this.target.isFluid());
+									BootstrapContainerApplicationViewBuilderSupplierFactory.this.target.isFluid(),
+									null);
 						}
 						
 						protected void configureContainer(org.nasdanika.html.bootstrap.Container container) {
-							ViewBuilder containerBuilder = sectionBuilders.get(Section.Container);
+							ViewBuilder containerBuilder = sectionBuilders.get(BootstrapContainerApplicationViewBuilderSupplierFactory.Section.Container);
 							if (containerBuilder != null) {
 								containerBuilder.build(container, viewGenerator, progressMonitor);
 							}
@@ -188,7 +190,7 @@ public class BootstrapContainerApplicationViewBuilderSupplierFactory extends Boo
 						
 						protected void configureHeader(org.nasdanika.html.bootstrap.Container.Row.Col header) {
 							header.width(Breakpoint.DEFAULT, Size.NONE);
-							ViewBuilder headerBuilder = sectionBuilders.get(Section.Header);
+							ViewBuilder headerBuilder = sectionBuilders.get(BootstrapContainerApplicationViewBuilderSupplierFactory.Section.Header);
 							if (headerBuilder != null) {
 								headerBuilder.build(header, viewGenerator, progressMonitor);
 							}
@@ -196,7 +198,7 @@ public class BootstrapContainerApplicationViewBuilderSupplierFactory extends Boo
 						
 						protected void configureNavigationBar(org.nasdanika.html.bootstrap.Container.Row.Col navigationBar) {
 							navigationBar.width(Breakpoint.DEFAULT, Size.NONE);
-							ViewBuilder navBarBuilder = sectionBuilders.get(Section.NavigationBar);
+							ViewBuilder navBarBuilder = sectionBuilders.get(BootstrapContainerApplicationViewBuilderSupplierFactory.Section.NavigationBar);
 							if (navBarBuilder != null) {
 								navBarBuilder.build(navigationBar, viewGenerator, progressMonitor);
 							}
@@ -210,14 +212,14 @@ public class BootstrapContainerApplicationViewBuilderSupplierFactory extends Boo
 						};
 						
 						protected void configureNavigationPanel(org.nasdanika.html.bootstrap.Container.Row.Col navigationPanel) {
-							ViewBuilder navPanelBuilder = sectionBuilders.get(Section.NavigationPanel);
+							ViewBuilder navPanelBuilder = sectionBuilders.get(BootstrapContainerApplicationViewBuilderSupplierFactory.Section.NavigationPanel);
 							if (navPanelBuilder != null) {
 								navPanelBuilder.build(navigationPanel, viewGenerator, progressMonitor);
 							}
 						};
 						
 						protected void configureConentPanel(org.nasdanika.html.bootstrap.Container.Row.Col contentPanel) {
-							ViewBuilder contentPanelBuilder = sectionBuilders.get(Section.ContentPanel);
+							ViewBuilder contentPanelBuilder = sectionBuilders.get(BootstrapContainerApplicationViewBuilderSupplierFactory.Section.ContentPanel);
 							if (contentPanelBuilder != null) {
 								contentPanelBuilder.build(contentPanel, viewGenerator, progressMonitor);
 							}
@@ -225,7 +227,7 @@ public class BootstrapContainerApplicationViewBuilderSupplierFactory extends Boo
 						
 						protected void configureFooter(org.nasdanika.html.bootstrap.Container.Row.Col footer) {
 							footer.width(Breakpoint.DEFAULT, Size.NONE);
-							ViewBuilder footerBuilder = sectionBuilders.get(Section.Footer);
+							ViewBuilder footerBuilder = sectionBuilders.get(BootstrapContainerApplicationViewBuilderSupplierFactory.Section.Footer);
 							if (footerBuilder != null) {
 								footerBuilder.build(footer, viewGenerator, progressMonitor);
 							}
@@ -244,9 +246,11 @@ public class BootstrapContainerApplicationViewBuilderSupplierFactory extends Boo
 					class DecoratingApplication extends org.nasdanika.html.app.impl.BootstrapContainerApplication implements DecoratorProvider {
 						
 						public DecoratingApplication() {
-							super(context.get(BootstrapFactory.class, BootstrapFactory.INSTANCE),
-							(HTMLPage) target,
-							BootstrapContainerApplicationViewBuilderSupplierFactory.this.target.isFluid());							
+							super(context.get(
+									BootstrapFactory.class, BootstrapFactory.INSTANCE),
+									(HTMLPage) target,
+									BootstrapContainerApplicationViewBuilderSupplierFactory.this.target.isFluid(),
+									null);							
 						}
 
 						@Override
@@ -255,7 +259,7 @@ public class BootstrapContainerApplicationViewBuilderSupplierFactory extends Boo
 						}						
 						
 						protected void configureContainer(org.nasdanika.html.bootstrap.Container container) {
-							ViewBuilder containerBuilder = sectionBuilders.get(Section.Container);
+							ViewBuilder containerBuilder = sectionBuilders.get(BootstrapContainerApplicationViewBuilderSupplierFactory.Section.Container);
 							if (containerBuilder != null) {
 								containerBuilder.build(container, viewGenerator, progressMonitor);
 							}
@@ -263,7 +267,7 @@ public class BootstrapContainerApplicationViewBuilderSupplierFactory extends Boo
 						
 						protected void configureHeader(org.nasdanika.html.bootstrap.Container.Row.Col header) {
 							header.width(Breakpoint.DEFAULT, Size.NONE);
-							ViewBuilder headerBuilder = sectionBuilders.get(Section.Header);
+							ViewBuilder headerBuilder = sectionBuilders.get(BootstrapContainerApplicationViewBuilderSupplierFactory.Section.Header);
 							if (headerBuilder != null) {
 								headerBuilder.build(header, viewGenerator, progressMonitor);
 							}
@@ -271,7 +275,7 @@ public class BootstrapContainerApplicationViewBuilderSupplierFactory extends Boo
 						
 						protected void configureNavigationBar(org.nasdanika.html.bootstrap.Container.Row.Col navigationBar) {
 							navigationBar.width(Breakpoint.DEFAULT, Size.NONE);
-							ViewBuilder navBarBuilder = sectionBuilders.get(Section.NavigationBar);
+							ViewBuilder navBarBuilder = sectionBuilders.get(BootstrapContainerApplicationViewBuilderSupplierFactory.Section.NavigationBar);
 							if (navBarBuilder != null) {
 								navBarBuilder.build(navigationBar, viewGenerator, progressMonitor);
 							}
@@ -285,14 +289,14 @@ public class BootstrapContainerApplicationViewBuilderSupplierFactory extends Boo
 						};
 						
 						protected void configureNavigationPanel(org.nasdanika.html.bootstrap.Container.Row.Col navigationPanel) {
-							ViewBuilder navPanelBuilder = sectionBuilders.get(Section.NavigationPanel);
+							ViewBuilder navPanelBuilder = sectionBuilders.get(BootstrapContainerApplicationViewBuilderSupplierFactory.Section.NavigationPanel);
 							if (navPanelBuilder != null) {
 								navPanelBuilder.build(navigationPanel, viewGenerator, progressMonitor);
 							}
 						};
 						
 						protected void configureConentPanel(org.nasdanika.html.bootstrap.Container.Row.Col contentPanel) {
-							ViewBuilder contentPanelBuilder = sectionBuilders.get(Section.ContentPanel);
+							ViewBuilder contentPanelBuilder = sectionBuilders.get(BootstrapContainerApplicationViewBuilderSupplierFactory.Section.ContentPanel);
 							if (contentPanelBuilder != null) {
 								contentPanelBuilder.build(contentPanel, viewGenerator, progressMonitor);
 							}
@@ -300,7 +304,7 @@ public class BootstrapContainerApplicationViewBuilderSupplierFactory extends Boo
 						
 						protected void configureFooter(org.nasdanika.html.bootstrap.Container.Row.Col footer) {
 							footer.width(Breakpoint.DEFAULT, Size.NONE);
-							ViewBuilder footerBuilder = sectionBuilders.get(Section.Footer);
+							ViewBuilder footerBuilder = sectionBuilders.get(BootstrapContainerApplicationViewBuilderSupplierFactory.Section.Footer);
 							if (footerBuilder != null) {
 								footerBuilder.build(footer, viewGenerator, progressMonitor);
 							}
