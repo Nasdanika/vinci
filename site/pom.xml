@@ -5,7 +5,7 @@
 	<artifactId>org.nasdanika.vinci.site</artifactId>
 	<name>Nasdanika Vinci</name>
 	<groupId>org.nasdanika.vinci</groupId>
-	<version>2020.12.0-SNAPSHOT</version>
+	<version>2021.3.0-SNAPSHOT</version>
 	<properties>
 		<siteDir>vinci/${project.version}/${env.CIRCLE_BRANCH}</siteDir>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
