@@ -21,7 +21,7 @@ import org.nasdanika.emf.EObjectAdaptable;
 import org.nasdanika.html.app.Action;
 import org.nasdanika.html.app.ActionActivator;
 import org.nasdanika.html.app.factories.ComposedLoader;
-import org.nasdanika.html.app.impl.HrefNavigationActionActivator;
+import org.nasdanika.html.app.impl.PathNavigationActionActivator;
 import org.nasdanika.vinci.app.ActionBase;
 import org.nasdanika.vinci.app.ActionLink;
 import org.nasdanika.vinci.app.impl.ActionMappingsPropertyComputer;
@@ -76,8 +76,8 @@ public class ActionLinkSupplierFactory extends AbstractActionAdapter<ActionLink>
 						Action action = Util.callSupplier(Util.<Action>asSupplierFactory(actionFactory).create(supplierContext), monitor);
 						if (!Util.isBlank(target.getPath())) {
 							ActionActivator activator = action.getActivator();
-							if (activator instanceof HrefNavigationActionActivator) {
-								((HrefNavigationActionActivator) activator).getPath().addFirst(target.getPath());
+							if (activator instanceof PathNavigationActionActivator) {
+								((PathNavigationActionActivator) activator).getPath().addFirst(target.getPath());
 							} else {
 								throw new NasdanikaException("Cannot set action link path for action activator " + activator + " in " + refURL);
 							}
