@@ -18,6 +18,8 @@ package org.nasdanika.vinci.app;
  * on the action link context/configuration. 
  * I.e. a link may create a different "instance" of linked action. 
  * In this case the linked action activator shall also be context dependent - otherwise different instances of the same action will point to the same resource/url.
+ * 
+ * If ``ref`` ends with ``.yml``, action link loads YAML action specifications using [ComposedLoader](${base-uri}reference/knowledge-base/html/app/factories/index.html). 
  * <!-- end-model-doc -->
  *
  * <p>
