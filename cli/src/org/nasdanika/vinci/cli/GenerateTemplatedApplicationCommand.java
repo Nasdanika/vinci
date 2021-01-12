@@ -236,14 +236,14 @@ public class GenerateTemplatedApplicationCommand extends ModelCommand<AbstractAc
 	}
 	
 	protected ApplicationBuilder createApplicationBuilder(
-			Context context, 
+			Context ctx, 
 			Class<ApplicationBuilder> type, 
 			Action rootAction,
 			Action principalAction,
 			List<Action> navigationPanelActions,
 			Action activeAction) {
 		
-		return new ActionApplicationBuilder(rootAction, principalAction, navigationPanelActions, activeAction) {
+		return new ActionApplicationBuilder(ctx, rootAction, principalAction, navigationPanelActions, activeAction) {
 			
 			@Override
 			protected ViewGenerator createViewGenerator(
