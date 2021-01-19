@@ -6,6 +6,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Map.Entry;
 
@@ -35,7 +36,7 @@ public class JavadocContextBuilder implements ContextBuilder {
 	@Override
 	public Context build(Object config, Context context, ProgressMonitor progressMonitor) {		
 		// package -> Base URL.
-		Map<String,String> packageMap = new HashMap<>();		
+		Map<String,String> unsortedPackageMap = new HashMap<>();		
 		Collection<String> links = (Collection<String>) config;
 		progressMonitor.setWorkRemaining(links.size());
 		for (String link: links) {
@@ -53,7 +54,7 @@ public class JavadocContextBuilder implements ContextBuilder {
 					try (BufferedReader br = new BufferedReader(new InputStreamReader(new URL(normalizedLocation + packageListLocation).openStream()))) {
 						String line;
 						while ((line = br.readLine()) != null) {
-							packageMap.put(line.trim(), normalizedLocation);
+							unsortedPackageMap.put(line.trim(), normalizedLocation);
 						}
 						progressMonitor.worked(Status.SUCCESS, 1, "Loaded package list from " + normalizedLocation);
 					} catch (MalformedURLException e) {
@@ -65,6 +66,9 @@ public class JavadocContextBuilder implements ContextBuilder {
 			}
 		}
 		
+		Map<String,String> sortedPackageMap = new LinkedHashMap<>();
+		unsortedPackageMap.keySet().stream().sorted((k1,k2) -> k2.length() - k1.length()).forEach(k -> sortedPackageMap.put(k, unsortedPackageMap.get(k)));
+		
 		return new Context() {
 			
 			private String getRef(String spec) {
@@ -72,7 +76,7 @@ public class JavadocContextBuilder implements ContextBuilder {
 				if (hashIdx != -1) {
 					spec = spec.substring(0, hashIdx);
 				}
-				for (Entry<String, String> location: packageMap.entrySet()) {
+				for (Entry<String, String> location: sortedPackageMap.entrySet()) {
 					String key = location.getKey();
 					String value = location.getValue();
 					if (key.equals(spec)) { // Package
