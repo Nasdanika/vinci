@@ -288,8 +288,8 @@ public class GenerateTemplatedApplicationAction extends VinciGenerateAction<Abst
 			@Override
 			protected ViewGenerator createViewGenerator(
 					Application application, 
-					java.util.function.Consumer<?> headContentConsumer, 
-					java.util.function.Consumer<?> bodyContentConsumer) {
+					java.util.function.Consumer<Object> headContentConsumer, 
+					java.util.function.Consumer<Object> bodyContentConsumer) {
 				
 				Context appBuilderContext = context;				
 				if (application instanceof DecoratorProvider) {
