@@ -3,7 +3,6 @@ package org.nasdanika.vinci.ecore;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
-import java.nio.charset.StandardCharsets;
 import java.util.Base64;
 import java.util.Collection;
 import java.util.Collections;
@@ -12,7 +11,6 @@ import java.util.Set;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
-import org.apache.commons.codec.binary.Hex;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EClass;
@@ -49,8 +47,8 @@ import net.sourceforge.plantuml.SourceStringReader;
 
 public class EClassViewActionSupplier extends EClassifierViewActionSupplier<EClass> {
 
-	public EClassViewActionSupplier(EClass value, Context context) {
-		super(value, context);
+	public EClassViewActionSupplier(EClass value, Context context, java.util.function.Function<EPackage,String> ePackagePathComputer) {
+		super(value, context, ePackagePathComputer);
 	}
 	
 	@Override
@@ -298,7 +296,7 @@ public class EClassViewActionSupplier extends EClassifierViewActionSupplier<ECla
 			return localName;
 		}
 		
-		return "../" + Hex.encodeHexString(target.getEPackage().getNsURI().getBytes(StandardCharsets.UTF_8)) + "/" + localName;
+		return "../" + encodeEPackage(target.getEPackage()) + "/" + localName;
 	};
 		
 	/**

@@ -9,6 +9,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EGenericType;
 import org.eclipse.emf.ecore.EOperation;
+import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EParameter;
 import org.nasdanika.common.Context;
 import org.nasdanika.common.ProgressMonitor;
@@ -23,8 +24,8 @@ import org.nasdanika.vinci.bootstrap.ContentTag;
 
 public class EOperationViewActionSupplier extends ETypedElementViewActionSupplier<EOperation> {
 
-	public EOperationViewActionSupplier(EOperation value, Context context) {
-		super(value, context);
+	public EOperationViewActionSupplier(EOperation value, Context context, java.util.function.Function<EPackage,String> ePackagePathComputer) {
+		super(value, context, ePackagePathComputer);
 	}
 		
 	@Override
@@ -49,7 +50,7 @@ public class EOperationViewActionSupplier extends ETypedElementViewActionSupplie
 			
 			for (EParameter ep: eObject.getEParameters()) {
 				EClassifier type = ep.getEType();
-				String typeStr = type.eClass().getName() + "-" + Hex.encodeHexString(type.getEPackage().getNsURI().getBytes(StandardCharsets.UTF_8)) + "-" + type.getName() + ",";
+				String typeStr = type.eClass().getName() + "-" + encodeEPackage(type.getEPackage()) + "-" + type.getName() + ",";
 				md.update(typeStr.getBytes(StandardCharsets.UTF_8));
 				
 				parametersCategory.getElements().add(adaptChild(ep).getAction(progressMonitor));				
@@ -57,7 +58,7 @@ public class EOperationViewActionSupplier extends ETypedElementViewActionSupplie
 			signatureBuilder.append("-").append(Hex.encodeHexString(md.digest()));
 		}
 		
-		StringBuilder idBuilder = new StringBuilder(Hex.encodeHexString(eContainingClass.getEPackage().getNsURI().getBytes(StandardCharsets.UTF_8)))
+		StringBuilder idBuilder = new StringBuilder(encodeEPackage(eContainingClass.getEPackage()))
 		.append("-")
 		.append(eContainingClass.getName())
 		.append("-")

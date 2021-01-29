@@ -5,6 +5,7 @@ import java.util.stream.Collectors;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
+import org.eclipse.emf.ecore.EPackage;
 import org.nasdanika.common.Context;
 import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.emf.EObjectAdaptable;
@@ -15,8 +16,8 @@ import org.nasdanika.vinci.emf.ViewActionSupplier;
 
 public class EDataTypeViewActionSupplierFactory extends EClassifierViewActionSupplier<EDataType> {
 
-	public EDataTypeViewActionSupplierFactory(EDataType value, Context context) {
-		super(value, context);
+	public EDataTypeViewActionSupplierFactory(EDataType value, Context context, java.util.function.Function<EPackage,String> ePackagePathComputer) {
+		super(value, context, ePackagePathComputer);
 	}
 	
 	@Override

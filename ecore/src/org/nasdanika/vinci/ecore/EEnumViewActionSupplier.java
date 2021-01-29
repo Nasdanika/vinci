@@ -6,6 +6,7 @@ import java.util.stream.Collectors;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EEnumLiteral;
+import org.eclipse.emf.ecore.EPackage;
 import org.nasdanika.common.Context;
 import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.emf.EObjectAdaptable;
@@ -19,8 +20,8 @@ import org.nasdanika.vinci.emf.ViewActionSupplier;
 
 public class EEnumViewActionSupplier extends EClassifierViewActionSupplier<EEnum> {
 
-	public EEnumViewActionSupplier(EEnum value, Context context) {
-		super(value, context);
+	public EEnumViewActionSupplier(EEnum value, Context context, java.util.function.Function<EPackage,String> ePackagePathComputer) {
+		super(value, context, ePackagePathComputer);
 	}
 	
 	@Override

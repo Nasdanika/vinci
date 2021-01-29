@@ -1,6 +1,7 @@
 package org.nasdanika.vinci.ecore;
 
 import org.eclipse.emf.ecore.ENamedElement;
+import org.eclipse.emf.ecore.EPackage;
 import org.nasdanika.common.Context;
 import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.vinci.app.Action;
@@ -9,8 +10,8 @@ import org.nasdanika.vinci.emf.ENamedElementLabelSupplier;
 
 public class ENamedElementViewActionSupplier<T extends ENamedElement> extends EModelElementViewActionSupplier<T> {
 	
-	public ENamedElementViewActionSupplier(T value, Context context) {
-		super(value, context);
+	public ENamedElementViewActionSupplier(T value, Context context, java.util.function.Function<EPackage,String> ePackagePathComputer) {
+		super(value, context, ePackagePathComputer);
 	}
 	
 	@Override

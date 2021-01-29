@@ -1,5 +1,6 @@
 package org.nasdanika.vinci.ecore;
 
+import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.nasdanika.common.Context;
 import org.nasdanika.common.ProgressMonitor;
@@ -11,8 +12,8 @@ import org.nasdanika.vinci.emf.ViewActionSupplier;
 
 public class EReferenceViewActionSupplier extends EStructuralFeatureViewActionSupplier<EReference> {
 
-	public EReferenceViewActionSupplier(EReference value, Context context) {
-		super(value, context);
+	public EReferenceViewActionSupplier(EReference value, Context context, java.util.function.Function<EPackage,String> ePackagePathComputer) {
+		super(value, context, ePackagePathComputer);
 	}
 	
 	@Override

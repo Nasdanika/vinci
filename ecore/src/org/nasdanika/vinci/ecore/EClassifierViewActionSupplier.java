@@ -1,10 +1,8 @@
 package org.nasdanika.vinci.ecore;
 
-import java.nio.charset.StandardCharsets;
 import java.util.Collection;
 import java.util.Objects;
 
-import org.apache.commons.codec.binary.Hex;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EPackage;
@@ -16,8 +14,8 @@ import org.nasdanika.vinci.app.Action;
 
 public class EClassifierViewActionSupplier<T extends EClassifier> extends ENamedElementViewActionSupplier<T> {
 
-	public EClassifierViewActionSupplier(T value, Context context) {
-		super(value, context);
+	public EClassifierViewActionSupplier(T value, Context context, java.util.function.Function<EPackage,String> ePackagePathComputer) {
+		super(value, context, ePackagePathComputer);
 	}
 	
 	@Override
@@ -56,7 +54,7 @@ public class EClassifierViewActionSupplier<T extends EClassifier> extends ENamed
 			}
 		}
 						
-		action.setId(eObject.eClass().getName() + "-" + Hex.encodeHexString(eObject.getEPackage().getNsURI().getBytes(StandardCharsets.UTF_8)) + "-" + eObject.getName());
+		action.setId(eObject.eClass().getName() + "-" + encodeEPackage(eObject.getEPackage()) + "-" + eObject.getName());
 		action.setActivator(eObject.getName()+".html");
 		
 		return action;

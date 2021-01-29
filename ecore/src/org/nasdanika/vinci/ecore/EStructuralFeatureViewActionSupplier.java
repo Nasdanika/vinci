@@ -1,9 +1,7 @@
 package org.nasdanika.vinci.ecore;
 
-import java.nio.charset.StandardCharsets;
-
-import org.apache.commons.codec.binary.Hex;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.nasdanika.common.Context;
 import org.nasdanika.common.ProgressMonitor;
@@ -12,8 +10,8 @@ import org.nasdanika.vinci.app.ActionRole;
 
 public class EStructuralFeatureViewActionSupplier<T extends EStructuralFeature> extends ETypedElementViewActionSupplier<T> {
 
-	public EStructuralFeatureViewActionSupplier(T value, Context context) {
-		super(value, context);
+	public EStructuralFeatureViewActionSupplier(T value, Context context, java.util.function.Function<EPackage,String> ePackagePathComputer) {
+		super(value, context, ePackagePathComputer);
 	}
 	
 	@Override
@@ -22,7 +20,7 @@ public class EStructuralFeatureViewActionSupplier<T extends EStructuralFeature> 
 		action.setRole(ActionRole.SECTION.label);
 		EClass eContainingClass = eObject.getEContainingClass();
 		action.setId(
-				Hex.encodeHexString(eContainingClass.getEPackage().getNsURI().getBytes(StandardCharsets.UTF_8))
+				encodeEPackage(eContainingClass.getEPackage())
 				+ "-"
 				+ eContainingClass.getName()
 				+ "-"

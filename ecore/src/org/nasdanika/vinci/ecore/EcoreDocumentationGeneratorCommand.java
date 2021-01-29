@@ -1,11 +1,15 @@
 package org.nasdanika.vinci.ecore;
 
 import java.io.File;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
+import java.util.concurrent.ConcurrentHashMap;
 
+import org.apache.commons.codec.binary.Hex;
 import org.eclipse.emf.codegen.ecore.genmodel.GenModel;
 import org.eclipse.emf.codegen.ecore.genmodel.GenPackage;
 import org.eclipse.emf.common.util.URI;
@@ -66,11 +70,37 @@ public class EcoreDocumentationGeneratorCommand extends CommandBase {
 			description = "If specified model instance class names are output as tokens for expansion to links to JavaDoc. If specified without parameter option value is ${FALLBACK-VALUE}")
 	private String javaDocContextBuilderMount;			
 	
+	@Option(
+			names = {"-n", "--name"}, 
+			description = "Use EPackage name in paths and URL's instead of encoded NS URI. Duplicate names are de-duplicated by adding -<number> suffix")
+	private boolean useEPackageNameInPath;		
 	
 	// TODO - localizations - enum as they become available.
 
 	protected GenModelResourceSet resourceSet;
 	// protected ResourceLocator resourceLocator;
+	
+	/**
+	 * Map of {@link EPackage} path to NS URI. 
+	 */
+	private Map<String,String> pathMap = new ConcurrentHashMap<>();
+	
+	private String getEPackagePath(EPackage ePackage) {
+		for (int i = 0; i < Integer.MAX_VALUE; ++i) {
+			String path = i == 0 ? ePackage.getName() : ePackage.getName() + "_" + i;
+			if (pathMap.containsKey(path)) {
+				if (ePackage.getNsURI().equals(pathMap.get(path))) {
+					return path;
+				}
+			} else {
+				pathMap.put(path, ePackage.getNsURI());
+				return path;
+			}
+		}
+		
+		// Encoding NS URI as HEX. Shall never reach this point.
+		return Hex.encodeHexString(ePackage.getNsURI().getBytes(StandardCharsets.UTF_8));
+	}
 
 	/**
 	 * Override to customize the adapter factory.
@@ -89,7 +119,7 @@ public class EcoreDocumentationGeneratorCommand extends CommandBase {
 			context.put(JAVADOC_CONTEXT_BUILDER_MOUNT, javaDocContextBuilderMount);
 		}
 		
-		return new EcoreViewActionSupplierFactoryAdapterFactory(context);
+		return new EcoreViewActionSupplierFactoryAdapterFactory(context, useEPackageNameInPath ? this::getEPackagePath : null);
 	}
 	
 	public List<ViewActionSupplier> loadGenModel() {

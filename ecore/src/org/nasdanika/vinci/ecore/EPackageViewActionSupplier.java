@@ -3,7 +3,6 @@ package org.nasdanika.vinci.ecore;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
-import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Base64;
 import java.util.Collection;
@@ -11,7 +10,6 @@ import java.util.Collections;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
-import org.apache.commons.codec.binary.Hex;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EPackage;
@@ -34,16 +32,16 @@ import net.sourceforge.plantuml.SourceStringReader;
 
 public class EPackageViewActionSupplier extends ENamedElementViewActionSupplier<EPackage> {
 
-	public EPackageViewActionSupplier(EPackage value, Context context) {
-		super(value, context);
+	public EPackageViewActionSupplier(EPackage value, Context context, java.util.function.Function<EPackage,String> ePackagePathComputer) {
+		super(value, context, ePackagePathComputer);
 	}
 	
 	@Override
 	protected Action create(ProgressMonitor progressMonitor) throws Exception {
 		Action action = super.create(progressMonitor);
-		String nsUriHex = Hex.encodeHexString(eObject.getNsURI().getBytes(StandardCharsets.UTF_8));
-		action.setId(eObject.eClass().getName() + "-" + nsUriHex);
-		action.setActivator(nsUriHex + "/package-summary.html");
+		String nsUriEncoded = encodeEPackage(eObject);
+		action.setId(eObject.eClass().getName() + "-" + nsUriEncoded);
+		action.setActivator(nsUriEncoded + "/package-summary.html");
 		
 		for (EPackage subPackage: eObject.getESubpackages().stream().sorted((a,b) ->  a.getName().compareTo(b.getName())).collect(Collectors.toList())) {
 			action.getElements().add(adaptChild(subPackage).getAction(progressMonitor));
@@ -178,7 +176,7 @@ public class EPackageViewActionSupplier extends ENamedElementViewActionSupplier<
 			return localName;
 		}
 		
-		return "../" + Hex.encodeHexString(target.getEPackage().getNsURI().getBytes(StandardCharsets.UTF_8)) + "/" + localName;
+		return "../" + encodeEPackage(target.getEPackage()) + "/" + localName;
 	};
 	
 }

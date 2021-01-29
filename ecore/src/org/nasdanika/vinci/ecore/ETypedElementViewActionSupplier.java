@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.eclipse.emf.ecore.EGenericType;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.ETypedElement;
 import org.nasdanika.common.Context;
 import org.nasdanika.common.ProgressMonitor;
@@ -17,8 +18,8 @@ import org.nasdanika.vinci.bootstrap.TableRow;
 
 public class ETypedElementViewActionSupplier<T extends ETypedElement> extends ENamedElementViewActionSupplier<T> {
 	
-	public ETypedElementViewActionSupplier(T value, Context context) {
-		super(value, context);
+	public ETypedElementViewActionSupplier(T value, Context context, java.util.function.Function<EPackage,String> ePackagePathComputer) {
+		super(value, context, ePackagePathComputer);
 	}
 	
 	@Override

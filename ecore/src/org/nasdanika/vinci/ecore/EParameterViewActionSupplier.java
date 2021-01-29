@@ -1,5 +1,6 @@
 package org.nasdanika.vinci.ecore;
 
+import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EParameter;
 import org.nasdanika.common.Context;
 import org.nasdanika.common.ProgressMonitor;
@@ -9,8 +10,8 @@ import org.nasdanika.vinci.app.ActivatorType;
 
 public class EParameterViewActionSupplier extends ETypedElementViewActionSupplier<EParameter> {
 
-	public EParameterViewActionSupplier(EParameter value, Context context) {
-		super(value, context);
+	public EParameterViewActionSupplier(EParameter value, Context context, java.util.function.Function<EPackage,String> ePackagePathComputer) {
+		super(value, context, ePackagePathComputer);
 	}
 	
 	@Override

@@ -1,5 +1,6 @@
 package org.nasdanika.vinci.ecore;
 
+import java.nio.charset.StandardCharsets;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashSet;
@@ -7,6 +8,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
+import org.apache.commons.codec.binary.Hex;
 import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EClassifier;
@@ -44,11 +46,14 @@ public class EModelElementViewActionSupplier<T extends EModelElement> extends EO
 	 */
 	protected int descriptionTabLengthThreshold = 2500;
 
-	protected Context context; 
+	protected Context context;
+
+	private java.util.function.Function<EPackage,String> ePackagePathComputer; 
 		
-	public EModelElementViewActionSupplier(T value, Context context) {
+	public EModelElementViewActionSupplier(T value, Context context, java.util.function.Function<EPackage,String> ePackagePathComputer) {
 		super(value);		
 		this.context = context;
+		this.ePackagePathComputer = ePackagePathComputer;
 	}
 	
 	@Override
@@ -290,6 +295,15 @@ public class EModelElementViewActionSupplier<T extends EModelElement> extends EO
 			}
 			accumulator.add(wrap("&gt;"));
 		}
+	}
+	
+	/**
+	 * Encodes ePackage path.
+	 * @param ePackage
+	 * @return
+	 */
+	public String encodeEPackage(EPackage ePackage) {
+		return ePackagePathComputer == null ? Hex.encodeHexString(ePackage.getNsURI().getBytes(StandardCharsets.UTF_8)) : ePackagePathComputer.apply(ePackage);
 	}
 	
 }

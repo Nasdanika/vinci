@@ -23,70 +23,70 @@ import org.nasdanika.vinci.emf.ViewActionSupplier;
  */
 public class EcoreViewActionSupplierFactoryAdapterFactory extends ComposedAdapterFactory {
 	
-	public EcoreViewActionSupplierFactoryAdapterFactory(Context context) {
+	public EcoreViewActionSupplierFactoryAdapterFactory(Context context, java.util.function.Function<EPackage,String> ePackagePathComputer) {
 		// Registering adapter factories.
 		registerAdapterFactory(
 			new FunctionAdapterFactory<ViewActionSupplier, EPackage>(
 				EcorePackage.Literals.EPACKAGE, 
 				ViewActionSupplier.class, 
 				this.getClass().getClassLoader(), 
-				e -> new EPackageViewActionSupplier(e,context)));	
+				e -> new EPackageViewActionSupplier(e, context, ePackagePathComputer)));	
 
 		registerAdapterFactory(
 			new FunctionAdapterFactory<ViewActionSupplier, EClass>(
 				EcorePackage.Literals.ECLASS, 
 				ViewActionSupplier.class, 
 				this.getClass().getClassLoader(), 
-				e -> new EClassViewActionSupplier(e,context)));		
+				e -> new EClassViewActionSupplier(e, context, ePackagePathComputer)));		
 
 		registerAdapterFactory(
 			new FunctionAdapterFactory<ViewActionSupplier, EDataType>(
 				EcorePackage.Literals.EDATA_TYPE, 
 				ViewActionSupplier.class, 
 				this.getClass().getClassLoader(), 
-				e -> new EDataTypeViewActionSupplierFactory(e,context)));		
+				e -> new EDataTypeViewActionSupplierFactory(e, context, ePackagePathComputer)));		
 
 		registerAdapterFactory(
 			new FunctionAdapterFactory<ViewActionSupplier, EEnum>(
 				EcorePackage.Literals.EENUM, 
 				ViewActionSupplier.class, 
 				this.getClass().getClassLoader(), 
-				e -> new EEnumViewActionSupplier(e,context)));		
+				e -> new EEnumViewActionSupplier(e, context, ePackagePathComputer)));		
 
 		registerAdapterFactory(
 			new FunctionAdapterFactory<ViewActionSupplier, EEnumLiteral>(
 				EcorePackage.Literals.EENUM_LITERAL, 
 				ViewActionSupplier.class, 
 				this.getClass().getClassLoader(), 
-				e -> new EEnumLiteralViewActionSupplier(e,context)));		
+				e -> new EEnumLiteralViewActionSupplier(e, context, ePackagePathComputer)));		
 
 		registerAdapterFactory(
 			new FunctionAdapterFactory<ViewActionSupplier, EAttribute>(
 				EcorePackage.Literals.EATTRIBUTE, 
 				ViewActionSupplier.class, 
 				this.getClass().getClassLoader(), 
-				e -> new EAttributeViewActionSupplier(e,context)));		
+				e -> new EAttributeViewActionSupplier(e, context, ePackagePathComputer)));		
 
 		registerAdapterFactory(
 			new FunctionAdapterFactory<ViewActionSupplier, EReference>(
 				EcorePackage.Literals.EREFERENCE, 
 				ViewActionSupplier.class, 
 				this.getClass().getClassLoader(), 
-				e -> new EReferenceViewActionSupplier(e,context)));		
+				e -> new EReferenceViewActionSupplier(e, context, ePackagePathComputer)));		
 
 		registerAdapterFactory(
 			new FunctionAdapterFactory<ViewActionSupplier, EOperation>(
 				EcorePackage.Literals.EOPERATION, 
 				ViewActionSupplier.class, 
 				this.getClass().getClassLoader(), 
-				e -> new EOperationViewActionSupplier(e,context)));		
+				e -> new EOperationViewActionSupplier(e, context, ePackagePathComputer)));		
 
 		registerAdapterFactory(
 			new FunctionAdapterFactory<ViewActionSupplier, EParameter>(
 				EcorePackage.Literals.EPARAMETER, 
 				ViewActionSupplier.class, 
 				this.getClass().getClassLoader(), 
-				e -> new EParameterViewActionSupplier(e,context)));	
+				e -> new EParameterViewActionSupplier(e, context, ePackagePathComputer)));	
 	}
 
 }
