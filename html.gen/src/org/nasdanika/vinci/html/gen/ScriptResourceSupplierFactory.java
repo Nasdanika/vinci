@@ -6,7 +6,7 @@ import org.nasdanika.common.Context;
 import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.common.Supplier;
 import org.nasdanika.common.SupplierFactory;
-import org.nasdanika.emf.EmfUtil;
+import org.nasdanika.emf.ext.EmfUtilEx;
 import org.nasdanika.html.HTMLFactory;
 import org.nasdanika.html.TagName;
 import org.nasdanika.html.app.ViewGenerator;
@@ -24,7 +24,7 @@ public class ScriptResourceSupplierFactory implements SupplierFactory<ViewPart> 
 	@Override
 	public Supplier<ViewPart> create(Context context) throws Exception {
 		return Supplier.<ViewPart>fromCallable(() -> {
-			URL url = EmfUtil.resolveReference(target.eResource(), context.interpolateToString(target.getLocation()));
+			URL url = EmfUtilEx.resolveReference(target.eResource(), context.interpolateToString(target.getLocation()));
 			
 			return new ViewPart() {
 				

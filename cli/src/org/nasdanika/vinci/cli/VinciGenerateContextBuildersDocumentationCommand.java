@@ -17,7 +17,7 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EPackage.Registry;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.xmi.impl.XMLResourceImpl;
-import org.nasdanika.cli.Application;
+import org.nasdanika.cli.ext.Application;
 import org.nasdanika.cli.CommandBase;
 import org.nasdanika.common.Util;
 import org.nasdanika.vinci.app.Action;
@@ -101,7 +101,7 @@ public class VinciGenerateContextBuildersDocumentationCommand extends CommandBas
 		root.setActivator("index.html");
 		
 		MarkdownResource markdownResource = ComponentsFactory.eINSTANCE.createMarkdownResource();
-		markdownResource.setLocation("platform:/plugin/org.nasdanika.cli/doc/context-builders.md");
+		markdownResource.setLocation("platform:/plugin/org.nasdanika.cli.ext/doc/context-builders.md");
 		markdownResource.setInterpolate(true);
 		markdownResource.setStyle(true);
 		root.getContent().add(markdownResource);

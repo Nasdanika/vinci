@@ -6,6 +6,7 @@ import org.nasdanika.common.MutableContext;
 import org.nasdanika.common.SupplierFactory;
 import org.nasdanika.common.Util;
 import org.nasdanika.emf.EObjectAdaptable;
+import org.nasdanika.emf.ext.EmfUtilEx;
 import org.nasdanika.html.app.Action;
 import org.nasdanika.html.app.Action.Supplier.Factory;
 import org.nasdanika.vinci.app.ActionAdapter;
@@ -45,7 +46,7 @@ public class ActionAdapterSupplierFactory extends AbstractActionAdapter<ActionAd
 				
 			}
 		}
-		Factory adapter = EObjectAdaptable.adaptTo(target, Action.Supplier.Factory.class, target.getFactory());
+		Factory adapter = EmfUtilEx.adaptTo(target, Action.Supplier.Factory.class, target.getFactory());
 		return configure(adapter).create(actionContext);
 	}
 	

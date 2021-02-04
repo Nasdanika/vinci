@@ -11,6 +11,7 @@ Export-Package: org.nasdanika.vinci.components.gen
 Require-Bundle: org.nasdanika.html.app;bundle-version="2.0.0";visibility:=reexport,
  org.nasdanika.vinci.components;bundle-version="0.1.0",
  org.nasdanika.texttospeech,
- org.apache.commons.codec;bundle-version="1.13.0"
+ org.apache.commons.codec;bundle-version="1.13.0",
+ org.nasdanika.emf.ext;bundle-version="2021.3.0"
 Bundle-ActivationPolicy: lazy
 Automatic-Module-Name: org.nasdanika.vinci.components.gen

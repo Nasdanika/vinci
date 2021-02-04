@@ -1,6 +1,6 @@
 package org.nasdanika.vinci.cli;
 
-import org.nasdanika.cli.BundleVersionProvider;
+import org.nasdanika.cli.ext.BundleVersionProvider;
 
 public class VinciBundleVersionProvider extends BundleVersionProvider {
 	

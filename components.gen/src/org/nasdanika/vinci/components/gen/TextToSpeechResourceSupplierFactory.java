@@ -6,7 +6,7 @@ import org.nasdanika.common.Context;
 import org.nasdanika.common.Converter;
 import org.nasdanika.common.DefaultConverter;
 import org.nasdanika.common.SupplierFactory;
-import org.nasdanika.emf.EmfUtil;
+import org.nasdanika.emf.ext.EmfUtilEx;
 import org.nasdanika.vinci.components.TextToSpeechResource;
 
 /**
@@ -22,7 +22,7 @@ public class TextToSpeechResourceSupplierFactory extends TextToSpeechSupplierFac
 	
 	@Override
 	protected String getText(Context context) throws Exception {
-		URL url = EmfUtil.resolveReference(textToSpeech.eResource(), context.interpolateToString(textToSpeech.getLocation()));
+		URL url = EmfUtilEx.resolveReference(textToSpeech.eResource(), context.interpolateToString(textToSpeech.getLocation()));
 		if (url == null) {
 			throw new IllegalArgumentException("Resource does not exist");
 		}

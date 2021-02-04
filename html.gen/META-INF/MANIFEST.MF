@@ -9,6 +9,7 @@ Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: org.nasdanika.vinci.html.gen
 Require-Bundle: org.nasdanika.vinci.html;bundle-version="0.1.0";visibility:=reexport,
- org.nasdanika.html.app;bundle-version="2.0.0";visibility:=reexport
+ org.nasdanika.html.app;bundle-version="2.0.0";visibility:=reexport,
+ org.nasdanika.emf.ext;bundle-version="2021.3.0";visibility:=reexport
 Bundle-ActivationPolicy: lazy
 Automatic-Module-Name: org.nasdanika.vinci.html.gen

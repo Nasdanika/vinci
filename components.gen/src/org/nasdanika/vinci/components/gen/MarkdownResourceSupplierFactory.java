@@ -6,7 +6,7 @@ import org.nasdanika.common.Context;
 import org.nasdanika.common.Converter;
 import org.nasdanika.common.DefaultConverter;
 import org.nasdanika.common.SupplierFactory;
-import org.nasdanika.emf.EmfUtil;
+import org.nasdanika.emf.ext.EmfUtilEx;
 import org.nasdanika.vinci.components.MarkdownResource;
 
 /**
@@ -22,7 +22,7 @@ public class MarkdownResourceSupplierFactory extends MarkdownSupplierFactory<Mar
 	
 	@Override
 	protected String getMarkdown(Context context) throws Exception {
-		URL url = EmfUtil.resolveReference(markdownComponent.eResource(), context.interpolateToString(markdownComponent.getLocation()));
+		URL url = EmfUtilEx.resolveReference(markdownComponent.eResource(), context.interpolateToString(markdownComponent.getLocation()));
 		if (url == null) {
 			throw new IllegalArgumentException("Resource does not exist");
 		}
