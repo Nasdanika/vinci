@@ -19,7 +19,6 @@ import org.nasdanika.common.Status;
 import org.nasdanika.common.Supplier;
 import org.nasdanika.common.resources.BinaryEntityContainer;
 import org.nasdanika.common.resources.FileSystemContainer;
-import org.nasdanika.emf.ComposedAdapterFactory;
 import org.nasdanika.emf.ModelWorkFactory;
 import org.nasdanika.emf.ValidatingModelWorkFactory;
 import org.nasdanika.html.HTMLPage;
@@ -109,7 +108,7 @@ public class TestsBase {
 				BootstrapPackage.eINSTANCE,
 				AppPackage.eINSTANCE);
 		
-		ComposedAdapterFactory.registerGlobalFactory(rs);
+		org.nasdanika.emf.ext.Activator.registerGlobalComposedFactory(rs);
 		return new ValidatingModelWorkFactory<T>(rs, TEST_MODELS_BASE_URI+path+".vinci");
 	}			
 	
