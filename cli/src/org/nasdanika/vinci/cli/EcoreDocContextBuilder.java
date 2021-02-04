@@ -9,7 +9,7 @@ import org.apache.commons.codec.binary.Hex;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EPackage;
-import org.nasdanika.cli.ContextBuilder;
+import org.nasdanika.cli.ext.ConfigurableContextBuilder;
 import org.nasdanika.common.Context;
 import org.nasdanika.common.ProgressMonitor;
 
@@ -19,7 +19,7 @@ import org.nasdanika.common.ProgressMonitor;
  * @author Pavel
  *
  */
-public class EcoreDocContextBuilder implements ContextBuilder {
+public class EcoreDocContextBuilder implements ConfigurableContextBuilder {
 
 	@SuppressWarnings("unchecked")
 	@Override

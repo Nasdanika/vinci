@@ -5,10 +5,13 @@ import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.InputStream;
+import java.util.Collection;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
+import org.nasdanika.cli.ContextBuilder;
+import org.nasdanika.cli.ext.ConfigurableContextBuildersMixIn;
 import org.nasdanika.common.Consumer;
 import org.nasdanika.common.ConsumerFactory;
 import org.nasdanika.common.Context;
@@ -20,6 +23,7 @@ import org.nasdanika.emf.ModelCommand;
 import org.nasdanika.html.app.impl.ViewGeneratorImpl;
 
 import picocli.CommandLine.Command;
+import picocli.CommandLine.Mixin;
 import picocli.CommandLine.Option;
 
 @Command(
@@ -57,6 +61,16 @@ public class GenerateContentCommand<T extends EObject & SupplierFactory<Object>>
 				};
 			}
 		};
+	}
+		
+	@Mixin
+	private ConfigurableContextBuildersMixIn configurableContextBuildersMixIn;	
+	
+	@Override
+	protected Collection<ContextBuilder> getContextBuilders() {
+		Collection<ContextBuilder> ret = super.getContextBuilders();
+		ret.add(configurableContextBuildersMixIn);
+		return ret;
 	}
 		
 	protected void execute(T element, Context context, ProgressMonitor monitor) throws Exception {

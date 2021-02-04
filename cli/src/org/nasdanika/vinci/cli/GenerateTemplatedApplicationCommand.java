@@ -2,6 +2,7 @@ package org.nasdanika.vinci.cli;
 
 import java.io.File;
 import java.io.InputStream;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
@@ -15,6 +16,8 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.util.Diagnostician;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 import org.jsoup.Jsoup;
+import org.nasdanika.cli.ContextBuilder;
+import org.nasdanika.cli.ext.ConfigurableContextBuildersMixIn;
 import org.nasdanika.common.Consumer;
 import org.nasdanika.common.ConsumerFactory;
 import org.nasdanika.common.Context;
@@ -47,6 +50,7 @@ import org.nasdanika.vinci.app.gen.AppUtil;
 import org.nasdanika.vinci.bootstrap.BootstrapPage;
 
 import picocli.CommandLine.Command;
+import picocli.CommandLine.Mixin;
 import picocli.CommandLine.Option;
 
 @Command(
@@ -94,6 +98,16 @@ public class GenerateTemplatedApplicationCommand extends ModelCommand<AbstractAc
 			}
 		};
 	}
+		
+	@Mixin
+	private ConfigurableContextBuildersMixIn configurableContextBuildersMixIn;	
+	
+	@Override
+	protected Collection<ContextBuilder> getContextBuilders() {
+		Collection<ContextBuilder> ret = super.getContextBuilders();
+		ret.add(configurableContextBuildersMixIn);
+		return ret;
+	}	
 	
 	protected String getName() {
 		return getClass().getAnnotation(Command.class).name();

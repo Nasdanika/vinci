@@ -11,7 +11,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 
 import org.eclipse.emf.common.util.URI;
-import org.nasdanika.cli.ContextBuilder;
+import org.nasdanika.cli.ext.ConfigurableContextBuilder;
 import org.nasdanika.common.Context;
 import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.common.Status;
@@ -23,7 +23,7 @@ import org.nasdanika.common.Util;
  * @author Pavel
  *
  */
-public class JavadocContextBuilder implements ContextBuilder {
+public class JavadocContextBuilder implements ConfigurableContextBuilder {
 	
 	private final String PACKAGE_SUMMARY_HTML = "package-summary.html";
 	
