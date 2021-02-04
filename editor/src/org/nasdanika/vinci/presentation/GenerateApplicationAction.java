@@ -28,12 +28,10 @@ import org.nasdanika.common.DefaultConverter;
 import org.nasdanika.common.MutableContext;
 import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.common.Supplier;
-import org.nasdanika.common.SupplierFactory;
 import org.nasdanika.common.Util;
 import org.nasdanika.common.resources.BinaryEntityContainer;
 import org.nasdanika.eclipse.ProgressMonitorAdapter;
 import org.nasdanika.eclipse.resources.EclipseContainer;
-import org.nasdanika.emf.ComposedAdapterFactory;
 import org.nasdanika.emf.EObjectAdaptable;
 import org.nasdanika.vinci.app.ActionReference;
 import org.nasdanika.vinci.app.ActivatorType;
@@ -64,7 +62,7 @@ public class GenerateApplicationAction<T extends EObject> extends VinciGenerateA
 		try {
 			Resource eResource = modelElement.eResource();
 			ResourceSet rs = eResource.getResourceSet();
-			ComposedAdapterFactory.registerGlobalFactory(rs);
+			org.nasdanika.emf.ext.Activator.registerGlobalComposedFactory(rs);
 			
 			URI modelResourceURI = eResource.getURI();
 			IFile modelFile = ResourcesPlugin.getWorkspace().getRoot().getFile(new Path(modelResourceURI.toPlatformString(true)));

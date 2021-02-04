@@ -7,6 +7,8 @@ import java.io.FileOutputStream;
 import java.io.InputStream;
 
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 import org.nasdanika.common.Consumer;
 import org.nasdanika.common.ConsumerFactory;
 import org.nasdanika.common.Context;
@@ -91,5 +93,16 @@ public class GenerateContentCommand<T extends EObject & SupplierFactory<Object>>
 	protected Object wrap(Object result, T element, Context context, ProgressMonitor progressMonitor) throws Exception {
 		return new ViewGeneratorImpl(context, null, null).processViewPart(result, progressMonitor); 
 	}
+	
+	/**
+	 * Creates a {@link ResourceSet} with all known packages registered and with {@link XMIResourceFactoryImpl}
+	 * @return
+	 */
+	@Override
+	protected ResourceSet createEmptyResourceSet() {		
+		ResourceSet resourceSet = super.createEmptyResourceSet();
+		org.nasdanika.emf.ext.Activator.registerGlobalComposedFactory(resourceSet);
+		return resourceSet;
+	}		
 
 }

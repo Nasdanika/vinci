@@ -34,7 +34,7 @@ Require-Bundle: org.eclipse.core.runtime,
  org.jsoup;bundle-version="1.12.1",
  org.eclipse.sirius,
  org.eclipse.sirius.common.ui;bundle-version="6.3.0",
- org.nasdanika.cli;bundle-version="1.0.0",
+ org.nasdanika.emf.ext;bundle-version="1.0.0",
  org.apache.commons.commons-text;bundle-version="1.8.0",
  org.nasdanika.texttospeech;bundle-version="1.0.0",
  org.nasdanika.vinci.app.gen;bundle-version="0.1.0"

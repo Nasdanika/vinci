@@ -40,7 +40,6 @@ import org.nasdanika.common.resources.BinaryEntityContainer;
 import org.nasdanika.common.resources.Container;
 import org.nasdanika.eclipse.ProgressMonitorAdapter;
 import org.nasdanika.eclipse.resources.EclipseContainer;
-import org.nasdanika.emf.ComposedAdapterFactory;
 import org.nasdanika.emf.EObjectAdaptable;
 import org.nasdanika.html.app.Action;
 import org.nasdanika.html.app.ActionRegistry;
@@ -113,8 +112,8 @@ public class GenerateTemplatedApplicationAction extends VinciGenerateAction<Abst
 			generationContext.register(BinaryEntityContainer.class, output);
 			generationContext.register(ResourceSet.class, resourceSet);
 			
-			ComposedAdapterFactory.registerGlobalFactory(modelElement.eResource().getResourceSet());
-			ComposedAdapterFactory.registerGlobalFactory(resourceSet);
+			org.nasdanika.emf.ext.Activator.registerGlobalComposedFactory(modelElement.eResource().getResourceSet());
+			org.nasdanika.emf.ext.Activator.registerGlobalComposedFactory(resourceSet);
 			
 			try (SpeechSynthesizer speechSynthesizer = new CachingSpeechSynthesizer(new SpeechSynthesizerProxy(GoogleCloudTextToSpeechSynthesizer::new))) {
 				generationContext.register(SpeechSynthesizer.class, speechSynthesizer);			

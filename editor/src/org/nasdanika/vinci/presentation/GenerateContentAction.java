@@ -25,7 +25,6 @@ import org.nasdanika.common.Supplier;
 import org.nasdanika.common.resources.BinaryEntityContainer;
 import org.nasdanika.eclipse.ProgressMonitorAdapter;
 import org.nasdanika.eclipse.resources.EclipseContainer;
-import org.nasdanika.emf.ComposedAdapterFactory;
 import org.nasdanika.emf.EObjectAdaptable;
 import org.nasdanika.html.app.impl.ViewGeneratorImpl;
 
@@ -54,7 +53,7 @@ public class GenerateContentAction<T extends EObject> extends VinciGenerateActio
 		try {
 			Resource eResource = modelElement.eResource();
 			ResourceSet rs = eResource.getResourceSet();
-			ComposedAdapterFactory.registerGlobalFactory(rs);
+			org.nasdanika.emf.ext.Activator.registerGlobalComposedFactory(rs);
 			
 			IFile modelFile = ResourcesPlugin.getWorkspace().getRoot().getFile(new Path(eResource.getURI().toPlatformString(true)));
 			
