@@ -68,18 +68,18 @@ public class EModelElementViewActionSupplier<T extends EModelElement> extends EO
 		}
 		action.setMarkdownContent(markdown);
 		if (!Util.isBlank(markdown)) {
-			action.setTooltip(MarkdownHelper.INSTANCE.firstPlainTextSentence(markdown));
+			action.setTooltip(context.get(MarkdownHelper.class).firstPlainTextSentence(markdown));
 		}
 		
 		return action;
 	}
 	
-	protected static String getEModelElementFirstDocSentence(EModelElement modelElement) {
+	protected String getEModelElementFirstDocSentence(EModelElement modelElement) {
 		String markdown = EObjectAdaptable.getResourceContext(modelElement).getString("documentation", EcoreUtil.getDocumentation(modelElement));
 		if (Util.isBlank(markdown)) {
 			markdown = EmfUtilEx.getDocumentation(modelElement);
 		}
-		return Util.isBlank(markdown) ? null : MarkdownHelper.INSTANCE.firstPlainTextSentence(markdown);
+		return Util.isBlank(markdown) ? null : context.get(MarkdownHelper.class).firstPlainTextSentence(markdown);
 	}
 		
 	/**

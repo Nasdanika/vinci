@@ -40,7 +40,7 @@ public class ContainerAdapter<T extends Container> {
 		String markdown = target.getMarkdownContent();
 		if (!Util.isBlank(markdown)) {
 			SupplierFactory<ViewPart> markdownSupplierFactory = SupplierFactory.from((context, progressMonidor) -> {
-				return ViewPart.fromValue(context.interpolate(MarkdownHelper.INSTANCE.markdownToHtml(markdown).trim()));				
+				return ViewPart.fromValue(context.interpolate(context.get(MarkdownHelper.class).markdownToHtml(markdown).trim()));				
 			},  "Markdown content", 1);
 						
 			contentSupplierFactory.add(markdownSupplierFactory);

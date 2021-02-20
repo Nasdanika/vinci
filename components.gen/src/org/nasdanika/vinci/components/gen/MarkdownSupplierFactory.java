@@ -37,7 +37,7 @@ public abstract class MarkdownSupplierFactory<T extends Markdown> implements Sup
 			return Supplier.empty();
 		}
 		
-		String[] html = { MarkdownHelper.INSTANCE.markdownToHtml(markdown).trim() };
+		String[] html = { context.get(MarkdownHelper.class).markdownToHtml(markdown).trim() };
 		if (markdownComponent.isInterpolate()) {
 			html[0] = context.interpolateToString(html[0]);
 		}		

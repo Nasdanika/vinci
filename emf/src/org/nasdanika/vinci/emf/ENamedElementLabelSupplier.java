@@ -2,6 +2,7 @@ package org.nasdanika.vinci.emf;
 
 import org.apache.commons.lang3.StringUtils;
 import org.eclipse.emf.ecore.ENamedElement;
+import org.nasdanika.common.Context;
 import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.emf.AnnotationSource;
 import org.nasdanika.emf.EObjectAdaptable;
@@ -40,7 +41,8 @@ public abstract class ENamedElementLabelSupplier<T extends ENamedElement, R exte
 	protected abstract R create(ProgressMonitor monitor);
 	
 	protected void configure(ProgressMonitor monitor) {
-		String text = EObjectAdaptable.getResourceContext(modelElement).getString("label");
+		Context resourceContext = EObjectAdaptable.getResourceContext(modelElement);
+		String text = resourceContext.getString("label");
 		label.setText(text == null ? nameToLabel() : text);
 		
 		String icon = getAnnotation("icon");
