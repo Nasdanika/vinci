@@ -1,9 +1,6 @@
 package org.nasdanika.vinci.ecore;
 
-import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-import java.io.OutputStream;
-import java.util.Base64;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashSet;
@@ -22,14 +19,13 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.nasdanika.common.Context;
+import org.nasdanika.common.DiagramGenerator;
 import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.emf.EObjectAdaptable;
 import org.nasdanika.emf.PlantUmlTextGenerator;
 import org.nasdanika.emf.PlantUmlTextGenerator.RelationshipDirection;
 import org.nasdanika.html.TagName;
 import org.nasdanika.html.app.SectionStyle;
-import org.nasdanika.ncore.NcoreFactory;
-import org.nasdanika.ncore.Property;
 import org.nasdanika.vinci.app.Action;
 import org.nasdanika.vinci.app.ActionCategory;
 import org.nasdanika.vinci.app.ActionRole;
@@ -40,10 +36,6 @@ import org.nasdanika.vinci.components.ComponentsFactory;
 import org.nasdanika.vinci.components.ListOfActions;
 import org.nasdanika.vinci.components.ListOfContents;
 import org.nasdanika.vinci.emf.ViewActionSupplier;
-
-import net.sourceforge.plantuml.FileFormat;
-import net.sourceforge.plantuml.FileFormatOption;
-import net.sourceforge.plantuml.SourceStringReader;
 
 public class EClassViewActionSupplier extends EClassifierViewActionSupplier<EClass> {
 
@@ -95,25 +87,8 @@ public class EClassViewActionSupplier extends EClassifierViewActionSupplier<ECla
 		super.configure(monitor);
 
 		// Diagram
-		ByteArrayOutputStream baos = new ByteArrayOutputStream();
-		String diagramCMap = generateDiagram(false, null, 1, RelationshipDirection.both, true, true, baos, monitor);
-		baos.close();
-		ContentTag imageTag = BootstrapFactory.eINSTANCE.createContentTag();
-		imageTag.setName(TagName.img.name());
-		
-		Property srcAttribute = NcoreFactory.eINSTANCE.createProperty();
-		srcAttribute.setName("src");
-		srcAttribute.setValue("data:image/png;base64, " + Base64.getEncoder().encodeToString(baos.toByteArray()));
-		imageTag.getAttributes().add(srcAttribute);
-		
-		Property useMapAttribute = NcoreFactory.eINSTANCE.createProperty();
-		useMapAttribute.setName("usemap");
-		useMapAttribute.setValue("#plantuml_map");
-		imageTag.getAttributes().add(useMapAttribute);
-		
-		action.getContent().add(imageTag);
-		
-		action.addContent(diagramCMap);
+		String encodedDiagram = generateDiagram(false, null, 1, RelationshipDirection.both, true, true, monitor);
+		action.addContent(encodedDiagram);
 				
 		// Generic supertypes
 		EList<EGenericType> eGenericSuperTypes = eObject.getEGenericSuperTypes();
@@ -199,11 +174,10 @@ public class EClassViewActionSupplier extends EClassifierViewActionSupplier<ECla
 			PlantUmlTextGenerator.RelationshipDirection relationshipDirection,
 			boolean appendAttributes,
 			boolean appendOperations,
-			OutputStream out,
 			ProgressMonitor monitor) throws IOException {
 		
 		StringBuilder sb = new StringBuilder();
-		PlantUmlTextGenerator gen = new PlantUmlTextGenerator(sb, eClassifierLinkResolver, EModelElementViewActionSupplier::getEModelElementFirstDocSentence) {
+		PlantUmlTextGenerator gen = new PlantUmlTextGenerator(sb, eClassifierLinkResolver, this::getEModelElementFirstDocSentence) {
 			
 			@Override
 			protected Collection<EClass> getSubTypes(EClass eClass) {
@@ -231,7 +205,6 @@ public class EClassViewActionSupplier extends EClassifierViewActionSupplier<ECla
 			}
 			
 		};
-		gen.appendStartUml();
 		
 		if (leftToRightDirection) {
 			sb.append("left to right direction").append(System.lineSeparator());
@@ -243,13 +216,7 @@ public class EClassViewActionSupplier extends EClassifierViewActionSupplier<ECla
 						
 		gen.appendWithRelationships(Collections.singleton(eObject), relationshipDirection, depth);
 		
-		gen.appendEndUml();
-		SourceStringReader reader = new SourceStringReader(sb.toString());
-		
-		FileFormatOption fileFormatOption = new FileFormatOption(FileFormat.PNG);
-		reader.outputImage(out, 0, fileFormatOption);
-		
-		return reader.getCMapData(0, fileFormatOption);
+		return context.get(DiagramGenerator.class).generateUmlDiagram(sb.toString());
 	}
 		
 	/**
