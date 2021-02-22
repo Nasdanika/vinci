@@ -104,7 +104,7 @@ public class ActionBaseSupplierFactory extends AbstractActionAdapter<ActionBase>
 
 				@Override
 				public Object generate(ViewGenerator viewGenerator, ProgressMonitor progressMonitor) {
-					String html = ctx.interpolateToString(context.get(MarkdownHelper.class).markdownToHtml(markdown).trim());
+					String html = ctx.interpolateToString(context.get(MarkdownHelper.class, MarkdownHelper.INSTANCE).markdownToHtml(markdown).trim());
 					return TagName.div.create(viewGenerator.interpolate(html)).addClass("markdown-body"); // Double interpolation for mapping expansion
 				}
 				
