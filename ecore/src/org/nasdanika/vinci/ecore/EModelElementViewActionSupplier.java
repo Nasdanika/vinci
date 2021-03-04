@@ -68,7 +68,7 @@ public class EModelElementViewActionSupplier<T extends EModelElement> extends EO
 		}
 		action.setMarkdownContent(markdown);
 		if (!Util.isBlank(markdown)) {
-			action.setTooltip(context.get(MarkdownHelper.class, MarkdownHelper.INSTANCE).firstPlainTextSentence(markdown));
+			action.setTooltip(context.computingContext().get(MarkdownHelper.class, MarkdownHelper.INSTANCE).firstPlainTextSentence(markdown));
 		}
 		
 		return action;
@@ -79,7 +79,7 @@ public class EModelElementViewActionSupplier<T extends EModelElement> extends EO
 		if (Util.isBlank(markdown)) {
 			markdown = EmfUtilEx.getDocumentation(modelElement);
 		}
-		return Util.isBlank(markdown) ? null : context.get(MarkdownHelper.class, MarkdownHelper.INSTANCE).firstPlainTextSentence(markdown);
+		return Util.isBlank(markdown) ? null : context.computingContext().get(MarkdownHelper.class, MarkdownHelper.INSTANCE).firstPlainTextSentence(markdown);
 	}
 		
 	/**

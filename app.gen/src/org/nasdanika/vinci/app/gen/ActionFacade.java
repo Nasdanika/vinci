@@ -82,7 +82,7 @@ public class ActionFacade extends org.nasdanika.html.app.impl.ActionImpl impleme
 		// description
 		String mDescription = target.getDescription();
 		String mTooltip = target.getTooltip();
-		MarkdownHelper markdownHelper = actionContext.get(MarkdownHelper.class, MarkdownHelper.INSTANCE);
+		MarkdownHelper markdownHelper = actionContext.computingContext().get(MarkdownHelper.class, MarkdownHelper.INSTANCE);
 		if (!Util.isBlank(mDescription)) {
 			setDescription(markdownHelper.markdownToHtml(mDescription));
 			if (Util.isBlank(mTooltip)) {
