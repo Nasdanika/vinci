@@ -48,15 +48,6 @@ public class TestsBase {
 		}
 		return ret;
 	};					
-
-	public static BiFunction<String, Object, InputStream> encoder = (path, contents) -> {
-		InputStream ret = DefaultConverter.INSTANCE.convert(contents, InputStream.class);
-		if (ret == null) {
-			// toString() conversion
-			ret = DefaultConverter.INSTANCE.convert(String.valueOf(contents), InputStream.class);
-		}
-		return ret;
-	};	
 			
 	protected static final String TEST_MODELS_BASE_URI = "org.nasdanika.vinci.tests.models/models/";
 	protected static final String TEST_OUTPUT_BASE = "target/unit-tests/";

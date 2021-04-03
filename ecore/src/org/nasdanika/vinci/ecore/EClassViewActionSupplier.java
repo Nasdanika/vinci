@@ -174,7 +174,7 @@ public class EClassViewActionSupplier extends EClassifierViewActionSupplier<ECla
 			PlantUmlTextGenerator.RelationshipDirection relationshipDirection,
 			boolean appendAttributes,
 			boolean appendOperations,
-			ProgressMonitor monitor) throws IOException {
+			ProgressMonitor monitor) throws Exception {
 		
 		StringBuilder sb = new StringBuilder();
 		PlantUmlTextGenerator gen = new PlantUmlTextGenerator(sb, eClassifierLinkResolver, this::getEModelElementFirstDocSentence) {

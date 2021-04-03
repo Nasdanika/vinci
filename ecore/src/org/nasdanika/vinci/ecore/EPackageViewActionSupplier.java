@@ -69,7 +69,7 @@ public class EPackageViewActionSupplier extends ENamedElementViewActionSupplier<
 			int depth, 
 			PlantUmlTextGenerator.RelationshipDirection relationshipDirection,
 			boolean appendAttributes,
-			boolean appendOperations) throws IOException {
+			boolean appendOperations) throws Exception {
 		
 		StringBuilder sb = new StringBuilder();
 		

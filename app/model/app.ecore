@@ -180,7 +180,6 @@
     <eGenericSuperTypes eClassifier="#//Container">
       <eTypeArguments eClassifier="#//ActionElement"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass ../../org.nasdanika.engineering/model/engineering.ecore#//AbstractComponent"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ActionMapping">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
