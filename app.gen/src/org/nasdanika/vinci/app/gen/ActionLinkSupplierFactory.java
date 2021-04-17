@@ -73,7 +73,7 @@ public class ActionLinkSupplierFactory extends AbstractActionAdapter<ActionLink>
 						MutableContext supplierContext = context.fork();
 						// Loader uses BASE_URI_PROPERTY instead of context URI service.
 						supplierContext.put(Context.BASE_URI_PROPERTY, context.get(URI.class).toString());
-						Action action = Util.callSupplier(Util.<Action>asSupplierFactory(actionFactory).create(supplierContext), monitor);
+						Action action = Util.call(Util.<Action>asSupplierFactory(actionFactory).create(supplierContext), monitor);
 						if (!Util.isBlank(target.getPath())) {
 							ActionActivator activator = action.getActivator();
 							if (activator instanceof PathNavigationActionActivator) {
